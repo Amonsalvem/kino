@@ -117,7 +117,7 @@ Perfil según las cuatro dimensiones de NN/g (1 = primer polo, 5 = segundo). Est
 | Dimensión | Valor | Cómo se nota |
 |---|---|---|
 | formal ↔ casual | 2 | Tuteo cercano en la app; frases completas y sin jerga en documentos para la administración. |
-| serio ↔ divertido | 1 | Se trata de quién entra a la casa de alguien. Sin chistes en estados, errores ni permisos. |
+| serio ↔ divertido | 1 | Se trata de quién entra a la casa de alguien. Sin chistes en estados, errores ni Pases. |
 | respetuoso ↔ irreverente | 1 | Nunca culpar al residente ni al portero; describir lo que pasó, no a quién se le olvidó. |
 | sobrio ↔ entusiasta | 2 | Confirmar con hechos (vigente hasta 6:00 p. m.) en vez de celebrar (¡Listo!). |
 
@@ -161,17 +161,19 @@ Perfil según las cuatro dimensiones de NN/g (1 = primer polo, 5 = segundo). Est
 Lo que el producto hace, confirmado por decisiones del equipo. El copy puede afirmarlo. Lo que no está aquí ni en el contexto de la pieza no se afirma.
 
 **Confirmado (se puede afirmar):**
-- El residente otorga el pase a sus invitados y colaboradores; la administración no aprueba cada ingreso.
+- El residente otorga el Pase a sus visitas y colaboradores; la administración no aprueba cada ingreso.
 - La administración fija los límites: cupos, duración y franjas horarias.
-- El invitado no necesita cuenta: entra con QR, placa o un código de un solo uso.
-- Todo pase tiene vigencia: desde y hasta una fecha y hora.
-- El ingreso lo permite el lector de la puerta (placa, QR o rostro), no el vigilante.
+- La visita no necesita cuenta: entra con QR, placa o un código de un solo uso.
+- Todo Pase tiene vigencia: desde y hasta una fecha y hora.
+- El ingreso lo permite el lector de la entrada (placa, QR o rostro), no portería.
 - El residente entra a la app con un código por WhatsApp, sin contraseña.
-- Un pase está en uno de estos estados: vigente, por vencer, vencido, negado o sin confirmar.
+- Un Pase está en uno de estos estados: Previsto, Sin confirmar, Vigente, Por vencer, Usado, Vencido o Revocado. En la entrada puede ocurrir el evento Rechazado, con su motivo (V5).
+- El Pase llega por WhatsApp como imagen con un enlace al Pase vivo; el PDF es opcional (V7).
+- Portería puede llamar al residente desde Kino cuando alguien llega con el Pase vencido. La llamada no abre la entrada (X11, dato del equipo; falta verificar el botón en producto).
 
 **No confirmado (no se afirma):**
 - Avisos automáticos cuando el lector confirma una placa.
-- Un historial o registro de permisos visible para la administración.
+- Un historial de Pases visible para la administración.
 - Que el código se pueda digitar en el lector.
 
 ### Patrones prohibidos

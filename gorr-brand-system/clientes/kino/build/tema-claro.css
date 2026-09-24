@@ -3,7 +3,7 @@
   --kino-forma-radio-control: var(--kino-radio-m);
   --kino-forma-radio-tarjeta: var(--kino-radio-l);
   --kino-forma-radio-chip: var(--kino-radio-s);
-  --kino-forma-radio-pase-arco: var(--kino-radio-arco);
+  --kino-forma-radio-pase-arco: var(--kino-radio-pleno);
   --kino-forma-trazo-icono: var(--kino-trazo-icono);
   --kino-movimiento-aparecer-duracion: var(--kino-movimiento-duracion-tarjeta);
   --kino-movimiento-aparecer-curva: var(--kino-movimiento-curva-crecer);

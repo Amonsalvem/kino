@@ -16,7 +16,7 @@
      "$type": "dimension"
     },
     "pase-arco": {
-     "$value": "{primitivo.medida.radio.arco}",
+     "$value": "{primitivo.medida.radio.pleno}",
      "$type": "dimension",
      "$description": "Radio superior de la ventana del QR y del Pase vivo (forma Portal, X1)."
     }

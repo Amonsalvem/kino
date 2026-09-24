@@ -177,6 +177,16 @@
   --kino-trazo-icono: 1.7;
   --kino-linea-fino: 1px;
   --kino-linea-foco: 2px;
+  --kino-quiebre-medio: 600px;
+  --kino-quiebre-amplio: 960px;
+  --kino-quiebre-extenso: 1280px;
+  --kino-reticula-movil: 4;
+  --kino-reticula-tableta: 8;
+  --kino-reticula-web: 12;
+  --kino-reticula-presentacion: 12;
+  --kino-reticula-carta: 6;
+  --kino-contenedor-maximo: 1152px;
+  --kino-contenedor-lectura: 720px;
   --kino-movimiento-duracion-instante: 120ms;
   --kino-movimiento-duracion-corto: 240ms;
   --kino-movimiento-duracion-crecer: 420ms;
@@ -201,7 +211,7 @@
   --kino-forma-radio-control: var(--kino-radio-m);
   --kino-forma-radio-tarjeta: var(--kino-radio-l);
   --kino-forma-radio-chip: var(--kino-radio-s);
-  --kino-forma-radio-pase-arco: var(--kino-radio-arco);
+  --kino-forma-radio-pase-arco: var(--kino-radio-pleno);
   --kino-forma-trazo-icono: var(--kino-trazo-icono);
   --kino-movimiento-aparecer-duracion: var(--kino-movimiento-duracion-tarjeta);
   --kino-movimiento-aparecer-curva: var(--kino-movimiento-curva-crecer);
@@ -275,7 +285,7 @@
   --kino-forma-radio-control: var(--kino-radio-m);
   --kino-forma-radio-tarjeta: var(--kino-radio-l);
   --kino-forma-radio-chip: var(--kino-radio-s);
-  --kino-forma-radio-pase-arco: var(--kino-radio-arco);
+  --kino-forma-radio-pase-arco: var(--kino-radio-pleno);
   --kino-forma-trazo-icono: var(--kino-trazo-icono);
   --kino-movimiento-aparecer-duracion: var(--kino-movimiento-duracion-tarjeta);
   --kino-movimiento-aparecer-curva: var(--kino-movimiento-curva-crecer);
@@ -350,7 +360,7 @@
     --kino-forma-radio-control: var(--kino-radio-m);
     --kino-forma-radio-tarjeta: var(--kino-radio-l);
     --kino-forma-radio-chip: var(--kino-radio-s);
-    --kino-forma-radio-pase-arco: var(--kino-radio-arco);
+    --kino-forma-radio-pase-arco: var(--kino-radio-pleno);
     --kino-forma-trazo-icono: var(--kino-trazo-icono);
     --kino-movimiento-aparecer-duracion: var(--kino-movimiento-duracion-tarjeta);
     --kino-movimiento-aparecer-curva: var(--kino-movimiento-curva-crecer);

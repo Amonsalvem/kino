@@ -22,6 +22,62 @@
       "unit": "px"
      }
     }
+   },
+   "quiebre": {
+    "$type": "dimension",
+    "$description": "Puntos de quiebre. compacto < medio ≤ amplio ≤ extenso.",
+    "medio": {
+     "$value": {
+      "value": 600,
+      "unit": "px"
+     }
+    },
+    "amplio": {
+     "$value": {
+      "value": 960,
+      "unit": "px"
+     }
+    },
+    "extenso": {
+     "$value": {
+      "value": 1280,
+      "unit": "px"
+     }
+    }
+   },
+   "reticula": {
+    "$type": "number",
+    "$description": "Columnas por formato.",
+    "movil": {
+     "$value": 4
+    },
+    "tableta": {
+     "$value": 8
+    },
+    "web": {
+     "$value": 12
+    },
+    "presentacion": {
+     "$value": 12
+    },
+    "carta": {
+     "$value": 6
+    }
+   },
+   "contenedor": {
+    "$type": "dimension",
+    "maximo": {
+     "$value": {
+      "value": 1152,
+      "unit": "px"
+     }
+    },
+    "lectura": {
+     "$value": {
+      "value": 720,
+      "unit": "px"
+     }
+    }
    }
   },
   "tipo": {

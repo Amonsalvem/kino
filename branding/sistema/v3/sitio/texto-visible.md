@@ -825,34 +825,1301 @@ Para qué sirve
 Para poner la marca en cualquier superficie sin deformarla ni dejarla ilegible.
 Cuándo se usa
 Al poner la marca en una pantalla o mandar un archivo a imprenta.
-En construcción
-Esta sección va a contener:
-Construcción sobre grilla y área de protección
-Tamaños mínimos en pantalla e impresos
-Versiones en color, negro, blanco y solo símbolo
-Uso sobre seis tipos de fondo
-Ocho usos incorrectos
-Convivencia con el nombre del conjunto
-Favicon, ícono de app y animación
+Un bloque con un vano y una gota que pasa por él
+El símbolo se dibuja sobre una grilla de 100 unidades de ancho. Las medidas vienen de la reconstrucción desde el PNG de 1543 × 1425 px (98 % de coincidencia); no existe un vector original
+[pendiente: vector original del logo]
+.
+Construcción del símbolo sobre una grilla de 100 unidades
+vano 63,4
+alto 101,8
+gota 32,3
+radio 3,5
+Pieza
+Medida
+Qué significa
+Bloque
+100 × 101,8, radio 3,5
+El conjunto: un lugar con borde.
+Vano
+Arco de radio 31,7 y 63,4 de ancho
+La entrada. La misma curva cierra la ventana del QR en el
+Pase
+.
+Gota
+32,3 × 30,7
+Lo que pasa por la entrada: la persona con su Pase.
+Logotipo
+Arkit ExtraBold en contornos, alto 48,3
+Se usa como dibujo; la fuente no se instala
+[pendiente: licencia de Arkit ExtraBold]
+.
+Símbolo
+SVG
+Símbolo
+PNG 1024 px
+Responde a: F1 (el logo se conserva) y X1: el arco del logo es la forma del Pase.
+Alrededor, el ancho de una gota
+La unidad
+x
+es el ancho de la gota: 32 % del ancho del símbolo. Ningún texto, borde ni imagen entra en esa franja.
+xx
+Refugio Campestre · Casa 14
+Así
+El dato del conjunto queda fuera de la franja x.
+Refugio Campestre · Casa 14
+Así no
+El texto toca el logo y se lee como parte del nombre.
+Responde a: Discreto: la marca se ve entera o no se pone.
+Hasta dónde se puede achicar
+Por debajo de estos tamaños la gota se funde con el bloque o el logotipo pierde las letras.
+Versión
+Pantalla
+Impreso
+Qué se pierde debajo
+Solo símbolo
+16 px
+6 mm
+La gota baja de 5 px y deja de leerse.
+Horizontal
+88 px
+de ancho
+24 mm
+de ancho
+La «O» se cierra y la «N» se empasta.
+Vertical
+48 px
+de ancho
+14 mm
+de ancho
+El logotipo queda por debajo de 8 px de alto.
+16 px
+24 px
+32 px
+48 px
+64 px
+88 px
+140 px
+Así
+Horizontal a 88 px, el mínimo.
+Así no
+Horizontal a 44 px: usa el símbolo solo.
+Medidas propuestas desde la reconstrucción. Se confirman con una prueba impresa
+[pendiente: prueba física del logo]
+.
+Seis versiones y cuándo va cada una
+Todas salen del mismo dibujo. Cambia el color, nunca la forma. Descarga cada una junto a su regla.
+Color sobre oscuro (principal)
+App, sitio, portería, redes. Es la versión por defecto.
+Descargar
+SVG
+Descargar
+PNG 1600 px
+Color sobre claro
+PDF del Pase, papelería, documentos para administraciones.
+Descargar
+SVG
+Descargar
+PNG 1600 px
+Una tinta, negro
+Fax, sello, grabado, impresión en una tinta. La gota queda hueca como el arco.
+Descargar
+SVG
+Descargar
+PNG 1600 px
+Una tinta, blanco
+Sobre fotografía oscura, vinilo blanco, serigrafía.
+Descargar
+SVG
+Descargar
+PNG 1600 px
+Solo símbolo
+Ícono de app, favicon, avatar, sello del Pase. Cuando «Kino» ya está escrito cerca.
+Descargar
+SVG
+Descargar
+PNG 1024 px
+Vertical
+Espacios angostos: adhesivo de talanquera, credencial, portada de una página.
+Descargar
+SVG
+Descargar
+PNG 1024 px
+Responde a: X2: bloque en hueso y gota en #00BB83. El acento significa otorgar; en el logo marca lo que pasa por la entrada.
+Seis fondos y la versión que le toca a cada uno
+Regla corta: si el fondo es oscuro, color; si es claro, color sobre claro; si el fondo ya es verde o es una foto, una tinta.
+Sustrato
+Color sobre oscuro
+Hueso
+Color sobre claro
+Aurora
+Color sobre oscuro
+Tejido celular (impreso)
+Color sobre oscuro
+Verde de marca
+Una tinta en sustrato: la gota verde se perdería
+Fotografía oscura
+Una tinta, blanco
+Responde a: Estado honesto aplicado a la marca: la gota verde nunca se pone donde no se distingue.
+Nueve cosas que no se le hacen al logo
+✕
+Estirar o aplastar. El arco deja de ser un vano.
+✕
+Rotar. El bloque se lee como una puerta caída.
+✕
+Cambiar el color de la gota. El carmín significa Rechazado.
+✕
+Dibujarlo solo con contorno.
+✕
+Sombras, brillos o neón. El resplandor es del Pase vigente, no del logo.
+✕
+Sacar la gota del arco o moverla.
+✕
+Reescribir «KINO» con otra letra. El logotipo es un dibujo cerrado.
+✕
+Ponerlo con poco contraste. El bloque necesita Lc 45 o más sobre su fondo.
+RC
+✕
+Ponerlo junto al emblema de un conjunto.
+El conjunto es un dato, no una segunda marca
+Cuando una pieza es para un conjunto, su nombre va en texto o en chip, en el orden conjunto · unidad. Nunca su logo ni sus colores.
+Refugio Campestre · Casa 14
+Así
+Logo de Kino y el conjunto en un chip de texto, con su área de protección.
+RC
+Refugio Campestre
+Así no
+El emblema del conjunto al lado convierte a Kino en marca blanca.
+Responde a: F4 y regla 6 de las instrucciones: Kino tiene identidad propia y sirve a cualquier conjunto.
+El símbolo sobre sustrato, en un cuadrado redondeado
+El fondo de sustrato hace que el ícono se lea igual en una pestaña clara, en una oscura y en la pantalla de inicio del teléfono.
+16
+32
+64
+180 (iOS)
+En la pantalla de inicio
+Favicon
+SVG
+Favicon
+PNG 32 px
+Ícono de app
+SVG
+Ícono de app
+PNG 1024 px
+Apple touch
+SVG
+Apple touch
+PNG 180 px
+El logo aparece como se abre una entrada
+El bloque crece, el vano se abre y la gota baja y late una vez. Dura 1,6 s y se usa al abrir la app y al empezar una presentación. Dentro de la app el logo no se anima.
+Repetir
+Tiempo
+Qué pasa
+Token
+0–820 ms
+El bloque crece desde abajo
+movimiento.aparecer
+420–1240 ms
+La gota baja por el vano
+curva.crecer
+1240–1600 ms
+La gota late una vez
+movimiento.latir
+Movimiento reducido
+Fundido de 240 ms, sin desplazamiento
+duracion.corto
+Responde a: X9 (crecer es aparecer) y F7: el movimiento se conserva y el modo reducido es alternativo.
 04 · Identidad
 Color
 Qué es
 La paleta y lo que significa cada color, incluidos los estados de un Pase.
 Para qué sirve
-Para que un color signifique siempre lo mismo: activo, por vencer, usado, vencido o rechazado.
+Para que un color signifique siempre lo mismo: vigente, por vencer, usado, vencido o rechazado.
 Cuándo se usa
 Al elegir el color de cualquier texto, fondo, borde o gráfico.
-En construcción
-Esta sección va a contener:
-Escalas de cada familia
-Roles para superficies, texto y bordes
-Temas oscuro y claro
-Estados de un Pase
-Paleta para datos y gráficos
-Proporciones de uso
-Contraste APCA de cada par
-Revisión con daltonismo
-Valores aproximados para impresión
+Siete familias, cada una con un significado
+Los pasos
+100 a 800
+ordenan los neutros por luminosidad.
+d45
+quiere decir «4,5:1 sobre el fondo oscuro» y
+l45
+, lo mismo sobre el claro. Los pasos
+a
+son los fijados por APCA en el tema oscuro reajustado:
+a84
+da al menos Lc 84 sobre la base.
+sustrato
+Superficies del tema oscuro
+100
+#00140C
+200
+#011F16
+300
+#0B2A20
+400
+#17362B
+500
+#2A483D
+600
+#426155
+700
+#618174
+800
+#86A799
+d15
+#203F33
+d23
+#3B5B4E
+d32
+#517064
+d45
+#68897B
+d70
+#8AAC9E
+d90
+#A0C3B4
+d110
+#B3D5C7
+l15
+#B3D5C7
+l23
+#8CAEA0
+l32
+#729385
+l45
+#5A7A6D
+l70
+#3D5C50
+l90
+#2D4B40
+l110
+#203F33
+a36
+#6E8E81
+a66
+#A5C7B8
+a78
+#B8DBCC
+hueso
+Texto y tema claro
+100
+#EFFCF7
+200
+#E5F3ED
+300
+#DBE9E3
+400
+#CEDCD6
+500
+#BECBC6
+600
+#ABB8B3
+700
+#94A09B
+800
+#7C8883
+d15
+#303B37
+d23
+#4B5752
+d32
+#616C68
+d45
+#788480
+d70
+#9BA7A2
+d90
+#B1BEB8
+d110
+#C4D1CB
+l15
+#C4D1CB
+l23
+#9DA9A4
+l32
+#828F8A
+l45
+#6A7671
+l70
+#4D5854
+l90
+#3D4844
+l110
+#303B37
+a81
+#CEDBD6
+biolum
+Marca, acción de otorgar y Vigente
+d15
+#00422C
+d23
+#006142
+d32
+#007953
+d45
+#009467
+d70
+#00BB83
+d90
+#00D595
+d110
+#00EAA5
+l15
+#00EAA5
+l23
+#00BE85
+l32
+#00A06F
+l45
+#00845B
+l70
+#006343
+l90
+#005036
+l110
+#00422C
+a84
+#2FF8B2
+ambar
+Por vencer
+d15
+#503300
+d23
+#744C00
+d32
+#906000
+d45
+#B07600
+d70
+#DE9600
+d90
+#FBAB00
+d110
+#FFC36D
+l15
+#FFC36C
+l23
+#E09800
+l32
+#BD7F00
+l45
+#9C6900
+l70
+#764E00
+l90
+#603F00
+l110
+#503300
+a83
+#FFD49C
+carmin
+Revocado y Rechazado
+d15
+#79000F
+d23
+#A8131F
+d32
+#C33435
+d45
+#E0504D
+d70
+#FF7D76
+d90
+#FFA29A
+d110
+#FFBEB8
+l15
+#FFBEB8
+l23
+#FF8179
+l32
+#EC5C57
+l45
+#CE3F3F
+l70
+#AA1620
+l90
+#910014
+l110
+#79000F
+a78
+#FEC6C0
+a85
+#FED6D2
+violeta
+Dato personal
+d15
+#3E1C96
+d23
+#563FB7
+d32
+#6A56D0
+d45
+#8170EC
+d70
+#A198FF
+d90
+#B7B3FF
+d110
+#CAC9FF
+l15
+#CAC9FF
+l23
+#A39BFF
+l32
+#8A7AF7
+l45
+#7360DB
+l70
+#5840B8
+l90
+#492DA5
+l110
+#3E1C96
+a84
+#DADAFE
+indigo
+Previsto y enlaces
+d15
+#092D93
+d23
+#234DB3
+d32
+#3764CD
+d45
+#4E7DE8
+d70
+#77A3FF
+d90
+#99BBFF
+d110
+#B6CEFF
+l15
+#B6CEFF
+l23
+#7AA5FF
+l32
+#5788F4
+l45
+#406ED7
+l70
+#244EB5
+l90
+#153CA2
+l110
+#092D93
+a84
+#CCDDFE
+Tokens DTCG resueltos
+JSON
+Tokens en CSS
+CSS
+Responde a: Regla 6 del encargo: una sola fuente de verdad, los tokens DTCG del cliente kino.
+En código se usa el rol, nunca el hex
+Cada rol apunta a un primitivo distinto en cada tema. Si mañana cambia un paso, cambian todas las piezas.
+Variable
+Oscuro
+Claro
+Uso
+--kino-superficie-abismo
+#00140C
+#DBE9E3
+Fondo más profundo: índice, cabeceras de tabla.
+--kino-superficie-base
+#011F16
+#EFFCF7
+Fondo de la app y del sitio.
+--kino-superficie-elevada
+#0B2A20
+#FFFFFF
+Tarjetas sobre la base.
+--kino-superficie-membrana
+#17362B
+#E5F3ED
+Controles, campos, el Pase.
+--kino-superficie-inversa
+#EFFCF7
+#00140C
+Bloques de contraste invertido.
+--kino-texto-primario
+#EFFCF7
+#00140C
+Todo texto de menos de 24 px.
+--kino-texto-secundario
+#CEDBD6
+#17362B
+Textos de apoyo en 16 px o más.
+--kino-texto-tenue
+#A5C7B8
+#426155
+Solo desde 24 px: cifras grandes, rótulos de fondo.
+--kino-texto-inverso
+#00140C
+#EFFCF7
+Texto sobre la superficie inversa.
+--kino-borde-tenue
+#2A483D
+#CEDCD6
+Separa sin informar.
+--kino-borde-definido
+#6E8E81
+#6A7671
+Borde que informa: campos, chips, tarjetas seleccionadas.
+--kino-borde-foco
+#00BB83
+#00845B
+Anillo de foco del teclado.
+--kino-acento-base
+#00BB83
+#006343
+Verde de marca: logo, gota, nodo «Otorgar». Nunca de fondo bajo texto.
+--kino-accion-fondo
+#00D595
+#006343
+Botón que crea o entrega un Pase.
+--kino-accion-texto
+#00140C
+#EFFCF7
+Texto sobre ese botón.
+--kino-marca-bloque
+#EFFCF7
+#00140C
+Bloque del logo.
+--kino-marca-gota
+#00BB83
+#006343
+Gota del logo.
+color: var(--kino-texto-secundario);
+Así
+El rol dice para qué es el color.
+color: #CEDBD6;
+Así no
+Un hex suelto no se entera cuando la paleta cambia.
+Oscuro para la app y la entrada, claro para el papel
+El oscuro reajustado es el canónico. El claro se usa en el PDF del Pase, la papelería y quien lo elija en la app.
+Tema oscuro
+Andrés Gómez
+Vigente
+Otorgó Carolina Ruiz · Casa 14
+KMN 305
+hasta 6:00 p. m.
+Texto primario.
+Texto secundario.
+Crear Pase
+Tema claro
+Andrés Gómez
+Vigente
+Otorgó Carolina Ruiz · Casa 14
+KMN 305
+hasta 6:00 p. m.
+Texto primario.
+Texto secundario.
+Crear Pase
+Responde a: X3: oscuro reajustado para pasar APCA. Se lee mejor de noche en la entrada; el PDF va en claro porque se imprime.
+Siete estados del Pase, un evento y un dato
+Todo texto de estado pasa Lc 75, así sirve en chips de 13 px. Todo borde pasa Lc 30.
+Sin confirmar
+va sin relleno y
+Rechazado
+es un evento de la entrada, no un estado del Pase.
+Previsto
+Sin confirmar
+Vigente
+Por vencer
+Usado
+Vencido
+Revocado
+Rechazado
+Dato personal
+Previsto
+Sin confirmar
+Vigente
+Por vencer
+Usado
+Vencido
+Revocado
+Rechazado
+Dato personal
+Estado
+Qué dice
+Texto sobre fondo (oscuro)
+Lc texto
+Lc borde
+Lc texto (claro)
+Previsto
+Pase creado para una franja futura.
+#CCDDFE
+sobre
+#092D93
+77.2
+75.0
+81.6
+Sin confirmar
+Enviado; el lector aún no responde.
+#DBE9E3
+sobre
+transparente
+89.9
+49.2
+89.6
+Vigente
+El lector lo confirmó y está en su franja.
+#2FF8B2
+sobre
+#00422C
+77.5
+76.0
+81.3
+Por vencer
+Entró en la ventana de aviso.
+#FFD49C
+sobre
+#503300
+77.0
+75.2
+81.6
+Usado
+Código de un solo uso que ya sirvió.
+#E5F3ED
+sobre
+#0B2A20
+94.8
+49.2
+90.2
+Vencido
+Terminó solo, a su hora.
+#B8DBCC
+sobre
+#0B2A20
+77.0
+49.2
+78.3
+Revocado
+Alguien lo cortó; queda su nombre.
+#FEC6C0
+sobre
+#0B2A20
+77.1
+49.2
+80.4
+Rechazado
+Evento en la entrada, con motivo.
+#FED6D2
+sobre
+#79000F
+77.7
+75.3
+76.8
+Dato personal
+Cédula, rostro o teléfono a la vista.
+#DADAFE
+sobre
+#3E1C96
+77.5
+75.2
+81.6
+Vigente
+hasta 6:00 p. m.
+Así
+Palabra, color y hora.
+6:00 p. m.
+Así no
+Un punto verde sin palabra: quien no distingue el verde no sabe nada.
+Sin confirmar
+KMN 305
+Así
+El lector no respondió: borde discontinuo y sin relleno.
+KMN 305
+Así no
+Verde sobre algo que la puerta no confirmó.
+Responde a: V5 y X10 (nombres y colores), H4 (el color solo nombra hechos confirmados) y el valor «Estado honesto».
+Colores para contar cifras
+Categorías (oscuro)
+indigo.d70
+#77A3FF
+biolum.d70
+#00BB83
+ambar.d70
+#DE9600
+violeta.d70
+#A198FF
+sustrato.d90
+#A0C3B4
+Categorías (claro)
+indigo.l45
+#406ED7
+biolum.l45
+#00845B
+ambar.l45
+#9C6900
+violeta.l45
+#7360DB
+sustrato.l70
+#3D5C50
+Secuencia
+Una sola familia, de menos a más. Para cantidades de una misma cosa.
+lun 38 mar 31 mié 34 jue 41 vie 46 sáb 22 dom 18
+Así
+Una serie, un color de la secuencia. Cifras en mono sobre cada barra.
+(Datos de ejemplo.)
+Usado
+187 de 214
+Vencido
+21 de 214
+Revocado
+3 de 214
+Rechazado
+3 de 214
+Así
+Cuando la serie es un estado, usa el color del estado y su palabra en la leyenda.
+(Ejemplo.)
+El carmín no va en gráficos salvo para Rechazado.
+Máximo cinco categorías; la sexta se agrupa en «Otras».
+Toda marca de dato pasa Lc 30 sobre su fondo; toda cifra, Lc 75.
+Responde a: Topes a la vista: la administración lee cifras con denominador.
+Mucho sustrato, poco verde
+Una pantalla típica de Kino, medida por área.
+60 %
+sustrato
+Superficies
+25 %
+hueso
+Texto
+10 %
+neutros de apoyo
+Bordes y membranas
+4 %
+biolum
+Marca y acción
+1 %
+estados
+Solo donde hay un estado
+Casa 14
+Crear Pase
+Así
+Un solo verde en pantalla: el botón que otorga.
+Casa 14
+Crear Pase
+Ver historial
+Así no
+Verde en todo: el botón que otorga deja de destacarse.
+Responde a: H3: el acento significa otorgar. Si aparece en todo, no significa nada.
+Todos los pares, medidos en los dos temas
+Cada par que aparece en una pieza está en
+pares.json
+y se mide en los dos temas cada vez que cambian los tokens. La compuerta es doble: APCA (Lc) y WCAG 2.2 (razón).
+Par
+Oscuro
+Claro
+Mínimo
+Resultado
+texto primario sobre base
+102.4
+16.49:1
+101.7
+18.04:1
+Lc 75 · 4.5:1
+Pasa
+texto secundario sobre base
+81.4
+12.18:1
+95.7
+12.47:1
+Lc 75 · 4.5:1
+Pasa
+texto tenue (≥ 24 px) sobre base
+66.8
+9.48:1
+79.9
+6.49:1
+Lc 60 · 3:1
+Pasa
+borde definido sobre base
+36.7
+4.84:1
+69.2
+4.49:1
+Lc 30 · 3:1
+Pasa
+texto primario sobre membrana
+98.6
+12.47:1
+96.2
+16.62:1
+Lc 75 · 4.5:1
+Pasa
+texto secundario sobre membrana
+77.6
+9.21:1
+90.2
+11.49:1
+Lc 75 · 4.5:1
+Pasa
+texto tenue (≥ 24 px) sobre membrana
+63
+7.17:1
+74.5
+5.98:1
+Lc 60 · 3:1
+Pasa
+borde definido sobre membrana
+32.9
+3.66:1
+63.7
+4.14:1
+Lc 30 · 3:1
+Pasa
+texto primario sobre elevada
+100.9
+14.59:1
+105.3
+19:1
+Lc 75 · 4.5:1
+Pasa
+texto secundario sobre elevada
+79.9
+10.78:1
+99.3
+13.13:1
+Lc 75 · 4.5:1
+Pasa
+texto tenue (≥ 24 px) sobre elevada
+65.3
+8.39:1
+83.6
+6.83:1
+Lc 60 · 3:1
+Pasa
+borde definido sobre elevada
+35.2
+4.28:1
+72.8
+4.73:1
+Lc 30 · 3:1
+Pasa
+texto inverso sobre superficie inversa
+101.7
+18.04:1
+103.3
+18.04:1
+Lc 75 · 4.5:1
+Pasa
+borde de foco sobre base
+52.3
+6.98:1
+68.5
+4.48:1
+Lc 30 · 3:1
+Pasa
+acento de marca sobre base (no textual)
+52.3
+6.98:1
+81.3
+6.96:1
+Lc 30 · 3:1
+Pasa
+gota del logo sobre base
+52.3
+6.98:1
+81.3
+6.96:1
+Lc 30 · 3:1
+Pasa
+bloque del logo sobre base
+102.4
+16.49:1
+101.7
+18.04:1
+Lc 30 · 3:1
+Pasa
+texto sobre el botón de acción (≥ 16 px en 600)
+67.3
+9.91:1
+85.8
+6.96:1
+Lc 60 · 4.5:1
+Pasa
+texto sobre el botón de acción activo
+77.5
+12.04:1
+91.9
+9.06:1
+Lc 60 · 4.5:1
+Pasa
+botón de acción sobre base (no textual)
+65.1
+9.06:1
+81.3
+6.96:1
+Lc 30 · 3:1
+Pasa
+texto del estado previsto
+77.2
+8.48:1
+81.6
+7.04:1
+Lc 75 · 4.5:1
+Pasa
+borde del estado previsto sobre su fondo
+68.2
+7.33:1
+68.9
+4.5:1
+Lc 30 · 1:1
+Pasa
+borde del estado previsto sobre base
+75
+10.97:1
+68.9
+4.5:1
+Lc 30 · 3:1
+Pasa
+borde del estado previsto sobre membrana
+71.2
+8.29:1
+63.4
+4.15:1
+Lc 30 · 3:1
+Pasa
+texto del estado sin-confirmar
+89.9
+13.88:1
+89.6
+9.53:1
+Lc 75 · 4.5:1
+Pasa
+texto del estado sin-confirmar sobre membrana
+86.2
+10.49:1
+84.1
+8.78:1
+Lc 75 · 4.5:1
+Pasa
+borde del estado sin-confirmar sobre base
+49.2
+6.62:1
+69.2
+4.49:1
+Lc 30 · 3:1
+Pasa
+borde del estado sin-confirmar sobre membrana
+45.4
+5:1
+63.7
+4.14:1
+Lc 30 · 3:1
+Pasa
+texto del estado vigente
+77.5
+8.37:1
+81.3
+6.96:1
+Lc 75 · 4.5:1
+Pasa
+borde del estado vigente sobre su fondo
+69.6
+7.33:1
+68.5
+4.48:1
+Lc 30 · 1:1
+Pasa
+borde del estado vigente sobre base
+76
+11.01:1
+68.5
+4.48:1
+Lc 30 · 3:1
+Pasa
+borde del estado vigente sobre membrana
+72.2
+8.33:1
+63
+4.13:1
+Lc 30 · 3:1
+Pasa
+texto del estado por-vencer
+77
+8.35:1
+81.6
+6.97:1
+Lc 75 · 4.5:1
+Pasa
+borde del estado por-vencer sobre su fondo
+69
+7.32:1
+69
+4.5:1
+Lc 30 · 1:1
+Pasa
+borde del estado por-vencer sobre base
+75.2
+10.98:1
+69
+4.5:1
+Lc 30 · 3:1
+Pasa
+borde del estado por-vencer sobre membrana
+71.4
+8.3:1
+63.5
+4.14:1
+Lc 30 · 3:1
+Pasa
+texto del estado usado
+94.8
+13.45:1
+90.2
+11.49:1
+Lc 75 · 4.5:1
+Pasa
+borde del estado usado sobre su fondo
+47.7
+5.86:1
+63.7
+4.14:1
+Lc 30 · 1:1
+Pasa
+borde del estado usado sobre base
+49.2
+6.62:1
+69.2
+4.49:1
+Lc 30 · 3:1
+Pasa
+borde del estado usado sobre membrana
+45.4
+5:1
+63.7
+4.14:1
+Lc 30 · 3:1
+Pasa
+texto del estado vencido
+77
+10.28:1
+78.3
+8.02:1
+Lc 75 · 4.5:1
+Pasa
+borde del estado vencido sobre su fondo
+47.7
+5.86:1
+57.9
+3.78:1
+Lc 30 · 1:1
+Pasa
+borde del estado vencido sobre base
+49.2
+6.62:1
+69.2
+4.49:1
+Lc 30 · 3:1
+Pasa
+borde del estado vencido sobre membrana
+45.4
+5:1
+63.7
+4.14:1
+Lc 30 · 3:1
+Pasa
+texto del estado revocado
+77.1
+10.29:1
+80.4
+8.3:1
+Lc 75 · 4.5:1
+Pasa
+borde del estado revocado sobre su fondo
+47.7
+5.86:1
+63.7
+4.14:1
+Lc 30 · 1:1
+Pasa
+borde del estado revocado sobre base
+49.2
+6.62:1
+69.2
+4.49:1
+Lc 30 · 3:1
+Pasa
+borde del estado revocado sobre membrana
+45.4
+5:1
+63.7
+4.14:1
+Lc 30 · 3:1
+Pasa
+texto del estado rechazado
+77.7
+8.66:1
+76.8
+12.04:1
+Lc 75 · 4.5:1
+Pasa
+borde del estado rechazado sobre su fondo
+67.2
+7.31:1
+43.4
+3.02:1
+Lc 30 · 1:1
+Pasa
+borde del estado rechazado sobre base
+75.3
+11.01:1
+68.3
+4.52:1
+Lc 30 · 3:1
+Pasa
+borde del estado rechazado sobre membrana
+71.5
+8.32:1
+62.8
+4.17:1
+Lc 30 · 3:1
+Pasa
+texto del estado identidad
+77.5
+8.52:1
+81.6
+7.02:1
+Lc 75 · 4.5:1
+Pasa
+borde del estado identidad sobre su fondo
+68.3
+7.35:1
+69
+4.51:1
+Lc 30 · 1:1
+Pasa
+borde del estado identidad sobre base
+75.2
+11.01:1
+69
+4.51:1
+Lc 30 · 3:1
+Pasa
+borde del estado identidad sobre membrana
+71.4
+8.32:1
+63.5
+4.15:1
+Lc 30 · 3:1
+Pasa
+112 mediciones · 0 fallos. Mínimos de la plataforma: Lc 75 cuerpo, 60 texto grande, 45 titulares, 30 elementos no textuales.
+Informe de contraste
+JSON
+Qué ve alguien que no distingue rojo y verde
+Los nueve estados en el tema oscuro, simulados con las matrices de Machado (2009). Con protanopía y deuteranopía, Vigente, Por vencer y Rechazado se acercan en tono: por eso cada estado lleva palabra y el punto cambia de forma (lleno, discontinuo o cuadrado).
+Visión típica
+Protanopía
+Deuteranopía
+Tritanopía
+Previsto
+Previsto
+Lc 75.5
+Previsto
+Lc 75.4
+Previsto
+Lc 74.7
+Sin confirmar
+Sin confirmar
+Lc 90.7
+Sin confirmar
+Lc 89.7
+Sin confirmar
+Lc 89.7
+Vigente
+Vigente
+Lc 82.5
+Vigente
+Lc 73.5
+Vigente
+Lc 79.0
+Por vencer
+Por vencer
+Lc 74.5
+Por vencer
+Lc 78.4
+Por vencer
+Lc 74.0
+Usado
+Usado
+Lc 95.4
+Usado
+Lc 94.7
+Usado
+Lc 94.6
+Vencido
+Vencido
+Lc 78.4
+Vencido
+Lc 76.2
+Vencido
+Lc 76.6
+Revocado
+Revocado
+Lc 73.0
+Revocado
+Lc 79.7
+Revocado
+Lc 75.0
+Rechazado
+Rechazado
+Lc 81.0
+Rechazado
+Lc 78.7
+Rechazado
+Lc 74.1
+Dato personal
+Dato personal
+Lc 75.3
+Dato personal
+Lc 75.9
+Dato personal
+Lc 77.8
+La simulación no reemplaza una prueba con personas daltónicas
+[pendiente: prueba con usuarios daltónicos]
+.
+Valores aproximados para imprenta
+Color
+Hex
+RGB
+CMYK aproximado
+Sustrato
+#011F16
+1 31 22
+97 0 29 88
+Hueso
+#EFFCF7
+239 252 247
+5 0 2 1
+Verde de marca
+#00BB83
+0 187 131
+100 0 30 27
+Verde sobre claro
+#006343
+0 99 67
+100 0 32 61
+Ámbar
+#DE9600
+222 150 0
+0 32 100 13
+Carmín
+#E0504D
+224 80 77
+0 64 66 12
+Violeta
+#8170EC
+129 112 236
+45 53 0 7
+Índigo
+#4E7DE8
+78 125 232
+66 46 0 9
+Los CMYK salen de una conversión directa, sin perfil de color. Son un punto de partida para la imprenta; antes de un tiraje se pide una prueba física. El Pantone equivalente está
+[pendiente: equivalencias Pantone]
+.
 05 · Identidad
 Tipografía
 Qué es
@@ -861,14 +2128,151 @@ Para qué sirve
 Para que una placa y un código de un solo uso se lean igual en la app y en portería.
 Cuándo se usa
 Al componer texto para pantalla o para impresión.
-En construcción
-Esta sección va a contener:
-Familia de texto y monoespaciada
-Escala que crece con el ancho de pantalla
-Jerarquías
-Interlineado, tracking y largo de línea
-Cifras tabulares
-Licencias
+Archivo para leer, JetBrains Mono para comparar
+Dos familias libres (OFL 1.1). Archivo es variable en ancho: los titulares van al 112 %. JetBrains Mono tiene el cero barrado, que separa la O de la placa del 0 del código.
+Archivo
+Aa Bb Cc Ññ Áá 0123456789
+Textos, titulares y botones. Pesos 400, 500, 700 y 800. Ancho 100 % en texto y 112 % en titulares.
+JetBrains Mono
+KMN 305 · O0 · 482 913 · 21:00
+Placas, códigos, horas en datos, rótulos y cifras. Pesos 500 y 700, con cifras tabulares y cero barrado.
+OOK 040
+Así
+Con cero barrado, la O y el 0 no se confunden.
+OOK 040
+Así no
+En Archivo, la placa se lee de dos maneras.
+Responde a: Exacto: el residente compara la placa y el código con lo que lee el lector (X5).
+Ocho tamaños que crecen con la pantalla
+Escala con el método Utopia: 16 px con razón 1,2 en un teléfono de 360 px y 18 px con razón 1,26 en una pantalla de 1440 px. Entre los dos,
+clamp()
+.
+Token
+360 → 1440 px
+Muestra
+CSS
+texto-n1
+13.33 → 14.29 px
+Pase
+clamp(0.833rem, 0.813rem + 0.088vw, 0.893rem)
+texto-0
+16 → 18 px
+Pase
+clamp(1.000rem, 0.958rem + 0.185vw, 1.125rem)
+texto-1
+19.2 → 22.68 px
+Pase
+clamp(1.200rem, 1.127rem + 0.322vw, 1.417rem)
+texto-2
+23.04 → 28.58 px
+Pase
+clamp(1.440rem, 1.325rem + 0.513vw, 1.786rem)
+texto-3
+27.65 → 36.01 px
+Pase
+clamp(1.728rem, 1.554rem + 0.774vw, 2.250rem)
+texto-4
+33.18 → 45.37 px
+Pase
+clamp(2.074rem, 1.820rem + 1.129vw, 2.836rem)
+texto-5
+39.81 → 57.16 px
+Pase
+clamp(2.488rem, 2.127rem + 1.607vw, 3.573rem)
+texto-6
+47.78 → 72.03 px
+Pase
+clamp(2.986rem, 2.481rem + 2.245vw, 4.502rem)
+Responde a: Regla 6: los tamaños salen de tokens; ninguno se escribe a mano.
+Nueve niveles y el contraste mínimo de cada uno
+Display
+texto-6 · Archivo 800 al 112 % · mínimo Lc 45
+Un Pase con autor.
+Título 1
+texto-5 · Archivo 700 al 112 % · mínimo Lc 45
+Pases de la Casa 14
+Título 2
+texto-3 · Archivo 700 al 112 % · mínimo Lc 60
+¿Quién viene?
+Título 3
+texto-1 · Archivo 700 · mínimo Lc 60
+Límites del conjunto
+Cuerpo
+texto-0 · Archivo 400 · mínimo Lc 75
+Ahí le llega el Pase. No necesita instalar nada ni crear cuenta.
+Pequeño
+texto-n1 · Archivo 400 · mínimo Lc 75
+Otorgó Carolina Ruiz · Casa 14
+Dato
+texto-0 · JetBrains Mono 500 · mínimo Lc 75
+2:00 – 6:00 p. m. · 4817
+Placa
+texto-3 · JetBrains Mono 700 · mínimo Lc 60
+KMN 305
+Etiqueta
+texto-n1 · JetBrains Mono 500, mayúsculas · mínimo Lc 75
+Vence hoy
+Medidas que no se tocan pieza por pieza
+Qué
+Valor
+Token
+Interlineado de display
+1,04
+--kino-interlinea-display
+Interlineado de títulos
+1,16
+--kino-interlinea-titulo
+Interlineado de texto
+1,6
+--kino-interlinea-texto
+Tracking de display
+−0,02 em
+--kino-tracking-display
+Tracking de datos · placas · etiquetas
+0,04 · 0,06 · 0,08 em
+--kino-tracking-*
+Columna de texto
+62 caracteres (42 en tarjetas)
+--kino-columna-texto
+Carolina Ruiz, de la Casa 14, te dio un Pase para hoy de 2:00 a 6:00 p. m. Muéstralo en la entrada.
+Así
+Columna de 42 caracteres en una tarjeta: el ojo vuelve al inicio sin perderse.
+Así no
+Mayúsculas sostenidas, sin tracking y en un renglón que no termina.
+Las horas se alinean en columna
+En tablas, constancias y la vista de portería, las cifras ocupan el mismo ancho.
+07:05
+11:40
+21:00
+Así
+Mono con cifras tabulares: los dos puntos caen en la misma línea.
+07:05
+11:40
+21:00
+Así no
+Cifras proporcionales: la columna se mueve.
+Responde a: V3: 24 h en datos, en mono, para que las cifras alineen.
+Qué se puede instalar y qué no
+Fuente
+Licencia
+Dónde vive
+Uso
+Archivo
+SIL Open Font License 1.1
+Autoalojada en
+branding/sistema/fonts/
+y Google Fonts
+Libre, también comercial. Se puede incrustar en PDF.
+JetBrains Mono
+SIL Open Font License 1.1
+Igual que Archivo
+Libre, también comercial.
+Arkit ExtraBold
+Sin información
+Solo dentro de los contornos del logotipo
+No se instala ni se usa para escribir
+[pendiente: licencia de Arkit ExtraBold]
+.
 06 · Identidad
 Iconografía e ilustración
 Qué es
@@ -877,41 +2281,318 @@ Para qué sirve
 Para dibujar un Pase o una talanquera con el mismo trazo en la app y en la señalética.
 Cuándo se usa
 Al necesitar un ícono que todavía no está en la biblioteca.
-En construcción
-Esta sección va a contener:
-Grilla, trazo, esquinas y tamaños
-24 íconos base en SVG
-Reglas de ilustración
+Veinticuatro unidades, trazo 1,7, puntas redondas
+Cada ícono se dibuja en una grilla de 24 con 2 de margen. El trazo es de 1,7 unidades con puntas y uniones redondas, como las curvas del logo.
+Medida
+Valor
+Token
+Grilla
+24 × 24
+Área viva
+20 × 20
+Trazo
+1,7
+--kino-forma-trazo-icono
+Puntas y uniones
+redondas
+Radio de esquina
+1
+Tamaños
+16 · 20 · 24 · 32 · 48 px
+16
+20
+24
+32
+48
+Así
+Trazo 1,7 con puntas redondas.
+Así no
+Trazo 3 con puntas rectas: otra familia de íconos.
+Responde a: X6: trazo 1,7 con puntas redondas, por las curvas del logo.
+37 íconos para empezar
+Toca un ícono para descargarlo en SVG. El sprite trae todos con
+currentColor
+, listos para
+<use>
+.
+Objetos
+Pase
+QR
+Placa
+Código
+Talanquera
+Cámara
+Rostro
+Lector
+Mensaje
+Vehículo
+Límites
+Constancia
+Personas
+Residente
+Visita
+Colaborador
+Administración
+Portería
+Estados
+Previsto
+Sin confirmar
+Vigente
+Por vencer
+Usado
+Vencido
+Revocado
+Rechazado
+Dato personal
+Navegación y acciones
+Inicio
+Atrás
+Siguiente
+Menú
+Buscar
+Ajustes
+Crear
+Cerrar
+Compartir
+Descargar
+Llamar
+Sprite completo
+SVG
+Responde a: Exacto: cada objeto del producto (Pase, placa, código, lector) tiene un ícono propio y uno solo.
+Membranas y portales, nunca candados
+Kino no se dibuja como una fortaleza. La ilustración usa el arco del logo, la membrana y la luz de la aurora. Los colores de estado solo aparecen cuando nombran un estado.
+Así
+La visita cruza un arco: el Pase abre una entrada.
+Así no
+Candados y escudos prometen una seguridad que Kino no vende.
+Vigente
+Así
+Verde solo junto a un estado Vigente.
+Así no
+Íconos pintados de verde por decoración.
+Figuras de personas sin rostro ni rasgos: Kino no guarda fotos de visitas en la interfaz.
+Relleno solo con superficie membrana; nunca degradados en el ícono.
+Una ilustración explica un paso del Pase o no va.
+Responde a: Regla de marca 10: sin candados, escudos ni muros. Discreto: la persona no se retrata.
 07 · Identidad
 Imagen
 Qué es
-La dirección de arte: fotografía, texturas y fondos.
+La dirección de arte: texturas, fondos y cómo se muestran personas y espacios.
 Para qué sirve
 Para elegir o producir imágenes que se vean de Kino y no de un banco de fotos.
 Cuándo se usa
-Al armar una presentación comercial o una publicación en redes.
-En construcción
-Esta sección va a contener:
-Dirección de arte
-Qué sí y qué no, con ejemplos
-Texturas y fondos
-Personas y espacios
-Cuándo usar cada recurso
+Al armar una presentación comercial, una publicación en redes o una pieza impresa.
+Biopunk: la luz de lo vivo sobre un fondo oscuro
+Kino se ve como un laboratorio de noche: superficies de sustrato, luz que sale de lo que está vivo y formas redondas. Nada de metal, neón magenta ni pantallas de vigilancia.
+Aurora
+Luz verde e índigo que sube desde una esquina, como la bioluminiscencia en agua oscura.
+Dónde: Fondos de pantalla de inicio, portadas, redes, presentación comercial.
+Tejido celular
+Células en sustrato: el conjunto como un organismo con membrana.
+Dónde: Solo en impresos grandes: carta de bienvenida, señalética, papelería.
+Membrana
+Superficie lisa con un borde de luz arriba.
+Dónde: Tarjetas, el Pase, controles. Es el fondo de todo lo que se toca.
+Resplandor
+Halo verde alrededor de lo que está vivo.
+Dónde: Solo en un Pase vigente. En nada más.
+Responde a: F2 (dirección biopunk) y X7: aurora en pantalla, tejido celular solo en impresos grandes.
+Cuatro pares para decidir rápido
+Cada Pase con autor y hora de salida
+Así
+Aurora detrás de un titular, con el texto sobre la zona oscura.
+Así no
+Aurora detrás de un QR: el lector necesita fondo liso.
+Así
+Un espacio del conjunto de noche, sin personas, con la entrada iluminada.
+Monitores de vigilancia
+Así no
+Imágenes de vigilancia: Kino no vende miedo.
+Andrés Gómez · KMN 305
+Así
+La persona se nombra con su dato, no con su cara.
+Andrés Gómez
+Así no
+Foto de rostro de una visita en una pieza.
+Así
+Verde e índigo en tonos del sustrato.
+Así no
+Neón magenta y cian: otra marca.
+Tres fondos y cómo se arman
+Todos salen de tokens: la aurora son tres degradados radiales sobre sustrato 100; el tejido, círculos en sustrato 300 a 500.
+Fondo
+Receta
+Contraste del texto encima
+Aurora
+biolum d23 al 75 % arriba a la derecha · violeta d15 al 80 % abajo a la izquierda · índigo d15 al 50 % al centro, sobre sustrato 100
+Texto primario: Lc 86.5 en la zona más clara
+Tejido celular
+Círculos de 14 a 40 px en sustrato 300 con borde sustrato 500 y núcleo sustrato 400
+Texto primario: Lc 98.6 sobre un núcleo
+Membrana
+Superficie membrana con relieve interior de 1 px
+Texto primario: Lc 98.6
+Sin fotos de personas; los espacios, de noche y sin gente
+Kino maneja datos de quién entra a una casa. Una foto de una persona en una pieza de Kino sugiere que Kino guarda caras. Los espacios se muestran vacíos, a la hora en que más se usa la entrada.
+Personas: por nombre, ícono o silueta sin rasgos.
+Espacios: entradas, talanqueras y senderos del conjunto, de noche, sin placas legibles ni rostros.
+Ninguna foto muestra el logo o el nombre de un conjunto real.
+El rostro solo aparece como dato marcado en violeta en la vista que lo necesita, nunca en marketing.
+Responde a: Discreto y Datos mínimos: 312 cédulas a la vista de portería fue un hallazgo; la marca no repite el error.
+Qué fondo va en cada pieza
+Pieza
+Aurora
+Tejido celular
+Membrana
+Fotografía
+App del residente
+Pantalla de inicio
+No
+Sí
+No
+Imagen del Pase
+Cabecera, nunca detrás del QR
+No
+Sí
+No
+Vista de portería
+No: se lee en un segundo
+No
+Sí
+No
+Redes y presentación
+Sí
+Detalle
+Sí
+Espacios sin personas
+Señalética y papelería
+Portadas
+Sí
+No
+No
 08 · Identidad
 Estructura
 Qué es
-Retículas, espaciado, radios y elevación.
+Retículas, espaciado, radios, elevación y puntos de quiebre.
 Para qué sirve
 Para que una pantalla de teléfono y una hoja carta compartan medidas.
 Cuándo se usa
 Al maquetar cualquier pieza.
-En construcción
-Esta sección va a contener:
-Retículas para web, móvil, presentación e impresos
-Espaciado
-Radios
-Elevación
-Puntos de quiebre
+Una retícula por formato
+Todas comparten el mismo medianil de 24 (el paso
+espacio-l
+), salvo el teléfono, que usa 16.
+Teléfono
+4 columnas · margen 16 · medianil 16
+Desde 360 px. El Pase ocupa las cuatro columnas.
+Web
+12 columnas · margen 32 · medianil 24
+Contenedor máximo de 1152 px; lectura en 720 px.
+Presentación 16:9
+12 columnas · margen 40 · medianil 24
+Titulares en 8 columnas; datos en 4.
+Carta (impresos)
+6 columnas · margen 20 · medianil 12
+Margen de 20 mm a escala. El PDF del Pase usa esta.
+Responde a: Constancia: el Pase se ve igual en el teléfono, la hoja y la pantalla de portería.
+Diez pasos de espacio
+La distancia entre dos cosas dice cuánto se relacionan. Dentro de una tarjeta,
+s
+o
+m
+; entre tarjetas,
+l
+; entre secciones,
+2xl
+o más.
+3xs
+2px
+2xs
+4px
+xs
+8px
+s
+12px
+m
+16px
+l
+24px
+xl
+32px
+2xl
+48px
+3xl
+72px
+4xl
+112px
+Andrés Gómez
+Otorgó Carolina · Casa 14
+Luz Marina
+Colaborador · lun y jue
+Así
+Poco espacio dentro, más espacio entre tarjetas.
+Andrés Gómez
+Otorgó Carolina · Casa 14
+Luz Marina
+Colaborador · lun y jue
+Así no
+El mismo espacio dentro y fuera: no se sabe qué va con qué.
+Radio 14 en tarjetas, 8 en controles, el arco solo en el Pase
+El arco es la forma del vano del logo. Si aparece en cualquier botón, deja de significar «esto es un Pase».
+nada · 0
+Tablas y bordes de pantalla
+xs · 2px
+Marcas de texto, código en línea
+s · 4px
+Chips de estado
+m · 8px
+Controles: botones, campos, selectores
+l · 14px
+Tarjetas, hojas, el Pase
+arco · pleno arriba
+Solo la ventana del QR y el Pase vivo
+Así
+Arco en la ventana del QR: es un Pase.
+Guardar límites
+Así no
+Arco en un botón: la forma pierde su significado.
+Responde a: X8: radio 14 y arco solo en lo que es un Pase.
+Cuatro capas de superficie y un solo resplandor
+En el tema oscuro la altura se nota por luminosidad: lo que está más cerca es más claro. La sombra casi no se ve; el borde de luz arriba sí.
+abismo
+Índice, cabeceras de tabla, lo que está detrás.
+base
+Fondo de la app.
+elevada
+Tarjetas y listas.
+membrana
+Controles y el Pase, con relieve.
+resplandor vigente
+Solo un Pase vigente.
+Responde a: Estado honesto: el resplandor es un estado, así que solo lo lleva el Pase que el lector confirmó.
+Cuatro anchos y qué cambia en cada uno
+Nombre
+Desde
+Token
+Qué cambia
+Compacto
+360 px
+Una columna; el índice se esconde; botones de ancho completo.
+Medio
+600px
+--kino-quiebre-medio
+Dos columnas de tarjetas; la lista de Pases muestra la placa.
+Amplio
+960px
+--kino-quiebre-amplio
+Índice fijo a la izquierda; detalle del Pase al lado de la lista.
+Extenso
+1280px
+--kino-quiebre-extenso
+Tres columnas en portería y en el panel de administración.
+Los puntos de quiebre viven en tokens, pero CSS no acepta variables dentro de
+@media
+: en código se escriben con el mismo valor y un comentario que nombra el token.
 09 · Identidad
 Motion
 Qué es
@@ -920,14 +2601,211 @@ Para qué sirve
 Para que otorgar, confirmar, vencer y revocar un Pase se distingan también por su ritmo.
 Cuándo se usa
 Al animar una pantalla o el logo.
-En construcción
-Esta sección va a contener:
-Principios
-Duraciones y curvas
-Coreografía y cascadas
-Catálogo con diez animaciones en vivo
-Animación del logo
-Modo de movimiento reducido
+Cada movimiento nombra un cambio del Pase
+Kino se mueve cuando algo cambia de verdad: un Pase aparece, el lector lo confirma, el tiempo pasa, alguien lo corta. Si nada cambió, nada se mueve.
+Verbo
+Significa
+Curva
+Ejemplo
+Crecer
+Aparecer
+crecer
+Un Pase nuevo en la lista.
+Decaer
+Caducar
+decaer
+La barra de vigencia.
+Latir
+Estar vivo
+latir
+El punto de Vigente.
+Revocar
+Cortar
+revocar
+Carolina revoca el Pase de Andrés.
+Cortina
+Abrir
+cortina
+Cambio de lámina en una presentación.
+Nada se anima para decorar.
+El movimiento no se recorta para ganar velocidad: se optimiza con transform y opacity, carga diferida y pausa fuera de pantalla.
+Lo que está fuera de la pantalla no anima; en este sitio, las secciones ocultas no pintan.
+Responde a: H6 y F7: verbos de movimiento con significado; el motion no se sacrifica.
+Diecisiete tokens de movimiento
+Token
+Valor
+Para qué
+duracion-instante
+120ms
+Hover, foco, presión de un botón.
+duracion-corto
+240ms
+Un chip o un estado que cambia; revocar.
+duracion-crecer
+420ms
+Elementos pequeños que aparecen.
+duracion-tarjeta
+820ms
+Tarjetas y secciones que aparecen (X9).
+duracion-decaer
+900ms
+La barra de vigencia que baja.
+duracion-trazo
+950ms
+Una línea que se dibuja en un flujo.
+duracion-cortina
+1600ms
+Transición entre láminas.
+duracion-latir
+1800ms
+Un ciclo del latido de Vigente.
+escalonado-tarjetas
+90ms
+Entre tarjetas de una cascada.
+escalonado-filas
+55ms
+Entre filas de una tabla.
+crecer
+cubic-bezier(0.16, 0.84, 0.3, 1)
+Aparecer. Arranca rápido y se asienta.
+decaer
+cubic-bezier(0.62, 0.03, 0.86, 0.34)
+Caducar. Empieza lento y se va.
+latir
+cubic-bezier(0.45, 0, 0.55, 1)
+Estar vivo. Simétrica, en bucle.
+revocar
+cubic-bezier(0.4, 0, 1, 1)
+Cortar. Acelera hasta el final, sin rebote.
+cortina
+cubic-bezier(0.76, 0, 0.24, 1)
+Abrir, solo en presentaciones.
+Primero lo que se lee, después lo que se toca
+En una pantalla nueva entra el título, luego las tarjetas en cascada de 90 ms y al final el botón de acción. Máximo ocho elementos en una cascada; del noveno en adelante entran juntos.
+Pases de la Casa 14
+Andrés Gómez
+Vigente
+Luz Marina
+Previsto
+Técnico del gas
+Sin confirmar
+Crear Pase
+Repetir
+13 animaciones en vivo
+Cada una con su token y su versión en movimiento reducido. Pruébalas también con el botón de abajo.
+Ver en movimiento reducido
+Andrés Gómez
+Vigente
+01 · Aparecer
+Una tarjeta nueva crece desde abajo.
+aparecer · 820 ms · crecer
+Reducido: Fundido de 240 ms
+Repetir
+Andrés Gómez
+Luz Marina
+Técnico del gas
+Diana Arango
+02 · Cascada
+La lista de Pases entra una tarjeta tras otra, cada 90 ms.
+escalonado · 90 ms
+Reducido: Fundido en el mismo orden
+Repetir
+Andrés Gómez
+Vigente
+03 · Latir
+El punto de un Pase vigente respira mientras está en pantalla.
+latir · 1800 ms
+Reducido: Punto fijo
+Repetir
+Andrés Gómez
+Vigente
+04 · Caducar
+La barra de vigencia baja cuando pasa el tiempo.
+caducar · 900 ms · decaer
+Reducido: La barra salta sin animar
+Repetir
+Andrés Gómez
+Sin confirmar
+Vigente
+05 · Confirmar
+El lector responde: el borde discontinuo se cierra y aparece el relleno.
+aparecer · 820 ms
+Reducido: Cambio de estado en 240 ms
+Repetir
+Andrés Gómez
+Vigente
+Por vencer
+vence 6:00 p. m.
+06 · Por vencer
+El chip pasa de verde a ámbar cuando entra la ventana de aviso.
+responder · 240 ms
+Reducido: Igual: es un cambio de color
+Repetir
+Andrés Gómez
+Vigente
+Revocado
+Revocó Carolina Ruiz · 4:10 p. m.
+07 · Revocar
+Una línea cruza la tarjeta y la apaga. Queda el nombre de quien revocó.
+revocar · 240 ms
+Reducido: Sin la línea; cambia el estado
+Repetir
+4817
+Vigente
+Usado
+08 · Usar
+El código de un solo uso se tacha y pasa a Usado.
+responder · 240 ms
+Reducido: Sin el tachado animado
+Repetir
+KMN 305
+Rechazado
+Pase vencido a las 6:00 p. m.
+09 · Rechazar
+En portería, el evento aparece con un borde que se enciende una vez.
+crecer · 420 ms
+Reducido: Aparece sin encenderse
+Repetir
+Pase para Andrés
+Carolina Ruiz, de la Casa 14, te dio un Pase para hoy.
+10 · Enviar
+El Pase sube y se convierte en el mensaje de WhatsApp.
+aparecer · 820 ms
+Reducido: Fundido cruzado
+Repetir
+Crear Pase
+11 · Presionar
+El botón Crear Pase baja un poco al tocarlo.
+instante · 120 ms
+Reducido: Cambio de color sin escala
+Repetir
+12 · Trazo
+La línea de un flujo se dibuja de un paso al siguiente.
+trazo · 950 ms
+Reducido: La línea aparece completa
+Repetir
+Lámina 1
+Lámina 2
+13 · Cortina
+En una presentación, la lámina siguiente entra como una cortina.
+cortina · 1600 ms
+Reducido: Fundido de 240 ms
+Repetir
+El logo se anima una sola vez
+Al abrir la app y al empezar una presentación. La secuencia completa está en
+Logo · Animación
+.
+Un modo alternativo, no un recorte
+Si el sistema operativo pide menos movimiento, Kino cambia desplazamientos por fundidos con la misma duración de referencia y el mismo orden. El latido se detiene.
+Andrés Gómez
+Vigente
+Así
+Movimiento completo para quien no pidió menos.
+Andrés Gómez
+Vigente
+Así no
+Apagar toda animación para todos «por rendimiento».
+Responde a: F7: prefers-reduced-motion se ofrece como modo alternativo.
 10 · Aplicación
 Producto
 Qué es
@@ -936,37 +2814,507 @@ Para qué sirve
 Para construir la app con piezas que ya resuelven foco, error, carga y accesibilidad.
 Cuándo se usa
 Al diseñar o programar una pantalla de Kino.
-En construcción
-Esta sección va a contener:
-Componentes con reposo, hover, foco, deshabilitado, error y carga
+Cinco componentes en sus seis estados
+Cada componente sale de
+kino-brand.css
+y solo usa variables. «No aplica» quiere decir que ese estado no existe para ese componente.
+Componente
+Reposo
+Hover
+Foco
+Deshabilitado
+Error
+Carga
+Botón de acción
+Crear Pase
+Crear Pase
+Crear Pase
+Crear Pase
+No aplica
+Enviando…
+Botón secundario
+Extender
+Extender
+Extender
+Extender
+No aplica
+No aplica
+Campo
+WhatsApp de la visita
+300 555 0142
+Ahí le llega el Pase.
+WhatsApp de la visita
+300 555 0142
+Ahí le llega el Pase.
+WhatsApp de la visita
+300 555 0142
+Ahí le llega el Pase.
+WhatsApp de la visita
+300 555 0142
+Ahí le llega el Pase.
+WhatsApp de la visita
+300 555 014
+Ese número tiene 9 cifras. Un celular en Colombia tiene 10.
+No aplica
+Selector de tipo
+Visita
+Colaborador
+Visita
+Colaborador
+Visita
+Colaborador
+Visita
+Colaborador
+No aplica
+No aplica
+Tarjeta de Pase
+Andrés Gómez
+Vigente
+hasta 6:00 p. m.
+Andrés Gómez
+Vigente
+hasta 6:00 p. m.
+Andrés Gómez
+Vigente
+hasta 6:00 p. m.
+No aplica
+Andrés Gómez
+Sin confirmar
+hasta 6:00 p. m.
+El lector no responde desde las 7:40 a. m.
+Crear Pase
+Así
+Un botón de acción por pantalla, con verbo y objeto.
+Crear Pase
+Cancelar
+Así no
+Dos botones verdes compiten; «Cancelar» va como secundario.
+kino-brand.css
+CSS
+Responde a: X4: #00D595 solo en el botón que crea o entrega un Pase.
+Las cinco pantallas donde se decide un ingreso
+Textos finales del inventario de UX writing. Nombres, placas y códigos son de ejemplo.
+9:41
+Casa 14
+¿Quién viene?
+Visita
+Colaborador
+Nombre
+Andrés Gómez
+WhatsApp
+300 555 0142
+Ahí le llega el Pase. No necesita instalar nada ni crear cuenta.
+Cuándo
+Hoy · de 2:00 a 6:00 p. m.
+Las visitas entran de 6:00 a. m. a 10:00 p. m.
+Placa (opcional)
+KMN 305
+Crear Pase
+Crear Pase
+9:41
+Pases de la Casa 14
+Activos
+Anteriores
+Andrés Gómez
+Vigente
+Visita
+hasta 6:00 p. m.
+Diana Arango
+Por vencer
+Visita
+hasta 4:30 p. m.
+Técnico del gas
+Sin confirmar
+Visita
+de 3:00 a 5:00 p. m.
+Luz Marina
+Previsto
+Colaborador
+lun y jue · 7:00 a. m.
 Crear Pase
 Lista de Pases
+9:41
+Pases
+Andrés Gómez
+Vigente
+Vale
+hoy de 2:00 a 6:00 p. m.
+Placa
+KMN 305
+Código
+4817
+Otorgó
+Carolina Ruiz · Casa 14
+13:58
+Enviado por WhatsApp
+14:03
+El lector lo confirmó
+15:12
+Entró con la placa KMN 305
+Extender
+Revocar
 Detalle de Pase
-Límites de la administración
+9:41
+Entra con tu WhatsApp
+Te enviamos un código por WhatsApp al 300 *** 0142.
+4
+8
+2
+9
+1
+Ese código no coincide. Revisa el último mensaje de Kino.
+El código se puede pegar desde WhatsApp.
+Entrar
 Acceso por código
-Accesibilidad WCAG 2.2 AA
+Administración
+Resumen
+Límites
+Residentes
+Lector
+Refugio Campestre
+Límites del conjunto
+Aplican a los Pases nuevos. Los activos conservan su vigencia.
+Pases activos al mismo tiempo
+5
+por casa
+[pendiente: unidad del cupo]
+Duración máxima de una visita
+12 h
+Franja de visitas
+6:00 a. m. – 10:00 p. m.
+Franja de colaboradores
+6:00 a. m. – 7:00 p. m.
+Guardar límites
+Límites guardados. Rigen desde hoy a las 4:32 p. m.
+Esta semana
+(ejemplo)
+214
+Pases otorgados ·
+187
+usados ·
+3
+rechazados en la entrada
+Límites de la administración · Kino Administración, trato de usted
+Responde a: Decide quien conoce (el residente otorga) y Topes a la vista (la administración fija límites, no aprueba).
+WCAG 2.2 AA, criterio por criterio
+Los criterios que más afectan a Kino y cómo los cumple cada pieza.
+Criterio
+Cómo lo cumple Kino
+Dónde se ve
+1.4.1 Uso del color
+Todo estado lleva palabra; el punto cambia de forma.
+Chip de estado
+1.4.3 y 1.4.11 Contraste
+APCA Lc 75 cuerpo, 60 grande, 30 no textual, y además WCAG 4,5:1 y 3:1. 112 pares medidos.
+Color · Contraste APCA
+1.4.10 Reflujo
+Todo se lee a 320 px sin desplazamiento horizontal.
+Retícula de teléfono
+1.4.12 Espaciado de texto
+Interlineado 1,6 y columna de 62 caracteres; nada se corta si el usuario los agranda.
+Tipografía
+2.1.1 Teclado
+Todo control se alcanza con Tab; el selector de tipo se mueve con flechas.
+Selector de tipo
+2.4.7 y 2.4.11 Foco visible y no oculto
+Anillo de 2 px en borde-foco con separación de 2 px; la barra inferior no tapa el campo enfocado.
+Todos los controles
+2.5.7 Arrastre
+Revocar y extender son botones, nunca un gesto de deslizar.
+Detalle de Pase
+2.5.8 Tamaño del objetivo
+Mínimo 48 × 48 px en la app; 24 × 24 es el mínimo de la norma.
+Botones y chips táctiles
+3.3.1 Identificación de errores
+El error dice qué pasó y qué hacer, debajo del campo, en texto.
+Campo · Error
+3.3.7 Entrada redundante
+Crear otro Pase repite los datos del anterior.
+Pase vencido · Crear otro Pase
+3.3.8 Autenticación accesible
+Código por WhatsApp que se puede pegar; no hay que recordar ninguna clave.
+Acceso por código
+4.1.3 Mensajes de estado
+Enviado, Sin confirmar y los errores se anuncian con
+aria-live
+.
+Confirmación de envío
 11 · Aplicación
 Aplicaciones
 Qué es
-La marca puesta en doce piezas reales.
+La marca puesta en quince piezas reales, desde el Pase hasta la papelería.
 Para qué sirve
-Para partir de una plantilla aprobada en vez de una hoja en blanco.
+Para partir de una pieza aprobada en vez de una hoja en blanco.
 Cuándo se usa
 Al producir una pieza nueva para un conjunto o para un aliado.
-En construcción
-Esta sección va a contener:
+La marca puesta en quince piezas
+Datos de ejemplo en todas. Las piezas físicas (señal, adhesivo, papelería, credencial) están en 2D: no hubo herramienta 3D disponible para los mockups
+[pendiente: mockups físicos en 3D]
+.
+9:41
+Pases de la Casa 14
+Activos
+Anteriores
+Andrés Gómez
+Vigente
+Visita
+hasta 6:00 p. m.
+Diana Arango
+Por vencer
+Visita
+hasta 4:30 p. m.
+Técnico del gas
+Sin confirmar
+Visita
+de 3:00 a 5:00 p. m.
+Luz Marina
+Previsto
+Colaborador
+lun y jue · 7:00 a. m.
+Crear Pase
+Lista de Pases
 App móvil
-Mensaje de WhatsApp con Pase
-Pase QR
-Señalética de portería
+360 × 780 px
+La lista de Pases de la Casa 14 con cuatro estados distintos.
+Responde a: Decide quien conoce.
+Pase · visita
+Andrés Gómez
+Hoy · de 2:00 a 6:00 p. m.
+Placa
+KMN 305
+Código
+4817
+Otorgó
+Carolina Ruiz · Casa 14
+Refugio Campestre
+Muéstralo en la entrada
+Carolina Ruiz, de la Casa 14, te dio un Pase para hoy de 2:00 a 6:00 p. m. Muéstralo en la entrada:
+kino.co/p/7Hq2
+1:58 p. m.
+Mensaje de WhatsApp con el Pase
+Mensaje de 23 palabras
+Una frase, la imagen del Pase y el enlace al Pase vivo. 23 palabras.
+Responde a: V7: imagen más enlace; el PDF es opcional.
+Pase · visita
+Andrés Gómez
+Hoy · de 2:00 a 6:00 p. m.
+Placa
+KMN 305
+Código
+4817
+Otorgó
+Carolina Ruiz · Casa 14
+Refugio Campestre
+Muéstralo en la entrada
+Pase · colaborador
+Luz Marina Restrepo
+lun y jue · de 7:00 a. m. a 5:00 p. m.
+Placa
+Sin placa
+Código
+4817
+Otorgó
+Carolina Ruiz · Casa 14
+Refugio Campestre
+Muéstralo en la entrada
+Pase QR (imagen)
+1080 × 1350 px
+La imagen que se ve en el chat sin abrir nada. El QR vive en el arco del logo, sobre blanco.
+Responde a: X1: forma Portal.
+kino.co/p/7Hq2
+Vigente
+Refugio Campestre
+Andrés Gómez
+Hoy · de 2:00 a 6:00 p. m. · otorgó Carolina Ruiz
+Vence a las 6:00 p. m.
+QR
+Acerca el QR al lector y espera la luz verde.
+Placa
+Avanza despacio hasta la talanquera. La cámara lee la placa KMN 305.
+Código
+Dile a portería el código 4817. Sirve una sola vez.
+Descargar PDF
+kino.co/p/7Hq2
+Vencido
+Refugio Campestre
+Andrés Gómez
+Hoy · de 2:00 a 6:00 p. m. · otorgó Carolina Ruiz
+Tu Pase valía de 2:00 a 6:00 p. m. y son las 7:10 p. m. Pídele uno nuevo a Carolina.
+Llamar al residente
+Pase vivo
+360 px
+La página del enlace. Dice si el Pase sigue sirviendo; en vencido ofrece llamar a quien lo dio.
+Responde a: Estado honesto y X11.
+Pase · visita
+Andrés Gómez
+Lunes 29 de septiembre · de 2:00 a 6:00 p. m.
+Placa
+KMN 305
+Código
+4817
+Otorgó
+Carolina Ruiz · Casa 14
+Conjunto
+Refugio Campestre
+QR
+Acerca el QR al lector y espera la luz verde.
+Placa
+Avanza despacio hasta la talanquera. La cámara lee la placa KMN 305.
+Código
+Dile a portería el código 4817. Sirve una sola vez.
+Emitido 2026-09-29 13:58 · kino.co/p/7Hq2 · Vence solo a las 18:00. El lector confirma cada ingreso.
+PDF del Pase
+Carta, 216 × 279 mm
+Para imprimir o para quien no usa WhatsApp. Siempre en claro.
+Responde a: X3: el PDF va en claro.
+Refugio Campestre
+Entrada de visitas
+Muestra tu Pase
+al lector
+QR
+Acércalo al lector
+Placa
+Avanza despacio
+Código
+Díselo a portería
+Si tu Pase venció, portería puede llamar a quien te lo dio.
+Señalética de la entrada
+60 × 40 cm
+Tres formas de entrar, leídas a dos metros. Abajo, qué pasa si el Pase venció.
+Responde a: X11 y el valor Decide quien conoce.
+Portería
+Refugio Campestre · Entrada principal
+Diana Arango
+Rechazado
+Pase vencido a las 6:00 p. m. · placa
+JRT 118
+· otorgó Carolina Ruiz, Casa 14
+Llamar al residente
+La llamada no abre la entrada. Si Carolina quiere que Diana entre, le da un Pase nuevo desde su app.
+15:12
+Andrés Gómez
+KMN 305
+Casa 14
+Entró
+15:40
+Técnico del gas
+QR
+Casa 22
+Sin confirmar
+19:10
+Diana Arango
+JRT 118
+Casa 14
+Rechazado
+Vista de portería
+1280 px
+Nombre, placa y estado. La cédula no aparece. En un rechazo, el turno puede llamar al residente.
+Responde a: Discreto y X11: la llamada no abre la entrada.
+Avanza despacio
+La cámara lee tu placa y la talanquera abre si tu Pase está vigente.
 Adhesivo de talanquera
+20 × 10 cm, vinilo
+En el brazo o el poste de la talanquera, para quien entra en carro.
+Para administraciones
+Hoy su conjunto no sabe quién autorizó cada ingreso.
+0
+/312
+personas reconocidas por el lector en una comunidad con el equipo instalado
+711
+errores de sincronización, todos por el campo correo
+Inspección en Monte Sereno, sep 2026
 Presentación comercial
+1920 × 1080 px
+Para el consejo de administración: el problema con cifras propias y su fuente.
+Responde a: P10: el problema se cuenta con datos del conjunto piloto.
+Kino para administraciones
+Cada ingreso con un Pase que tiene autor y hora de salida
+Qué hace
+El residente le da un Pase a quien espera. La visita entra con QR, placa o código, sin crear cuenta. El lector que ya tiene el conjunto lo aplica.
+Qué hace usted
+Fija los límites una vez: cuántos Pases a la vez, cuánto duran y en qué franja. Ya no aprueba ingresos uno por uno.
+Qué necesita el conjunto
+Lectores de placa, rostro o QR sobre HikCentral. Kino se conecta a ellos.
+887 de 888
+personas sincronizadas con el lector en Villas Campestres, Monte Sereno
+kino.co ·
+[pendiente: datos de contacto]
 Documento de una página
+Carta
+Lo que se deja después de la reunión con una administración. Trato de usted.
+Responde a: V1: usted con la administración.
+La señora del aseo entra lunes y jueves.
+Su Pase se repite esos días y vence solo.
+Pase · visita
+Andrés Gómez
+Hoy · de 2:00 a 6:00 p. m.
+Placa
+KMN 305
+Código
+4817
+Otorgó
+Carolina Ruiz · Casa 14
+Refugio Campestre
+Muéstralo en la entrada
+El Pase llega por WhatsApp.
+Sin instalar nada.
 Plantillas de redes
-Correo
+1080 × 1080 y 1080 × 1920 px
+Una idea por pieza, con un caso concreto.
+De
+Kino <resumen@kino.co>
+Asunto
+Refugio Campestre · semana del 22 al 28 de septiembre
+Buenos días. Este es el resumen de la semana en Refugio Campestre.
+214
+Pases otorgados
+187
+usados
+3
+rechazados en la entrada
+Los tres rechazos fueron Pases vencidos. Puede ver el detalle de cada uno en Kino Administración.
+Cifras de ejemplo.
+Correo a la administración
+600 px de ancho
+Resumen semanal con cifras que tienen denominador.
+Responde a: Topes a la vista.
+Medellín, 29 de septiembre de 2026
+kino.co
+Nombre Apellido
+Equipo Kino
+300 000 0000 · nombre@kino.co
 Papelería
+Carta · 90 × 55 mm
+Hoja membretada y tarjeta de presentación.
+NA
+Nombre Apellido
+Instalación y soporte
+Vigente hasta 2026-12-31
+Vigente
 Credencial
+85,6 × 54 mm
+Para el equipo de Kino que instala y da soporte en un conjunto. Sin foto: iniciales y vigencia.
+Responde a: Datos mínimos.
+Refugio Campestre
+Desde el lunes, las visitas entran con un Pase
+Cuando esperes a alguien, créale un Pase en Kino con su nombre, su WhatsApp y la hora. Le llega por WhatsApp y lo muestra en la entrada. No tiene que instalar nada.
+Entra a Kino
+con el código que te llega por WhatsApp.
+Crea el Pase
+: visita o colaborador.
+Tu visita lo muestra en la entrada
+: QR, placa o código.
+La administración fijó estos límites: 5 Pases activos a la vez y visitas de 6:00 a. m. a 10:00 p. m.
+Administración de Refugio Campestre · con Kino
 Carta de bienvenida al conjunto
+Carta
+La recibe cada residente el día que el conjunto empieza con Kino. Trato de tú.
+Responde a: Tú con el residente (V1).
+Dónde están las plantillas para duplicar
+Las plantillas editables viven en la página «Aplicaciones / Plantillas» de la librería de Figma, ligadas a las variables. En código, las piezas del Pase salen de
+deptos/pase.py
+.
+Abrir la librería de Figma
 12 · Operación
 Gobernanza
 Qué es
@@ -975,97 +3323,240 @@ Para qué sirve
 Para que la marca siga siendo una sola cuando la usen personas fuera del equipo.
 Cuándo se usa
 Antes de publicar una pieza o de proponer un cambio.
-En construcción
-Esta sección va a contener:
+El equipo de Kino decide sobre la marca
+Nico Ramírez y Alejandro Monsalve. Una propuesta de cambio llega con la fila de la plataforma a la que responde; sin esa fila no se discute.
+Qué
 Quién decide
-Cómo pedir archivos
-Versiones
-Registro de cambios
-Lista de revisión antes de publicar
-Pendientes
-Centro de descargas
-Quién decide
-El equipo de Kino decide sobre la marca. Una propuesta de cambio llega con la fila de la plataforma a la que responde; sin esa fila no se discute.
-Pendientes
-Lo que falta para cerrar el sistema y por qué no se puede resolver todavía.
+Cómo queda
+Logo, color, tipografía, voz
+El equipo de Kino
+En el registro de decisiones con estado Aprobada
+Una pieza nueva con la marca
+Quien la produce, con la lista de revisión
+Revisa el equipo antes de publicar
+Datos de un conjunto en una pieza
+La administración del conjunto
+Solo nombre y unidad, como texto
+Tokens y código
+El equipo de Kino
+Commit en
+gorr-brand-system/clientes/kino
+con el ciclo en verde
+Responde a: F4: Kino tiene identidad propia. La administración de un conjunto no decide sobre la marca.
+Tres datos y el equipo responde
+Para pedir un archivo o una pieza nueva, escribe qué pieza es, dónde se va a publicar y para cuándo. Si el archivo ya existe, está en el centro de descargas de abajo.
+Busca el archivo junto a su regla o en el centro de descargas.
+Si no está, pide la pieza con qué, dónde y cuándo
+[pendiente: canal de solicitudes]
+.
+Antes de publicar, pasa la lista de revisión.
+Número de versión con tres partes
+Mayor, menor y corrección, como en el software. El número está en la cabecera de
+kino-tokens.css
+y en este registro.
+Cambio
+Ejemplo
+Sube
+Cambia lo que significa algo
+El color de un estado, la forma del logo, un nombre
+Mayor: 1.0.0 → 2.0.0
+Algo nuevo que no rompe lo anterior
+Un componente, una pieza, un ícono
+Menor: 1.0.0 → 1.1.0
+Corrección
+Un texto, un paso de contraste, un error de dibujo
+Corrección: 1.0.0 → 1.0.1
+Qué cambió y cuándo
+Versión
+Fecha
+Estado
+Qué cambió
+1.0.0
+24 sep 2026
+Propuesta
+Tokens con la paleta aprobada, departamentos 03 a 12, piezas del Pase, verificación y librería de Figma. Espera la revisión 4.
+0.3
+24 sep 2026
+Aprobada
+Identidad visual: forma Portal, dos verdes, oscuro reajustado, Archivo al 112 %, trazo 1,7, aurora, radio 14 y arco, crecer, estados. Llamada de portería en vencido.
+0.2
+23 sep 2026
+Aprobada
+Voz: usted con la administración, «Pase» con mayúscula, horas, «Visita», nombres de estado, patrones de voz, imagen más enlace.
+0.1
+23 sep 2026
+Aprobada
+Plataforma y arquitectura: posicionamiento, promesa, personalidad, valores, nombres y manifiesto.
+0.0
+23 sep 2026
+Borrador
+Borrador del sistema. Copia guardada con su fecha.
+Doce preguntas antes de publicar una pieza
+¿Cada estado lleva palabra además de color?
+¿El verde #00D595 aparece solo en el botón que crea o entrega un Pase?
+¿El conjunto aparece solo como dato, sin logo ni colores?
+¿Los textos pasan
+npm run voz -- kino
+sin errores?
+¿Todo par texto y fondo nuevo está en
+pares.json
+y pasa APCA?
+¿Ningún hex, tamaño ni duración está escrito a mano en el código?
+¿El arco aparece solo en lo que es un Pase?
+¿Placas, códigos y horas en datos van en JetBrains Mono?
+¿Tú con residente y visita, usted con la administración, sin mezclar en una pieza?
+¿El texto evita las palabras de la lista
+Evitar
+de Verbal?
+¿Las cifras tienen denominador y fuente?
+¿El logo respeta su área de protección y su tamaño mínimo?
+Lo que falta y por qué no se puede resolver todavía
 Vector original del logo
-No existe. Los SVG del sistema son reconstrucciones desde los PNG de 1543 × 1425 px, con 98 % de coincidencia.
+No existe. Los SVG son reconstrucciones desde los PNG de 1543 × 1425 px, con 98 % de coincidencia. Las medidas del logo son derivadas.
 Licencia de Arkit ExtraBold
 Sin información. La fuente vive solo dentro de los contornos del logotipo.
 Mensajes reales de portería y WhatsApp
-No hay ninguno en los archivos. Sin ellos, las plantillas se escriben sin referencia de uso real.
+No hay ninguno en los archivos. Las plantillas se escribieron sin referencia de uso real.
 Credencial temporal en HikCentral
 Falta confirmar que acepte una credencial sin crear una persona. Es la prueba del Pase sin cuenta.
-Unidad de los cupos
-Por casa, por residente o por conjunto. Decisión de producto; bloquea los textos de límites.
+Unidad del cupo
+Por casa, por residente o por conjunto. Decisión de producto; los ejemplos dicen «a la vez».
+Teclado del lector
+No se sabe si el lector tiene teclado para el código. El texto dice «Dile a portería el código».
+Llamada de portería al residente
+Nico confirmó que portería puede llamar desde Kino (X11). La inspección no registró el botón: si no existe, es un requisito de producto.
+Llamada desde el Pase vivo
+Falta decidir si la visita llama sin ver el número del residente. Ver decisiones, F4-P1.
 Citas de las entrevistas con residentes
 Las cinco entrevistas no tienen citas escritas. Las necesidades por actor se apoyan en la inspección.
 Integración real de las apps de visitas
 Neivor anuncia integración sin nombrar marcas de hardware. Falta verificar.
+Prueba física del logo y de color
+Tamaños mínimos impresos y CMYK sin prueba en papel.
+Equivalencias Pantone
+Sin guía física para comparar.
+Prueba con usuarios daltónicos
+Los estados se revisaron solo por simulación.
+Mockups físicos en 3D
+No hubo herramienta 3D disponible. Señal, adhesivo, papelería y credencial están en 2D.
+Datos de contacto
+Correo, teléfono y dominio definitivos. Los ejemplos usan kino.co.
+Canal de solicitudes
+Dónde se piden activos y cambios: correo o canal del equipo, por definir.
+Todos los archivos en un lugar
+Cada archivo también está junto a la regla que lo gobierna.
+Logo
+Color sobre oscuro (principal)
+SVG
+Color sobre claro
+SVG
+Una tinta, negro
+SVG
+Una tinta, blanco
+SVG
+Solo símbolo
+SVG
+Vertical
+SVG
+Íconos
+Favicon
+SVG
+Ícono de app
+SVG
+Sprite de íconos
+SVG
+Código
+Tokens DTCG resueltos
+JSON
+Tokens en CSS
+CSS
+Capa de marca
+CSS
+Fuentes
+Archivo
+·
+JetBrains Mono
+(OFL 1.1)
 Consulta
 Glosario
 Los términos propios de Kino, en el sentido exacto en que se usan en la app, en los textos y en el código.
-Pase
-Lo que recibe un visitante o un colaborador para entrar. Lleva quién lo otorgó, a quién, el motivo, la vigencia y el modo. Vence solo.
-Cuenta
-Lo que tiene un residente para usar la app. Una visita nunca tiene cuenta.
 Acceso previsto
 Un Pase que el residente prepara antes de que llegue la persona.
-Residente
-Quien vive en el conjunto, propietario o arrendatario. Tiene cuenta.
-Visitante
-Quien entra una vez o de vez en cuando con un Pase y sin cuenta.
-Colaborador
-Quien trabaja en una casa o en el conjunto y entra con regularidad: aseo, jardinería, técnicos. Tiene la misma prioridad que la visita.
 Administración
 Quien compra Kino. Fija los límites del conjunto y ve la constancia de cada Pase.
-Portería
-El equipo de vigilancia de la entrada. Supervisa; el ingreso lo permite el lector.
-Lector
-El dispositivo de la entrada que lee la placa, el QR, el código o el rostro y deja pasar.
-Límites
-Cupos, duración y franjas que fija la administración para todos los Pases del conjunto.
-Cupo
-Cuántos Pases pueden estar activos a la vez. La unidad está pendiente: por casa, por residente o por conjunto.
-Franja
-El horario en el que un Pase se puede usar.
-Vigencia
-Desde cuándo y hasta cuándo vale un Pase.
-Modo
-Cómo se presenta el Pase en la entrada: QR, placa o código.
-Código de un solo uso
-Número que sirve para entrar una vez. Después queda usado.
-Otorgar
-Crear un Pase. Es la única acción que lleva el color de acento.
-Sin confirmar
-Estado de un Pase que el lector todavía no reconoce.
-Constancia
-La ficha que queda de cada Pase: quién lo otorgó, a quién, para qué y hasta cuándo.
+APCA
+Método de contraste que mide la legibilidad en Lc. Kino exige Lc 75 en texto de cuerpo.
+Aurora
+El fondo de luz verde e índigo sobre sustrato. Nunca detrás de un QR.
+Casa
+La unidad del residente dentro del conjunto. Si el conjunto usa «apartamento», se escribe así.
+Colaborador
+Quien trabaja en una casa o en el conjunto y entra con regularidad: aseo, jardinería, técnicos. Tiene la misma prioridad que la visita.
 Conjunto
 La copropiedad donde opera Kino. Aparece como dato: «Refugio Campestre · Casa 14».
+Constancia
+La ficha que queda de cada Pase: quién lo otorgó, a quién, para qué y hasta cuándo.
+Cuenta
+Lo que tiene un residente para usar la app. Una visita nunca tiene cuenta.
+Cupo
+Cuántos Pases pueden estar activos a la vez. La unidad está pendiente: por casa, por residente o por conjunto.
+Código de un solo uso
+Número que sirve para entrar una vez. Después queda usado.
+Entrada
+El punto físico por donde se ingresa al conjunto: peatonal o vehicular.
+Forma Portal
+La forma del Pase: el QR dentro del arco del logo, abierto por arriba como una entrada.
+Franja
+El horario en el que un Pase se puede usar.
 HikCentral
 La plataforma de Hikvision que administra los lectores y la talanquera. Kino se conecta a ella.
+Lector
+El dispositivo de la entrada que lee la placa, el QR, el código o el rostro y deja pasar.
 LPR
 Lectura de placas por cámara, del inglés License Plate Recognition.
-Visita
-Tipo de Pase para quien entra una vez o de vez en cuando. En la interfaz se prefiere a «visitante».
-Vigente
-Estado de un Pase activo que el lector confirmó.
+Límites
+Cupos, duración y franjas que fija la administración para todos los Pases del conjunto.
+Membrana
+La superficie de lo que se toca: controles, tarjetas y el Pase.
+Modo
+Cómo se presenta el Pase en la entrada: QR, placa o código.
+Otorgar
+Crear un Pase. Es la única acción que lleva el color de acento.
+Pase
+Lo que recibe un visitante o un colaborador para entrar. Lleva quién lo otorgó, a quién, el motivo, la vigencia y el modo. Vence solo.
+Pase vivo
+La página que abre el enlace del WhatsApp. Dice si el Pase sigue sirviendo.
+Por vencer
+Estado de un Pase vigente que entró en la ventana de aviso antes de su hora de salida.
+Portería
+El equipo de vigilancia de la entrada. Supervisa; el ingreso lo permite el lector.
+Previsto
+Estado de un Pase creado para una franja futura. Es el acceso previsto antes de que empiece.
+QR
+Código gráfico que la visita muestra en el lector desde su teléfono.
+Rechazado
+Intento de entrada que el lector no aceptó, con su motivo: fuera de franja, Pase vencido o no reconocido.
+Residente
+Quien vive en el conjunto, propietario o arrendatario. Tiene cuenta.
+Revocado
+Estado de un Pase que alguien cortó antes de que venciera. Queda el nombre de quien lo hizo.
+Revocar
+Cortar un Pase antes de su vencimiento.
+Sin confirmar
+Estado de un Pase que el lector todavía no reconoce.
+Talanquera
+La barrera vehicular de la entrada, que abre cuando el lector reconoce la placa.
+Token
+Un valor de diseño con nombre (color, tamaño, duración). Los tokens de Kino están en formato DTCG.
 Usado
 Estado de un código de un solo uso que ya sirvió para entrar.
 Vencido
 Estado de un Pase cuya vigencia terminó sin que nadie interviniera.
-Revocado
-Estado de un Pase que alguien cortó antes de que venciera. Queda el nombre de quien lo hizo.
-Rechazado
-Intento de entrada que el lector no aceptó, con su motivo: fuera de franja, Pase vencido o no reconocido.
-Revocar
-Cortar un Pase antes de su vencimiento.
-Entrada
-El punto físico por donde se ingresa al conjunto: peatonal o vehicular.
-Talanquera
-La barrera vehicular de la entrada, que abre cuando el lector reconoce la placa.
-Casa
-La unidad del residente dentro del conjunto. Si el conjunto usa «apartamento», se escribe así.
-QR
-Código gráfico que la visita muestra en el lector desde su teléfono.
+Vigencia
+Desde cuándo y hasta cuándo vale un Pase.
+Vigente
+Estado de un Pase activo que el lector confirmó.
+Visita
+Tipo de Pase para quien entra una vez o de vez en cuando. En la interfaz se prefiere a «visitante».
+Visitante
+Quien entra una vez o de vez en cuando con un Pase y sin cuenta.

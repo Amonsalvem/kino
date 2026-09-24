@@ -497,6 +497,32 @@
   font-family: var(--kino-fuente-texto); font-weight: var(--kino-peso-medio); font-size: var(--kino-texto-0); }
 .kino-boton:hover { background: var(--kino-superficie-membrana); }
 
+/* ---- Campo ---- */
+.kino-campo { display: grid; gap: var(--kino-espacio-2xs); }
+.kino-campo__rot { font-size: var(--kino-texto-n1); font-weight: var(--kino-peso-medio); color: var(--kino-texto-primario); }
+.kino-campo__caja { display: flex; align-items: center; min-block-size: var(--kino-espacio-2xl);
+  padding: var(--kino-espacio-xs) var(--kino-espacio-s); border-radius: var(--kino-forma-radio-control);
+  background: var(--kino-superficie-base); border: var(--kino-linea-fino) solid var(--kino-borde-definido); color: var(--kino-texto-primario); }
+.kino-campo__caja:hover { border-color: var(--kino-texto-secundario); }
+.kino-campo__caja:focus-within { outline: var(--kino-linea-foco) solid var(--kino-borde-foco); outline-offset: var(--kino-linea-foco); }
+.kino-campo__ayuda { margin: 0; font-size: var(--kino-texto-n1); color: var(--kino-texto-secundario); }
+.kino-campo__error { margin: 0; font-size: var(--kino-texto-n1); color: var(--kino-estado-rechazado-texto);
+  background: var(--kino-estado-rechazado-fondo); border-radius: var(--kino-forma-radio-chip); padding: var(--kino-espacio-2xs) var(--kino-espacio-xs); }
+.kino-campo[aria-invalid="true"] .kino-campo__caja { border-color: var(--kino-estado-rechazado-borde); }
+
+/* ---- Selector de tipo: Visita y Colaborador con el mismo peso ---- */
+.kino-selector { display: grid; grid-template-columns: 1fr 1fr; gap: var(--kino-espacio-3xs); padding: var(--kino-espacio-3xs);
+  border-radius: var(--kino-forma-radio-control); background: var(--kino-superficie-base); border: var(--kino-linea-fino) solid var(--kino-borde-definido); }
+.kino-selector__op { display: flex; align-items: center; justify-content: center; min-block-size: var(--kino-espacio-xl);
+  border-radius: var(--kino-forma-radio-chip); font-weight: var(--kino-peso-medio); color: var(--kino-texto-primario); cursor: pointer; }
+.kino-selector__op[aria-checked="true"] { background: var(--kino-superficie-inversa); color: var(--kino-texto-inverso); }
+
+/* ---- Carga ---- */
+.kino-carga { inline-size: 1em; block-size: 1em; border-radius: var(--kino-radio-pleno); flex: none;
+  border: var(--kino-linea-foco) solid currentColor; border-inline-end-color: transparent;
+  animation: kino-girar var(--kino-movimiento-latir-duracion) linear infinite; }
+@keyframes kino-girar { to { transform: rotate(1turn); } }
+
 /* ---- Pase: tarjeta con la forma Portal (X1). El arco solo aparece aquí (X8). ---- */
 .kino-pase { display: grid; gap: var(--kino-espacio-s); padding: var(--kino-espacio-m);
   border-radius: var(--kino-forma-radio-tarjeta);

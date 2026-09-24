@@ -112,5 +112,23 @@
     if(e.key==='Escape')cerrarIndice();
   });
 
+  /* Demos de movimiento: corren al mostrar la sección y con «Repetir». Las secciones ocultas no animan. */
+  function correr(fig){fig.classList.remove('corre');void fig.offsetWidth;fig.classList.add('corre');}
+  function correrEn(v){[].forEach.call(v.querySelectorAll('[data-demo]'),correr);}
+  document.addEventListener('click',function(e){
+    var r=e.target.closest('[data-repetir]');if(r){var f=r.closest('[data-demo]');if(f)correr(f);}
+    var m=e.target.closest('[data-mov-reducido]');
+    if(m){var on=raiz.getAttribute('data-mov')!=='reducido';if(on)raiz.setAttribute('data-mov','reducido');else raiz.removeAttribute('data-mov');
+      [].forEach.call(document.querySelectorAll('[data-mov-reducido]'),function(b){b.setAttribute('aria-pressed',on);b.textContent=on?'Ver con movimiento completo':'Ver en movimiento reducido';});
+      if(actual)correrEn(actual);}
+    /* PNG a partir del SVG descargable. */
+    var p=e.target.closest('[data-png]');
+    if(p){var img=new Image(),w=+p.dataset.ancho,h=+p.dataset.alto;img.onload=function(){var c=document.createElement('canvas');c.width=w;c.height=h;
+      c.getContext('2d').drawImage(img,0,0,w,h);c.toBlob(function(b){var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=p.dataset.png;document.body.appendChild(a);a.click();
+      setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},500);},'image/png');};img.src=p.dataset.src;}
+  });
+  window.addEventListener('hashchange',function(){if(actual)correrEn(actual);});
+
   ir(location.hash,false);
+  if(actual)correrEn(actual);
 })();
