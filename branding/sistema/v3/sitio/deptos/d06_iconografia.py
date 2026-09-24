@@ -93,14 +93,14 @@ def html_():
             'Toca un ícono para descargarlo en SVG. El sprite trae todos con <code>currentColor</code>, listos para <code>&lt;use&gt;</code>.',
             grupos + descargas(descarga('Sprite completo', 'kino-iconos.svg', sprite))
             + traza('Exacto: cada objeto del producto (Pase, placa, código, lector) tiene un ícono propio y uno solo.')),
-        sub('iconografia.ilustracion', 'Ilustración', 'Membranas y portales, nunca candados',
-            'Kino no se dibuja como una fortaleza. La ilustración usa el arco del logo, la membrana y la luz de la aurora. Los colores de estado solo aparecen cuando nombran un estado.',
+        sub('iconografia.ilustracion', 'Ilustración', 'Arco, membrana y aurora; sin candados',
+            'La ilustración usa el arco del logo, la membrana y la luz de la aurora. Los colores de estado solo aparecen cuando nombran un estado.',
             casos(caso('<div class="ilus-bien"><span class="ilus-arco"></span><svg class="kino-icono" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-visita"/></svg></div>', 'La visita cruza un arco: el Pase abre una entrada.'),
                   caso('<div class="ilus-mal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-candado"/></svg><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-escudo"/></svg></div>', 'Candados y escudos prometen una seguridad que Kino no vende.', False),
                   caso('<div class="ilus-bien"><svg class="kino-icono" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pase"/></svg><span class="kino-estado" data-estado="vigente">Vigente</span></div>', 'Verde solo junto a un estado Vigente.'),
                   caso('<div class="ilus-mal verde"><svg class="kino-icono" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-residente"/></svg><svg class="kino-icono" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-carro"/></svg></div>', 'Íconos pintados de verde por decoración.', False))
             + '<ul class="reglas-cortas"><li>Figuras de personas sin rostro ni rasgos: Kino no guarda fotos de visitas en la interfaz.</li><li>Relleno solo con superficie membrana; nunca degradados en el ícono.</li><li>Una ilustración explica un paso del Pase o no va.</li></ul>'
-            + traza('Regla de marca 10: sin candados, escudos ni muros. Discreto: la persona no se retrata.')),
+            + traza('Regla de marca: sin candados, escudos ni muros. Discreto: la persona no se retrata.')),
     ])
     return seccion('iconografia', '06', 'Iconografía e ilustración', 'Identidad',
                    'Los íconos de Kino y las reglas para dibujar uno nuevo.',

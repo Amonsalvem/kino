@@ -31,7 +31,7 @@ def html_():
             + _reticula('Carta (impresos)', 6, 216, 280, 20, 12, 'Margen de 20 mm a escala. El PDF del Pase usa esta.')
             + '</div>' + traza('Constancia: el Pase se ve igual en el teléfono, la hoja y la pantalla de portería.')),
         sub('estructura.espaciado', 'Espaciado', 'Diez pasos de espacio',
-            'La distancia entre dos cosas dice cuánto se relacionan. Dentro de una tarjeta, <code>s</code> o <code>m</code>; entre tarjetas, <code>l</code>; entre secciones, <code>2xl</code> o más.',
+            'Dentro de una tarjeta, <code>s</code> o <code>m</code>; entre tarjetas, <code>l</code>; entre secciones, <code>2xl</code> o más.',
             f'<ul class="espacios">{esp}</ul>'
             + casos(caso('<div class="esp-demo bien"><div class="kino-pase"><p class="kino-pase__quien">Andrés Gómez</p><p class="kino-pase__autor">Otorgó Carolina · Casa 14</p></div><div class="kino-pase"><p class="kino-pase__quien">Luz Marina</p><p class="kino-pase__autor">Colaborador · lun y jue</p></div></div>', 'Poco espacio dentro, más espacio entre tarjetas.'),
                     caso('<div class="esp-demo mal"><div class="kino-pase"><p class="kino-pase__quien">Andrés Gómez</p><p class="kino-pase__autor">Otorgó Carolina · Casa 14</p></div><div class="kino-pase"><p class="kino-pase__quien">Luz Marina</p><p class="kino-pase__autor">Colaborador · lun y jue</p></div></div>', 'El mismo espacio dentro y fuera: no se sabe qué va con qué.', False))),

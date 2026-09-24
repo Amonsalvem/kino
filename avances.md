@@ -112,3 +112,26 @@ En arquitectura faltaba:
 ## Parada 3 · respuesta (24 sep)
 - Nico aprueba X1 a X10 como se propusieron y responde la pregunta 5 (X11: portería puede llamar al residente desde Kino).
 - Siguiente paso: la Fase 4, en la rama `marca/fase-4`. Guía de arranque en `SESION-NUBE.md`.
+
+## Fase 4 y Fase 5 · 24 sep (sesión en la nube, rama `marca/fase-4`)
+
+**Informe de verificación de la Fase 5** (`branding/sistema/v3/verificacion/`: `fase5.py`, `informe.md`, `evaluaciones.md`)
+
+| # | Comprobación | Resultado |
+|---|---|---|
+| 1 | Términos prohibidos, «permiso», exclamaciones y rayas en el texto visible | PASA · 0 |
+| 2 | `npm run voz -- kino` sobre el texto visible y los textos de la app | PASA · 0 hallazgos |
+| 3 | Límites de largo de UX writing | PASA · 46 de 46 |
+| 4 | Tú y usted por audiencia, sin mezclar | PASA · 0 mezclas |
+| 5 | APCA en todos los pares | PASA · 112 mediciones en los dos temas, 0 fallos |
+| 6 | Diff entre DTCG, `kino-brand.css` y Figma | Ver el bloque 6 |
+| 7 | Componentes sin ligar a variables | PASA en CSS; Figma, ver el bloque 6 |
+| 8 | Decisiones sin justificación de la plataforma | PASA después de agregar la línea de justificación a P07, P09, P14 y V6 |
+| 9 | Enlaces y anclas rotas | PASA · 46 anclas, 0 rotas |
+| 10 | Cobertura de la definición de terminado | PASA · 81 de 81 elementos con su ancla |
+
+**Evaluaciones independientes (subagentes)**
+- Lector frío: 8 de 8 con cita. Claridad media de 3,9 en el ciclo 1 y 4,25 en el ciclo 2: **PASA**.
+- Detector de IA: 17, 12 y 8 señales en los ciclos 1, 2 y 3. En el ciclo 3 quedan Motion (3) y Plataforma (2) por encima del máximo de 1, y 1 microcopy débil: **FALLA**.
+  - Las 8 señales del ciclo 3 se corrigieron, pero el límite de 3 ciclos no permite volver a medir. Queda sin verificar y se reporta así.
+  - Detalle en `evaluaciones.md`.

@@ -225,7 +225,7 @@
     },
     {
       "id": "mayusculas-enfasis",
-      "regex": "(?<!#)\\b(?!(?:HPH|JSON|RGB|CMYK|SIL|WCAG|SIC|ANPR|LPR|QR|PH|API|CSS|MVP|EAFIT|DTCG|WCAG|APCA|SVG|PNG|PDF|CDN|MIT|OFL|IoU|NN|KINO|HTML|URL|UI|SDK|CI|NPM|DANE|GEIH|OTP|ISO|RAE|COP|ANPR|PENDIENTE|HOY|DGT)\\b)[A-ZÁÉÍÓÚÑ]{3,}\\b(?![\\s-]?\\d)",
+      "regex": "(?<!#)\\b(?!(?:HPH|GPU|JSON|RGB|CMYK|SIL|WCAG|SIC|ANPR|LPR|QR|PH|API|CSS|MVP|EAFIT|DTCG|WCAG|APCA|SVG|PNG|PDF|CDN|MIT|OFL|IoU|NN|KINO|HTML|URL|UI|SDK|CI|NPM|DANE|GEIH|OTP|ISO|RAE|COP|ANPR|PENDIENTE|HOY|DGT)\\b)[A-ZÁÉÍÓÚÑ]{3,}\\b(?![\\s-]?\\d)",
       "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481).",
       "gravedad": "aviso"
     },

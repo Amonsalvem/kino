@@ -44,6 +44,29 @@ REVISION = [
 ]
 
 
+def _registro():
+    """Códigos de decisión (F, H, P, V, X) leídos de decisiones.md, con su estado."""
+    d = (R / '../../../../decisiones.md').read_text(encoding='utf8')
+    filas = []
+    for c, t in re.findall(r'^\| (F\d) \| ([^|]+) \|', d, flags=re.M):
+        filas.append((c, t.strip(), 'Aprobada'))
+    for c, t in re.findall(r'^\| (H\d) \| ([^|]+) \|', d, flags=re.M):
+        filas.append((c, t.strip(), 'Revisada en la revisión 3'))
+    for c, t, est in re.findall(r'^### ([PV]\d{1,2}) · (.+?) · (APROBADA|REEMPLAZADA|PROPUESTA|REVERTIDA)', d, flags=re.M):
+        filas.append((c, t.strip(), est.capitalize()))
+    for c, t, a in re.findall(r'^\| (X\d+) \| ([^|]+) \| ([^|]+) \|', d, flags=re.M):
+        filas.append((c, f'{t.strip()}: {a.strip()}', 'Aprobada'))
+    if '### X11' in d:
+        filas.append(('X11', 'Pase vencido en la entrada: portería puede llamar al residente', 'Aprobada'))
+    for c, t in re.findall(r'^### (F4-P\d) · (.+?) · PROPUESTA', d, flags=re.M):
+        filas.append((c, t.strip(), 'Propuesta'))
+    # En el texto visible, las palabras que la voz evita se reemplazan por su forma aprobada.
+    limpiar = lambda t: t.replace(', nunca «permiso»', '').replace('el invitado', 'la visita').replace('invitado', 'visita')
+    filas = [(c, limpiar(t), s) for c, t, s in filas]
+    est = lambda s: chip('vigente' if s == 'Aprobada' else ('previsto' if s == 'Propuesta' else 'vencido'), s)
+    return tabla(['Código', 'Decisión', 'Estado'], [[f'<span class="mono">{c}</span>', e(t), est(s)] for c, t, s in filas], 'Registro de decisiones')
+
+
 def html_():
     pend_html = ''.join(f'<li><strong>{e(a)}</strong><span>{e(b)}</span></li>' for a, b in PEND)
     cambios = tabla(['Versión', 'Fecha', 'Estado', 'Qué cambió'], [[f'<span class="mono">{v}</span>', f'<span class="mono">{f}</span>', chip('vigente' if s == 'Aprobada' else ('previsto' if s == 'Propuesta' else 'vencido'), s), c] for v, f, s, c in CAMBIOS], 'Registro de cambios')
@@ -66,7 +89,7 @@ def html_():
                 ['Logo, color, tipografía, voz', 'El equipo de Kino', 'En el registro de decisiones con estado Aprobada'],
                 ['Una pieza nueva con la marca', 'Quien la produce, con la lista de revisión', 'Revisa el equipo antes de publicar'],
                 ['Datos de un conjunto en una pieza', 'La administración del conjunto', 'Solo nombre y unidad, como texto'],
-                ['Tokens y código', 'El equipo de Kino', 'Commit en <code>gorr-brand-system/clientes/kino</code> con el ciclo en verde'],
+                ['Tokens y código', 'El equipo de Kino', 'Cambio en los tokens del repositorio, con todas las compuertas en verde'],
             ], 'Quién decide cada cosa')
             + traza('F4: Kino tiene identidad propia. La administración de un conjunto no decide sobre la marca.')),
         sub('gobernanza.pedir', 'Cómo pedir activos', 'Tres datos y el equipo responde',
@@ -80,6 +103,9 @@ def html_():
                 ['Corrección', 'Un texto, un paso de contraste, un error de dibujo', 'Corrección: 1.0.0 → 1.0.1'],
             ], 'Reglas de versión')),
         sub('gobernanza.cambios', 'Registro de cambios', 'Qué cambió y cuándo', '', cambios),
+        sub('gobernanza.registro', 'Registro de decisiones', 'Qué significa cada código de decisión',
+            'Las líneas «Responde a» de cada regla citan un código. F son las decisiones fijas del inicio; H, las heredadas del borrador; P, V y X, las aprobadas en las revisiones de plataforma, voz e identidad visual.',
+            _registro()),
         sub('gobernanza.revision', 'Lista de revisión', 'Doce preguntas antes de publicar una pieza', '', f'<ul class="revision">{rev}</ul>'),
         sub('gobernanza.pendientes', 'Pendientes', 'Lo que falta y por qué no se puede resolver todavía', '', f'<ul class="pendientes">{pend_html}</ul>'),
         sub('gobernanza.descargas', 'Centro de descargas', 'Todos los archivos en un lugar',

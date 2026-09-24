@@ -26,9 +26,9 @@ PERFIL = [
 # ───────────────────────── Tono por contexto ─────────────────────────
 TONO = [
  ("App del residente", "tú", "Directo y breve. El dato primero: nombre, hora, placa.", "Andrés recibió el Pase. Vale hoy de 2:00 a 6:00 p. m.", "¡Genial! Tu invitado ya puede ingresar sin problemas."),
- ("WhatsApp a la visita", "tú", "Quien lo recibe no conoce Kino. Primero quién le da el Pase; después qué hacer en la entrada.", "Hola, Andrés. Carolina Ruiz, de la Casa 14, te dio un Pase para hoy de 2:00 a 6:00 p. m.", "Estimado usuario, ha sido registrado en nuestra plataforma de seguridad."),
+ ("WhatsApp a la visita", "tú", "Quien lo recibe no conoce Kino. Primero quién le da el Pase; después qué hacer en la entrada.", "Carolina Ruiz, de la Casa 14, te dio un Pase para hoy de 2:00 a 6:00 p. m.", "Estimado usuario, ha sido registrado en nuestra plataforma de seguridad."),
  ("Portería", "impersonal", "Frases de lectura en un segundo, en la vista de portería y en la señalética de la entrada. Verbo y objeto.", "Pase vigente · Andrés Gómez · KMN 305", "Usuario autorizado por el sistema de control."),
- ("Comercial", "usted (propuesta)", "Para la administración y el consejo. Cifras con denominador y fuente.", "Hoy su conjunto no sabe quién autorizó cada ingreso. Con Kino, cada Pase tiene autor y hora de salida.", "Transforme la seguridad de su conjunto con una solución innovadora."),
+ ("Comercial", "usted", "Para la administración y el consejo. Cifras con denominador y fuente.", "Cada Pase guarda quién lo otorgó y hasta qué hora vale. En Refugio Campestre, el lector reconocía 0 de 312 personas.", "Transforme la seguridad de su conjunto con una solución innovadora."),
  ("Soporte", "el de la audiencia", "Qué pasó, qué hacer y en cuánto tiempo. Sin disculpas en cadena.", "El lector de Refugio Campestre no responde desde las 7:40 a. m. Los Pases nuevos quedan sin confirmar.", "Lamentamos mucho las molestias ocasionadas. Estamos trabajando para solucionarlo."),
  ("Redes", "tú", "Una idea por pieza, con un caso concreto. Nada de promesas absolutas.", "La señora del aseo entra lunes y jueves. Su Pase se repite esos días y vence solo.", "La seguridad total para tu hogar está a un clic."),
 ]
@@ -221,7 +221,7 @@ out.append('''<section class="vista" id="verbal" data-titulo="Voz y UX writing" 
     <h1>Voz y UX writing</h1>
     <dl class="lector">
       <div><dt>Qué es</dt><dd>Cómo habla Kino con el residente, con la visita, con portería y con la administración.</dd></div>
-      <div><dt>Para qué sirve</dt><dd>Para escribir cualquier texto de la app, un WhatsApp o una propuesta sin que cada persona lo resuelva a su manera.</dd></div>
+      <div><dt>Para qué sirve</dt><dd>Para escribir en cualquiera de los seis lugares donde habla Kino sin que cada persona lo resuelva a su manera.</dd></div>
       <div><dt>Cuándo se usa</dt><dd>Cada vez que un texto va a llegarle a alguien fuera del equipo. Antes de publicar, pásalo por <code>npm run voz -- kino</code>.</dd></div>
     </dl>
   </header>''')
@@ -231,28 +231,28 @@ fil = ''.join(f'''<div class="dim"><div class="dim-cab"><h3>{e(n)}</h3><span cla
   <p>{e(nota)}</p><p class="si">{e(ej)}</p></div>''' for n,v,a,b,nota,ej in PERFIL)
 out.append(f'''  <article class="sub" id="verbal.perfil" data-titulo="Perfil de tono">
     <h2>Perfil de tono</h2>
-    <p class="lede">Las cuatro dimensiones de Nielsen Norman Group, de 1 a 5. Cada valor se reconoce en una frase.</p>
+    <p class="lede">Las cuatro dimensiones de Nielsen Norman Group, de 1 a 5, con una frase de ejemplo por valor.</p>
     <div class="perfil">{fil}</div>
     <p class="traza">Responde a: personalidad Exacto, Franco y Discreto (plataforma)</p>
   </article>''')
 # Tono
 filas = ''.join(f'<tr><th scope="row">{e(c)}<small>{e(t)}</small></th><td>{e(r)}</td><td><p class="si">{e(si)}</p></td><td><p class="no">{e(no)}</p></td></tr>' for c,t,r,si,no in TONO)
 out.append(f'''  <article class="sub" id="verbal.tono" data-titulo="Tono por contexto">
-    <h2>El mismo Kino en seis lugares</h2>
-    <p class="lede">La voz no cambia. Cambia cuánto sabe quien lee y cuánto tiempo tiene.</p>
+    <h2>Seis lugares donde escribe Kino</h2>
+    <p class="lede">Cambia el largo: en portería, una línea; en una propuesta comercial, un párrafo con cifras.</p>
     <div class="tabla-envoltura" role="region" aria-label="Tono por contexto" tabindex="0"><table class="tabla"><thead><tr><th scope="col">Contexto</th><th scope="col">Cómo suena</th><th scope="col">Así</th><th scope="col">Así no</th></tr></thead><tbody>{filas}</tbody></table></div>
   </article>''')
 # Tratamiento, mayúscula, horas (Parada 2)
 def opciones(titulo, id_, lede, ops):
-    cards = ''.join(f'''<div class="op{" rec" if rec else ""}"><p class="op-et">{e(n)}{" · propuesta" if rec else ""}</p><p>{e(por)}</p>{"".join(f'<p class="si">{e(x)}</p>' for x in ej)}</div>''' for n,rec,por,ej in ops)
+    cards = ''.join(f'''<div class="op{" rec" if rec else ""}"><p class="op-et">{e(n)}{" · aprobada" if rec else ""}</p><p>{e(por)}</p>{"".join(f'<p class="si">{e(x)}</p>' for x in ej)}</div>''' for n,rec,por,ej in ops)
     return f'''  <article class="sub" id="verbal.{id_}" data-titulo="{e(titulo)}">
     <h2>{e(titulo)}</h2>
     <p class="lede">{e(lede)}</p>
     <div class="opciones">{cards}</div>
   </article>'''
-out.append(opciones("Tratamiento con la administración","tratamiento","Con el residente y la visita, tú. Con la administración se propone usted; se decide en la revisión de esta sección.",TRATO))
+out.append(opciones("Tratamiento con la administración","tratamiento","Con el residente y la visita, tú. Con la administración, usted: en Antioquia es la forma de respeto con un cliente.",TRATO))
 out.append(opciones("«Pase» con mayúscula","mayuscula","Una sola forma en todas las piezas.",MAYUS))
-out.append(opciones("Horas","horas","Un formato por contexto, nunca dos en la misma pieza.",HORAS))
+out.append(opciones("Horas","horas","12 horas en texto y 24 horas en datos. Una pieza usa un solo formato.",HORAS))
 # Vocabulario
 u = ''.join(f'<li><dt>{e(a)}</dt><dd>{e(b)}</dd></li>' for a,b in USAR)
 nm = ''.join(f'<tr><td>{e(a)}</td><td>{e(b)}</td><td>{e(c)}</td></tr>' for a,b,c in NO_MEZCLAR)

@@ -1,7 +1,7 @@
 from .comun import *  # noqa: F401,F403
 
 FAMILIAS = [
-    ('sustrato', 'Superficies del tema oscuro'), ('hueso', 'Texto y tema claro'),
+    ('sustrato', 'Superficies; Usado, Vencido y Revocado'), ('hueso', 'Texto y tema claro'),
     ('biolum', 'Marca, acción de otorgar y Vigente'), ('ambar', 'Por vencer'),
     ('carmin', 'Revocado y Rechazado'), ('violeta', 'Dato personal'), ('indigo', 'Previsto y enlaces'),
 ]
@@ -68,6 +68,10 @@ def _mini(tema):
 </div>'''
 
 
+FAM_ESTADO = {'previsto': 'índigo', 'sin-confirmar': 'sustrato, sin relleno', 'vigente': 'biolum (verde)', 'por-vencer': 'ámbar', 'usado': 'sustrato (neutro)',
+              'vencido': 'sustrato (neutro)', 'revocado': 'sustrato con texto carmín', 'rechazado': 'carmín', 'identidad': 'violeta'}
+
+
 def _estados():
     chips = lambda: ''.join(chip(k, n) for k, n, _ in ESTADOS)
     filas = []
@@ -77,11 +81,13 @@ def _estados():
         bo = hx(f'kino-estado-{k}-borde')
         bgo = hx('kino-superficie-base') if k == 'sin-confirmar' else fo
         bgc = hx('kino-superficie-base', 'claro') if k == 'sin-confirmar' else fc
-        filas.append([chip(k, n), e(d), f'<span class="mono">{to}</span> sobre <span class="mono">{"transparente" if k == "sin-confirmar" else fo}</span>',
+        fam = FAM_ESTADO[k]
+        filas.append([chip(k, n), e(d), fam, f'<span class="mono">{to}</span> sobre <span class="mono">{"transparente" if k == "sin-confirmar" else fo}</span>',
                       f'<b class="mono">{abs(lc(to, bgo))}</b>', f'<span class="mono">{abs(lc(bo, hx("kino-superficie-base")))}</span>',
                       f'<b class="mono">{abs(lc(tc, bgc))}</b>'])
     return (f'<div class="estados-dos"><div class="en-oscuro fila-chips">{chips()}</div><div class="en-claro fila-chips">{chips()}</div></div>'
-            + tabla(['Estado', 'Qué dice', 'Texto sobre fondo (oscuro)', 'Lc texto', 'Lc borde', 'Lc texto (claro)'], filas, 'Colores de los estados')
+            + '<p>Vigente, Por vencer, Previsto, Rechazado y el dato personal llevan color de familia. Usado, Vencido y Revocado van sobre sustrato, el neutro: el Pase terminó y no pide acción. Revocado lleva el texto en carmín porque tiene autor.</p>'
+            + tabla(['Estado', 'Qué dice', 'Familia', 'Texto sobre fondo (oscuro)', 'Lc texto', 'Lc borde', 'Lc texto (claro)'], filas, 'Colores de los estados')
             + casos(caso(f'<div class="pase-linea">{chip("vigente", "Vigente")}<span class="kino-dato">hasta 6:00 p. m.</span></div>', 'Palabra, color y hora.'),
                     caso('<div class="pase-linea"><span class="solo-color" aria-hidden="true"></span><span class="kino-dato">6:00 p. m.</span></div>', 'Un punto verde sin palabra: quien no distingue el verde no sabe nada.', False),
                     caso(f'<div class="pase-linea">{chip("sin-confirmar", "Sin confirmar")}<span class="kino-dato">KMN 305</span></div>', 'El lector no respondió: borde discontinuo y sin relleno.'),
@@ -208,12 +214,12 @@ def html_():
             'Los pasos <b>100 a 800</b> ordenan los neutros por luminosidad. <b>d45</b> quiere decir «4,5:1 sobre el fondo oscuro» y <b>l45</b>, lo mismo sobre el claro. Los pasos <b>a</b> son los fijados por APCA en el tema oscuro reajustado: <b>a84</b> da al menos Lc 84 sobre la base.',
             _primitivos() + descargas(descarga('Tokens DTCG resueltos', 'kino-tokens.resuelto.json', tokens_json, 'application/json'),
                                       descarga('Tokens en CSS', 'kino-tokens.css', TOKENS_CSS, 'text/css'))
-            + traza('Regla 6 del encargo: una sola fuente de verdad, los tokens DTCG del cliente kino.')),
+            + traza('Una sola fuente de verdad: los tokens DTCG de Kino. El CSS y Figma se derivan de ellos.')),
         sub('color.roles', 'Roles', 'En código se usa el rol, nunca el hex',
             'Cada rol apunta a un primitivo distinto en cada tema. Si mañana cambia un paso, cambian todas las piezas.',
             _roles() + casos(caso('<code class="bloque-cod">color: var(--kino-texto-secundario);</code>', 'El rol dice para qué es el color.'),
                              caso('<code class="bloque-cod">color: #CEDBD6;</code>', 'Un hex suelto no se entera cuando la paleta cambia.', False))),
-        sub('color.temas', 'Temas', 'Oscuro para la app y la entrada, claro para el papel',
+        sub('color.temas', 'Temas', 'El tema oscuro es el principal; el PDF y la papelería van en claro',
             'El oscuro reajustado es el canónico. El claro se usa en el PDF del Pase, la papelería y quien lo elija en la app.',
             f'<div class="temas-dos">{_mini("en-oscuro")}{_mini("en-claro")}</div>'
             + traza('X3: oscuro reajustado para pasar APCA. Se lee mejor de noche en la entrada; el PDF va en claro porque se imprime.')),
@@ -221,7 +227,7 @@ def html_():
             'Todo texto de estado pasa Lc 75, así sirve en chips de 13 px. Todo borde pasa Lc 30. ' + g('sin-confirmar', 'Sin confirmar') + ' va sin relleno y ' + g('rechazado', 'Rechazado') + ' es un evento de la entrada, no un estado del Pase.',
             _estados()),
         sub('color.datos', 'Datos y gráficos', 'Colores para contar cifras', '', _datos()),
-        sub('color.proporciones', 'Proporciones', 'Mucho sustrato, poco verde', 'Una pantalla típica de Kino, medida por área.', _proporciones()),
+        sub('color.proporciones', 'Proporciones', 'El verde ocupa el 4 % de una pantalla', 'Una pantalla típica de Kino, medida por área.', _proporciones()),
         sub('color.contraste', 'Contraste APCA', 'Todos los pares, medidos en los dos temas', '', _apca()),
         sub('color.daltonismo', 'Daltonismo', 'Qué ve alguien que no distingue rojo y verde', '', _daltonismo()),
         sub('color.impresion', 'Impresión', 'Valores aproximados para imprenta', '', _impresion()),

@@ -12,7 +12,7 @@ _dtcg = R / '../../../../gorr-brand-system/clientes/kino/build/kino-tokens.css'
 tokens = _dtcg.read_text(encoding='utf8') if _dtcg.exists() else leer('kino-tokens.css')
 # Íconos base (deptos/d06_iconografia.py) reemplazan a los del sprite anterior con el mismo nombre.
 from deptos.d06_iconografia import ICONOS, simbolos
-_sprite = leer('sprite.svg')
+_sprite = re.sub(r'<metadata>.*?</metadata>', '', leer('sprite.svg'), flags=re.S)
 for _k, _n, _d in ICONOS:
     _sprite = re.sub(r'<symbol id="i-%s".*?</symbol>' % re.escape(_k), '', _sprite, flags=re.S)
 sprite = _sprite.replace('</defs>', simbolos() +

@@ -2,7 +2,7 @@ from .comun import *  # noqa: F401,F403
 from . import motor
 
 CURVAS = [('crecer', 'Aparecer. Arranca rápido y se asienta.'), ('decaer', 'Caducar. Empieza lento y se va.'),
-          ('latir', 'Estar vivo. Simétrica, en bucle.'), ('revocar', 'Cortar. Acelera hasta el final, sin rebote.'),
+          ('latir', 'Pase vigente en pantalla. Simétrica, en bucle.'), ('revocar', 'Cortar. Acelera hasta el final, sin rebote.'),
           ('cortina', 'Abrir, solo en presentaciones.')]
 DURACIONES = [('instante', 'Hover, foco, presión de un botón.'), ('corto', 'Un chip o un estado que cambia; revocar.'),
               ('crecer', 'Elementos pequeños que aparecen.'), ('tarjeta', 'Tarjetas y secciones que aparecen (X9).'),
@@ -76,12 +76,12 @@ def html_():
                   f'<figcaption><h3>{i + 1:02d} · {n}</h3><p>{q}</p><p class="mono nota">{t}</p><p class="nota">Reducido: {r}</p>'
                   f'<button class="boton-tenue" type="button" data-repetir>Repetir</button></figcaption></figure>' for i, (k, n, q, t, r) in enumerate(CATALOGO))
     cuerpo = '\n'.join([
-        sub('motion.principios', 'Principios', 'Cada movimiento nombra un cambio del Pase',
-            'Kino se mueve cuando algo cambia de verdad: un Pase aparece, el lector lo confirma, el tiempo pasa, alguien lo corta. Si nada cambió, nada se mueve.',
+        sub('motion.principios', 'Principios', 'Solo se anima lo que le pasa a un Pase',
+            'Solo se animan los cambios de un Pase: aparece, el lector lo confirma, vence o alguien lo revoca.',
             tabla(['Verbo', 'Significa', 'Curva', 'Ejemplo'], [
                 ['Crecer', 'Aparecer', '<code>crecer</code>', 'Un Pase nuevo en la lista.'],
                 ['Decaer', 'Caducar', '<code>decaer</code>', 'La barra de vigencia.'],
-                ['Latir', 'Estar vivo', '<code>latir</code>', 'El punto de Vigente.'],
+                ['Latir', 'Sigue vigente', '<code>latir</code>', 'El punto de Vigente.'],
                 ['Revocar', 'Cortar', '<code>revocar</code>', 'Carolina revoca el Pase de Andrés.'],
                 ['Cortina', 'Abrir', '<code>cortina</code>', 'Cambio de lámina en una presentación.'],
             ], 'Principios de movimiento')
@@ -89,7 +89,7 @@ def html_():
             + traza('H6 y F7: verbos de movimiento con significado; el motion no se sacrifica.')),
         sub('motion.tokens', 'Duraciones y curvas', 'Diecisiete tokens de movimiento', '',
             dur + f'<div class="curvas">{curvas}</div>'),
-        sub('motion.coreografia', 'Coreografía', 'Primero lo que se lee, después lo que se toca',
+        sub('motion.coreografia', 'Coreografía', 'El título entra primero y el botón, al final',
             'En una pantalla nueva entra el título, luego las tarjetas en cascada de 90 ms y al final el botón de acción. Máximo ocho elementos en una cascada; del noveno en adelante entran juntos.',
             '<div class="demo m-coreo" data-demo><div class="demo-escena"><div class="coreo"><p class="coreo-t" style="--i:0">Pases de la Casa 14</p>'
             + ''.join(f'<div class="kino-pase coreo-f" style="--i:{i + 1}"><p class="kino-pase__quien">{n}</p>{chip(s, t)}</div>' for i, (n, s, t) in enumerate([('Andrés Gómez', 'vigente', 'Vigente'), ('Luz Marina', 'previsto', 'Previsto'), ('Técnico del gas', 'sin-confirmar', 'Sin confirmar')]))

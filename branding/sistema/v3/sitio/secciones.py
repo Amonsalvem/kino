@@ -6,11 +6,11 @@ R = pathlib.Path(__file__).parent
 e = html.escape
 DEPTOS = [d03_logo, d04_color, d05_tipografia, d06_iconografia, d07_imagen, d08_estructura, d09_motion, d10_producto, d11_aplicaciones, d12_gobernanza]
 GLOS = [
- ("pase","Pase","Lo que recibe un visitante o un colaborador para entrar. Lleva quién lo otorgó, a quién, el motivo, la vigencia y el modo. Vence solo."),
+ ("pase","Pase","Lo que recibe una visita o un colaborador para entrar. Lleva quién lo otorgó, a quién, el motivo, la vigencia y el modo. Vence solo."),
  ("cuenta","Cuenta","Lo que tiene un residente para usar la app. Una visita nunca tiene cuenta."),
  ("acceso-previsto","Acceso previsto","Un Pase que el residente prepara antes de que llegue la persona."),
  ("residente","Residente","Quien vive en el conjunto, propietario o arrendatario. Tiene cuenta."),
- ("visitante","Visitante","Quien entra una vez o de vez en cuando con un Pase y sin cuenta."),
+ ("visitante","Visitante","Palabra que se evita en la interfaz: se dice visita (V4). En textos largos puede nombrar a la persona que entra con un Pase de visita."),
  ("colaborador","Colaborador","Quien trabaja en una casa o en el conjunto y entra con regularidad: aseo, jardinería, técnicos. Tiene la misma prioridad que la visita."),
  ("administracion","Administración","Quien compra Kino. Fija los límites del conjunto y ve la constancia de cada Pase."),
  ("porteria","Portería","El equipo de vigilancia de la entrada. Supervisa; el ingreso lo permite el lector."),
@@ -46,6 +46,7 @@ GLOS = [
  ("aurora","Aurora","El fondo de luz verde e índigo sobre sustrato. Nunca detrás de un QR."),
  ("membrana","Membrana","La superficie de lo que se toca: controles, tarjetas y el Pase."),
  ("apca","APCA","Método de contraste que mide la legibilidad en Lc. Kino exige Lc 75 en texto de cuerpo."),
+ ("codigo-decision","Código de decisión","F, H, P, V o X más un número: una decisión del registro, con su estado. Está en Gobernanza."),
  ("token","Token","Un valor de diseño con nombre (color, tamaño, duración). Los tokens de Kino están en formato DTCG."),
 ]
 

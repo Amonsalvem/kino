@@ -54,7 +54,7 @@ VERSIONES = [
     ('color-claro', 'Color sobre claro', 'var(--kino-hueso-100)', 'horizontal', 'var(--kino-sustrato-100)', 'var(--kino-biolum-l70)',
      HC('kino-marca-bloque'), HC('kino-marca-gota'), 'PDF del Pase, papelería, documentos para administraciones.'),
     ('negro', 'Una tinta, negro', 'var(--kino-fijo-blanco)', 'horizontal', 'var(--kino-fijo-negro)', 'var(--kino-fijo-negro)',
-     '#000000', '#000000', 'Fax, sello, grabado, impresión en una tinta. La gota queda hueca como el arco.'),
+     '#000000', '#000000', 'Sello, grabado láser, impresión en una tinta. La gota queda hueca como el arco.'),
     ('blanco', 'Una tinta, blanco', 'var(--kino-sustrato-100)', 'horizontal', 'var(--kino-fijo-blanco)', 'var(--kino-fijo-blanco)',
      '#FFFFFF', '#FFFFFF', 'Sobre fotografía oscura, vinilo blanco, serigrafía.'),
     ('simbolo', 'Solo símbolo', 'var(--kino-superficie-base)', 'simbolo', 'var(--kino-marca-bloque)', 'var(--kino-marca-gota)',
@@ -157,11 +157,11 @@ def html_():
                     caso(f'<div style="width:44px">{L()}</div>', 'Horizontal a 44 px: usa el símbolo solo.', False))
             + '<p class="nota">Medidas propuestas desde la reconstrucción. Se confirman con una prueba impresa ' + pend('prueba física del logo') + '.</p>'),
         sub('logo.versiones', 'Versiones', 'Seis versiones y cuándo va cada una',
-            'Todas salen del mismo dibujo. Cambia el color, nunca la forma. Descarga cada una junto a su regla.',
+            'Todas salen del mismo dibujo; solo cambia el color. Cada una se descarga desde su tarjeta.',
             '<div class="lg-versiones">' + ''.join(_version(v) for v in VERSIONES) + '</div>'
             + traza('X2: bloque en hueso y gota en #00BB83. El acento significa otorgar; en el logo marca lo que pasa por la entrada.')),
         sub('logo.fondos', 'Sobre fondos', 'Seis fondos y la versión que le toca a cada uno',
-            'Regla corta: si el fondo es oscuro, color; si es claro, color sobre claro; si el fondo ya es verde o es una foto, una tinta.',
+            'Sobre fondo oscuro va la versión principal: bloque en hueso #EFFCF7 y gota en verde #00BB83, con un mínimo de 88 px de ancho (16 px si va solo el símbolo). Sobre claro, bloque en sustrato y gota #006343. Si el fondo ya es verde o es una foto, una tinta.',
             '<div class="lg-fondos">' + ''.join(_fondo(*f) for f in FONDOS) + '</div>'
             + traza('Estado honesto aplicado a la marca: la gota verde nunca se pone donde no se distingue.')),
         sub('logo.incorrectos', 'Usos incorrectos', 'Nueve cosas que no se le hacen al logo', '',
@@ -171,7 +171,7 @@ def html_():
             casos(
                 caso(f'<div class="lg-con-conjunto">{L()}<span class="chip-dato">Refugio Campestre · Casa 14</span></div>', 'Logo de Kino y el conjunto en un chip de texto, con su área de protección.'),
                 caso(f'<div class="lg-duo">{L()}<span class="lg-emblema" aria-hidden="true">RC</span><span class="lg-junto">Refugio Campestre</span></div>', 'El emblema del conjunto al lado convierte a Kino en marca blanca.', False))
-            + traza('F4 y regla 6 de las instrucciones: Kino tiene identidad propia y sirve a cualquier conjunto.')),
+            + traza('F4: Kino tiene identidad propia y sirve a cualquier conjunto.')),
         sub('logo.icono', 'Favicon e ícono de app', 'El símbolo sobre sustrato, en un cuadrado redondeado',
             'El fondo de sustrato hace que el ícono se lea igual en una pestaña clara, en una oscura y en la pantalla de inicio del teléfono.',
             f'<div class="lg-iconos"><figure><div class="lg-ic" style="width:16px">{fav}</div><figcaption class="mono">16</figcaption></figure>'

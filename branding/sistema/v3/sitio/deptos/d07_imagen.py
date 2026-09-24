@@ -21,9 +21,9 @@ def celulas(ancho=400, alto=260, n=60, semilla=4):
 def html_():
     recursos = [
         ('Aurora', f'<div class="img-muestra" style="background:{AURORA}"></div>', 'Luz verde e índigo que sube desde una esquina, como la bioluminiscencia en agua oscura.', 'Fondos de pantalla de inicio, portadas, redes, presentación comercial.'),
-        ('Tejido celular', f'<div class="img-muestra">{celulas()}</div>', 'Células en sustrato: el conjunto como un organismo con membrana.', 'Solo en impresos grandes: carta de bienvenida, señalética, papelería.'),
+        ('Tejido celular', f'<div class="img-muestra">{celulas()}</div>', 'Círculos de sustrato con núcleo, como células vistas al microscopio.', 'Solo en impresos grandes: carta de bienvenida, señalética, papelería.'),
         ('Membrana', '<div class="img-muestra" style="background:var(--kino-superficie-membrana);box-shadow:var(--kino-relieve-membrana) inset"></div>', 'Superficie lisa con un borde de luz arriba.', 'Tarjetas, el Pase, controles. Es el fondo de todo lo que se toca.'),
-        ('Resplandor', '<div class="img-muestra centro"><span class="resplandor-demo"></span></div>', 'Halo verde alrededor de lo que está vivo.', 'Solo en un Pase vigente. En nada más.'),
+        ('Resplandor', '<div class="img-muestra centro"><span class="resplandor-demo"></span></div>', 'Halo verde alrededor de un Pase vigente.', 'Solo en un Pase vigente. En nada más.'),
     ]
     rec = ''.join(f'<figure class="recurso">{v}<figcaption><h3>{n}</h3><p>{q}</p><p class="nota">Dónde: {d}</p></figcaption></figure>' for n, v, q, d in recursos)
     usos = tabla(['Pieza', 'Aurora', 'Tejido celular', 'Membrana', 'Fotografía'], [
@@ -34,8 +34,8 @@ def html_():
         ['Señalética y papelería', 'Portadas', 'Sí', 'No', 'No'],
     ], 'Cuándo usar cada recurso')
     cuerpo = '\n'.join([
-        sub('imagen.direccion', 'Dirección de arte', 'Biopunk: la luz de lo vivo sobre un fondo oscuro',
-            'Kino se ve como un laboratorio de noche: superficies de sustrato, luz que sale de lo que está vivo y formas redondas. Nada de metal, neón magenta ni pantallas de vigilancia.',
+        sub('imagen.direccion', 'Dirección de arte', 'Biopunk: fondos oscuros con luz verde en lo que está activo',
+            'Fondos de sustrato, formas redondas y luz que sale de lo activo, como un Pase vigente o un lector que responde. Se evitan el metal y el neón magenta.',
             f'<div class="recursos">{rec}</div>'
             + traza('F2 (dirección biopunk) y X7: aurora en pantalla, tejido celular solo en impresos grandes.')),
         sub('imagen.si-no', 'Qué sí y qué no', 'Cuatro pares para decidir rápido', '',
@@ -61,5 +61,5 @@ def html_():
     ])
     return seccion('imagen', '07', 'Imagen', 'Identidad',
                    'La dirección de arte: texturas, fondos y cómo se muestran personas y espacios.',
-                   'Para elegir o producir imágenes que se vean de Kino y no de un banco de fotos.',
+                   'Para elegir o producir fondos e imágenes con la paleta y las texturas de Kino, sin fotos de banco.',
                    'Al armar una presentación comercial, una publicación en redes o una pieza impresa.', cuerpo)

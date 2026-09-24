@@ -95,7 +95,8 @@ def sub(id_, titulo, h2, lede, cuerpo):
 
 
 def traza(texto):
-    """Regla 3 del encargo: qué rasgo de la plataforma justifica la decisión."""
+    """Qué rasgo de la plataforma o qué decisión justifica la regla. Los códigos (F4, V5, X2) enlazan al registro."""
+    texto = re.sub(r'\b([FHPVX]\d{1,2})\b', r'<a class="g" href="#gobernanza.registro">\1</a>', texto)
     return f'<p class="traza">Responde a: {texto}</p>'
 
 

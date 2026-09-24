@@ -17,7 +17,7 @@ def _adhesivo():
 
 def _diapositiva():
     return (f'<div class="diapo en-oscuro" style="background:{AURORA}"><div class="in"><div class="dp-cab">{logo("horizontal", etiqueta="Kino")}<span class="kino-etiqueta">Para administraciones</span></div>'
-            '<p class="dp-t">Hoy su conjunto no sabe quién autorizó cada ingreso.</p>'
+            '<p class="dp-t">Su conjunto no registra quién autorizó cada ingreso.</p>'
             '<div class="dp-cifras"><div><b class="cifra">0<small>/312</small></b><span>personas reconocidas por el lector en una comunidad con el equipo instalado</span></div>'
             '<div><b class="cifra">711</b><span>errores de sincronización, todos por el campo correo</span></div></div>'
             '<p class="dp-fuente kino-dato">Inspección en Monte Sereno, sep 2026</p></div></div>')
@@ -75,7 +75,7 @@ def _bienvenida():
 def html_():
     apps = ''.join([
         _app('app', 'App móvil', f'<div class="solo-movil">{_lista()}</div>', 'La lista de Pases de la Casa 14 con cuatro estados distintos.', 'Decide quien conoce.', '360 × 780 px'),
-        _app('whatsapp', 'Mensaje de WhatsApp con el Pase', pase.whatsapp(), 'Una frase, la imagen del Pase y el enlace al Pase vivo. 23 palabras.', 'V7: imagen más enlace; el PDF es opcional.', 'Mensaje de 23 palabras'),
+        _app('whatsapp', 'Mensaje de WhatsApp con el Pase', pase.whatsapp(), 'Una frase, la imagen del Pase y el enlace al Pase vivo.', 'V7: imagen más enlace; el PDF es opcional.', 'Mensaje de 23 palabras'),
         _app('pase-qr', 'Pase QR (imagen)', f'<div class="dos">{pase.imagen("vigente")}{pase.imagen("vigente", "Colaborador")}</div>', 'La imagen que se ve en el chat sin abrir nada. El QR vive en el arco del logo, sobre blanco.', 'X1: forma Portal.', '1080 × 1350 px'),
         _app('pase-vivo', 'Pase vivo', f'<div class="dos">{pase.vivo("vigente")}{pase.vivo("vencido")}</div>', 'La página del enlace. Dice si el Pase sigue sirviendo; en vencido ofrece llamar a quien lo dio.', 'Estado honesto y X11.', '360 px'),
         _app('pdf', 'PDF del Pase', pase.pdf(), 'Para imprimir o para quien no usa WhatsApp. Siempre en claro.', 'X3: el PDF va en claro.', 'Carta, 216 × 279 mm'),
@@ -91,7 +91,7 @@ def html_():
         _app('bienvenida', 'Carta de bienvenida al conjunto', _bienvenida(), 'La recibe cada residente el día que el conjunto empieza con Kino. Trato de tú.', 'Tú con el residente (V1).', 'Carta'),
     ])
     cuerpo = '\n'.join([
-        sub('aplicaciones.piezas', 'Piezas', 'La marca puesta en quince piezas',
+        sub('aplicaciones.piezas', 'Piezas', 'Quince piezas con su medida y su uso',
             'Datos de ejemplo en todas. Las piezas físicas (señal, adhesivo, papelería, credencial) están en 2D: no hubo herramienta 3D disponible para los mockups ' + pend('mockups físicos en 3D') + '.',
             f'<div class="aplicaciones">{apps}</div>'),
         sub('aplicaciones.plantillas', 'Plantillas', 'Dónde están las plantillas para duplicar',
@@ -99,6 +99,6 @@ def html_():
             '<p><a class="descarga" href="https://www.figma.com/design/BO7UnDO9iE0aG6yUpNj0bc" rel="noopener">Abrir la librería de Figma</a></p>'),
     ])
     return seccion('aplicaciones', '11', 'Aplicaciones', 'Aplicación',
-                   'La marca puesta en quince piezas reales, desde el Pase hasta la papelería.',
-                   'Para partir de una pieza aprobada en vez de una hoja en blanco.',
+                   'Quince piezas con la marca aplicada, del Pase a la papelería.',
+                   'Para duplicar una pieza aprobada y cambiar solo los datos.',
                    'Al producir una pieza nueva para un conjunto o para un aliado.', cuerpo)

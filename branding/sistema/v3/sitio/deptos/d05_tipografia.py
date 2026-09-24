@@ -21,7 +21,7 @@ def html_():
               f'<th scope="col">360 → 1440 px</th><th scope="col">Muestra</th><th scope="col">CSS</th></tr></thead><tbody>{esc}</tbody></table></div>')
     jer = ''.join(f'<div class="jer"><p class="jer-rot mono">{n}<small>{tk} · {f} · mínimo {m}</small></p><p class="{c}">{e(ej)}</p></div>' for n, c, tk, f, m, ej in JERARQUIA)
     cuerpo = '\n'.join([
-        sub('tipografia.familias', 'Familias', 'Archivo para leer, JetBrains Mono para comparar',
+        sub('tipografia.familias', 'Familias', 'Archivo para el texto, JetBrains Mono para placas y códigos',
             'Dos familias libres (OFL 1.1). Archivo es variable en ancho: los titulares van al 112 %. JetBrains Mono tiene el cero barrado, que separa la O de la placa del 0 del código.',
             '<div class="familias"><div class="familia"><p class="fam-nombre" style="font-family:var(--kino-fuente-display);font-weight:800;font-stretch:112%">Archivo</p>'
             '<p class="fam-abc" style="font-family:var(--kino-fuente-texto)">Aa Bb Cc Ññ Áá 0123456789</p><p>Textos, titulares y botones. Pesos 400, 500, 700 y 800. Ancho 100 % en texto y 112 % en titulares.</p></div>'
@@ -32,7 +32,7 @@ def html_():
             + traza('Exacto: el residente compara la placa y el código con lo que lee el lector (X5).')),
         sub('tipografia.escala', 'Escala', 'Ocho tamaños que crecen con la pantalla',
             'Escala con el método Utopia: 16 px con razón 1,2 en un teléfono de 360 px y 18 px con razón 1,26 en una pantalla de 1440 px. Entre los dos, <code>clamp()</code>.',
-            escala + traza('Regla 6: los tamaños salen de tokens; ninguno se escribe a mano.')),
+            escala + traza('Una sola fuente de verdad: los tamaños salen de tokens; ninguno se escribe a mano.')),
         sub('tipografia.jerarquias', 'Jerarquías', 'Nueve niveles y el contraste mínimo de cada uno', '', f'<div class="jerarquia">{jer}</div>'),
         sub('tipografia.reglas', 'Interlineado, tracking y columna', 'Medidas que no se tocan pieza por pieza', '',
             tabla(['Qué', 'Valor', 'Token'], [
