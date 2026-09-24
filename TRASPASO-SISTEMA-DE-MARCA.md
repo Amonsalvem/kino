@@ -208,3 +208,7 @@ node herramientas/voz.mjs kino ../branding/sistema/v3/sitio/texto-visible.md ../
 - **Referencias**: guarda en secciones «Ref · …» todo el contenido anterior.
 - **Construidas**: solo Léeme (nodo 22:94) y Plataforma (nodo 22:144).
 - **Variables**: las 4 colecciones originales siguen intactas.
+
+## Repositorio (24 sep)
+
+La carpeta `kino` es un repositorio git (rama `main`). El historial vive en `.git.nosync` para que iCloud no lo sincronice a medias; `.git` es un archivo que apunta ahí. `CLAUDE.md` lleva las instrucciones del proyecto para sesiones de Claude Code (nube o terminal) y `docs/proyecto/` las copias de los documentos de conocimiento de claude.ai. Si un documento cambia en claude.ai, se actualiza también aquí. `branding/sistema/**/build/` no se versiona: se regenera con `construir.py`.
