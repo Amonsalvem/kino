@@ -127,7 +127,20 @@
       c.getContext('2d').drawImage(img,0,0,w,h);c.toBlob(function(b){var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=p.dataset.png;document.body.appendChild(a);a.click();
       setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},500);},'image/png');};img.src=p.dataset.src;}
   });
-  window.addEventListener('hashchange',function(){if(actual)correrEn(actual);});
+  window.addEventListener('hashchange',function(){if(actual)correrEn(actual);desmontarMotor();});
+
+  /* Motion Playground: se monta al pedirlo y se desmonta al salir de Motion (su reloj no corre fuera de pantalla). */
+  function desmontarMotor(){var c=document.getElementById('motor');if(c&&actual&&actual.id!=='motion'&&c.firstChild){c.innerHTML='';c.hidden=true;
+    [].forEach.call(document.querySelectorAll('[data-motor]'),function(b){b.lastChild.textContent='Abrir el motor en vivo';});}}
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('[data-motor]');if(!b)return;var c=document.getElementById('motor');
+    if(c.firstChild){c.innerHTML='';c.hidden=true;b.lastChild.textContent='Abrir el motor en vivo';return;}
+    var src=document.getElementById('motor-src').textContent.trim();
+    var bytes=Uint8Array.from(atob(src),function(ch){return ch.charCodeAt(0);});
+    var html=new TextDecoder().decode(bytes).replace('data-tema="oscuro"','data-tema="'+(raiz.getAttribute('data-tema')||'oscuro')+'"');
+    var f=document.createElement('iframe');f.title='Motion Playground de Kino';f.className='motor-marco';f.setAttribute('loading','lazy');f.srcdoc=html;
+    c.appendChild(f);c.hidden=false;b.lastChild.textContent='Cerrar el motor';
+  });
 
   ir(location.hash,false);
   if(actual)correrEn(actual);

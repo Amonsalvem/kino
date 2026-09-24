@@ -18,6 +18,8 @@ for _k, _n, _d in ICONOS:
 sprite = _sprite.replace('</defs>', simbolos() +
  '<symbol id="i-tema" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 0 0 16z" fill="currentColor"/></symbol>'
  '</defs>')
+from deptos.motor import carga as _motor
+motor_carga = _motor()
 # Temas locales: un bloque puede mostrarse en claro u oscuro sin cambiar la página (.en-claro, .en-oscuro).
 _b = R / '../../../../gorr-brand-system/clientes/kino/build'
 def _tema_local(archivo, clase):
@@ -26,8 +28,10 @@ def _tema_local(archivo, clase):
 temas_locales = _tema_local('tema-oscuro.css', 'en-oscuro') + _tema_local('tema-claro.css', 'en-claro')
 # Capa de componentes de la marca (kino-brand.css), sin los @import de fuentes autoalojadas.
 componentes = re.sub(r'^@import[^;]+;\s*$', '', (R / '../../capa-componentes.css').read_text(encoding='utf8'), flags=re.M)
-logo_h = leer('logo-h.svg')
-logo_mark = re.sub(r'<g transform.*?</g>', '', logo_h).replace('viewBox="0 0 267.960 101.824" width="268" height="102" overflow="visible"', 'viewBox="0 0 100 101.824" width="100" height="102"').replace('role="img" aria-label="Kino"', 'aria-hidden="true"')
+# Logo con la versión aprobada (X2): bloque en hueso y gota en acento. logo-h.svg (una tinta) queda como referencia.
+from deptos.comun import logo as _logo
+logo_h = _logo('horizontal', etiqueta='Kino', clase=None)
+logo_mark = _logo('simbolo', etiqueta=None, clase=None)
 contenido_crudo = ''.join(leer(f'contenido/{f}') for f in ['00-inicio.html', '01-plataforma.html', '02-verbal.html', '03-12.html']).replace('{{LOGO_H}}', logo_h)
 # Espacios que no parten: horas, placas, códigos y teléfonos se leen como una unidad.
 NB = '\u00a0'
@@ -75,11 +79,15 @@ cuerpo = f'''<title>Kino · Sistema de marca</title>
     </main>
   </div>
 </div>
+{motor_carga}
 <script>{leer('sitio.js')}</script>
 '''
 (R / 'build').mkdir(exist_ok=True)
 (R / 'build/artefacto.html').write_text(cuerpo, encoding='utf8')
 (R / 'build/kino-sistema-de-marca.html').write_text('<!doctype html>\n<html lang="es">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">\n</head>\n<body>\n' + cuerpo + '</body>\n</html>\n', encoding='utf8')
+# Copia definitiva en la raíz del repositorio (el borrador del 23 sep quedó en _obsoleto/).
+import shutil
+shutil.copyfile(R / 'build/kino-sistema-de-marca.html', R / '../../../../Kino_Sistema_de_marca.html')
 print('ok', len(cuerpo))
 
 # Texto visible para las compuertas de voz: excluye ejemplos incorrectos (.no, .tachado) y citas de la app actual (.antes).

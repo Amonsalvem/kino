@@ -1,4 +1,5 @@
 from .comun import *  # noqa: F401,F403
+from . import motor
 
 CURVAS = [('crecer', 'Aparecer. Arranca rápido y se asienta.'), ('decaer', 'Caducar. Empieza lento y se va.'),
           ('latir', 'Estar vivo. Simétrica, en bucle.'), ('revocar', 'Cortar. Acelera hasta el final, sin rebote.'),
@@ -98,6 +99,7 @@ def html_():
             'Cada una con su token y su versión en movimiento reducido. Pruébalas también con el botón de abajo.',
             '<p><button class="boton-tenue" type="button" data-mov-reducido aria-pressed="false">Ver en movimiento reducido</button></p>'
             f'<div class="catalogo">{cat}</div>'),
+        sub('motion.motor', 'El motor', 'El motor que mueve todo esto', '', motor.sub_html()),
         sub('motion.logo', 'Movimiento del logo', 'El logo se anima una sola vez',
             'Al abrir la app y al empezar una presentación. La secuencia completa está en <a href="#logo.animacion">Logo · Animación</a>.', ''),
         sub('motion.reducido', 'Movimiento reducido', 'Un modo alternativo, no un recorte',

@@ -1,0 +1,107 @@
+{
+ "1 Plataforma": {
+  "Problema con evidencia y fuente": "plataforma.problema",
+  "Qué necesita cada actor": "plataforma.actores",
+  "Mapa de alternativas": "plataforma.alternativas",
+  "Posicionamiento con prueba": "plataforma.posicionamiento",
+  "Promesa": "plataforma.promesa",
+  "Personalidad (3 rasgos, somos / no somos)": "plataforma.personalidad",
+  "Valores con comportamiento": "plataforma.valores",
+  "Arquitectura de nombres": "plataforma.nombres",
+  "Manifiesto": "plataforma.manifiesto"
+ },
+ "2 Verbal": {
+  "Perfil NN/g con una frase por dimensión": "verbal.perfil",
+  "Tono en 6 contextos con ejemplo": "verbal.tono",
+  "Vocabulario de 20+ entradas": "verbal.vocabulario",
+  "Glosario completo": "glosario",
+  "Guía de estilo": "verbal.estilo",
+  "Inventario de UX writing": "verbal.ux",
+  "Plantillas de WhatsApp": "verbal.whatsapp"
+ },
+ "3 Logo": {
+  "Construcción sobre grilla": "logo.construccion",
+  "Área de protección": "logo.proteccion",
+  "Tamaños mínimos": "logo.tamanos",
+  "Versiones": "logo.versiones",
+  "6 tipos de fondo": "logo.fondos",
+  "8 usos incorrectos": "logo.incorrectos",
+  "Convivencia con el conjunto": "logo.conjunto",
+  "Favicon e ícono de app": "logo.icono",
+  "Animación del logo": "logo.animacion"
+ },
+ "4 Color": {
+  "Primitivos con escalas": "color.primitivos",
+  "Roles semánticos": "color.roles",
+  "Temas claro y oscuro": "color.temas",
+  "Estados": "color.estados",
+  "Paleta para datos": "color.datos",
+  "Proporciones": "color.proporciones",
+  "Tabla APCA completa": "color.contraste",
+  "Daltonismo": "color.daltonismo",
+  "Impresión aproximada": "color.impresion"
+ },
+ "5 Tipografía": {
+  "Familias texto y mono": "tipografia.familias",
+  "Escala fluida": "tipografia.escala",
+  "Jerarquías": "tipografia.jerarquias",
+  "Interlineado, tracking y largo": "tipografia.reglas",
+  "Cifras tabulares": "tipografia.cifras",
+  "Licencias": "tipografia.licencias"
+ },
+ "6 Iconografía": {
+  "Grilla, trazo, esquinas y tamaños": "iconografia.grilla",
+  "24+ íconos base en SVG": "iconografia.base",
+  "Reglas de ilustración": "iconografia.ilustracion"
+ },
+ "7 Imagen": {
+  "Dirección de arte biopunk": "imagen.direccion",
+  "Qué sí y qué no": "imagen.si-no",
+  "Texturas y fondos": "imagen.texturas",
+  "Personas y espacios": "imagen.personas",
+  "Cuándo usar cada recurso": "imagen.cuando"
+ },
+ "8 Estructura": {
+  "Retículas por formato": "estructura.reticulas",
+  "Espaciado": "estructura.espaciado",
+  "Radios": "estructura.radios",
+  "Elevación": "estructura.elevacion",
+  "Breakpoints": "estructura.quiebres"
+ },
+ "9 Motion": {
+  "Principios": "motion.principios",
+  "Tokens de duración y curvas": "motion.tokens",
+  "Coreografía y cascadas": "motion.coreografia",
+  "Catálogo de 10+ con demo viva": "motion.catalogo",
+  "Motion del logo": "motion.logo",
+  "Modo reduced-motion": "motion.reducido"
+ },
+ "10 Producto": {
+  "Componentes con todos sus estados": "producto.componentes",
+  "Pantallas clave": "producto.pantallas",
+  "Accesibilidad WCAG 2.2 AA": "producto.accesibilidad"
+ },
+ "11 Aplicaciones": {
+  "App móvil": "aplicaciones.app",
+  "WhatsApp con Pase": "aplicaciones.whatsapp",
+  "Pase QR": "aplicaciones.pase-qr",
+  "Señalética de portería": "aplicaciones.senal",
+  "Adhesivo de talanquera": "aplicaciones.adhesivo",
+  "Presentación comercial": "aplicaciones.presentacion",
+  "Documento de una página": "aplicaciones.una-pagina",
+  "Plantillas de redes": "aplicaciones.redes",
+  "Correo": "aplicaciones.correo",
+  "Papelería": "aplicaciones.papeleria",
+  "Credencial": "aplicaciones.credencial",
+  "Carta de bienvenida": "aplicaciones.bienvenida"
+ },
+ "12 Gobernanza": {
+  "Quién decide": "gobernanza.decide",
+  "Cómo pedir activos": "gobernanza.pedir",
+  "Versionado": "gobernanza.versiones",
+  "Registro de cambios": "gobernanza.cambios",
+  "Lista de revisión": "gobernanza.revision",
+  "Pendientes": "gobernanza.pendientes",
+  "Centro de descargas": "gobernanza.descargas"
+ }
+}

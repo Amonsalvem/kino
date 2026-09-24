@@ -98,6 +98,7 @@ Registro único de decisiones de marca. Cada una dice qué se propuso, qué alte
   - Datos mínimos;
   - Estado honesto.
 - **Alternativa:** tres valores abstractos (confianza, cercanía, control). Se descarta: ninguno se verifica mirando el producto.
+- **Justificación de plataforma:** cada valor responde a un hallazgo de la inspección (P01 a P15 en `auditoria.md`) y se comprueba mirando una pantalla. (Línea agregada el 24 sep para la comprobación 8 de la Fase 5; no cambia la decisión.)
 
 ### P08 · Arquitectura de nombres monolítica · APROBADA (Nico, 23 sep: «todo lo demás es aprobado»)
 - **Qué:**
@@ -115,6 +116,7 @@ Registro único de decisiones de marca. Cada una dice qué se propuso, qué alte
 ### P09 · Manifiesto · APROBADA (Nico, 23 sep: «todo lo demás es aprobado»)
 - **Qué:** cinco párrafos cortos anclados en una casa (la 14) y dos ingresos concretos.
 - **Alternativa:** un manifiesto en primera persona plural («Creemos que…»). Se descarta por la regla 10 (arranques prohibidos).
+- **Justificación de plataforma:** la promesa (P05) contada con un caso: cada frase tiene un objeto, una hora o una casa, como pide la regla 9. (Línea agregada el 24 sep.)
 
 ### P10 · El problema se cuenta con datos del conjunto piloto · APROBADA (Nico, 23 sep: se puede nombrar Monte Sereno y mostrar fallas con cifras)
 - **Qué:** el sitio nombra Monte Sereno y muestra las cifras de la inspección: la placa inventada, 711 errores, 312 cédulas y 0/312 sincronizados.
@@ -149,6 +151,7 @@ Registro único de decisiones de marca. Cada una dice qué se propuso, qué alte
   - se quitaron las páginas que quedaron vacías.
 - **Qué no cambió:** ningún nodo, variable ni estilo se borró.
 - **Cómo revertir:** mover cada sección de vuelta a una página nueva.
+- **Por qué:** el encargo pide que la librería espeje la arquitectura del sitio (sección <figma>) y que nada se borre (regla 13). (Línea agregada el 24 sep.)
 
 ### Estado tras las respuestas del 23 sep
 - Aprobadas: P04 (A), P06, P10; permiso para reajustar los pasos del tema oscuro en la Parada 3.
@@ -204,6 +207,7 @@ Registro único de decisiones de marca. Cada una dice qué se propuso, qué alte
   - calibración 40 de 42 (antes 21), con 0 falsos positivos;
   - 11 de 11 frases de IA de prueba atrapadas;
   - 0 hallazgos sobre el sitio, los textos de la app y las muestras.
+- **Por qué:** la regla 10 del encargo exige que esos patrones no aparezcan; la calibración contra las 42 frases mide que el filtro los atrape sin marcar textos correctos. (Línea agregada el 24 sep.)
 - **Descartados por dar falsos positivos:** «invitado», «lo que sí» y la triple negación. «Invitado» vuelve si se aprueba V4 y se corrigen las frases de referencia.
 - **Otros ajustes:**
   - «permiso» sube a error;

@@ -8,7 +8,7 @@
 /* ── Piezas comunes ── */
 .nota{font-size:var(--kino-texto-n1);color:var(--kino-texto-primario)}
 .na{font-family:var(--kino-fuente-dato);font-size:.75rem;opacity:.85}
-.pend{font-family:var(--kino-fuente-dato);font-size:.8em;white-space:nowrap}
+.pend{font-family:var(--kino-fuente-dato);font-size:.8em;overflow-wrap:anywhere}
 .chip-dato{display:inline-flex;align-items:center;gap:.35rem;font-size:var(--kino-texto-n1);padding:.15rem .6rem;border-radius:var(--kino-radio-pleno);
   border:var(--kino-linea-fino) solid var(--kino-borde-definido);background:var(--kino-superficie-membrana);color:var(--kino-texto-primario);white-space:nowrap}
 .sw{display:inline-block;inline-size:1rem;block-size:1rem;border-radius:var(--kino-radio-xs);vertical-align:-.2em;margin-right:.4rem;box-shadow:0 0 0 1px var(--kino-borde-definido)}
@@ -283,6 +283,9 @@
 :root[data-mov="reducido"] .kino-estado::before{animation:none!important}
 :root[data-mov="reducido"] .m-corte{display:none}
 .sin-mov *{animation:none!important}
+
+.motor{border:var(--kino-linea-fino) solid var(--kino-borde-definido);border-radius:var(--kino-forma-radio-tarjeta);overflow:hidden}
+.motor-marco{display:block;inline-size:100%;block-size:min(80vh,52rem);border:0;background:var(--kino-superficie-base)}
 
 /* ── 10 Producto ── */
 .matriz-env{margin-bottom:var(--kino-espacio-l)}
