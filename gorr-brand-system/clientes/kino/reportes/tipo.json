@@ -1,0 +1,50 @@
+[
+  {
+    "paso": -1,
+    "minPx": 13.33,
+    "maxPx": 14.29,
+    "clamp": "clamp(0.833rem, 0.813rem + 0.088vw, 0.893rem)"
+  },
+  {
+    "paso": 0,
+    "minPx": 16,
+    "maxPx": 18,
+    "clamp": "clamp(1.000rem, 0.958rem + 0.185vw, 1.125rem)"
+  },
+  {
+    "paso": 1,
+    "minPx": 19.2,
+    "maxPx": 22.68,
+    "clamp": "clamp(1.200rem, 1.127rem + 0.322vw, 1.417rem)"
+  },
+  {
+    "paso": 2,
+    "minPx": 23.04,
+    "maxPx": 28.58,
+    "clamp": "clamp(1.440rem, 1.325rem + 0.513vw, 1.786rem)"
+  },
+  {
+    "paso": 3,
+    "minPx": 27.65,
+    "maxPx": 36.01,
+    "clamp": "clamp(1.728rem, 1.554rem + 0.774vw, 2.250rem)"
+  },
+  {
+    "paso": 4,
+    "minPx": 33.18,
+    "maxPx": 45.37,
+    "clamp": "clamp(2.074rem, 1.820rem + 1.129vw, 2.836rem)"
+  },
+  {
+    "paso": 5,
+    "minPx": 39.81,
+    "maxPx": 57.16,
+    "clamp": "clamp(2.488rem, 2.127rem + 1.607vw, 3.573rem)"
+  },
+  {
+    "paso": 6,
+    "minPx": 47.78,
+    "maxPx": 72.03,
+    "clamp": "clamp(2.986rem, 2.481rem + 2.245vw, 4.502rem)"
+  }
+]

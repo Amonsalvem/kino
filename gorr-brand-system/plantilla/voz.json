@@ -1,0 +1,122 @@
+{
+  "$descripcion": "Identidad verbal de {{nombre}}. Fase 2 del PLAYBOOK. Perfil de tono con las 4 dimensiones de NN/g; vocabulario; patrones que la compuerta atrapa sin modelo; casos para evals.",
+  "perfil": {
+    "estado": "borrador",
+    "escala": "1 = primer polo, 5 = segundo polo",
+    "formalidad": {
+      "valor": 3,
+      "polos": [
+        "formal",
+        "casual"
+      ],
+      "nota": "COMPLETAR: cómo se nota en una frase real."
+    },
+    "humor": {
+      "valor": 2,
+      "polos": [
+        "serio",
+        "divertido"
+      ],
+      "nota": "COMPLETAR"
+    },
+    "respeto": {
+      "valor": 2,
+      "polos": [
+        "respetuoso",
+        "irreverente"
+      ],
+      "nota": "COMPLETAR"
+    },
+    "entusiasmo": {
+      "valor": 3,
+      "polos": [
+        "sobrio",
+        "entusiasta"
+      ],
+      "nota": "COMPLETAR"
+    }
+  },
+  "somos": [
+    "COMPLETAR: rasgo + cómo se nota (ej. «Claros: el dato primero, la explicación después»)."
+  ],
+  "noSomos": [
+    "COMPLETAR: el exceso de cada rasgo (ej. «Secos: claros no quiere decir cortantes»)."
+  ],
+  "vocabulario": {
+    "usar": [
+      {
+        "termino": "COMPLETAR",
+        "significa": "Término propio de la marca y qué significa exactamente."
+      }
+    ],
+    "evitar": [
+      {
+        "termino": "de vanguardia",
+        "usar": "el hecho concreto",
+        "porque": "Superlativo sin evidencia.",
+        "gravedad": "error"
+      }
+    ],
+    "noMezclar": []
+  },
+  "patrones": [
+    {
+      "id": "antitesis-no-es",
+      "regex": "\\bNo\\s+(es|son|fue|era|se\\s+trata\\s+de|estudiamos|nombra)\\b[^.!?]{0,80}[.:;,]\\s*(Es|Son|Estudiamos|sino|es|son)\\b",
+      "porque": "Antítesis de apertura «No es X. Es Y»: muletilla de IA. Decir directamente lo que es.",
+      "gravedad": "error"
+    },
+    {
+      "id": "no-x-sino-y",
+      "regex": "\\bno\\s+[^.!?]{1,60}\\bsino\\b",
+      "flags": "i",
+      "porque": "Antítesis «no X, sino Y»: afirmar Y y quitar el contraste artificial.",
+      "gravedad": "aviso"
+    },
+    {
+      "id": "y-de-arranque",
+      "regex": "(^|[.!?]\\s+|<h\\d>)Y\\s",
+      "porque": "«Y» al inicio de frase como golpe dramático.",
+      "gravedad": "error"
+    },
+    {
+      "id": "es-decir-revelacion",
+      "regex": "\\b(Es decir|O sea|En otras palabras)\\s*:",
+      "porque": "Dos puntos de revelación. Unir con «así que» o reescribir.",
+      "gravedad": "error"
+    },
+    {
+      "id": "relleno",
+      "regex": "\\b(conviene tener claro|cabe (destacar|resaltar|mencionar)|vale la pena (mencionar|destacar)|es importante (destacar|señalar|mencionar)|sin lugar a dudas|en definitiva|a nivel de|con precisión|sobre todo)\\b",
+      "flags": "i",
+      "porque": "Relleno o énfasis vacío.",
+      "gravedad": "aviso"
+    },
+    {
+      "id": "lexico-ia",
+      "regex": "\\b(robust[oa]s?|fluid[oa]s? y sin fricci[oó]n|sin fricciones|potenciar|ecosistema|sinergia|de vanguardia|transformador[a]?|holístic[oa])\\b",
+      "flags": "i",
+      "porque": "Léxico de IA o de agencia: decir el hecho concreto.",
+      "gravedad": "aviso"
+    },
+    {
+      "id": "polisindeton-ni",
+      "regex": "\\bNi\\b[^.!?]{0,40},\\s*ni\\b[^.!?]{0,40},\\s*ni\\b",
+      "flags": "i",
+      "porque": "Polisíndeton «Ni…, ni…, ni…» de efecto.",
+      "gravedad": "aviso"
+    },
+    {
+      "id": "raya",
+      "regex": "\\s—\\s",
+      "porque": "Raya (em dash) en texto visible: usar coma, punto o paréntesis.",
+      "gravedad": "aviso"
+    }
+  ],
+  "casos": [
+    {
+      "tarea": "COMPLETAR: pieza de copy real que el cliente necesita (notificación, correo, post).",
+      "contexto": "Datos concretos que la pieza debe usar."
+    }
+  ]
+}

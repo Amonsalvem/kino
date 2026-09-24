@@ -1,0 +1,21 @@
+<!-- @dsCard group="Datos" height=310 subtitle="Placas, códigos y horas" -->
+<style>
+  body { margin:0; padding:24px; background:var(--kino-superficie-base); color:var(--kino-texto-primario);
+         font-family:var(--kino-fuente-texto); }
+  .rejilla { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:20px; max-width:640px; }
+  dt { font-family:var(--kino-fuente-dato); font-size:12px; letter-spacing:.08em; text-transform:uppercase;
+       color:var(--kino-texto-secundario); margin:0 0 6px; }
+  dd { margin:0; }
+  .personal { display:inline-block; padding:4px 8px; border-radius:var(--kino-radio-s);
+              background:var(--kino-estado-identidad-fondo); color:var(--kino-estado-identidad-texto);
+              border:1px solid var(--kino-estado-identidad-borde); }
+  p { margin:22px 0 0; max-width:60ch; font-size:14px; color:var(--kino-texto-secundario); }
+</style>
+<dl class="rejilla">
+  <div><dt>Placa</dt><dd class="kino-placa">HTK 481</dd></div>
+  <div><dt>Código de un solo uso</dt><dd class="kino-placa">0 9 B 4 1 O</dd></div>
+  <div><dt>Entrada confirmada</dt><dd class="kino-dato">19 sep · 14:32:07</dd></div>
+  <div><dt>Cédula</dt><dd><span class="kino-dato personal">1 017 &middot;&middot;&middot; 442</span></dd></div>
+</dl>
+<p>Cero barrado y cifras tabulares: una placa mal leída es un ingreso mal concedido.
+Todo dato personal se marca con violeta y se muestra truncado salvo a quien lo necesita.</p>

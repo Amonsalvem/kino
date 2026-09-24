@@ -1,0 +1,163 @@
+{
+  "primitivo": {
+    "medida": {
+      "espacio": {
+        "3xs": {
+          "$value": {
+            "value": 2,
+            "unit": "px"
+          },
+          "$type": "dimension"
+        },
+        "2xs": {
+          "$value": {
+            "value": 4,
+            "unit": "px"
+          },
+          "$type": "dimension"
+        },
+        "xs": {
+          "$value": {
+            "value": 8,
+            "unit": "px"
+          },
+          "$type": "dimension"
+        },
+        "s": {
+          "$value": {
+            "value": 12,
+            "unit": "px"
+          },
+          "$type": "dimension"
+        },
+        "m": {
+          "$value": {
+            "value": 16,
+            "unit": "px"
+          },
+          "$type": "dimension"
+        },
+        "l": {
+          "$value": {
+            "value": 24,
+            "unit": "px"
+          },
+          "$type": "dimension"
+        },
+        "xl": {
+          "$value": {
+            "value": 32,
+            "unit": "px"
+          },
+          "$type": "dimension"
+        },
+        "2xl": {
+          "$value": {
+            "value": 48,
+            "unit": "px"
+          },
+          "$type": "dimension"
+        },
+        "3xl": {
+          "$value": {
+            "value": 72,
+            "unit": "px"
+          },
+          "$type": "dimension"
+        },
+        "4xl": {
+          "$value": {
+            "value": 112,
+            "unit": "px"
+          },
+          "$type": "dimension"
+        }
+      },
+      "radio": {
+        "nada": {
+          "$value": {
+            "value": 0,
+            "unit": "px"
+          },
+          "$type": "dimension"
+        },
+        "xs": {
+          "$value": {
+            "value": 2,
+            "unit": "px"
+          },
+          "$type": "dimension"
+        },
+        "s": {
+          "$value": {
+            "value": 4,
+            "unit": "px"
+          },
+          "$type": "dimension"
+        },
+        "m": {
+          "$value": {
+            "value": 8,
+            "unit": "px"
+          },
+          "$type": "dimension"
+        },
+        "l": {
+          "$value": {
+            "value": 14,
+            "unit": "px"
+          },
+          "$type": "dimension"
+        },
+        "arco": {
+          "$value": {
+            "value": 999,
+            "unit": "px"
+          },
+          "$type": "dimension",
+          "$extensions": {
+            "com.gorr.css-crudo": "999px 999px 4px 4px"
+          }
+        },
+        "pleno": {
+          "$value": {
+            "value": 999,
+            "unit": "px"
+          },
+          "$type": "dimension"
+        }
+      }
+    },
+    "tipo": {
+      "fuente": {
+        "display": {
+          "$value": [
+            "Archivo",
+            "Archivo Expanded",
+            "system-ui",
+            "sans-serif"
+          ],
+          "$type": "fontFamily"
+        },
+        "texto": {
+          "$value": [
+            "Archivo",
+            "system-ui",
+            "-apple-system",
+            "sans-serif"
+          ],
+          "$type": "fontFamily"
+        },
+        "dato": {
+          "$value": [
+            "JetBrains Mono",
+            "ui-monospace",
+            "SF Mono",
+            "monospace"
+          ],
+          "$type": "fontFamily"
+        }
+      }
+    }
+  }
+}

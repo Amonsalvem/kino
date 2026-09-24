@@ -1,0 +1,80 @@
+[
+ {
+  "caso": 1,
+  "version": 1,
+  "errores": []
+ },
+ {
+  "caso": 1,
+  "version": 2,
+  "errores": []
+ },
+ {
+  "caso": 1,
+  "version": 3,
+  "errores": []
+ },
+ {
+  "caso": 2,
+  "version": 1,
+  "errores": []
+ },
+ {
+  "caso": 2,
+  "version": 2,
+  "errores": []
+ },
+ {
+  "caso": 2,
+  "version": 3,
+  "errores": []
+ },
+ {
+  "caso": 3,
+  "version": 1,
+  "errores": []
+ },
+ {
+  "caso": 3,
+  "version": 2,
+  "errores": []
+ },
+ {
+  "caso": 3,
+  "version": 3,
+  "errores": []
+ },
+ {
+  "caso": 4,
+  "version": 1,
+  "errores": []
+ },
+ {
+  "caso": 4,
+  "version": 2,
+  "errores": []
+ },
+ {
+  "caso": 4,
+  "version": 3,
+  "errores": [
+   "evitar:todo queda registrado",
+   "evitar:todo queda registrado"
+  ]
+ },
+ {
+  "caso": 5,
+  "version": 1,
+  "errores": []
+ },
+ {
+  "caso": 5,
+  "version": 2,
+  "errores": []
+ },
+ {
+  "caso": 5,
+  "version": 3,
+  "errores": []
+ }
+]

@@ -1,0 +1,120 @@
+{
+  "fondos": {
+    "d": "#011F16",
+    "l": "#EFFCF7"
+  },
+  "colores": [
+    {
+      "name": "sustrato",
+      "colorKeys": [
+        "#68897B"
+      ],
+      "ratios": [
+        1.5,
+        2.3,
+        3.2,
+        4.5,
+        7,
+        9,
+        11
+      ],
+      "colorspace": "OKLCH"
+    },
+    {
+      "name": "hueso",
+      "colorKeys": [
+        "#77837F"
+      ],
+      "ratios": [
+        1.5,
+        2.3,
+        3.2,
+        4.5,
+        7,
+        9,
+        11
+      ],
+      "colorspace": "OKLCH"
+    },
+    {
+      "name": "biolum",
+      "colorKeys": [
+        "#009869"
+      ],
+      "ratios": [
+        1.5,
+        2.3,
+        3.2,
+        4.5,
+        7,
+        9,
+        11
+      ],
+      "colorspace": "OKLCH"
+    },
+    {
+      "name": "ambar",
+      "colorKeys": [
+        "#AC7300"
+      ],
+      "ratios": [
+        1.5,
+        2.3,
+        3.2,
+        4.5,
+        7,
+        9,
+        11
+      ],
+      "colorspace": "OKLCH"
+    },
+    {
+      "name": "carmin",
+      "colorKeys": [
+        "#D74745"
+      ],
+      "ratios": [
+        1.5,
+        2.3,
+        3.2,
+        4.5,
+        7,
+        9,
+        11
+      ],
+      "colorspace": "OKLCH"
+    },
+    {
+      "name": "violeta",
+      "colorKeys": [
+        "#7B69E5"
+      ],
+      "ratios": [
+        1.5,
+        2.3,
+        3.2,
+        4.5,
+        7,
+        9,
+        11
+      ],
+      "colorspace": "OKLCH"
+    },
+    {
+      "name": "indigo",
+      "colorKeys": [
+        "#4A7AE4"
+      ],
+      "ratios": [
+        1.5,
+        2.3,
+        3.2,
+        4.5,
+        7,
+        9,
+        11
+      ],
+      "colorspace": "OKLCH"
+    }
+  ]
+}

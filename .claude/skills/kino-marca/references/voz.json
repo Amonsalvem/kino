@@ -1,0 +1,272 @@
+{
+  "$descripcion": "Identidad verbal de Kino. Perfil NN/g (4 dimensiones) + vocabulario del proyecto + patrones del barrido de muletillas del 22 sep 2026. Perfil aprobado por el equipo el 22 sep 2026.",
+  "perfil": {
+    "estado": "aprobado por el equipo (22 sep 2026)",
+    "escala": "1 = primer polo, 5 = segundo polo",
+    "formalidad": {
+      "valor": 2,
+      "polos": [
+        "formal",
+        "casual"
+      ],
+      "nota": "Tuteo cercano en la app; frases completas y sin jerga en documentos para la administración."
+    },
+    "humor": {
+      "valor": 1,
+      "polos": [
+        "serio",
+        "divertido"
+      ],
+      "nota": "Se trata de quién entra a la casa de alguien. Sin chistes en estados, errores ni permisos."
+    },
+    "respeto": {
+      "valor": 1,
+      "polos": [
+        "respetuoso",
+        "irreverente"
+      ],
+      "nota": "Nunca culpar al residente ni al portero; describir lo que pasó, no a quién se le olvidó."
+    },
+    "entusiasmo": {
+      "valor": 2,
+      "polos": [
+        "sobrio",
+        "entusiasta"
+      ],
+      "nota": "Confirmar con hechos (vigente hasta 6:00 p. m.) en vez de celebrar (¡Listo!)."
+    }
+  },
+  "somos": [
+    "Exactos: decimos la hora, la placa y la vigencia, no «pronto» ni «pendiente».",
+    "Honestos con el estado: lo que el lector no confirmó se dice sin confirmar.",
+    "Breves: una idea por frase, el dato primero."
+  ],
+  "noSomos": [
+    "Alarmistas: no hablamos de amenazas, candados ni muros.",
+    "Burocráticos: no pedimos aprobaciones que el sistema no necesita.",
+    "Publicitarios: no prometemos seguridad total ni usamos superlativos.",
+    "Prometedores: no describimos avisos, registros, funciones ni formas de uso que el producto no tenga confirmados. Si el contexto no lo dice, no se escribe."
+  ],
+  "vocabulario": {
+    "usar": [
+      {
+        "termino": "pase",
+        "significa": "El objeto que recibe un invitado o colaborador: autor, motivo, vigencia y modo (placa, QR o código). Caduca solo y no crea una persona."
+      },
+      {
+        "termino": "cuenta",
+        "significa": "Lo que tiene un residente. Un invitado nunca tiene cuenta."
+      },
+      {
+        "termino": "acceso previsto",
+        "significa": "El pase que el residente prepara antes de que llegue la persona."
+      },
+      {
+        "termino": "colaborador",
+        "significa": "Empleada, técnicos y personal recurrente. Misma prioridad que el visitante ocasional."
+      },
+      {
+        "termino": "lector",
+        "significa": "El dispositivo de la puerta (placa, QR, rostro) que permite el ingreso."
+      },
+      {
+        "termino": "otorgar",
+        "significa": "El acto de crear un pase. Es lo único que lleva el color de acento."
+      }
+    ],
+    "evitar": [
+      {
+        "termino": "permiso",
+        "patron": "(?<![\\p{L}])permisos?(?![\\p{L}])",
+        "usar": "pase",
+        "porque": "Desde el 23 sep el objeto se llama «pase». «Permiso» solo como explicación («un pase es un permiso de ingreso con…»).",
+        "gravedad": "aviso"
+      },
+      {
+        "termino": "cuenta del invitado",
+        "patron": "cuenta\\s+(del|de\\s+la|de|para\\s+el|para\\s+la)\\s+(invitad|visitant)",
+        "usar": "pase",
+        "porque": "Pase y cuenta no se mezclan: el invitado recibe un pase con vigencia.",
+        "gravedad": "error"
+      },
+      {
+        "termino": "contraseña",
+        "usar": "código por WhatsApp",
+        "porque": "Decisión tomada: el ingreso a la app es con código por WhatsApp, sin contraseña.",
+        "gravedad": "error"
+      },
+      {
+        "termino": "aprobación de ingreso",
+        "patron": "(?<!(deja de|dejar de|dejó de|ya no|no)\\s)(aprobaci[oó]n|aprobar|aprueba)\\s+((el|la|los|las|del?)\\s+)?(ingresos?|accesos?)",
+        "usar": "el residente otorga el pase",
+        "porque": "El administrador no aprueba ingresos; el residente aprueba a sus invitados y la administración fija límites.",
+        "gravedad": "error"
+      },
+      {
+        "termino": "el vigilante autoriza",
+        "patron": "(vigilante|portero)\\s+(autoriza|aprueba|deja\\s+entrar)",
+        "usar": "el lector permite el ingreso",
+        "porque": "El ingreso lo permite el lector de la puerta, no el vigilante.",
+        "gravedad": "error"
+      },
+      {
+        "termino": "Arcana",
+        "usar": "Kino",
+        "porque": "Nombre anterior del producto.",
+        "gravedad": "error"
+      },
+      {
+        "termino": "seguridad total",
+        "usar": "describir qué registra y qué no",
+        "porque": "Promesa que el sistema no puede sostener.",
+        "gravedad": "error"
+      },
+      {
+        "termino": "todo queda registrado",
+        "patron": "(todo queda registrado|trazabilidad (completa|total)|registro completo)",
+        "usar": "nombrar solo lo que el producto confirma (ver «hechos»)",
+        "porque": "Promesa absoluta: el sistema registra hechos concretos, no «todo».",
+        "gravedad": "error"
+      }
+    ],
+    "noMezclar": [
+      {
+        "a": "pase",
+        "b": "cuenta",
+        "regla": "Pase = invitado o colaborador, con vigencia. Cuenta = residente. Nunca intercambiables, ni en texto ni en código."
+      }
+    ]
+  },
+  "patrones": [
+    {
+      "id": "antitesis-no-es",
+      "regex": "\\bNo\\s+(es|son|fue|era|se\\s+trata\\s+de|estudiamos|nombra)\\b[^.!?]{0,80}[.:;,]\\s*(Es|Son|Estudiamos|sino|es|son)\\b",
+      "porque": "Antítesis de apertura «No es X. Es Y»: muletilla de IA. Decir directamente lo que es.",
+      "gravedad": "error"
+    },
+    {
+      "id": "no-x-sino-y",
+      "regex": "\\bno\\s+[^.!?]{1,60}\\bsino\\b",
+      "flags": "i",
+      "porque": "Antítesis «no X, sino Y»: afirmar Y y quitar el contraste artificial.",
+      "gravedad": "aviso"
+    },
+    {
+      "id": "no-x-dos-puntos",
+      "regex": "\\b(No|Ni)\\s+un[oa]?\\s+[^.!?]{1,40}[:,]\\s*(el|la|lo|un|una)\\b",
+      "porque": "Antítesis «No un demo: el producto vivo».",
+      "gravedad": "aviso"
+    },
+    {
+      "id": "y-de-arranque",
+      "regex": "(^|[.!?]\\s+|<h\\d>)Y\\s",
+      "porque": "«Y» al inicio de frase como golpe dramático.",
+      "gravedad": "error"
+    },
+    {
+      "id": "es-decir-revelacion",
+      "regex": "\\b(Es decir|O sea|En otras palabras)\\s*:",
+      "porque": "Dos puntos de revelación. Unir con «así que» o reescribir.",
+      "gravedad": "error"
+    },
+    {
+      "id": "relleno",
+      "regex": "\\b(conviene tener claro|cabe (destacar|resaltar|mencionar)|vale la pena (mencionar|destacar)|es importante (destacar|señalar|mencionar)|sin lugar a dudas|en definitiva|a nivel de|con precisión|sobre todo)\\b",
+      "flags": "i",
+      "porque": "Relleno o énfasis vacío.",
+      "gravedad": "aviso"
+    },
+    {
+      "id": "lexico-ia",
+      "regex": "\\b(robust[oa]s?|fluid[oa]s? y sin fricci[oó]n|sin fricciones|potenciar|ecosistema|sinergia|de vanguardia|transformador[a]?|holístic[oa])\\b",
+      "flags": "i",
+      "porque": "Léxico de IA o de agencia: decir el hecho concreto.",
+      "gravedad": "aviso"
+    },
+    {
+      "id": "anafora-unico",
+      "regex": "\\b(el|la)\\s+únic[oa]\\b[^.!?]{0,80}\\b(el|la)\\s+únic[oa]\\b",
+      "flags": "i",
+      "porque": "Paralelismo «el único… el único».",
+      "gravedad": "aviso"
+    },
+    {
+      "id": "anafora-no-quiere",
+      "regex": "\\bno\\s+(\\w+)\\b[^.!?]{0,50},\\s*no\\s+\\1\\b",
+      "flags": "i",
+      "porque": "Anáfora «no quiere…, no quiere…».",
+      "gravedad": "aviso"
+    },
+    {
+      "id": "polisindeton-ni",
+      "regex": "\\bNi\\b[^.!?]{0,40},\\s*ni\\b[^.!?]{0,40},\\s*ni\\b",
+      "flags": "i",
+      "porque": "Polisíndeton «Ni…, ni…, ni…» de efecto.",
+      "gravedad": "aviso"
+    },
+    {
+      "id": "anafora-ningun",
+      "regex": "\\bning[uú]n[oa]?\\b[^.!?]{0,60},\\s*ning[uú]n[oa]?\\b",
+      "flags": "i",
+      "porque": "Anáfora «ningún…, ninguna…».",
+      "gravedad": "aviso"
+    },
+    {
+      "id": "cierre-lapidario",
+      "regex": "(^|[.!?]\\s+)(Nada|Ninguna?)\\s+[^.!?]{0,40}(sin eso|de memoria)\\.",
+      "porque": "Cierre lapidario de efecto.",
+      "gravedad": "aviso"
+    },
+    {
+      "id": "raya",
+      "regex": "\\s—\\s",
+      "porque": "Raya (em dash) en texto visible: usar coma, punto o paréntesis.",
+      "gravedad": "aviso"
+    },
+    {
+      "id": "mayusculas-enfasis",
+      "regex": "\\b(?!(?:HPH|SIC|ANPR|LPR|QR|PH|API|CSS|MVP|EAFIT|DTCG|WCAG|APCA|SVG|PNG|PDF|CDN|MIT|OFL|IoU|NN|KINO|HTML|URL|UI|SDK|CI|NPM)\\b)[A-ZÁÉÍÓÚÑ]{3,}\\b(?![\\s-]?\\d)",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481).",
+      "gravedad": "aviso"
+    }
+  ],
+  "casos": [
+    {
+      "tarea": "Notificación push cuando el pase de un colaborador vence en 30 minutos.",
+      "contexto": "Residente: Laura, Villas Campestres. Colaborador: Andrés (técnico de gas). Vigencia hasta 4:30 p. m."
+    },
+    {
+      "tarea": "Mensaje de WhatsApp que recibe un invitado sin cuenta con su código de un solo uso.",
+      "contexto": "Invitada: Sofía. Residente: Juan, casa 14, Refugio Campestre. Válido hoy de 7:00 a 11:00 p. m."
+    },
+    {
+      "tarea": "Texto del estado cuando el lector no ha confirmado una placa registrada por el residente.",
+      "contexto": "Placa ABC-123, registrada hace 5 minutos. Sincronización con el lector pendiente."
+    },
+    {
+      "tarea": "Párrafo para la administración que explica por qué ya no aprueba ingresos caso a caso.",
+      "contexto": "Público: administradora de una copropiedad. La administración fija cupos, duración y franjas."
+    },
+    {
+      "tarea": "Texto vacío de la lista de accesos previstos cuando el residente no ha creado ninguno.",
+      "contexto": "Pantalla principal del residente."
+    }
+  ],
+  "hechos": {
+    "$nota": "Lo que el producto hace, confirmado por decisiones del equipo. El copy puede afirmarlo. Lo que no está aquí ni en el contexto de la pieza no se afirma.",
+    "confirmado": [
+      "El residente otorga el pase a sus invitados y colaboradores; la administración no aprueba cada ingreso.",
+      "La administración fija los límites: cupos, duración y franjas horarias.",
+      "El invitado no necesita cuenta: entra con QR, placa o un código de un solo uso.",
+      "Todo pase tiene vigencia: desde y hasta una fecha y hora.",
+      "El ingreso lo permite el lector de la puerta (placa, QR o rostro), no el vigilante.",
+      "El residente entra a la app con un código por WhatsApp, sin contraseña.",
+      "Un pase está en uno de estos estados: vigente, por vencer, vencido, negado o sin confirmar."
+    ],
+    "noConfirmado": [
+      "Avisos automáticos cuando el lector confirma una placa.",
+      "Un historial o registro de permisos visible para la administración.",
+      "Que el código se pueda digitar en el lector."
+    ]
+  }
+}

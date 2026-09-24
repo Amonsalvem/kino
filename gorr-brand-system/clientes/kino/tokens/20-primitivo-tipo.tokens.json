@@ -1,0 +1,186 @@
+{
+  "primitivo": {
+    "tipo": {
+      "texto": {
+        "0": {
+          "$value": {
+            "value": 1,
+            "unit": "rem"
+          },
+          "$extensions": {
+            "com.gorr.fluido": {
+              "min": {
+                "value": 1,
+                "unit": "rem"
+              },
+              "max": {
+                "value": 1.125,
+                "unit": "rem"
+              },
+              "vwMin": 360,
+              "vwMax": 1440,
+              "raiz": 16,
+              "decimales": 3
+            }
+          }
+        },
+        "1": {
+          "$value": {
+            "value": 1.2,
+            "unit": "rem"
+          },
+          "$extensions": {
+            "com.gorr.fluido": {
+              "min": {
+                "value": 1.2,
+                "unit": "rem"
+              },
+              "max": {
+                "value": 1.4175,
+                "unit": "rem"
+              },
+              "vwMin": 360,
+              "vwMax": 1440,
+              "raiz": 16,
+              "decimales": 3
+            }
+          }
+        },
+        "2": {
+          "$value": {
+            "value": 1.44,
+            "unit": "rem"
+          },
+          "$extensions": {
+            "com.gorr.fluido": {
+              "min": {
+                "value": 1.44,
+                "unit": "rem"
+              },
+              "max": {
+                "value": 1.7861,
+                "unit": "rem"
+              },
+              "vwMin": 360,
+              "vwMax": 1440,
+              "raiz": 16,
+              "decimales": 3
+            }
+          }
+        },
+        "3": {
+          "$value": {
+            "value": 1.728,
+            "unit": "rem"
+          },
+          "$extensions": {
+            "com.gorr.fluido": {
+              "min": {
+                "value": 1.728,
+                "unit": "rem"
+              },
+              "max": {
+                "value": 2.2504,
+                "unit": "rem"
+              },
+              "vwMin": 360,
+              "vwMax": 1440,
+              "raiz": 16,
+              "decimales": 3
+            }
+          }
+        },
+        "4": {
+          "$value": {
+            "value": 2.0736,
+            "unit": "rem"
+          },
+          "$extensions": {
+            "com.gorr.fluido": {
+              "min": {
+                "value": 2.0736,
+                "unit": "rem"
+              },
+              "max": {
+                "value": 2.8355,
+                "unit": "rem"
+              },
+              "vwMin": 360,
+              "vwMax": 1440,
+              "raiz": 16,
+              "decimales": 3
+            }
+          }
+        },
+        "5": {
+          "$value": {
+            "value": 2.4883,
+            "unit": "rem"
+          },
+          "$extensions": {
+            "com.gorr.fluido": {
+              "min": {
+                "value": 2.4883,
+                "unit": "rem"
+              },
+              "max": {
+                "value": 3.5728,
+                "unit": "rem"
+              },
+              "vwMin": 360,
+              "vwMax": 1440,
+              "raiz": 16,
+              "decimales": 3
+            }
+          }
+        },
+        "6": {
+          "$value": {
+            "value": 2.986,
+            "unit": "rem"
+          },
+          "$extensions": {
+            "com.gorr.fluido": {
+              "min": {
+                "value": 2.986,
+                "unit": "rem"
+              },
+              "max": {
+                "value": 4.5017,
+                "unit": "rem"
+              },
+              "vwMin": 360,
+              "vwMax": 1440,
+              "raiz": 16,
+              "decimales": 3
+            }
+          }
+        },
+        "$type": "dimension",
+        "$description": "Utopia · 16px×1.2 @360px → 18px×1.26 @1440px",
+        "n1": {
+          "$value": {
+            "value": 0.8333,
+            "unit": "rem"
+          },
+          "$extensions": {
+            "com.gorr.fluido": {
+              "min": {
+                "value": 0.8333,
+                "unit": "rem"
+              },
+              "max": {
+                "value": 0.8929,
+                "unit": "rem"
+              },
+              "vwMin": 360,
+              "vwMax": 1440,
+              "raiz": 16,
+              "decimales": 3
+            }
+          }
+        }
+      }
+    }
+  }
+}

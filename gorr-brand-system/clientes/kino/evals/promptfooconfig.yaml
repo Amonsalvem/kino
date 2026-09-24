@@ -1,0 +1,43 @@
+# Generado por gorr-brand-system (herramientas/evals.mjs). No editar: cambiar voz.json y regenerar.
+# Correr (requiere red y ANTHROPIC_API_KEY):  npx promptfoo@latest eval && npx promptfoo@latest view
+# Umbral de producto: el copy pasa sin edición en >= 80 % de los casos.
+description: "Voz de Kino"
+prompts:
+  - file://prompt.json
+providers:
+  - id: anthropic:messages:claude-sonnet-4-5
+    config:
+      temperature: 0.7
+defaultTest:
+  assert:
+    - type: not-icontains
+      value: "contraseña"
+    - type: not-icontains
+      value: "Arcana"
+    - type: not-icontains
+      value: "seguridad total"
+    - type: javascript
+      value: file://voz-assert.cjs
+    - type: llm-rubric
+      value: file://rubrica.md
+tests:
+  - description: "Notificación push cuando el pase de un colaborador vence en 30 minutos."
+    vars:
+      tarea: "Notificación push cuando el pase de un colaborador vence en 30 minutos."
+      contexto: "Residente: Laura, Villas Campestres. Colaborador: Andrés (técnico de gas). Vigencia hasta 4:30 p. m."
+  - description: "Mensaje de WhatsApp que recibe un invitado sin cuenta con su código de un solo uso."
+    vars:
+      tarea: "Mensaje de WhatsApp que recibe un invitado sin cuenta con su código de un solo uso."
+      contexto: "Invitada: Sofía. Residente: Juan, casa 14, Refugio Campestre. Válido hoy de 7:00 a 11:00 p. m."
+  - description: "Texto del estado cuando el lector no ha confirmado una placa registrada por el residente."
+    vars:
+      tarea: "Texto del estado cuando el lector no ha confirmado una placa registrada por el residente."
+      contexto: "Placa ABC-123, registrada hace 5 minutos. Sincronización con el lector pendiente."
+  - description: "Párrafo para la administración que explica por qué ya no aprueba ingresos caso a caso."
+    vars:
+      tarea: "Párrafo para la administración que explica por qué ya no aprueba ingresos caso a caso."
+      contexto: "Público: administradora de una copropiedad. La administración fija cupos, duración y franjas."
+  - description: "Texto vacío de la lista de accesos previstos cuando el residente no ha creado ninguno."
+    vars:
+      tarea: "Texto vacío de la lista de accesos previstos cuando el residente no ha creado ninguno."
+      contexto: "Pantalla principal del residente."

@@ -1,0 +1,42 @@
+{
+ "-1": {
+  "min_px": 13.33,
+  "max_px": 14.29,
+  "clamp": "clamp(0.833rem, 0.813rem + 0.088vw, 0.893rem)"
+ },
+ "0": {
+  "min_px": 16.0,
+  "max_px": 18.0,
+  "clamp": "clamp(1.000rem, 0.958rem + 0.185vw, 1.125rem)"
+ },
+ "1": {
+  "min_px": 19.2,
+  "max_px": 22.68,
+  "clamp": "clamp(1.200rem, 1.127rem + 0.322vw, 1.417rem)"
+ },
+ "2": {
+  "min_px": 23.04,
+  "max_px": 28.58,
+  "clamp": "clamp(1.440rem, 1.325rem + 0.513vw, 1.786rem)"
+ },
+ "3": {
+  "min_px": 27.65,
+  "max_px": 36.01,
+  "clamp": "clamp(1.728rem, 1.554rem + 0.774vw, 2.250rem)"
+ },
+ "4": {
+  "min_px": 33.18,
+  "max_px": 45.37,
+  "clamp": "clamp(2.074rem, 1.820rem + 1.129vw, 2.836rem)"
+ },
+ "5": {
+  "min_px": 39.81,
+  "max_px": 57.16,
+  "clamp": "clamp(2.488rem, 2.127rem + 1.607vw, 3.573rem)"
+ },
+ "6": {
+  "min_px": 47.78,
+  "max_px": 72.03,
+  "clamp": "clamp(2.986rem, 2.481rem + 2.245vw, 4.502rem)"
+ }
+}

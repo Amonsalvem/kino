@@ -1,0 +1,461 @@
+{
+  "$descripcion": "Identidad verbal de Kino. Perfil NN/g (4 dimensiones) + vocabulario del proyecto + patrones del barrido de muletillas del 22 sep 2026. Perfil aprobado por el equipo el 22 sep 2026. 23 sep 2026: se agregan los patrones de la regla 10 del encargo y los de la calibración (Parada 2).",
+  "perfil": {
+    "estado": "aprobado por el equipo (22 sep 2026)",
+    "escala": "1 = primer polo, 5 = segundo polo",
+    "formalidad": {
+      "valor": 2,
+      "polos": [
+        "formal",
+        "casual"
+      ],
+      "nota": "Tuteo cercano en la app; frases completas y sin jerga en documentos para la administración."
+    },
+    "humor": {
+      "valor": 1,
+      "polos": [
+        "serio",
+        "divertido"
+      ],
+      "nota": "Se trata de quién entra a la casa de alguien. Sin chistes en estados, errores ni permisos."
+    },
+    "respeto": {
+      "valor": 1,
+      "polos": [
+        "respetuoso",
+        "irreverente"
+      ],
+      "nota": "Nunca culpar al residente ni al portero; describir lo que pasó, no a quién se le olvidó."
+    },
+    "entusiasmo": {
+      "valor": 2,
+      "polos": [
+        "sobrio",
+        "entusiasta"
+      ],
+      "nota": "Confirmar con hechos (vigente hasta 6:00 p. m.) en vez de celebrar (¡Listo!)."
+    }
+  },
+  "somos": [
+    "Exactos: decimos la hora, la placa y la vigencia, no «pronto» ni «pendiente».",
+    "Honestos con el estado: lo que el lector no confirmó se dice sin confirmar.",
+    "Breves: una idea por frase, el dato primero."
+  ],
+  "noSomos": [
+    "Alarmistas: no hablamos de amenazas, candados ni muros.",
+    "Burocráticos: no pedimos aprobaciones que el sistema no necesita.",
+    "Publicitarios: no prometemos seguridad total ni usamos superlativos.",
+    "Prometedores: no describimos avisos, registros, funciones ni formas de uso que el producto no tenga confirmados. Si el contexto no lo dice, no se escribe."
+  ],
+  "vocabulario": {
+    "usar": [
+      {
+        "termino": "pase",
+        "significa": "El objeto que recibe un invitado o colaborador: autor, motivo, vigencia y modo (placa, QR o código). Caduca solo y no crea una persona."
+      },
+      {
+        "termino": "cuenta",
+        "significa": "Lo que tiene un residente. Un invitado nunca tiene cuenta."
+      },
+      {
+        "termino": "acceso previsto",
+        "significa": "El pase que el residente prepara antes de que llegue la persona."
+      },
+      {
+        "termino": "colaborador",
+        "significa": "Empleada, técnicos y personal recurrente. Misma prioridad que el visitante ocasional."
+      },
+      {
+        "termino": "lector",
+        "significa": "El dispositivo de la puerta (placa, QR, rostro) que permite el ingreso."
+      },
+      {
+        "termino": "otorgar",
+        "significa": "El acto de crear un pase. Es lo único que lleva el color de acento."
+      }
+    ],
+    "evitar": [
+      {
+        "termino": "permiso",
+        "patron": "(?<![\\p{L}])permisos?(?![\\p{L}])",
+        "usar": "pase",
+        "porque": "El objeto se llama «Pase» (decisión F3 del encargo). En texto de producto no se usa ni como explicación.",
+        "gravedad": "error"
+      },
+      {
+        "termino": "cuenta del invitado",
+        "patron": "cuenta\\s+(del|de\\s+la|de|para\\s+el|para\\s+la)\\s+(invitad|visitant)",
+        "usar": "pase",
+        "porque": "Pase y cuenta no se mezclan: el invitado recibe un pase con vigencia.",
+        "gravedad": "error"
+      },
+      {
+        "termino": "contraseña",
+        "usar": "código por WhatsApp",
+        "porque": "Decisión tomada: el ingreso a la app es con código por WhatsApp, sin contraseña.",
+        "gravedad": "error"
+      },
+      {
+        "termino": "aprobación de ingreso",
+        "patron": "(?<!(deja de|dejar de|dejó de|ya no|no)\\s)(aprobaci[oó]n|aprobar|aprueba)\\s+((el|la|los|las|del?)\\s+)?(ingresos?|accesos?)",
+        "usar": "el residente otorga el pase",
+        "porque": "El administrador no aprueba ingresos; el residente aprueba a sus invitados y la administración fija límites.",
+        "gravedad": "error"
+      },
+      {
+        "termino": "el vigilante autoriza",
+        "patron": "(vigilante|portero)\\s+(autoriza|aprueba|deja\\s+entrar)",
+        "usar": "el lector permite el ingreso",
+        "porque": "El ingreso lo permite el lector de la puerta, no el vigilante.",
+        "gravedad": "error"
+      },
+      {
+        "termino": "Arcana",
+        "usar": "Kino",
+        "porque": "Nombre anterior del producto.",
+        "gravedad": "error"
+      },
+      {
+        "termino": "seguridad total",
+        "usar": "describir qué registra y qué no",
+        "porque": "Promesa que el sistema no puede sostener.",
+        "gravedad": "error"
+      },
+      {
+        "termino": "todo queda registrado",
+        "patron": "(todo queda registrado|trazabilidad (completa|total)|registro completo)",
+        "usar": "nombrar solo lo que el producto confirma (ver «hechos»)",
+        "porque": "Promesa absoluta: el sistema registra hechos concretos, no «todo».",
+        "gravedad": "error"
+      }
+    ],
+    "noMezclar": [
+      {
+        "a": "pase",
+        "b": "cuenta",
+        "regla": "Pase = invitado o colaborador, con vigencia. Cuenta = residente. Nunca intercambiables, ni en texto ni en código."
+      }
+    ]
+  },
+  "patrones": [
+    {
+      "id": "antitesis-no-es",
+      "regex": "\\bNo\\s+(es|son|fue|era|se\\s+trata\\s+de|estudiamos|nombra)\\b[^.!?]{0,80}[.:;,]\\s*(Es|Son|Estudiamos|sino|es|son)\\b",
+      "porque": "Antítesis de apertura «No es X. Es Y»: muletilla de IA. Decir directamente lo que es.",
+      "gravedad": "error"
+    },
+    {
+      "id": "no-x-sino-y",
+      "regex": "\\bno\\s+[^.!?]{1,60}\\bsino\\b",
+      "flags": "i",
+      "porque": "Antítesis «no X, sino Y»: afirmar Y y quitar el contraste artificial.",
+      "gravedad": "aviso"
+    },
+    {
+      "id": "no-x-dos-puntos",
+      "regex": "\\b(No|Ni)\\s+un[oa]?\\s+[^.!?]{1,40}[:,]\\s*(el|la|lo|un|una)\\b",
+      "porque": "Antítesis «No un demo: el producto vivo».",
+      "gravedad": "aviso"
+    },
+    {
+      "id": "y-de-arranque",
+      "regex": "(^|[.!?]\\s+|<h\\d>)Y\\s",
+      "porque": "«Y» al inicio de frase como golpe dramático.",
+      "gravedad": "error"
+    },
+    {
+      "id": "es-decir-revelacion",
+      "regex": "\\b(Es decir|O sea|En otras palabras)\\s*:",
+      "porque": "Dos puntos de revelación. Unir con «así que» o reescribir.",
+      "gravedad": "error"
+    },
+    {
+      "id": "relleno",
+      "regex": "\\b(conviene tener claro|cabe (destacar|resaltar|mencionar)|vale la pena (mencionar|destacar)|es importante (destacar|señalar|mencionar)|sin lugar a dudas|en definitiva|a nivel de|con precisión|sobre todo)\\b",
+      "flags": "i",
+      "porque": "Relleno o énfasis vacío.",
+      "gravedad": "aviso"
+    },
+    {
+      "id": "lexico-ia",
+      "regex": "\\b(robust[oa]s?|fluid[oa]s? y sin fricci[oó]n|sin fricciones|potenciar|ecosistema|sinergia|de vanguardia|transformador[a]?|holístic[oa])\\b",
+      "flags": "i",
+      "porque": "Léxico de IA o de agencia: decir el hecho concreto.",
+      "gravedad": "aviso"
+    },
+    {
+      "id": "anafora-unico",
+      "regex": "\\b(el|la)\\s+únic[oa]\\b[^.!?]{0,80}\\b(el|la)\\s+únic[oa]\\b",
+      "flags": "i",
+      "porque": "Paralelismo «el único… el único».",
+      "gravedad": "aviso"
+    },
+    {
+      "id": "anafora-no-quiere",
+      "regex": "\\bno\\s+(\\w+)\\b[^.!?]{0,50},\\s*no\\s+\\1\\b",
+      "flags": "i",
+      "porque": "Anáfora «no quiere…, no quiere…».",
+      "gravedad": "aviso"
+    },
+    {
+      "id": "polisindeton-ni",
+      "regex": "\\bNi\\b[^.!?]{0,40},\\s*ni\\b[^.!?]{0,40},\\s*ni\\b",
+      "flags": "i",
+      "porque": "Polisíndeton «Ni…, ni…, ni…» de efecto.",
+      "gravedad": "aviso"
+    },
+    {
+      "id": "anafora-ningun",
+      "regex": "\\bning[uú]n[oa]?\\b[^.!?]{0,60},\\s*ning[uú]n[oa]?\\b",
+      "flags": "i",
+      "porque": "Anáfora «ningún…, ninguna…».",
+      "gravedad": "aviso"
+    },
+    {
+      "id": "cierre-lapidario",
+      "regex": "(^|[.!?]\\s+)(Nada|Ninguna?)\\s+[^.!?]{0,40}(sin eso|de memoria)\\.",
+      "porque": "Cierre lapidario de efecto.",
+      "gravedad": "aviso"
+    },
+    {
+      "id": "raya",
+      "regex": "\\s—\\s",
+      "porque": "Raya (em dash) en texto visible: usar coma, punto o paréntesis.",
+      "gravedad": "aviso"
+    },
+    {
+      "id": "mayusculas-enfasis",
+      "regex": "\\b(?!(?:HPH|SIC|ANPR|LPR|QR|PH|API|CSS|MVP|EAFIT|DTCG|WCAG|APCA|SVG|PNG|PDF|CDN|MIT|OFL|IoU|NN|KINO|HTML|URL|UI|SDK|CI|NPM|DANE|GEIH|OTP|ISO|RAE|COP|ANPR|PENDIENTE|HOY)\\b)[A-ZÁÉÍÓÚÑ]{3,}\\b(?![\\s-]?\\d)",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481).",
+      "gravedad": "aviso"
+    },
+    {
+      "id": "exclamacion",
+      "regex": "[¡!]",
+      "porque": "Regla 10: sin exclamaciones. Confirmar con el dato.",
+      "gravedad": "error"
+    },
+    {
+      "id": "arranque-vacio",
+      "regex": "(^|[.?]\\s+|>\\s*)(Imagina|Descubre|En\\s+Kino\\s+creemos|Bienvenid[oa]s?\\s+a)\\b",
+      "porque": "Regla 10: arranque publicitario. Empezar por el dato.",
+      "gravedad": "error"
+    },
+    {
+      "id": "lexico-vacio",
+      "regex": "(?<![\\p{L}])(fluid[oa]s?|sin\\s+fricci[oó]n(es)?|experiencias?|potenci(a|ar|amos|e|an)|transform(a|ar|amos|e|an)|robust[oa]s?|integral(es)?|innovador(a|es|as)?|seamless)(?![\\p{L}])",
+      "flags": "i",
+      "porque": "Regla 10: léxico vacío. Nombrar el objeto o la acción concreta.",
+      "gravedad": "error"
+    },
+    {
+      "id": "error-generico",
+      "regex": "(oops|algo\\s+sali[oó]\\s+mal|(por\\s+favor,?\\s+)?int[eé]ntalo\\s+de\\s+nuevo(\\s+m[aá]s\\s+tarde)?)",
+      "flags": "i",
+      "porque": "Regla 10: error sin decir qué pasó ni qué hacer.",
+      "gravedad": "error"
+    },
+    {
+      "id": "no-solo-sino",
+      "regex": "(?<![\\p{L}])no\\s+s[oó]lo(?![\\p{L}])",
+      "flags": "i",
+      "porque": "Regla 10: «no solo… sino». Decir las dos cosas o la que importa.",
+      "gravedad": "error"
+    },
+    {
+      "id": "celebracion",
+      "regex": "(con\\s+éxito|exitosamente|¡?genial|¡?perfecto[.!])",
+      "flags": "i",
+      "porque": "Celebra en vez de confirmar con el dato (entusiasmo 2).",
+      "gravedad": "aviso"
+    },
+    {
+      "id": "trato-generico",
+      "regex": "(estimad[oa]s?\\s+(usuari|client|resident)|querid[oa]\\s+usuari)",
+      "flags": "i",
+      "porque": "Trato genérico: se nombra a la persona.",
+      "gravedad": "error"
+    },
+    {
+      "id": "disculpa-en-cadena",
+      "regex": "lamentamos(\\s+mucho)?\\s+(las|cualquier)\\s+molestias",
+      "flags": "i",
+      "porque": "Disculpa sin información. Decir qué pasó y qué hacer.",
+      "gravedad": "aviso"
+    },
+    {
+      "id": "cierre-enfatico",
+      "regex": "(así\\s+de\\s+(simple|fácil|sencillo)|eso\\s+es\\s+todo|y\\s+listo[.!]|sin\\s+complicaciones)",
+      "flags": "i",
+      "porque": "Regla 10: cierre enfático que repite la idea.",
+      "gravedad": "error"
+    },
+    {
+      "id": "promesa-absoluta",
+      "regex": "(100\\s*%\\s*segur|total(mente)?\\s+segur|a\\s+un\\s+clic)",
+      "flags": "i",
+      "porque": "Promesa que el sistema no puede sostener.",
+      "gravedad": "error"
+    },
+    {
+      "id": "antitesis-dos-puntos",
+      "regex": "(?<![\\p{L}])(no\\s+es|no\\s+son)\\s+(solo\\s+)?[^.:;]{1,50}:\\s*es\\b",
+      "flags": "i",
+      "porque": "Antítesis «no es X: es Y».",
+      "gravedad": "error"
+    },
+    {
+      "id": "empleada-domestica",
+      "regex": "emplead[oa]s?\\s+dom[eé]stic",
+      "flags": "i",
+      "porque": "Usar «colaborador» o el nombre.",
+      "gravedad": "aviso"
+    },
+    {
+      "id": "acceso-concedido",
+      "regex": "acceso\\s+(concedido|permitido|autorizado)",
+      "flags": "i",
+      "porque": "Afirma lo que la puerta tal vez no confirmó. Usar «vigente» con la hora.",
+      "gravedad": "error"
+    },
+    {
+      "id": "apertura-no-es",
+      "regex": "(^|[.?]\\s+)No\\s+es\\s+(un|una|el|la|lo)\\b[^.:]{1,60}\\.",
+      "porque": "Antítesis de apertura sin la segunda mitad («No es un caso raro.»). Afirmar lo que es.",
+      "gravedad": "aviso"
+    },
+    {
+      "id": "ni-en-cadena",
+      "regex": ",\\s+ni\\s+\\p{L}+,?\\s+ni\\s+",
+      "porque": "«…, ni X, ni Y»: polisíndeton de efecto.",
+      "gravedad": "aviso"
+    },
+    {
+      "id": "triada-infinitivos",
+      "regex": "(?<![\\p{L}])\\p{L}+(ar|er|ir),\\s+\\p{L}+(ar|er|ir)\\s+y\\s+\\p{L}+(ar|er|ir)\\s*[.;]",
+      "porque": "Tres infinitivos en fila: tríada por inercia. Quedarse con los que importan.",
+      "gravedad": "aviso"
+    },
+    {
+      "id": "por-eso-doble",
+      "regex": "por\\s+eso[^.]{0,90}\\by\\s+por\\s+eso\\b",
+      "porque": "Anáfora «por eso…, y por eso».",
+      "gravedad": "aviso",
+      "flags": "i"
+    },
+    {
+      "id": "no-hay-doble",
+      "regex": "\\bno\\s+hay\\b[^.]{1,70}:\\s*no\\s+hay\\b",
+      "porque": "Repite la negación después de dos puntos para rematar.",
+      "gravedad": "aviso",
+      "flags": "i"
+    },
+    {
+      "id": "enfasis-real",
+      "regex": "(?<![\\p{L}])(vínculo|gente|problema|valor|trabajo|impacto|cambio)\\s+real(?![\\p{L}])",
+      "porque": "«Real» como énfasis vacío.",
+      "gravedad": "aviso",
+      "flags": "i"
+    },
+    {
+      "id": "gerundio-esta",
+      "regex": "(?<![\\p{L}])est(á|án|amos)\\s+(funcionando|trabajando\\s+en|buscando)(?![\\p{L}])",
+      "porque": "Gerundio de relleno. Presente simple.",
+      "gravedad": "aviso",
+      "flags": "i"
+    },
+    {
+      "id": "anafora-es-lo",
+      "regex": "\\bes\\s+lo\\s+[^.]{1,70}\\by\\s+es\\s+lo\\b",
+      "porque": "Anáfora «es lo…, y es lo…».",
+      "gravedad": "aviso",
+      "flags": "i"
+    },
+    {
+      "id": "no-porque",
+      "regex": ",\\s*no\\s+porque\\b",
+      "porque": "Antítesis «…, no porque…».",
+      "gravedad": "aviso",
+      "flags": "i"
+    },
+    {
+      "id": "de-paso",
+      "regex": "(?<![\\p{L}])(y\\s+de\\s+paso|a\\s+ciegas|da\\s+vuelta)(?![\\p{L}])",
+      "porque": "Frase hecha de remate.",
+      "gravedad": "aviso",
+      "flags": "i"
+    },
+    {
+      "id": "mas-que-de",
+      "regex": "(?<![\\p{L}])es\\s+de\\s+\\p{L}+\\s+más\\s+que\\s+de\\b",
+      "porque": "Antítesis comparativa «es de X más que de Y».",
+      "gravedad": "aviso",
+      "flags": "i"
+    },
+    {
+      "id": "coma-no-final",
+      "regex": ",\\s+no\\s+(el|la|los|las)\\s+\\p{L}+\\.",
+      "porque": "Antítesis de cierre «X, no el Y.».",
+      "gravedad": "aviso"
+    },
+    {
+      "id": "punto-y-coma-si",
+      "regex": ";\\s*sí\\s+(el|la|los|las|lo)\\b",
+      "porque": "Antítesis «No X; sí Y».",
+      "gravedad": "aviso",
+      "flags": "i"
+    },
+    {
+      "id": "anafora-sigue",
+      "regex": "(?<![\\p{L}])sigue\\b[^.]{0,80}\\bsigue\\b",
+      "porque": "Anáfora «sigue…, sigue…».",
+      "gravedad": "aviso",
+      "flags": "i"
+    },
+    {
+      "id": "no-dos-puntos-revela",
+      "regex": "(^|[.]\\s+)No\\s+\\p{L}+[^.:]{0,60}:\\s*(todo|lo|es|eso)\\b",
+      "porque": "Negación seguida de dos puntos que revela.",
+      "gravedad": "aviso"
+    }
+  ],
+  "casos": [
+    {
+      "tarea": "Notificación push cuando el pase de un colaborador vence en 30 minutos.",
+      "contexto": "Residente: Laura, Villas Campestres. Colaborador: Andrés (técnico de gas). Vigencia hasta 4:30 p. m."
+    },
+    {
+      "tarea": "Mensaje de WhatsApp que recibe un invitado sin cuenta con su código de un solo uso.",
+      "contexto": "Invitada: Sofía. Residente: Juan, casa 14, Refugio Campestre. Válido hoy de 7:00 a 11:00 p. m."
+    },
+    {
+      "tarea": "Texto del estado cuando el lector no ha confirmado una placa registrada por el residente.",
+      "contexto": "Placa ABC-123, registrada hace 5 minutos. Sincronización con el lector pendiente."
+    },
+    {
+      "tarea": "Párrafo para la administración que explica por qué ya no aprueba ingresos caso a caso.",
+      "contexto": "Público: administradora de una copropiedad. La administración fija cupos, duración y franjas."
+    },
+    {
+      "tarea": "Texto vacío de la lista de accesos previstos cuando el residente no ha creado ninguno.",
+      "contexto": "Pantalla principal del residente."
+    }
+  ],
+  "hechos": {
+    "$nota": "Lo que el producto hace, confirmado por decisiones del equipo. El copy puede afirmarlo. Lo que no está aquí ni en el contexto de la pieza no se afirma.",
+    "confirmado": [
+      "El residente otorga el pase a sus invitados y colaboradores; la administración no aprueba cada ingreso.",
+      "La administración fija los límites: cupos, duración y franjas horarias.",
+      "El invitado no necesita cuenta: entra con QR, placa o un código de un solo uso.",
+      "Todo pase tiene vigencia: desde y hasta una fecha y hora.",
+      "El ingreso lo permite el lector de la puerta (placa, QR o rostro), no el vigilante.",
+      "El residente entra a la app con un código por WhatsApp, sin contraseña.",
+      "Un pase está en uno de estos estados: vigente, por vencer, vencido, negado o sin confirmar."
+    ],
+    "noConfirmado": [
+      "Avisos automáticos cuando el lector confirma una placa.",
+      "Un historial o registro de permisos visible para la administración.",
+      "Que el código se pueda digitar en el lector."
+    ]
+  }
+}

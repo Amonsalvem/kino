@@ -1,0 +1,4 @@
+{"rol":"residente","comunidad":"/app/1","estado":"completo",
+ "visitadas":["/app/login","/app/1","/app/1/profiles","/app/1/profiles (modal editar)","/app/1/my-properties","/app/1/my-vehicles","/app/1/my-vehicles/create","/app/1/my-reservations","/app/1/my-reservations/create","/app/1/my-packages","barra superior"],
+ "pendientes":["vista de un vehículo ya creado (la cuenta de prueba no tiene ninguno)","vista de una reserva ya creada","versión de escritorio: todo se inspeccionó a 530px de ancho"],
+ "bloqueadas":[{"ruta":"/app/2","resultado":"cierra la sesión y redirige a /app/login (confirmado en prueba aislada)"},{"ruta":"/admin","resultado":"redirige a /app/login"},{"ruta":"/guard/2","resultado":"redirige a /guard/login, portal separado sin Google"}]}

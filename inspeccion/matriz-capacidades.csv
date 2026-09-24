@@ -1,0 +1,23 @@
+capacidad,residente/propietario,portero,administrador,super admin,evidencia
+Iniciar sesión,sí,sí (portal aparte /guard),sí,sí,observaciones-residente / portero
+Editar su propio perfil,sí,n/d,sí,sí,residente (modal Editar perfil)
+Registrar un vehículo propio,sí,no,sí,sí,propietario (/my-vehicles/create)
+Que ese vehículo quede habilitado al instante,sí (sin aprobación de nadie),—,—,—,propietario (TST001 nace "Permitido")
+Ver el estado de acceso de un vehículo,sí (solo la palabra "Permitido"),sí,sí,sí,propietario / portero
+Ver la vigencia del permiso (Válido desde/hasta),NO,sí,sí,sí,portero (/guard/2/vehicles)
+Ver si el vehículo está sincronizado con el hardware,NO,sí,sí,sí,portero / administrador
+Bloquear o desbloquear un vehículo,no (solo dar de baja el suyo),no,sí,sí,administrador (43 permitidos / 1 bloqueado)
+Dar de alta una persona,no,no,sí,sí,administrador (Crear Usuario) / super admin
+Asociar una persona a una propiedad,no (solo mirar la lista),no,sí,sí,propietario (/my-properties sin botones)
+Ver quién está asociado a su propiedad,sí (solo lectura),sí (directorio completo),sí,sí,propietario / portero
+Ver cédula y teléfono de terceros,no,sí,sí,sí,portero (/guard/2/users)
+Anunciar un visitante para una fecha,NADIE,NADIE,NADIE,NADIE,ningún menú de ningún rol
+Autorizar o rechazar un ingreso en el momento,NADIE,NADIE,NADIE,NADIE,ningún menú de ningún rol
+Definir hasta cuándo puede entrar una persona,NADIE,NADIE,NADIE,NADIE,solo existe vigencia para vehículos
+Reservar una zona común,sí en el diseño / imposible hoy,no,sí,sí,propietario (selector vacío) + administrador (0 zonas)
+Crear zonas comunes,no,no,sí,sí,administrador (/common-areas vacío con botón)
+Registrar la llegada de un paquete,no,sí,sí,sí,portero (único botón de creación del portal)
+Ver sus propios paquetes,sí,sí,sí,sí,residente / portero
+Ver el historial de accesos,sí (tarjeta propia),sí (de su comunidad),sí,sí,propietario / portero / super admin
+Ver errores de integración con el hardware,no,no,no,sí (711 errores),super admin
+Administrar infraestructura (colas, logs),no,no,no,sí,super admin

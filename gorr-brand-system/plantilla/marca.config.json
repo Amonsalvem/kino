@@ -1,0 +1,42 @@
+{
+  "cliente": { "id": "{{id}}", "nombre": "{{nombre}}", "prefijo": "{{id}}" },
+  "reglas": [
+    "Reemplazar por las reglas de uso que no se negocian. Cada una debe poder verificarse mirando una pieza."
+  ],
+  "color": {
+    "formato": "dtcg-2025",
+    "objetivos": [1.5, 2.3, 3.2, 4.5, 7.0, 11.0],
+    "objetivosEnNeutros": true,
+    "fondos": { "d": "neutro.200", "l": "neutro.1000" },
+    "fijos": { "blanco": "#FFFFFF", "negro": "#000000", "transparente": "#00000000" },
+    "neutros": {
+      "neutro": { "h": 250, "cmax": 0.02, "L": [0.17, 0.21, 0.26, 0.32, 0.45, 0.60, 0.75, 0.88, 0.95, 0.985],
+        "significa": "Superficies, texto y bordes", "porque": "COMPLETAR: qué hallazgo o posicionamiento justifica este matiz." }
+    },
+    "familias": {
+      "primario": { "semilla": "#3355FF", "significa": "Acción principal", "porque": "COMPLETAR" },
+      "exito": { "h": 150, "cmax": 0.16, "significa": "Confirmado, completado", "porque": "COMPLETAR" },
+      "aviso": { "h": 75, "cmax": 0.16, "significa": "Requiere atención", "porque": "COMPLETAR" },
+      "error": { "h": 25, "cmax": 0.18, "significa": "Rechazo o fallo", "porque": "COMPLETAR" }
+    }
+  },
+  "tipo": {
+    "vwMin": 320, "vwMax": 1240, "raiz": 16, "decimales": 4,
+    "min": { "base": 16, "escala": 1.2 },
+    "max": { "base": 18, "escala": 1.25 },
+    "pasos": [-2, -1, 0, 1, 2, 3, 4, 5],
+    "espacio": { "pares": true },
+    "familias": {
+      "display": ["system-ui", "-apple-system", "Segoe UI", "sans-serif"],
+      "texto": ["system-ui", "-apple-system", "Segoe UI", "sans-serif"],
+      "dato": ["ui-monospace", "SF Mono", "Menlo", "monospace"]
+    }
+  },
+  "nombres": { "omitir": ["primitivo", "semantico", "color", "medida", "tipo"], "negativo": "n" },
+  "temas": {
+    "claro": { "archivo": "tokens/tema/claro.tokens.json", "selector": ":root, :root[data-tema=\"claro\"]", "esquema": "light" },
+    "oscuro": { "archivo": "tokens/tema/oscuro.tokens.json", "selector": ":root[data-tema=\"oscuro\"]", "esquema": "dark" }
+  },
+  "capasSemanticas": ["semantico"],
+  "evals": { "proveedor": "anthropic:messages:claude-sonnet-4-5", "umbral": 0.8 }
+}

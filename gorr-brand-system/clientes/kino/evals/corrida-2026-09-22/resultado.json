@@ -1,0 +1,107 @@
+[
+ {
+  "caso": 1,
+  "version": 1,
+  "juez": true,
+  "compuerta": true,
+  "pasa": true
+ },
+ {
+  "caso": 1,
+  "version": 2,
+  "juez": true,
+  "compuerta": true,
+  "pasa": true
+ },
+ {
+  "caso": 1,
+  "version": 3,
+  "juez": true,
+  "compuerta": true,
+  "pasa": true
+ },
+ {
+  "caso": 2,
+  "version": 1,
+  "juez": false,
+  "compuerta": true,
+  "pasa": false
+ },
+ {
+  "caso": 2,
+  "version": 2,
+  "juez": true,
+  "compuerta": true,
+  "pasa": true
+ },
+ {
+  "caso": 2,
+  "version": 3,
+  "juez": true,
+  "compuerta": true,
+  "pasa": true
+ },
+ {
+  "caso": 3,
+  "version": 1,
+  "juez": true,
+  "compuerta": true,
+  "pasa": true
+ },
+ {
+  "caso": 3,
+  "version": 2,
+  "juez": false,
+  "compuerta": true,
+  "pasa": false
+ },
+ {
+  "caso": 3,
+  "version": 3,
+  "juez": true,
+  "compuerta": true,
+  "pasa": true
+ },
+ {
+  "caso": 4,
+  "version": 1,
+  "juez": true,
+  "compuerta": true,
+  "pasa": true
+ },
+ {
+  "caso": 4,
+  "version": 2,
+  "juez": true,
+  "compuerta": true,
+  "pasa": true
+ },
+ {
+  "caso": 4,
+  "version": 3,
+  "juez": false,
+  "compuerta": false,
+  "pasa": false
+ },
+ {
+  "caso": 5,
+  "version": 1,
+  "juez": true,
+  "compuerta": true,
+  "pasa": true
+ },
+ {
+  "caso": 5,
+  "version": 2,
+  "juez": true,
+  "compuerta": true,
+  "pasa": true
+ },
+ {
+  "caso": 5,
+  "version": 3,
+  "juez": false,
+  "compuerta": true,
+  "pasa": false
+ }
+]

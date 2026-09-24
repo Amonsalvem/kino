@@ -1,0 +1,360 @@
+/* Kino — capa de marca. Generado: no editar a mano.
+   Fuente: tokens/*.json  ·  Construcción: npm run tokens */
+@import url('fonts/archivo.css');
+@import url('fonts/jetbrains-mono.css');
+
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --kino-sustrato-100: #00140c;
+  --kino-sustrato-200: #011f16;
+  --kino-sustrato-300: #0b2a20;
+  --kino-sustrato-400: #17362b;
+  --kino-sustrato-500: #2a483d;
+  --kino-sustrato-600: #426155;
+  --kino-sustrato-700: #618174;
+  --kino-sustrato-800: #86a799;
+  --kino-sustrato-d15: #203f33;
+  --kino-sustrato-d23: #3b5b4e;
+  --kino-sustrato-d32: #517064;
+  --kino-sustrato-d45: #68897b;
+  --kino-sustrato-d70: #8aac9e;
+  --kino-sustrato-d110: #b3d5c7;
+  --kino-sustrato-l15: #b3d5c7;
+  --kino-sustrato-l23: #8caea0;
+  --kino-sustrato-l32: #729385;
+  --kino-sustrato-l45: #5a7a6d;
+  --kino-sustrato-l70: #3d5c50;
+  --kino-sustrato-l110: #203f33;
+  --kino-hueso-100: #effcf7;
+  --kino-hueso-200: #e5f3ed;
+  --kino-hueso-300: #dbe9e3;
+  --kino-hueso-400: #cedcd6;
+  --kino-hueso-500: #becbc6;
+  --kino-hueso-600: #abb8b3;
+  --kino-hueso-700: #94a09b;
+  --kino-hueso-800: #7c8883;
+  --kino-hueso-d15: #303b37;
+  --kino-hueso-d23: #4b5752;
+  --kino-hueso-d32: #616c68;
+  --kino-hueso-d45: #788480;
+  --kino-hueso-d70: #9ba7a2;
+  --kino-hueso-d110: #c4d1cb;
+  --kino-hueso-l15: #c4d1cb;
+  --kino-hueso-l23: #9da9a4;
+  --kino-hueso-l32: #828f8a;
+  --kino-hueso-l45: #6a7671;
+  --kino-hueso-l70: #4d5854;
+  --kino-hueso-l110: #303b37;
+  --kino-biolum-d15: #00422c;
+  --kino-biolum-d23: #006142;
+  --kino-biolum-d32: #007953;
+  --kino-biolum-d45: #009467;
+  --kino-biolum-d70: #00bb83;
+  --kino-biolum-d110: #00eaa5;
+  --kino-biolum-l15: #00eaa5;
+  --kino-biolum-l23: #00be85;
+  --kino-biolum-l32: #00a06f;
+  --kino-biolum-l45: #00845b;
+  --kino-biolum-l70: #006343;
+  --kino-biolum-l110: #00422c;
+  --kino-ambar-d15: #503300;
+  --kino-ambar-d23: #744c00;
+  --kino-ambar-d32: #906000;
+  --kino-ambar-d45: #b07600;
+  --kino-ambar-d70: #de9600;
+  --kino-ambar-d110: #ffc36d;
+  --kino-ambar-l15: #ffc36c;
+  --kino-ambar-l23: #e09800;
+  --kino-ambar-l32: #bd7f00;
+  --kino-ambar-l45: #9c6900;
+  --kino-ambar-l70: #764e00;
+  --kino-ambar-l110: #503300;
+  --kino-carmin-d15: #79000f;
+  --kino-carmin-d23: #a8131f;
+  --kino-carmin-d32: #c33435;
+  --kino-carmin-d45: #e0504d;
+  --kino-carmin-d70: #ff7d76;
+  --kino-carmin-d110: #ffbeb8;
+  --kino-carmin-l15: #ffbeb8;
+  --kino-carmin-l23: #ff8179;
+  --kino-carmin-l32: #ec5c57;
+  --kino-carmin-l45: #ce3f3f;
+  --kino-carmin-l70: #aa1620;
+  --kino-carmin-l110: #79000f;
+  --kino-violeta-d15: #3e1c96;
+  --kino-violeta-d23: #563fb7;
+  --kino-violeta-d32: #6a56d0;
+  --kino-violeta-d45: #8170ec;
+  --kino-violeta-d70: #a198ff;
+  --kino-violeta-d110: #cac9ff;
+  --kino-violeta-l15: #cac9ff;
+  --kino-violeta-l23: #a39bff;
+  --kino-violeta-l32: #8a7af7;
+  --kino-violeta-l45: #7360db;
+  --kino-violeta-l70: #5840b8;
+  --kino-violeta-l110: #3e1c96;
+  --kino-indigo-d15: #092d93;
+  --kino-indigo-d23: #234db3;
+  --kino-indigo-d32: #3764cd;
+  --kino-indigo-d45: #4e7de8;
+  --kino-indigo-d70: #77a3ff;
+  --kino-indigo-d110: #b6ceff;
+  --kino-indigo-l15: #b6ceff;
+  --kino-indigo-l23: #7aa5ff;
+  --kino-indigo-l32: #5788f4;
+  --kino-indigo-l45: #406ed7;
+  --kino-indigo-l70: #244eb5;
+  --kino-indigo-l110: #092d93;
+  --kino-espacio-3xs: 2px;
+  --kino-espacio-2xs: 4px;
+  --kino-espacio-xs: 8px;
+  --kino-espacio-s: 12px;
+  --kino-espacio-m: 16px;
+  --kino-espacio-l: 24px;
+  --kino-espacio-xl: 32px;
+  --kino-espacio-2xl: 48px;
+  --kino-espacio-3xl: 72px;
+  --kino-espacio-4xl: 112px;
+  --kino-radio-nada: 0;
+  --kino-radio-xs: 2px;
+  --kino-radio-s: 4px;
+  --kino-radio-m: 8px;
+  --kino-radio-l: 14px;
+  --kino-radio-arco: 999px 999px 4px 4px;
+  --kino-radio-pleno: 999px;
+  --kino-texto-0: clamp(1.000rem, 0.958rem + 0.185vw, 1.125rem);
+  --kino-texto-1: clamp(1.200rem, 1.127rem + 0.322vw, 1.417rem);
+  --kino-texto-2: clamp(1.440rem, 1.325rem + 0.513vw, 1.786rem);
+  --kino-texto-3: clamp(1.728rem, 1.554rem + 0.774vw, 2.250rem);
+  --kino-texto-4: clamp(2.074rem, 1.820rem + 1.129vw, 2.836rem);
+  --kino-texto-5: clamp(2.488rem, 2.127rem + 1.607vw, 3.573rem);
+  --kino-texto-6: clamp(2.986rem, 2.481rem + 2.245vw, 4.502rem);
+  --kino-texto-n1: clamp(0.833rem, 0.813rem + 0.088vw, 0.893rem);
+  --kino-fuente-display: "Archivo", "Archivo Expanded", system-ui, sans-serif;
+  --kino-fuente-texto: "Archivo", system-ui, -apple-system, sans-serif;
+  --kino-fuente-dato: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
+}
+
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root, :root[data-tema="oscuro"] {
+  --kino-estado-sin-confirmar-fondo: rgba(0, 0, 0, 0);
+  --kino-superficie-abismo: var(--kino-sustrato-100);
+  --kino-superficie-base: var(--kino-sustrato-200);
+  --kino-superficie-elevada: var(--kino-sustrato-300);
+  --kino-superficie-membrana: var(--kino-sustrato-400);
+  --kino-superficie-inversa: var(--kino-hueso-100);
+  --kino-borde-tenue: var(--kino-sustrato-500);
+  --kino-borde-definido: var(--kino-sustrato-d32);
+  --kino-borde-foco: var(--kino-biolum-d70);
+  --kino-texto-primario: var(--kino-hueso-100);
+  --kino-texto-secundario: var(--kino-hueso-500);
+  --kino-texto-tenue: var(--kino-sustrato-800);
+  --kino-texto-inverso: var(--kino-sustrato-100);
+  --kino-texto-sobre-acento: var(--kino-sustrato-100);
+  --kino-acento-base: var(--kino-biolum-d70);
+  --kino-acento-fuerte: var(--kino-biolum-d110);
+  --kino-acento-sordo: var(--kino-biolum-d15);
+  --kino-estado-vigente-fondo: var(--kino-biolum-d15);
+  --kino-estado-vigente-borde: var(--kino-biolum-d32);
+  --kino-estado-vigente-texto: var(--kino-biolum-d110);
+  --kino-estado-por-vencer-fondo: var(--kino-ambar-d15);
+  --kino-estado-por-vencer-borde: var(--kino-ambar-d32);
+  --kino-estado-por-vencer-texto: var(--kino-ambar-d110);
+  --kino-estado-vencido-fondo: var(--kino-sustrato-300);
+  --kino-estado-vencido-borde: var(--kino-sustrato-d32);
+  --kino-estado-vencido-texto: var(--kino-sustrato-800);
+  --kino-estado-negado-fondo: var(--kino-carmin-d15);
+  --kino-estado-negado-borde: var(--kino-carmin-d32);
+  --kino-estado-negado-texto: var(--kino-carmin-d110);
+  --kino-estado-sin-confirmar-borde: var(--kino-sustrato-d32);
+  --kino-estado-sin-confirmar-texto: var(--kino-hueso-500);
+  --kino-estado-identidad-fondo: var(--kino-violeta-d15);
+  --kino-estado-identidad-borde: var(--kino-violeta-d32);
+  --kino-estado-identidad-texto: var(--kino-violeta-d110);
+  --kino-resplandor-vigente: 0 0 0 1px var(--kino-biolum-d45), 0 0 28px -8px var(--kino-biolum-d110);
+  --kino-resplandor-identidad: 0 0 0 1px var(--kino-violeta-d45), 0 0 28px -8px var(--kino-violeta-d110);
+  --kino-relieve-membrana: 0 1px 0 0 var(--kino-sustrato-500) inset, 0 12px 32px -20px #000000;
+}
+
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root[data-tema="claro"] {
+  --kino-superficie-elevada: #ffffff;
+  --kino-estado-sin-confirmar-fondo: rgba(0, 0, 0, 0);
+  --kino-relieve-membrana: 0 1px 0 0 #ffffff inset, 0 10px 26px -20px #0b201a;
+  --kino-superficie-abismo: var(--kino-hueso-300);
+  --kino-superficie-base: var(--kino-hueso-100);
+  --kino-superficie-membrana: var(--kino-hueso-200);
+  --kino-superficie-inversa: var(--kino-sustrato-100);
+  --kino-borde-tenue: var(--kino-hueso-400);
+  --kino-borde-definido: var(--kino-hueso-l32);
+  --kino-borde-foco: var(--kino-biolum-l45);
+  --kino-texto-primario: var(--kino-sustrato-100);
+  --kino-texto-secundario: var(--kino-sustrato-400);
+  --kino-texto-tenue: var(--kino-sustrato-600);
+  --kino-texto-inverso: var(--kino-hueso-100);
+  --kino-texto-sobre-acento: var(--kino-hueso-100);
+  --kino-acento-base: var(--kino-biolum-l70);
+  --kino-acento-fuerte: var(--kino-biolum-d15);
+  --kino-acento-sordo: var(--kino-hueso-200);
+  --kino-estado-vigente-fondo: var(--kino-hueso-100);
+  --kino-estado-vigente-borde: var(--kino-biolum-l32);
+  --kino-estado-vigente-texto: var(--kino-biolum-l70);
+  --kino-estado-por-vencer-fondo: var(--kino-hueso-100);
+  --kino-estado-por-vencer-borde: var(--kino-ambar-l32);
+  --kino-estado-por-vencer-texto: var(--kino-ambar-l70);
+  --kino-estado-vencido-fondo: var(--kino-hueso-300);
+  --kino-estado-vencido-borde: var(--kino-hueso-l32);
+  --kino-estado-vencido-texto: var(--kino-sustrato-600);
+  --kino-estado-negado-fondo: var(--kino-hueso-100);
+  --kino-estado-negado-borde: var(--kino-carmin-l32);
+  --kino-estado-negado-texto: var(--kino-carmin-l70);
+  --kino-estado-sin-confirmar-borde: var(--kino-hueso-l32);
+  --kino-estado-sin-confirmar-texto: var(--kino-sustrato-500);
+  --kino-estado-identidad-fondo: var(--kino-hueso-100);
+  --kino-estado-identidad-borde: var(--kino-violeta-l32);
+  --kino-estado-identidad-texto: var(--kino-violeta-l70);
+  --kino-resplandor-vigente: 0 0 0 1px var(--kino-biolum-l45), 0 0 22px -10px var(--kino-biolum-l45);
+  --kino-resplandor-identidad: 0 0 0 1px var(--kino-violeta-l45), 0 0 22px -10px var(--kino-violeta-l45);
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-tema="oscuro"]) {
+    --kino-superficie-elevada: #ffffff;
+    --kino-estado-sin-confirmar-fondo: rgba(0, 0, 0, 0);
+    --kino-relieve-membrana: 0 1px 0 0 #ffffff inset, 0 10px 26px -20px #0b201a;
+    --kino-superficie-abismo: var(--kino-hueso-300);
+    --kino-superficie-base: var(--kino-hueso-100);
+    --kino-superficie-membrana: var(--kino-hueso-200);
+    --kino-superficie-inversa: var(--kino-sustrato-100);
+    --kino-borde-tenue: var(--kino-hueso-400);
+    --kino-borde-definido: var(--kino-hueso-l32);
+    --kino-borde-foco: var(--kino-biolum-l45);
+    --kino-texto-primario: var(--kino-sustrato-100);
+    --kino-texto-secundario: var(--kino-sustrato-400);
+    --kino-texto-tenue: var(--kino-sustrato-600);
+    --kino-texto-inverso: var(--kino-hueso-100);
+    --kino-texto-sobre-acento: var(--kino-hueso-100);
+    --kino-acento-base: var(--kino-biolum-l70);
+    --kino-acento-fuerte: var(--kino-biolum-d15);
+    --kino-acento-sordo: var(--kino-hueso-200);
+    --kino-estado-vigente-fondo: var(--kino-hueso-100);
+    --kino-estado-vigente-borde: var(--kino-biolum-l32);
+    --kino-estado-vigente-texto: var(--kino-biolum-l70);
+    --kino-estado-por-vencer-fondo: var(--kino-hueso-100);
+    --kino-estado-por-vencer-borde: var(--kino-ambar-l32);
+    --kino-estado-por-vencer-texto: var(--kino-ambar-l70);
+    --kino-estado-vencido-fondo: var(--kino-hueso-300);
+    --kino-estado-vencido-borde: var(--kino-hueso-l32);
+    --kino-estado-vencido-texto: var(--kino-sustrato-600);
+    --kino-estado-negado-fondo: var(--kino-hueso-100);
+    --kino-estado-negado-borde: var(--kino-carmin-l32);
+    --kino-estado-negado-texto: var(--kino-carmin-l70);
+    --kino-estado-sin-confirmar-borde: var(--kino-hueso-l32);
+    --kino-estado-sin-confirmar-texto: var(--kino-sustrato-500);
+    --kino-estado-identidad-fondo: var(--kino-hueso-100);
+    --kino-estado-identidad-borde: var(--kino-violeta-l32);
+    --kino-estado-identidad-texto: var(--kino-violeta-l70);
+    --kino-resplandor-vigente: 0 0 0 1px var(--kino-biolum-l45), 0 0 22px -10px var(--kino-biolum-l45);
+    --kino-resplandor-identidad: 0 0 0 1px var(--kino-violeta-l45), 0 0 22px -10px var(--kino-violeta-l45);
+  }
+}
+
+/* Kino — capa de componentes. Se ensambla después de los tokens.
+   Archivo y JetBrains Mono (OFL 1.1) están autoalojadas en fonts/.
+   ensamblar.mjs sube estos @import al principio del archivo ensamblado. */
+
+:root {
+  /* Lo que no vive en tokens.json: curvas, ejes variables y la capa tenant. */
+  --kino-ancho-display: 112%;
+  --kino-crecer: 420ms cubic-bezier(.16,.84,.30,1);
+  --kino-decaer: 900ms cubic-bezier(.62,.03,.86,.34);
+  --kino-latir: 1800ms cubic-bezier(.45,0,.55,1);
+  --kino-medida: 62ch;
+  /* Capa tenant: lo único que un conjunto puede cambiar. */
+  --kino-tenant-marca: var(--kino-acento-base);
+  --kino-tenant-radio: var(--kino-radio-m);
+}
+
+.kino-display { font-family: var(--kino-fuente-display); font-weight: 800;
+  font-stretch: var(--kino-ancho-display); letter-spacing: -0.02em;
+  line-height: 1.04; text-wrap: balance; }
+.kino-titulo  { font-family: var(--kino-fuente-display); font-weight: 700; line-height: 1.16; text-wrap: balance; }
+.kino-texto   { font-family: var(--kino-fuente-texto); font-weight: 400; line-height: 1.6; max-width: var(--kino-medida); text-wrap: pretty; }
+.kino-dato    { font-family: var(--kino-fuente-dato); font-weight: 500; letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums slashed-zero; }
+.kino-placa   { font-family: var(--kino-fuente-dato); font-weight: 700; letter-spacing: 0.06em;
+  font-size: 23px; font-variant-numeric: tabular-nums slashed-zero; }
+.kino-etiqueta{ font-family: var(--kino-fuente-dato); font-weight: 500; font-size: 13px;
+  letter-spacing: 0.08em; text-transform: uppercase; }
+
+:where(a, button, input, select, [tabindex]):focus-visible {
+  outline: 2px solid var(--kino-borde-foco); outline-offset: 2px;
+  border-radius: var(--kino-radio-s); }
+
+/* ---- Estado: el color solo nombra hechos confirmados ---- */
+.kino-estado { display: inline-flex; align-items: center; gap: var(--kino-espacio-xs);
+  padding: var(--kino-espacio-2xs) var(--kino-espacio-xs);
+  border: 1px solid; border-radius: var(--kino-radio-s);
+  font-family: var(--kino-fuente-dato); font-weight: 500; font-size: 13px;
+  letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; }
+.kino-estado::before { content: ''; inline-size: 7px; block-size: 7px; flex: none;
+  border-radius: var(--kino-radio-pleno); background: currentColor; }
+.kino-estado[data-estado="vigente"] { background: var(--kino-estado-vigente-fondo);
+  border-color: var(--kino-estado-vigente-borde); color: var(--kino-estado-vigente-texto); }
+.kino-estado[data-estado="vigente"]::before { animation: kino-latido var(--kino-latir) ease-in-out infinite; }
+.kino-estado[data-estado="por-vencer"] { background: var(--kino-estado-por-vencer-fondo);
+  border-color: var(--kino-estado-por-vencer-borde); color: var(--kino-estado-por-vencer-texto); }
+.kino-estado[data-estado="vencido"] { background: var(--kino-estado-vencido-fondo);
+  border-color: var(--kino-estado-vencido-borde); color: var(--kino-estado-vencido-texto); }
+.kino-estado[data-estado="negado"] { background: var(--kino-estado-negado-fondo);
+  border-color: var(--kino-estado-negado-borde); color: var(--kino-estado-negado-texto); }
+.kino-estado[data-estado="identidad"] { background: var(--kino-estado-identidad-fondo);
+  border-color: var(--kino-estado-identidad-borde); color: var(--kino-estado-identidad-texto); }
+.kino-estado[data-estado="sin-confirmar"] { background: var(--kino-estado-sin-confirmar-fondo);
+  border-color: var(--kino-estado-sin-confirmar-borde); color: var(--kino-estado-sin-confirmar-texto);
+  border-style: dashed; }
+.kino-estado[data-estado="sin-confirmar"]::before { background: transparent;
+  border: 1px dashed currentColor; inline-size: 8px; block-size: 8px; }
+
+/* ---- Vigencia: la vida que le queda a un permiso ---- */
+.kino-vigencia { --kino-vida: 1; display: block; block-size: 4px; inline-size: 100%;
+  background: var(--kino-borde-tenue); border-radius: var(--kino-radio-pleno); overflow: hidden; }
+.kino-vigencia > i { display: block; block-size: 100%; border-radius: inherit;
+  inline-size: calc(var(--kino-vida) * 100%);
+  background: var(--kino-estado-vigente-texto); transition: inline-size var(--kino-decaer); }
+.kino-vigencia[data-aviso="por-vencer"] > i { background: var(--kino-estado-por-vencer-texto); }
+.kino-vigencia[data-aviso="vencido"]    > i { background: var(--kino-estado-vencido-texto); }
+
+/* ---- Permiso: la tarjeta-membrana ---- */
+.kino-permiso { display: grid; gap: var(--kino-espacio-s);
+  padding: var(--kino-espacio-m); border-radius: var(--kino-tenant-radio);
+  background: var(--kino-superficie-membrana); border: 1px solid var(--kino-borde-tenue);
+  box-shadow: var(--kino-relieve-membrana); color: var(--kino-texto-primario); }
+.kino-permiso[data-estado="vigente"] { box-shadow: var(--kino-resplandor-vigente); border-color: transparent; }
+.kino-permiso[data-estado="sin-confirmar"] { background: transparent; border-style: dashed;
+  border-color: var(--kino-estado-sin-confirmar-borde); box-shadow: none; }
+.kino-permiso__cabeza { display: flex; align-items: start; justify-content: space-between;
+  gap: var(--kino-espacio-s); }
+.kino-permiso__quien { font-family: var(--kino-fuente-display); font-weight: 700;
+  font-size: 20px; line-height: 1.2; margin: 0; }
+.kino-permiso__autor { color: var(--kino-texto-secundario); font-size: 14px; margin: 0; }
+.kino-permiso__pie { display: flex; flex-wrap: wrap; align-items: center;
+  gap: var(--kino-espacio-xs) var(--kino-espacio-m); color: var(--kino-texto-secundario); font-size: 14px; }
+
+/* ---- Marca ---- */
+.kino-marca { display: inline-flex; color: var(--kino-tenant-marca); }
+.kino-marca svg { display: block; block-size: 100%; inline-size: auto; }
+
+@keyframes kino-latido { 0%, 100% { opacity: 1; } 50% { opacity: .3; } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+}

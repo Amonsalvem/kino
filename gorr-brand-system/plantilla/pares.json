@@ -1,0 +1,104 @@
+[
+ {
+  "que": "texto primario sobre superficie-base",
+  "fg": "{{id}}-texto-primario",
+  "bg": "{{id}}-superficie-base",
+  "min": 4.5
+ },
+ {
+  "que": "texto secundario sobre superficie-base",
+  "fg": "{{id}}-texto-secundario",
+  "bg": "{{id}}-superficie-base",
+  "min": 4.5
+ },
+ {
+  "que": "texto tenue sobre superficie-base",
+  "fg": "{{id}}-texto-tenue",
+  "bg": "{{id}}-superficie-base",
+  "min": 3.0
+ },
+ {
+  "que": "borde definido sobre superficie-base",
+  "fg": "{{id}}-borde-definido",
+  "bg": "{{id}}-superficie-base",
+  "min": 3.0
+ },
+ {
+  "que": "texto primario sobre superficie-elevada",
+  "fg": "{{id}}-texto-primario",
+  "bg": "{{id}}-superficie-elevada",
+  "min": 4.5
+ },
+ {
+  "que": "texto secundario sobre superficie-elevada",
+  "fg": "{{id}}-texto-secundario",
+  "bg": "{{id}}-superficie-elevada",
+  "min": 4.5
+ },
+ {
+  "que": "texto tenue sobre superficie-elevada",
+  "fg": "{{id}}-texto-tenue",
+  "bg": "{{id}}-superficie-elevada",
+  "min": 3.0
+ },
+ {
+  "que": "borde definido sobre superficie-elevada",
+  "fg": "{{id}}-borde-definido",
+  "bg": "{{id}}-superficie-elevada",
+  "min": 3.0
+ },
+ {
+  "que": "acento sobre superficie base",
+  "fg": "{{id}}-acento-base",
+  "bg": "{{id}}-superficie-base",
+  "min": 3.0
+ },
+ {
+  "que": "texto sobre acento",
+  "fg": "{{id}}-texto-sobre-acento",
+  "bg": "{{id}}-acento-base",
+  "min": 4.5
+ },
+ {
+  "que": "foco sobre superficie base",
+  "fg": "{{id}}-borde-foco",
+  "bg": "{{id}}-superficie-base",
+  "min": 3.0
+ },
+ {
+  "que": "texto de exito sobre su fondo",
+  "fg": "{{id}}-estado-exito-texto",
+  "bg": "{{id}}-estado-exito-fondo",
+  "min": 4.5
+ },
+ {
+  "que": "borde de exito sobre superficie base",
+  "fg": "{{id}}-estado-exito-borde",
+  "bg": "{{id}}-superficie-base",
+  "min": 3.0
+ },
+ {
+  "que": "texto de aviso sobre su fondo",
+  "fg": "{{id}}-estado-aviso-texto",
+  "bg": "{{id}}-estado-aviso-fondo",
+  "min": 4.5
+ },
+ {
+  "que": "borde de aviso sobre superficie base",
+  "fg": "{{id}}-estado-aviso-borde",
+  "bg": "{{id}}-superficie-base",
+  "min": 3.0
+ },
+ {
+  "que": "texto de error sobre su fondo",
+  "fg": "{{id}}-estado-error-texto",
+  "bg": "{{id}}-estado-error-fondo",
+  "min": 4.5
+ },
+ {
+  "que": "borde de error sobre superficie base",
+  "fg": "{{id}}-estado-error-borde",
+  "bg": "{{id}}-superficie-base",
+  "min": 3.0
+ }
+]

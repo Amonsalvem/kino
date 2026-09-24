@@ -1,0 +1,150 @@
+{
+ "v": 3,
+ "layout": "files",
+ "createdOnFiles": {
+  "v": 1,
+  "at": "2026-09-19T20:20:30Z"
+ },
+ "title": "Kino",
+ "namespace": "Kino",
+ "libraries": [],
+ "sections": {},
+ "groups": [
+  "Logos",
+  "Icons"
+ ],
+ "assetGroups": {
+  "Logos": {
+   "name": "Logos",
+   "tile": "l",
+   "order": [
+    "kino-lockup-vertical-hueso.svg",
+    "kino-lockup-horizontal-hueso.svg",
+    "kino-mark-biolum.svg",
+    "kino-mark-hueso.svg",
+    "kino-mark-sustrato.svg",
+    "kino-drop-biolum.svg"
+   ],
+   "files": {
+    "kino-lockup-vertical-hueso.svg": {
+     "name": "kino-lockup-vertical-hueso.svg",
+     "blob": "b0f9f563c2dc8d2bc2628afd417959c5",
+     "size": 2788,
+     "type": "image/svg+xml"
+    },
+    "kino-lockup-horizontal-hueso.svg": {
+     "name": "kino-lockup-horizontal-hueso.svg",
+     "blob": "7a501c3f98c0d4581884f37f356f5dca",
+     "size": 2811,
+     "type": "image/svg+xml"
+    },
+    "kino-mark-biolum.svg": {
+     "name": "kino-mark-biolum.svg",
+     "blob": "288d57ddccfdf30ade0f309958d7ac37",
+     "size": 442,
+     "type": "image/svg+xml"
+    },
+    "kino-mark-hueso.svg": {
+     "name": "kino-mark-hueso.svg",
+     "blob": "bc1140b5840cbc535dd063c2c33e42a0",
+     "size": 424,
+     "type": "image/svg+xml"
+    },
+    "kino-mark-sustrato.svg": {
+     "name": "kino-mark-sustrato.svg",
+     "blob": "febda01cf0559ba56a173fa4ca5db5fb",
+     "size": 424,
+     "type": "image/svg+xml"
+    },
+    "kino-drop-biolum.svg": {
+     "name": "kino-drop-biolum.svg",
+     "blob": "63b509750435715a66c14b7c57a0a323",
+     "size": 231,
+     "type": "image/svg+xml"
+    }
+   }
+  },
+  "Icons": {
+   "name": "Icons",
+   "tile": "s",
+   "order": [
+    "home-simple.svg",
+    "user.svg",
+    "car.svg",
+    "qr-code.svg",
+    "key.svg",
+    "calendar.svg",
+    "clock.svg",
+    "bell.svg",
+    "warning-triangle.svg"
+   ],
+   "files": {
+    "home-simple.svg": {
+     "name": "home-simple.svg",
+     "blob": "5ece61fd8ddb41dcab65ef7c01102005",
+     "size": 529,
+     "type": "image/svg+xml"
+    },
+    "user.svg": {
+     "name": "user.svg",
+     "blob": "a6101fff589e9d8a724c315e8012b451",
+     "size": 464,
+     "type": "image/svg+xml"
+    },
+    "car.svg": {
+     "name": "car.svg",
+     "blob": "2698ac771a1d67bc13db847ea865b629",
+     "size": 846,
+     "type": "image/svg+xml"
+    },
+    "qr-code.svg": {
+     "name": "qr-code.svg",
+     "blob": "4c9cc13231a6e921f6069e3810f7bbcb",
+     "size": 2454,
+     "type": "image/svg+xml"
+    },
+    "key.svg": {
+     "name": "key.svg",
+     "blob": "efba26deed88b161400e270ee7c2176f",
+     "size": 419,
+     "type": "image/svg+xml"
+    },
+    "calendar.svg": {
+     "name": "calendar.svg",
+     "blob": "0dbca6ef5d5ef8ae099d52420fb27930",
+     "size": 626,
+     "type": "image/svg+xml"
+    },
+    "clock.svg": {
+     "name": "clock.svg",
+     "blob": "1277087801c18014bc277960c6f327c3",
+     "size": 417,
+     "type": "image/svg+xml"
+    },
+    "bell.svg": {
+     "name": "bell.svg",
+     "blob": "6d4292024e6b16bbf2bd4f5a97738432",
+     "size": 679,
+     "type": "image/svg+xml"
+    },
+    "warning-triangle.svg": {
+     "name": "warning-triangle.svg",
+     "blob": "570b57cf8e8dcb40d7bd535d7e08cda2",
+     "size": 533,
+     "type": "image/svg+xml"
+    }
+   }
+  }
+ },
+ "blobs": {},
+ "docs": {
+  "readme": "project/README.md",
+  "sections": []
+ },
+ "lastChange": {
+  "by": "Nico Ramírez",
+  "at": "2026-09-23T18:30:00Z",
+  "via": "Cowork",
+  "note": "Versión 2: Kino es la marca (sin capa de conjunto), «pase» en todo, acento #00BB83 de la entrega 2 con regla de tamaño APCA, estética de la entrega 2 en los componentes (Pase con boleto, Flujo, Evidencia, Tarjeta, Tabla), sistema de movimiento con 17 tokens y 5 verbos, verificación con Leonardo, apca-w3, utopia-core y el validador DTCG."
+ }
+}

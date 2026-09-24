@@ -1,0 +1,22 @@
+:root{
+  /* Capa de alias: los nombres cortos de la entrega 2 apuntan a los tokens de marca.
+     Un color nunca se escribe aquí: se cambia en gorr-brand-system/clientes/kino y se reconstruye. */
+  --abismo:var(--kino-superficie-abismo); --base:var(--kino-superficie-base); --elevada:var(--kino-superficie-elevada);
+  --membrana:var(--kino-superficie-membrana); --inversa:var(--kino-superficie-inversa);
+  --bd-tenue:var(--kino-borde-tenue); --bd-def:var(--kino-borde-definido); --bd-foco:var(--kino-borde-foco); --bd:var(--kino-borde-definido);
+  --tx:var(--kino-texto-primario); --tx2:var(--kino-texto-secundario); --tx3:var(--kino-texto-tenue); --tx-inv:var(--kino-texto-inverso);
+  --ac:var(--kino-acento-base); --ac-fuerte:var(--kino-acento-fuerte); --ac-sordo:var(--kino-acento-sordo);
+  --v-bg:var(--kino-estado-vigente-fondo); --v-bd:var(--kino-estado-vigente-borde); --v-tx:var(--kino-estado-vigente-texto);
+  --pv-bg:var(--kino-estado-por-vencer-fondo); --pv-bd:var(--kino-estado-por-vencer-borde); --pv-tx:var(--kino-estado-por-vencer-texto);
+  --vc-bg:var(--kino-estado-vencido-fondo); --vc-bd:var(--kino-estado-vencido-borde); --vc-tx:var(--kino-estado-vencido-texto);
+  --ng-bg:var(--kino-estado-negado-fondo); --ng-bd:var(--kino-estado-negado-borde); --ng-tx:var(--kino-estado-negado-texto);
+  --sc-bd:var(--kino-estado-sin-confirmar-borde); --sc-tx:var(--kino-estado-sin-confirmar-texto);
+  --id-bg:var(--kino-estado-identidad-fondo); --id-bd:var(--kino-estado-identidad-borde); --id-tx:var(--kino-estado-identidad-texto);
+  --relieve:var(--kino-relieve-membrana);
+  --sans:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --r:6px; --medida:62ch; --ancho-display:112%;
+  --crecer:var(--kino-movimiento-duracion-crecer) var(--kino-movimiento-curva-crecer);
+  --decaer:var(--kino-movimiento-duracion-decaer) var(--kino-movimiento-curva-decaer);
+  --latir:var(--kino-movimiento-duracion-latir) var(--kino-movimiento-curva-latir);
+}

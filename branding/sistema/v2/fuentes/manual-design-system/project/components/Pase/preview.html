@@ -1,0 +1,14 @@
+<!-- @dsCard group="Pase" height=360 subtitle="El objeto del sistema: boleto y tarjeta de lista" -->
+<style>body{margin:0;padding:24px;background:var(--kino-superficie-base);color:var(--kino-texto-primario);font-family:var(--sans);font-size:17px;line-height:1.5}</style><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-carro" viewBox="0 0 24 24"><path d="M5 15l1.5-5h11L19 15"/><rect x="3" y="15" width="18" height="4" rx="1"/><circle cx="7" cy="19.5" r="1.3"/><circle cx="17" cy="19.5" r="1.3"/></symbol><symbol id="i-qr" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h3v3h-3zM18 18h3v3h-3z"/></symbol><symbol id="i-codigo" viewBox="0 0 24 24"><path d="M5 9h14M5 15h14M10 4 8 20M16 4l-2 16"/></symbol><symbol id="i-sinpersona" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.3 2.7-6 6-6 1.2 0 2.3.3 3.2.9"/><path d="M15 15l6 6M21 15l-6 6"/></symbol></defs></svg>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;align-items:start;max-width:980px">
+<div class="boleto" role="img" aria-label="Pase: autor, motivo, vigencia y modo"><div class="cab"><b>PASE</b><span class="est" data-e="vigente">Vigente</span></div>
+<dl><dt>Autor</dt><dd>Ana Ruiz · casa 14</dd><dt>Motivo</dt><dd>Trabajo doméstico</dd>
+<dt>Vigencia</dt><dd><div class="ventana"><i></i></div><div class="ventana-pie"><span>lun 07:00</span><span>vie 17:00 · caduca solo</span></div></dd>
+<dt>Modo</dt><dd><div class="modos"><span><svg class="ic" aria-hidden="true"><use href="#i-carro"/></svg>placa</span><span><svg class="ic" aria-hidden="true"><use href="#i-qr"/></svg>QR</span><span><svg class="ic" aria-hidden="true"><use href="#i-codigo"/></svg>código</span></div></dd></dl>
+<div class="pie-b"><svg class="ic" aria-hidden="true"><use href="#i-sinpersona"/></svg>No crea una persona en la puerta</div></div>
+<div style="display:grid;gap:10px">
+<div class="mini-pase vivo"><div class="f1"><b>Marta Quintero</b><span class="est" data-e="vigente">Vigente</span></div><div class="f2">trabajo doméstico · lun–vie · 07:00–17:00</div><div class="ventana"><i style="left:0;right:22%"></i></div></div>
+<div class="mini-pase sc"><div class="f1"><b>Técnico de gas</b><span class="est" data-e="sin-confirmar">Sin confirmar</span></div><div class="f2">hoy · 14:00–16:00 · enviado al lector</div></div>
+<div class="mini-pase"><div class="f1"><b>Placa HTK 481</b><span class="est" data-e="por-vencer">40 min</span></div><div class="f2">visita · entró 13:12</div><div class="ventana"><i style="left:0;right:86%;background:var(--pv-bd)"></i></div></div>
+<div class="mini-pase" style="opacity:.62"><div class="f1"><b>Visita del sábado</b><span class="est" data-e="vencido">Vencido</span></div><div class="f2">venció el 14 sep · 22:00</div></div>
+</div></div>

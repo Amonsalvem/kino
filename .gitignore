@@ -1,0 +1,13 @@
+# Dependencias (se reinstalan con npm install)
+node_modules/
+node_modules.nosync/
+*.nosync
+
+# Sistema
+.DS_Store
+Icon?
+*.icloud
+
+# Clones de referencia con su propio historial
+gorr-brand-system/vendor/anthropic-skills/
+gorr-brand-system/vendor/w3c-design-tokens-agent-skill/

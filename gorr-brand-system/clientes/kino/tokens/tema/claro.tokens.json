@@ -1,0 +1,296 @@
+{
+  "semantico": {
+    "superficie": {
+      "abismo": {
+        "$value": "{primitivo.color.hueso.300}",
+        "$type": "color"
+      },
+      "base": {
+        "$value": "{primitivo.color.hueso.100}",
+        "$type": "color"
+      },
+      "elevada": {
+        "$value": "{primitivo.color.fijo.blanco}",
+        "$type": "color"
+      },
+      "membrana": {
+        "$value": "{primitivo.color.hueso.200}",
+        "$type": "color"
+      },
+      "inversa": {
+        "$value": "{primitivo.color.sustrato.100}",
+        "$type": "color"
+      }
+    },
+    "borde": {
+      "tenue": {
+        "$value": "{primitivo.color.hueso.400}",
+        "$type": "color"
+      },
+      "definido": {
+        "$value": "{primitivo.color.hueso.l32}",
+        "$type": "color"
+      },
+      "foco": {
+        "$value": "{primitivo.color.biolum.l45}",
+        "$type": "color"
+      }
+    },
+    "texto": {
+      "primario": {
+        "$value": "{primitivo.color.sustrato.100}",
+        "$type": "color"
+      },
+      "secundario": {
+        "$value": "{primitivo.color.sustrato.400}",
+        "$type": "color"
+      },
+      "tenue": {
+        "$value": "{primitivo.color.sustrato.600}",
+        "$type": "color"
+      },
+      "inverso": {
+        "$value": "{primitivo.color.hueso.100}",
+        "$type": "color"
+      },
+      "sobre-acento": {
+        "$value": "{primitivo.color.hueso.100}",
+        "$type": "color"
+      }
+    },
+    "acento": {
+      "base": {
+        "$value": "{primitivo.color.biolum.l70}",
+        "$type": "color"
+      },
+      "fuerte": {
+        "$value": "{primitivo.color.biolum.d15}",
+        "$type": "color"
+      },
+      "sordo": {
+        "$value": "{primitivo.color.hueso.200}",
+        "$type": "color"
+      }
+    },
+    "estado": {
+      "vigente": {
+        "fondo": {
+          "$value": "{primitivo.color.hueso.100}",
+          "$type": "color"
+        },
+        "borde": {
+          "$value": "{primitivo.color.biolum.l32}",
+          "$type": "color"
+        },
+        "texto": {
+          "$value": "{primitivo.color.biolum.l70}",
+          "$type": "color"
+        }
+      },
+      "por-vencer": {
+        "fondo": {
+          "$value": "{primitivo.color.hueso.100}",
+          "$type": "color"
+        },
+        "borde": {
+          "$value": "{primitivo.color.ambar.l32}",
+          "$type": "color"
+        },
+        "texto": {
+          "$value": "{primitivo.color.ambar.l70}",
+          "$type": "color"
+        }
+      },
+      "vencido": {
+        "fondo": {
+          "$value": "{primitivo.color.hueso.300}",
+          "$type": "color"
+        },
+        "borde": {
+          "$value": "{primitivo.color.hueso.l32}",
+          "$type": "color"
+        },
+        "texto": {
+          "$value": "{primitivo.color.sustrato.600}",
+          "$type": "color"
+        }
+      },
+      "negado": {
+        "fondo": {
+          "$value": "{primitivo.color.hueso.100}",
+          "$type": "color"
+        },
+        "borde": {
+          "$value": "{primitivo.color.carmin.l32}",
+          "$type": "color"
+        },
+        "texto": {
+          "$value": "{primitivo.color.carmin.l70}",
+          "$type": "color"
+        }
+      },
+      "sin-confirmar": {
+        "fondo": {
+          "$value": "{primitivo.color.fijo.transparente}",
+          "$type": "color"
+        },
+        "borde": {
+          "$value": "{primitivo.color.hueso.l32}",
+          "$type": "color"
+        },
+        "texto": {
+          "$value": "{primitivo.color.sustrato.500}",
+          "$type": "color"
+        }
+      },
+      "identidad": {
+        "fondo": {
+          "$value": "{primitivo.color.hueso.100}",
+          "$type": "color"
+        },
+        "borde": {
+          "$value": "{primitivo.color.violeta.l32}",
+          "$type": "color"
+        },
+        "texto": {
+          "$value": "{primitivo.color.violeta.l70}",
+          "$type": "color"
+        }
+      }
+    },
+    "resplandor": {
+      "vigente": {
+        "$value": [
+          {
+            "color": "{primitivo.color.biolum.l45}",
+            "offsetX": {
+              "value": 0,
+              "unit": "px"
+            },
+            "offsetY": {
+              "value": 0,
+              "unit": "px"
+            },
+            "blur": {
+              "value": 0,
+              "unit": "px"
+            },
+            "spread": {
+              "value": 1,
+              "unit": "px"
+            }
+          },
+          {
+            "color": "{primitivo.color.biolum.l45}",
+            "offsetX": {
+              "value": 0,
+              "unit": "px"
+            },
+            "offsetY": {
+              "value": 0,
+              "unit": "px"
+            },
+            "blur": {
+              "value": 22,
+              "unit": "px"
+            },
+            "spread": {
+              "value": -10,
+              "unit": "px"
+            }
+          }
+        ],
+        "$type": "shadow"
+      },
+      "identidad": {
+        "$value": [
+          {
+            "color": "{primitivo.color.violeta.l45}",
+            "offsetX": {
+              "value": 0,
+              "unit": "px"
+            },
+            "offsetY": {
+              "value": 0,
+              "unit": "px"
+            },
+            "blur": {
+              "value": 0,
+              "unit": "px"
+            },
+            "spread": {
+              "value": 1,
+              "unit": "px"
+            }
+          },
+          {
+            "color": "{primitivo.color.violeta.l45}",
+            "offsetX": {
+              "value": 0,
+              "unit": "px"
+            },
+            "offsetY": {
+              "value": 0,
+              "unit": "px"
+            },
+            "blur": {
+              "value": 22,
+              "unit": "px"
+            },
+            "spread": {
+              "value": -10,
+              "unit": "px"
+            }
+          }
+        ],
+        "$type": "shadow"
+      }
+    },
+    "relieve": {
+      "membrana": {
+        "$value": [
+          {
+            "color": "{primitivo.color.fijo.blanco}",
+            "offsetX": {
+              "value": 0,
+              "unit": "px"
+            },
+            "offsetY": {
+              "value": 1,
+              "unit": "px"
+            },
+            "blur": {
+              "value": 0,
+              "unit": "px"
+            },
+            "spread": {
+              "value": 0,
+              "unit": "px"
+            },
+            "inset": true
+          },
+          {
+            "color": "{primitivo.color.fijo.sombra-claro}",
+            "offsetX": {
+              "value": 0,
+              "unit": "px"
+            },
+            "offsetY": {
+              "value": 10,
+              "unit": "px"
+            },
+            "blur": {
+              "value": 26,
+              "unit": "px"
+            },
+            "spread": {
+              "value": -20,
+              "unit": "px"
+            }
+          }
+        ],
+        "$type": "shadow"
+      }
+    }
+  }
+}

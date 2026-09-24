@@ -1,0 +1,6 @@
+Instalado el 2026-09-19 16:23
+node                v24.15.0
+npm                 v11.12.1
+style-dictionary    5.5.4
+colorjs.io          0.7.1
+iconoir             7.12.1

@@ -1,0 +1,1 @@
+Opcional. voz-antes.md y voz-despues.md: una frase por línea, alineadas (la línea n de "antes" es la versión corregida en la línea n de "después"). `npm run calibrar-voz -- <id>` mide cuántas frases malas atrapa la compuerta y exige cero falsos positivos.

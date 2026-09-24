@@ -1,0 +1,1330 @@
+{
+  "primitivo": {
+    "color": {
+      "$type": "color",
+      "sustrato": {
+        "100": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.1697,
+              0.0349,
+              166.8
+            ],
+            "hex": "#00140C"
+          }
+        },
+        "200": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.2135,
+              0.041,
+              169.66
+            ],
+            "hex": "#011F16"
+          }
+        },
+        "300": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.2584,
+              0.0414,
+              168.68
+            ],
+            "hex": "#0B2A20"
+          }
+        },
+        "400": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.3052,
+              0.0424,
+              168.09
+            ],
+            "hex": "#17362B"
+          }
+        },
+        "500": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.3743,
+              0.0409,
+              168.82
+            ],
+            "hex": "#2A483D"
+          }
+        },
+        "600": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.4645,
+              0.0414,
+              168.47
+            ],
+            "hex": "#426155"
+          }
+        },
+        "700": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.5747,
+              0.0416,
+              168
+            ],
+            "hex": "#618174"
+          }
+        },
+        "800": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.6995,
+              0.0417,
+              167.44
+            ],
+            "hex": "#86A799"
+          }
+        },
+        "$description": "Superficies · Linaje: carbón #2C2D2F de la Propuesta 1 con sesgo verde (medio de cultivo).",
+        "d15": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.3395,
+              0.0431,
+              166.88
+            ],
+            "hex": "#203F33"
+          }
+        },
+        "d23": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.4421,
+              0.0435,
+              167.04
+            ],
+            "hex": "#3B5B4E"
+          }
+        },
+        "d32": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.5173,
+              0.0407,
+              168.86
+            ],
+            "hex": "#517064"
+          }
+        },
+        "d45": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.6007,
+              0.0429,
+              167.04
+            ],
+            "hex": "#68897B"
+          }
+        },
+        "d70": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.715,
+              0.0424,
+              168.14
+            ],
+            "hex": "#8AAC9E"
+          }
+        },
+        "d90": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.7863,
+              0.042,
+              168
+            ],
+            "hex": "#A0C3B4"
+          }
+        },
+        "d110": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.8443,
+              0.041,
+              168.49
+            ],
+            "hex": "#B3D5C7"
+          }
+        },
+        "l15": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.8443,
+              0.041,
+              168.49
+            ],
+            "hex": "#B3D5C7"
+          }
+        },
+        "l23": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.7214,
+              0.0423,
+              168.16
+            ],
+            "hex": "#8CAEA0"
+          }
+        },
+        "l32": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.634,
+              0.0425,
+              167.19
+            ],
+            "hex": "#729385"
+          }
+        },
+        "l45": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.5508,
+              0.0419,
+              167.87
+            ],
+            "hex": "#5A7A6D"
+          }
+        },
+        "l70": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.4466,
+              0.0417,
+              168.31
+            ],
+            "hex": "#3D5C50"
+          }
+        },
+        "l90": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.3867,
+              0.042,
+              168
+            ],
+            "hex": "#2D4B40"
+          }
+        },
+        "l110": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.3395,
+              0.0431,
+              166.88
+            ],
+            "hex": "#203F33"
+          }
+        }
+      },
+      "hueso": {
+        "100": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.98,
+              0.0152,
+              171.07
+            ],
+            "hex": "#EFFCF7"
+          }
+        },
+        "200": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.952,
+              0.0168,
+              168.5
+            ],
+            "hex": "#E5F3ED"
+          }
+        },
+        "300": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.9218,
+              0.0169,
+              168.48
+            ],
+            "hex": "#DBE9E3"
+          }
+        },
+        "400": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.8822,
+              0.0171,
+              168.45
+            ],
+            "hex": "#CEDCD6"
+          }
+        },
+        "500": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.8307,
+              0.0158,
+              170.96
+            ],
+            "hex": "#BECBC6"
+          }
+        },
+        "600": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.771,
+              0.016,
+              170.91
+            ],
+            "hex": "#ABB8B3"
+          }
+        },
+        "700": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.6946,
+              0.0154,
+              169.03
+            ],
+            "hex": "#94A09B"
+          }
+        },
+        "800": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.6154,
+              0.0159,
+              168.92
+            ],
+            "hex": "#7C8883"
+          }
+        },
+        "$description": "Texto y tema claro · Linaje: hueso #E1E8EE enfriado hacia el verde.",
+        "d15": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.3409,
+              0.0162,
+              171.3
+            ],
+            "hex": "#303B37"
+          }
+        },
+        "d23": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.4447,
+              0.0171,
+              168.54
+            ],
+            "hex": "#4B5752"
+          }
+        },
+        "d32": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.5206,
+              0.0148,
+              171.91
+            ],
+            "hex": "#616C68"
+          }
+        },
+        "d45": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.6022,
+              0.0153,
+              173.83
+            ],
+            "hex": "#788480"
+          }
+        },
+        "d70": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.7173,
+              0.0153,
+              169.05
+            ],
+            "hex": "#9BA7A2"
+          }
+        },
+        "d90": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.7884,
+              0.016,
+              170
+            ],
+            "hex": "#B1BEB8"
+          }
+        },
+        "d110": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.849,
+              0.0163,
+              166.65
+            ],
+            "hex": "#C4D1CB"
+          }
+        },
+        "l15": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.849,
+              0.0163,
+              166.65
+            ],
+            "hex": "#C4D1CB"
+          }
+        },
+        "l23": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.7238,
+              0.0153,
+              169.06
+            ],
+            "hex": "#9DA9A4"
+          }
+        },
+        "l32": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.638,
+              0.0168,
+              170.74
+            ],
+            "hex": "#828F8A"
+          }
+        },
+        "l45": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.5542,
+              0.0163,
+              168.81
+            ],
+            "hex": "#6A7671"
+          }
+        },
+        "l70": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.4495,
+              0.0153,
+              171.74
+            ],
+            "hex": "#4D5854"
+          }
+        },
+        "l90": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.3922,
+              0.016,
+              170
+            ],
+            "hex": "#3D4844"
+          }
+        },
+        "l110": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.3409,
+              0.0162,
+              171.3
+            ],
+            "hex": "#303B37"
+          }
+        }
+      },
+      "biolum": {
+        "$description": "Vigente y la acción de otorgar · H1/H5: no existe permiso temporal; el estado vigente tiene que verse vivo.",
+        "d15": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.3354,
+              0.0722,
+              163.32
+            ],
+            "hex": "#00422C"
+          }
+        },
+        "d23": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.4357,
+              0.0942,
+              162.97
+            ],
+            "hex": "#006142"
+          }
+        },
+        "d32": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.5095,
+              0.1104,
+              162.79
+            ],
+            "hex": "#007953"
+          }
+        },
+        "d45": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.5896,
+              0.1273,
+              163.09
+            ],
+            "hex": "#009467"
+          }
+        },
+        "d70": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.7007,
+              0.1514,
+              163.02
+            ],
+            "hex": "#00BB83"
+          }
+        },
+        "d90": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.7709,
+              0.1666,
+              163
+            ],
+            "hex": "#00D595"
+          }
+        },
+        "d110": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.8289,
+              0.179,
+              163.05
+            ],
+            "hex": "#00EAA5"
+          }
+        },
+        "l15": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.8289,
+              0.179,
+              163.05
+            ],
+            "hex": "#00EAA5"
+          }
+        },
+        "l23": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.709,
+              0.1533,
+              162.96
+            ],
+            "hex": "#00BE85"
+          }
+        },
+        "l32": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.6242,
+              0.1353,
+              162.78
+            ],
+            "hex": "#00A06F"
+          }
+        },
+        "l45": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.5425,
+              0.1175,
+              162.84
+            ],
+            "hex": "#00845B"
+          }
+        },
+        "l70": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.4419,
+              0.096,
+              162.65
+            ],
+            "hex": "#006343"
+          }
+        },
+        "l90": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.3831,
+              0.0828,
+              163
+            ],
+            "hex": "#005036"
+          }
+        },
+        "l110": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.3354,
+              0.0722,
+              163.32
+            ],
+            "hex": "#00422C"
+          }
+        }
+      },
+      "ambar": {
+        "$description": "Vigencia que se agota · H1/H5: la vigencia no existe hoy; por-vencer la hace visible.",
+        "d15": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.3473,
+              0.0735,
+              74.32
+            ],
+            "hex": "#503300"
+          }
+        },
+        "d23": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.4503,
+              0.0952,
+              74.43
+            ],
+            "hex": "#744C00"
+          }
+        },
+        "d32": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.5276,
+              0.1113,
+              74.98
+            ],
+            "hex": "#906000"
+          }
+        },
+        "d45": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.6109,
+              0.129,
+              74.77
+            ],
+            "hex": "#B07600"
+          }
+        },
+        "d70": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.7267,
+              0.1534,
+              74.79
+            ],
+            "hex": "#DE9600"
+          }
+        },
+        "d90": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.7978,
+              0.1683,
+              75
+            ],
+            "hex": "#FBAB00"
+          }
+        },
+        "d110": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.8544,
+              0.1242,
+              74.7
+            ],
+            "hex": "#FFC36D"
+          }
+        },
+        "l15": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.8543,
+              0.125,
+              74.96
+            ],
+            "hex": "#FFC36C"
+          }
+        },
+        "l23": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.7327,
+              0.1545,
+              75.15
+            ],
+            "hex": "#E09800"
+          }
+        },
+        "l32": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.644,
+              0.136,
+              74.75
+            ],
+            "hex": "#BD7F00"
+          }
+        },
+        "l45": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.5607,
+              0.118,
+              75.51
+            ],
+            "hex": "#9C6900"
+          }
+        },
+        "l70": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.4571,
+              0.0964,
+              75.09
+            ],
+            "hex": "#764E00"
+          }
+        },
+        "l90": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.3964,
+              0.0836,
+              75
+            ],
+            "hex": "#603F00"
+          }
+        },
+        "l110": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.3473,
+              0.0735,
+              74.32
+            ],
+            "hex": "#503300"
+          }
+        }
+      },
+      "carmin": {
+        "$description": "Rechazo · Estado negado distinguible del vencido.",
+        "d15": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.3629,
+              0.1471,
+              24.92
+            ],
+            "hex": "#79000F"
+          }
+        },
+        "d23": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.4683,
+              0.1795,
+              24.98
+            ],
+            "hex": "#A8131F"
+          }
+        },
+        "d32": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.5448,
+              0.18,
+              25.16
+            ],
+            "hex": "#C33435"
+          }
+        },
+        "d45": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.6263,
+              0.1803,
+              25.01
+            ],
+            "hex": "#E0504D"
+          }
+        },
+        "d70": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.7381,
+              0.1597,
+              24.86
+            ],
+            "hex": "#FF7D76"
+          }
+        },
+        "d90": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.8026,
+              0.1126,
+              25
+            ],
+            "hex": "#FFA29A"
+          }
+        },
+        "d110": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.8592,
+              0.0759,
+              24.75
+            ],
+            "hex": "#FFBEB8"
+          }
+        },
+        "l15": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.8592,
+              0.0759,
+              24.75
+            ],
+            "hex": "#FFBEB8"
+          }
+        },
+        "l23": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.7445,
+              0.1548,
+              25.21
+            ],
+            "hex": "#FF8179"
+          }
+        },
+        "l32": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.6609,
+              0.1793,
+              25.24
+            ],
+            "hex": "#EC5C57"
+          }
+        },
+        "l45": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.576,
+              0.18,
+              24.8
+            ],
+            "hex": "#CE3F3F"
+          }
+        },
+        "l70": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.4738,
+              0.1797,
+              25.17
+            ],
+            "hex": "#AA1620"
+          }
+        },
+        "l90": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.4147,
+              0.1681,
+              25
+            ],
+            "hex": "#910014"
+          }
+        },
+        "l110": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.3629,
+              0.1471,
+              24.92
+            ],
+            "hex": "#79000F"
+          }
+        }
+      },
+      "violeta": {
+        "$description": "Dato personal o biométrico · R4 y Res. 52185 de 2025 de la SIC: el dato de identidad se marca.",
+        "d15": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.3647,
+              0.1806,
+              286.02
+            ],
+            "hex": "#3E1C96"
+          }
+        },
+        "d23": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.465,
+              0.1801,
+              285.84
+            ],
+            "hex": "#563FB7"
+          }
+        },
+        "d32": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.5389,
+              0.1806,
+              286.16
+            ],
+            "hex": "#6A56D0"
+          }
+        },
+        "d45": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.6216,
+              0.18,
+              286.18
+            ],
+            "hex": "#8170EC"
+          }
+        },
+        "d70": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.7301,
+              0.1468,
+              286.15
+            ],
+            "hex": "#A198FF"
+          }
+        },
+        "d90": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.7966,
+              0.1076,
+              286.1
+            ],
+            "hex": "#B7B3FF"
+          }
+        },
+        "d110": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.8548,
+              0.0747,
+              285.55
+            ],
+            "hex": "#CAC9FF"
+          }
+        },
+        "l15": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.8548,
+              0.0747,
+              285.55
+            ],
+            "hex": "#CAC9FF"
+          }
+        },
+        "l23": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.7372,
+              0.1424,
+              286
+            ],
+            "hex": "#A39BFF"
+          }
+        },
+        "l32": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.6533,
+              0.18,
+              286.14
+            ],
+            "hex": "#8A7AF7"
+          }
+        },
+        "l45": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.5712,
+              0.1807,
+              286.26
+            ],
+            "hex": "#7360DB"
+          }
+        },
+        "l70": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.4692,
+              0.1799,
+              286.41
+            ],
+            "hex": "#5840B8"
+          }
+        },
+        "l90": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.4121,
+              0.18,
+              286.1
+            ],
+            "hex": "#492DA5"
+          }
+        },
+        "l110": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.3647,
+              0.1806,
+              286.02
+            ],
+            "hex": "#3E1C96"
+          }
+        }
+      },
+      "indigo": {
+        "$description": "Profundidad y enlaces · Linaje: índigo #00177D de la Propuesta 1.",
+        "d15": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.3551,
+              0.171,
+              264.08
+            ],
+            "hex": "#092D93"
+          }
+        },
+        "d23": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.4554,
+              0.1691,
+              263.93
+            ],
+            "hex": "#234DB3"
+          }
+        },
+        "d32": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.5306,
+              0.1705,
+              264.01
+            ],
+            "hex": "#3764CD"
+          }
+        },
+        "d45": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.6109,
+              0.1697,
+              264.17
+            ],
+            "hex": "#4E7DE8"
+          }
+        },
+        "d70": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.7235,
+              0.1429,
+              263.82
+            ],
+            "hex": "#77A3FF"
+          }
+        },
+        "d90": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.7917,
+              0.1048,
+              264
+            ],
+            "hex": "#99BBFF"
+          }
+        },
+        "d110": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.8503,
+              0.0735,
+              264.44
+            ],
+            "hex": "#B6CEFF"
+          }
+        },
+        "l15": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.8503,
+              0.0735,
+              264.44
+            ],
+            "hex": "#B6CEFF"
+          }
+        },
+        "l23": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.7293,
+              0.1396,
+              263.89
+            ],
+            "hex": "#7AA5FF"
+          }
+        },
+        "l32": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.6453,
+              0.17,
+              263.91
+            ],
+            "hex": "#5788F4"
+          }
+        },
+        "l45": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.5623,
+              0.1692,
+              263.97
+            ],
+            "hex": "#406ED7"
+          }
+        },
+        "l70": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.4594,
+              0.1703,
+              264.03
+            ],
+            "hex": "#244EB5"
+          }
+        },
+        "l90": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.4028,
+              0.17,
+              264
+            ],
+            "hex": "#153CA2"
+          }
+        },
+        "l110": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.3551,
+              0.171,
+              264.08
+            ],
+            "hex": "#092D93"
+          }
+        }
+      },
+      "fijo": {
+        "$description": "Colores fijos: la capa semántica los referencia en vez de escribir literales.",
+        "transparente": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "hex": "#000000",
+            "alpha": 0
+          }
+        },
+        "negro": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "hex": "#000000"
+          }
+        },
+        "blanco": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              1,
+              0,
+              0
+            ],
+            "hex": "#FFFFFF"
+          }
+        },
+        "sombra-claro": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.2238,
+              0.0298,
+              172.62
+            ],
+            "hex": "#0B201A"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,604 @@
+{
+  "sustrato": {
+    "d15": {
+      "kino": "#203F33",
+      "leonardo": "#203F33",
+      "deltaEOK": 0,
+      "razonLeonardo": 1.51
+    },
+    "d23": {
+      "kino": "#3B5B4E",
+      "leonardo": "#3B5B4E",
+      "deltaEOK": 0,
+      "razonLeonardo": 2.31
+    },
+    "d32": {
+      "kino": "#517064",
+      "leonardo": "#507163",
+      "deltaEOK": 0.0041,
+      "razonLeonardo": 3.21
+    },
+    "d45": {
+      "kino": "#68897B",
+      "leonardo": "#68897B",
+      "deltaEOK": 0,
+      "razonLeonardo": 4.51
+    },
+    "d70": {
+      "kino": "#8AAC9E",
+      "leonardo": "#92AA9F",
+      "deltaEOK": 0.0115,
+      "razonLeonardo": 7.01
+    },
+    "d90": {
+      "kino": "#A0C3B4",
+      "leonardo": "#ACBFB6",
+      "deltaEOK": 0.0188,
+      "razonLeonardo": 9
+    },
+    "d110": {
+      "kino": "#B3D5C7",
+      "leonardo": "#C3D1CB",
+      "deltaEOK": 0.024,
+      "razonLeonardo": 11
+    },
+    "l15": {
+      "kino": "#B3D5C7",
+      "leonardo": "#C5D0CB",
+      "deltaEOK": 0.0274,
+      "razonLeonardo": 1.5
+    },
+    "l23": {
+      "kino": "#8CAEA0",
+      "leonardo": "#97ABA3",
+      "deltaEOK": 0.0174,
+      "razonLeonardo": 2.3
+    },
+    "l32": {
+      "kino": "#729385",
+      "leonardo": "#779286",
+      "deltaEOK": 0.0072,
+      "razonLeonardo": 3.2
+    },
+    "l45": {
+      "kino": "#5A7A6D",
+      "leonardo": "#59796C",
+      "deltaEOK": 0.0034,
+      "razonLeonardo": 4.56
+    },
+    "l70": {
+      "kino": "#3D5C50",
+      "leonardo": "#3D5C50",
+      "deltaEOK": 0,
+      "razonLeonardo": 7.01
+    },
+    "l90": {
+      "kino": "#2D4B40",
+      "leonardo": "#2D4B40",
+      "deltaEOK": 0,
+      "razonLeonardo": 9.1
+    },
+    "l110": {
+      "kino": "#203F33",
+      "leonardo": "#203E33",
+      "deltaEOK": 0.0035,
+      "razonLeonardo": 11.09
+    }
+  },
+  "hueso": {
+    "d15": {
+      "kino": "#303B37",
+      "leonardo": "#313B38",
+      "deltaEOK": 0.0025,
+      "razonLeonardo": 1.5
+    },
+    "d23": {
+      "kino": "#4B5752",
+      "leonardo": "#4C5753",
+      "deltaEOK": 0.0023,
+      "razonLeonardo": 2.31
+    },
+    "d32": {
+      "kino": "#616C68",
+      "leonardo": "#616D69",
+      "deltaEOK": 0.0029,
+      "razonLeonardo": 3.23
+    },
+    "d45": {
+      "kino": "#788480",
+      "leonardo": "#798581",
+      "deltaEOK": 0.0034,
+      "razonLeonardo": 4.54
+    },
+    "d70": {
+      "kino": "#9BA7A2",
+      "leonardo": "#9EA6A4",
+      "deltaEOK": 0.0062,
+      "razonLeonardo": 6.99
+    },
+    "d90": {
+      "kino": "#B1BEB8",
+      "leonardo": "#B6BCBA",
+      "deltaEOK": 0.0095,
+      "razonLeonardo": 9.01
+    },
+    "d110": {
+      "kino": "#C4D1CB",
+      "leonardo": "#CACECD",
+      "deltaEOK": 0.0119,
+      "razonLeonardo": 10.94
+    },
+    "l15": {
+      "kino": "#C4D1CB",
+      "leonardo": "#CACECC",
+      "deltaEOK": 0.0112,
+      "razonLeonardo": 1.51
+    },
+    "l23": {
+      "kino": "#9DA9A4",
+      "leonardo": "#A0A8A5",
+      "deltaEOK": 0.0053,
+      "razonLeonardo": 2.31
+    },
+    "l32": {
+      "kino": "#828F8A",
+      "leonardo": "#848E8A",
+      "deltaEOK": 0.0038,
+      "razonLeonardo": 3.21
+    },
+    "l45": {
+      "kino": "#6A7671",
+      "leonardo": "#697570",
+      "deltaEOK": 0.0034,
+      "razonLeonardo": 4.55
+    },
+    "l70": {
+      "kino": "#4D5854",
+      "leonardo": "#4D5854",
+      "deltaEOK": 0,
+      "razonLeonardo": 7.02
+    },
+    "l90": {
+      "kino": "#3D4844",
+      "leonardo": "#3D4844",
+      "deltaEOK": 0,
+      "razonLeonardo": 9.03
+    },
+    "l110": {
+      "kino": "#303B37",
+      "leonardo": "#313B37",
+      "deltaEOK": 0.0015,
+      "razonLeonardo": 11.01
+    }
+  },
+  "biolum": {
+    "d15": {
+      "kino": "#00422C",
+      "leonardo": "#00431D",
+      "deltaEOK": 0.0242,
+      "razonLeonardo": 1.51
+    },
+    "d23": {
+      "kino": "#006142",
+      "leonardo": "#006139",
+      "deltaEOK": 0.0135,
+      "razonLeonardo": 2.29
+    },
+    "d32": {
+      "kino": "#007953",
+      "leonardo": "#00794E",
+      "deltaEOK": 0.0073,
+      "razonLeonardo": 3.18
+    },
+    "d45": {
+      "kino": "#009467",
+      "leonardo": "#039467",
+      "deltaEOK": 0.0005,
+      "razonLeonardo": 4.5
+    },
+    "d70": {
+      "kino": "#00BB83",
+      "leonardo": "#69B391",
+      "deltaEOK": 0.0617,
+      "razonLeonardo": 7
+    },
+    "d90": {
+      "kino": "#00D595",
+      "leonardo": "#91C6AC",
+      "deltaEOK": 0.1013,
+      "razonLeonardo": 9
+    },
+    "d110": {
+      "kino": "#00EAA5",
+      "leonardo": "#B1D6C3",
+      "deltaEOK": 0.1327,
+      "razonLeonardo": 10.98
+    },
+    "l15": {
+      "kino": "#00EAA5",
+      "leonardo": "#B6D5C4",
+      "deltaEOK": 0.1395,
+      "razonLeonardo": 1.5
+    },
+    "l23": {
+      "kino": "#00BE85",
+      "leonardo": "#79B297",
+      "deltaEOK": 0.0819,
+      "razonLeonardo": 2.31
+    },
+    "l32": {
+      "kino": "#00A06F",
+      "leonardo": "#4B9B77",
+      "deltaEOK": 0.0388,
+      "razonLeonardo": 3.19
+    },
+    "l45": {
+      "kino": "#00845B",
+      "leonardo": "#00835B",
+      "deltaEOK": 0.0032,
+      "razonLeonardo": 4.53
+    },
+    "l70": {
+      "kino": "#006343",
+      "leonardo": "#00633C",
+      "deltaEOK": 0.0106,
+      "razonLeonardo": 7
+    },
+    "l90": {
+      "kino": "#005036",
+      "leonardo": "#00512C",
+      "deltaEOK": 0.0167,
+      "razonLeonardo": 9.01
+    },
+    "l110": {
+      "kino": "#00422C",
+      "leonardo": "#00421F",
+      "deltaEOK": 0.0202,
+      "razonLeonardo": 11.08
+    }
+  },
+  "ambar": {
+    "d15": {
+      "kino": "#503300",
+      "leonardo": "#5F2A00",
+      "deltaEOK": 0.0375,
+      "razonLeonardo": 1.5
+    },
+    "d23": {
+      "kino": "#744C00",
+      "leonardo": "#7E4700",
+      "deltaEOK": 0.0224,
+      "razonLeonardo": 2.31
+    },
+    "d32": {
+      "kino": "#906000",
+      "leonardo": "#965D00",
+      "deltaEOK": 0.0129,
+      "razonLeonardo": 3.2
+    },
+    "d45": {
+      "kino": "#B07600",
+      "leonardo": "#B07600",
+      "deltaEOK": 0,
+      "razonLeonardo": 4.5
+    },
+    "d70": {
+      "kino": "#DE9600",
+      "leonardo": "#C89D62",
+      "deltaEOK": 0.0615,
+      "razonLeonardo": 6.99
+    },
+    "d90": {
+      "kino": "#FBAB00",
+      "leonardo": "#D6B58A",
+      "deltaEOK": 0.0998,
+      "razonLeonardo": 8.96
+    },
+    "d110": {
+      "kino": "#FFC36D",
+      "leonardo": "#E2CAAC",
+      "deltaEOK": 0.0758,
+      "razonLeonardo": 10.98
+    },
+    "l15": {
+      "kino": "#FFC36C",
+      "leonardo": "#DECBB2",
+      "deltaEOK": 0.0851,
+      "razonLeonardo": 1.5
+    },
+    "l23": {
+      "kino": "#E09800",
+      "leonardo": "#C2A172",
+      "deltaEOK": 0.0807,
+      "razonLeonardo": 2.31
+    },
+    "l32": {
+      "kino": "#BD7F00",
+      "leonardo": "#AF8445",
+      "deltaEOK": 0.0397,
+      "razonLeonardo": 3.21
+    },
+    "l45": {
+      "kino": "#9C6900",
+      "leonardo": "#9C6900",
+      "deltaEOK": 0,
+      "razonLeonardo": 4.5
+    },
+    "l70": {
+      "kino": "#764E00",
+      "leonardo": "#7C4A00",
+      "deltaEOK": 0.015,
+      "razonLeonardo": 7.03
+    },
+    "l90": {
+      "kino": "#603F00",
+      "leonardo": "#6A3A00",
+      "deltaEOK": 0.0231,
+      "razonLeonardo": 8.99
+    },
+    "l110": {
+      "kino": "#503300",
+      "leonardo": "#5B2C00",
+      "deltaEOK": 0.0284,
+      "razonLeonardo": 11.04
+    }
+  },
+  "carmin": {
+    "d15": {
+      "kino": "#79000F",
+      "leonardo": "#7A0000",
+      "deltaEOK": 0.0114,
+      "razonLeonardo": 1.51
+    },
+    "d23": {
+      "kino": "#A8131F",
+      "leonardo": "#A9121F",
+      "deltaEOK": 0.002,
+      "razonLeonardo": 2.31
+    },
+    "d32": {
+      "kino": "#C33435",
+      "leonardo": "#C33435",
+      "deltaEOK": 0,
+      "razonLeonardo": 3.2
+    },
+    "d45": {
+      "kino": "#E0504D",
+      "leonardo": "#E0514E",
+      "deltaEOK": 0.0018,
+      "razonLeonardo": 4.51
+    },
+    "d70": {
+      "kino": "#FF7D76",
+      "leonardo": "#EF8780",
+      "deltaEOK": 0.0317,
+      "razonLeonardo": 6.99
+    },
+    "d90": {
+      "kino": "#FFA29A",
+      "leonardo": "#F6A79F",
+      "deltaEOK": 0.0171,
+      "razonLeonardo": 9.06
+    },
+    "d110": {
+      "kino": "#FFBEB8",
+      "leonardo": "#FAC0BA",
+      "deltaEOK": 0.0084,
+      "razonLeonardo": 11.01
+    },
+    "l15": {
+      "kino": "#FFBEB8",
+      "leonardo": "#F6C1BC",
+      "deltaEOK": 0.0146,
+      "razonLeonardo": 1.5
+    },
+    "l23": {
+      "kino": "#FF8179",
+      "leonardo": "#E88E87",
+      "deltaEOK": 0.0445,
+      "razonLeonardo": 2.3
+    },
+    "l32": {
+      "kino": "#EC5C57",
+      "leonardo": "#DC6863",
+      "deltaEOK": 0.0333,
+      "razonLeonardo": 3.21
+    },
+    "l45": {
+      "kino": "#CE3F3F",
+      "leonardo": "#CE4040",
+      "deltaEOK": 0.0016,
+      "razonLeonardo": 4.5
+    },
+    "l70": {
+      "kino": "#AA1620",
+      "leonardo": "#AA1621",
+      "deltaEOK": 0.0009,
+      "razonLeonardo": 7
+    },
+    "l90": {
+      "kino": "#910014",
+      "leonardo": "#910009",
+      "deltaEOK": 0.0076,
+      "razonLeonardo": 9.03
+    },
+    "l110": {
+      "kino": "#79000F",
+      "leonardo": "#790000",
+      "deltaEOK": 0.0113,
+      "razonLeonardo": 11
+    }
+  },
+  "violeta": {
+    "d15": {
+      "kino": "#3E1C96",
+      "leonardo": "#3E1D96",
+      "deltaEOK": 0.0015,
+      "razonLeonardo": 1.51
+    },
+    "d23": {
+      "kino": "#563FB7",
+      "leonardo": "#563FB6",
+      "deltaEOK": 0.0016,
+      "razonLeonardo": 2.3
+    },
+    "d32": {
+      "kino": "#6A56D0",
+      "leonardo": "#6A56D0",
+      "deltaEOK": 0,
+      "razonLeonardo": 3.19
+    },
+    "d45": {
+      "kino": "#8170EC",
+      "leonardo": "#8170EB",
+      "deltaEOK": 0.0015,
+      "razonLeonardo": 4.51
+    },
+    "d70": {
+      "kino": "#A198FF",
+      "leonardo": "#A19AF4",
+      "deltaEOK": 0.0181,
+      "razonLeonardo": 6.99
+    },
+    "d90": {
+      "kino": "#B7B3FF",
+      "leonardo": "#B7B4F8",
+      "deltaEOK": 0.0112,
+      "razonLeonardo": 9.01
+    },
+    "d110": {
+      "kino": "#CAC9FF",
+      "leonardo": "#CBC9FB",
+      "deltaEOK": 0.0058,
+      "razonLeonardo": 10.99
+    },
+    "l15": {
+      "kino": "#CAC9FF",
+      "leonardo": "#CBCAF6",
+      "deltaEOK": 0.0139,
+      "razonLeonardo": 1.5
+    },
+    "l23": {
+      "kino": "#A39BFF",
+      "leonardo": "#A39EEC",
+      "deltaEOK": 0.0308,
+      "razonLeonardo": 2.3
+    },
+    "l32": {
+      "kino": "#8A7AF7",
+      "leonardo": "#897FE4",
+      "deltaEOK": 0.0327,
+      "razonLeonardo": 3.21
+    },
+    "l45": {
+      "kino": "#7360DB",
+      "leonardo": "#7360DB",
+      "deltaEOK": 0,
+      "razonLeonardo": 4.51
+    },
+    "l70": {
+      "kino": "#5840B8",
+      "leonardo": "#5840B9",
+      "deltaEOK": 0.0016,
+      "razonLeonardo": 7
+    },
+    "l90": {
+      "kino": "#492DA5",
+      "leonardo": "#4A2DA5",
+      "deltaEOK": 0.0018,
+      "razonLeonardo": 9.02
+    },
+    "l110": {
+      "kino": "#3E1C96",
+      "leonardo": "#3E1C96",
+      "deltaEOK": 0,
+      "razonLeonardo": 11.01
+    }
+  },
+  "indigo": {
+    "d15": {
+      "kino": "#092D93",
+      "leonardo": "#0A2E93",
+      "deltaEOK": 0.0025,
+      "razonLeonardo": 1.51
+    },
+    "d23": {
+      "kino": "#234DB3",
+      "leonardo": "#244DB4",
+      "deltaEOK": 0.0018,
+      "razonLeonardo": 2.31
+    },
+    "d32": {
+      "kino": "#3764CD",
+      "leonardo": "#3864CC",
+      "deltaEOK": 0.0018,
+      "razonLeonardo": 3.2
+    },
+    "d45": {
+      "kino": "#4E7DE8",
+      "leonardo": "#4F7DE8",
+      "deltaEOK": 0.001,
+      "razonLeonardo": 4.49
+    },
+    "d70": {
+      "kino": "#77A3FF",
+      "leonardo": "#7EA4F1",
+      "deltaEOK": 0.0225,
+      "razonLeonardo": 7
+    },
+    "d90": {
+      "kino": "#99BBFF",
+      "leonardo": "#9EBBF6",
+      "deltaEOK": 0.014,
+      "razonLeonardo": 9.01
+    },
+    "d110": {
+      "kino": "#B6CEFF",
+      "leonardo": "#B9CEFA",
+      "deltaEOK": 0.0078,
+      "razonLeonardo": 10.98
+    },
+    "l15": {
+      "kino": "#B6CEFF",
+      "leonardo": "#BACEF5",
+      "deltaEOK": 0.0148,
+      "razonLeonardo": 1.51
+    },
+    "l23": {
+      "kino": "#7AA5FF",
+      "leonardo": "#85A6E9",
+      "deltaEOK": 0.0349,
+      "razonLeonardo": 2.31
+    },
+    "l32": {
+      "kino": "#5788F4",
+      "leonardo": "#618AE0",
+      "deltaEOK": 0.0328,
+      "razonLeonardo": 3.21
+    },
+    "l45": {
+      "kino": "#406ED7",
+      "leonardo": "#406ED7",
+      "deltaEOK": 0,
+      "razonLeonardo": 4.5
+    },
+    "l70": {
+      "kino": "#244EB5",
+      "leonardo": "#244FB5",
+      "deltaEOK": 0.0025,
+      "razonLeonardo": 6.97
+    },
+    "l90": {
+      "kino": "#153CA2",
+      "leonardo": "#153DA1",
+      "deltaEOK": 0.0029,
+      "razonLeonardo": 9.01
+    },
+    "l110": {
+      "kino": "#092D93",
+      "leonardo": "#092D92",
+      "deltaEOK": 0.0017,
+      "razonLeonardo": 11.06
+    }
+  }
+}

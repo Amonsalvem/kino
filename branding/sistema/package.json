@@ -1,0 +1,23 @@
+{
+  "name": "kino-sistema-de-marca",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Capa de marca de Kino: componentes y ensamblado. Tokens: gorr-brand-system/clientes/kino.",
+  "scripts": {
+    "tokens": "node construir-tokens.mjs && node ensamblar.mjs",
+    "verificar": "node verificar-css.mjs && node ../../gorr-brand-system/herramientas/contraste.mjs kino",
+    "construir": "npm run tokens && npm run verificar",
+    "paleta": "node ../../gorr-brand-system/herramientas/ciclo.mjs kino",
+    "instalar": "bash instalar.sh"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "colorjs.io": "^0.7.1"
+  },
+  "dependencies": {
+    "iconoir": "^7.12.1"
+  }
+}

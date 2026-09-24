@@ -1,0 +1,92 @@
+[
+  {
+    "caso": 1,
+    "tarea": "Notificación push cuando el permiso de un colaborador vence en 30 minutos.",
+    "version": 1,
+    "texto": "El permiso de Andrés (técnico de gas) vence a las 4:30 p. m., en 30 minutos. Si necesita más tiempo, amplía la vigencia desde la app."
+  },
+  {
+    "caso": 1,
+    "tarea": "Notificación push cuando el permiso de un colaborador vence en 30 minutos.",
+    "version": 2,
+    "texto": "Permiso por vencer. Andrés puede ingresar hasta las 4:30 p. m. Quedan 30 minutos. Toca para extender la vigencia."
+  },
+  {
+    "caso": 1,
+    "tarea": "Notificación push cuando el permiso de un colaborador vence en 30 minutos.",
+    "version": 3,
+    "texto": "Andrés, técnico de gas, tiene permiso hasta las 4:30 p. m. Después de esa hora el lector no le permitirá el ingreso. Puedes extenderlo ahora."
+  },
+  {
+    "caso": 2,
+    "tarea": "Mensaje de WhatsApp que recibe un invitado sin cuenta con su código de un solo uso.",
+    "version": 1,
+    "texto": "Hola, Sofía. Juan, de la casa 14 en Refugio Campestre, te dio un permiso para hoy de 7:00 a 11:00 p. m. Tu código de un solo uso es 482 915. Muéstralo o escríbelo en el lector de la entrada al llegar. No necesitas descargar ninguna app."
+  },
+  {
+    "caso": 2,
+    "tarea": "Mensaje de WhatsApp que recibe un invitado sin cuenta con su código de un solo uso.",
+    "version": 2,
+    "texto": "Sofía, tienes permiso para entrar hoy a Refugio Campestre entre 7:00 y 11:00 p. m. Lo preparó Juan, casa 14. Código 730 214, válido para un solo ingreso. Úsalo en el lector de la portería."
+  },
+  {
+    "caso": 2,
+    "tarea": "Mensaje de WhatsApp que recibe un invitado sin cuenta con su código de un solo uso.",
+    "version": 3,
+    "texto": "Hola, Sofía. Este es tu código para entrar hoy a Refugio Campestre (casa 14, Juan): 915 207. Funciona de 7:00 a 11:00 p. m. y sirve una sola vez. Al llegar, ingrésalo en el lector de la entrada."
+  },
+  {
+    "caso": 3,
+    "tarea": "Texto del estado cuando el lector no ha confirmado una placa registrada por el residente.",
+    "version": 1,
+    "texto": "ABC-123 · Sin confirmar. Registrada hace 5 minutos. El lector todavía no confirma la placa, así que en la puerta puede no reconocerla aún."
+  },
+  {
+    "caso": 3,
+    "tarea": "Texto del estado cuando el lector no ha confirmado una placa registrada por el residente.",
+    "version": 2,
+    "texto": "Sin confirmar por el lector. Placa ABC-123, registrada hace 5 minutos. Te avisamos cuando el lector la confirme."
+  },
+  {
+    "caso": 3,
+    "tarea": "Texto del estado cuando el lector no ha confirmado una placa registrada por el residente.",
+    "version": 3,
+    "texto": "ABC-123 sin confirmar. Registraste la placa hace 5 minutos y el lector aún no confirma que la tiene. Mientras tanto, el ingreso con esta placa puede fallar."
+  },
+  {
+    "caso": 4,
+    "tarea": "Párrafo para la administración que explica por qué ya no aprueba ingresos caso a caso.",
+    "version": 1,
+    "texto": "Con Kino, cada residente da el permiso a sus invitados y colaboradores, porque es quien sabe a quién espera. La administración define las condiciones de esos permisos: cuántos cupos tiene cada unidad, cuánto puede durar un permiso y en qué franjas horarias es válido. El lector de la puerta verifica cada ingreso contra esas reglas y registra quién dio el permiso, a quién y con qué vigencia. La administración mantiene el control de la copropiedad sin revisar cada visita, y ningún ingreso queda detenido esperando una respuesta de la oficina."
+  },
+  {
+    "caso": 4,
+    "tarea": "Párrafo para la administración que explica por qué ya no aprueba ingresos caso a caso.",
+    "version": 2,
+    "texto": "Aprobar cada ingreso obliga a la administración a decidir sobre visitas que no conoce, y deja al visitante esperando en la portería mientras alguien responde. Por eso, en Kino la decisión la toma el residente, que sabe a quién invitó. La administración fija los límites dentro de los cuales el residente puede dar permisos: el número de cupos por unidad, la duración máxima de cada permiso y las franjas horarias permitidas. Cada permiso queda registrado con su vigencia y con el nombre de quien lo otorgó, de modo que la administración puede consultar el historial cuando lo necesite."
+  },
+  {
+    "caso": 4,
+    "tarea": "Párrafo para la administración que explica por qué ya no aprueba ingresos caso a caso.",
+    "version": 3,
+    "texto": "La administración deja de aprobar ingresos uno por uno y pasa a fijar las reglas generales de la copropiedad. Usted define los cupos de cada unidad, la duración máxima de un permiso y las franjas en que se permite el ingreso. Dentro de esos límites, cada residente da el permiso a sus invitados y colaboradores, y el lector de la puerta lo aplica. Todo queda registrado: quién dio el permiso, a quién, desde qué hora y hasta cuándo. Así las decisiones de ingreso las toma quien conoce a la persona, y la administración conserva la trazabilidad completa."
+  },
+  {
+    "caso": 5,
+    "tarea": "Texto vacío de la lista de accesos previstos cuando el residente no ha creado ninguno.",
+    "version": 1,
+    "texto": "Todavía no tienes accesos previstos. Da un permiso y tu invitado o colaborador entrará con placa, QR o código, dentro de la vigencia que elijas."
+  },
+  {
+    "caso": 5,
+    "tarea": "Texto vacío de la lista de accesos previstos cuando el residente no ha creado ninguno.",
+    "version": 2,
+    "texto": "Sin accesos previstos. Cuando prepares un permiso, aparecerá aquí con su vigencia. Dar permiso"
+  },
+  {
+    "caso": 5,
+    "tarea": "Texto vacío de la lista de accesos previstos cuando el residente no ha creado ninguno.",
+    "version": 3,
+    "texto": "Aquí verás a las personas que esperas y hasta qué hora pueden entrar. Aún no has preparado ningún acceso. Dar un permiso"
+  }
+]

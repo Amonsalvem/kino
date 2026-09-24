@@ -1,0 +1,81 @@
+{
+  "semantico": {
+    "$type": "color",
+    "superficie": {
+      "base": {
+        "$value": "{primitivo.color.neutro.1000}"
+      },
+      "elevada": {
+        "$value": "{primitivo.color.fijo.blanco}"
+      }
+    },
+    "texto": {
+      "primario": {
+        "$value": "{primitivo.color.neutro.l110}"
+      },
+      "secundario": {
+        "$value": "{primitivo.color.neutro.l70}"
+      },
+      "tenue": {
+        "$value": "{primitivo.color.neutro.l45}"
+      },
+      "sobre-acento": {
+        "$value": "{primitivo.color.fijo.blanco}"
+      }
+    },
+    "borde": {
+      "tenue": {
+        "$value": "{primitivo.color.neutro.l15}"
+      },
+      "definido": {
+        "$value": "{primitivo.color.neutro.l32}"
+      },
+      "foco": {
+        "$value": "{primitivo.color.primario.l32}"
+      }
+    },
+    "acento": {
+      "base": {
+        "$value": "{primitivo.color.primario.l45}"
+      },
+      "fuerte": {
+        "$value": "{primitivo.color.primario.l70}"
+      }
+    },
+    "estado": {
+      "exito": {
+        "fondo": {
+          "$value": "{primitivo.color.exito.l15}"
+        },
+        "borde": {
+          "$value": "{primitivo.color.exito.l32}"
+        },
+        "texto": {
+          "$value": "{primitivo.color.exito.l110}"
+        }
+      },
+      "aviso": {
+        "fondo": {
+          "$value": "{primitivo.color.aviso.l15}"
+        },
+        "borde": {
+          "$value": "{primitivo.color.aviso.l32}"
+        },
+        "texto": {
+          "$value": "{primitivo.color.aviso.l110}"
+        }
+      },
+      "error": {
+        "fondo": {
+          "$value": "{primitivo.color.error.l15}"
+        },
+        "borde": {
+          "$value": "{primitivo.color.error.l32}"
+        },
+        "texto": {
+          "$value": "{primitivo.color.error.l110}"
+        }
+      }
+    }
+  }
+}

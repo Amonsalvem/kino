@@ -1,0 +1,358 @@
+[
+  {
+    "tema": "oscuro",
+    "que": "texto primario sobre superficie base",
+    "wcag": 16.49,
+    "apcaLc": -102.4,
+    "min": 4.5,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "oscuro",
+    "que": "texto secundario sobre superficie base",
+    "wcag": 10.38,
+    "apcaLc": -71.8,
+    "min": 4.5,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "oscuro",
+    "que": "texto tenue sobre superficie base",
+    "wcag": 6.62,
+    "apcaLc": -49.2,
+    "min": 3,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "oscuro",
+    "que": "acento sobre superficie base",
+    "wcag": 6.98,
+    "apcaLc": -52.3,
+    "min": 3,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "oscuro",
+    "que": "texto sobre acento",
+    "wcag": 7.63,
+    "apcaLc": 55.1,
+    "min": 4.5,
+    "fuenteMinima": {
+      "400": 28,
+      "500": 24,
+      "600": 21,
+      "700": 18,
+      "800": 18
+    },
+    "pasa": true
+  },
+  {
+    "tema": "oscuro",
+    "que": "borde definido sobre superficie base",
+    "wcag": 3.19,
+    "apcaLc": -23.1,
+    "min": 3,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "oscuro",
+    "que": "texto inverso sobre superficie inversa",
+    "wcag": 18.04,
+    "apcaLc": 101.7,
+    "min": 4.5,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "oscuro",
+    "que": "texto del estado vigente",
+    "wcag": 7.33,
+    "apcaLc": -69.6,
+    "min": 4.5,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "oscuro",
+    "que": "borde del estado vigente",
+    "wcag": 3.19,
+    "apcaLc": -23.7,
+    "min": 3,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "oscuro",
+    "que": "texto del estado por-vencer",
+    "wcag": 7.32,
+    "apcaLc": -69,
+    "min": 4.5,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "oscuro",
+    "que": "borde del estado por-vencer",
+    "wcag": 3.19,
+    "apcaLc": -23.4,
+    "min": 3,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "oscuro",
+    "que": "texto del estado vencido",
+    "wcag": 8.02,
+    "apcaLc": -62.9,
+    "min": 4.5,
+    "apcaMin": 60,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "oscuro",
+    "que": "borde del estado vencido",
+    "wcag": 3.19,
+    "apcaLc": -23.1,
+    "min": 3,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "oscuro",
+    "que": "texto del estado negado",
+    "wcag": 7.31,
+    "apcaLc": -67.2,
+    "min": 4.5,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "oscuro",
+    "que": "borde del estado negado",
+    "wcag": 3.2,
+    "apcaLc": -24.4,
+    "min": 3,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "oscuro",
+    "que": "texto del estado sin-confirmar",
+    "wcag": 10.38,
+    "apcaLc": -71.8,
+    "min": 4.5,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "oscuro",
+    "que": "borde del estado sin-confirmar",
+    "wcag": 3.19,
+    "apcaLc": -23.1,
+    "min": 3,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "oscuro",
+    "que": "texto del estado identidad",
+    "wcag": 7.35,
+    "apcaLc": -68.3,
+    "min": 4.5,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "oscuro",
+    "que": "borde del estado identidad",
+    "wcag": 3.19,
+    "apcaLc": -23.4,
+    "min": 3,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "claro",
+    "que": "texto primario sobre superficie base",
+    "wcag": 18.04,
+    "apcaLc": 101.7,
+    "min": 4.5,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "claro",
+    "que": "texto secundario sobre superficie base",
+    "wcag": 12.47,
+    "apcaLc": 95.7,
+    "min": 4.5,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "claro",
+    "que": "texto tenue sobre superficie base",
+    "wcag": 6.49,
+    "apcaLc": 79.9,
+    "min": 3,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "claro",
+    "que": "acento sobre superficie base",
+    "wcag": 6.96,
+    "apcaLc": 81.3,
+    "min": 3,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "claro",
+    "que": "texto sobre acento",
+    "wcag": 6.96,
+    "apcaLc": -85.8,
+    "min": 4.5,
+    "fuenteMinima": {
+      "400": 16.5,
+      "500": 15.625,
+      "600": 14.625,
+      "700": 14,
+      "800": 16
+    },
+    "pasa": true
+  },
+  {
+    "tema": "claro",
+    "que": "borde definido sobre superficie base",
+    "wcag": 3.19,
+    "apcaLc": 57.5,
+    "min": 3,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "claro",
+    "que": "texto inverso sobre superficie inversa",
+    "wcag": 18.04,
+    "apcaLc": -103.3,
+    "min": 4.5,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "claro",
+    "que": "texto del estado vigente",
+    "wcag": 6.96,
+    "apcaLc": 81.3,
+    "min": 4.5,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "claro",
+    "que": "borde del estado vigente",
+    "wcag": 3.19,
+    "apcaLc": 56.7,
+    "min": 3,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "claro",
+    "que": "texto del estado por-vencer",
+    "wcag": 6.97,
+    "apcaLc": 81.6,
+    "min": 4.5,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "claro",
+    "que": "borde del estado por-vencer",
+    "wcag": 3.22,
+    "apcaLc": 57.4,
+    "min": 3,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "claro",
+    "que": "texto del estado vencido",
+    "wcag": 5.46,
+    "apcaLc": 68.6,
+    "min": 4.5,
+    "apcaMin": 60,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "claro",
+    "que": "borde del estado vencido",
+    "wcag": 3.19,
+    "apcaLc": 57.5,
+    "min": 3,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "claro",
+    "que": "texto del estado negado",
+    "wcag": 7.01,
+    "apcaLc": 80.1,
+    "min": 4.5,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "claro",
+    "que": "borde del estado negado",
+    "wcag": 3.2,
+    "apcaLc": 56.7,
+    "min": 3,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "claro",
+    "que": "texto del estado sin-confirmar",
+    "wcag": 9.53,
+    "apcaLc": 89.6,
+    "min": 4.5,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "claro",
+    "que": "borde del estado sin-confirmar",
+    "wcag": 3.19,
+    "apcaLc": 57.5,
+    "min": 3,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "claro",
+    "que": "texto del estado identidad",
+    "wcag": 7.02,
+    "apcaLc": 81.6,
+    "min": 4.5,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "claro",
+    "que": "borde del estado identidad",
+    "wcag": 3.21,
+    "apcaLc": 57.4,
+    "min": 3,
+    "fuenteMinima": null,
+    "pasa": true
+  }
+]

@@ -1,0 +1,28 @@
+/* ── Paginación: una lámina por pantalla ─────────────────────────────────────
+   Solo en pantalla y solo si paginar.js arrancó (html.paginado). La impresión
+   conserva el flujo continuo. */
+@media screen{
+  html.paginado,html.paginado body{overflow:hidden;overscroll-behavior:none}
+  html.paginado main > section{
+    height:var(--alto-lamina,calc(100svh - 46px));min-height:0;
+    overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;
+    justify-content:flex-start;
+    padding-block:clamp(50px,6.5vh,60px) clamp(26px,6vh,60px);
+    scrollbar-width:thin;scrollbar-color:var(--bd-def) transparent;
+    -webkit-overflow-scrolling:touch}
+  /* Centrado seguro: si la lámina desborda, el contenido arranca arriba y no se corta. */
+  html.paginado main > section > .interior{margin-block:auto}
+  html.paginado main > section.plena > .interior{height:calc(var(--alto-lamina,100svh) - 60px)}
+  html.paginado main > section::-webkit-scrollbar{width:6px}
+  html.paginado main > section::-webkit-scrollbar-thumb{background:var(--bd-def);border-radius:3px}
+}
+@media screen and (max-width:760px){
+  html.paginado main > section{padding-block:56px 44px}
+  html.paginado .barra nav a{scroll-snap-align:center}
+}
+@media screen and (max-width:760px){
+  /* Tiras de color de más de 8 pasos: dos filas en el teléfono para que cada etiqueta quepa. */
+  .tira{flex-wrap:wrap;row-gap:4px}
+  .tira > i{flex:1 0 calc(12.5% - 3px);height:40px}
+  .tira > i[data-k]::after{font-size:9.5px;left:3px}
+}

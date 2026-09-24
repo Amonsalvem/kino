@@ -1,0 +1,162 @@
+{
+  "cliente": {
+    "id": "kino",
+    "nombre": "Kino",
+    "prefijo": "kino"
+  },
+  "color": {
+    "formato": "dtcg-2025",
+    "objetivos": [
+      1.5,
+      2.3,
+      3.2,
+      4.5,
+      7.0,
+      9.0,
+      11.0
+    ],
+    "objetivosEnNeutros": true,
+    "fondos": {
+      "d": "sustrato.200",
+      "l": "hueso.100"
+    },
+    "neutros": {
+      "sustrato": {
+        "h": 168,
+        "cmax": 0.042,
+        "L": [
+          0.17,
+          0.215,
+          0.258,
+          0.305,
+          0.375,
+          0.465,
+          0.575,
+          0.7
+        ],
+        "significa": "Superficies",
+        "porque": "Linaje: carbón #2C2D2F de la Propuesta 1 con sesgo verde (medio de cultivo)."
+      },
+      "hueso": {
+        "h": 170,
+        "cmax": 0.016,
+        "L": [
+          0.98,
+          0.952,
+          0.922,
+          0.882,
+          0.832,
+          0.772,
+          0.695,
+          0.615
+        ],
+        "significa": "Texto y tema claro",
+        "porque": "Linaje: hueso #E1E8EE enfriado hacia el verde."
+      }
+    },
+    "familias": {
+      "biolum": {
+        "h": 163,
+        "cmax": 0.19,
+        "significa": "Vigente y la acción de otorgar",
+        "porque": "H1/H5: no existe permiso temporal; el estado vigente tiene que verse vivo."
+      },
+      "ambar": {
+        "h": 75,
+        "cmax": 0.17,
+        "significa": "Vigencia que se agota",
+        "porque": "H1/H5: la vigencia no existe hoy; por-vencer la hace visible."
+      },
+      "carmin": {
+        "h": 25,
+        "cmax": 0.18,
+        "significa": "Rechazo",
+        "porque": "Estado negado distinguible del vencido."
+      },
+      "violeta": {
+        "h": 286.1,
+        "cmax": 0.18,
+        "significa": "Dato personal o biométrico",
+        "porque": "R4 y Res. 52185 de 2025 de la SIC: el dato de identidad se marca."
+      },
+      "indigo": {
+        "h": 264,
+        "cmax": 0.17,
+        "significa": "Profundidad y enlaces",
+        "porque": "Linaje: índigo #00177D de la Propuesta 1."
+      }
+    },
+    "fijos": {
+      "transparente": "#00000000",
+      "negro": "#000000",
+      "blanco": "#FFFFFF",
+      "sombra-claro": "#0B201A"
+    },
+    "congelar": "legado/paleta-2026-09-19.json"
+  },
+  "tipo": {
+    "vwMin": 360,
+    "vwMax": 1440,
+    "raiz": 16,
+    "decimales": 3,
+    "min": {
+      "base": 16,
+      "escala": 1.2
+    },
+    "max": {
+      "base": 18,
+      "escala": 1.26
+    },
+    "pasos": [
+      -1,
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "espacio": null
+  },
+  "nombres": {
+    "omitir": [
+      "primitivo",
+      "semantico",
+      "color",
+      "medida",
+      "tipo"
+    ],
+    "negativo": "n"
+  },
+  "temas": {
+    "oscuro": {
+      "archivo": "tokens/tema/oscuro.tokens.json",
+      "selector": ":root, :root[data-tema=\"oscuro\"]",
+      "esquema": "dark"
+    },
+    "claro": {
+      "archivo": "tokens/tema/claro.tokens.json",
+      "selector": ":root[data-tema=\"claro\"]",
+      "esquema": "light"
+    }
+  },
+  "capasSemanticas": [
+    "semantico"
+  ],
+  "reglas": [
+    "El color solo nombra hechos confirmados. Si el lector no confirmó, el estado es sin-confirmar: sin relleno y con borde discontinuo.",
+    "Todo estado lleva palabra además de color.",
+    "El acento es acción, no estado: va en lo que otorga un pase (el botón, el nodo «Otorgar» de un flujo) y en nada más.",
+    "Kino es la marca. El conjunto aparece como dato (texto o chip), nunca con logo ni colores propios.",
+    "Toda afirmación lleva su grado de evidencia (observado, prueba, entorno, inferido) y su fuente.",
+    "Placas, códigos, horas, rótulos y cifras van en JetBrains Mono, con cero barrado y cifras tabulares.",
+    "El tema oscuro es el canónico; el claro («Laboratorio») es el segundo.",
+    "Sin candados, escudos ni muros: Kino es una membrana.",
+    "Lo que se mueve significa algo: crecer es aparecer, decaer es caducar, latir es estar vivo. Nada se anima para decorar."
+  ],
+  "evals": {
+    "proveedor": "anthropic:messages:claude-sonnet-4-5",
+    "umbral": 0.8
+  }
+}

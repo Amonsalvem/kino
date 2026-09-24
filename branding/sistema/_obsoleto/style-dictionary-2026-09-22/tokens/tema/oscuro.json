@@ -1,0 +1,178 @@
+{
+ "semantico": {
+  "superficie": {
+   "abismo": {
+    "$value": "{primitivo.color.sustrato.100}",
+    "$type": "color"
+   },
+   "base": {
+    "$value": "{primitivo.color.sustrato.200}",
+    "$type": "color"
+   },
+   "elevada": {
+    "$value": "{primitivo.color.sustrato.300}",
+    "$type": "color"
+   },
+   "membrana": {
+    "$value": "{primitivo.color.sustrato.400}",
+    "$type": "color"
+   },
+   "inversa": {
+    "$value": "{primitivo.color.hueso.100}",
+    "$type": "color"
+   }
+  },
+  "borde": {
+   "tenue": {
+    "$value": "{primitivo.color.sustrato.500}",
+    "$type": "color"
+   },
+   "definido": {
+    "$value": "{primitivo.color.sustrato.d32}",
+    "$type": "color"
+   },
+   "foco": {
+    "$value": "{primitivo.color.biolum.d70}",
+    "$type": "color"
+   }
+  },
+  "texto": {
+   "primario": {
+    "$value": "{primitivo.color.hueso.100}",
+    "$type": "color"
+   },
+   "secundario": {
+    "$value": "{primitivo.color.hueso.500}",
+    "$type": "color"
+   },
+   "tenue": {
+    "$value": "{primitivo.color.sustrato.800}",
+    "$type": "color"
+   },
+   "inverso": {
+    "$value": "{primitivo.color.sustrato.100}",
+    "$type": "color"
+   },
+   "sobre-acento": {
+    "$value": "{primitivo.color.sustrato.100}",
+    "$type": "color"
+   }
+  },
+  "acento": {
+   "base": {
+    "$value": "{primitivo.color.biolum.d70}",
+    "$type": "color"
+   },
+   "fuerte": {
+    "$value": "{primitivo.color.biolum.d110}",
+    "$type": "color"
+   },
+   "sordo": {
+    "$value": "{primitivo.color.biolum.d15}",
+    "$type": "color"
+   }
+  },
+  "estado": {
+   "vigente": {
+    "fondo": {
+     "$value": "{primitivo.color.biolum.d15}",
+     "$type": "color"
+    },
+    "borde": {
+     "$value": "{primitivo.color.biolum.d32}",
+     "$type": "color"
+    },
+    "texto": {
+     "$value": "{primitivo.color.biolum.d110}",
+     "$type": "color"
+    }
+   },
+   "por-vencer": {
+    "fondo": {
+     "$value": "{primitivo.color.ambar.d15}",
+     "$type": "color"
+    },
+    "borde": {
+     "$value": "{primitivo.color.ambar.d32}",
+     "$type": "color"
+    },
+    "texto": {
+     "$value": "{primitivo.color.ambar.d110}",
+     "$type": "color"
+    }
+   },
+   "vencido": {
+    "fondo": {
+     "$value": "{primitivo.color.sustrato.300}",
+     "$type": "color"
+    },
+    "borde": {
+     "$value": "{primitivo.color.sustrato.d32}",
+     "$type": "color"
+    },
+    "texto": {
+     "$value": "{primitivo.color.sustrato.800}",
+     "$type": "color"
+    }
+   },
+   "negado": {
+    "fondo": {
+     "$value": "{primitivo.color.carmin.d15}",
+     "$type": "color"
+    },
+    "borde": {
+     "$value": "{primitivo.color.carmin.d32}",
+     "$type": "color"
+    },
+    "texto": {
+     "$value": "{primitivo.color.carmin.d110}",
+     "$type": "color"
+    }
+   },
+   "sin-confirmar": {
+    "fondo": {
+     "$value": "#00000000",
+     "$type": "color"
+    },
+    "borde": {
+     "$value": "{primitivo.color.sustrato.d32}",
+     "$type": "color"
+    },
+    "texto": {
+     "$value": "{primitivo.color.hueso.500}",
+     "$type": "color"
+    }
+   },
+   "identidad": {
+    "fondo": {
+     "$value": "{primitivo.color.violeta.d15}",
+     "$type": "color"
+    },
+    "borde": {
+     "$value": "{primitivo.color.violeta.d32}",
+     "$type": "color"
+    },
+    "texto": {
+     "$value": "{primitivo.color.violeta.d110}",
+     "$type": "color"
+    }
+   }
+  },
+  "resplandor": {
+   "vigente": {
+    "$value": "0 0 0 1px {primitivo.color.biolum.d45}, 0 0 28px -8px {primitivo.color.biolum.d110}",
+    "$type": "shadow"
+   },
+   "identidad": {
+    "$value": "0 0 0 1px {primitivo.color.violeta.d45}, 0 0 28px -8px {primitivo.color.violeta.d110}",
+    "$type": "shadow"
+   }
+  },
+  "relieve": {
+   "membrana": {
+    "$value": "0 1px 0 0 {primitivo.color.sustrato.500} inset, 0 12px 32px -20px #000000",
+    "$type": "shadow"
+   }
+  }
+ }
+}

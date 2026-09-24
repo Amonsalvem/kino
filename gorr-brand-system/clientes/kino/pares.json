@@ -1,0 +1,119 @@
+[
+ {
+  "que": "texto primario sobre superficie base",
+  "fg": "kino-texto-primario",
+  "bg": "kino-superficie-base",
+  "min": 4.5
+ },
+ {
+  "que": "texto secundario sobre superficie base",
+  "fg": "kino-texto-secundario",
+  "bg": "kino-superficie-base",
+  "min": 4.5
+ },
+ {
+  "que": "texto tenue sobre superficie base",
+  "fg": "kino-texto-tenue",
+  "bg": "kino-superficie-base",
+  "min": 3.0
+ },
+ {
+  "que": "acento sobre superficie base",
+  "fg": "kino-acento-base",
+  "bg": "kino-superficie-base",
+  "min": 3.0
+ },
+ {
+  "que": "texto sobre acento",
+  "fg": "kino-texto-sobre-acento",
+  "bg": "kino-acento-base",
+  "min": 4.5,
+  "apcaFuente": true,
+  "nota": "Con el acento de la entrega 2 el texto llega a Lc ~55: se resuelve con tamaño y peso mínimos (fontLookupAPCA), no subiendo el acento."
+ },
+ {
+  "que": "borde definido sobre superficie base",
+  "fg": "kino-borde-definido",
+  "bg": "kino-superficie-base",
+  "min": 3.0
+ },
+ {
+  "que": "texto inverso sobre superficie inversa",
+  "fg": "kino-texto-inverso",
+  "bg": "kino-superficie-inversa",
+  "min": 4.5
+ },
+ {
+  "que": "texto del estado vigente",
+  "fg": "kino-estado-vigente-texto",
+  "bg": "kino-estado-vigente-fondo",
+  "min": 4.5
+ },
+ {
+  "que": "borde del estado vigente",
+  "fg": "kino-estado-vigente-borde",
+  "bg": "kino-superficie-base",
+  "min": 3.0
+ },
+ {
+  "que": "texto del estado por-vencer",
+  "fg": "kino-estado-por-vencer-texto",
+  "bg": "kino-estado-por-vencer-fondo",
+  "min": 4.5
+ },
+ {
+  "que": "borde del estado por-vencer",
+  "fg": "kino-estado-por-vencer-borde",
+  "bg": "kino-superficie-base",
+  "min": 3.0
+ },
+ {
+  "que": "texto del estado vencido",
+  "fg": "kino-estado-vencido-texto",
+  "bg": "kino-estado-vencido-fondo",
+  "min": 4.5,
+  "apcaMin": 60
+ },
+ {
+  "que": "borde del estado vencido",
+  "fg": "kino-estado-vencido-borde",
+  "bg": "kino-superficie-base",
+  "min": 3.0
+ },
+ {
+  "que": "texto del estado negado",
+  "fg": "kino-estado-negado-texto",
+  "bg": "kino-estado-negado-fondo",
+  "min": 4.5
+ },
+ {
+  "que": "borde del estado negado",
+  "fg": "kino-estado-negado-borde",
+  "bg": "kino-superficie-base",
+  "min": 3.0
+ },
+ {
+  "que": "texto del estado sin-confirmar",
+  "fg": "kino-estado-sin-confirmar-texto",
+  "bg": "kino-superficie-base",
+  "min": 4.5
+ },
+ {
+  "que": "borde del estado sin-confirmar",
+  "fg": "kino-estado-sin-confirmar-borde",
+  "bg": "kino-superficie-base",
+  "min": 3.0
+ },
+ {
+  "que": "texto del estado identidad",
+  "fg": "kino-estado-identidad-texto",
+  "bg": "kino-estado-identidad-fondo",
+  "min": 4.5
+ },
+ {
+  "que": "borde del estado identidad",
+  "fg": "kino-estado-identidad-borde",
+  "bg": "kino-superficie-base",
+  "min": 3.0
+ }
+]

@@ -1,0 +1,46 @@
+{
+  "name": "gorr-brand-system",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "GORR · sistema y workflow para producir una marca completa: estrategia, voz, identidad visual, tokens DTCG y marca empaquetada para IA.",
+  "scripts": {
+    "nuevo": "node herramientas/nuevo.mjs",
+    "ciclo": "node herramientas/ciclo.mjs",
+    "paleta": "node herramientas/paleta.mjs",
+    "tipo": "node herramientas/tipo.mjs",
+    "importar": "node herramientas/importar.mjs",
+    "validar": "node herramientas/validar.mjs",
+    "construir": "node herramientas/construir.mjs",
+    "contraste": "node herramientas/contraste.mjs",
+    "voz": "node herramientas/voz.mjs",
+    "calibrar-voz": "node herramientas/calibrar-voz.mjs",
+    "skill": "node herramientas/skill.mjs",
+    "evals": "node herramientas/evals.mjs",
+    "prueba": "node herramientas/prueba.mjs",
+    "leonardo": "node herramientas/leonardo.mjs",
+    "terrazzo": "CLIENTE=${CLIENTE:-kino} tz build",
+    "evals:promptfoo": "cd clientes/${CLIENTE:-kino}/evals && promptfoo eval",
+    "activar": "bash activar-herramientas.sh"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "colorjs.io": "^0.7.1",
+    "iconoir": "^7.12.1"
+  },
+  "optionalDependencies": {
+    "@terrazzo/cli": "*",
+    "@terrazzo/plugin-css": "*"
+  },
+  "devDependencies": {
+    "@adobe/leonardo-contrast-colors": "^1.1.0",
+    "@terrazzo/cli": "^2.7.1",
+    "@terrazzo/plugin-css": "^2.7.1",
+    "apca-w3": "^0.1.9",
+    "colorparsley": "^0.1.8",
+    "promptfoo": "^0.123.1",
+    "utopia-core": "^1.6.0"
+  }
+}

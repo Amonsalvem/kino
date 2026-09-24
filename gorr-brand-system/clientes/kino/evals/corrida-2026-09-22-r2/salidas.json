@@ -1,0 +1,92 @@
+[
+  {
+    "caso": 1,
+    "tarea": "Notificación push cuando el permiso de un colaborador vence en 30 minutos.",
+    "version": 1,
+    "texto": "El permiso de Andrés (técnico de gas) vence a las 4:30 p. m. Quedan 30 minutos."
+  },
+  {
+    "caso": 1,
+    "tarea": "Notificación push cuando el permiso de un colaborador vence en 30 minutos.",
+    "version": 2,
+    "texto": "Laura, a Andrés le quedan 30 minutos de permiso. Vigente hasta las 4:30 p. m."
+  },
+  {
+    "caso": 1,
+    "tarea": "Notificación push cuando el permiso de un colaborador vence en 30 minutos.",
+    "version": 3,
+    "texto": "Andrés, técnico de gas. Permiso por vencer: vigente hasta las 4:30 p. m., en 30 minutos."
+  },
+  {
+    "caso": 2,
+    "tarea": "Mensaje de WhatsApp que recibe un invitado sin cuenta con su código de un solo uso.",
+    "version": 1,
+    "texto": "Hola, Sofía. Juan (casa 14, Refugio Campestre) te dio un permiso para hoy de 7:00 a 11:00 p. m. Tu código de un solo uso es {código}. Sirve para un ingreso dentro de ese horario."
+  },
+  {
+    "caso": 2,
+    "tarea": "Mensaje de WhatsApp que recibe un invitado sin cuenta con su código de un solo uso.",
+    "version": 2,
+    "texto": "Sofía, tienes permiso para entrar hoy a Refugio Campestre, casa 14, de 7:00 a 11:00 p. m. Te lo dio Juan. Código de un solo uso: {código}."
+  },
+  {
+    "caso": 2,
+    "tarea": "Mensaje de WhatsApp que recibe un invitado sin cuenta con su código de un solo uso.",
+    "version": 3,
+    "texto": "Hola, Sofía. Este es tu código para entrar a Refugio Campestre: {código}. Vale para un solo ingreso, hoy de 7:00 a 11:00 p. m. Permiso dado por Juan, casa 14."
+  },
+  {
+    "caso": 3,
+    "tarea": "Texto del estado cuando el lector no ha confirmado una placa registrada por el residente.",
+    "version": 1,
+    "texto": "ABC-123 · Sin confirmar. La registraste hace 5 minutos y el lector todavía no la ha confirmado."
+  },
+  {
+    "caso": 3,
+    "tarea": "Texto del estado cuando el lector no ha confirmado una placa registrada por el residente.",
+    "version": 2,
+    "texto": "Sin confirmar. El lector aún no confirma la placa ABC-123, registrada hace 5 minutos."
+  },
+  {
+    "caso": 3,
+    "tarea": "Texto del estado cuando el lector no ha confirmado una placa registrada por el residente.",
+    "version": 3,
+    "texto": "ABC-123. Registrada hace 5 min. Sin confirmar por el lector."
+  },
+  {
+    "caso": 4,
+    "tarea": "Párrafo para la administración que explica por qué ya no aprueba ingresos caso a caso.",
+    "version": 1,
+    "texto": "Con Kino, la administración fija los límites de los permisos: cuántos puede dar cada residente, cuánto duran y en qué franjas son válidos. Dentro de esos límites, el residente da el permiso a sus invitados y colaboradores, porque es quien sabe a quién espera. La administración deja de revisar cada ingreso y conserva el control sobre las reglas. De cada permiso queda registrado quién lo dio, cuándo y su vigencia."
+  },
+  {
+    "caso": 4,
+    "tarea": "Párrafo para la administración que explica por qué ya no aprueba ingresos caso a caso.",
+    "version": 2,
+    "texto": "Quien sabe a quién espera una casa es su residente. Por eso, en Kino el residente da los permisos a sus invitados y colaboradores, y la administración define los cupos, la duración máxima y las franjas horarias en que esos permisos son válidos. Así la administración ya no tiene que aprobar cada ingreso, y cada permiso queda registrado con quién lo dio, cuándo y hasta cuándo es vigente."
+  },
+  {
+    "caso": 4,
+    "tarea": "Párrafo para la administración que explica por qué ya no aprueba ingresos caso a caso.",
+    "version": 3,
+    "texto": "La administración ya no aprueba ingresos caso a caso. Su tarea pasa a ser fijar los cupos, la duración y las franjas de los permisos para toda la copropiedad. El residente da cada permiso dentro de esos límites, ya que conoce a la persona que viene. Esto reduce la carga operativa de la administración y mantiene la regla en sus manos. Cada permiso guarda quién lo dio, cuándo y su vigencia."
+  },
+  {
+    "caso": 5,
+    "tarea": "Texto vacío de la lista de accesos previstos cuando el residente no ha creado ninguno.",
+    "version": 1,
+    "texto": "Aún no tienes accesos previstos. Cuando prepares uno para un invitado o colaborador, aparecerá aquí con su vigencia."
+  },
+  {
+    "caso": 5,
+    "tarea": "Texto vacío de la lista de accesos previstos cuando el residente no ha creado ninguno.",
+    "version": 2,
+    "texto": "No hay accesos previstos. Prepara el permiso antes de que llegue tu invitado o colaborador."
+  },
+  {
+    "caso": 5,
+    "tarea": "Texto vacío de la lista de accesos previstos cuando el residente no ha creado ninguno.",
+    "version": 3,
+    "texto": "Todavía no has preparado ningún acceso previsto. Aquí verás los permisos que des, con la hora hasta la que están vigentes."
+  }
+]
