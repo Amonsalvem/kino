@@ -148,7 +148,8 @@ ESTADOS = [
 
 
 def qr(semilla=7, n=25, clase='qr'):
-    """QR de muestra (no codifica nada): patrón determinista con los tres buscadores."""
+    """QR de muestra (no codifica nada): patrón determinista con los tres buscadores.
+    Sin fondo propio: va sobre el blanco de la ventana del Portal."""
     s = semilla
     def r():
         nonlocal s
@@ -173,4 +174,4 @@ def qr(semilla=7, n=25, clase='qr'):
             if m[y][x]:
                 celdas.append(f'M{x} {y}h1v1h-1z')
     return (f'<svg class="{clase}" viewBox="-2 -2 {n + 4} {n + 4}" width="{n + 4}" height="{n + 4}" style="aspect-ratio:1" role="img" aria-label="Código QR de muestra">'
-            f'<rect x="-2" y="-2" width="{n + 4}" height="{n + 4}" style="fill:var(--kino-fijo-blanco)"/><path style="fill:var(--kino-sustrato-100)" d="{"".join(celdas)}"/></svg>')
+            f'<path style="fill:var(--kino-sustrato-100)" d="{"".join(celdas)}"/></svg>')

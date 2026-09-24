@@ -40,7 +40,7 @@ INSTRUCCIONES = [('qr', 'QR', 'Acerca el QR al lector y espera la luz verde.'),
                  ('codigo', 'Código', f'Dile a portería el código {EJ["codigo"]}. Sirve una sola vez.')]
 
 
-def vivo(estado='vigente'):
+def vivo(estado='vigente', tema='en-oscuro'):
     """El Pase vivo: la página que abre el enlace. Dice si el Pase sigue sirviendo."""
     venc = estado == 'vencido'
     chip_ = chip('vencido', 'Vencido') if venc else chip('vigente', 'Vigente')
@@ -50,7 +50,7 @@ def vivo(estado='vigente'):
                      '<span class="kino-vigencia" style="--kino-vida:.62"><i></i></span><p class="pv-queda kino-dato">Vence a las 6:00 p. m.</p>'
                      '<ul class="pv-modos">' + ''.join(f'<li>{_ic(k)}<b>{n}</b><span>{t}</span></li>' for k, n, t in INSTRUCCIONES) + '</ul>'
                      '<button class="kino-boton ancho" type="button" tabindex="-1">' + _ic('bajar') + 'Descargar PDF</button>')
-    return f'''<div class="pase-vivo en-oscuro" data-estado="{estado}">
+    return f'''<div class="pase-vivo {tema}" data-estado="{estado}">
   <div class="pv-barra">{logo('horizontal', etiqueta='Kino')}<span class="kino-dato">{EJ['enlace']}</span></div>
   <div class="pv-cuerpo">
     <div class="pv-cabeza">{chip_}<span class="chip-dato">{EJ['conjunto']}</span></div>
@@ -80,9 +80,9 @@ def pdf():
 </div></div>'''
 
 
-def senal():
+def senal(tema='en-oscuro'):
     """Señal física en la entrada de visitas (60 × 40 cm)."""
-    return f'''<div class="senal-entrada en-oscuro"><div class="in">
+    return f'''<div class="senal-entrada {tema}"><div class="in">
   <div class="se-cab">{logo('horizontal', etiqueta='Kino')}<span class="kino-etiqueta">{EJ['conjunto']}<br>Entrada de visitas</span></div>
   <p class="se-titulo">Muestra tu Pase<br>al lector</p>
   <ul class="se-modos"><li>{_ic('qr')}<b>QR</b><span>Acércalo al lector</span></li><li>{_ic('carro')}<b>Placa</b><span>Avanza despacio</span></li><li>{_ic('codigo')}<b>Código</b><span>Díselo a portería</span></li></ul>
@@ -90,13 +90,13 @@ def senal():
 </div></div>'''
 
 
-def porteria(estado='vencido'):
+def porteria(estado='vencido', tema='en-oscuro'):
     """Kino Portería: lo que ve el turno cuando alguien llega. Nombre, placa y estado; nunca la cédula."""
     eventos = [('15:12', 'Andrés Gómez', 'KMN 305', 'vigente', 'Entró', 'Casa 14'),
                ('15:40', 'Técnico del gas', 'QR', 'sin-confirmar', 'Sin confirmar', 'Casa 22'),
                ('19:10', 'Diana Arango', 'JRT 118', 'rechazado', 'Rechazado', 'Casa 14')]
     filas = ''.join(f'<li class="po-fila"><span class="kino-dato">{h}</span><b>{n}</b><span class="kino-dato">{p}</span><span>{c}</span>{chip(s, t)}</li>' for h, n, p, s, t, c in eventos)
-    return f'''<div class="vista-porteria en-oscuro">
+    return f'''<div class="vista-porteria {tema}">
   <div class="po-barra">{logo('horizontal', etiqueta='Kino')}<b>Portería</b><span class="chip-dato">{EJ['conjunto']} · Entrada principal</span></div>
   <div class="po-cuerpo">
     <div class="po-alerta kino-pase" data-estado="rechazado">
