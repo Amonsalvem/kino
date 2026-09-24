@@ -13,7 +13,7 @@
 > 3. `kino/avances.md`;
 > 4. `kino/decisiones.md`.
 >
-> Estamos en la Parada 3, pendiente de mi respuesta. Mis respuestas: [pega aquí tus respuestas a las 5 preguntas de la Parada 3, o «vuelve a presentarme la Parada 3»].
+> La Parada 3 está aprobada. Sigue la Fase 4 (ver §9).
 
 Con eso basta. Si la carpeta no está conectada, las copias de `avances` y `decisiones` también están en el proyecto como `claude/avances-sistema-de-marca.md` y `claude/decisiones-sistema-de-marca.md`.
 
@@ -25,7 +25,7 @@ Con eso basta. Si la carpeta no está conectada, las copias de `avances` y `deci
 | 1 · Plataforma y arquitectura | Aprobada (Parada 1) |
 | 2 · Verbal | Aprobada (Parada 2) |
 | V7 · Pase entregado como imagen más enlace | Aprobada |
-| 3 · Identidad visual | **Parada 3 presentada, esperando respuesta de Nico** |
+| 3 · Identidad visual | Aprobada (Parada 3, 24 sep): X1 a X11 |
 | 4 · Construcción | No iniciada |
 | 5 · Verificación y evaluaciones | No iniciada |
 
@@ -175,13 +175,12 @@ node herramientas/voz.mjs kino ../branding/sistema/v3/sitio/texto-visible.md ../
 - Confirmar con Manuel si HikCentral acepta una credencial temporal sin crear persona. Es la prueba del Pase sin cuenta.
 - Unidad de los cupos: por casa, por residente o por conjunto.
 - Si el lector tiene teclado para el código.
-- Qué pasa en la entrada con un Pase vencido.
+- Confirmar que portería puede llamar al residente desde Kino (X11): la inspección no registró esa función.
 - El deck de diagnóstico del 4 sep y el Anexo de sustentación no están en la carpeta.
-- Instrucciones del proyecto: todavía dicen «marca blanca» y «permiso». Solo el equipo puede editarlas; mandan `decisiones.md` y el encargo.
 
 ## 9. Siguiente trabajo, en orden
 
-**1. Cerrar la Parada 3** con las respuestas de Nico y marcar X1 a X10 en `decisiones.md`.
+**1. Parada 3 cerrada** el 24 sep: X1 a X11 aprobadas en `decisiones.md`.
 
 **2. Fase 4, construir sin parar:**
 - Llevar la paleta aprobada a `gorr-brand-system/clientes/kino`:

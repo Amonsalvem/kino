@@ -255,4 +255,16 @@ Lámina: `kino/parada-3.html`. Fuentes: `branding/sistema/v3/fase3/`. Contraste 
 | X9 | Motion | Crecer (820 ms, cascada de 90 ms); cortina solo en presentaciones | Cortina | Verbo «aparecer» del sistema de movimiento |
 | X10 | Estados | 7 estados y el evento Rechazado, con los colores de la tabla de la lámina | — | V5 |
 
-Estado: todas PROPUESTA hasta la respuesta de Nico a la Parada 3.
+Estado: **todas APROBADA (A)** · respuesta de Nico a la Parada 3, 24 sep:
+
+1. X1 Portal como forma del Pase: aprobado.
+2. X4 dos verdes (#00BB83 marca, #00D595 botón Crear Pase): aprobado.
+3. X3 oscuro reajustado como tema principal: aprobado. El PDF del Pase va en claro.
+4. X2, X5, X6, X7, X8 y X9 en bloque: aprobado. X10 queda aprobada con ellas.
+5. Pase vencido en la entrada: ver X11.
+
+### X11 · Pase vencido en la entrada · APROBADA (24 sep)
+- **Dato de operación (dicho por Nico):** portería puede llamar al residente desde Kino.
+- **Efecto:** la señal de portería y el Pase vivo en estado vencido ofrecen «Llamar al residente». El texto puede prometer esa llamada.
+- **Por verificar en producto:** la inspección no registró un botón de llamada en la vista del portero. Si la función no existe hoy, es un requisito de producto que el sistema de marca da por hecho y hay que construir.
+- **Trazabilidad:** la llamada no autoriza el ingreso. Si el residente quiere dejar entrar a la persona, crea un Pase nuevo o extiende el vencido. Así cada ingreso sigue teniendo un Pase con autor, y HikCentral recibe el alta con su vigencia.
