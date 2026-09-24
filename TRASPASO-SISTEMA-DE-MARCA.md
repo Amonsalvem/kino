@@ -210,4 +210,4 @@ node herramientas/voz.mjs kino ../branding/sistema/v3/sitio/texto-visible.md ../
 
 ## Repositorio (24 sep)
 
-La carpeta `kino` es un repositorio git (rama `main`). El historial vive en `.git.nosync` para que iCloud no lo sincronice a medias; `.git` es un archivo que apunta ahí. `CLAUDE.md` lleva las instrucciones del proyecto para sesiones de Claude Code (nube o terminal) y `docs/proyecto/` las copias de los documentos de conocimiento de claude.ai. Si un documento cambia en claude.ai, se actualiza también aquí. `branding/sistema/**/build/` no se versiona: se regenera con `construir.py`.
+La carpeta `kino` es un repositorio git (rama `main`). El historial vive en `.git.nosync` para que iCloud no lo sincronice a medias; `.git` es un enlace simbólico a esa carpeta. `CLAUDE.md` lleva las instrucciones del proyecto para sesiones de Claude Code (nube o terminal) y `docs/proyecto/` las copias de los documentos de conocimiento de claude.ai. Si un documento cambia en claude.ai, se actualiza también aquí. `branding/sistema/**/build/` no se versiona: se regenera con `construir.py`.
