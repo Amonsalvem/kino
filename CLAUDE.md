@@ -30,12 +30,18 @@ cd branding/sistema/v3/fase3 && python3 build.py
 
 Después de construir el sitio, corre la compuerta de voz sobre `texto-visible.md`.
 
+```bash
+# Entorno y pruebas visuales
+bash scripts/preparar-entorno.sh          # lo corre solo el hook SessionStart
+node scripts/capturar.mjs <archivo.html>  # 360, 768 y 1440 px, oscuro y claro, desborde y errores de consola
+```
+
 ## Herramientas según dónde corra la sesión
 
 Una sesión en la nube ve este repositorio, no el Mac ni los documentos o la memoria del proyecto de claude.ai. Al empezar, revisa qué herramientas tienes y dilo:
 
 - **Artefactos de claude.ai.** Si están: las láminas de revisión se publican como artefactos nuevos. El artefacto oficial «Kino · Sistema de marca» (`K8R2PRduS6SHBKYU31Bo6L`) se republica solo después de la Parada 4, leyéndolo primero y publicando con su url.
-- **Figma** (archivo `BO7UnDO9iE0aG6yUpNj0bc`). Si el conector está, carga la skill `figma-use` antes de `use_figma`. Si no está, la sincronización queda para Cowork.
+- **Figma** (archivo `BO7UnDO9iE0aG6yUpNj0bc`). Carga la skill `figma-use` antes de `use_figma`. Si el conector no responde, detente y pídele a Nico que lo conecte en claude.ai.
 - Si necesitas algo que no está aquí, dilo y no lo supongas.
 - `gorr-brand-system/vendor/anthropic-skills` y `vendor/w3c-design-tokens-agent-skill` son clones de referencia y no están en el repositorio. Si hacen falta: `git clone https://github.com/anthropics/skills` y `git clone https://github.com/dgtlntv/w3c-design-tokens-agent-skill` dentro de `vendor/`.
 
