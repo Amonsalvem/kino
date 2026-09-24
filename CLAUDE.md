@@ -30,12 +30,12 @@ cd branding/sistema/v3/fase3 && python3 build.py
 
 Después de construir el sitio, corre la compuerta de voz sobre `texto-visible.md`.
 
-## Lo que esta sesión no tiene
+## Herramientas según dónde corra la sesión
 
-Una sesión en la nube solo ve este repositorio. No tiene el Mac, ni Figma, ni la herramienta de artefactos de claude.ai, ni los documentos ni la memoria del proyecto de claude.ai. Por eso:
+Una sesión en la nube ve este repositorio, no el Mac ni los documentos o la memoria del proyecto de claude.ai. Al empezar, revisa qué herramientas tienes y dilo:
 
-- El artefacto oficial «Kino · Sistema de marca» se republica desde una sesión de Cowork, y solo después de la Parada 4.
-- La biblioteca de Figma se sincroniza desde Cowork.
+- **Artefactos de claude.ai.** Si están: las láminas de revisión se publican como artefactos nuevos. El artefacto oficial «Kino · Sistema de marca» (`K8R2PRduS6SHBKYU31Bo6L`) se republica solo después de la Parada 4, leyéndolo primero y publicando con su url.
+- **Figma** (archivo `BO7UnDO9iE0aG6yUpNj0bc`). Si el conector está, carga la skill `figma-use` antes de `use_figma`. Si no está, la sincronización queda para Cowork.
 - Si necesitas algo que no está aquí, dilo y no lo supongas.
 - `gorr-brand-system/vendor/anthropic-skills` y `vendor/w3c-design-tokens-agent-skill` son clones de referencia y no están en el repositorio. Si hacen falta: `git clone https://github.com/anthropics/skills` y `git clone https://github.com/dgtlntv/w3c-design-tokens-agent-skill` dentro de `vendor/`.
 
