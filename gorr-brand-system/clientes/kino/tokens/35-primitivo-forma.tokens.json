@@ -1,0 +1,100 @@
+{
+ "primitivo": {
+  "medida": {
+   "trazo": {
+    "$type": "number",
+    "$description": "Grosor de trazo de los íconos en una grilla de 24 (X6: 1,7 con puntas redondas).",
+    "icono": {
+     "$value": 1.7
+    }
+   },
+   "linea": {
+    "$type": "dimension",
+    "fino": {
+     "$value": {
+      "value": 1,
+      "unit": "px"
+     }
+    },
+    "foco": {
+     "$value": {
+      "value": 2,
+      "unit": "px"
+     }
+    }
+   }
+  },
+  "tipo": {
+   "ancho": {
+    "$type": "number",
+    "$description": "font-stretch de Archivo en porcentaje. En CSS: calc(var(--kino-ancho-titular) * 1%).",
+    "titular": {
+     "$value": 112
+    },
+    "texto": {
+     "$value": 100
+    }
+   },
+   "peso": {
+    "$type": "fontWeight",
+    "texto": {
+     "$value": 400
+    },
+    "medio": {
+     "$value": 500
+    },
+    "titulo": {
+     "$value": 700
+    },
+    "display": {
+     "$value": 800
+    }
+   },
+   "interlinea": {
+    "$type": "number",
+    "$description": "Interlineado sin unidad.",
+    "display": {
+     "$value": 1.04
+    },
+    "titulo": {
+     "$value": 1.16
+    },
+    "texto": {
+     "$value": 1.6
+    },
+    "dato": {
+     "$value": 1.3
+    }
+   },
+   "tracking": {
+    "$type": "number",
+    "$description": "letter-spacing en em. En CSS: calc(var(--kino-tracking-dato) * 1em).",
+    "display": {
+     "$value": -0.02
+    },
+    "texto": {
+     "$value": 0
+    },
+    "dato": {
+     "$value": 0.04
+    },
+    "placa": {
+     "$value": 0.06
+    },
+    "etiqueta": {
+     "$value": 0.08
+    }
+   },
+   "columna": {
+    "$type": "number",
+    "$description": "Largo de línea en caracteres. En CSS: calc(var(--kino-columna-texto) * 1ch).",
+    "texto": {
+     "$value": 62
+    },
+    "corta": {
+     "$value": 42
+    }
+   }
+  }
+ }
+}

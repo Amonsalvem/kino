@@ -1,0 +1,91 @@
+/* Kino — capa de componentes. Se ensambla después de los tokens.
+   Archivo y JetBrains Mono (OFL 1.1) están autoalojadas en fonts/.
+   ensamblar.mjs sube estos @import al principio del archivo ensamblado. */
+@import url('fonts/archivo.css');
+@import url('fonts/jetbrains-mono.css');
+:root {
+  /* Lo que no vive en tokens.json: curvas, ejes variables y la capa tenant. */
+  --kino-ancho-display: 112%;
+  --kino-crecer: 420ms cubic-bezier(.16,.84,.30,1);
+  --kino-decaer: 900ms cubic-bezier(.62,.03,.86,.34);
+  --kino-latir: 1800ms cubic-bezier(.45,0,.55,1);
+  --kino-medida: 62ch;
+  /* Capa tenant: lo único que un conjunto puede cambiar. */
+  --kino-tenant-marca: var(--kino-acento-base);
+  --kino-tenant-radio: var(--kino-radio-m);
+}
+
+.kino-display { font-family: var(--kino-fuente-display); font-weight: 800;
+  font-stretch: var(--kino-ancho-display); letter-spacing: -0.02em;
+  line-height: 1.04; text-wrap: balance; }
+.kino-titulo  { font-family: var(--kino-fuente-display); font-weight: 700; line-height: 1.16; text-wrap: balance; }
+.kino-texto   { font-family: var(--kino-fuente-texto); font-weight: 400; line-height: 1.6; max-width: var(--kino-medida); text-wrap: pretty; }
+.kino-dato    { font-family: var(--kino-fuente-dato); font-weight: 500; letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums slashed-zero; }
+.kino-placa   { font-family: var(--kino-fuente-dato); font-weight: 700; letter-spacing: 0.06em;
+  font-size: 23px; font-variant-numeric: tabular-nums slashed-zero; }
+.kino-etiqueta{ font-family: var(--kino-fuente-dato); font-weight: 500; font-size: 13px;
+  letter-spacing: 0.08em; text-transform: uppercase; }
+
+:where(a, button, input, select, [tabindex]):focus-visible {
+  outline: 2px solid var(--kino-borde-foco); outline-offset: 2px;
+  border-radius: var(--kino-radio-s); }
+
+/* ---- Estado: el color solo nombra hechos confirmados ---- */
+.kino-estado { display: inline-flex; align-items: center; gap: var(--kino-espacio-xs);
+  padding: var(--kino-espacio-2xs) var(--kino-espacio-xs);
+  border: 1px solid; border-radius: var(--kino-radio-s);
+  font-family: var(--kino-fuente-dato); font-weight: 500; font-size: 13px;
+  letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; }
+.kino-estado::before { content: ''; inline-size: 7px; block-size: 7px; flex: none;
+  border-radius: var(--kino-radio-pleno); background: currentColor; }
+.kino-estado[data-estado="vigente"] { background: var(--kino-estado-vigente-fondo);
+  border-color: var(--kino-estado-vigente-borde); color: var(--kino-estado-vigente-texto); }
+.kino-estado[data-estado="vigente"]::before { animation: kino-latido var(--kino-latir) ease-in-out infinite; }
+.kino-estado[data-estado="por-vencer"] { background: var(--kino-estado-por-vencer-fondo);
+  border-color: var(--kino-estado-por-vencer-borde); color: var(--kino-estado-por-vencer-texto); }
+.kino-estado[data-estado="vencido"] { background: var(--kino-estado-vencido-fondo);
+  border-color: var(--kino-estado-vencido-borde); color: var(--kino-estado-vencido-texto); }
+.kino-estado[data-estado="negado"] { background: var(--kino-estado-negado-fondo);
+  border-color: var(--kino-estado-negado-borde); color: var(--kino-estado-negado-texto); }
+.kino-estado[data-estado="identidad"] { background: var(--kino-estado-identidad-fondo);
+  border-color: var(--kino-estado-identidad-borde); color: var(--kino-estado-identidad-texto); }
+.kino-estado[data-estado="sin-confirmar"] { background: var(--kino-estado-sin-confirmar-fondo);
+  border-color: var(--kino-estado-sin-confirmar-borde); color: var(--kino-estado-sin-confirmar-texto);
+  border-style: dashed; }
+.kino-estado[data-estado="sin-confirmar"]::before { background: transparent;
+  border: 1px dashed currentColor; inline-size: 8px; block-size: 8px; }
+
+/* ---- Vigencia: la vida que le queda a un permiso ---- */
+.kino-vigencia { --kino-vida: 1; display: block; block-size: 4px; inline-size: 100%;
+  background: var(--kino-borde-tenue); border-radius: var(--kino-radio-pleno); overflow: hidden; }
+.kino-vigencia > i { display: block; block-size: 100%; border-radius: inherit;
+  inline-size: calc(var(--kino-vida) * 100%);
+  background: var(--kino-estado-vigente-texto); transition: inline-size var(--kino-decaer); }
+.kino-vigencia[data-aviso="por-vencer"] > i { background: var(--kino-estado-por-vencer-texto); }
+.kino-vigencia[data-aviso="vencido"]    > i { background: var(--kino-estado-vencido-texto); }
+
+/* ---- Permiso: la tarjeta-membrana ---- */
+.kino-permiso { display: grid; gap: var(--kino-espacio-s);
+  padding: var(--kino-espacio-m); border-radius: var(--kino-tenant-radio);
+  background: var(--kino-superficie-membrana); border: 1px solid var(--kino-borde-tenue);
+  box-shadow: var(--kino-relieve-membrana); color: var(--kino-texto-primario); }
+.kino-permiso[data-estado="vigente"] { box-shadow: var(--kino-resplandor-vigente); border-color: transparent; }
+.kino-permiso[data-estado="sin-confirmar"] { background: transparent; border-style: dashed;
+  border-color: var(--kino-estado-sin-confirmar-borde); box-shadow: none; }
+.kino-permiso__cabeza { display: flex; align-items: start; justify-content: space-between;
+  gap: var(--kino-espacio-s); }
+.kino-permiso__quien { font-family: var(--kino-fuente-display); font-weight: 700;
+  font-size: 20px; line-height: 1.2; margin: 0; }
+.kino-permiso__autor { color: var(--kino-texto-secundario); font-size: 14px; margin: 0; }
+.kino-permiso__pie { display: flex; flex-wrap: wrap; align-items: center;
+  gap: var(--kino-espacio-xs) var(--kino-espacio-m); color: var(--kino-texto-secundario); font-size: 14px; }
+
+/* ---- Marca ---- */
+.kino-marca { display: inline-flex; color: var(--kino-tenant-marca); }
+.kino-marca svg { display: block; block-size: 100%; inline-size: auto; }
+
+@keyframes kino-latido { 0%, 100% { opacity: 1; } 50% { opacity: .3; } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+}

@@ -1,119 +1,394 @@
 [
  {
-  "que": "texto primario sobre superficie base",
+  "que": "texto primario sobre base",
   "fg": "kino-texto-primario",
   "bg": "kino-superficie-base",
-  "min": 4.5
+  "min": 4.5,
+  "apcaMin": 75
  },
  {
-  "que": "texto secundario sobre superficie base",
+  "que": "texto secundario sobre base",
   "fg": "kino-texto-secundario",
   "bg": "kino-superficie-base",
-  "min": 4.5
+  "min": 4.5,
+  "apcaMin": 75
  },
  {
-  "que": "texto tenue sobre superficie base",
+  "que": "texto tenue (≥ 24 px) sobre base",
   "fg": "kino-texto-tenue",
   "bg": "kino-superficie-base",
-  "min": 3.0
+  "min": 3.0,
+  "apcaMin": 60
  },
  {
-  "que": "acento sobre superficie base",
-  "fg": "kino-acento-base",
-  "bg": "kino-superficie-base",
-  "min": 3.0
- },
- {
-  "que": "texto sobre acento",
-  "fg": "kino-texto-sobre-acento",
-  "bg": "kino-acento-base",
-  "min": 4.5,
-  "apcaFuente": true,
-  "nota": "Con el acento de la entrega 2 el texto llega a Lc ~55: se resuelve con tamaño y peso mínimos (fontLookupAPCA), no subiendo el acento."
- },
- {
-  "que": "borde definido sobre superficie base",
+  "que": "borde definido sobre base",
   "fg": "kino-borde-definido",
   "bg": "kino-superficie-base",
-  "min": 3.0
+  "min": 3.0,
+  "apcaMin": 30
+ },
+ {
+  "que": "texto primario sobre membrana",
+  "fg": "kino-texto-primario",
+  "bg": "kino-superficie-membrana",
+  "min": 4.5,
+  "apcaMin": 75
+ },
+ {
+  "que": "texto secundario sobre membrana",
+  "fg": "kino-texto-secundario",
+  "bg": "kino-superficie-membrana",
+  "min": 4.5,
+  "apcaMin": 75
+ },
+ {
+  "que": "texto tenue (≥ 24 px) sobre membrana",
+  "fg": "kino-texto-tenue",
+  "bg": "kino-superficie-membrana",
+  "min": 3.0,
+  "apcaMin": 60
+ },
+ {
+  "que": "borde definido sobre membrana",
+  "fg": "kino-borde-definido",
+  "bg": "kino-superficie-membrana",
+  "min": 3.0,
+  "apcaMin": 30
+ },
+ {
+  "que": "texto primario sobre elevada",
+  "fg": "kino-texto-primario",
+  "bg": "kino-superficie-elevada",
+  "min": 4.5,
+  "apcaMin": 75
+ },
+ {
+  "que": "texto secundario sobre elevada",
+  "fg": "kino-texto-secundario",
+  "bg": "kino-superficie-elevada",
+  "min": 4.5,
+  "apcaMin": 75
+ },
+ {
+  "que": "texto tenue (≥ 24 px) sobre elevada",
+  "fg": "kino-texto-tenue",
+  "bg": "kino-superficie-elevada",
+  "min": 3.0,
+  "apcaMin": 60
+ },
+ {
+  "que": "borde definido sobre elevada",
+  "fg": "kino-borde-definido",
+  "bg": "kino-superficie-elevada",
+  "min": 3.0,
+  "apcaMin": 30
  },
  {
   "que": "texto inverso sobre superficie inversa",
   "fg": "kino-texto-inverso",
   "bg": "kino-superficie-inversa",
-  "min": 4.5
+  "min": 4.5,
+  "apcaMin": 75
+ },
+ {
+  "que": "borde de foco sobre base",
+  "fg": "kino-borde-foco",
+  "bg": "kino-superficie-base",
+  "min": 3.0,
+  "apcaMin": 30
+ },
+ {
+  "que": "acento de marca sobre base (no textual)",
+  "fg": "kino-acento-base",
+  "bg": "kino-superficie-base",
+  "min": 3.0,
+  "apcaMin": 30
+ },
+ {
+  "que": "gota del logo sobre base",
+  "fg": "kino-marca-gota",
+  "bg": "kino-superficie-base",
+  "min": 3.0,
+  "apcaMin": 30
+ },
+ {
+  "que": "bloque del logo sobre base",
+  "fg": "kino-marca-bloque",
+  "bg": "kino-superficie-base",
+  "min": 3.0,
+  "apcaMin": 30
+ },
+ {
+  "que": "texto sobre el botón de acción (≥ 16 px en 600)",
+  "fg": "kino-accion-texto",
+  "bg": "kino-accion-fondo",
+  "min": 4.5,
+  "apcaMin": 60
+ },
+ {
+  "que": "texto sobre el botón de acción activo",
+  "fg": "kino-accion-texto",
+  "bg": "kino-accion-fondo-activo",
+  "min": 4.5,
+  "apcaMin": 60
+ },
+ {
+  "que": "botón de acción sobre base (no textual)",
+  "fg": "kino-accion-fondo",
+  "bg": "kino-superficie-base",
+  "min": 3.0,
+  "apcaMin": 30
+ },
+ {
+  "que": "texto del estado previsto",
+  "fg": "kino-estado-previsto-texto",
+  "bg": "kino-estado-previsto-fondo",
+  "min": 4.5,
+  "apcaMin": 75
+ },
+ {
+  "que": "borde del estado previsto sobre su fondo",
+  "fg": "kino-estado-previsto-borde",
+  "bg": "kino-estado-previsto-fondo",
+  "min": 1.0,
+  "apcaMin": 30
+ },
+ {
+  "que": "borde del estado previsto sobre base",
+  "fg": "kino-estado-previsto-borde",
+  "bg": "kino-superficie-base",
+  "min": 3.0,
+  "apcaMin": 30
+ },
+ {
+  "que": "borde del estado previsto sobre membrana",
+  "fg": "kino-estado-previsto-borde",
+  "bg": "kino-superficie-membrana",
+  "min": 3.0,
+  "apcaMin": 30
+ },
+ {
+  "que": "texto del estado sin-confirmar",
+  "fg": "kino-estado-sin-confirmar-texto",
+  "bg": "kino-superficie-base",
+  "min": 4.5,
+  "apcaMin": 75
+ },
+ {
+  "que": "texto del estado sin-confirmar sobre membrana",
+  "fg": "kino-estado-sin-confirmar-texto",
+  "bg": "kino-superficie-membrana",
+  "min": 4.5,
+  "apcaMin": 75
+ },
+ {
+  "que": "borde del estado sin-confirmar sobre base",
+  "fg": "kino-estado-sin-confirmar-borde",
+  "bg": "kino-superficie-base",
+  "min": 3.0,
+  "apcaMin": 30
+ },
+ {
+  "que": "borde del estado sin-confirmar sobre membrana",
+  "fg": "kino-estado-sin-confirmar-borde",
+  "bg": "kino-superficie-membrana",
+  "min": 3.0,
+  "apcaMin": 30
  },
  {
   "que": "texto del estado vigente",
   "fg": "kino-estado-vigente-texto",
   "bg": "kino-estado-vigente-fondo",
-  "min": 4.5
+  "min": 4.5,
+  "apcaMin": 75
  },
  {
-  "que": "borde del estado vigente",
+  "que": "borde del estado vigente sobre su fondo",
+  "fg": "kino-estado-vigente-borde",
+  "bg": "kino-estado-vigente-fondo",
+  "min": 1.0,
+  "apcaMin": 30
+ },
+ {
+  "que": "borde del estado vigente sobre base",
   "fg": "kino-estado-vigente-borde",
   "bg": "kino-superficie-base",
-  "min": 3.0
+  "min": 3.0,
+  "apcaMin": 30
+ },
+ {
+  "que": "borde del estado vigente sobre membrana",
+  "fg": "kino-estado-vigente-borde",
+  "bg": "kino-superficie-membrana",
+  "min": 3.0,
+  "apcaMin": 30
  },
  {
   "que": "texto del estado por-vencer",
   "fg": "kino-estado-por-vencer-texto",
   "bg": "kino-estado-por-vencer-fondo",
-  "min": 4.5
+  "min": 4.5,
+  "apcaMin": 75
  },
  {
-  "que": "borde del estado por-vencer",
+  "que": "borde del estado por-vencer sobre su fondo",
+  "fg": "kino-estado-por-vencer-borde",
+  "bg": "kino-estado-por-vencer-fondo",
+  "min": 1.0,
+  "apcaMin": 30
+ },
+ {
+  "que": "borde del estado por-vencer sobre base",
   "fg": "kino-estado-por-vencer-borde",
   "bg": "kino-superficie-base",
-  "min": 3.0
+  "min": 3.0,
+  "apcaMin": 30
+ },
+ {
+  "que": "borde del estado por-vencer sobre membrana",
+  "fg": "kino-estado-por-vencer-borde",
+  "bg": "kino-superficie-membrana",
+  "min": 3.0,
+  "apcaMin": 30
+ },
+ {
+  "que": "texto del estado usado",
+  "fg": "kino-estado-usado-texto",
+  "bg": "kino-estado-usado-fondo",
+  "min": 4.5,
+  "apcaMin": 75
+ },
+ {
+  "que": "borde del estado usado sobre su fondo",
+  "fg": "kino-estado-usado-borde",
+  "bg": "kino-estado-usado-fondo",
+  "min": 1.0,
+  "apcaMin": 30
+ },
+ {
+  "que": "borde del estado usado sobre base",
+  "fg": "kino-estado-usado-borde",
+  "bg": "kino-superficie-base",
+  "min": 3.0,
+  "apcaMin": 30
+ },
+ {
+  "que": "borde del estado usado sobre membrana",
+  "fg": "kino-estado-usado-borde",
+  "bg": "kino-superficie-membrana",
+  "min": 3.0,
+  "apcaMin": 30
  },
  {
   "que": "texto del estado vencido",
   "fg": "kino-estado-vencido-texto",
   "bg": "kino-estado-vencido-fondo",
   "min": 4.5,
-  "apcaMin": 60
+  "apcaMin": 75
  },
  {
-  "que": "borde del estado vencido",
+  "que": "borde del estado vencido sobre su fondo",
+  "fg": "kino-estado-vencido-borde",
+  "bg": "kino-estado-vencido-fondo",
+  "min": 1.0,
+  "apcaMin": 30
+ },
+ {
+  "que": "borde del estado vencido sobre base",
   "fg": "kino-estado-vencido-borde",
   "bg": "kino-superficie-base",
-  "min": 3.0
+  "min": 3.0,
+  "apcaMin": 30
  },
  {
-  "que": "texto del estado negado",
-  "fg": "kino-estado-negado-texto",
-  "bg": "kino-estado-negado-fondo",
-  "min": 4.5
+  "que": "borde del estado vencido sobre membrana",
+  "fg": "kino-estado-vencido-borde",
+  "bg": "kino-superficie-membrana",
+  "min": 3.0,
+  "apcaMin": 30
  },
  {
-  "que": "borde del estado negado",
-  "fg": "kino-estado-negado-borde",
+  "que": "texto del estado revocado",
+  "fg": "kino-estado-revocado-texto",
+  "bg": "kino-estado-revocado-fondo",
+  "min": 4.5,
+  "apcaMin": 75
+ },
+ {
+  "que": "borde del estado revocado sobre su fondo",
+  "fg": "kino-estado-revocado-borde",
+  "bg": "kino-estado-revocado-fondo",
+  "min": 1.0,
+  "apcaMin": 30
+ },
+ {
+  "que": "borde del estado revocado sobre base",
+  "fg": "kino-estado-revocado-borde",
   "bg": "kino-superficie-base",
-  "min": 3.0
+  "min": 3.0,
+  "apcaMin": 30
  },
  {
-  "que": "texto del estado sin-confirmar",
-  "fg": "kino-estado-sin-confirmar-texto",
-  "bg": "kino-superficie-base",
-  "min": 4.5
+  "que": "borde del estado revocado sobre membrana",
+  "fg": "kino-estado-revocado-borde",
+  "bg": "kino-superficie-membrana",
+  "min": 3.0,
+  "apcaMin": 30
  },
  {
-  "que": "borde del estado sin-confirmar",
-  "fg": "kino-estado-sin-confirmar-borde",
+  "que": "texto del estado rechazado",
+  "fg": "kino-estado-rechazado-texto",
+  "bg": "kino-estado-rechazado-fondo",
+  "min": 4.5,
+  "apcaMin": 75
+ },
+ {
+  "que": "borde del estado rechazado sobre su fondo",
+  "fg": "kino-estado-rechazado-borde",
+  "bg": "kino-estado-rechazado-fondo",
+  "min": 1.0,
+  "apcaMin": 30
+ },
+ {
+  "que": "borde del estado rechazado sobre base",
+  "fg": "kino-estado-rechazado-borde",
   "bg": "kino-superficie-base",
-  "min": 3.0
+  "min": 3.0,
+  "apcaMin": 30
+ },
+ {
+  "que": "borde del estado rechazado sobre membrana",
+  "fg": "kino-estado-rechazado-borde",
+  "bg": "kino-superficie-membrana",
+  "min": 3.0,
+  "apcaMin": 30
  },
  {
   "que": "texto del estado identidad",
   "fg": "kino-estado-identidad-texto",
   "bg": "kino-estado-identidad-fondo",
-  "min": 4.5
+  "min": 4.5,
+  "apcaMin": 75
  },
  {
-  "que": "borde del estado identidad",
+  "que": "borde del estado identidad sobre su fondo",
+  "fg": "kino-estado-identidad-borde",
+  "bg": "kino-estado-identidad-fondo",
+  "min": 1.0,
+  "apcaMin": 30
+ },
+ {
+  "que": "borde del estado identidad sobre base",
   "fg": "kino-estado-identidad-borde",
   "bg": "kino-superficie-base",
-  "min": 3.0
+  "min": 3.0,
+  "apcaMin": 30
+ },
+ {
+  "que": "borde del estado identidad sobre membrana",
+  "fg": "kino-estado-identidad-borde",
+  "bg": "kino-superficie-membrana",
+  "min": 3.0,
+  "apcaMin": 30
  }
 ]

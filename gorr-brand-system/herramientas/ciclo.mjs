@@ -14,7 +14,7 @@ const pasos = [
   { h: 'tipo', fase: '3 visual', si: () => c.cfg.tipo && !banderas.has('--sin-tipo') },
   { h: 'validar', fase: '4 código', compuerta: 'tokens DTCG válidos' },
   { h: 'construir', fase: '4 código' },
-  { h: 'contraste', fase: '4 código', compuerta: 'contraste WCAG 2.2', si: () => existsSync(c.p('pares.json')) },
+  { h: 'contraste', fase: '4 código', compuerta: 'contraste WCAG 2.2 y APCA', si: () => existsSync(c.p('pares.json')) },
   { h: 'voz', fase: '2 verbal', compuerta: 'voz sin errores', si: () => existsSync(c.p('voz.json')) },
   { h: 'calibrar-voz', fase: '2 verbal', compuerta: 'voz sin falsos positivos', si: () => existsSync(c.p('pruebas', 'voz-antes.md')) },
   { h: 'skill', fase: '5 IA' },

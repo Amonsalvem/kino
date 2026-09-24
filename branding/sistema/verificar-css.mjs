@@ -1,7 +1,7 @@
 // Comprueba que ninguna variable --kino-* se use sin estar definida.
 // Existe por un fallo real: capa-componentes.css referenciaba --kino-resplandor-vigente
 // y --kino-relieve-membrana sin que ningún token las definiera. No rompía nada,
-// no fallaba ningún test, y la tarjeta de permiso vigente salía sin resplandor.
+// no fallaba ningún test, y la tarjeta del Pase vigente salía sin resplandor.
 import { readFileSync } from 'node:fs';
 
 const css = readFileSync('kino-brand.css', 'utf8');

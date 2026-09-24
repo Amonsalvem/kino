@@ -21,6 +21,9 @@
   --kino-sustrato-l70: #3D5C50;
   --kino-sustrato-l90: #2D4B40;
   --kino-sustrato-l110: #203F33;
+  --kino-sustrato-a66: #A5C7B8;
+  --kino-sustrato-a36: #6E8E81;
+  --kino-sustrato-a78: #B8DBCC;
   --kino-hueso-100: #EFFCF7;
   --kino-hueso-200: #E5F3ED;
   --kino-hueso-300: #DBE9E3;
@@ -43,6 +46,7 @@
   --kino-hueso-l70: #4D5854;
   --kino-hueso-l90: #3D4844;
   --kino-hueso-l110: #303B37;
+  --kino-hueso-a81: #CEDBD6;
   --kino-biolum-d15: #00422C;
   --kino-biolum-d23: #006142;
   --kino-biolum-d32: #007953;
@@ -57,6 +61,7 @@
   --kino-biolum-l70: #006343;
   --kino-biolum-l90: #005036;
   --kino-biolum-l110: #00422C;
+  --kino-biolum-a84: #2FF8B2;
   --kino-ambar-d15: #503300;
   --kino-ambar-d23: #744C00;
   --kino-ambar-d32: #906000;
@@ -71,6 +76,7 @@
   --kino-ambar-l70: #764E00;
   --kino-ambar-l90: #603F00;
   --kino-ambar-l110: #503300;
+  --kino-ambar-a83: #FFD49C;
   --kino-carmin-d15: #79000F;
   --kino-carmin-d23: #A8131F;
   --kino-carmin-d32: #C33435;
@@ -85,6 +91,8 @@
   --kino-carmin-l70: #AA1620;
   --kino-carmin-l90: #910014;
   --kino-carmin-l110: #79000F;
+  --kino-carmin-a78: #FEC6C0;
+  --kino-carmin-a85: #FED6D2;
   --kino-violeta-d15: #3E1C96;
   --kino-violeta-d23: #563FB7;
   --kino-violeta-d32: #6A56D0;
@@ -99,6 +107,7 @@
   --kino-violeta-l70: #5840B8;
   --kino-violeta-l90: #492DA5;
   --kino-violeta-l110: #3E1C96;
+  --kino-violeta-a84: #DADAFE;
   --kino-indigo-d15: #092D93;
   --kino-indigo-d23: #234DB3;
   --kino-indigo-d32: #3764CD;
@@ -113,6 +122,7 @@
   --kino-indigo-l70: #244EB5;
   --kino-indigo-l90: #153CA2;
   --kino-indigo-l110: #092D93;
+  --kino-indigo-a84: #CCDDFE;
   --kino-fijo-transparente: oklch(0 0 0 / 0);
   --kino-fijo-negro: #000000;
   --kino-fijo-blanco: #FFFFFF;
@@ -128,6 +138,23 @@
   --kino-fuente-display: Archivo, "Archivo Expanded", system-ui, sans-serif;
   --kino-fuente-texto: Archivo, system-ui, -apple-system, sans-serif;
   --kino-fuente-dato: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
+  --kino-ancho-titular: 112;
+  --kino-ancho-texto: 100;
+  --kino-peso-texto: 400;
+  --kino-peso-medio: 500;
+  --kino-peso-titulo: 700;
+  --kino-peso-display: 800;
+  --kino-interlinea-display: 1.04;
+  --kino-interlinea-titulo: 1.16;
+  --kino-interlinea-texto: 1.6;
+  --kino-interlinea-dato: 1.3;
+  --kino-tracking-display: -0.02;
+  --kino-tracking-texto: 0;
+  --kino-tracking-dato: 0.04;
+  --kino-tracking-placa: 0.06;
+  --kino-tracking-etiqueta: 0.08;
+  --kino-columna-texto: 62;
+  --kino-columna-corta: 42;
   --kino-espacio-3xs: 2px;
   --kino-espacio-2xs: 4px;
   --kino-espacio-xs: 8px;
@@ -145,6 +172,9 @@
   --kino-radio-l: 14px;
   --kino-radio-arco: 999px 999px 4px 4px;
   --kino-radio-pleno: 999px;
+  --kino-trazo-icono: 1.7;
+  --kino-linea-fino: 1px;
+  --kino-linea-foco: 2px;
   --kino-movimiento-duracion-instante: 120ms;
   --kino-movimiento-duracion-corto: 240ms;
   --kino-movimiento-duracion-crecer: 420ms;

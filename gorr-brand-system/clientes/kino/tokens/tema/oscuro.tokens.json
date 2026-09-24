@@ -28,7 +28,7 @@
     "$type": "color"
    },
    "definido": {
-    "$value": "{primitivo.color.sustrato.d32}",
+    "$value": "{primitivo.color.sustrato.a36}",
     "$type": "color"
    },
    "foco": {
@@ -42,12 +42,13 @@
     "$type": "color"
    },
    "secundario": {
-    "$value": "{primitivo.color.hueso.500}",
+    "$value": "{primitivo.color.hueso.a81}",
     "$type": "color"
    },
    "tenue": {
-    "$value": "{primitivo.color.sustrato.800}",
-    "$type": "color"
+    "$value": "{primitivo.color.sustrato.a66}",
+    "$type": "color",
+    "$description": "Solo en textos de 24 px o más (Lc ≥ 60)."
    },
    "inverso": {
     "$value": "{primitivo.color.sustrato.100}",
@@ -61,7 +62,8 @@
   "acento": {
    "base": {
     "$value": "{primitivo.color.biolum.d70}",
-    "$type": "color"
+    "$type": "color",
+    "$description": "Verde de marca (#00BB83 en oscuro): logo, gota y el nodo «Otorgar». No va en botones con texto."
    },
    "fuerte": {
     "$value": "{primitivo.color.biolum.d110}",
@@ -72,88 +74,181 @@
     "$type": "color"
    }
   },
+  "accion": {
+   "$description": "El botón que crea o entrega un Pase (X4). En oscuro #00D595 para que el texto oscuro llegue a Lc 67.",
+   "fondo": {
+    "$value": "{primitivo.color.biolum.d90}",
+    "$type": "color"
+   },
+   "fondo-activo": {
+    "$value": "{primitivo.color.biolum.d110}",
+    "$type": "color"
+   },
+   "texto": {
+    "$value": "{primitivo.color.sustrato.100}",
+    "$type": "color"
+   }
+  },
+  "marca": {
+   "$description": "Colores del logo sobre la superficie del tema (X2: bloque en hueso, gota en acento).",
+   "bloque": {
+    "$value": "{primitivo.color.hueso.100}",
+    "$type": "color"
+   },
+   "gota": {
+    "$value": "{primitivo.color.biolum.d70}",
+    "$type": "color"
+   }
+  },
   "estado": {
+   "previsto": {
+    "$description": "Pase creado para una franja futura (acceso previsto).",
+    "fondo": {
+     "$value": "{primitivo.color.indigo.d15}",
+     "$type": "color"
+    },
+    "texto": {
+     "$value": "{primitivo.color.indigo.a84}",
+     "$type": "color"
+    },
+    "borde": {
+     "$value": "{primitivo.color.indigo.d110}",
+     "$type": "color"
+    }
+   },
+   "sin-confirmar": {
+    "$description": "Enviado; el lector aún no responde. Sin relleno y con borde discontinuo.",
+    "fondo": {
+     "$value": "{primitivo.color.fijo.transparente}",
+     "$type": "color"
+    },
+    "texto": {
+     "$value": "{primitivo.color.hueso.300}",
+     "$type": "color"
+    },
+    "borde": {
+     "$value": "{primitivo.color.sustrato.800}",
+     "$type": "color"
+    }
+   },
    "vigente": {
+    "$description": "El lector lo confirmó y está dentro de su franja.",
     "fondo": {
      "$value": "{primitivo.color.biolum.d15}",
      "$type": "color"
     },
-    "borde": {
-     "$value": "{primitivo.color.biolum.d32}",
+    "texto": {
+     "$value": "{primitivo.color.biolum.a84}",
      "$type": "color"
     },
-    "texto": {
+    "borde": {
      "$value": "{primitivo.color.biolum.d110}",
      "$type": "color"
     }
    },
    "por-vencer": {
+    "$description": "Entró en la ventana de aviso antes de vencer.",
     "fondo": {
      "$value": "{primitivo.color.ambar.d15}",
      "$type": "color"
     },
-    "borde": {
-     "$value": "{primitivo.color.ambar.d32}",
+    "texto": {
+     "$value": "{primitivo.color.ambar.a83}",
      "$type": "color"
     },
-    "texto": {
+    "borde": {
      "$value": "{primitivo.color.ambar.d110}",
      "$type": "color"
     }
    },
-   "vencido": {
+   "usado": {
+    "$description": "Código de un solo uso que ya sirvió.",
     "fondo": {
      "$value": "{primitivo.color.sustrato.300}",
      "$type": "color"
     },
-    "borde": {
-     "$value": "{primitivo.color.sustrato.d32}",
+    "texto": {
+     "$value": "{primitivo.color.hueso.200}",
      "$type": "color"
     },
-    "texto": {
-     "$value": "{primitivo.color.sustrato.d90}",
+    "borde": {
+     "$value": "{primitivo.color.sustrato.800}",
      "$type": "color"
     }
    },
-   "negado": {
+   "vencido": {
+    "$description": "Terminó solo, a su hora. Un final no es un error.",
+    "fondo": {
+     "$value": "{primitivo.color.sustrato.300}",
+     "$type": "color"
+    },
+    "texto": {
+     "$value": "{primitivo.color.sustrato.a78}",
+     "$type": "color"
+    },
+    "borde": {
+     "$value": "{primitivo.color.sustrato.800}",
+     "$type": "color"
+    }
+   },
+   "revocado": {
+    "$description": "Alguien lo cortó antes de tiempo; queda su nombre.",
+    "fondo": {
+     "$value": "{primitivo.color.sustrato.300}",
+     "$type": "color"
+    },
+    "texto": {
+     "$value": "{primitivo.color.carmin.a78}",
+     "$type": "color"
+    },
+    "borde": {
+     "$value": "{primitivo.color.sustrato.800}",
+     "$type": "color"
+    }
+   },
+   "rechazado": {
+    "$description": "Evento en la entrada, con motivo. No es un estado del Pase.",
     "fondo": {
      "$value": "{primitivo.color.carmin.d15}",
      "$type": "color"
     },
-    "borde": {
-     "$value": "{primitivo.color.carmin.d32}",
+    "texto": {
+     "$value": "{primitivo.color.carmin.a85}",
      "$type": "color"
     },
-    "texto": {
+    "borde": {
      "$value": "{primitivo.color.carmin.d110}",
      "$type": "color"
     }
    },
-   "sin-confirmar": {
-    "fondo": {
-     "$value": "{primitivo.color.fijo.transparente}",
-     "$type": "color"
-    },
-    "borde": {
-     "$value": "{primitivo.color.sustrato.d32}",
-     "$type": "color"
-    },
-    "texto": {
-     "$value": "{primitivo.color.hueso.500}",
-     "$type": "color"
-    }
-   },
    "identidad": {
+    "$description": "Dato personal a la vista (cédula, rostro, teléfono). Marca un dato, no un estado.",
     "fondo": {
      "$value": "{primitivo.color.violeta.d15}",
      "$type": "color"
     },
+    "texto": {
+     "$value": "{primitivo.color.violeta.a84}",
+     "$type": "color"
+    },
     "borde": {
-     "$value": "{primitivo.color.violeta.d32}",
+     "$value": "{primitivo.color.violeta.d110}",
+     "$type": "color"
+    }
+   },
+   "negado": {
+    "$description": "Nombre anterior de «rechazado» (V5). Se conserva como alias para no romper piezas viejas.",
+    "$deprecated": "Usar semantico.estado.rechazado.",
+    "fondo": {
+     "$value": "{semantico.estado.rechazado.fondo}",
      "$type": "color"
     },
     "texto": {
-     "$value": "{primitivo.color.violeta.d110}",
+     "$value": "{semantico.estado.rechazado.texto}",
+     "$type": "color"
+    },
+    "borde": {
+     "$value": "{semantico.estado.rechazado.borde}",
      "$type": "color"
     }
    }

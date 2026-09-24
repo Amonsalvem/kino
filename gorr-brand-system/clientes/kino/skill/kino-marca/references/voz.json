@@ -1,5 +1,5 @@
 {
-  "$descripcion": "Identidad verbal de Kino. Perfil NN/g (4 dimensiones) + vocabulario del proyecto + patrones del barrido de muletillas del 22 sep 2026. Perfil aprobado por el equipo el 22 sep 2026.",
+  "$descripcion": "Identidad verbal de Kino. Perfil NN/g (4 dimensiones) + vocabulario del proyecto + patrones del barrido de muletillas del 22 sep 2026. Perfil aprobado por el equipo el 22 sep 2026. 23 sep 2026: se agregan los patrones de la regla 10 del encargo y los de la calibración (Parada 2).",
   "perfil": {
     "estado": "aprobado por el equipo (22 sep 2026)",
     "escala": "1 = primer polo, 5 = segundo polo",
@@ -79,8 +79,8 @@
         "termino": "permiso",
         "patron": "(?<![\\p{L}])permisos?(?![\\p{L}])",
         "usar": "pase",
-        "porque": "Desde el 23 sep el objeto se llama «pase». «Permiso» solo como explicación («un pase es un permiso de ingreso con…»).",
-        "gravedad": "aviso"
+        "porque": "El objeto se llama «Pase» (decisión F3 del encargo). En texto de producto no se usa ni como explicación.",
+        "gravedad": "error"
       },
       {
         "termino": "cuenta del invitado",
@@ -225,8 +225,197 @@
     },
     {
       "id": "mayusculas-enfasis",
-      "regex": "\\b(?!(?:HPH|SIC|ANPR|LPR|QR|PH|API|CSS|MVP|EAFIT|DTCG|WCAG|APCA|SVG|PNG|PDF|CDN|MIT|OFL|IoU|NN|KINO|HTML|URL|UI|SDK|CI|NPM)\\b)[A-ZÁÉÍÓÚÑ]{3,}\\b(?![\\s-]?\\d)",
+      "regex": "\\b(?!(?:HPH|SIC|ANPR|LPR|QR|PH|API|CSS|MVP|EAFIT|DTCG|WCAG|APCA|SVG|PNG|PDF|CDN|MIT|OFL|IoU|NN|KINO|HTML|URL|UI|SDK|CI|NPM|DANE|GEIH|OTP|ISO|RAE|COP|ANPR|PENDIENTE|HOY)\\b)[A-ZÁÉÍÓÚÑ]{3,}\\b(?![\\s-]?\\d)",
       "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481).",
+      "gravedad": "aviso"
+    },
+    {
+      "id": "exclamacion",
+      "regex": "[¡!]",
+      "porque": "Regla 10: sin exclamaciones. Confirmar con el dato.",
+      "gravedad": "error"
+    },
+    {
+      "id": "arranque-vacio",
+      "regex": "(^|[.?]\\s+|>\\s*)(Imagina|Descubre|En\\s+Kino\\s+creemos|Bienvenid[oa]s?\\s+a)\\b",
+      "porque": "Regla 10: arranque publicitario. Empezar por el dato.",
+      "gravedad": "error"
+    },
+    {
+      "id": "lexico-vacio",
+      "regex": "(?<![\\p{L}])(fluid[oa]s?|sin\\s+fricci[oó]n(es)?|experiencias?|potenci(a|ar|amos|e|an)|transform(a|ar|amos|e|an)|robust[oa]s?|integral(es)?|innovador(a|es|as)?|seamless)(?![\\p{L}])",
+      "flags": "i",
+      "porque": "Regla 10: léxico vacío. Nombrar el objeto o la acción concreta.",
+      "gravedad": "error"
+    },
+    {
+      "id": "error-generico",
+      "regex": "(oops|algo\\s+sali[oó]\\s+mal|(por\\s+favor,?\\s+)?int[eé]ntalo\\s+de\\s+nuevo(\\s+m[aá]s\\s+tarde)?)",
+      "flags": "i",
+      "porque": "Regla 10: error sin decir qué pasó ni qué hacer.",
+      "gravedad": "error"
+    },
+    {
+      "id": "no-solo-sino",
+      "regex": "(?<![\\p{L}])no\\s+s[oó]lo(?![\\p{L}])",
+      "flags": "i",
+      "porque": "Regla 10: «no solo… sino». Decir las dos cosas o la que importa.",
+      "gravedad": "error"
+    },
+    {
+      "id": "celebracion",
+      "regex": "(con\\s+éxito|exitosamente|¡?genial|¡?perfecto[.!])",
+      "flags": "i",
+      "porque": "Celebra en vez de confirmar con el dato (entusiasmo 2).",
+      "gravedad": "aviso"
+    },
+    {
+      "id": "trato-generico",
+      "regex": "(estimad[oa]s?\\s+(usuari|client|resident)|querid[oa]\\s+usuari)",
+      "flags": "i",
+      "porque": "Trato genérico: se nombra a la persona.",
+      "gravedad": "error"
+    },
+    {
+      "id": "disculpa-en-cadena",
+      "regex": "lamentamos(\\s+mucho)?\\s+(las|cualquier)\\s+molestias",
+      "flags": "i",
+      "porque": "Disculpa sin información. Decir qué pasó y qué hacer.",
+      "gravedad": "aviso"
+    },
+    {
+      "id": "cierre-enfatico",
+      "regex": "(así\\s+de\\s+(simple|fácil|sencillo)|eso\\s+es\\s+todo|y\\s+listo[.!]|sin\\s+complicaciones)",
+      "flags": "i",
+      "porque": "Regla 10: cierre enfático que repite la idea.",
+      "gravedad": "error"
+    },
+    {
+      "id": "promesa-absoluta",
+      "regex": "(100\\s*%\\s*segur|total(mente)?\\s+segur|a\\s+un\\s+clic)",
+      "flags": "i",
+      "porque": "Promesa que el sistema no puede sostener.",
+      "gravedad": "error"
+    },
+    {
+      "id": "antitesis-dos-puntos",
+      "regex": "(?<![\\p{L}])(no\\s+es|no\\s+son)\\s+(solo\\s+)?[^.:;]{1,50}:\\s*es\\b",
+      "flags": "i",
+      "porque": "Antítesis «no es X: es Y».",
+      "gravedad": "error"
+    },
+    {
+      "id": "empleada-domestica",
+      "regex": "emplead[oa]s?\\s+dom[eé]stic",
+      "flags": "i",
+      "porque": "Usar «colaborador» o el nombre.",
+      "gravedad": "aviso"
+    },
+    {
+      "id": "acceso-concedido",
+      "regex": "acceso\\s+(concedido|permitido|autorizado)",
+      "flags": "i",
+      "porque": "Afirma lo que la puerta tal vez no confirmó. Usar «vigente» con la hora.",
+      "gravedad": "error"
+    },
+    {
+      "id": "apertura-no-es",
+      "regex": "(^|[.?]\\s+)No\\s+es\\s+(un|una|el|la|lo)\\b[^.:]{1,60}\\.",
+      "porque": "Antítesis de apertura sin la segunda mitad («No es un caso raro.»). Afirmar lo que es.",
+      "gravedad": "aviso"
+    },
+    {
+      "id": "ni-en-cadena",
+      "regex": ",\\s+ni\\s+\\p{L}+,?\\s+ni\\s+",
+      "porque": "«…, ni X, ni Y»: polisíndeton de efecto.",
+      "gravedad": "aviso"
+    },
+    {
+      "id": "triada-infinitivos",
+      "regex": "(?<![\\p{L}])\\p{L}+(ar|er|ir),\\s+\\p{L}+(ar|er|ir)\\s+y\\s+\\p{L}+(ar|er|ir)\\s*[.;]",
+      "porque": "Tres infinitivos en fila: tríada por inercia. Quedarse con los que importan.",
+      "gravedad": "aviso"
+    },
+    {
+      "id": "por-eso-doble",
+      "regex": "por\\s+eso[^.]{0,90}\\by\\s+por\\s+eso\\b",
+      "porque": "Anáfora «por eso…, y por eso».",
+      "gravedad": "aviso",
+      "flags": "i"
+    },
+    {
+      "id": "no-hay-doble",
+      "regex": "\\bno\\s+hay\\b[^.]{1,70}:\\s*no\\s+hay\\b",
+      "porque": "Repite la negación después de dos puntos para rematar.",
+      "gravedad": "aviso",
+      "flags": "i"
+    },
+    {
+      "id": "enfasis-real",
+      "regex": "(?<![\\p{L}])(vínculo|gente|problema|valor|trabajo|impacto|cambio)\\s+real(?![\\p{L}])",
+      "porque": "«Real» como énfasis vacío.",
+      "gravedad": "aviso",
+      "flags": "i"
+    },
+    {
+      "id": "gerundio-esta",
+      "regex": "(?<![\\p{L}])est(á|án|amos)\\s+(funcionando|trabajando\\s+en|buscando)(?![\\p{L}])",
+      "porque": "Gerundio de relleno. Presente simple.",
+      "gravedad": "aviso",
+      "flags": "i"
+    },
+    {
+      "id": "anafora-es-lo",
+      "regex": "\\bes\\s+lo\\s+[^.]{1,70}\\by\\s+es\\s+lo\\b",
+      "porque": "Anáfora «es lo…, y es lo…».",
+      "gravedad": "aviso",
+      "flags": "i"
+    },
+    {
+      "id": "no-porque",
+      "regex": ",\\s*no\\s+porque\\b",
+      "porque": "Antítesis «…, no porque…».",
+      "gravedad": "aviso",
+      "flags": "i"
+    },
+    {
+      "id": "de-paso",
+      "regex": "(?<![\\p{L}])(y\\s+de\\s+paso|a\\s+ciegas|da\\s+vuelta)(?![\\p{L}])",
+      "porque": "Frase hecha de remate.",
+      "gravedad": "aviso",
+      "flags": "i"
+    },
+    {
+      "id": "mas-que-de",
+      "regex": "(?<![\\p{L}])es\\s+de\\s+\\p{L}+\\s+más\\s+que\\s+de\\b",
+      "porque": "Antítesis comparativa «es de X más que de Y».",
+      "gravedad": "aviso",
+      "flags": "i"
+    },
+    {
+      "id": "coma-no-final",
+      "regex": ",\\s+no\\s+(el|la|los|las)\\s+\\p{L}+\\.",
+      "porque": "Antítesis de cierre «X, no el Y.».",
+      "gravedad": "aviso"
+    },
+    {
+      "id": "punto-y-coma-si",
+      "regex": ";\\s*sí\\s+(el|la|los|las|lo)\\b",
+      "porque": "Antítesis «No X; sí Y».",
+      "gravedad": "aviso",
+      "flags": "i"
+    },
+    {
+      "id": "anafora-sigue",
+      "regex": "(?<![\\p{L}])sigue\\b[^.]{0,80}\\bsigue\\b",
+      "porque": "Anáfora «sigue…, sigue…».",
+      "gravedad": "aviso",
+      "flags": "i"
+    },
+    {
+      "id": "no-dos-puntos-revela",
+      "regex": "(^|[.]\\s+)No\\s+\\p{L}+[^.:]{0,60}:\\s*(todo|lo|es|eso)\\b",
+      "porque": "Negación seguida de dos puntos que revela.",
       "gravedad": "aviso"
     }
   ],
