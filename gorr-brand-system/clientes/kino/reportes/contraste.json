@@ -600,6 +600,66 @@
     "pasa": true
   },
   {
+    "tema": "oscuro",
+    "que": "vigencia vigente en tarjeta (texto del estado sobre elevada)",
+    "wcag": 11.12,
+    "apcaLc": -82.5,
+    "min": 4.5,
+    "apcaMin": 75,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "oscuro",
+    "que": "vigencia por-vencer en tarjeta (texto del estado sobre elevada)",
+    "wcag": 11.09,
+    "apcaLc": -81.8,
+    "min": 4.5,
+    "apcaMin": 75,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "oscuro",
+    "que": "vigencia previsto en tarjeta (texto del estado sobre elevada)",
+    "wcag": 11.23,
+    "apcaLc": -82.5,
+    "min": 4.5,
+    "apcaMin": 75,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "oscuro",
+    "que": "vigencia sin-confirmar en tarjeta (texto del estado sobre elevada)",
+    "wcag": 12.28,
+    "apcaLc": -88.5,
+    "min": 4.5,
+    "apcaMin": 75,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "oscuro",
+    "que": "Revocar Pase (texto revocado sobre base)",
+    "wcag": 11.63,
+    "apcaLc": -78.6,
+    "min": 4.5,
+    "apcaMin": 75,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "oscuro",
+    "que": "error de código (texto rechazado sobre base)",
+    "wcag": 13.04,
+    "apcaLc": -85.8,
+    "min": 4.5,
+    "apcaMin": 75,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
     "tema": "claro",
     "que": "texto primario sobre base",
     "wcag": 18.04,
@@ -1194,6 +1254,66 @@
     "que": "texto enlace sobre membrana",
     "wcag": 8.35,
     "apcaLc": 82.2,
+    "min": 4.5,
+    "apcaMin": 75,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "claro",
+    "que": "vigencia vigente en tarjeta (texto del estado sobre elevada)",
+    "wcag": 7.33,
+    "apcaLc": 84.9,
+    "min": 4.5,
+    "apcaMin": 75,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "claro",
+    "que": "vigencia por-vencer en tarjeta (texto del estado sobre elevada)",
+    "wcag": 7.34,
+    "apcaLc": 85.2,
+    "min": 4.5,
+    "apcaMin": 75,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "claro",
+    "que": "vigencia previsto en tarjeta (texto del estado sobre elevada)",
+    "wcag": 7.42,
+    "apcaLc": 85.2,
+    "min": 4.5,
+    "apcaMin": 75,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "claro",
+    "que": "vigencia sin-confirmar en tarjeta (texto del estado sobre elevada)",
+    "wcag": 10.03,
+    "apcaLc": 93.2,
+    "min": 4.5,
+    "apcaMin": 75,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "claro",
+    "que": "Revocar Pase (texto revocado sobre base)",
+    "wcag": 9,
+    "apcaLc": 85.9,
+    "min": 4.5,
+    "apcaMin": 75,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "claro",
+    "que": "error de código (texto rechazado sobre base)",
+    "wcag": 18.04,
+    "apcaLc": 101.7,
     "min": 4.5,
     "apcaMin": 75,
     "fuenteMinima": null,

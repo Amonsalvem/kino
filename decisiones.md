@@ -345,7 +345,25 @@ Lámina: `kino/parada-4.html` (https://claude.ai/artifact/DBF7w1VTGPtJ9oQwdz4tXa
   - una sola acción principal por pantalla.
 - **Qué se quita:** textos que repiten lo obvio (por ejemplo «otorgó Carolina Ruiz» en la lista de la propia Carolina) y ayudas que se pueden decir en una línea.
 - **Por qué:** responde a la personalidad «Exacto» (P06) y al valor «Topes a la vista»: el dato que decide un ingreso se lee primero. La aurora solo va en la pantalla de inicio, como fija X7.
-- **Espera:** revisión de Nico en la lámina siguiente.
+- **Propuesta (A, construida en el sitio y en Figma):** cinco niveles, iguales en las cinco pantallas.
+
+  | Nivel | Qué lleva | Cómo se ve |
+  |---|---|---|
+  | 1 · Manda | El nombre, el código o el límite | Archivo 800 ancho, lo más grande de la pantalla |
+  | 2 · Vigencia | Cuándo vale el Pase | Mono en el color de su estado; en Crear Pase, en texto primario porque aún no hay estado |
+  | 3 · Rótulo | Placa, Código, Vigencia | Mono pequeño en mayúsculas, texto secundario, encima del valor |
+  | 4 · Grupo | Lo que se decide junto | Superficie elevada, radio 14 |
+  | 5 · Acción | Una principal, abajo | Verde solo si crea un Pase; revocar va en texto |
+
+  - **Lista (inicio):** aurora arriba con «Tus Pases» y el conteo. Los Pases se agrupan en «Ahora» y «Próximos» en vez de pestañas. Cada tarjeta lleva el tipo como rótulo, sin «Visita» repetido debajo del nombre.
+  - **Crear Pase:** nombre y WhatsApp en un bloque; vigencia y placa en otro. El día se elige con tres opciones (Hoy, Mañana, Otro día) y la franja de la administración va en una nota con reloj.
+  - **Detalle:** sin «Otorgó Carolina Ruiz · Casa 14», porque es la app de Carolina. Placa y código en grande. «Lo que pasó» como línea de tiempo: los hechos que el lector confirmó llevan punto verde. Extender es el botón; «Revocar Pase» va en texto carmín.
+  - **Acceso por código:** el número enmascarado va en mono como dato. El error va en una línea con ícono, sin bloque rojo. «Entrar» pasa al botón secundario, porque X4 reserva el verde de acción para crear un Pase (la 1.1.0 lo tenía en verde).
+  - **Límites:** cada límite en su tarjeta con el valor en grande. El resumen de la semana va en cifras, y las rechazadas en su color.
+- **Alternativa (B):** la misma jerarquía, pero la lista conserva las pestañas «Activos / Anteriores» de la 1.1.0 en vez de los grupos «Ahora / Próximos».
+- **Contraste:** 6 pares nuevos en `pares.json` (vigencia de cada estado sobre la tarjeta, Revocar y el error de código sobre base). 132 mediciones, 0 fallos. Los rótulos pequeños pasan de texto tenue a secundario: el tenue solo está medido para 24 px o más (Lc 65 en oscuro).
+- **Anterior:** `_obsoleto/d10_producto-2026-09-25.py` (sitio) y la sección «Pantallas 1.1.0 (anterior)» en la página Pantallas de Figma.
+- **Espera:** revisión de Nico en la lámina de la 1.2.0.
 
 ### F4-P6 · Mensaje de alta fallida en HikCentral · PROPUESTA
 - **Qué es la fila:** el inventario de la Parada 2 traduce cada texto que hoy muestra el sistema. Uno es el error que ve el super administrador: «Incorrect request parameter. [email parameter error]», 711 veces (observado, `inspeccion/diagnostico-inspeccion.md`).

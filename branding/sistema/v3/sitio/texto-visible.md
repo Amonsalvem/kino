@@ -2086,7 +2086,49 @@ texto enlace sobre membrana
 8.35:1
 Lc 75 · 4.5:1
 Pasa
-120 mediciones · 0 fallos. Mínimos de la plataforma: Lc 75 cuerpo, 60 texto grande, 45 titulares, 30 elementos no textuales.
+vigencia vigente en tarjeta (texto del estado sobre elevada)
+82.5
+11.12:1
+84.9
+7.33:1
+Lc 75 · 4.5:1
+Pasa
+vigencia por-vencer en tarjeta (texto del estado sobre elevada)
+81.8
+11.09:1
+85.2
+7.34:1
+Lc 75 · 4.5:1
+Pasa
+vigencia previsto en tarjeta (texto del estado sobre elevada)
+82.5
+11.23:1
+85.2
+7.42:1
+Lc 75 · 4.5:1
+Pasa
+vigencia sin-confirmar en tarjeta (texto del estado sobre elevada)
+88.5
+12.28:1
+93.2
+10.03:1
+Lc 75 · 4.5:1
+Pasa
+Revocar Pase (texto revocado sobre base)
+78.6
+11.63:1
+85.9
+9:1
+Lc 75 · 4.5:1
+Pasa
+error de código (texto rechazado sobre base)
+85.8
+13.04:1
+101.7
+18.04:1
+Lc 75 · 4.5:1
+Pasa
+132 mediciones · 0 fallos. Mínimos de la plataforma: Lc 75 cuerpo, 60 texto grande, 45 titulares, 30 elementos no textuales.
 Informe de contraste
 JSON
 Qué ve alguien que no distingue rojo y verde
@@ -3008,9 +3050,57 @@ Responde a:
 X4
 : #00D595 solo en el botón que crea o entrega un Pase.
 Las cinco pantallas donde se decide un ingreso
-Textos finales del inventario de UX writing. Nombres, placas y códigos son de ejemplo.
+Textos finales del inventario de UX writing. Nombres, placas y códigos son de ejemplo. Las pantallas siguen la jerarquía de las piezas del Pase (F4-P5, propuesta de la 1.2.0).
+Nivel
+Qué lleva
+Cómo se ve
+1 · Manda
+Un dato por pantalla: el nombre de la persona, el código o el límite.
+Archivo 800 ancho, el tamaño más grande de la pantalla.
+2 · Vigencia
+Cuándo vale el Pase.
+JetBrains Mono en el color de su estado. En Crear Pase va en texto primario: todavía no hay estado.
+3 · Rótulo
+Qué es cada valor: Placa, Código, Vigencia.
+Mono pequeño en mayúsculas, en texto secundario, siempre encima de su valor.
+4 · Grupo
+Lo que se decide junto va en un bloque.
+Superficie elevada con radio 14. Entre bloques, más aire que dentro de ellos.
+5 · Acción
+Una acción principal abajo.
+Verde de acción solo si crea un Pase. Las demás, botón secundario; revocar, en texto.
 9:41
 Casa 14
+Tus Pases
+3
+activos ahora
+·
+1
+previsto
+Ahora
+Visita
+Vigente
+Andrés Gómez
+hasta 6:00 p. m.
+Visita
+Por vencer
+Diana Arango
+hasta 4:30 p. m.
+Visita
+Sin confirmar
+Técnico del gas
+de 3:00 a 5:00 p. m.
+Próximos
+Colaborador
+Previsto
+Luz Marina Restrepo
+lun y jue · 7:00 a. m.
+Ver Pases anteriores
+Crear Pase
+Lista de Pases · inicio
+9:41
+Pases
+Nuevo Pase · Casa 14
 ¿Quién viene?
 Visita
 Colaborador
@@ -3019,59 +3109,43 @@ Andrés Gómez
 WhatsApp
 300 555 0142
 Ahí le llega el Pase. No necesita instalar nada ni crear cuenta.
-Cuándo
-Hoy · de 2:00 a 6:00 p. m.
-Las visitas entran de 6:00 a. m. a 10:00 p. m.
-Placa (opcional)
+Vigencia
+Hoy
+Mañana
+Otro día
+2:00
+→
+6:00 p. m.
+Placa · opcional
 KMN 305
+Las visitas entran de 6:00 a. m. a 10:00 p. m.
 Crear Pase
 Crear Pase
-9:41
-Pases de la Casa 14
-Activos
-Anteriores
-Andrés Gómez
-Vigente
-Visita
-hasta 6:00 p. m.
-Diana Arango
-Por vencer
-Visita
-hasta 4:30 p. m.
-Técnico del gas
-Sin confirmar
-Visita
-de 3:00 a 5:00 p. m.
-Luz Marina
-Previsto
-Colaborador
-lun y jue · 7:00 a. m.
-Crear Pase
-Lista de Pases
 9:41
 Pases
-Andrés Gómez
+Pase · visita
 Vigente
-Vale
-hoy de 2:00 a 6:00 p. m.
+Andrés Gómez
+Hoy · de 2:00 a 6:00 p. m.
 Placa
 KMN 305
 Código
 4817
-Otorgó
-Carolina Ruiz · Casa 14
+Lo que pasó
 13:58
 Enviado por WhatsApp
 14:03
 El lector lo confirmó
 15:12
-Entró con la placa KMN 305
+Entró con la placa
+KMN 305
 Extender
-Revocar
+Revocar Pase
 Detalle de Pase
 9:41
 Entra con tu WhatsApp
-Te enviamos un código por WhatsApp al 300 *** 0142.
+Te enviamos un código de seis cifras al
+300 *** 0142
 4
 8
 2
@@ -3089,24 +3163,27 @@ Lector
 Refugio Campestre
 Límites del conjunto
 Aplican a los Pases nuevos. Los activos conservan su vigencia.
-Pases activos al mismo tiempo
+Cupo por casa
 5
-por casa
+Pases activos al mismo tiempo
 [pendiente: unidad del cupo]
-Duración máxima de una visita
+Duración máxima
 12 h
+por visita
 Franja de visitas
 6:00 a. m. – 10:00 p. m.
+todos los días
 Franja de colaboradores
 6:00 a. m. – 7:00 p. m.
+todos los días
 Guardar límites
 Límites guardados. Rigen desde hoy a las 4:32 p. m.
 Esta semana
 (ejemplo)
 214
-Pases otorgados ·
+Pases otorgados
 187
-usados ·
+usados
 3
 rechazados en la entrada
 Límites de la administración · Kino Administración, trato de usted
@@ -3168,27 +3245,34 @@ Datos de ejemplo en todas. Las piezas físicas (señal, adhesivo, papelería, cr
 [pendiente: mockups físicos en 3D]
 .
 9:41
-Pases de la Casa 14
-Activos
-Anteriores
-Andrés Gómez
+Casa 14
+Tus Pases
+3
+activos ahora
+·
+1
+previsto
+Ahora
+Visita
 Vigente
-Visita
+Andrés Gómez
 hasta 6:00 p. m.
-Diana Arango
+Visita
 Por vencer
-Visita
+Diana Arango
 hasta 4:30 p. m.
-Técnico del gas
-Sin confirmar
 Visita
+Sin confirmar
+Técnico del gas
 de 3:00 a 5:00 p. m.
-Luz Marina
-Previsto
+Próximos
 Colaborador
+Previsto
+Luz Marina Restrepo
 lun y jue · 7:00 a. m.
+Ver Pases anteriores
 Crear Pase
-Lista de Pases
+Lista de Pases · inicio
 App móvil
 360 × 780 px
 La lista de Pases de la Casa 14 con cuatro estados distintos.

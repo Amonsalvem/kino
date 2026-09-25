@@ -418,5 +418,47 @@
   "bg": "kino-superficie-membrana",
   "min": 4.5,
   "apcaMin": 75
+ },
+ {
+  "que": "vigencia vigente en tarjeta (texto del estado sobre elevada)",
+  "fg": "kino-estado-vigente-texto",
+  "bg": "kino-superficie-elevada",
+  "min": 4.5,
+  "apcaMin": 75
+ },
+ {
+  "que": "vigencia por-vencer en tarjeta (texto del estado sobre elevada)",
+  "fg": "kino-estado-por-vencer-texto",
+  "bg": "kino-superficie-elevada",
+  "min": 4.5,
+  "apcaMin": 75
+ },
+ {
+  "que": "vigencia previsto en tarjeta (texto del estado sobre elevada)",
+  "fg": "kino-estado-previsto-texto",
+  "bg": "kino-superficie-elevada",
+  "min": 4.5,
+  "apcaMin": 75
+ },
+ {
+  "que": "vigencia sin-confirmar en tarjeta (texto del estado sobre elevada)",
+  "fg": "kino-estado-sin-confirmar-texto",
+  "bg": "kino-superficie-elevada",
+  "min": 4.5,
+  "apcaMin": 75
+ },
+ {
+  "que": "Revocar Pase (texto revocado sobre base)",
+  "fg": "kino-estado-revocado-texto",
+  "bg": "kino-superficie-base",
+  "min": 4.5,
+  "apcaMin": 75
+ },
+ {
+  "que": "error de código (texto rechazado sobre base)",
+  "fg": "kino-estado-rechazado-texto",
+  "bg": "kino-superficie-base",
+  "min": 4.5,
+  "apcaMin": 75
  }
 ]
