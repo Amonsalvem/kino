@@ -37,9 +37,9 @@
  {
   "n": 6,
   "comprobacion": "Diff entre tokens DTCG, kino-brand.css y variables de Figma",
-  "pasa": false,
-  "detalle": "DTCG 274 · kino-brand.css: 0 faltan · Figma: 270 variables y 3 estilos de efecto, 1 tokens sin variable, 0 valores distintos (color en los dos modos, números y cadenas)",
-  "evidencia": "--kino-texto-enlace"
+  "pasa": true,
+  "detalle": "DTCG 274 · kino-brand.css: 0 faltan · Figma: 271 variables y 3 estilos de efecto, 0 tokens sin variable, 0 valores distintos (color en los dos modos, números y cadenas)",
+  "evidencia": ""
  },
  {
   "n": 7,

@@ -55,6 +55,7 @@ if len(sys.argv) > 3:
         if norm_s(sombra) != norm_s(dtcg_s): dif.append(f"{css} ({tema}): Figma {sombra} · DTCG {dtcg_s}")
 salida = {'exportado': '2026-09-25', 'archivo': 'BO7UnDO9iE0aG6yUpNj0bc', 'variables': variables, 'estilosDeEfecto': efectos, 'componentesSinLigar': [],
           'auditoriaPinturas': {'fecha': '2026-09-25', 'paginas': 14, 'pinturasSinVariable': 0, 'como': 'js/p4-auditoria-y-exportacion.js: rellenos y trazos SOLID sin variable ligada, todas las páginas salvo Referencias'},
+          'auditoriaLayout': {'fecha': '2026-09-25', 'paginas': 14, 'framesSinAutoLayout': 0, 'espaciosSinVariable': 0, 'hijosFuera': 0, 'textosDeAnchoFijo': 0, 'filasDeAltoDesigual': 0, 'solapesEnElLienzo': 0, 'como': 'js/p5-verificar-layout.js; corregido con js/p5-normalizar.js'},
           'diferencias': dif}
 (R / 'variables-figma.json').write_text(json.dumps(salida, ensure_ascii=False, indent=1), encoding='utf8')
 print(len(efectos), 'estilos de efecto ·', len(variables), 'filas ·', len({v['css'] for v in variables}), 'variables ·', len(dif), 'diferencias (color en los dos modos, números y cadenas)')
