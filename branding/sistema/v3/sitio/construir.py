@@ -39,6 +39,20 @@ contenido_crudo = ''.join(leer(f'contenido/{f}') for f in ['00-inicio.html', '01
 contenido_crudo = contenido_crudo.replace('{{PASE}}', _pase.imagen('vigente'))
 # El número de la sección, grande y en contorno, dentro de la apertura (dato verdadero: el orden de las secciones).
 contenido_crudo = re.sub(r'(<header class="abre">\s*)(<p class="ojo">(\d\d) · )', r'\1<span class="abre-num" aria-hidden="true">\3</span>\2', contenido_crudo)
+# Tablas: cada celda lleva el nombre de su columna (data-t) para apilarse en contenedores angostos (responsive.css).
+def _etiquetar(tabla):
+    cab = re.search(r'<thead>(.*?)</thead>', tabla, flags=re.S)
+    if not cab:
+        return tabla
+    nombres = [re.sub(r'<[^>]+>', '', c).strip() for c in re.findall(r'<th\b[^>]*>(.*?)</th>', cab.group(1), flags=re.S)]
+    def fila(m):
+        n = iter(nombres)
+        return re.sub(r'<(td|th)\b([^>]*)>', lambda c: f'<{c.group(1)} data-t="{next(n, "")}"{c.group(2)}>', m.group(0))
+    cuerpo = re.search(r'<tbody>(.*?)</tbody>', tabla, flags=re.S)
+    if not cuerpo:
+        return tabla
+    return tabla.replace(cuerpo.group(0), re.sub(r'<tr\b[^>]*>.*?</tr>', fila, cuerpo.group(0), flags=re.S))
+contenido_crudo = re.sub(r'<table\b.*?</table>', lambda m: _etiquetar(m.group(0)), contenido_crudo, flags=re.S)
 # Espacios que no parten: horas, placas, códigos y teléfonos se leen como una unidad.
 NB = '\u00a0'
 def _nb(t):
@@ -59,7 +73,8 @@ cuerpo = f'''<title>Kino · Sistema de marca</title>
 {leer('sitio.css')}
 {leer('deptos.css')}
 :root{{--s-aurora:{AURORA}}}
-{leer('identidad.css')}</style>
+{leer('identidad.css')}
+{leer('responsive.css')}</style>
 <a class="saltar" href="#contenido">Saltar al contenido</a>
 {sprite}
 <div class="progreso" aria-hidden="true"><i></i></div>
