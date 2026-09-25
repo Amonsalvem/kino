@@ -1,0 +1,2519 @@
+{
+ "exportado": "2026-09-25",
+ "archivo": "BO7UnDO9iE0aG6yUpNj0bc",
+ "variables": [
+  {
+   "css": "--kino-sustrato-100",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#00140C"
+  },
+  {
+   "css": "--kino-sustrato-200",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#011F16"
+  },
+  {
+   "css": "--kino-sustrato-300",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#0B2A20"
+  },
+  {
+   "css": "--kino-sustrato-400",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#17362B"
+  },
+  {
+   "css": "--kino-sustrato-500",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#2A483D"
+  },
+  {
+   "css": "--kino-sustrato-600",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#426155"
+  },
+  {
+   "css": "--kino-sustrato-700",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#618174"
+  },
+  {
+   "css": "--kino-sustrato-800",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#86A799"
+  },
+  {
+   "css": "--kino-hueso-100",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#EFFCF7"
+  },
+  {
+   "css": "--kino-hueso-200",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#E5F3ED"
+  },
+  {
+   "css": "--kino-hueso-300",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#DBE9E3"
+  },
+  {
+   "css": "--kino-hueso-400",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#CEDCD6"
+  },
+  {
+   "css": "--kino-hueso-500",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#BECBC6"
+  },
+  {
+   "css": "--kino-hueso-600",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#ABB8B3"
+  },
+  {
+   "css": "--kino-hueso-700",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#94A09B"
+  },
+  {
+   "css": "--kino-hueso-800",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#7C8883"
+  },
+  {
+   "css": "--kino-biolum-d15",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#00422C"
+  },
+  {
+   "css": "--kino-biolum-d32",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#007953"
+  },
+  {
+   "css": "--kino-biolum-d70",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#00BB83"
+  },
+  {
+   "css": "--kino-biolum-d90",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#00D595"
+  },
+  {
+   "css": "--kino-biolum-d110",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#00EAA5"
+  },
+  {
+   "css": "--kino-biolum-l15",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#00EAA5"
+  },
+  {
+   "css": "--kino-biolum-l32",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#00A06F"
+  },
+  {
+   "css": "--kino-biolum-l45",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#00845B"
+  },
+  {
+   "css": "--kino-biolum-l70",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#006343"
+  },
+  {
+   "css": "--kino-biolum-l110",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#00422C"
+  },
+  {
+   "css": "--kino-ambar-d15",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#503300"
+  },
+  {
+   "css": "--kino-ambar-d32",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#906000"
+  },
+  {
+   "css": "--kino-ambar-d110",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#FFC36D"
+  },
+  {
+   "css": "--kino-ambar-l32",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#BD7F00"
+  },
+  {
+   "css": "--kino-ambar-l70",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#764E00"
+  },
+  {
+   "css": "--kino-ambar-l110",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#503300"
+  },
+  {
+   "css": "--kino-carmin-d15",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#79000F"
+  },
+  {
+   "css": "--kino-carmin-d32",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#C33435"
+  },
+  {
+   "css": "--kino-carmin-d110",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#FFBEB8"
+  },
+  {
+   "css": "--kino-carmin-l15",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#FFBEB8"
+  },
+  {
+   "css": "--kino-carmin-l32",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#EC5C57"
+  },
+  {
+   "css": "--kino-carmin-l70",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#AA1620"
+  },
+  {
+   "css": "--kino-carmin-l110",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#79000F"
+  },
+  {
+   "css": "--kino-violeta-d15",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#3E1C96"
+  },
+  {
+   "css": "--kino-violeta-d32",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#6A56D0"
+  },
+  {
+   "css": "--kino-violeta-d110",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#CAC9FF"
+  },
+  {
+   "css": "--kino-violeta-l15",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#CAC9FF"
+  },
+  {
+   "css": "--kino-violeta-l32",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#8A7AF7"
+  },
+  {
+   "css": "--kino-violeta-l70",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#5840B8"
+  },
+  {
+   "css": "--kino-violeta-l110",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#3E1C96"
+  },
+  {
+   "css": "--kino-sustrato-d90",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#A0C3B4"
+  },
+  {
+   "css": "--kino-sustrato-d32",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#517064"
+  },
+  {
+   "css": "--kino-sustrato-l32",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#729385"
+  },
+  {
+   "css": "--kino-fijo-blanco",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#FFFFFF"
+  },
+  {
+   "css": "--kino-fijo-transparente",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "transparente"
+  },
+  {
+   "css": "--kino-superficie-abismo",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#00140C"
+  },
+  {
+   "css": "--kino-superficie-abismo",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#DBE9E3"
+  },
+  {
+   "css": "--kino-superficie-base",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#011F16"
+  },
+  {
+   "css": "--kino-superficie-base",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#EFFCF7"
+  },
+  {
+   "css": "--kino-superficie-elevada",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#0B2A20"
+  },
+  {
+   "css": "--kino-superficie-elevada",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#FFFFFF"
+  },
+  {
+   "css": "--kino-superficie-membrana",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#17362B"
+  },
+  {
+   "css": "--kino-superficie-membrana",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#E5F3ED"
+  },
+  {
+   "css": "--kino-superficie-inversa",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#EFFCF7"
+  },
+  {
+   "css": "--kino-superficie-inversa",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#00140C"
+  },
+  {
+   "css": "--kino-borde-tenue",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#2A483D"
+  },
+  {
+   "css": "--kino-borde-tenue",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#CEDCD6"
+  },
+  {
+   "css": "--kino-borde-definido",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#6E8E81"
+  },
+  {
+   "css": "--kino-borde-definido",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#6A7671"
+  },
+  {
+   "css": "--kino-borde-foco",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#00BB83"
+  },
+  {
+   "css": "--kino-borde-foco",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#00845B"
+  },
+  {
+   "css": "--kino-texto-primario",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#EFFCF7"
+  },
+  {
+   "css": "--kino-texto-primario",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#00140C"
+  },
+  {
+   "css": "--kino-texto-secundario",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#CEDBD6"
+  },
+  {
+   "css": "--kino-texto-secundario",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#17362B"
+  },
+  {
+   "css": "--kino-texto-tenue",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#A5C7B8"
+  },
+  {
+   "css": "--kino-texto-tenue",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#426155"
+  },
+  {
+   "css": "--kino-texto-inverso",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#00140C"
+  },
+  {
+   "css": "--kino-texto-inverso",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#EFFCF7"
+  },
+  {
+   "css": "--kino-texto-sobre-acento",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#00140C"
+  },
+  {
+   "css": "--kino-texto-sobre-acento",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#EFFCF7"
+  },
+  {
+   "css": "--kino-acento-base",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#00BB83"
+  },
+  {
+   "css": "--kino-acento-base",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#006343"
+  },
+  {
+   "css": "--kino-acento-fuerte",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#00EAA5"
+  },
+  {
+   "css": "--kino-acento-fuerte",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#00422C"
+  },
+  {
+   "css": "--kino-acento-sordo",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#00422C"
+  },
+  {
+   "css": "--kino-acento-sordo",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#E5F3ED"
+  },
+  {
+   "css": "--kino-estado-vigente-fondo",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#00422C"
+  },
+  {
+   "css": "--kino-estado-vigente-fondo",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#EFFCF7"
+  },
+  {
+   "css": "--kino-estado-vigente-borde",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#00EAA5"
+  },
+  {
+   "css": "--kino-estado-vigente-borde",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#00845B"
+  },
+  {
+   "css": "--kino-estado-vigente-texto",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#2FF8B2"
+  },
+  {
+   "css": "--kino-estado-vigente-texto",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#006343"
+  },
+  {
+   "css": "--kino-estado-por-vencer-fondo",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#503300"
+  },
+  {
+   "css": "--kino-estado-por-vencer-fondo",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#EFFCF7"
+  },
+  {
+   "css": "--kino-estado-por-vencer-borde",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#FFC36D"
+  },
+  {
+   "css": "--kino-estado-por-vencer-borde",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#9C6900"
+  },
+  {
+   "css": "--kino-estado-por-vencer-texto",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#FFD49C"
+  },
+  {
+   "css": "--kino-estado-por-vencer-texto",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#764E00"
+  },
+  {
+   "css": "--kino-estado-vencido-fondo",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#0B2A20"
+  },
+  {
+   "css": "--kino-estado-vencido-fondo",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#DBE9E3"
+  },
+  {
+   "css": "--kino-estado-vencido-borde",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#86A799"
+  },
+  {
+   "css": "--kino-estado-vencido-borde",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#6A7671"
+  },
+  {
+   "css": "--kino-estado-vencido-texto",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#B8DBCC"
+  },
+  {
+   "css": "--kino-estado-vencido-texto",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#2A483D"
+  },
+  {
+   "css": "--kino-estado-negado-fondo",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#79000F"
+  },
+  {
+   "css": "--kino-estado-negado-fondo",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#FFBEB8"
+  },
+  {
+   "css": "--kino-estado-negado-borde",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#FFBEB8"
+  },
+  {
+   "css": "--kino-estado-negado-borde",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#CE3F3F"
+  },
+  {
+   "css": "--kino-estado-negado-texto",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#FED6D2"
+  },
+  {
+   "css": "--kino-estado-negado-texto",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#00140C"
+  },
+  {
+   "css": "--kino-estado-sin-confirmar-fondo",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "transparente"
+  },
+  {
+   "css": "--kino-estado-sin-confirmar-fondo",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "transparente"
+  },
+  {
+   "css": "--kino-estado-sin-confirmar-borde",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#86A799"
+  },
+  {
+   "css": "--kino-estado-sin-confirmar-borde",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#6A7671"
+  },
+  {
+   "css": "--kino-estado-sin-confirmar-texto",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#DBE9E3"
+  },
+  {
+   "css": "--kino-estado-sin-confirmar-texto",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#2A483D"
+  },
+  {
+   "css": "--kino-estado-identidad-fondo",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#3E1C96"
+  },
+  {
+   "css": "--kino-estado-identidad-fondo",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#EFFCF7"
+  },
+  {
+   "css": "--kino-estado-identidad-borde",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#CAC9FF"
+  },
+  {
+   "css": "--kino-estado-identidad-borde",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#7360DB"
+  },
+  {
+   "css": "--kino-estado-identidad-texto",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#DADAFE"
+  },
+  {
+   "css": "--kino-estado-identidad-texto",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#5840B8"
+  },
+  {
+   "css": "--kino-espacio-3xs",
+   "coleccion": "Espacio y radio",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 2
+  },
+  {
+   "css": "--kino-espacio-2xs",
+   "coleccion": "Espacio y radio",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 4
+  },
+  {
+   "css": "--kino-espacio-xs",
+   "coleccion": "Espacio y radio",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 8
+  },
+  {
+   "css": "--kino-espacio-s",
+   "coleccion": "Espacio y radio",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 12
+  },
+  {
+   "css": "--kino-espacio-m",
+   "coleccion": "Espacio y radio",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 16
+  },
+  {
+   "css": "--kino-espacio-l",
+   "coleccion": "Espacio y radio",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 24
+  },
+  {
+   "css": "--kino-espacio-xl",
+   "coleccion": "Espacio y radio",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 32
+  },
+  {
+   "css": "--kino-espacio-2xl",
+   "coleccion": "Espacio y radio",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 48
+  },
+  {
+   "css": "--kino-espacio-3xl",
+   "coleccion": "Espacio y radio",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 72
+  },
+  {
+   "css": "--kino-espacio-4xl",
+   "coleccion": "Espacio y radio",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 112
+  },
+  {
+   "css": "--kino-radio-nada",
+   "coleccion": "Espacio y radio",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 0
+  },
+  {
+   "css": "--kino-radio-xs",
+   "coleccion": "Espacio y radio",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 2
+  },
+  {
+   "css": "--kino-radio-s",
+   "coleccion": "Espacio y radio",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 4
+  },
+  {
+   "css": "--kino-radio-m",
+   "coleccion": "Espacio y radio",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 8
+  },
+  {
+   "css": "--kino-radio-l",
+   "coleccion": "Espacio y radio",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 14
+  },
+  {
+   "css": "--kino-radio-pleno",
+   "coleccion": "Espacio y radio",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 999
+  },
+  {
+   "css": "--kino-movimiento-duracion-instante",
+   "coleccion": "Movimiento",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 120
+  },
+  {
+   "css": "--kino-movimiento-duracion-corto",
+   "coleccion": "Movimiento",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 240
+  },
+  {
+   "css": "--kino-movimiento-duracion-crecer",
+   "coleccion": "Movimiento",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 420
+  },
+  {
+   "css": "--kino-movimiento-duracion-tarjeta",
+   "coleccion": "Movimiento",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 820
+  },
+  {
+   "css": "--kino-movimiento-duracion-decaer",
+   "coleccion": "Movimiento",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 900
+  },
+  {
+   "css": "--kino-movimiento-duracion-trazo",
+   "coleccion": "Movimiento",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 950
+  },
+  {
+   "css": "--kino-movimiento-duracion-cortina",
+   "coleccion": "Movimiento",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 1600
+  },
+  {
+   "css": "--kino-movimiento-duracion-latir",
+   "coleccion": "Movimiento",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 1800
+  },
+  {
+   "css": "--kino-movimiento-escalonado-tarjetas",
+   "coleccion": "Movimiento",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 90
+  },
+  {
+   "css": "--kino-movimiento-escalonado-filas",
+   "coleccion": "Movimiento",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 55
+  },
+  {
+   "css": "--kino-movimiento-distancia-subida",
+   "coleccion": "Movimiento",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 26
+  },
+  {
+   "css": "--kino-movimiento-distancia-desenfoque",
+   "coleccion": "Movimiento",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 6
+  },
+  {
+   "css": "--kino-sustrato-d15",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#203F33"
+  },
+  {
+   "css": "--kino-sustrato-d23",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#3B5B4E"
+  },
+  {
+   "css": "--kino-sustrato-d45",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#68897B"
+  },
+  {
+   "css": "--kino-sustrato-d70",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#8AAC9E"
+  },
+  {
+   "css": "--kino-sustrato-d110",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#B3D5C7"
+  },
+  {
+   "css": "--kino-sustrato-l15",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#B3D5C7"
+  },
+  {
+   "css": "--kino-sustrato-l23",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#8CAEA0"
+  },
+  {
+   "css": "--kino-sustrato-l45",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#5A7A6D"
+  },
+  {
+   "css": "--kino-sustrato-l70",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#3D5C50"
+  },
+  {
+   "css": "--kino-sustrato-l90",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#2D4B40"
+  },
+  {
+   "css": "--kino-sustrato-l110",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#203F33"
+  },
+  {
+   "css": "--kino-sustrato-a66",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#A5C7B8"
+  },
+  {
+   "css": "--kino-sustrato-a36",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#6E8E81"
+  },
+  {
+   "css": "--kino-sustrato-a78",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#B8DBCC"
+  },
+  {
+   "css": "--kino-hueso-d15",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#303B37"
+  },
+  {
+   "css": "--kino-hueso-d23",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#4B5752"
+  },
+  {
+   "css": "--kino-hueso-d32",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#616C68"
+  },
+  {
+   "css": "--kino-hueso-d45",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#788480"
+  },
+  {
+   "css": "--kino-hueso-d70",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#9BA7A2"
+  },
+  {
+   "css": "--kino-hueso-d90",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#B1BEB8"
+  },
+  {
+   "css": "--kino-hueso-d110",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#C4D1CB"
+  },
+  {
+   "css": "--kino-hueso-l15",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#C4D1CB"
+  },
+  {
+   "css": "--kino-hueso-l23",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#9DA9A4"
+  },
+  {
+   "css": "--kino-hueso-l32",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#828F8A"
+  },
+  {
+   "css": "--kino-hueso-l45",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#6A7671"
+  },
+  {
+   "css": "--kino-hueso-l70",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#4D5854"
+  },
+  {
+   "css": "--kino-hueso-l90",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#3D4844"
+  },
+  {
+   "css": "--kino-hueso-l110",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#303B37"
+  },
+  {
+   "css": "--kino-hueso-a81",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#CEDBD6"
+  },
+  {
+   "css": "--kino-biolum-d23",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#006142"
+  },
+  {
+   "css": "--kino-biolum-d45",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#009467"
+  },
+  {
+   "css": "--kino-biolum-l23",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#00BE85"
+  },
+  {
+   "css": "--kino-biolum-l90",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#005036"
+  },
+  {
+   "css": "--kino-biolum-a84",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#2FF8B2"
+  },
+  {
+   "css": "--kino-ambar-d23",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#744C00"
+  },
+  {
+   "css": "--kino-ambar-d45",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#B07600"
+  },
+  {
+   "css": "--kino-ambar-d70",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#DE9600"
+  },
+  {
+   "css": "--kino-ambar-d90",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#FBAB00"
+  },
+  {
+   "css": "--kino-ambar-l15",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#FFC36C"
+  },
+  {
+   "css": "--kino-ambar-l23",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#E09800"
+  },
+  {
+   "css": "--kino-ambar-l45",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#9C6900"
+  },
+  {
+   "css": "--kino-ambar-l90",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#603F00"
+  },
+  {
+   "css": "--kino-ambar-a83",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#FFD49C"
+  },
+  {
+   "css": "--kino-carmin-d23",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#A8131F"
+  },
+  {
+   "css": "--kino-carmin-d45",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#E0504D"
+  },
+  {
+   "css": "--kino-carmin-d70",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#FF7D76"
+  },
+  {
+   "css": "--kino-carmin-d90",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#FFA29A"
+  },
+  {
+   "css": "--kino-carmin-l23",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#FF8179"
+  },
+  {
+   "css": "--kino-carmin-l45",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#CE3F3F"
+  },
+  {
+   "css": "--kino-carmin-l90",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#910014"
+  },
+  {
+   "css": "--kino-carmin-a78",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#FEC6C0"
+  },
+  {
+   "css": "--kino-carmin-a85",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#FED6D2"
+  },
+  {
+   "css": "--kino-violeta-d23",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#563FB7"
+  },
+  {
+   "css": "--kino-violeta-d45",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#8170EC"
+  },
+  {
+   "css": "--kino-violeta-d70",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#A198FF"
+  },
+  {
+   "css": "--kino-violeta-d90",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#B7B3FF"
+  },
+  {
+   "css": "--kino-violeta-l23",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#A39BFF"
+  },
+  {
+   "css": "--kino-violeta-l45",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#7360DB"
+  },
+  {
+   "css": "--kino-violeta-l90",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#492DA5"
+  },
+  {
+   "css": "--kino-violeta-a84",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#DADAFE"
+  },
+  {
+   "css": "--kino-indigo-d15",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#092D93"
+  },
+  {
+   "css": "--kino-indigo-d23",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#234DB3"
+  },
+  {
+   "css": "--kino-indigo-d32",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#3764CD"
+  },
+  {
+   "css": "--kino-indigo-d45",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#4E7DE8"
+  },
+  {
+   "css": "--kino-indigo-d70",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#77A3FF"
+  },
+  {
+   "css": "--kino-indigo-d90",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#99BBFF"
+  },
+  {
+   "css": "--kino-indigo-d110",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#B6CEFF"
+  },
+  {
+   "css": "--kino-indigo-l15",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#B6CEFF"
+  },
+  {
+   "css": "--kino-indigo-l23",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#7AA5FF"
+  },
+  {
+   "css": "--kino-indigo-l32",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#5788F4"
+  },
+  {
+   "css": "--kino-indigo-l45",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#406ED7"
+  },
+  {
+   "css": "--kino-indigo-l70",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#244EB5"
+  },
+  {
+   "css": "--kino-indigo-l90",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#153CA2"
+  },
+  {
+   "css": "--kino-indigo-l110",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#092D93"
+  },
+  {
+   "css": "--kino-indigo-a84",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#CCDDFE"
+  },
+  {
+   "css": "--kino-fijo-negro",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#000000"
+  },
+  {
+   "css": "--kino-fijo-sombra-claro",
+   "coleccion": "Primitivos",
+   "modo": "Valor",
+   "tipo": "COLOR",
+   "valor": "#0B201A"
+  },
+  {
+   "css": "--kino-radio-arco",
+   "coleccion": "Espacio y radio",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 999
+  },
+  {
+   "css": "--kino-trazo-icono",
+   "coleccion": "Espacio y radio",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 1.7000000476837158
+  },
+  {
+   "css": "--kino-linea-fino",
+   "coleccion": "Espacio y radio",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 1
+  },
+  {
+   "css": "--kino-linea-foco",
+   "coleccion": "Espacio y radio",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 2
+  },
+  {
+   "css": "--kino-quiebre-medio",
+   "coleccion": "Espacio y radio",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 600
+  },
+  {
+   "css": "--kino-quiebre-amplio",
+   "coleccion": "Espacio y radio",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 960
+  },
+  {
+   "css": "--kino-quiebre-extenso",
+   "coleccion": "Espacio y radio",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 1280
+  },
+  {
+   "css": "--kino-reticula-movil",
+   "coleccion": "Espacio y radio",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 4
+  },
+  {
+   "css": "--kino-reticula-tableta",
+   "coleccion": "Espacio y radio",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 8
+  },
+  {
+   "css": "--kino-reticula-web",
+   "coleccion": "Espacio y radio",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 12
+  },
+  {
+   "css": "--kino-reticula-presentacion",
+   "coleccion": "Espacio y radio",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 12
+  },
+  {
+   "css": "--kino-reticula-carta",
+   "coleccion": "Espacio y radio",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 6
+  },
+  {
+   "css": "--kino-contenedor-maximo",
+   "coleccion": "Espacio y radio",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 1152
+  },
+  {
+   "css": "--kino-contenedor-lectura",
+   "coleccion": "Espacio y radio",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 720
+  },
+  {
+   "css": "--kino-forma-radio-control",
+   "coleccion": "Espacio y radio",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 8
+  },
+  {
+   "css": "--kino-forma-radio-tarjeta",
+   "coleccion": "Espacio y radio",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 14
+  },
+  {
+   "css": "--kino-forma-radio-chip",
+   "coleccion": "Espacio y radio",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 4
+  },
+  {
+   "css": "--kino-forma-radio-pase-arco",
+   "coleccion": "Espacio y radio",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 999
+  },
+  {
+   "css": "--kino-forma-trazo-icono",
+   "coleccion": "Espacio y radio",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 1.7000000476837158
+  },
+  {
+   "css": "--kino-movimiento-curva-crecer",
+   "coleccion": "Movimiento",
+   "modo": "Valor",
+   "tipo": "STRING",
+   "valor": "cubic-bezier(0.16, 0.84, 0.3, 1)"
+  },
+  {
+   "css": "--kino-movimiento-curva-decaer",
+   "coleccion": "Movimiento",
+   "modo": "Valor",
+   "tipo": "STRING",
+   "valor": "cubic-bezier(0.62, 0.03, 0.86, 0.34)"
+  },
+  {
+   "css": "--kino-movimiento-curva-latir",
+   "coleccion": "Movimiento",
+   "modo": "Valor",
+   "tipo": "STRING",
+   "valor": "cubic-bezier(0.45, 0, 0.55, 1)"
+  },
+  {
+   "css": "--kino-movimiento-curva-cortina",
+   "coleccion": "Movimiento",
+   "modo": "Valor",
+   "tipo": "STRING",
+   "valor": "cubic-bezier(0.76, 0, 0.24, 1)"
+  },
+  {
+   "css": "--kino-movimiento-curva-revocar",
+   "coleccion": "Movimiento",
+   "modo": "Valor",
+   "tipo": "STRING",
+   "valor": "cubic-bezier(0.4, 0, 1, 1)"
+  },
+  {
+   "css": "--kino-movimiento-aparecer-duracion",
+   "coleccion": "Movimiento",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 820
+  },
+  {
+   "css": "--kino-movimiento-aparecer-curva",
+   "coleccion": "Movimiento",
+   "modo": "Valor",
+   "tipo": "STRING",
+   "valor": "cubic-bezier(0.16, 0.84, 0.3, 1)"
+  },
+  {
+   "css": "--kino-movimiento-aparecer-escalonado",
+   "coleccion": "Movimiento",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 90
+  },
+  {
+   "css": "--kino-movimiento-responder-duracion",
+   "coleccion": "Movimiento",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 240
+  },
+  {
+   "css": "--kino-movimiento-responder-curva",
+   "coleccion": "Movimiento",
+   "modo": "Valor",
+   "tipo": "STRING",
+   "valor": "cubic-bezier(0.16, 0.84, 0.3, 1)"
+  },
+  {
+   "css": "--kino-movimiento-caducar-duracion",
+   "coleccion": "Movimiento",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 900
+  },
+  {
+   "css": "--kino-movimiento-caducar-curva",
+   "coleccion": "Movimiento",
+   "modo": "Valor",
+   "tipo": "STRING",
+   "valor": "cubic-bezier(0.62, 0.03, 0.86, 0.34)"
+  },
+  {
+   "css": "--kino-movimiento-revocar-duracion",
+   "coleccion": "Movimiento",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 240
+  },
+  {
+   "css": "--kino-movimiento-revocar-curva",
+   "coleccion": "Movimiento",
+   "modo": "Valor",
+   "tipo": "STRING",
+   "valor": "cubic-bezier(0.4, 0, 1, 1)"
+  },
+  {
+   "css": "--kino-movimiento-latir-duracion",
+   "coleccion": "Movimiento",
+   "modo": "Valor",
+   "tipo": "FLOAT",
+   "valor": 1800
+  },
+  {
+   "css": "--kino-movimiento-latir-curva",
+   "coleccion": "Movimiento",
+   "modo": "Valor",
+   "tipo": "STRING",
+   "valor": "cubic-bezier(0.45, 0, 0.55, 1)"
+  },
+  {
+   "css": "--kino-texto-0",
+   "coleccion": "Tipografía",
+   "modo": "1440 px",
+   "tipo": "FLOAT",
+   "valor": 18
+  },
+  {
+   "css": "--kino-texto-0",
+   "coleccion": "Tipografía",
+   "modo": "360 px",
+   "tipo": "FLOAT",
+   "valor": 16
+  },
+  {
+   "css": "--kino-texto-1",
+   "coleccion": "Tipografía",
+   "modo": "1440 px",
+   "tipo": "FLOAT",
+   "valor": 22.68000030517578
+  },
+  {
+   "css": "--kino-texto-1",
+   "coleccion": "Tipografía",
+   "modo": "360 px",
+   "tipo": "FLOAT",
+   "valor": 19.200000762939453
+  },
+  {
+   "css": "--kino-texto-2",
+   "coleccion": "Tipografía",
+   "modo": "1440 px",
+   "tipo": "FLOAT",
+   "valor": 28.579999923706055
+  },
+  {
+   "css": "--kino-texto-2",
+   "coleccion": "Tipografía",
+   "modo": "360 px",
+   "tipo": "FLOAT",
+   "valor": 23.040000915527344
+  },
+  {
+   "css": "--kino-texto-3",
+   "coleccion": "Tipografía",
+   "modo": "1440 px",
+   "tipo": "FLOAT",
+   "valor": 36.0099983215332
+  },
+  {
+   "css": "--kino-texto-3",
+   "coleccion": "Tipografía",
+   "modo": "360 px",
+   "tipo": "FLOAT",
+   "valor": 27.649999618530273
+  },
+  {
+   "css": "--kino-texto-4",
+   "coleccion": "Tipografía",
+   "modo": "1440 px",
+   "tipo": "FLOAT",
+   "valor": 45.369998931884766
+  },
+  {
+   "css": "--kino-texto-4",
+   "coleccion": "Tipografía",
+   "modo": "360 px",
+   "tipo": "FLOAT",
+   "valor": 33.18000030517578
+  },
+  {
+   "css": "--kino-texto-5",
+   "coleccion": "Tipografía",
+   "modo": "1440 px",
+   "tipo": "FLOAT",
+   "valor": 57.16999816894531
+  },
+  {
+   "css": "--kino-texto-5",
+   "coleccion": "Tipografía",
+   "modo": "360 px",
+   "tipo": "FLOAT",
+   "valor": 39.810001373291016
+  },
+  {
+   "css": "--kino-texto-6",
+   "coleccion": "Tipografía",
+   "modo": "1440 px",
+   "tipo": "FLOAT",
+   "valor": 72.02999877929688
+  },
+  {
+   "css": "--kino-texto-6",
+   "coleccion": "Tipografía",
+   "modo": "360 px",
+   "tipo": "FLOAT",
+   "valor": 47.779998779296875
+  },
+  {
+   "css": "--kino-texto-n1",
+   "coleccion": "Tipografía",
+   "modo": "1440 px",
+   "tipo": "FLOAT",
+   "valor": 14.289999961853027
+  },
+  {
+   "css": "--kino-texto-n1",
+   "coleccion": "Tipografía",
+   "modo": "360 px",
+   "tipo": "FLOAT",
+   "valor": 13.329999923706055
+  },
+  {
+   "css": "--kino-fuente-display",
+   "coleccion": "Tipografía",
+   "modo": "1440 px",
+   "tipo": "STRING",
+   "valor": "Archivo"
+  },
+  {
+   "css": "--kino-fuente-display",
+   "coleccion": "Tipografía",
+   "modo": "360 px",
+   "tipo": "STRING",
+   "valor": "Archivo"
+  },
+  {
+   "css": "--kino-fuente-texto",
+   "coleccion": "Tipografía",
+   "modo": "1440 px",
+   "tipo": "STRING",
+   "valor": "Archivo"
+  },
+  {
+   "css": "--kino-fuente-texto",
+   "coleccion": "Tipografía",
+   "modo": "360 px",
+   "tipo": "STRING",
+   "valor": "Archivo"
+  },
+  {
+   "css": "--kino-fuente-dato",
+   "coleccion": "Tipografía",
+   "modo": "1440 px",
+   "tipo": "STRING",
+   "valor": "JetBrains Mono"
+  },
+  {
+   "css": "--kino-fuente-dato",
+   "coleccion": "Tipografía",
+   "modo": "360 px",
+   "tipo": "STRING",
+   "valor": "JetBrains Mono"
+  },
+  {
+   "css": "--kino-ancho-titular",
+   "coleccion": "Tipografía",
+   "modo": "1440 px",
+   "tipo": "FLOAT",
+   "valor": 112
+  },
+  {
+   "css": "--kino-ancho-titular",
+   "coleccion": "Tipografía",
+   "modo": "360 px",
+   "tipo": "FLOAT",
+   "valor": 112
+  },
+  {
+   "css": "--kino-ancho-texto",
+   "coleccion": "Tipografía",
+   "modo": "1440 px",
+   "tipo": "FLOAT",
+   "valor": 100
+  },
+  {
+   "css": "--kino-ancho-texto",
+   "coleccion": "Tipografía",
+   "modo": "360 px",
+   "tipo": "FLOAT",
+   "valor": 100
+  },
+  {
+   "css": "--kino-peso-texto",
+   "coleccion": "Tipografía",
+   "modo": "1440 px",
+   "tipo": "FLOAT",
+   "valor": 400
+  },
+  {
+   "css": "--kino-peso-texto",
+   "coleccion": "Tipografía",
+   "modo": "360 px",
+   "tipo": "FLOAT",
+   "valor": 400
+  },
+  {
+   "css": "--kino-peso-medio",
+   "coleccion": "Tipografía",
+   "modo": "1440 px",
+   "tipo": "FLOAT",
+   "valor": 500
+  },
+  {
+   "css": "--kino-peso-medio",
+   "coleccion": "Tipografía",
+   "modo": "360 px",
+   "tipo": "FLOAT",
+   "valor": 500
+  },
+  {
+   "css": "--kino-peso-titulo",
+   "coleccion": "Tipografía",
+   "modo": "1440 px",
+   "tipo": "FLOAT",
+   "valor": 700
+  },
+  {
+   "css": "--kino-peso-titulo",
+   "coleccion": "Tipografía",
+   "modo": "360 px",
+   "tipo": "FLOAT",
+   "valor": 700
+  },
+  {
+   "css": "--kino-peso-display",
+   "coleccion": "Tipografía",
+   "modo": "1440 px",
+   "tipo": "FLOAT",
+   "valor": 800
+  },
+  {
+   "css": "--kino-peso-display",
+   "coleccion": "Tipografía",
+   "modo": "360 px",
+   "tipo": "FLOAT",
+   "valor": 800
+  },
+  {
+   "css": "--kino-interlinea-display",
+   "coleccion": "Tipografía",
+   "modo": "1440 px",
+   "tipo": "FLOAT",
+   "valor": 1.0399999618530273
+  },
+  {
+   "css": "--kino-interlinea-display",
+   "coleccion": "Tipografía",
+   "modo": "360 px",
+   "tipo": "FLOAT",
+   "valor": 1.0399999618530273
+  },
+  {
+   "css": "--kino-interlinea-titulo",
+   "coleccion": "Tipografía",
+   "modo": "1440 px",
+   "tipo": "FLOAT",
+   "valor": 1.159999966621399
+  },
+  {
+   "css": "--kino-interlinea-titulo",
+   "coleccion": "Tipografía",
+   "modo": "360 px",
+   "tipo": "FLOAT",
+   "valor": 1.159999966621399
+  },
+  {
+   "css": "--kino-interlinea-texto",
+   "coleccion": "Tipografía",
+   "modo": "1440 px",
+   "tipo": "FLOAT",
+   "valor": 1.600000023841858
+  },
+  {
+   "css": "--kino-interlinea-texto",
+   "coleccion": "Tipografía",
+   "modo": "360 px",
+   "tipo": "FLOAT",
+   "valor": 1.600000023841858
+  },
+  {
+   "css": "--kino-interlinea-dato",
+   "coleccion": "Tipografía",
+   "modo": "1440 px",
+   "tipo": "FLOAT",
+   "valor": 1.2999999523162842
+  },
+  {
+   "css": "--kino-interlinea-dato",
+   "coleccion": "Tipografía",
+   "modo": "360 px",
+   "tipo": "FLOAT",
+   "valor": 1.2999999523162842
+  },
+  {
+   "css": "--kino-tracking-display",
+   "coleccion": "Tipografía",
+   "modo": "1440 px",
+   "tipo": "FLOAT",
+   "valor": -0.019999999552965164
+  },
+  {
+   "css": "--kino-tracking-display",
+   "coleccion": "Tipografía",
+   "modo": "360 px",
+   "tipo": "FLOAT",
+   "valor": -0.019999999552965164
+  },
+  {
+   "css": "--kino-tracking-texto",
+   "coleccion": "Tipografía",
+   "modo": "1440 px",
+   "tipo": "FLOAT",
+   "valor": 0
+  },
+  {
+   "css": "--kino-tracking-texto",
+   "coleccion": "Tipografía",
+   "modo": "360 px",
+   "tipo": "FLOAT",
+   "valor": 0
+  },
+  {
+   "css": "--kino-tracking-dato",
+   "coleccion": "Tipografía",
+   "modo": "1440 px",
+   "tipo": "FLOAT",
+   "valor": 0.03999999910593033
+  },
+  {
+   "css": "--kino-tracking-dato",
+   "coleccion": "Tipografía",
+   "modo": "360 px",
+   "tipo": "FLOAT",
+   "valor": 0.03999999910593033
+  },
+  {
+   "css": "--kino-tracking-placa",
+   "coleccion": "Tipografía",
+   "modo": "1440 px",
+   "tipo": "FLOAT",
+   "valor": 0.05999999865889549
+  },
+  {
+   "css": "--kino-tracking-placa",
+   "coleccion": "Tipografía",
+   "modo": "360 px",
+   "tipo": "FLOAT",
+   "valor": 0.05999999865889549
+  },
+  {
+   "css": "--kino-tracking-etiqueta",
+   "coleccion": "Tipografía",
+   "modo": "1440 px",
+   "tipo": "FLOAT",
+   "valor": 0.07999999821186066
+  },
+  {
+   "css": "--kino-tracking-etiqueta",
+   "coleccion": "Tipografía",
+   "modo": "360 px",
+   "tipo": "FLOAT",
+   "valor": 0.07999999821186066
+  },
+  {
+   "css": "--kino-columna-texto",
+   "coleccion": "Tipografía",
+   "modo": "1440 px",
+   "tipo": "FLOAT",
+   "valor": 62
+  },
+  {
+   "css": "--kino-columna-texto",
+   "coleccion": "Tipografía",
+   "modo": "360 px",
+   "tipo": "FLOAT",
+   "valor": 62
+  },
+  {
+   "css": "--kino-columna-corta",
+   "coleccion": "Tipografía",
+   "modo": "1440 px",
+   "tipo": "FLOAT",
+   "valor": 42
+  },
+  {
+   "css": "--kino-columna-corta",
+   "coleccion": "Tipografía",
+   "modo": "360 px",
+   "tipo": "FLOAT",
+   "valor": 42
+  },
+  {
+   "css": "--kino-accion-fondo",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#00D595"
+  },
+  {
+   "css": "--kino-accion-fondo",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#006343"
+  },
+  {
+   "css": "--kino-accion-fondo-activo",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#00EAA5"
+  },
+  {
+   "css": "--kino-accion-fondo-activo",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#005036"
+  },
+  {
+   "css": "--kino-accion-texto",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#00140C"
+  },
+  {
+   "css": "--kino-accion-texto",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#EFFCF7"
+  },
+  {
+   "css": "--kino-marca-bloque",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#EFFCF7"
+  },
+  {
+   "css": "--kino-marca-bloque",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#00140C"
+  },
+  {
+   "css": "--kino-marca-gota",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#00BB83"
+  },
+  {
+   "css": "--kino-marca-gota",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#006343"
+  },
+  {
+   "css": "--kino-estado-previsto-fondo",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#092D93"
+  },
+  {
+   "css": "--kino-estado-previsto-fondo",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#EFFCF7"
+  },
+  {
+   "css": "--kino-estado-previsto-texto",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#CCDDFE"
+  },
+  {
+   "css": "--kino-estado-previsto-texto",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#244EB5"
+  },
+  {
+   "css": "--kino-estado-previsto-borde",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#B6CEFF"
+  },
+  {
+   "css": "--kino-estado-previsto-borde",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#406ED7"
+  },
+  {
+   "css": "--kino-estado-usado-fondo",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#0B2A20"
+  },
+  {
+   "css": "--kino-estado-usado-fondo",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#E5F3ED"
+  },
+  {
+   "css": "--kino-estado-usado-texto",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#E5F3ED"
+  },
+  {
+   "css": "--kino-estado-usado-texto",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#17362B"
+  },
+  {
+   "css": "--kino-estado-usado-borde",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#86A799"
+  },
+  {
+   "css": "--kino-estado-usado-borde",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#6A7671"
+  },
+  {
+   "css": "--kino-estado-revocado-fondo",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#0B2A20"
+  },
+  {
+   "css": "--kino-estado-revocado-fondo",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#E5F3ED"
+  },
+  {
+   "css": "--kino-estado-revocado-texto",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#FEC6C0"
+  },
+  {
+   "css": "--kino-estado-revocado-texto",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#910014"
+  },
+  {
+   "css": "--kino-estado-revocado-borde",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#86A799"
+  },
+  {
+   "css": "--kino-estado-revocado-borde",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#6A7671"
+  },
+  {
+   "css": "--kino-estado-rechazado-fondo",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#79000F"
+  },
+  {
+   "css": "--kino-estado-rechazado-fondo",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#FFBEB8"
+  },
+  {
+   "css": "--kino-estado-rechazado-texto",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#FED6D2"
+  },
+  {
+   "css": "--kino-estado-rechazado-texto",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#00140C"
+  },
+  {
+   "css": "--kino-estado-rechazado-borde",
+   "coleccion": "Color",
+   "modo": "Oscuro",
+   "tipo": "COLOR",
+   "valor": "#FFBEB8"
+  },
+  {
+   "css": "--kino-estado-rechazado-borde",
+   "coleccion": "Color",
+   "modo": "Claro",
+   "tipo": "COLOR",
+   "valor": "#CE3F3F"
+  }
+ ],
+ "estilosDeEfecto": [
+  {
+   "css": "--kino-resplandor-vigente",
+   "estilo": "Resplandor/vigente · oscuro",
+   "modo": "oscuro",
+   "valor": "0 0 0 1px #009467, 0 0 28px -8px #00EAA5",
+   "ligados": [
+    "color/biolum/d45",
+    "color/biolum/d110"
+   ]
+  },
+  {
+   "css": "--kino-resplandor-vigente",
+   "estilo": "Resplandor/vigente · claro",
+   "modo": "claro",
+   "valor": "0 0 0 1px #00845B, 0 0 22px -10px #00845B",
+   "ligados": [
+    "color/biolum/l45",
+    "color/biolum/l45"
+   ]
+  },
+  {
+   "css": "--kino-resplandor-identidad",
+   "estilo": "Resplandor/identidad · oscuro",
+   "modo": "oscuro",
+   "valor": "0 0 0 1px #8170EC, 0 0 28px -8px #CAC9FF",
+   "ligados": [
+    "color/violeta/d45",
+    "color/violeta/d110"
+   ]
+  },
+  {
+   "css": "--kino-resplandor-identidad",
+   "estilo": "Resplandor/identidad · claro",
+   "modo": "claro",
+   "valor": "0 0 0 1px #7360DB, 0 0 22px -10px #7360DB",
+   "ligados": [
+    "color/violeta/l45",
+    "color/violeta/l45"
+   ]
+  },
+  {
+   "css": "--kino-relieve-membrana",
+   "estilo": "Relieve/membrana · oscuro",
+   "modo": "oscuro",
+   "valor": "inset 0 1px 0 0 #2A483D, 0 12px 32px -20px #000000",
+   "ligados": [
+    "color/sustrato/500",
+    "color/fijo/negro"
+   ]
+  },
+  {
+   "css": "--kino-relieve-membrana",
+   "estilo": "Relieve/membrana · claro",
+   "modo": "claro",
+   "valor": "inset 0 1px 0 0 #FFFFFF, 0 10px 26px -20px #0B201A",
+   "ligados": [
+    "color/fijo/blanco",
+    "color/fijo/sombra-claro"
+   ]
+  }
+ ],
+ "componentesSinLigar": [],
+ "auditoriaPinturas": {
+  "fecha": "2026-09-25",
+  "paginas": 14,
+  "pinturasSinVariable": 0,
+  "como": "js/p4-auditoria-y-exportacion.js: rellenos y trazos SOLID sin variable ligada, todas las páginas salvo Referencias"
+ },
+ "diferencias": []
+}

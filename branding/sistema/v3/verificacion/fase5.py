@@ -73,10 +73,12 @@ figma_txt = ''
 falta_fig = []
 if len(sys.argv) > 1 and pathlib.Path(sys.argv[1]).exists():
     fig = json.loads(pathlib.Path(sys.argv[1]).read_text(encoding='utf8'))
-    en_fig = {v['css'] for v in fig['variables']}
+    # Las sombras van como estilos de efecto: Figma no guarda sombras en variables.
+    en_fig = {v['css'] for v in fig['variables']} | {e['css'] for e in fig.get('estilosDeEfecto', [])}
     falta_fig = sorted(dtcg - en_fig)
-    difer = [v['css'] for v in fig['variables'] if v.get('valor') and v['css'] in dtcg and v.get('valor', '').upper() != (resu['temas']['oscuro'].get(v['css'][2:]) or resu['primitivos'].get(v['css'][2:], '')).upper() and v.get('modo', 'Oscuro') == 'Oscuro' and v.get('tipo') == 'COLOR']
-    figma_txt = f' · Figma: {len(en_fig)} variables, {len(falta_fig)} tokens sin variable, {len(difer)} colores distintos'
+    # La exportación (figma/exportar_variables.py) ya compara los dos modos, los números y las cadenas.
+    difer = list(fig['diferencias']) if 'diferencias' in fig else [v['css'] for v in fig['variables'] if v.get('tipo') == 'COLOR' and v.get('modo', 'Oscuro') == 'Oscuro' and v['css'] in dtcg and str(v.get('valor', '')).upper() != str(resu['temas']['oscuro'].get(v['css'][2:]) or resu['primitivos'].get(v['css'][2:], '')).upper()]
+    figma_txt = f' · Figma: {len(fig["variables"]) and len({v["css"] for v in fig["variables"]})} variables y {len({e["css"] for e in fig.get("estilosDeEfecto", [])})} estilos de efecto, {len(falta_fig)} tokens sin variable, {len(difer)} valores distintos (color en los dos modos, números y cadenas)'
     falta_fig += difer
 else:
     figma_txt = ' · Figma: sin exportar (pasa variables-figma.json)'
