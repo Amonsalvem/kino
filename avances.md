@@ -4,7 +4,7 @@ Bitácora del encargo «de borrador a sistema completo». Si una sesión nueva e
 
 ## Estado actual
 
-**PARADA 4, segunda vuelta, pendiente** (25 sep). Nico aprobó 1.0.0 salvo Figma y respondió 2A, 3A, 4B, 5B. Faltan dos aprobaciones: Figma revisada y la identidad aplicada al sitio (F4-P4). Lámina: `parada-4b.html` · https://claude.ai/artifact/Bn6AaiChNchG5dhx7BjtQ1
+**PARADA 4, tercera vuelta, pendiente** (25 sep). La 1.1.0 está aprobada (Figma y F4-P4 A) y el artefacto oficial la tiene. La 1.2.0 propone pantallas con la jerarquía del Pase (F4-P5) y el mensaje de alta fallida en HikCentral (F4-P6). Lámina: `parada-4c.html` · https://claude.ai/artifact/NXuGd6VQc7k6Fqqi9pciZZ
 
 | # | Departamento | Estado | Nota |
 |---|---|---|---|
@@ -17,11 +17,11 @@ Bitácora del encargo «de borrador a sistema completo». Si una sesión nueva e
 | 7 | Imagen | Aprobado (1.0.0) | Aurora y tejido celular |
 | 8 | Estructura | Aprobado (1.0.0) | Retículas, espacio, radios, elevación, quiebres |
 | 9 | Motion | Aprobado (1.0.0) | 13 animaciones, motor en vivo |
-| 10 | Producto | Aprobado (1.0.0); ícono en chips (F4-P3) | Componentes, 5 pantallas, WCAG |
+| 10 | Producto | Aprobado (1.1.0); pantallas con la jerarquía del Pase en revisión (F4-P5) | Componentes, 5 pantallas, WCAG |
 | 11 | Aplicaciones | Aprobado (1.0.0) | 15 piezas; Pase vivo vencido sin botón (F4-P1) |
 | 12 | Gobernanza | Aprobado (1.0.0) | Registro, revisión, 17 pendientes, descargas |
-| — | Sitio | 1.0.0 aprobado; identidad aplicada (F4-P4) en revisión | `Kino_Sistema_de_marca.html` · vista previa 1.1.0 https://claude.ai/artifact/NnuVUWwUdgk34VHkj3H5Rd |
-| — | Figma | En revisión (segunda vuelta) | 271 variables iguales a DTCG; auto-layout y espaciado revisados en 14 páginas |
+| — | Sitio | 1.1.0 aprobado y publicado en el oficial; 1.2.0 en revisión | `Kino_Sistema_de_marca.html` · vista previa 1.2.0 https://claude.ai/artifact/W5U4Nw4AeZMpM7QZ4gsXcH |
+| — | Figma | 1.1.0 aprobada; pantallas 1.2.0 en revisión | 271 variables iguales a DTCG; componente nuevo Pase en lista; pantallas 1.1.0 en su sección |
 
 ## Fase 0 · Diagnóstico (cerrada)
 - `auditoria.md`: 90 elementos; 10 completos, 39 superficiales, 41 faltan.
@@ -86,14 +86,17 @@ En arquitectura faltaba:
 - Parada 1 (lámina): https://claude.ai/artifact/EuPrHetctevY4PGiVAohiM · copia en `kino/parada-1.html`
 - Parada 4 (lámina): https://claude.ai/artifact/DBF7w1VTGPtJ9oQwdz4tXa · copia en `kino/parada-4.html`
 - Parada 4b (segunda vuelta): https://claude.ai/artifact/Bn6AaiChNchG5dhx7BjtQ1 · copia en `kino/parada-4b.html`
+- Parada 4c (tercera vuelta, 1.2.0): https://claude.ai/artifact/NXuGd6VQc7k6Fqqi9pciZZ · copia en `kino/parada-4c.html`
+- Vista previa del sitio 1.2.0: https://claude.ai/artifact/W5U4Nw4AeZMpM7QZ4gsXcH
+- Artefacto oficial (1.1.0, versión 4): https://claude.ai/artifact/K8R2PRduS6SHBKYU31Bo6L
 - Vista previa del sitio 1.1.0: https://claude.ai/artifact/NnuVUWwUdgk34VHkj3H5Rd
 - Vista previa del sitio 1.0.0: https://claude.ai/artifact/AJey2DjrB4K8oo92fn6pfg
-- Vista previa del sitio v3: https://claude.ai/artifact/NGW6EEiRghDxq4uFzvsjBa (el artefacto oficial K8R2PRduS6SHBKYU31Bo6L no se toca hasta aprobar la Parada 4)
+- Vista previa del sitio v3: https://claude.ai/artifact/NGW6EEiRghDxq4uFzvsjBa
 - Figma: https://www.figma.com/design/BO7UnDO9iE0aG6yUpNj0bc
 
 ## Siguiente paso
-1. Nico responde las tres preguntas de `parada-4b.html`: Figma revisada, F4-P4 (A así o B más sobria) y el texto del error de HikCentral.
-2. Al aprobar 1 y 2: aplicar la respuesta, reconstruir, verificar y republicar el artefacto oficial leyéndolo primero (ver §9 del traspaso).
+1. Nico responde las dos preguntas de `parada-4c.html`: F4-P5 (A con grupos Ahora y Próximos, o B con pestañas) y F4-P6 (A mensaje genérico o B quitar la fila).
+2. Al aprobar la 1.2.0: aplicar la respuesta, reconstruir, verificar y republicar el artefacto oficial leyéndolo primero (ver §9 del traspaso).
 
 ## Fase 2 · Verbal (23 sep)
 - Fuente única: `branding/sistema/v3/sitio/verbal.py`. Genera la sección 02, `guia-de-contenido.md`, `ux-writing.md` y la verificación de largo.
@@ -159,3 +162,13 @@ En arquitectura faltaba:
 - **Verificación:** 10 de 10. Detector de IA, ciclo 4: 1 señal, 0 en el microcopy, **PASA**.
 - **Lámina:** `parada-4b.html` · https://claude.ai/artifact/Bn6AaiChNchG5dhx7BjtQ1. El artefacto oficial sigue sin republicarse.
 
+## Parada 4b · respuesta y tercera vuelta (25 sep)
+- **Respuesta de Nico:** aprueba Figma; F4-P4 A. Pide que las pantallas tomen la jerarquía de las piezas del Pase («toda la información igual se vuelve compleja de leer»). No entendió la pregunta de HikCentral: la visita no debía pedir correo.
+- **Aplicado:**
+  - 1.1.0 aprobada en `decisiones.md`, en Gobernanza, en el Registro de cambios de Figma y en el Léeme; artefacto oficial republicado (versión 4, con descargas);
+  - título de `parada-4b.html` legible en tema claro;
+  - F4-P5: cinco niveles (manda, vigencia, rótulo, grupo, acción) en Lista, Crear Pase, Detalle, Acceso por código y Límites. En el sitio (`deptos/d10_producto.py`, `deptos.css`) y en Figma (página Pantallas, componente Pase en lista). Las pantallas de la 1.1.0 quedan en `_obsoleto/d10_producto-2026-09-25.py` y en una sección de la página Pantallas;
+  - «Entrar» pasa al botón secundario (X4); los rótulos pequeños, a texto secundario;
+  - F4-P6: la fila de HikCentral explicada en la lámina, con dos opciones.
+- **Verificación:** 10 de 10; 132 mediciones de contraste sin fallos (6 pares nuevos); voz 0; Figma 0 hallazgos de layout en Pantallas y Componentes; lámina sin desborde en 360, 768 y 1440 px.
+- **Lámina:** `parada-4c.html` · https://claude.ai/artifact/NXuGd6VQc7k6Fqqi9pciZZ. Vista previa 1.2.0: https://claude.ai/artifact/W5U4Nw4AeZMpM7QZ4gsXcH.
