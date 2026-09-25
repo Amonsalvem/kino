@@ -84,7 +84,7 @@ def _crear():
          + '<div class="pt-dias" role="radiogroup" aria-label="Día"><span aria-checked="true">Hoy</span><span aria-checked="false">Mañana</span><span aria-checked="false">Otro día</span></div>'
          '<span class="pt-hora kino-dato">2:00 <i aria-hidden="true">→</i> 6:00 p. m.</span></div>'
          '<div class="pt-fila">' + _rot('Placa · opcional') + '<span class="pt-valor kino-dato">KMN 305</span></div></div>'
-         f'<p class="pt-nota">{_ic("reloj")}Las visitas entran de 6:00 a. m. a 10:00 p. m.</p>')
+         f'<p class="pt-nota">{_ic("limites")}Las visitas entran de 6:00 a. m. a 10:00 p. m.</p>')
     return movil('Crear Pase', c, '<button class="kino-accion ancho" type="button" tabindex="-1">Crear Pase</button>')
 
 

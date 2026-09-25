@@ -39,6 +39,23 @@ Scripts: `js/p5-auditoria-layout.js` y `js/p5-auditoria-tamanos.js` (diagnóstic
 
 Las sombras (`--kino-relieve-membrana`, `--kino-resplandor-vigente`, `--kino-resplandor-identidad`) son estilos de efecto porque Figma no guarda sombras en variables. Sus colores sí van ligados a Primitivos.
 
+## Pantallas con la jerarquía del Pase (1.2.0, propuesta F4-P5)
+
+Nico aprobó la librería y pidió que las pantallas tomen la jerarquía de las piezas del Pase. Cada pantalla se armó con auto-layout y variables:
+
+| Nivel | En Figma |
+|---|---|
+| 1 · Manda | Archivo ExtraBold ligado a `texto/2` (nombre, título) |
+| 2 · Vigencia | JetBrains Mono con el color `estado/<estado>/texto` |
+| 3 · Rótulo | JetBrains Mono Medium 12, mayúsculas, 8 % de tracking, `texto/secundario` |
+| 4 · Grupo | Marco en `superficie/elevada`, radio `forma/radio/tarjeta`, borde `borde/tenue` |
+| 5 · Acción | Instancia de Botón de acción solo en Crear Pase; Botón secundario en Extender, Entrar y Guardar límites |
+
+- Componente nuevo **Pase en lista** (4 estados, propiedades de texto Tipo, Nombre y Vigencia). La barra de vida llena el ancho y escala.
+- Las pantallas de teléfono usan el modo 360 px de Tipografía; Límites, el de 1440 px. Alto automático con mínimo de 780.
+- La aurora (clon de la de la página Imagen) está solo en la cabecera de la Lista, que es la pantalla de inicio.
+- Verificación (`js/p5-verificar-layout.js`) en Pantallas y Componentes: 0 marcos sin auto-layout, 0 espacios sin variable, 0 desbordes, 0 filas desiguales, 0 solapes. 0 pinturas sin variable en las cinco pantallas nuevas.
+
 ## Páginas
 
 | Página | Qué tiene |
@@ -53,8 +70,8 @@ Las sombras (`--kino-relieve-membrana`, `--kino-resplandor-vigente`, `--kino-res
 | Imagen | Aurora, células, fondos |
 | Estructura | Retículas, espaciado, radios, elevación, quiebres |
 | Motion (specs) | Duraciones, curvas y coreografías |
-| Componentes | Guía; componentes Icono/*, Logo/*; sets Botón de acción, Botón secundario, Campo, Selector de tipo, Estado (con ícono en Usado, Vencido y Revocado), Tarjeta de Pase |
-| Pantallas | Crear Pase, lista, detalle, límites, acceso por código |
+| Componentes | Guía; componentes Icono/*, Logo/*; sets Botón de acción, Botón secundario, Campo, Selector de tipo, Estado (con ícono en Usado, Vencido y Revocado), Tarjeta de Pase y Pase en lista (1.2.0) |
+| Pantallas | Lista de Pases (inicio), Crear Pase, Detalle, Acceso por código y Límites con la jerarquía del Pase (1.2.0, propuesta). Las de la 1.1.0 quedan en la sección «Pantallas 1.1.0» de la misma página |
 | Aplicaciones / Plantillas | Seis plantillas para duplicar |
-| Registro de cambios | Versiones 0.0 a 1.1.0 |
+| Registro de cambios | Versiones 0.0 a 1.2.0 |
 | Referencias | La librería anterior, sin cambios |
