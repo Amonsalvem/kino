@@ -35,6 +35,7 @@ Condición de cierre del encargo:
 | 1 | 17 | 1 | Plataforma (5), Imagen (3), Voz (2), Iconografía (2) | FALLA |
 | 2 | 12 | 0 | Plataforma (4), Imagen (2) | FALLA |
 | 3 | 8 | 1 (débil) | Motion (3), Plataforma (2) | FALLA |
+| 4 | 1 | 0 | ninguna | **PASA** |
 
 **Qué se corrigió en cada ciclo**
 - Antítesis «X, nunca Y».
@@ -51,7 +52,15 @@ Condición de cierre del encargo:
 - Verbal, 1: el lector frío.
 - El ejemplo comercial marcado como microcopy débil.
 
-El encargo fija un máximo de 3 ciclos. Por eso esas correcciones **no se volvieron a evaluar**. La condición del detector queda **sin verificar** y se reporta como FALLA con su causa: la última medición es la del ciclo 3.
+El encargo fija un máximo de 3 ciclos. Por eso esas correcciones no se volvieron a evaluar en la Fase 5, y la Parada 4 reportó el detector como FALLA.
+
+**Ciclo 4 (25 sep, autorizado por Nico en la respuesta a la Parada 4).** Se corrió con la muestra regenerada desde el sitio con la identidad aplicada (F4-P4), con el mismo prompt.
+- Resultado: 1 señal, 0 secciones con más de una, 0 microcopy marcado. **PASA**.
+- La señal: el titular «43 carros permitidos en la app, uno en la puerta» (dos mitades paralelas). Se deja: la cifra es el hallazgo (observado en `inspeccion/diagnostico-inspeccion.md`: 44 registrados, 43 «permitidos», 1 en el sistema físico).
+- Tendencia a vigilar: el contraste en dos mitades aparece una vez como señal y tres veces como caso límite (Plataforma, Color, Estructura).
+- Observaciones que no son de voz, llevadas a la lámina de revisión:
+  - «HikCentral rechazó el registro porque falta el correo. Los Pases no deben crear personas.» suena a regla interna.
+  - «Confirmada · Por confirmar» convive con «Vigente · Sin confirmar»; son objetos distintos, pero conviene decidir la pareja a propósito.
 
 **Patrón que el detector nombró y no se corrigió del todo.** Hay titulares en dos mitades paralelas, por ejemplo «Radio 14 en tarjetas, 8 en controles, el arco solo en el Pase». Cada uno lleva datos, pero juntos forman un tic. Se cambiaron tres; quedan varios.
 

@@ -4,24 +4,24 @@ Bitácora del encargo «de borrador a sistema completo». Si una sesión nueva e
 
 ## Estado actual
 
-**PARADA 4 pendiente de aprobación** (25 sep). Paradas 1, 2 y 3 aprobadas. Lámina: `parada-4.html` · https://claude.ai/artifact/DBF7w1VTGPtJ9oQwdz4tXa
+**PARADA 4, segunda vuelta, pendiente** (25 sep). Nico aprobó 1.0.0 salvo Figma y respondió 2A, 3A, 4B, 5B. Faltan dos aprobaciones: Figma revisada y la identidad aplicada al sitio (F4-P4). Lámina: `parada-4b.html` · https://claude.ai/artifact/Bn6AaiChNchG5dhx7BjtQ1
 
 | # | Departamento | Estado | Nota |
 |---|---|---|---|
 | 1 | Plataforma | Aprobada (Parada 1) | |
-| 2 | Verbal | Aprobada (Parada 2) | Aviso de llegada en conflicto con `voz.json`: F4-P2 |
-| 3 | Logo | Construido · en revisión | SVG reconstruidos desde PNG (98 %) |
-| 4 | Color | Construido · en revisión | 7 familias, 9 estados, 112 mediciones sin fallos |
-| 5 | Tipografía | Construido · en revisión | Archivo al 112 %, JetBrains Mono |
-| 6 | Iconografía | Construido · en revisión | 37 íconos |
-| 7 | Imagen | Construido · en revisión | Aurora y tejido celular |
-| 8 | Estructura | Construido · en revisión | Retículas, espacio, radios, elevación, quiebres |
-| 9 | Motion | Construido · en revisión | 13 animaciones, motor en vivo |
-| 10 | Producto | Construido · en revisión | Componentes, 5 pantallas, WCAG |
-| 11 | Aplicaciones | Construido · en revisión | 15 piezas; F4-P1 en el Pase vivo vencido |
-| 12 | Gobernanza | Construido · en revisión | Registro, revisión, 17 pendientes, descargas |
-| — | Sitio | Definitivo · en revisión | `Kino_Sistema_de_marca.html` · vista previa https://claude.ai/artifact/AJey2DjrB4K8oo92fn6pfg |
-| — | Figma | Construido · en revisión | 270 variables iguales a DTCG, 15 páginas llenas |
+| 2 | Verbal | Aprobada (Parada 2) | Aviso de llegada: requisito del evento del lector (F4-P2) |
+| 3 | Logo | Aprobado (1.0.0) | SVG reconstruidos desde PNG (98 %) |
+| 4 | Color | Aprobado (1.0.0) | 7 familias, 9 estados, 112 mediciones sin fallos |
+| 5 | Tipografía | Aprobado (1.0.0) | Archivo al 112 %, JetBrains Mono |
+| 6 | Iconografía | Aprobado (1.0.0) | 37 íconos |
+| 7 | Imagen | Aprobado (1.0.0) | Aurora y tejido celular |
+| 8 | Estructura | Aprobado (1.0.0) | Retículas, espacio, radios, elevación, quiebres |
+| 9 | Motion | Aprobado (1.0.0) | 13 animaciones, motor en vivo |
+| 10 | Producto | Aprobado (1.0.0); ícono en chips (F4-P3) | Componentes, 5 pantallas, WCAG |
+| 11 | Aplicaciones | Aprobado (1.0.0) | 15 piezas; Pase vivo vencido sin botón (F4-P1) |
+| 12 | Gobernanza | Aprobado (1.0.0) | Registro, revisión, 17 pendientes, descargas |
+| — | Sitio | 1.0.0 aprobado; identidad aplicada (F4-P4) en revisión | `Kino_Sistema_de_marca.html` · vista previa 1.1.0 https://claude.ai/artifact/NnuVUWwUdgk34VHkj3H5Rd |
+| — | Figma | En revisión (segunda vuelta) | 271 variables iguales a DTCG; auto-layout y espaciado revisados en 14 páginas |
 
 ## Fase 0 · Diagnóstico (cerrada)
 - `auditoria.md`: 90 elementos; 10 completos, 39 superficiales, 41 faltan.
@@ -85,13 +85,15 @@ En arquitectura faltaba:
 ## Enlaces
 - Parada 1 (lámina): https://claude.ai/artifact/EuPrHetctevY4PGiVAohiM · copia en `kino/parada-1.html`
 - Parada 4 (lámina): https://claude.ai/artifact/DBF7w1VTGPtJ9oQwdz4tXa · copia en `kino/parada-4.html`
+- Parada 4b (segunda vuelta): https://claude.ai/artifact/Bn6AaiChNchG5dhx7BjtQ1 · copia en `kino/parada-4b.html`
+- Vista previa del sitio 1.1.0: https://claude.ai/artifact/NnuVUWwUdgk34VHkj3H5Rd
 - Vista previa del sitio 1.0.0: https://claude.ai/artifact/AJey2DjrB4K8oo92fn6pfg
 - Vista previa del sitio v3: https://claude.ai/artifact/NGW6EEiRghDxq4uFzvsjBa (el artefacto oficial K8R2PRduS6SHBKYU31Bo6L no se toca hasta aprobar la Parada 4)
 - Figma: https://www.figma.com/design/BO7UnDO9iE0aG6yUpNj0bc
 
 ## Siguiente paso
-1. Nico responde las cinco preguntas de la Parada 4 (`parada-4.html`).
-2. Al aprobar, seguir la lista de §9 del traspaso: aplicar F4-P1 y F4-P2, corregir las tres observaciones del lector frío, marcar 1.0.0 como aprobada, verificar y republicar el artefacto oficial leyéndolo primero.
+1. Nico responde las tres preguntas de `parada-4b.html`: Figma revisada, F4-P4 (A así o B más sobria) y el texto del error de HikCentral.
+2. Al aprobar 1 y 2: aplicar la respuesta, reconstruir, verificar y republicar el artefacto oficial leyéndolo primero (ver §9 del traspaso).
 
 ## Fase 2 · Verbal (23 sep)
 - Fuente única: `branding/sistema/v3/sitio/verbal.py`. Genera la sección 02, `guia-de-contenido.md`, `ux-writing.md` y la verificación de largo.
@@ -146,4 +148,14 @@ En arquitectura faltaba:
 - Vista previa del sitio 1.0.0: https://claude.ai/artifact/AJey2DjrB4K8oo92fn6pfg. Dentro del visor, el centro de descargas no baja archivos; al republicar el oficial hay que declarar la capacidad de descargas.
 - Propuestas nuevas en `decisiones.md`: F4-P1 (llamada desde el Pase vivo) y F4-P2 (aviso de llegada).
 - Defecto corregido: los PNG y el PDF del Pase se habían generado sin Archivo ni JetBrains Mono, porque Google Fonts no responde en el entorno. Las fuentes van incrustadas (`fuentes_incrustadas()` en `deptos/comun.py`) y las entregas se regeneraron. El PDF sigue en una página.
+
+## Parada 4 · respuesta y segunda vuelta (25 sep)
+- **Respuesta de Nico:** 1.0.0 aprobada salvo Figma y lo que se exporta de ella («especial atención en el auto-layout y spacing»); F4-P2 A; F4-P1 A; Vencido y Usado B; detector B. Pedido nuevo: aplicar la identidad al propio sitio.
+- **Aplicado:**
+  - Pase vivo vencido sin botón; aviso de llegada marcado como requisito; ícono de estado en Usado, Vencido y Revocado (F4-P3);
+  - las tres observaciones del lector frío;
+  - `sitio/identidad.css` (F4-P4): aurora en portada y aperturas, índigo en enlaces y rótulos, gota en el índice, relieve de membrana. Token nuevo `texto-enlace`: 120 mediciones sin fallos.
+- **Figma:** 111 textos a «llenar», 7 filas del mismo alto, 38 espacios ligados, 0 desbordes, 72 entre marcos. Detalle en `branding/sistema/v3/figma/LEEME.md`.
+- **Verificación:** 10 de 10. Detector de IA, ciclo 4: 1 señal, 0 en el microcopy, **PASA**.
+- **Lámina:** `parada-4b.html` · https://claude.ai/artifact/Bn6AaiChNchG5dhx7BjtQ1. El artefacto oficial sigue sin republicarse.
 

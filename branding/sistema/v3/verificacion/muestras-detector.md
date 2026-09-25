@@ -3,6 +3,8 @@
 
 ## Inicio (#inicio)
 - Reglas y archivos de cada pieza de Kino, con el porqué de cada regla. La pieza que más se usa es el Pase que le llega a una visita por WhatsApp.
+- Carolina Ruiz · Casa 14
+- El Pase de Andrés, como le llega por WhatsApp
 - El sistema de acceso de un conjunto residencial cerrado. El residente le entrega un Pase a quien espera y el lector de la entrada lo reconoce.
 - La administración del conjunto.
 - Lectura de placas, reconocimiento facial, cámaras y talanquera que el conjunto ya tiene, a través de HikCentral.
@@ -245,7 +247,7 @@
 - Carolina Ruiz · Casa 14
 - Mensaje de WhatsApp con el Pase Mensaje de 23 palabras Una frase, la imagen del Pase y el enlace al Pase vivo.
 - Pase QR (imagen) 1080 × 1350 px La imagen que se ve en el chat sin abrir nada. El QR vive en el arco del logo, sobre blanco.
-- Pase vivo 360 px La página del enlace. Dice si el Pase sigue sirviendo; en vencido ofrece llamar a quien lo dio.
+- Pase vivo 360 px La página del enlace. Dice si el Pase sigue sirviendo; en vencido dice a quién pedir uno nuevo. La llamada queda en portería.
 - Refugio Campestre
 - PDF del Pase Carta, 216 × 279 mm Para imprimir o para quien no usa WhatsApp. Siempre en claro.
 - Señalética de la entrada 60 × 40 cm Tres formas de entrar, leídas a dos metros. Abajo, qué pasa si el Pase venció.

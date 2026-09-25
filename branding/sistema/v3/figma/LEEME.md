@@ -27,8 +27,8 @@ Nico no aprobó la librería por el auto-layout y el espaciado. Se auditó y cor
 
 | Qué | Antes | Después |
 |---|---|---|
-| Textos de ancho fijo dentro del auto-layout | 107 | 0: llenan su contenedor, con ancho máximo igual al anterior para no perder la medida de lectura |
-| Filas de tarjetas con alto desigual | 8 | 0: la más alta abraza su contenido y las demás llenan ese alto |
+| Textos de ancho fijo dentro del auto-layout | 111 | 0: llenan su contenedor, con ancho máximo igual al anterior para no perder la medida de lectura |
+| Filas de tarjetas con alto desigual | 6, más la fila de capas de Elevación | 0: la más alta abraza su contenido y las demás llenan ese alto |
 | Espacios y paddings sin variable | 38 (Léeme con 80 de padding y 1200 de ancho; Portal con 102,4 y 51,2) | 0: todos ligados a un paso de la escala |
 | Hijos que se salen de su contenedor | botón de «Lista de Pases», fila de retículas, chips del registro, texto de elevación | 0 |
 | Separación entre marcos del lienzo | 40, 60, 80, 100 | 72 en todas las páginas |

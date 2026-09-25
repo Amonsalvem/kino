@@ -1,4 +1,11 @@
 {
-  "../../../branding/sistema/v3/sitio/texto-visible.md": [],
-  "../../../branding/sistema/v3/sitio/build/muestras-ux.md": []
+  "../../../branding/sistema/v3/parada4b/texto-visible.md": [
+    {
+      "linea": 190,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "LEEME",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    }
+  ]
 }
