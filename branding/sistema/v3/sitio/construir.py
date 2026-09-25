@@ -25,7 +25,10 @@ _b = R / '../../../../gorr-brand-system/clientes/kino/build'
 def _tema_local(archivo, clase):
     t = (_b / archivo).read_text(encoding='utf8') if (_b / archivo).exists() else ''
     return re.sub(r'^[^{]+\{', '.%s{' % clase, t, count=1)
-temas_locales = _tema_local('tema-oscuro.css', 'en-oscuro') + _tema_local('tema-claro.css', 'en-claro')
+# La portada y las aperturas llevan aurora: van siempre en tema oscuro local, también cuando la página está en claro (F4-P4).
+temas_locales = _tema_local('tema-oscuro.css', 'en-oscuro,.abre,.portada') + _tema_local('tema-claro.css', 'en-claro')
+from deptos.d07_imagen import AURORA
+from deptos import pase as _pase
 # Capa de componentes de la marca (kino-brand.css), sin los @import de fuentes autoalojadas.
 componentes = re.sub(r'^@import[^;]+;\s*$', '', (R / '../../capa-componentes.css').read_text(encoding='utf8'), flags=re.M)
 # Logo con la versión aprobada (X2): bloque en hueso y gota en acento. logo-h.svg (una tinta) queda como referencia.
@@ -33,6 +36,9 @@ from deptos.comun import logo as _logo
 logo_h = _logo('horizontal', etiqueta='Kino', clase=None)
 logo_mark = _logo('simbolo', etiqueta=None, clase=None)
 contenido_crudo = ''.join(leer(f'contenido/{f}') for f in ['00-inicio.html', '01-plataforma.html', '02-verbal.html', '03-12.html']).replace('{{LOGO_H}}', logo_h)
+contenido_crudo = contenido_crudo.replace('{{PASE}}', _pase.imagen('vigente'))
+# El número de la sección, grande y en contorno, dentro de la apertura (dato verdadero: el orden de las secciones).
+contenido_crudo = re.sub(r'(<header class="abre">\s*)(<p class="ojo">(\d\d) · )', r'\1<span class="abre-num" aria-hidden="true">\3</span>\2', contenido_crudo)
 # Espacios que no parten: horas, placas, códigos y teléfonos se leen como una unidad.
 NB = '\u00a0'
 def _nb(t):
@@ -51,7 +57,9 @@ cuerpo = f'''<title>Kino · Sistema de marca</title>
 {temas_locales}
 {componentes}
 {leer('sitio.css')}
-{leer('deptos.css')}</style>
+{leer('deptos.css')}
+:root{{--s-aurora:{AURORA}}}
+{leer('identidad.css')}</style>
 <a class="saltar" href="#contenido">Saltar al contenido</a>
 {sprite}
 <div class="progreso" aria-hidden="true"><i></i></div>

@@ -560,6 +560,46 @@
     "pasa": true
   },
   {
+    "tema": "oscuro",
+    "que": "texto enlace sobre base",
+    "wcag": 12.69,
+    "apcaLc": -84,
+    "min": 4.5,
+    "apcaMin": 75,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "oscuro",
+    "que": "texto enlace sobre elevada",
+    "wcag": 11.23,
+    "apcaLc": -82.5,
+    "min": 4.5,
+    "apcaMin": 75,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "oscuro",
+    "que": "texto enlace sobre abismo",
+    "wcag": 13.88,
+    "apcaLc": -85,
+    "min": 4.5,
+    "apcaMin": 75,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "oscuro",
+    "que": "texto enlace sobre membrana",
+    "wcag": 9.59,
+    "apcaLc": -80.2,
+    "min": 4.5,
+    "apcaMin": 75,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
     "tema": "claro",
     "que": "texto primario sobre base",
     "wcag": 18.04,
@@ -1116,6 +1156,46 @@
     "apcaLc": 63.5,
     "min": 3,
     "apcaMin": 30,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "claro",
+    "que": "texto enlace sobre base",
+    "wcag": 9.06,
+    "apcaLc": 87.7,
+    "min": 4.5,
+    "apcaMin": 75,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "claro",
+    "que": "texto enlace sobre elevada",
+    "wcag": 9.55,
+    "apcaLc": 91.3,
+    "min": 4.5,
+    "apcaMin": 75,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "claro",
+    "que": "texto enlace sobre abismo",
+    "wcag": 7.63,
+    "apcaLc": 76.4,
+    "min": 4.5,
+    "apcaMin": 75,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "claro",
+    "que": "texto enlace sobre membrana",
+    "wcag": 8.35,
+    "apcaLc": 82.2,
+    "min": 4.5,
+    "apcaMin": 75,
     "fuenteMinima": null,
     "pasa": true
   }

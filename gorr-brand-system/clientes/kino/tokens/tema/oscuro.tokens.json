@@ -57,6 +57,11 @@
    "sobre-acento": {
     "$value": "{primitivo.color.sustrato.100}",
     "$type": "color"
+   },
+   "enlace": {
+    "$value": "{primitivo.color.indigo.a84}",
+    "$type": "color",
+    "$description": "Enlaces, trazas y navegación. Índigo: la familia de la profundidad y los enlaces. Lc ≥ 75 en toda superficie."
    }
   },
   "acento": {

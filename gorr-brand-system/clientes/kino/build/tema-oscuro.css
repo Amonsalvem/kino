@@ -29,6 +29,7 @@
   --kino-texto-tenue: var(--kino-sustrato-a66);
   --kino-texto-inverso: var(--kino-sustrato-100);
   --kino-texto-sobre-acento: var(--kino-sustrato-100);
+  --kino-texto-enlace: var(--kino-indigo-a84);
   --kino-acento-base: var(--kino-biolum-d70);
   --kino-acento-fuerte: var(--kino-biolum-d110);
   --kino-acento-sordo: var(--kino-biolum-d15);

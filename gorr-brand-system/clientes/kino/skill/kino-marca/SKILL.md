@@ -54,6 +54,7 @@ En código, usar siempre la variable, nunca el hex. El hex va solo para herramie
 | `--kino-texto-tenue` | `#A5C7B8` |
 | `--kino-texto-inverso` | `#00140C` |
 | `--kino-texto-sobre-acento` | `#00140C` |
+| `--kino-texto-enlace` | `#CCDDFE` |
 | `--kino-acento-base` | `#00BB83` |
 | `--kino-acento-fuerte` | `#00EAA5` |
 | `--kino-acento-sordo` | `#00422C` |

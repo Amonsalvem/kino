@@ -7,6 +7,18 @@ Tema claro
 Índice
 Sistema de marca
 Reglas y archivos de cada pieza de Kino, con el porqué de cada regla. La pieza que más se usa es el Pase que le llega a una visita por WhatsApp.
+Pase · visita
+Andrés Gómez
+Hoy · de 2:00 a 6:00 p. m.
+Placa
+KMN 305
+Código
+4817
+Otorgó
+Carolina Ruiz · Casa 14
+Refugio Campestre
+Muéstralo en la entrada
+El Pase de Andrés, como le llega por WhatsApp
 Conocer Kino
 Qué es Kino y a quién sirve
 Para administraciones de conjuntos, aliados y quien entra al equipo. Cinco paradas en unos 10 minutos: el problema, la promesa, la voz, el logo y la marca aplicada.
@@ -15,6 +27,7 @@ Usar la marca
 Reglas y archivos para aplicarla
 Para diseño, desarrollo, contenido, ventas e imprenta. Doce secciones; cada regla trae un ejemplo correcto al lado de uno incorrecto, y el archivo que la aplica.
 Ver las secciones
+Descargas: logo, tokens, íconos y piezas del Pase en un solo lugar
 Qué es Kino
 El sistema de acceso de un conjunto residencial cerrado. El residente le entrega un
 Pase
@@ -28,6 +41,10 @@ Monte Sereno, El Retiro (Antioquia), en dos comunidades.
 Recorrido
 Conocer Kino
 Cinco paradas para entender la marca sin leer las reglas. Cada una abre la sección completa por si quieres seguir.
+Antes de empezar, una palabra.
+Un
+Pase
+es lo que el residente le entrega a una visita o a un colaborador para entrar: dice quién lo dio, para qué, hasta cuándo sirve y cómo se muestra en la entrada (QR, placa o código). Vence solo, y quien lo recibe no necesita cuenta.
 1
 El problema
 Lo que vimos en un sistema de acceso en operación y por qué Kino existe.
@@ -46,6 +63,7 @@ La app, el mensaje de WhatsApp, la señal de portería y la talanquera.
 Índice
 Usar la marca
 Doce secciones en el orden en que se construye una pieza: primero por qué, después cómo suena, cómo se ve y dónde se aplica.
+01
 01 · Fundamentos
 Plataforma
 Qué es
@@ -284,6 +302,7 @@ Sabe que la señora del aseo entra lunes y jueves a las 7:00. Sabe que el técni
 Kino le da un Pase para entregar. El Pase lleva su nombre, el de quien entra, el motivo y la hora en que se apaga.
 La administración pone los topes una vez para todo el conjunto. El lector de la entrada, el que ya está instalado, hace lo demás.
 Cuando el Pase vence, nadie queda inscrito. Queda escrito quién le abrió la puerta a quién.
+02
 02 · Fundamentos
 Voz y UX writing
 Qué es
@@ -813,6 +832,7 @@ El Pase de Andrés vence a las 6:00 p. m. Si necesita más tiempo, extiéndelo
 3:04 p. m.
 Plantilla
 [PENDIENTE] No hay mensajes reales de portería ni de WhatsApp del conjunto para comparar. El dominio del enlace (kino.co) es de ejemplo.
+03
 03 · Identidad
 Logo
 Qué es
@@ -908,6 +928,9 @@ Medidas propuestas desde la reconstrucción. Se confirman con una prueba impresa
 .
 Seis versiones y cuándo va cada una
 Todas salen del mismo dibujo; solo cambia el color. Cada una se descarga desde su tarjeta.
+La gota usa el verde de la marca, #00BB83. Kino tiene cuatro verdes y cada uno dice algo distinto: #00BB83 es la marca; #00D595, el botón que crea un Pase; #00EAA5, el borde de Vigente y ese botón al presionarlo; #2FF8B2, el texto de Vigente. Detalle en
+Color
+.
 Color sobre oscuro (principal)
 App, sitio, portería, redes. Es la versión por defecto.
 Descargar
@@ -1036,6 +1059,7 @@ X9
 (crecer es aparecer) y
 F7
 : el movimiento se conserva y el modo reducido es alternativo.
+04
 04 · Identidad
 Color
 Qué es
@@ -2034,7 +2058,35 @@ borde del estado identidad sobre membrana
 4.15:1
 Lc 30 · 3:1
 Pasa
-112 mediciones · 0 fallos. Mínimos de la plataforma: Lc 75 cuerpo, 60 texto grande, 45 titulares, 30 elementos no textuales.
+texto enlace sobre base
+84
+12.69:1
+87.7
+9.06:1
+Lc 75 · 4.5:1
+Pasa
+texto enlace sobre elevada
+82.5
+11.23:1
+91.3
+9.55:1
+Lc 75 · 4.5:1
+Pasa
+texto enlace sobre abismo
+85
+13.88:1
+76.4
+7.63:1
+Lc 75 · 4.5:1
+Pasa
+texto enlace sobre membrana
+80.2
+9.59:1
+82.2
+8.35:1
+Lc 75 · 4.5:1
+Pasa
+120 mediciones · 0 fallos. Mínimos de la plataforma: Lc 75 cuerpo, 60 texto grande, 45 titulares, 30 elementos no textuales.
 Informe de contraste
 JSON
 Qué ve alguien que no distingue rojo y verde
@@ -2149,6 +2201,7 @@ Violeta
 Los CMYK salen de una conversión directa, sin perfil de color. Son un punto de partida para la imprenta; antes de un tiraje se pide una prueba física. El Pantone equivalente está
 [pendiente: equivalencias Pantone]
 .
+05
 05 · Identidad
 Tipografía
 Qué es
@@ -2306,6 +2359,7 @@ Solo dentro de los contornos del logotipo
 No se instala ni se usa para escribir
 [pendiente: licencia de Arkit ExtraBold]
 .
+06
 06 · Identidad
 Iconografía e ilustración
 Qué es
@@ -2409,6 +2463,7 @@ Figuras de personas sin rostro ni rasgos: Kino no guarda fotos de visitas en la 
 Relleno solo con superficie membrana; nunca degradados en el ícono.
 Una ilustración explica un paso del Pase o no va.
 Responde a: Regla de marca: sin candados, escudos ni muros. Discreto: la persona no se retrata.
+07
 07 · Identidad
 Imagen
 Qué es
@@ -2509,6 +2564,7 @@ Portadas
 Sí
 No
 No
+08
 08 · Identidad
 Estructura
 Qué es
@@ -2634,6 +2690,7 @@ Tres columnas en portería y en el panel de administración.
 Los puntos de quiebre viven en tokens, pero CSS no acepta variables dentro de
 @media
 : en código se escriben con el mismo valor y un comentario que nombra el token.
+09
 09 · Identidad
 Motion
 Qué es
@@ -2861,6 +2918,7 @@ Apagar toda animación para todos «por rendimiento».
 Responde a:
 F7
 : prefers-reduced-motion se ofrece como modo alternativo.
+10
 10 · Aplicación
 Producto
 Qué es
@@ -3096,6 +3154,7 @@ Enviado, Sin confirmar y los errores se anuncian con
 aria-live
 .
 Confirmación de envío
+11
 11 · Aplicación
 Aplicaciones
 Qué es
@@ -3200,14 +3259,17 @@ Vencido
 Refugio Campestre
 Andrés Gómez
 Hoy · de 2:00 a 6:00 p. m. · otorgó Carolina Ruiz
-Tu Pase valía de 2:00 a 6:00 p. m. y son las 7:10 p. m. Pídele uno nuevo a Carolina.
-Llamar al residente
+Tu Pase valía de 2:00 a 6:00 p. m. y son las 7:10 p. m. Pídele uno nuevo a Carolina o pide en portería que la llamen.
 Pase vivo
 360 px
-La página del enlace. Dice si el Pase sigue sirviendo; en vencido ofrece llamar a quien lo dio.
-Responde a: Estado honesto y
+La página del enlace. Dice si el Pase sigue sirviendo; en vencido dice a quién pedir uno nuevo. La llamada queda en portería.
+Responde a: Estado honesto,
 X11
-.
+y
+F4
+-
+P1
+: el número del residente no se muestra a la visita.
 Pase · visita
 Andrés Gómez
 Lunes 29 de septiembre · de 2:00 a 6:00 p. m.
@@ -3390,6 +3452,7 @@ Las plantillas editables viven en la página «Aplicaciones / Plantillas» de la
 deptos/pase.py
 .
 Abrir la librería de Figma
+12
 12 · Operación
 Gobernanza
 Qué es
@@ -3446,10 +3509,14 @@ Versión
 Fecha
 Estado
 Qué cambió
+1.1.0
+25 sep 2026
+Propuesta
+La identidad aplicada al propio sitio, ícono en los chips de Usado, Vencido y Revocado, llamada solo desde portería, librería de Figma corregida. Espera revisión.
 1.0.0
 24 sep 2026
-Propuesta
-Tokens con la paleta aprobada, departamentos 03 a 12, piezas del Pase, verificación y librería de Figma. Espera la revisión 4.
+Aprobada
+Tokens con la paleta aprobada, departamentos 03 a 12, piezas del Pase y verificación. La librería de Figma quedó en revisión.
 0.3
 24 sep 2026
 Aprobada
@@ -3611,9 +3678,15 @@ Pase vencido en la entrada: portería puede llamar al residente
 Aprobada
 F4-P1
 Llamada desde el Pase vivo vencido
-Propuesta
+Aprobada
 F4-P2
 Aviso de llegada al residente
+Aprobada
+F4-P3
+Ícono de estado en el chip de Usado, Vencido y Revocado
+Aprobada
+F4-P4
+La identidad de marca aplicada al propio sitio
 Propuesta
 Doce preguntas antes de publicar una pieza
 ¿Cada estado lleva palabra además de color?
@@ -3649,10 +3722,8 @@ Teclado del lector
 No se sabe si el lector tiene teclado para el código. El texto dice «Dile a portería el código».
 Llamada de portería al residente
 Nico confirmó que portería puede llamar desde Kino (X11). La inspección no registró el botón: si no existe, es un requisito de producto.
-Llamada desde el Pase vivo
-Falta decidir si la visita llama sin ver el número del residente. Ver decisiones, F4-P1.
-Aviso de llegada
-El inventario de textos lo incluye, pero el producto no lo tiene confirmado. Ver decisiones, F4-P2.
+Evento de paso del lector
+El aviso de llegada (F4-P2) es requisito de producto: falta confirmar que HikCentral le entregue a Kino el evento de paso. Ningún texto del aviso sale antes.
 Citas de las entrevistas con residentes
 Las cinco entrevistas no tienen citas escritas. Las necesidades por actor se apoyan en la inspección.
 Integración real de las apps de visitas

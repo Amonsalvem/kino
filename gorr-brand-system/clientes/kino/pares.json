@@ -390,5 +390,33 @@
   "bg": "kino-superficie-membrana",
   "min": 3.0,
   "apcaMin": 30
+ },
+ {
+  "que": "texto enlace sobre base",
+  "fg": "kino-texto-enlace",
+  "bg": "kino-superficie-base",
+  "min": 4.5,
+  "apcaMin": 75
+ },
+ {
+  "que": "texto enlace sobre elevada",
+  "fg": "kino-texto-enlace",
+  "bg": "kino-superficie-elevada",
+  "min": 4.5,
+  "apcaMin": 75
+ },
+ {
+  "que": "texto enlace sobre abismo",
+  "fg": "kino-texto-enlace",
+  "bg": "kino-superficie-abismo",
+  "min": 4.5,
+  "apcaMin": 75
+ },
+ {
+  "que": "texto enlace sobre membrana",
+  "fg": "kino-texto-enlace",
+  "bg": "kino-superficie-membrana",
+  "min": 4.5,
+  "apcaMin": 75
  }
 ]

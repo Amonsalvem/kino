@@ -1,0 +1,79 @@
+/* Kino · Sistema de marca · capa de identidad del sitio (F4-P4, 25 sep).
+   El documento se viste con la identidad que describe. Cada recurso conserva su significado:
+   - aurora (X7): portada y apertura de cada sección, siempre en tema oscuro local;
+   - índigo (profundidad y enlaces): enlaces, trazas, rótulos de subsección y la barra de progreso;
+   - gota del logo (acento de marca): marca la sección activa del índice;
+   - membrana: relieve de luz arriba en todo lo que se toca;
+   - estados, ámbar y violeta: solo en lo que significan (sin cambios aquí).
+   El verde #00D595 sigue solo en el botón que crea un Pase y el arco solo en el Pase.
+   Solo tokens --kino-*; --s-aurora sale de deptos/d07_imagen.py (AURORA). */
+
+/* ── Titulares: Archivo al 112 % en todos (X5) ── */
+h2,.puerta strong{font-stretch:112%}
+
+/* ── Enlaces en el texto: índigo, Lc ≥ 75 en toda superficie ── */
+:is(p,td,dd,figcaption,.nota) a:not([class]),a.g{color:var(--kino-texto-enlace);text-decoration-color:currentColor}
+a.g{text-decoration-style:dotted}
+:is(p,td,dd,figcaption,.nota) a:not([class]):hover,a.g:hover{text-decoration-style:solid}
+
+/* ── Índice: la gota marca dónde estás ── */
+.nav a{position:relative}
+.nav a[aria-current="page"]{border-left-color:transparent;background:var(--kino-superficie-membrana);box-shadow:var(--kino-relieve-membrana)}
+.nav a[aria-current="page"]::before{content:"";position:absolute;inset-inline-start:calc(-1 * var(--kino-espacio-xs));inset-block-start:50%;
+  inline-size:var(--kino-espacio-s);block-size:var(--kino-espacio-s);margin-block-start:calc(-.5 * var(--kino-espacio-s));
+  background:var(--kino-marca-gota);border-radius:50% 50% 50% 0;transform:rotate(-45deg)}
+.nav a[aria-current="page"] .n{color:var(--kino-marca-gota)}
+.nav .sub-nav a[aria-current="location"]{border-left-color:var(--kino-texto-enlace);color:var(--kino-texto-enlace)}
+.nav-grupo{color:var(--kino-texto-enlace)}
+.progreso i{background:var(--kino-texto-enlace)}
+
+/* ── Aurora: portada y aperturas. Tema oscuro local (ver construir.py) para que el texto mida igual en los dos temas ── */
+.abre,.portada{position:relative;isolation:isolate;overflow:hidden;background:var(--s-aurora);color:var(--kino-texto-primario);
+  border-radius:var(--kino-forma-radio-tarjeta);box-shadow:var(--kino-relieve-membrana);
+  padding:var(--kino-espacio-3xl) clamp(var(--kino-espacio-l),4vw,var(--kino-espacio-3xl)) var(--kino-espacio-2xl)}
+.abre{margin-bottom:var(--kino-espacio-3xl)}
+.abre .ojo,.portada .ojo{color:var(--kino-texto-secundario)}
+.abre h1{max-width:18ch;position:relative}
+.abre-num{position:absolute;z-index:-1;inset-block-start:calc(-1 * var(--kino-espacio-l));inset-inline-end:var(--kino-espacio-l);
+  font-family:var(--kino-fuente-dato);font-weight:var(--kino-peso-titulo);font-size:clamp(7rem,16vw,14rem);line-height:1;
+  letter-spacing:-.04em;color:transparent;-webkit-text-stroke:var(--kino-linea-fino) var(--kino-borde-definido);pointer-events:none;user-select:none}
+.abre .lector{border-top:0;padding-top:0;gap:var(--kino-espacio-s)}
+.abre .lector>div{padding:var(--kino-espacio-m);border-radius:var(--kino-forma-radio-control);
+  background:color-mix(in oklch,var(--kino-superficie-abismo) 62%,transparent);border:var(--kino-linea-fino) solid var(--kino-borde-tenue)}
+.abre .lector dt{color:var(--kino-texto-secundario)}
+.abre .lede{color:var(--kino-texto-secundario)}
+
+/* Portada: el logo, el titular y la pieza que más se usa, el Pase */
+.portada{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--kino-espacio-2xl);align-items:center;margin-bottom:var(--kino-espacio-2xl)}
+.portada-marca svg{color:var(--kino-marca-bloque)}
+.portada .lede{margin-bottom:0}
+.portada-pase{inline-size:clamp(13rem,22vw,17rem);margin:0}
+.portada-pase .pieza-pase{max-inline-size:none;box-shadow:var(--kino-resplandor-vigente)}
+.portada-pase figcaption{margin-top:var(--kino-espacio-s);font-family:var(--kino-fuente-dato);font-size:var(--kino-texto-n1);color:var(--kino-texto-secundario)}
+
+/* ── Subsecciones: rótulo índigo y una línea corta de profundidad ── */
+.sub{background:linear-gradient(var(--kino-texto-enlace),var(--kino-texto-enlace)) top left / var(--kino-espacio-2xl) var(--kino-linea-foco) no-repeat}
+.sub::before{content:attr(data-titulo);display:block;margin-bottom:var(--kino-espacio-s);font-family:var(--kino-fuente-dato);font-size:var(--kino-texto-n1);
+  letter-spacing:.1em;text-transform:uppercase;color:var(--kino-texto-enlace)}
+.traza{color:var(--kino-texto-enlace)}
+
+/* ── Membrana: relieve de luz arriba en todo lo que se toca o se agrupa ── */
+:is(.evi,.rasgo,.dim,.op,.valor,.cumple,.rompe,.pasar a,.mapa-sitio a,.ruta a,.vocab li){box-shadow:var(--kino-relieve-membrana)}
+:is(.pasar a,.mapa-sitio a,.ruta a){background:var(--kino-superficie-elevada)}
+:is(.pasar a,.mapa-sitio a,.ruta a,.puerta):hover{border-color:var(--kino-borde-foco)}
+.ruta-n,.mapa-sitio .n{color:var(--kino-texto-enlace)}
+
+/* ── Recorrido: la definición del Pase y el atajo a descargas ── */
+.definicion{padding:var(--kino-espacio-m) var(--kino-espacio-l);border-radius:var(--kino-forma-radio-control);
+  background:color-mix(in oklch,var(--kino-superficie-abismo) 62%,transparent);border:var(--kino-linea-fino) solid var(--kino-borde-tenue);max-width:60ch}
+.atajo{margin:0 0 var(--kino-espacio-2xl)}
+.atajo a{display:inline-flex;gap:var(--kino-espacio-xs);align-items:center;color:var(--kino-texto-enlace);font-weight:600;text-decoration:none;
+  padding:var(--kino-espacio-xs) var(--kino-espacio-m);border:var(--kino-linea-fino) solid var(--kino-borde-definido);border-radius:var(--kino-forma-radio-control)}
+.atajo a:hover{border-color:var(--kino-texto-enlace)}
+
+@media (max-width:60rem){
+  .portada{grid-template-columns:1fr}
+  .portada-pase{inline-size:min(17rem,100%)}
+  .abre,.portada{padding:var(--kino-espacio-2xl) var(--kino-espacio-l) var(--kino-espacio-xl)}
+  .abre-num{font-size:6rem;inset-block-start:calc(-1 * var(--kino-espacio-s))}
+}

@@ -240,6 +240,7 @@
   --kino-texto-tenue: var(--kino-sustrato-a66);
   --kino-texto-inverso: var(--kino-sustrato-100);
   --kino-texto-sobre-acento: var(--kino-sustrato-100);
+  --kino-texto-enlace: var(--kino-indigo-a84);
   --kino-acento-base: var(--kino-biolum-d70);
   --kino-acento-fuerte: var(--kino-biolum-d110);
   --kino-acento-sordo: var(--kino-biolum-d15);
@@ -314,6 +315,7 @@
   --kino-texto-tenue: var(--kino-sustrato-600);
   --kino-texto-inverso: var(--kino-hueso-100);
   --kino-texto-sobre-acento: var(--kino-hueso-100);
+  --kino-texto-enlace: var(--kino-indigo-l90);
   --kino-acento-base: var(--kino-biolum-l70);
   --kino-acento-fuerte: var(--kino-biolum-d15);
   --kino-acento-sordo: var(--kino-hueso-200);
@@ -389,6 +391,7 @@
     --kino-texto-tenue: var(--kino-sustrato-600);
     --kino-texto-inverso: var(--kino-hueso-100);
     --kino-texto-sobre-acento: var(--kino-hueso-100);
+    --kino-texto-enlace: var(--kino-indigo-l90);
     --kino-acento-base: var(--kino-biolum-l70);
     --kino-acento-fuerte: var(--kino-biolum-d15);
     --kino-acento-sordo: var(--kino-hueso-200);
@@ -482,6 +485,16 @@
 .kino-estado[data-estado="sin-confirmar"]::before { background: transparent; border: var(--kino-linea-fino) dashed currentColor; }
 .kino-estado[data-estado="revocado"]::before,
 .kino-estado[data-estado="rechazado"]::before { border-radius: var(--kino-radio-xs); }
+
+/* F4-P3: Usado, Vencido y Revocado llevan el ícono del estado en vez del punto (trazo 1,7, de deptos/d06_iconografia.py).
+   Así no dependen solo del tono del texto para distinguirse. */
+.kino-estado[data-estado="usado"]::before,
+.kino-estado[data-estado="vencido"]::before,
+.kino-estado[data-estado="revocado"]::before { inline-size: 1.25em; block-size: 1.25em; border-radius: 0; background: currentColor;
+  -webkit-mask: var(--e-icono) center / contain no-repeat; mask: var(--e-icono) center / contain no-repeat; }
+.kino-estado[data-estado="usado"] { --e-icono: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 7h16v3a2 2 0 0 0 0 4v3H4v-3a2 2 0 0 0 0-4z M9 12l2 2 4-4'/%3E%3C/svg%3E"); }
+.kino-estado[data-estado="vencido"] { --e-icono: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 12a9 9 0 1 1-3-6.7 M12 7v5h3'/%3E%3C/svg%3E"); }
+.kino-estado[data-estado="revocado"] { --e-icono: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 3h12a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z M3 21L21 3'/%3E%3C/svg%3E"); }
 
 /* ---- Vigencia: el tiempo que le queda a un Pase ---- */
 .kino-vigencia { --kino-vida: 1; display: block; block-size: var(--kino-espacio-2xs); inline-size: 100%;

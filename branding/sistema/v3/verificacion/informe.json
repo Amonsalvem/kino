@@ -31,15 +31,15 @@
   "n": 5,
   "comprobacion": "APCA en todos los pares texto y fondo (Lc 75 · 60 · 45 · 30)",
   "pasa": true,
-  "detalle": "112 mediciones, 0 fallos, 0 sin mínimo APCA",
+  "detalle": "120 mediciones, 0 fallos, 0 sin mínimo APCA",
   "evidencia": ""
  },
  {
   "n": 6,
   "comprobacion": "Diff entre tokens DTCG, kino-brand.css y variables de Figma",
-  "pasa": true,
-  "detalle": "DTCG 273 · kino-brand.css: 0 faltan · Figma: 270 variables y 3 estilos de efecto, 0 tokens sin variable, 0 valores distintos (color en los dos modos, números y cadenas)",
-  "evidencia": ""
+  "pasa": false,
+  "detalle": "DTCG 274 · kino-brand.css: 0 faltan · Figma: 270 variables y 3 estilos de efecto, 1 tokens sin variable, 0 valores distintos (color en los dos modos, números y cadenas)",
+  "evidencia": "--kino-texto-enlace"
  },
  {
   "n": 7,
@@ -52,14 +52,14 @@
   "n": 8,
   "comprobacion": "Decisiones sin justificación de la plataforma",
   "pasa": true,
-  "detalle": "decisiones.md: 26 con detalle, 0 sin «Por qué» · tabla X: 0 sin «Responde a» · departamentos sin traza: 0",
+  "detalle": "decisiones.md: 29 con detalle, 0 sin «Por qué» · tabla X: 0 sin «Responde a» · departamentos sin traza: 0",
   "evidencia": ""
  },
  {
   "n": 9,
   "comprobacion": "Enlaces y anclas rotas",
   "pasa": true,
-  "detalle": "46 anclas internas, 0 rotas · 6 enlaces externos",
+  "detalle": "48 anclas internas, 0 rotas · 6 enlaces externos",
   "evidencia": ""
  },
  {
