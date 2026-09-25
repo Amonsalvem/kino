@@ -21,6 +21,7 @@ PEND = [
 ]
 
 CAMBIOS = [
+    ('1.2.1', '25 sep 2026', 'Propuesta', 'Sitio responsive de 320 a 1920 px: tablas apiladas como fichas, mapa y árbol en HTML para el teléfono, columnas que caben y textos de al menos 11 px. Espera revisión.'),
     ('1.2.0', '25 sep 2026', 'Aprobada', 'Pantallas con la jerarquía del Pase (un dato manda, vigencia en el color de su estado, rótulos, bloques y una acción) y mensaje genérico de alta fallida en HikCentral.'),
     ('1.1.0', '25 sep 2026', 'Aprobada', 'La identidad aplicada al propio sitio, ícono en los chips de Usado, Vencido y Revocado, llamada solo desde portería, librería de Figma con auto-layout y espaciado revisados.'),
     ('1.0.0', '24 sep 2026', 'Aprobada', 'Tokens con la paleta aprobada, departamentos 03 a 12, piezas del Pase y verificación. La librería de Figma se aprobó en la 1.1.0.'),

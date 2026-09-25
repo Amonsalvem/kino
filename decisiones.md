@@ -381,6 +381,24 @@ Lámina: `kino/parada-4.html` (https://claude.ai/artifact/DBF7w1VTGPtJ9oQwdz4tXa
 3. La fila del error de HikCentral se explica y se corrige como F4-P6.
 4. Con 1 y 2 aprobadas, la versión 1.1.0 queda aprobada y se republica el artefacto oficial. F4-P5 y F4-P6 van en la 1.2.0.
 
+### F4-P7 · Sitio responsive de 320 a 1920 px · PROPUESTA
+- **Pedido de Nico (25 sep):** «Hazlo completamente responsive», sobre el sitio «Kino · Sistema de marca».
+- **Lo que encontró la auditoría** (`scripts/auditar-responsive.mjs`, 16 secciones en 11 anchos):
+  - las tablas tenían un ancho mínimo de 704 px y se desplazaban de lado en el teléfono y hasta en 1024 px;
+  - la matriz de componentes pedía 1500 px;
+  - el mapa de alternativas y el árbol de nombres son SVG de 760 y 820 px: en el teléfono el texto quedaba en 6 px o se desplazaba;
+  - la conversación de WhatsApp y el código de Motion se salían a 320 px;
+  - columnas con mínimos más anchos que la pantalla y textos de 10 px.
+- **Propuesta (A, construida en `sitio/responsive.css`):**
+  - las tablas se leen como tabla cuando caben y como fichas cuando el contenedor mide 42rem o menos: cada fila es una ficha y cada celda lleva el nombre de su columna; en 26rem o menos, el nombre va encima del valor;
+  - la matriz de componentes pasa a una ficha por componente, con los estados en retícula;
+  - en pantallas de 40rem o menos (46rem para el árbol), el mapa y el árbol se muestran en HTML con el mismo contenido: cuatro cuadrantes y una lista por niveles;
+  - ninguna columna pide más ancho que el disponible; los rótulos y chips bajan a 11 px como mínimo.
+- **Alternativa (B):** conservar las tablas y los SVG como en la 1.2.0, con desplazamiento lateral dentro de su caja.
+- **Resultado medido:** 176 vistas sin desborde de página. Quedan a propósito el caso de tipografía «un renglón que no termina» y el texto de las piezas del Pase, que son imágenes a escala.
+- **Por qué A:** la administración y el equipo leen el sistema desde el teléfono; una tabla que se desplaza de lado esconde columnas enteras.
+- **Espera:** revisión de Nico en la vista previa 1.2.1.
+
 ### Estado tras la respuesta del 25 sep (tercera vuelta)
 1. F4-P5: **APROBADA** (A). Pantallas con la jerarquía del Pase y lista en «Ahora» y «Próximos».
 2. F4-P6: **APROBADA** (A). Mensaje genérico de alta fallida en HikCentral.

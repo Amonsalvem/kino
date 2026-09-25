@@ -4,7 +4,7 @@ Bitácora del encargo «de borrador a sistema completo». Si una sesión nueva e
 
 ## Estado actual
 
-**PARADA 4 cerrada** (25 sep). La 1.2.0 está aprobada (F4-P5 A y F4-P6 A) y el artefacto oficial la tiene (versión 5). Falta que Nico integre `marca/fase-4` a `main` (PR https://github.com/Amonsalvem/kino/pull/1).
+**PARADA 4 cerrada e integrada** (25 sep). La 1.2.0 está aprobada, el artefacto oficial la tiene (versión 5) y `marca/fase-4` se integró a `main` (PR https://github.com/Amonsalvem/kino/pull/1, commit 5c756bb). **1.2.1 en revisión:** sitio responsive (F4-P7). Vista previa: https://claude.ai/artifact/TKafvu7bHfjeKPSYaaKd7S
 
 | # | Departamento | Estado | Nota |
 |---|---|---|---|
@@ -20,7 +20,7 @@ Bitácora del encargo «de borrador a sistema completo». Si una sesión nueva e
 | 10 | Producto | Aprobado (1.2.0): pantallas con la jerarquía del Pase (F4-P5) | Componentes, 5 pantallas, WCAG |
 | 11 | Aplicaciones | Aprobado (1.0.0) | 15 piezas; Pase vivo vencido sin botón (F4-P1) |
 | 12 | Gobernanza | Aprobado (1.0.0) | Registro, revisión, 17 pendientes, descargas |
-| — | Sitio | 1.2.0 aprobado y publicado en el oficial | `Kino_Sistema_de_marca.html` · vista previa 1.2.0 https://claude.ai/artifact/W5U4Nw4AeZMpM7QZ4gsXcH |
+| — | Sitio | 1.2.0 aprobado y publicado en el oficial; 1.2.1 (responsive) en revisión | `Kino_Sistema_de_marca.html` · vista previa 1.2.0 https://claude.ai/artifact/W5U4Nw4AeZMpM7QZ4gsXcH |
 | — | Figma | 1.2.0 aprobada | 271 variables iguales a DTCG; componente nuevo Pase en lista; pantallas 1.1.0 en su sección |
 
 ## Fase 0 · Diagnóstico (cerrada)
@@ -89,15 +89,16 @@ En arquitectura faltaba:
 - Parada 4c (tercera vuelta, 1.2.0): https://claude.ai/artifact/NXuGd6VQc7k6Fqqi9pciZZ · copia en `kino/parada-4c.html`
 - Vista previa del sitio 1.2.0: https://claude.ai/artifact/W5U4Nw4AeZMpM7QZ4gsXcH
 - Artefacto oficial (1.2.0, versión 5): https://claude.ai/artifact/K8R2PRduS6SHBKYU31Bo6L
-- PR: https://github.com/Amonsalvem/kino/pull/1
+- PR de la Fase 4 (integrado): https://github.com/Amonsalvem/kino/pull/1
+- Vista previa del sitio 1.2.1: https://claude.ai/artifact/TKafvu7bHfjeKPSYaaKd7S
 - Vista previa del sitio 1.1.0: https://claude.ai/artifact/NnuVUWwUdgk34VHkj3H5Rd
 - Vista previa del sitio 1.0.0: https://claude.ai/artifact/AJey2DjrB4K8oo92fn6pfg
 - Vista previa del sitio v3: https://claude.ai/artifact/NGW6EEiRghDxq4uFzvsjBa
 - Figma: https://www.figma.com/design/BO7UnDO9iE0aG6yUpNj0bc
 
 ## Siguiente paso
-1. Nico integra `marca/fase-4` a `main` desde el PR https://github.com/Amonsalvem/kino/pull/1.
-2. Lo siguiente del sistema de marca, si hace falta, arranca como versión 1.3.0 con su propia parada.
+1. Nico revisa la vista previa 1.2.1 (F4-P7: A responsive como está, o B tablas y SVG con desplazamiento lateral).
+2. Al aprobar: pasar 1.2.1 a «Aprobada» en `decisiones.md`, `d12_gobernanza.py`, Figma (fila 105:18) y el Léeme, reconstruir, verificar y republicar el oficial leyéndolo primero.
 
 ## Fase 2 · Verbal (23 sep)
 - Fuente única: `branding/sistema/v3/sitio/verbal.py`. Genera la sección 02, `guia-de-contenido.md`, `ux-writing.md` y la verificación de largo.
@@ -178,4 +179,11 @@ En arquitectura faltaba:
 - **Respuesta de Nico:** F4-P5 A (lista en «Ahora» y «Próximos»); F4-P6 A (mensaje genérico de alta fallida).
 - **Aplicado:** 1.2.0 aprobada en `decisiones.md`, Gobernanza, Registro de cambios de Figma (fila 100:206 en Vigente) y Léeme; la sección de pantallas 1.1.0 queda como «anteriores». Fase 5: 10 de 10; voz 0.
 - **Artefacto oficial republicado** con la 1.2.0 (versión 5), leyéndolo primero; conserva la capacidad de descargas.
-- **PR:** https://github.com/Amonsalvem/kino/pull/1, con la descripción corregida.
+- **PR:** https://github.com/Amonsalvem/kino/pull/1, con la descripción corregida. Integrado a `main` por pedido de Nico (commit 5c756bb).
+
+## 1.2.1 · Sitio responsive (25 sep)
+- **Pedido de Nico:** «Hazlo completamente responsive», sobre el sitio.
+- **Auditoría:** `scripts/auditar-responsive.mjs`, 16 secciones en 11 anchos (320 a 1920 px). Antes: tablas con 704 px de mínimo, matriz de 1500 px, mapa y árbol ilegibles en el teléfono, dos secciones con desborde a 320 px, textos de 10 px.
+- **Construido:** `sitio/responsive.css`; tablas que se apilan como fichas (cada celda con `data-t`, que añade `construir.py`); matriz en fichas; mapa y árbol en HTML en pantallas angostas; columnas con `minmax(min(100%, …), 1fr)`; textos de al menos 11 px.
+- **Verificación:** 176 vistas sin desborde; `verificar.py` y voz sin hallazgos; Fase 5 10 de 10; capturas en los dos temas sin errores.
+- **Espera:** revisión de Nico (F4-P7) en https://claude.ai/artifact/TKafvu7bHfjeKPSYaaKd7S. El oficial sigue en la 1.2.0.

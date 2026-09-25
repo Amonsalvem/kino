@@ -26,10 +26,10 @@ Con eso basta. Si la carpeta no está conectada, las copias de `avances` y `deci
 | 2 · Verbal | Aprobada (Parada 2) |
 | V7 · Pase entregado como imagen más enlace | Aprobada |
 | 3 · Identidad visual | Aprobada (Parada 3, 24 sep): X1 a X11 |
-| 4 · Construcción | 1.2.0 aprobada el 25 sep (F4-P5 A, F4-P6 A); oficial republicado (versión 5). Falta integrar a `main` |
+| 4 · Construcción | 1.2.0 aprobada el 25 sep e integrada a `main` (PR #1, 5c756bb); oficial en la 1.2.0 (versión 5). **1.2.1 en revisión**: sitio responsive (F4-P7) |
 | 5 · Verificación y evaluaciones | 10 de 10. Lector frío PASA; detector de IA PASA en el ciclo 4 |
 
-**Sin preguntas abiertas.** La Parada 4c se respondió el 25 sep: F4-P5 A y F4-P6 A. El PR https://github.com/Amonsalvem/kino/pull/1 espera que Nico lo integre.
+**Pregunta abierta · F4-P7:** ¿el sitio responsive queda como está en la vista previa 1.2.1 (A) o se conservan las tablas y los SVG con desplazamiento lateral (B)? La Parada 4c se respondió el 25 sep (F4-P5 A, F4-P6 A) y el PR https://github.com/Amonsalvem/kino/pull/1 ya está integrado.
 
 Las respuestas a las Paradas 4, 4b y 4c (25 sep) están en `decisiones.md`, «Estado tras la respuesta del 25 sep», «(segunda vuelta)» y «(tercera vuelta)».
 
@@ -44,6 +44,7 @@ Las respuestas a las Paradas 4, 4b y 4c (25 sep) están en `decisiones.md`, «Es
 | Parada 4b (segunda vuelta) | https://claude.ai/artifact/Bn6AaiChNchG5dhx7BjtQ1 · copia en `parada-4b.html` |
 | Parada 4c (tercera vuelta, 1.2.0) | https://claude.ai/artifact/NXuGd6VQc7k6Fqqi9pciZZ · copia en `parada-4c.html` |
 | Vista previa del sitio 1.2.0 | https://claude.ai/artifact/W5U4Nw4AeZMpM7QZ4gsXcH |
+| Vista previa del sitio 1.2.1 (responsive) | https://claude.ai/artifact/TKafvu7bHfjeKPSYaaKd7S |
 | Vista previa del sitio 1.1.0 | https://claude.ai/artifact/NnuVUWwUdgk34VHkj3H5Rd |
 | Vista previa del sitio 1.0.0 | https://claude.ai/artifact/AJey2DjrB4K8oo92fn6pfg (copia de `Kino_Sistema_de_marca.html`) |
 | Vista previa del sitio v3 (Paradas 1 y 2) | https://claude.ai/artifact/NGW6EEiRghDxq4uFzvsjBa |
@@ -205,7 +206,9 @@ node herramientas/voz.mjs kino ../branding/sistema/v3/sitio/texto-visible.md ../
   6. Nico integra `marca/fase-4` a `main`.
 - Hecho tras la respuesta a la 4b: pasos 1 a 5 (Figma aprobada, F4-P4 A, 1.1.0 aprobada, oficial republicado como versión 4).
 
-**4. Tercera vuelta (1.2.0) respondida el 25 sep: F4-P5 A, F4-P6 A.** Pasos 1 a 3 hechos; queda el 4. Construido: pantallas con la jerarquía del Pase (F4-P5) en el sitio y en Figma, y la fila de HikCentral explicada (F4-P6). Al recibir la respuesta a `parada-4c.html`:
+**4. Tercera vuelta (1.2.0) respondida el 25 sep: F4-P5 A, F4-P6 A.** Pasos 1 a 4 hechos: el PR #1 se integró a `main` (5c756bb).
+
+**5. 1.2.1 · sitio responsive, en revisión.** Construido en `sitio/responsive.css`, auditado con `scripts/auditar-responsive.mjs` (176 vistas sin desborde). Al recibir la respuesta a F4-P7: pasar 1.2.1 a «Aprobada» en `decisiones.md`, `d12_gobernanza.py`, Figma (Registro de cambios, fila 105:18) y el Léeme (22:143); reconstruir, verificar y republicar el oficial leyéndolo primero. Si es B, quitar `responsive.css` de `construir.py` y las versiones `.mapa-movil` y `.arbol-movil` de `contenido/01-plataforma.html`. Construido: pantallas con la jerarquía del Pase (F4-P5) en el sitio y en Figma, y la fila de HikCentral explicada (F4-P6). Al recibir la respuesta a `parada-4c.html`:
   1. Anotar F4-P5 y F4-P6 en `decisiones.md`. Si F4-P5 es B: en `deptos/d10_producto.py` (`_lista`), volver a las pestañas «Activos / Anteriores» en lugar de los grupos, y lo mismo en Figma (98:95). Si F4-P6 es B: quitar la fila en `sitio/verbal.py`.
   2. Pasar 1.2.0 a «Aprobada» en `d12_gobernanza.py`, en Figma (Registro de cambios, fila v1.2.0 100:206) y en el Léeme (22:143).
   3. Reconstruir, correr `fase5.py` y la compuerta de voz, y republicar el oficial leyéndolo primero, con `capabilities: {downloads: true}`.
