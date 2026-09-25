@@ -4,7 +4,7 @@ Bitácora del encargo «de borrador a sistema completo». Si una sesión nueva e
 
 ## Estado actual
 
-**PARADA 4 cerrada e integrada** (25 sep). La 1.2.0 está aprobada, el artefacto oficial la tiene (versión 5) y `marca/fase-4` se integró a `main` (PR https://github.com/Amonsalvem/kino/pull/1, commit 5c756bb). **1.2.1 aprobada** (F4-P7 A, sitio responsive) y publicada en el oficial (versión 6). Falta integrar el PR https://github.com/Amonsalvem/kino/pull/2.
+**PARADA 4 cerrada e integrada** (25 sep). La 1.2.0 está aprobada, el artefacto oficial la tiene (versión 5) y `marca/fase-4` se integró a `main` (PR https://github.com/Amonsalvem/kino/pull/1, commit 5c756bb). **1.2.1 aprobada** (F4-P7 A, sitio responsive), publicada en el oficial (versión 6) e integrada a `main` (PR https://github.com/Amonsalvem/kino/pull/2, commit de8ba70).
 
 | # | Departamento | Estado | Nota |
 |---|---|---|---|
@@ -90,6 +90,7 @@ En arquitectura faltaba:
 - Vista previa del sitio 1.2.0: https://claude.ai/artifact/W5U4Nw4AeZMpM7QZ4gsXcH
 - Artefacto oficial (1.2.0, versión 5): https://claude.ai/artifact/K8R2PRduS6SHBKYU31Bo6L
 - PR de la Fase 4 (integrado): https://github.com/Amonsalvem/kino/pull/1
+- PR de la 1.2.1 (integrado): https://github.com/Amonsalvem/kino/pull/2
 - Vista previa del sitio 1.2.1: https://claude.ai/artifact/TKafvu7bHfjeKPSYaaKd7S
 - Vista previa del sitio 1.1.0: https://claude.ai/artifact/NnuVUWwUdgk34VHkj3H5Rd
 - Vista previa del sitio 1.0.0: https://claude.ai/artifact/AJey2DjrB4K8oo92fn6pfg
@@ -97,8 +98,8 @@ En arquitectura faltaba:
 - Figma: https://www.figma.com/design/BO7UnDO9iE0aG6yUpNj0bc
 
 ## Siguiente paso
-1. Nico integra el PR https://github.com/Amonsalvem/kino/pull/2 (1.2.1) a `main`.
-2. Lo siguiente del sistema de marca, si hace falta, arranca como versión 1.3.0 con su propia parada.
+1. Sin trabajo pendiente del sistema de marca: la 1.2.1 está aprobada, publicada e integrada.
+2. Lo siguiente, si hace falta, arranca como versión 1.3.0, en una rama nueva desde `main` y con su propia parada.
 
 ## Fase 2 · Verbal (23 sep)
 - Fuente única: `branding/sistema/v3/sitio/verbal.py`. Genera la sección 02, `guia-de-contenido.md`, `ux-writing.md` y la verificación de largo.
@@ -187,3 +188,4 @@ En arquitectura faltaba:
 - **Construido:** `sitio/responsive.css`; tablas que se apilan como fichas (cada celda con `data-t`, que añade `construir.py`); matriz en fichas; mapa y árbol en HTML en pantallas angostas; columnas con `minmax(min(100%, …), 1fr)`; textos de al menos 11 px.
 - **Verificación:** 176 vistas sin desborde; `verificar.py` y voz sin hallazgos; Fase 5 10 de 10; capturas en los dos temas sin errores.
 - **Respuesta de Nico (25 sep):** F4-P7 A. 1.2.1 aprobada en `decisiones.md`, Gobernanza, Figma (fila 105:18) y el Léeme; oficial republicado (versión 6), leyéndolo primero.
+- **Integración:** PR https://github.com/Amonsalvem/kino/pull/2 integrado a `main` por pedido de Nico (commit de8ba70).

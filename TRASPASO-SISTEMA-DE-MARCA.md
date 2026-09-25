@@ -26,10 +26,10 @@ Con eso basta. Si la carpeta no está conectada, las copias de `avances` y `deci
 | 2 · Verbal | Aprobada (Parada 2) |
 | V7 · Pase entregado como imagen más enlace | Aprobada |
 | 3 · Identidad visual | Aprobada (Parada 3, 24 sep): X1 a X11 |
-| 4 · Construcción | 1.2.0 aprobada el 25 sep e integrada a `main` (PR #1, 5c756bb); 1.2.1 aprobada (F4-P7 A, sitio responsive) y publicada en el oficial (versión 6). Falta integrar el PR #2 |
+| 4 · Construcción | 1.2.0 aprobada el 25 sep e integrada a `main` (PR #1, 5c756bb); 1.2.1 aprobada (F4-P7 A, sitio responsive), publicada en el oficial (versión 6) e integrada a `main` (PR #2, de8ba70) |
 | 5 · Verificación y evaluaciones | 10 de 10. Lector frío PASA; detector de IA PASA en el ciclo 4 |
 
-**Sin preguntas abiertas.** F4-P7 se respondió el 25 sep (A). El PR https://github.com/Amonsalvem/kino/pull/1 está integrado; el https://github.com/Amonsalvem/kino/pull/2 (1.2.1) espera que Nico lo integre.
+**Sin preguntas abiertas.** F4-P7 se respondió el 25 sep (A). Los PR https://github.com/Amonsalvem/kino/pull/1 (1.2.0) y https://github.com/Amonsalvem/kino/pull/2 (1.2.1) están integrados a `main`.
 
 Las respuestas a las Paradas 4, 4b y 4c (25 sep) están en `decisiones.md`, «Estado tras la respuesta del 25 sep», «(segunda vuelta)» y «(tercera vuelta)».
 
@@ -206,13 +206,11 @@ node herramientas/voz.mjs kino ../branding/sistema/v3/sitio/texto-visible.md ../
   6. Nico integra `marca/fase-4` a `main`.
 - Hecho tras la respuesta a la 4b: pasos 1 a 5 (Figma aprobada, F4-P4 A, 1.1.0 aprobada, oficial republicado como versión 4).
 
-**4. Tercera vuelta (1.2.0) respondida el 25 sep: F4-P5 A, F4-P6 A.** Pasos 1 a 4 hechos: el PR #1 se integró a `main` (5c756bb).
+**4. Tercera vuelta (1.2.0) respondida el 25 sep: F4-P5 A, F4-P6 A.** Pantallas con la jerarquía del Pase en el sitio y en Figma, y la fila de HikCentral como mensaje genérico de alta fallida. 1.2.0 aprobada en `decisiones.md`, `d12_gobernanza.py`, Figma (fila 100:206) y el Léeme; oficial republicado (versión 5). Integrada a `main` con el PR #1 (5c756bb).
 
-**5. 1.2.1 · sitio responsive, aprobada el 25 sep (F4-P7 A) y publicada en el oficial (versión 6).** Queda integrar el PR #2. Construido en `sitio/responsive.css`, auditado con `scripts/auditar-responsive.mjs` (176 vistas sin desborde). Al recibir la respuesta a F4-P7: pasar 1.2.1 a «Aprobada» en `decisiones.md`, `d12_gobernanza.py`, Figma (Registro de cambios, fila 105:18) y el Léeme (22:143); reconstruir, verificar y republicar el oficial leyéndolo primero. Si es B, quitar `responsive.css` de `construir.py` y las versiones `.mapa-movil` y `.arbol-movil` de `contenido/01-plataforma.html`. Construido: pantallas con la jerarquía del Pase (F4-P5) en el sitio y en Figma, y la fila de HikCentral explicada (F4-P6). Al recibir la respuesta a `parada-4c.html`:
-  1. Anotar F4-P5 y F4-P6 en `decisiones.md`. Si F4-P5 es B: en `deptos/d10_producto.py` (`_lista`), volver a las pestañas «Activos / Anteriores» en lugar de los grupos, y lo mismo en Figma (98:95). Si F4-P6 es B: quitar la fila en `sitio/verbal.py`.
-  2. Pasar 1.2.0 a «Aprobada» en `d12_gobernanza.py`, en Figma (Registro de cambios, fila v1.2.0 100:206) y en el Léeme (22:143).
-  3. Reconstruir, correr `fase5.py` y la compuerta de voz, y republicar el oficial leyéndolo primero, con `capabilities: {downloads: true}`.
-  4. Nico integra `marca/fase-4` a `main`.
+**5. 1.2.1 · sitio responsive, respondida el 25 sep: F4-P7 A.** Construido en `sitio/responsive.css` y auditado con `scripts/auditar-responsive.mjs` (176 vistas sin desborde). 1.2.1 aprobada en `decisiones.md`, `d12_gobernanza.py`, Figma (fila 105:18) y el Léeme; oficial republicado (versión 6). Integrada a `main` con el PR #2 (de8ba70).
+
+**6. Siguiente.** Sin trabajo pendiente del sistema de marca. Lo próximo arranca como versión 1.3.0, en una rama nueva desde `main` y con su propia parada.
 
 ## 10. Estado de Figma
 
