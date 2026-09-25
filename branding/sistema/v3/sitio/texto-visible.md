@@ -3631,8 +3631,8 @@ Estado
 Qué cambió
 1.2.1
 25 sep 2026
-Propuesta
-Sitio responsive de 320 a 1920 px: tablas apiladas como fichas, mapa y árbol en HTML para el teléfono, columnas que caben y textos de al menos 11 px. Espera revisión.
+Aprobada
+Sitio responsive de 320 a 1920 px: tablas apiladas como fichas, mapa y árbol en HTML para el teléfono, columnas que caben y textos de al menos 11 px.
 1.2.0
 25 sep 2026
 Aprobada
@@ -3824,7 +3824,7 @@ Mensaje de alta fallida en HikCentral
 Aprobada
 F4-P7
 Sitio responsive de 320 a 1920 px
-Propuesta
+Aprobada
 Doce preguntas antes de publicar una pieza
 ¿Cada estado lleva palabra además de color?
 ¿El verde #00D595 aparece solo en el botón que crea o entrega un Pase?

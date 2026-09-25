@@ -381,7 +381,7 @@ Lámina: `kino/parada-4.html` (https://claude.ai/artifact/DBF7w1VTGPtJ9oQwdz4tXa
 3. La fila del error de HikCentral se explica y se corrige como F4-P6.
 4. Con 1 y 2 aprobadas, la versión 1.1.0 queda aprobada y se republica el artefacto oficial. F4-P5 y F4-P6 van en la 1.2.0.
 
-### F4-P7 · Sitio responsive de 320 a 1920 px · PROPUESTA
+### F4-P7 · Sitio responsive de 320 a 1920 px · APROBADA (Nico, 25 sep: opción A)
 - **Pedido de Nico (25 sep):** «Hazlo completamente responsive», sobre el sitio «Kino · Sistema de marca».
 - **Lo que encontró la auditoría** (`scripts/auditar-responsive.mjs`, 16 secciones en 11 anchos):
   - las tablas tenían un ancho mínimo de 704 px y se desplazaban de lado en el teléfono y hasta en 1024 px;
@@ -397,9 +397,13 @@ Lámina: `kino/parada-4.html` (https://claude.ai/artifact/DBF7w1VTGPtJ9oQwdz4tXa
 - **Alternativa (B):** conservar las tablas y los SVG como en la 1.2.0, con desplazamiento lateral dentro de su caja.
 - **Resultado medido:** 176 vistas sin desborde de página. Quedan a propósito el caso de tipografía «un renglón que no termina» y el texto de las piezas del Pase, que son imágenes a escala.
 - **Por qué A:** la administración y el equipo leen el sistema desde el teléfono; una tabla que se desplaza de lado esconde columnas enteras.
-- **Espera:** revisión de Nico en la vista previa 1.2.1.
+- **Resultado:** aprobada tal como se construyó (vista previa 1.2.1, https://claude.ai/artifact/TKafvu7bHfjeKPSYaaKd7S). La versión 1.2.1 queda aprobada y se republica el artefacto oficial.
 
 ### Estado tras la respuesta del 25 sep (tercera vuelta)
 1. F4-P5: **APROBADA** (A). Pantallas con la jerarquía del Pase y lista en «Ahora» y «Próximos».
 2. F4-P6: **APROBADA** (A). Mensaje genérico de alta fallida en HikCentral.
 3. Con las dos, la versión 1.2.0 queda aprobada y se republica el artefacto oficial.
+
+### Estado tras la respuesta del 25 sep (1.2.1)
+1. F4-P7: **APROBADA** (A). Sitio responsive de 320 a 1920 px.
+2. La versión 1.2.1 queda aprobada y se republica el artefacto oficial.

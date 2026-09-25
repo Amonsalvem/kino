@@ -4,7 +4,7 @@ Bitácora del encargo «de borrador a sistema completo». Si una sesión nueva e
 
 ## Estado actual
 
-**PARADA 4 cerrada e integrada** (25 sep). La 1.2.0 está aprobada, el artefacto oficial la tiene (versión 5) y `marca/fase-4` se integró a `main` (PR https://github.com/Amonsalvem/kino/pull/1, commit 5c756bb). **1.2.1 en revisión:** sitio responsive (F4-P7). Vista previa: https://claude.ai/artifact/TKafvu7bHfjeKPSYaaKd7S
+**PARADA 4 cerrada e integrada** (25 sep). La 1.2.0 está aprobada, el artefacto oficial la tiene (versión 5) y `marca/fase-4` se integró a `main` (PR https://github.com/Amonsalvem/kino/pull/1, commit 5c756bb). **1.2.1 aprobada** (F4-P7 A, sitio responsive) y publicada en el oficial (versión 6). Falta integrar el PR https://github.com/Amonsalvem/kino/pull/2.
 
 | # | Departamento | Estado | Nota |
 |---|---|---|---|
@@ -20,7 +20,7 @@ Bitácora del encargo «de borrador a sistema completo». Si una sesión nueva e
 | 10 | Producto | Aprobado (1.2.0): pantallas con la jerarquía del Pase (F4-P5) | Componentes, 5 pantallas, WCAG |
 | 11 | Aplicaciones | Aprobado (1.0.0) | 15 piezas; Pase vivo vencido sin botón (F4-P1) |
 | 12 | Gobernanza | Aprobado (1.0.0) | Registro, revisión, 17 pendientes, descargas |
-| — | Sitio | 1.2.0 aprobado y publicado en el oficial; 1.2.1 (responsive) en revisión | `Kino_Sistema_de_marca.html` · vista previa 1.2.0 https://claude.ai/artifact/W5U4Nw4AeZMpM7QZ4gsXcH |
+| — | Sitio | 1.2.1 aprobado (responsive) y publicado en el oficial | `Kino_Sistema_de_marca.html` · vista previa 1.2.0 https://claude.ai/artifact/W5U4Nw4AeZMpM7QZ4gsXcH |
 | — | Figma | 1.2.0 aprobada | 271 variables iguales a DTCG; componente nuevo Pase en lista; pantallas 1.1.0 en su sección |
 
 ## Fase 0 · Diagnóstico (cerrada)
@@ -97,8 +97,8 @@ En arquitectura faltaba:
 - Figma: https://www.figma.com/design/BO7UnDO9iE0aG6yUpNj0bc
 
 ## Siguiente paso
-1. Nico revisa la vista previa 1.2.1 (F4-P7: A responsive como está, o B tablas y SVG con desplazamiento lateral).
-2. Al aprobar: pasar 1.2.1 a «Aprobada» en `decisiones.md`, `d12_gobernanza.py`, Figma (fila 105:18) y el Léeme, reconstruir, verificar y republicar el oficial leyéndolo primero.
+1. Nico integra el PR https://github.com/Amonsalvem/kino/pull/2 (1.2.1) a `main`.
+2. Lo siguiente del sistema de marca, si hace falta, arranca como versión 1.3.0 con su propia parada.
 
 ## Fase 2 · Verbal (23 sep)
 - Fuente única: `branding/sistema/v3/sitio/verbal.py`. Genera la sección 02, `guia-de-contenido.md`, `ux-writing.md` y la verificación de largo.
@@ -186,4 +186,4 @@ En arquitectura faltaba:
 - **Auditoría:** `scripts/auditar-responsive.mjs`, 16 secciones en 11 anchos (320 a 1920 px). Antes: tablas con 704 px de mínimo, matriz de 1500 px, mapa y árbol ilegibles en el teléfono, dos secciones con desborde a 320 px, textos de 10 px.
 - **Construido:** `sitio/responsive.css`; tablas que se apilan como fichas (cada celda con `data-t`, que añade `construir.py`); matriz en fichas; mapa y árbol en HTML en pantallas angostas; columnas con `minmax(min(100%, …), 1fr)`; textos de al menos 11 px.
 - **Verificación:** 176 vistas sin desborde; `verificar.py` y voz sin hallazgos; Fase 5 10 de 10; capturas en los dos temas sin errores.
-- **Espera:** revisión de Nico (F4-P7) en https://claude.ai/artifact/TKafvu7bHfjeKPSYaaKd7S. El oficial sigue en la 1.2.0.
+- **Respuesta de Nico (25 sep):** F4-P7 A. 1.2.1 aprobada en `decisiones.md`, Gobernanza, Figma (fila 105:18) y el Léeme; oficial republicado (versión 6), leyéndolo primero.
