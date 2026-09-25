@@ -21,9 +21,9 @@ PEND = [
 ]
 
 CAMBIOS = [
-    ('1.2.0', '25 sep 2026', 'Propuesta', 'Pantallas con la jerarquía del Pase y mensaje de alta fallida en HikCentral. Espera revisión.'),
+    ('1.2.0', '25 sep 2026', 'Aprobada', 'Pantallas con la jerarquía del Pase (un dato manda, vigencia en el color de su estado, rótulos, bloques y una acción) y mensaje genérico de alta fallida en HikCentral.'),
     ('1.1.0', '25 sep 2026', 'Aprobada', 'La identidad aplicada al propio sitio, ícono en los chips de Usado, Vencido y Revocado, llamada solo desde portería, librería de Figma con auto-layout y espaciado revisados.'),
-    ('1.0.0', '24 sep 2026', 'Aprobada', 'Tokens con la paleta aprobada, departamentos 03 a 12, piezas del Pase y verificación. La librería de Figma quedó en revisión.'),
+    ('1.0.0', '24 sep 2026', 'Aprobada', 'Tokens con la paleta aprobada, departamentos 03 a 12, piezas del Pase y verificación. La librería de Figma se aprobó en la 1.1.0.'),
     ('0.3', '24 sep 2026', 'Aprobada', 'Identidad visual: forma Portal, dos verdes, oscuro reajustado, Archivo al 112 %, trazo 1,7, aurora, radio 14 y arco, crecer, estados. Llamada de portería en vencido.'),
     ('0.2', '23 sep 2026', 'Aprobada', 'Voz: usted con la administración, «Pase» con mayúscula, horas, «Visita», nombres de estado, patrones de voz, imagen más enlace.'),
     ('0.1', '23 sep 2026', 'Aprobada', 'Plataforma y arquitectura: posicionamiento, promesa, personalidad, valores, nombres y manifiesto.'),

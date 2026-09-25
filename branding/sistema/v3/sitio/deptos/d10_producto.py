@@ -187,7 +187,7 @@ def html_():
             + descargas(descarga('kino-brand.css', 'kino-brand.css', (R / '../../kino-brand.css').read_text(encoding='utf8'), 'text/css'))
             + traza('X4: #00D595 solo en el botón que crea o entrega un Pase.')),
         sub('producto.pantallas', 'Pantallas clave', 'Las cinco pantallas donde se decide un ingreso',
-            'Textos finales del inventario de UX writing. Nombres, placas y códigos son de ejemplo. Las pantallas siguen la jerarquía de las piezas del Pase (F4-P5, propuesta de la 1.2.0).',
+            'Textos finales del inventario de UX writing. Nombres, placas y códigos son de ejemplo. Las pantallas siguen la jerarquía de las piezas del Pase (F4-P5, versión 1.2.0).',
             tabla(['Nivel', 'Qué lleva', 'Cómo se ve'], [[a, b, c] for a, b, c in JERARQUIA], 'Jerarquía de las pantallas')
             + f'<div class="pantallas">{_lista()}{_crear()}{_detalle()}{_codigo()}</div>{_limites()}'
             + traza('Decide quien conoce (el residente otorga) y Topes a la vista (la administración fija límites, no aprueba).')),

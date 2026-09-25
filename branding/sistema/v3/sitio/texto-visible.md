@@ -3050,7 +3050,7 @@ Responde a:
 X4
 : #00D595 solo en el botón que crea o entrega un Pase.
 Las cinco pantallas donde se decide un ingreso
-Textos finales del inventario de UX writing. Nombres, placas y códigos son de ejemplo. Las pantallas siguen la jerarquía de las piezas del Pase (F4-P5, propuesta de la 1.2.0).
+Textos finales del inventario de UX writing. Nombres, placas y códigos son de ejemplo. Las pantallas siguen la jerarquía de las piezas del Pase (F4-P5, versión 1.2.0).
 Nivel
 Qué lleva
 Cómo se ve
@@ -3595,8 +3595,8 @@ Estado
 Qué cambió
 1.2.0
 25 sep 2026
-Propuesta
-Pantallas con la jerarquía del Pase y mensaje de alta fallida en HikCentral. Espera revisión.
+Aprobada
+Pantallas con la jerarquía del Pase (un dato manda, vigencia en el color de su estado, rótulos, bloques y una acción) y mensaje genérico de alta fallida en HikCentral.
 1.1.0
 25 sep 2026
 Aprobada
@@ -3604,7 +3604,7 @@ La identidad aplicada al propio sitio, ícono en los chips de Usado, Vencido y R
 1.0.0
 24 sep 2026
 Aprobada
-Tokens con la paleta aprobada, departamentos 03 a 12, piezas del Pase y verificación. La librería de Figma quedó en revisión.
+Tokens con la paleta aprobada, departamentos 03 a 12, piezas del Pase y verificación. La librería de Figma se aprobó en la 1.1.0.
 0.3
 24 sep 2026
 Aprobada
@@ -3778,10 +3778,10 @@ La identidad de marca aplicada al propio sitio
 Aprobada
 F4-P5
 Pantallas con la jerarquía del Pase
-Propuesta
+Aprobada
 F4-P6
 Mensaje de alta fallida en HikCentral
-Propuesta
+Aprobada
 Doce preguntas antes de publicar una pieza
 ¿Cada estado lleva palabra además de color?
 ¿El verde #00D595 aparece solo en el botón que crea o entrega un Pase?

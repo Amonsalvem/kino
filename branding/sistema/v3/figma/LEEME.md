@@ -39,7 +39,7 @@ Scripts: `js/p5-auditoria-layout.js` y `js/p5-auditoria-tamanos.js` (diagnóstic
 
 Las sombras (`--kino-relieve-membrana`, `--kino-resplandor-vigente`, `--kino-resplandor-identidad`) son estilos de efecto porque Figma no guarda sombras en variables. Sus colores sí van ligados a Primitivos.
 
-## Pantallas con la jerarquía del Pase (1.2.0, propuesta F4-P5)
+## Pantallas con la jerarquía del Pase (1.2.0, F4-P5 aprobada)
 
 Nico aprobó la librería y pidió que las pantallas tomen la jerarquía de las piezas del Pase. Cada pantalla se armó con auto-layout y variables:
 
@@ -71,7 +71,7 @@ Nico aprobó la librería y pidió que las pantallas tomen la jerarquía de las 
 | Estructura | Retículas, espaciado, radios, elevación, quiebres |
 | Motion (specs) | Duraciones, curvas y coreografías |
 | Componentes | Guía; componentes Icono/*, Logo/*; sets Botón de acción, Botón secundario, Campo, Selector de tipo, Estado (con ícono en Usado, Vencido y Revocado), Tarjeta de Pase y Pase en lista (1.2.0) |
-| Pantallas | Lista de Pases (inicio), Crear Pase, Detalle, Acceso por código y Límites con la jerarquía del Pase (1.2.0, propuesta). Las de la 1.1.0 quedan en la sección «Pantallas 1.1.0» de la misma página |
+| Pantallas | Lista de Pases (inicio), Crear Pase, Detalle, Acceso por código y Límites con la jerarquía del Pase (1.2.0, aprobada). Las de la 1.1.0 quedan en la sección «Pantallas 1.1.0 (anteriores)» de la misma página |
 | Aplicaciones / Plantillas | Seis plantillas para duplicar |
 | Registro de cambios | Versiones 0.0 a 1.2.0 |
 | Referencias | La librería anterior, sin cambios |

@@ -334,7 +334,7 @@ Lámina: `kino/parada-4.html` (https://claude.ai/artifact/DBF7w1VTGPtJ9oQwdz4tXa
 6. Pedido nuevo: F4-P4.
 7. El artefacto oficial sigue sin republicarse: la Parada 4 no queda cerrada mientras Figma y F4-P4 esperan revisión.
 
-### F4-P5 · Pantallas con la jerarquía del Pase · PROPUESTA
+### F4-P5 · Pantallas con la jerarquía del Pase · APROBADA (Nico, 25 sep: opción A)
 - **Pedido de Nico (25 sep, al aprobar Figma):** las pantallas cargan mucho: toda la información tiene el mismo peso y se vuelve difícil de leer. La distribución, el color y la jerarquía de las piezas del Pase funcionan; aplicarlas a las pantallas.
 - **Qué se toma del Pase:**
   - un dato manda por pantalla (el nombre, o el código) en Archivo grande;
@@ -363,9 +363,9 @@ Lámina: `kino/parada-4.html` (https://claude.ai/artifact/DBF7w1VTGPtJ9oQwdz4tXa
 - **Alternativa (B):** la misma jerarquía, pero la lista conserva las pestañas «Activos / Anteriores» de la 1.1.0 en vez de los grupos «Ahora / Próximos».
 - **Contraste:** 6 pares nuevos en `pares.json` (vigencia de cada estado sobre la tarjeta, Revocar y el error de código sobre base). 132 mediciones, 0 fallos. Los rótulos pequeños pasan de texto tenue a secundario: el tenue solo está medido para 24 px o más (Lc 65 en oscuro).
 - **Anterior:** `_obsoleto/d10_producto-2026-09-25.py` (sitio) y la sección «Pantallas 1.1.0 (anterior)» en la página Pantallas de Figma.
-- **Espera:** revisión de Nico en `parada-4c.html` (https://claude.ai/artifact/NXuGd6VQc7k6Fqqi9pciZZ).
+- **Resultado:** aprobada tal como se construyó, con la lista agrupada en «Ahora» y «Próximos» (lámina `parada-4c.html`, https://claude.ai/artifact/NXuGd6VQc7k6Fqqi9pciZZ).
 
-### F4-P6 · Mensaje de alta fallida en HikCentral · PROPUESTA
+### F4-P6 · Mensaje de alta fallida en HikCentral · APROBADA (Nico, 25 sep: opción A)
 - **Qué es la fila:** el inventario de la Parada 2 traduce cada texto que hoy muestra el sistema. Uno es el error que ve el super administrador: «Incorrect request parameter. [email parameter error]», 711 veces (observado, `inspeccion/diagnostico-inspeccion.md`).
 - **Lo que Nico señaló (25 sep):** con el Pase, la visita no se registra como persona ni necesita correo, así que ese error no es el problema que Kino resuelve.
 - **Lo que dice la inspección:** los 711 errores son `add_person` de todas las personas, no solo de visitas. En Refugio, 0 de 312 usuarios están sincronizados, residentes incluidos.
@@ -373,6 +373,7 @@ Lámina: `kino/parada-4.html` (https://claude.ai/artifact/DBF7w1VTGPtJ9oQwdz4tXa
 - **Propuesta (A, construida):** la fila deja de hablar del correo y queda como el mensaje genérico de un alta que HikCentral no acepta: «HikCentral no aceptó el alta de Carolina Ruiz. Hasta que se corrija, el lector no la reconoce.» Sirve para cualquier falla de sincronización, que sigue siendo posible (Refugio es el caso).
 - **Alternativa (B):** quitar la fila del inventario, porque Kino no debería producir ese error.
 - **Por qué A:** la integración caída de Refugio muestra que las altas pueden fallar por otras causas. La administración necesita un mensaje que diga a quién afecta y qué pasa en la puerta. Tampoco promete que Kino reintente solo, porque eso no está confirmado.
+- **Resultado:** la fila queda como mensaje genérico de alta fallida, tal como se construyó en `sitio/verbal.py`.
 
 ### Estado tras la respuesta del 25 sep (segunda vuelta)
 1. Librería de Figma: **APROBADA**. Pedido: pantallas con la jerarquía del Pase (F4-P5).
@@ -380,3 +381,7 @@ Lámina: `kino/parada-4.html` (https://claude.ai/artifact/DBF7w1VTGPtJ9oQwdz4tXa
 3. La fila del error de HikCentral se explica y se corrige como F4-P6.
 4. Con 1 y 2 aprobadas, la versión 1.1.0 queda aprobada y se republica el artefacto oficial. F4-P5 y F4-P6 van en la 1.2.0.
 
+### Estado tras la respuesta del 25 sep (tercera vuelta)
+1. F4-P5: **APROBADA** (A). Pantallas con la jerarquía del Pase y lista en «Ahora» y «Próximos».
+2. F4-P6: **APROBADA** (A). Mensaje genérico de alta fallida en HikCentral.
+3. Con las dos, la versión 1.2.0 queda aprobada y se republica el artefacto oficial.

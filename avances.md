@@ -4,7 +4,7 @@ Bitácora del encargo «de borrador a sistema completo». Si una sesión nueva e
 
 ## Estado actual
 
-**PARADA 4, tercera vuelta, pendiente** (25 sep). La 1.1.0 está aprobada (Figma y F4-P4 A) y el artefacto oficial la tiene. La 1.2.0 propone pantallas con la jerarquía del Pase (F4-P5) y el mensaje de alta fallida en HikCentral (F4-P6). Lámina: `parada-4c.html` · https://claude.ai/artifact/NXuGd6VQc7k6Fqqi9pciZZ
+**PARADA 4 cerrada** (25 sep). La 1.2.0 está aprobada (F4-P5 A y F4-P6 A) y el artefacto oficial la tiene (versión 5). Falta que Nico integre `marca/fase-4` a `main` (PR https://github.com/Amonsalvem/kino/pull/1).
 
 | # | Departamento | Estado | Nota |
 |---|---|---|---|
@@ -17,11 +17,11 @@ Bitácora del encargo «de borrador a sistema completo». Si una sesión nueva e
 | 7 | Imagen | Aprobado (1.0.0) | Aurora y tejido celular |
 | 8 | Estructura | Aprobado (1.0.0) | Retículas, espacio, radios, elevación, quiebres |
 | 9 | Motion | Aprobado (1.0.0) | 13 animaciones, motor en vivo |
-| 10 | Producto | Aprobado (1.1.0); pantallas con la jerarquía del Pase en revisión (F4-P5) | Componentes, 5 pantallas, WCAG |
+| 10 | Producto | Aprobado (1.2.0): pantallas con la jerarquía del Pase (F4-P5) | Componentes, 5 pantallas, WCAG |
 | 11 | Aplicaciones | Aprobado (1.0.0) | 15 piezas; Pase vivo vencido sin botón (F4-P1) |
 | 12 | Gobernanza | Aprobado (1.0.0) | Registro, revisión, 17 pendientes, descargas |
-| — | Sitio | 1.1.0 aprobado y publicado en el oficial; 1.2.0 en revisión | `Kino_Sistema_de_marca.html` · vista previa 1.2.0 https://claude.ai/artifact/W5U4Nw4AeZMpM7QZ4gsXcH |
-| — | Figma | 1.1.0 aprobada; pantallas 1.2.0 en revisión | 271 variables iguales a DTCG; componente nuevo Pase en lista; pantallas 1.1.0 en su sección |
+| — | Sitio | 1.2.0 aprobado y publicado en el oficial | `Kino_Sistema_de_marca.html` · vista previa 1.2.0 https://claude.ai/artifact/W5U4Nw4AeZMpM7QZ4gsXcH |
+| — | Figma | 1.2.0 aprobada | 271 variables iguales a DTCG; componente nuevo Pase en lista; pantallas 1.1.0 en su sección |
 
 ## Fase 0 · Diagnóstico (cerrada)
 - `auditoria.md`: 90 elementos; 10 completos, 39 superficiales, 41 faltan.
@@ -88,15 +88,16 @@ En arquitectura faltaba:
 - Parada 4b (segunda vuelta): https://claude.ai/artifact/Bn6AaiChNchG5dhx7BjtQ1 · copia en `kino/parada-4b.html`
 - Parada 4c (tercera vuelta, 1.2.0): https://claude.ai/artifact/NXuGd6VQc7k6Fqqi9pciZZ · copia en `kino/parada-4c.html`
 - Vista previa del sitio 1.2.0: https://claude.ai/artifact/W5U4Nw4AeZMpM7QZ4gsXcH
-- Artefacto oficial (1.1.0, versión 4): https://claude.ai/artifact/K8R2PRduS6SHBKYU31Bo6L
+- Artefacto oficial (1.2.0, versión 5): https://claude.ai/artifact/K8R2PRduS6SHBKYU31Bo6L
+- PR: https://github.com/Amonsalvem/kino/pull/1
 - Vista previa del sitio 1.1.0: https://claude.ai/artifact/NnuVUWwUdgk34VHkj3H5Rd
 - Vista previa del sitio 1.0.0: https://claude.ai/artifact/AJey2DjrB4K8oo92fn6pfg
 - Vista previa del sitio v3: https://claude.ai/artifact/NGW6EEiRghDxq4uFzvsjBa
 - Figma: https://www.figma.com/design/BO7UnDO9iE0aG6yUpNj0bc
 
 ## Siguiente paso
-1. Nico responde las dos preguntas de `parada-4c.html`: F4-P5 (A con grupos Ahora y Próximos, o B con pestañas) y F4-P6 (A mensaje genérico o B quitar la fila).
-2. Al aprobar la 1.2.0: aplicar la respuesta, reconstruir, verificar y republicar el artefacto oficial leyéndolo primero (ver §9 del traspaso).
+1. Nico integra `marca/fase-4` a `main` desde el PR https://github.com/Amonsalvem/kino/pull/1.
+2. Lo siguiente del sistema de marca, si hace falta, arranca como versión 1.3.0 con su propia parada.
 
 ## Fase 2 · Verbal (23 sep)
 - Fuente única: `branding/sistema/v3/sitio/verbal.py`. Genera la sección 02, `guia-de-contenido.md`, `ux-writing.md` y la verificación de largo.
@@ -172,3 +173,9 @@ En arquitectura faltaba:
   - F4-P6: la fila de HikCentral explicada en la lámina, con dos opciones.
 - **Verificación:** 10 de 10; 132 mediciones de contraste sin fallos (6 pares nuevos); voz 0; Figma 0 hallazgos de layout en Pantallas y Componentes; lámina sin desborde en 360, 768 y 1440 px.
 - **Lámina:** `parada-4c.html` · https://claude.ai/artifact/NXuGd6VQc7k6Fqqi9pciZZ. Vista previa 1.2.0: https://claude.ai/artifact/W5U4Nw4AeZMpM7QZ4gsXcH.
+
+## Parada 4c · respuesta (25 sep)
+- **Respuesta de Nico:** F4-P5 A (lista en «Ahora» y «Próximos»); F4-P6 A (mensaje genérico de alta fallida).
+- **Aplicado:** 1.2.0 aprobada en `decisiones.md`, Gobernanza, Registro de cambios de Figma (fila 100:206 en Vigente) y Léeme; la sección de pantallas 1.1.0 queda como «anteriores». Fase 5: 10 de 10; voz 0.
+- **Artefacto oficial republicado** con la 1.2.0 (versión 5), leyéndolo primero; conserva la capacidad de descargas.
+- **PR:** https://github.com/Amonsalvem/kino/pull/1, con la descripción corregida.

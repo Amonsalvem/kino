@@ -26,14 +26,12 @@ Con eso basta. Si la carpeta no está conectada, las copias de `avances` y `deci
 | 2 · Verbal | Aprobada (Parada 2) |
 | V7 · Pase entregado como imagen más enlace | Aprobada |
 | 3 · Identidad visual | Aprobada (Parada 3, 24 sep): X1 a X11 |
-| 4 · Construcción | 1.1.0 aprobada el 25 sep, Figma incluida; oficial republicado. **Tercera vuelta de la Parada 4 pendiente**: 1.2.0 (F4-P5 y F4-P6) |
+| 4 · Construcción | 1.2.0 aprobada el 25 sep (F4-P5 A, F4-P6 A); oficial republicado (versión 5). Falta integrar a `main` |
 | 5 · Verificación y evaluaciones | 10 de 10. Lector frío PASA; detector de IA PASA en el ciclo 4 |
 
-**Preguntas abiertas de la Parada 4c** (`parada-4c.html`)
-1. F4-P5 · ¿Las pantallas quedan con la jerarquía del Pase, con la lista en grupos «Ahora / Próximos» (A) o con pestañas (B)?
-2. F4-P6 · ¿La fila del error de HikCentral queda como mensaje genérico de alta fallida (A) o sale del inventario (B)?
+**Sin preguntas abiertas.** La Parada 4c se respondió el 25 sep: F4-P5 A y F4-P6 A. El PR https://github.com/Amonsalvem/kino/pull/1 espera que Nico lo integre.
 
-Las respuestas a la Parada 4 y a la 4b (25 sep) están en `decisiones.md`, «Estado tras la respuesta del 25 sep» y «(segunda vuelta)».
+Las respuestas a las Paradas 4, 4b y 4c (25 sep) están en `decisiones.md`, «Estado tras la respuesta del 25 sep», «(segunda vuelta)» y «(tercera vuelta)».
 
 ## 3. Enlaces
 
@@ -49,7 +47,7 @@ Las respuestas a la Parada 4 y a la 4b (25 sep) están en `decisiones.md`, «Est
 | Vista previa del sitio 1.1.0 | https://claude.ai/artifact/NnuVUWwUdgk34VHkj3H5Rd |
 | Vista previa del sitio 1.0.0 | https://claude.ai/artifact/AJey2DjrB4K8oo92fn6pfg (copia de `Kino_Sistema_de_marca.html`) |
 | Vista previa del sitio v3 (Paradas 1 y 2) | https://claude.ai/artifact/NGW6EEiRghDxq4uFzvsjBa |
-| Artefacto oficial «Kino · Sistema de marca» | https://claude.ai/artifact/K8R2PRduS6SHBKYU31Bo6L (1.1.0, versión 4, con la capacidad de descargas; se republica al aprobar la 1.2.0) |
+| Artefacto oficial «Kino · Sistema de marca» | https://claude.ai/artifact/K8R2PRduS6SHBKYU31Bo6L (1.2.0, versión 5, con la capacidad de descargas) |
 | Figma | https://www.figma.com/design/BO7UnDO9iE0aG6yUpNj0bc |
 
 Los artefactos se publicaron desde otra sesión. Una sesión nueva no puede republicarlos por ruta de archivo:
@@ -207,7 +205,7 @@ node herramientas/voz.mjs kino ../branding/sistema/v3/sitio/texto-visible.md ../
   6. Nico integra `marca/fase-4` a `main`.
 - Hecho tras la respuesta a la 4b: pasos 1 a 5 (Figma aprobada, F4-P4 A, 1.1.0 aprobada, oficial republicado como versión 4).
 
-**4. Tercera vuelta (1.2.0) pendiente.** Construido: pantallas con la jerarquía del Pase (F4-P5) en el sitio y en Figma, y la fila de HikCentral explicada (F4-P6). Al recibir la respuesta a `parada-4c.html`:
+**4. Tercera vuelta (1.2.0) respondida el 25 sep: F4-P5 A, F4-P6 A.** Pasos 1 a 3 hechos; queda el 4. Construido: pantallas con la jerarquía del Pase (F4-P5) en el sitio y en Figma, y la fila de HikCentral explicada (F4-P6). Al recibir la respuesta a `parada-4c.html`:
   1. Anotar F4-P5 y F4-P6 en `decisiones.md`. Si F4-P5 es B: en `deptos/d10_producto.py` (`_lista`), volver a las pestañas «Activos / Anteriores» en lugar de los grupos, y lo mismo en Figma (98:95). Si F4-P6 es B: quitar la fila en `sitio/verbal.py`.
   2. Pasar 1.2.0 a «Aprobada» en `d12_gobernanza.py`, en Figma (Registro de cambios, fila v1.2.0 100:206) y en el Léeme (22:143).
   3. Reconstruir, correr `fase5.py` y la compuerta de voz, y republicar el oficial leyéndolo primero, con `capabilities: {downloads: true}`.
@@ -219,7 +217,7 @@ node herramientas/voz.mjs kino ../branding/sistema/v3/sitio/texto-visible.md ../
 - **Páginas** (15, todas llenas): Léeme, Plataforma, Voz y UX writing, Logo, Color, Tipografía, Iconografía, Imagen, Estructura, Motion (specs), Componentes, Pantallas, Aplicaciones / Plantillas, Registro de cambios, Referencias.
 - **Variables**: Primitivos 128, Color 52 (Oscuro y Claro, con `texto/enlace`), Espacio y radio 35, Movimiento 28, Tipografía 28 (1440 px y 360 px). Code syntax `var(--kino-*)` y alcances en todas. Las 4 colecciones anteriores quedaron dentro de estas; no se borró ninguna variable.
 - **Componentes** (página Componentes): guía (71:38), íconos (56:2), logo (56:114), Botón de acción, Botón secundario, Campo, Selector de tipo (57:3), Estado, Tarjeta de Pase y Pase en lista (96:100, 1.2.0) en 58:2.
-- **Pantallas** (22:65): Lista 98:95, Crear 98:160, Detalle 99:143, Acceso por código 99:187, Límites 99:217 (1.2.0, propuesta). Las de la 1.1.0, en la sección 98:94.
+- **Pantallas** (22:65): Lista 98:95, Crear 98:160, Detalle 99:143, Acceso por código 99:187, Límites 99:217 (1.2.0, aprobada). Las de la 1.1.0, en la sección 98:94 (anteriores).
 - **Verificación**: `branding/sistema/v3/figma/exportar_variables.py`, 0 diferencias y 0 pinturas sin variable (25 sep). Auto-layout y espaciado: `figma/js/p5-verificar-layout.js`, 0 hallazgos en 14 páginas.
 
 ## Repositorio (24 sep)
