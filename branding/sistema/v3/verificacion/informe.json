@@ -31,7 +31,7 @@
   "n": 5,
   "comprobacion": "APCA en todos los pares texto y fondo (Lc 75 · 60 · 45 · 30)",
   "pasa": true,
-  "detalle": "120 mediciones, 0 fallos, 0 sin mínimo APCA",
+  "detalle": "132 mediciones, 0 fallos, 0 sin mínimo APCA",
   "evidencia": ""
  },
  {
@@ -59,7 +59,7 @@
   "n": 9,
   "comprobacion": "Enlaces y anclas rotas",
   "pasa": true,
-  "detalle": "48 anclas internas, 0 rotas · 6 enlaces externos",
+  "detalle": "50 anclas internas, 0 rotas · 6 enlaces externos",
   "evidencia": ""
  },
  {
