@@ -313,7 +313,7 @@ Lámina: `kino/parada-4.html` (https://claude.ai/artifact/DBF7w1VTGPtJ9oQwdz4tXa
 - **Alternativa descartada:** (A) dejar solo la palabra.
 - **Efecto:** cambia el componente Estado en código (`capa-componentes.css`, `deptos/comun.py → chip`) y en Figma. No cambia el color ni los tokens.
 
-### F4-P4 · La identidad de marca aplicada al propio sitio · PROPUESTA
+### F4-P4 · La identidad de marca aplicada al propio sitio · APROBADA (Nico, 25 sep: opción A)
 - **Pedido de Nico (25 sep):** el sitio se lee monótono porque usa dos colores. Aprovechar la identidad ya aprobada dentro del mismo documento.
 - **Propuesta:**
   - aurora (X7) en la portada y en la apertura de cada sección;
@@ -323,7 +323,7 @@ Lámina: `kino/parada-4.html` (https://claude.ai/artifact/DBF7w1VTGPtJ9oQwdz4tXa
   - los estados, el ámbar y el violeta siguen solo en lo que significan.
 - **Por qué:** el sitio es la primera pieza de Kino que ve una administración o un aliado. Si se lee monótono, contradice la identidad que describe. Aplica recursos ya aprobados en su uso aprobado: X7 pone la aurora en portadas y la familia índigo significa profundidad y enlaces.
 - **Qué no cambia:** el verde #00D595 sigue solo en el botón que crea un Pase; el arco sigue solo en el Pase; todo texto nuevo sobre aurora se mide con APCA.
-- **Espera:** revisión de Nico en la lámina siguiente.
+- **Resultado:** aprobada tal como se construyó (aurora en portada y en cada apertura).
 
 ### Estado tras la respuesta del 25 sep
 1. **Versión 1.0.0:** aprobados los tokens, el sitio y las piezas del Pase. **La librería de Figma y lo que se exporta de ella no se aprueba**: se revisa el auto-layout y el espaciado de todas las páginas.
@@ -333,4 +333,32 @@ Lámina: `kino/parada-4.html` (https://claude.ai/artifact/DBF7w1VTGPtJ9oQwdz4tXa
 5. Detector de IA: opción B, se autoriza un cuarto ciclo.
 6. Pedido nuevo: F4-P4.
 7. El artefacto oficial sigue sin republicarse: la Parada 4 no queda cerrada mientras Figma y F4-P4 esperan revisión.
+
+### F4-P5 · Pantallas con la jerarquía del Pase · PROPUESTA
+- **Pedido de Nico (25 sep, al aprobar Figma):** las pantallas cargan mucho: toda la información tiene el mismo peso y se vuelve difícil de leer. La distribución, el color y la jerarquía de las piezas del Pase funcionan; aplicarlas a las pantallas.
+- **Qué se toma del Pase:**
+  - un dato manda por pantalla (el nombre, o el código) en Archivo grande;
+  - rótulos cortos en JetBrains Mono, mayúsculas pequeñas, encima de su valor;
+  - la vigencia en el color de su estado, en monoespaciada;
+  - datos agrupados en bloques con aire entre ellos, en vez de una columna pareja;
+  - la monoespaciada solo para datos (hora, placa, código, teléfono), no para nombres;
+  - una sola acción principal por pantalla.
+- **Qué se quita:** textos que repiten lo obvio (por ejemplo «otorgó Carolina Ruiz» en la lista de la propia Carolina) y ayudas que se pueden decir en una línea.
+- **Por qué:** responde a la personalidad «Exacto» (P06) y al valor «Topes a la vista»: el dato que decide un ingreso se lee primero. La aurora solo va en la pantalla de inicio, como fija X7.
+- **Espera:** revisión de Nico en la lámina siguiente.
+
+### F4-P6 · Mensaje de alta fallida en HikCentral · PROPUESTA
+- **Qué es la fila:** el inventario de la Parada 2 traduce cada texto que hoy muestra el sistema. Uno es el error que ve el super administrador: «Incorrect request parameter. [email parameter error]», 711 veces (observado, `inspeccion/diagnostico-inspeccion.md`).
+- **Lo que Nico señaló (25 sep):** con el Pase, la visita no se registra como persona ni necesita correo, así que ese error no es el problema que Kino resuelve.
+- **Lo que dice la inspección:** los 711 errores son `add_person` de todas las personas, no solo de visitas. En Refugio, 0 de 312 usuarios están sincronizados, residentes incluidos.
+- **Efecto del diseño actual:** la visita entra con un Pase y no crea una persona. El residente entra con código por WhatsApp y el correo deja de ser obligatorio (inferido de la decisión del ingreso sin contraseña). Con eso, el error del correo desaparece para todos.
+- **Propuesta (A, construida):** la fila deja de hablar del correo y queda como el mensaje genérico de un alta que HikCentral no acepta: «HikCentral no aceptó el alta de Carolina Ruiz. Hasta que se corrija, el lector no la reconoce.» Sirve para cualquier falla de sincronización, que sigue siendo posible (Refugio es el caso).
+- **Alternativa (B):** quitar la fila del inventario, porque Kino no debería producir ese error.
+- **Por qué A:** la integración caída de Refugio muestra que las altas pueden fallar por otras causas. La administración necesita un mensaje que diga a quién afecta y qué pasa en la puerta. Tampoco promete que Kino reintente solo, porque eso no está confirmado.
+
+### Estado tras la respuesta del 25 sep (segunda vuelta)
+1. Librería de Figma: **APROBADA**. Pedido: pantallas con la jerarquía del Pase (F4-P5).
+2. F4-P4: **APROBADA** (A).
+3. La fila del error de HikCentral se explica y se corrige como F4-P6.
+4. Con 1 y 2 aprobadas, la versión 1.1.0 queda aprobada y se republica el artefacto oficial. F4-P5 y F4-P6 van en la 1.2.0.
 

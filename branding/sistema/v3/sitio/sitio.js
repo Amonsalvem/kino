@@ -124,7 +124,7 @@
     /* PNG a partir del SVG descargable. */
     var p=e.target.closest('[data-png]');
     if(p){var img=new Image(),w=+p.dataset.ancho,h=+p.dataset.alto;img.onload=function(){var c=document.createElement('canvas');c.width=w;c.height=h;
-      c.getContext('2d').drawImage(img,0,0,w,h);c.toBlob(function(b){var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=p.dataset.png;document.body.appendChild(a);a.click();
+      c.getContext('2d').drawImage(img,0,0,w,h);c.toBlob(function(b){if(guardar(p.dataset.png,b,p))return;var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=p.dataset.png;document.body.appendChild(a);a.click();
       setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},500);},'image/png');};img.src=p.dataset.src;}
   });
   window.addEventListener('hashchange',function(){if(actual)correrEn(actual);desmontarMotor();});
@@ -145,3 +145,25 @@
   ir(location.hash,false);
   if(actual)correrEn(actual);
 })();
+
+/* Descargas dentro del visor de artefactos de claude.ai: el visor no deja que la página baje archivos por su cuenta,
+   así que pasan por su función de descarga (el visor pide confirmación). Fuera del visor, el enlace funciona solo.
+   El visor no acepta .css: para esos archivos se dice dónde están en el repositorio. */
+var descargas=null;
+function pedirDescargas(){try{if(!descargas&&window.claude&&typeof window.claude.use==='function')window.claude.use('downloads').then(function(d){descargas=d;},function(){});}catch(_){}}
+setTimeout(pedirDescargas,0);window.addEventListener('load',pedirDescargas);
+var RUTAS={'kino-brand.css':'branding/sistema/kino-brand.css','kino-tokens.css':'gorr-brand-system/clientes/kino/build/kino-tokens.css'};
+function aBlob(uri){var i=uri.indexOf(','),meta=uri.slice(5,i),datos=uri.slice(i+1);
+  if(/;base64/.test(meta)){var b=atob(datos),u=new Uint8Array(b.length);for(var k=0;k<b.length;k++)u[k]=b.charCodeAt(k);return new Blob([u]);}
+  return new Blob([decodeURIComponent(datos)]);}
+function avisar(el,txt){var n=el.nextElementSibling;if(!n||!n.classList.contains('descarga-aviso')){n=document.createElement('p');n.className='descarga-aviso nota';n.setAttribute('role','status');el.insertAdjacentElement('afterend',n);}n.textContent=txt;}
+function guardar(nombre,datos,el){
+  if(!descargas)return false;
+  if(/\.css$/.test(nombre)){avisar(el,'El visor no baja archivos .css. Está en el repositorio: '+(RUTAS[nombre]||'branding/sistema/'+nombre)+'.');return true;}
+  descargas.save({filename:nombre,data:datos}).catch(function(err){var c=err&&err.code;
+    if(c==='declined'||c==='rate_limited')return;
+    avisar(el,'No se pudo bajar '+nombre+' en esta vista.');});
+  return true;}
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[download]');if(!a||!descargas)return;
+  var href=a.getAttribute('href')||'';if(href.indexOf('data:')!==0)return;
+  e.preventDefault();guardar(a.getAttribute('download'),aBlob(href),a);},true);

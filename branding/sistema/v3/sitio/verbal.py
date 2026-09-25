@@ -175,7 +175,7 @@ ACTUALES = [
  ("Sin propiedad vinculada","Sin casa asociada","Término del glosario."),
  ("General Access Level","Acceso general","En español."),
  ("Allowed · Sync Status · Valid Until · Synced · Pending","Vigente · Lector · Vale hasta · Reconocido · Sin confirmar","En español y con los estados de la marca."),
- ("Incorrect request parameter. [email parameter error]","HikCentral rechazó el registro porque falta el correo. Los Pases no deben crear personas.","Qué pasó y cuál es la regla que lo evita."),
+ ("Incorrect request parameter. [email parameter error]","HikCentral no aceptó el alta de Carolina Ruiz. Hasta que se corrija, el lector no la reconoce.","Dice a quién afecta y qué pasa en la puerta. El error del correo desaparece: la visita entra con un Pase y el correo deja de ser obligatorio (F4-P6)."),
 ]
 
 # ───────────────────────── Plantillas de WhatsApp ─────────────────────────

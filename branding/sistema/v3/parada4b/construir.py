@@ -123,7 +123,7 @@ h3{{font-size:var(--kino-texto-1);font-weight:700;line-height:1.25}}
 p{{margin:0;max-inline-size:66ch}}
 .ojo{{font-family:var(--kino-fuente-dato);font-size:var(--kino-texto-n1);letter-spacing:.08em;text-transform:uppercase;color:var(--kino-texto-enlace)}}
 .lede{{color:var(--kino-texto-secundario);font-size:var(--kino-texto-1);line-height:1.45}}
-.cabeza{{display:grid;gap:1.4rem;margin-top:2rem;padding:clamp(1.5rem,4vw,3.5rem);border-radius:var(--kino-forma-radio-tarjeta);background:var(--s-aurora);box-shadow:var(--kino-relieve-membrana)}}
+.cabeza{{color:var(--kino-texto-primario);display:grid;gap:1.4rem;margin-top:2rem;padding:clamp(1.5rem,4vw,3.5rem);border-radius:var(--kino-forma-radio-tarjeta);background:var(--s-aurora);box-shadow:var(--kino-relieve-membrana)}}
 .cabeza .ojo{{color:var(--kino-texto-secundario)}}
 .barra{{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}}
 .barra svg{{block-size:2rem;inline-size:auto}}

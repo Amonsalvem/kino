@@ -3509,10 +3509,14 @@ Versión
 Fecha
 Estado
 Qué cambió
-1.1.0
+1.2.0
 25 sep 2026
 Propuesta
-La identidad aplicada al propio sitio, ícono en los chips de Usado, Vencido y Revocado, llamada solo desde portería, librería de Figma corregida. Espera revisión.
+Pantallas con la jerarquía del Pase y mensaje de alta fallida en HikCentral. Espera revisión.
+1.1.0
+25 sep 2026
+Aprobada
+La identidad aplicada al propio sitio, ícono en los chips de Usado, Vencido y Revocado, llamada solo desde portería, librería de Figma con auto-layout y espaciado revisados.
 1.0.0
 24 sep 2026
 Aprobada
@@ -3687,6 +3691,12 @@ F4-P3
 Aprobada
 F4-P4
 La identidad de marca aplicada al propio sitio
+Aprobada
+F4-P5
+Pantallas con la jerarquía del Pase
+Propuesta
+F4-P6
+Mensaje de alta fallida en HikCentral
 Propuesta
 Doce preguntas antes de publicar una pieza
 ¿Cada estado lleva palabra además de color?
