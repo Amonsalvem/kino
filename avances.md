@@ -4,24 +4,24 @@ Bitácora del encargo «de borrador a sistema completo». Si una sesión nueva e
 
 ## Estado actual
 
-**PARADA 3 pendiente de aprobación** (23 sep). Paradas 1 y 2 aprobadas; V7 (imagen más enlace) aprobada.
+**PARADA 4 pendiente de aprobación** (25 sep). Paradas 1, 2 y 3 aprobadas. Lámina: `parada-4.html` · https://claude.ai/artifact/DBF7w1VTGPtJ9oQwdz4tXa
 
-| # | Departamento | Estado | Ronda | Nota |
-|---|---|---|---|---|
-| 1 | Plataforma | Construido · PROPUESTA | 1 de 3 | Pendiente de aprobación. Ver evaluación abajo |
-| 2 | Verbal | Construido · PROPUESTA | 1 de 3 | 36 momentos, 46 textos en límite, 37 entradas de vocabulario, 32 términos de glosario, 6 plantillas de WhatsApp. voz.json con 42 patrones; calibración 40/42, 0 falsos positivos; voz 0 hallazgos |
-| 3 | Logo | No iniciado | — | |
-| 4 | Color | No iniciado | — | Hallazgo APCA del tema oscuro, para la Parada 3 |
-| 5 | Tipografía | No iniciado | — | |
-| 6 | Iconografía | No iniciado | — | |
-| 7 | Imagen | No iniciado | — | |
-| 8 | Estructura | No iniciado | — | |
-| 9 | Motion | No iniciado | — | |
-| 10 | Producto | No iniciado | — | |
-| 11 | Aplicaciones | No iniciado | — | |
-| 12 | Gobernanza | Parcial | — | Quién decide y pendientes, ya en el sitio |
-| — | Arquitectura del sitio | Construida · PROPUESTA | 1 | Índice, dos puertas, búsqueda, anclas, teclado, 360 px, claro y oscuro |
-| — | Figma | 15 páginas espejo | 1 | Contenido anterior en «Referencias». Léeme y Plataforma construidas con variables |
+| # | Departamento | Estado | Nota |
+|---|---|---|---|
+| 1 | Plataforma | Aprobada (Parada 1) | |
+| 2 | Verbal | Aprobada (Parada 2) | Aviso de llegada en conflicto con `voz.json`: F4-P2 |
+| 3 | Logo | Construido · en revisión | SVG reconstruidos desde PNG (98 %) |
+| 4 | Color | Construido · en revisión | 7 familias, 9 estados, 112 mediciones sin fallos |
+| 5 | Tipografía | Construido · en revisión | Archivo al 112 %, JetBrains Mono |
+| 6 | Iconografía | Construido · en revisión | 37 íconos |
+| 7 | Imagen | Construido · en revisión | Aurora y tejido celular |
+| 8 | Estructura | Construido · en revisión | Retículas, espacio, radios, elevación, quiebres |
+| 9 | Motion | Construido · en revisión | 13 animaciones, motor en vivo |
+| 10 | Producto | Construido · en revisión | Componentes, 5 pantallas, WCAG |
+| 11 | Aplicaciones | Construido · en revisión | 15 piezas; F4-P1 en el Pase vivo vencido |
+| 12 | Gobernanza | Construido · en revisión | Registro, revisión, 17 pendientes, descargas |
+| — | Sitio | Definitivo · en revisión | `Kino_Sistema_de_marca.html` · vista previa https://claude.ai/artifact/AJey2DjrB4K8oo92fn6pfg |
+| — | Figma | Construido · en revisión | 270 variables iguales a DTCG, 15 páginas llenas |
 
 ## Fase 0 · Diagnóstico (cerrada)
 - `auditoria.md`: 90 elementos; 10 completos, 39 superficiales, 41 faltan.
@@ -84,14 +84,14 @@ En arquitectura faltaba:
 
 ## Enlaces
 - Parada 1 (lámina): https://claude.ai/artifact/EuPrHetctevY4PGiVAohiM · copia en `kino/parada-1.html`
-- Vista previa del sitio v3: https://claude.ai/artifact/NGW6EEiRghDxq4uFzvsjBa (el artefacto oficial K8R2PRduS6SHBKYU31Bo6L no se toca hasta la Parada 4)
+- Parada 4 (lámina): https://claude.ai/artifact/DBF7w1VTGPtJ9oQwdz4tXa · copia en `kino/parada-4.html`
+- Vista previa del sitio 1.0.0: https://claude.ai/artifact/AJey2DjrB4K8oo92fn6pfg
+- Vista previa del sitio v3: https://claude.ai/artifact/NGW6EEiRghDxq4uFzvsjBa (el artefacto oficial K8R2PRduS6SHBKYU31Bo6L no se toca hasta aprobar la Parada 4)
 - Figma: https://www.figma.com/design/BO7UnDO9iE0aG6yUpNj0bc
 
 ## Siguiente paso
-1. Nico responde las preguntas de la Parada 1 (`parada-1.html`).
-2. Al aprobar:
-   - marcar las decisiones P01 a P13 como APROBADA;
-   - pasar a la Fase 2 (Verbal).
+1. Nico responde las cinco preguntas de la Parada 4 (`parada-4.html`).
+2. Al aprobar, seguir la lista de §9 del traspaso: aplicar F4-P1 y F4-P2, corregir las tres observaciones del lector frío, marcar 1.0.0 como aprobada, verificar y republicar el artefacto oficial leyéndolo primero.
 
 ## Fase 2 · Verbal (23 sep)
 - Fuente única: `branding/sistema/v3/sitio/verbal.py`. Genera la sección 02, `guia-de-contenido.md`, `ux-writing.md` y la verificación de largo.
@@ -135,3 +135,15 @@ En arquitectura faltaba:
 - Detector de IA: 17, 12 y 8 señales en los ciclos 1, 2 y 3. En el ciclo 3 quedan Motion (3) y Plataforma (2) por encima del máximo de 1, y 1 microcopy débil: **FALLA**.
   - Las 8 señales del ciclo 3 se corrigieron, pero el límite de 3 ciclos no permite volver a medir. Queda sin verificar y se reporta así.
   - Detalle en `evaluaciones.md`.
+
+**Bloque 6 · Figma (25 sep)**
+- 270 variables en cinco colecciones, iguales a DTCG en los dos modos, más 3 sombras como estilos de efecto (`branding/sistema/v3/figma/variables-figma.json`).
+- 0 pinturas sin variable en 14 páginas. Con eso las comprobaciones 6 y 7 pasan y el informe queda en 10 de 10.
+- Páginas llenas: guía de Componentes, Registro de cambios, Léeme con el estado de la versión, Plataforma sin la etiqueta de propuesta.
+
+**Bloque 7 · Parada 4 (25 sep)**
+- `parada-4.html` publicada: https://claude.ai/artifact/DBF7w1VTGPtJ9oQwdz4tXa. Generador en `branding/sistema/v3/parada4/`; compuerta de voz: 0 hallazgos.
+- Vista previa del sitio 1.0.0: https://claude.ai/artifact/AJey2DjrB4K8oo92fn6pfg. Dentro del visor, el centro de descargas no baja archivos; al republicar el oficial hay que declarar la capacidad de descargas.
+- Propuestas nuevas en `decisiones.md`: F4-P1 (llamada desde el Pase vivo) y F4-P2 (aviso de llegada).
+- Defecto corregido: los PNG y el PDF del Pase se habían generado sin Archivo ni JetBrains Mono, porque Google Fonts no responde en el entorno. Las fuentes van incrustadas (`fuentes_incrustadas()` en `deptos/comun.py`) y las entregas se regeneraron. El PDF sigue en una página.
+

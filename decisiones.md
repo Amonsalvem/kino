@@ -8,7 +8,7 @@ Registro único de decisiones de marca. Cada una dice qué se propuso, qué alte
 - **REVERTIDA**: se deshizo.
 - **HEREDADA**: viene del borrador del 23 sep. No está entre las decisiones firmes del encargo, así que se trata como propuesta y se revisa en su parada.
 
-Última actualización: 23 sep 2026, respuestas de Nico a la Parada 1.
+Última actualización: 25 sep 2026, propuestas F4-P1 y F4-P2 para la Parada 4.
 
 ---
 
@@ -272,3 +272,38 @@ Estado: **todas APROBADA (A)** · respuesta de Nico a la Parada 3, 24 sep:
 - **Efecto:** la señal de portería y el Pase vivo en estado vencido ofrecen «Llamar al residente». El texto puede prometer esa llamada.
 - **Por verificar en producto:** la inspección no registró un botón de llamada en la vista del portero. Si la función no existe hoy, es un requisito de producto que el sistema de marca da por hecho y hay que construir.
 - **Trazabilidad:** la llamada no autoriza el ingreso. Si el residente quiere dejar entrar a la persona, crea un Pase nuevo o extiende el vencido. Así cada ingreso sigue teniendo un Pase con autor, y HikCentral recibe el alta con su vigencia.
+
+---
+
+## Parada 4 · Sistema completo (propuestas, 25 sep)
+
+Lámina: `kino/parada-4.html`. La versión 1.0.0 (tokens, sitio, piezas del Pase, librería de Figma) espera la aprobación de Nico. Mientras tanto, todo lo construido en la Fase 4 se trata como PROPUESTA.
+
+### F4-P1 · Llamada desde el Pase vivo vencido · PROPUESTA
+- **Qué está construido:** el Pase vivo en estado Vencido, que ve la visita, muestra el botón «Llamar al residente», igual que la vista de portería (X11).
+- **El problema:**
+  - X11 aprobó la llamada desde portería.
+  - En el Pase vivo el botón lo toca la visita. Si abre una llamada normal, la visita ve el número del residente: un dato personal expuesto a alguien sin cuenta.
+  - La inspección no registró ninguna función de llamada.
+- **Propuesta (A):** quitar el botón del Pase vivo. El aviso queda: «Tu Pase valía de 2:00 a 6:00 p. m. y son las 7:10 p. m. Pídele uno nuevo a Carolina o pide en portería que la llamen.» La llamada queda solo en portería.
+- **Alternativa (B):** mantener el botón con llamada enmascarada. Kino conecta a la visita con el residente sin mostrar el número. Es una función nueva de producto, con un proveedor de telefonía por elegir y un costo por llamada.
+- **Por qué A:**
+  - no promete una función que no existe (regla «Prometedores» de la voz);
+  - no expone el número;
+  - el camino sigue siendo el mismo: el residente crea un Pase nuevo.
+- **Trazabilidad y HikCentral:** ninguna de las dos autoriza el ingreso. En las dos, entrar exige un Pase nuevo o extendido, con autor, que se sincroniza a HikCentral con su vigencia. B además obliga a guardar un registro de cada llamada: quién llamó, a quién y cuándo.
+- **Si se aprueba A:** cambian `sitio/deptos/pase.py` (función `vivo`) y `pase/construir.py`, y se rehacen `pase-vivo-vencido.png` y la sección Aplicaciones del sitio.
+
+### F4-P2 · Aviso de llegada al residente · PROPUESTA
+- **El conflicto:**
+  - El inventario de UX writing de la Parada 2 incluye el estado «Aviso de llegada»: «Andrés entró a las 3:12 p. m. con la placa KMN 305.»
+  - El campo de WhatsApp dice «Tu WhatsApp sirve para entrar a Kino y para avisarte cuando alguien llega.»
+  - `voz.json → hechos` lista «Avisos automáticos cuando el lector confirma una placa» como **no confirmado**, así que la regla de voz prohíbe prometerlo.
+  - Observado en la inspección: el aviso no existe hoy.
+- **Propuesta (A):** tratar el aviso como requisito de producto y conservar los dos textos, marcados en el inventario con «requiere el evento del lector». Pasa a «confirmado» en `voz.json` cuando exista, y ningún texto sale a producción antes.
+- **Alternativa (B):** quitar la promesa hasta que el producto la tenga. El campo dice «Tu WhatsApp sirve para entrar a Kino.» y el estado «Aviso de llegada» sale del inventario.
+- **Por qué A:** el aviso responde al núcleo del diagnóstico. El residente otorga el Pase pero hoy no sabe si la persona entró; el aviso le da ese conocimiento sin pasar por portería.
+- **Trazabilidad y HikCentral:**
+  - El aviso sale del evento de paso del lector, ligado al Pase. Por verificar: que HikCentral entregue ese evento a Kino.
+  - Con la integración caída, como en Refugio Campestre, no hay evento. El Pase sigue «Sin confirmar» y no se envía aviso, lo que es coherente con «Estado honesto».
+

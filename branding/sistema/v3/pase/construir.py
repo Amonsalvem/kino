@@ -14,7 +14,7 @@ R = pathlib.Path(__file__).resolve().parent
 S = R / '../sitio'
 sys.path.insert(0, str(S))
 from deptos import pase                      # noqa: E402
-from deptos.comun import TOKENS_CSS          # noqa: E402
+from deptos.comun import TOKENS_CSS, fuentes_incrustadas  # noqa: E402
 from deptos.d06_iconografia import simbolos  # noqa: E402
 
 componentes = re.sub(r'^@import[^;]+;\s*$', '', (R / '../../capa-componentes.css').read_text(encoding='utf8'), flags=re.M)
@@ -22,8 +22,8 @@ b = R / '../../../../gorr-brand-system/clientes/kino/build'
 locales = ''.join(re.sub(r'^[^{]+\{', '.%s{' % c, (b / f).read_text(encoding='utf8'), count=1) for f, c in (('tema-oscuro.css', 'en-oscuro'), ('tema-claro.css', 'en-claro')))
 deptos_css = (S / 'deptos.css').read_text(encoding='utf8')
 sprite = f'<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>{simbolos()}</defs></svg>'
-FUENTES = ('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800'
-           '&family=JetBrains+Mono:wght@400;500;600;700&display=swap">')
+# Las fuentes van incrustadas: el PNG y el PDF no pueden depender de que la red alcance Google Fonts.
+FUENTES = fuentes_incrustadas()
 
 
 NB = '\u00a0'

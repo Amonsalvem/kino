@@ -3609,6 +3609,12 @@ Aprobada
 X11
 Pase vencido en la entrada: portería puede llamar al residente
 Aprobada
+F4-P1
+Llamada desde el Pase vivo vencido
+Propuesta
+F4-P2
+Aviso de llegada al residente
+Propuesta
 Doce preguntas antes de publicar una pieza
 ¿Cada estado lleva palabra además de color?
 ¿El verde #00D595 aparece solo en el botón que crea o entrega un Pase?
@@ -3645,6 +3651,8 @@ Llamada de portería al residente
 Nico confirmó que portería puede llamar desde Kino (X11). La inspección no registró el botón: si no existe, es un requisito de producto.
 Llamada desde el Pase vivo
 Falta decidir si la visita llama sin ver el número del residente. Ver decisiones, F4-P1.
+Aviso de llegada
+El inventario de textos lo incluye, pero el producto no lo tiene confirmado. Ver decisiones, F4-P2.
 Citas de las entrevistas con residentes
 Las cinco entrevistas no tienen citas escritas. Las necesidades por actor se apoyan en la inspección.
 Integración real de las apps de visitas

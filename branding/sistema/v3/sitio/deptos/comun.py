@@ -176,3 +176,18 @@ def qr(semilla=7, n=25, clase='qr'):
                 celdas.append(f'M{x} {y}h1v1h-1z')
     return (f'<svg class="{clase}" viewBox="-2 -2 {n + 4} {n + 4}" width="{n + 4}" height="{n + 4}" style="aspect-ratio:1" role="img" aria-label="Código QR de muestra">'
             f'<path style="fill:var(--kino-sustrato-100)" d="{"".join(celdas)}"/></svg>')
+
+def fuentes_incrustadas():
+    """Archivo y JetBrains Mono (OFL 1.1) incrustadas, solo el subconjunto latino y el estilo normal.
+    Para las piezas que se pasan a PNG o PDF y para las láminas: no dependen de la red."""
+    import base64
+    carpeta = R / '../../fonts'
+    bloques = []
+    for css in ('archivo.css', 'jetbrains-mono.css'):
+        t = (carpeta / css).read_text(encoding='utf8')
+        for b in re.findall(r'/\* latin \*/\s*(@font-face\s*\{.*?\})', t, flags=re.S):
+            if 'font-style: normal' not in b: continue
+            f = re.search(r'url\(([^)]+)\)', b)[1]
+            datos = base64.b64encode((carpeta / f).read_bytes()).decode()
+            bloques.append(b.replace(f'url({f})', f'url(data:font/woff2;base64,{datos})'))
+    return '<style>' + '\n'.join(bloques) + '</style>'

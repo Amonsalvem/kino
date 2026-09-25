@@ -10,6 +10,7 @@ PEND = [
     ('Teclado del lector', 'No se sabe si el lector tiene teclado para el código. El texto dice «Dile a portería el código».'),
     ('Llamada de portería al residente', 'Nico confirmó que portería puede llamar desde Kino (X11). La inspección no registró el botón: si no existe, es un requisito de producto.'),
     ('Llamada desde el Pase vivo', 'Falta decidir si la visita llama sin ver el número del residente. Ver decisiones, F4-P1.'),
+    ('Aviso de llegada', 'El inventario de textos lo incluye, pero el producto no lo tiene confirmado. Ver decisiones, F4-P2.'),
     ('Citas de las entrevistas con residentes', 'Las cinco entrevistas no tienen citas escritas. Las necesidades por actor se apoyan en la inspección.'),
     ('Integración real de las apps de visitas', 'Neivor anuncia integración sin nombrar marcas de hardware. Falta verificar.'),
     ('Prueba física del logo y de color', 'Tamaños mínimos impresos y CMYK sin prueba en papel.'),

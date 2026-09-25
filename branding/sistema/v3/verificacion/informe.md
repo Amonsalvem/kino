@@ -7,6 +7,6 @@
 | 5 | APCA en todos los pares texto y fondo (Lc 75 · 60 · 45 · 30) | PASA | 112 mediciones, 0 fallos, 0 sin mínimo APCA |
 | 6 | Diff entre tokens DTCG, kino-brand.css y variables de Figma | PASA | DTCG 273 · kino-brand.css: 0 faltan · Figma: 270 variables y 3 estilos de efecto, 0 tokens sin variable, 0 valores distintos (color en los dos modos, números y cadenas) |
 | 7 | Componentes sin ligar a variables (CSS y Figma) | PASA | capa-componentes.css: 0 valores sueltos · Figma: 0 nodos con color sin variable |
-| 8 | Decisiones sin justificación de la plataforma | PASA | decisiones.md: 24 con detalle, 0 sin «Por qué» · tabla X: 0 sin «Responde a» · departamentos sin traza: 0 |
+| 8 | Decisiones sin justificación de la plataforma | PASA | decisiones.md: 26 con detalle, 0 sin «Por qué» · tabla X: 0 sin «Responde a» · departamentos sin traza: 0 |
 | 9 | Enlaces y anclas rotas | PASA | 46 anclas internas, 0 rotas · 6 enlaces externos |
 | 10 | Cobertura de la definición de terminado | PASA | 81 elementos · 81 con su ancla en el sitio · 0 [PENDIENTE] con motivo · 0 faltan |
