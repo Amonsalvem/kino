@@ -12,12 +12,14 @@ const esSemantico = (t) => capas.includes(t.ruta[0]);
 const bloque = (sel, lineas) => `${sel} {\n${lineas.map((l) => `  ${l}`).join('\n')}\n}\n`;
 
 const prim = aplanar(cargar(c.archivosTokens()));
-const lineasPrim = [...prim.values()].map((t) => `--${nombrar(t.ruta)}: ${valorCss(resolver(prim, t.$value), t.$type, t.$extensions)};`);
+// La capa semántica común (tokens/5x-semantico-*.json) se emite en cada tema, no entre los primitivos.
+const soloPrim = [...prim.values()].filter((t) => !esSemantico(t));
+const lineasPrim = soloPrim.map((t) => `--${nombrar(t.ruta)}: ${valorCss(resolver(prim, t.$value), t.$type, t.$extensions)};`);
 let css = `/* ${c.cfg.cliente.nombre} · tokens · generado por gorr-brand-system. No editar a mano: editar tokens/ y reconstruir. */\n\n`;
 css += bloque(':root', lineasPrim);
 
 const resuelto = { primitivos: {}, temas: {} };
-for (const t of prim.values()) resuelto.primitivos[nombrar(t.ruta)] = valorCss(resolver(prim, t.$value), t.$type, t.$extensions);
+for (const t of soloPrim) resuelto.primitivos[nombrar(t.ruta)] = valorCss(resolver(prim, t.$value), t.$type, t.$extensions);
 
 const [principal, ...otros] = c.temas;
 for (const tema of c.temas) {
@@ -41,4 +43,4 @@ for (const tema of otros.filter((t) => t.esquema)) css += `\n@media (prefers-col
 escribir(c.p('build', 'primitivos.css'), bloque(':root', lineasPrim));
 escribir(c.p('build', `${c.prefijo}-tokens.css`), css);
 escribir(c.p('build', 'tokens.resuelto.json'), resuelto);
-console.log(`construir · ${prim.size} primitivos · ${c.temas.map((t) => `${t.id} ${Object.keys(resuelto.temas[t.id]).length}`).join(' · ')} → build/${c.prefijo}-tokens.css`);
+console.log(`construir · ${soloPrim.length} primitivos · ${c.temas.map((t) => `${t.id} ${Object.keys(resuelto.temas[t.id]).length}`).join(' · ')} → build/${c.prefijo}-tokens.css`);

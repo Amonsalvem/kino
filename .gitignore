@@ -14,3 +14,4 @@ gorr-brand-system/vendor/w3c-design-tokens-agent-skill/
 
 # Capturas de prueba
 capturas/
+__pycache__/

@@ -1,296 +1,396 @@
 {
-  "semantico": {
-    "superficie": {
-      "abismo": {
-        "$value": "{primitivo.color.hueso.300}",
-        "$type": "color"
-      },
-      "base": {
-        "$value": "{primitivo.color.hueso.100}",
-        "$type": "color"
-      },
-      "elevada": {
-        "$value": "{primitivo.color.fijo.blanco}",
-        "$type": "color"
-      },
-      "membrana": {
-        "$value": "{primitivo.color.hueso.200}",
-        "$type": "color"
-      },
-      "inversa": {
-        "$value": "{primitivo.color.sustrato.100}",
-        "$type": "color"
-      }
-    },
-    "borde": {
-      "tenue": {
-        "$value": "{primitivo.color.hueso.400}",
-        "$type": "color"
-      },
-      "definido": {
-        "$value": "{primitivo.color.hueso.l32}",
-        "$type": "color"
-      },
-      "foco": {
-        "$value": "{primitivo.color.biolum.l45}",
-        "$type": "color"
-      }
+ "semantico": {
+  "superficie": {
+   "abismo": {
+    "$value": "{primitivo.color.hueso.300}",
+    "$type": "color"
+   },
+   "base": {
+    "$value": "{primitivo.color.hueso.100}",
+    "$type": "color"
+   },
+   "elevada": {
+    "$value": "{primitivo.color.fijo.blanco}",
+    "$type": "color"
+   },
+   "membrana": {
+    "$value": "{primitivo.color.hueso.200}",
+    "$type": "color"
+   },
+   "inversa": {
+    "$value": "{primitivo.color.sustrato.100}",
+    "$type": "color"
+   }
+  },
+  "borde": {
+   "tenue": {
+    "$value": "{primitivo.color.hueso.400}",
+    "$type": "color"
+   },
+   "definido": {
+    "$value": "{primitivo.color.hueso.l45}",
+    "$type": "color"
+   },
+   "foco": {
+    "$value": "{primitivo.color.biolum.l45}",
+    "$type": "color"
+   }
+  },
+  "texto": {
+   "primario": {
+    "$value": "{primitivo.color.sustrato.100}",
+    "$type": "color"
+   },
+   "secundario": {
+    "$value": "{primitivo.color.sustrato.400}",
+    "$type": "color"
+   },
+   "tenue": {
+    "$value": "{primitivo.color.sustrato.600}",
+    "$type": "color",
+    "$description": "Solo en textos de 24 px o más (Lc ≥ 60)."
+   },
+   "inverso": {
+    "$value": "{primitivo.color.hueso.100}",
+    "$type": "color"
+   },
+   "sobre-acento": {
+    "$value": "{primitivo.color.hueso.100}",
+    "$type": "color"
+   },
+   "enlace": {
+    "$value": "{primitivo.color.indigo.l90}",
+    "$type": "color",
+    "$description": "Enlaces, trazas y navegación. Índigo: la familia de la profundidad y los enlaces. Lc ≥ 75 en toda superficie."
+   }
+  },
+  "acento": {
+   "base": {
+    "$value": "{primitivo.color.biolum.l70}",
+    "$type": "color",
+    "$description": "Verde de marca (#00BB83 en oscuro): logo, gota y el nodo «Otorgar». No va en botones con texto."
+   },
+   "fuerte": {
+    "$value": "{primitivo.color.biolum.d15}",
+    "$type": "color"
+   },
+   "sordo": {
+    "$value": "{primitivo.color.hueso.200}",
+    "$type": "color"
+   }
+  },
+  "accion": {
+   "$description": "El botón que crea o entrega un Pase (X4). En oscuro #00D595 para que el texto oscuro llegue a Lc 67.",
+   "fondo": {
+    "$value": "{primitivo.color.biolum.l70}",
+    "$type": "color"
+   },
+   "fondo-activo": {
+    "$value": "{primitivo.color.biolum.l90}",
+    "$type": "color"
+   },
+   "texto": {
+    "$value": "{primitivo.color.hueso.100}",
+    "$type": "color"
+   }
+  },
+  "marca": {
+   "$description": "Colores del logo sobre la superficie del tema (X2: bloque en hueso, gota en acento).",
+   "bloque": {
+    "$value": "{primitivo.color.sustrato.100}",
+    "$type": "color"
+   },
+   "gota": {
+    "$value": "{primitivo.color.biolum.l70}",
+    "$type": "color"
+   }
+  },
+  "estado": {
+   "previsto": {
+    "$description": "Pase creado para una franja futura (acceso previsto).",
+    "fondo": {
+     "$value": "{primitivo.color.hueso.100}",
+     "$type": "color"
     },
     "texto": {
-      "primario": {
-        "$value": "{primitivo.color.sustrato.100}",
-        "$type": "color"
-      },
-      "secundario": {
-        "$value": "{primitivo.color.sustrato.400}",
-        "$type": "color"
-      },
-      "tenue": {
-        "$value": "{primitivo.color.sustrato.600}",
-        "$type": "color"
-      },
-      "inverso": {
-        "$value": "{primitivo.color.hueso.100}",
-        "$type": "color"
-      },
-      "sobre-acento": {
-        "$value": "{primitivo.color.hueso.100}",
-        "$type": "color"
-      }
+     "$value": "{primitivo.color.indigo.l70}",
+     "$type": "color"
     },
-    "acento": {
-      "base": {
-        "$value": "{primitivo.color.biolum.l70}",
-        "$type": "color"
-      },
-      "fuerte": {
-        "$value": "{primitivo.color.biolum.d15}",
-        "$type": "color"
-      },
-      "sordo": {
-        "$value": "{primitivo.color.hueso.200}",
-        "$type": "color"
-      }
-    },
-    "estado": {
-      "vigente": {
-        "fondo": {
-          "$value": "{primitivo.color.hueso.100}",
-          "$type": "color"
-        },
-        "borde": {
-          "$value": "{primitivo.color.biolum.l32}",
-          "$type": "color"
-        },
-        "texto": {
-          "$value": "{primitivo.color.biolum.l70}",
-          "$type": "color"
-        }
-      },
-      "por-vencer": {
-        "fondo": {
-          "$value": "{primitivo.color.hueso.100}",
-          "$type": "color"
-        },
-        "borde": {
-          "$value": "{primitivo.color.ambar.l32}",
-          "$type": "color"
-        },
-        "texto": {
-          "$value": "{primitivo.color.ambar.l70}",
-          "$type": "color"
-        }
-      },
-      "vencido": {
-        "fondo": {
-          "$value": "{primitivo.color.hueso.300}",
-          "$type": "color"
-        },
-        "borde": {
-          "$value": "{primitivo.color.hueso.l32}",
-          "$type": "color"
-        },
-        "texto": {
-          "$value": "{primitivo.color.sustrato.600}",
-          "$type": "color"
-        }
-      },
-      "negado": {
-        "fondo": {
-          "$value": "{primitivo.color.hueso.100}",
-          "$type": "color"
-        },
-        "borde": {
-          "$value": "{primitivo.color.carmin.l32}",
-          "$type": "color"
-        },
-        "texto": {
-          "$value": "{primitivo.color.carmin.l70}",
-          "$type": "color"
-        }
-      },
-      "sin-confirmar": {
-        "fondo": {
-          "$value": "{primitivo.color.fijo.transparente}",
-          "$type": "color"
-        },
-        "borde": {
-          "$value": "{primitivo.color.hueso.l32}",
-          "$type": "color"
-        },
-        "texto": {
-          "$value": "{primitivo.color.sustrato.500}",
-          "$type": "color"
-        }
-      },
-      "identidad": {
-        "fondo": {
-          "$value": "{primitivo.color.hueso.100}",
-          "$type": "color"
-        },
-        "borde": {
-          "$value": "{primitivo.color.violeta.l32}",
-          "$type": "color"
-        },
-        "texto": {
-          "$value": "{primitivo.color.violeta.l70}",
-          "$type": "color"
-        }
-      }
-    },
-    "resplandor": {
-      "vigente": {
-        "$value": [
-          {
-            "color": "{primitivo.color.biolum.l45}",
-            "offsetX": {
-              "value": 0,
-              "unit": "px"
-            },
-            "offsetY": {
-              "value": 0,
-              "unit": "px"
-            },
-            "blur": {
-              "value": 0,
-              "unit": "px"
-            },
-            "spread": {
-              "value": 1,
-              "unit": "px"
-            }
-          },
-          {
-            "color": "{primitivo.color.biolum.l45}",
-            "offsetX": {
-              "value": 0,
-              "unit": "px"
-            },
-            "offsetY": {
-              "value": 0,
-              "unit": "px"
-            },
-            "blur": {
-              "value": 22,
-              "unit": "px"
-            },
-            "spread": {
-              "value": -10,
-              "unit": "px"
-            }
-          }
-        ],
-        "$type": "shadow"
-      },
-      "identidad": {
-        "$value": [
-          {
-            "color": "{primitivo.color.violeta.l45}",
-            "offsetX": {
-              "value": 0,
-              "unit": "px"
-            },
-            "offsetY": {
-              "value": 0,
-              "unit": "px"
-            },
-            "blur": {
-              "value": 0,
-              "unit": "px"
-            },
-            "spread": {
-              "value": 1,
-              "unit": "px"
-            }
-          },
-          {
-            "color": "{primitivo.color.violeta.l45}",
-            "offsetX": {
-              "value": 0,
-              "unit": "px"
-            },
-            "offsetY": {
-              "value": 0,
-              "unit": "px"
-            },
-            "blur": {
-              "value": 22,
-              "unit": "px"
-            },
-            "spread": {
-              "value": -10,
-              "unit": "px"
-            }
-          }
-        ],
-        "$type": "shadow"
-      }
-    },
-    "relieve": {
-      "membrana": {
-        "$value": [
-          {
-            "color": "{primitivo.color.fijo.blanco}",
-            "offsetX": {
-              "value": 0,
-              "unit": "px"
-            },
-            "offsetY": {
-              "value": 1,
-              "unit": "px"
-            },
-            "blur": {
-              "value": 0,
-              "unit": "px"
-            },
-            "spread": {
-              "value": 0,
-              "unit": "px"
-            },
-            "inset": true
-          },
-          {
-            "color": "{primitivo.color.fijo.sombra-claro}",
-            "offsetX": {
-              "value": 0,
-              "unit": "px"
-            },
-            "offsetY": {
-              "value": 10,
-              "unit": "px"
-            },
-            "blur": {
-              "value": 26,
-              "unit": "px"
-            },
-            "spread": {
-              "value": -20,
-              "unit": "px"
-            }
-          }
-        ],
-        "$type": "shadow"
-      }
+    "borde": {
+     "$value": "{primitivo.color.indigo.l45}",
+     "$type": "color"
     }
+   },
+   "sin-confirmar": {
+    "$description": "Enviado; el lector aún no responde. Sin relleno y con borde discontinuo.",
+    "fondo": {
+     "$value": "{primitivo.color.fijo.transparente}",
+     "$type": "color"
+    },
+    "texto": {
+     "$value": "{primitivo.color.sustrato.500}",
+     "$type": "color"
+    },
+    "borde": {
+     "$value": "{primitivo.color.hueso.l45}",
+     "$type": "color"
+    }
+   },
+   "vigente": {
+    "$description": "El lector lo confirmó y está dentro de su franja.",
+    "fondo": {
+     "$value": "{primitivo.color.hueso.100}",
+     "$type": "color"
+    },
+    "texto": {
+     "$value": "{primitivo.color.biolum.l70}",
+     "$type": "color"
+    },
+    "borde": {
+     "$value": "{primitivo.color.biolum.l45}",
+     "$type": "color"
+    }
+   },
+   "por-vencer": {
+    "$description": "Entró en la ventana de aviso antes de vencer.",
+    "fondo": {
+     "$value": "{primitivo.color.hueso.100}",
+     "$type": "color"
+    },
+    "texto": {
+     "$value": "{primitivo.color.ambar.l70}",
+     "$type": "color"
+    },
+    "borde": {
+     "$value": "{primitivo.color.ambar.l45}",
+     "$type": "color"
+    }
+   },
+   "usado": {
+    "$description": "Código de un solo uso que ya sirvió.",
+    "fondo": {
+     "$value": "{primitivo.color.hueso.200}",
+     "$type": "color"
+    },
+    "texto": {
+     "$value": "{primitivo.color.sustrato.400}",
+     "$type": "color"
+    },
+    "borde": {
+     "$value": "{primitivo.color.hueso.l45}",
+     "$type": "color"
+    }
+   },
+   "vencido": {
+    "$description": "Terminó solo, a su hora. Un final no es un error.",
+    "fondo": {
+     "$value": "{primitivo.color.hueso.300}",
+     "$type": "color"
+    },
+    "texto": {
+     "$value": "{primitivo.color.sustrato.500}",
+     "$type": "color"
+    },
+    "borde": {
+     "$value": "{primitivo.color.hueso.l45}",
+     "$type": "color"
+    }
+   },
+   "revocado": {
+    "$description": "Alguien lo cortó antes de tiempo; queda su nombre.",
+    "fondo": {
+     "$value": "{primitivo.color.hueso.200}",
+     "$type": "color"
+    },
+    "texto": {
+     "$value": "{primitivo.color.carmin.l90}",
+     "$type": "color"
+    },
+    "borde": {
+     "$value": "{primitivo.color.hueso.l45}",
+     "$type": "color"
+    }
+   },
+   "rechazado": {
+    "$description": "Evento en la entrada, con motivo. No es un estado del Pase.",
+    "fondo": {
+     "$value": "{primitivo.color.carmin.l15}",
+     "$type": "color"
+    },
+    "texto": {
+     "$value": "{primitivo.color.sustrato.100}",
+     "$type": "color"
+    },
+    "borde": {
+     "$value": "{primitivo.color.carmin.l45}",
+     "$type": "color"
+    }
+   },
+   "identidad": {
+    "$description": "Dato personal a la vista (cédula, rostro, teléfono). Marca un dato, no un estado.",
+    "fondo": {
+     "$value": "{primitivo.color.hueso.100}",
+     "$type": "color"
+    },
+    "texto": {
+     "$value": "{primitivo.color.violeta.l70}",
+     "$type": "color"
+    },
+    "borde": {
+     "$value": "{primitivo.color.violeta.l45}",
+     "$type": "color"
+    }
+   },
+   "negado": {
+    "$description": "Nombre anterior de «rechazado» (V5). Se conserva como alias para no romper piezas viejas.",
+    "$deprecated": "Usar semantico.estado.rechazado.",
+    "fondo": {
+     "$value": "{semantico.estado.rechazado.fondo}",
+     "$type": "color"
+    },
+    "texto": {
+     "$value": "{semantico.estado.rechazado.texto}",
+     "$type": "color"
+    },
+    "borde": {
+     "$value": "{semantico.estado.rechazado.borde}",
+     "$type": "color"
+    }
+   }
+  },
+  "resplandor": {
+   "vigente": {
+    "$value": [
+     {
+      "color": "{primitivo.color.biolum.l45}",
+      "offsetX": {
+       "value": 0,
+       "unit": "px"
+      },
+      "offsetY": {
+       "value": 0,
+       "unit": "px"
+      },
+      "blur": {
+       "value": 0,
+       "unit": "px"
+      },
+      "spread": {
+       "value": 1,
+       "unit": "px"
+      }
+     },
+     {
+      "color": "{primitivo.color.biolum.l45}",
+      "offsetX": {
+       "value": 0,
+       "unit": "px"
+      },
+      "offsetY": {
+       "value": 0,
+       "unit": "px"
+      },
+      "blur": {
+       "value": 22,
+       "unit": "px"
+      },
+      "spread": {
+       "value": -10,
+       "unit": "px"
+      }
+     }
+    ],
+    "$type": "shadow"
+   },
+   "identidad": {
+    "$value": [
+     {
+      "color": "{primitivo.color.violeta.l45}",
+      "offsetX": {
+       "value": 0,
+       "unit": "px"
+      },
+      "offsetY": {
+       "value": 0,
+       "unit": "px"
+      },
+      "blur": {
+       "value": 0,
+       "unit": "px"
+      },
+      "spread": {
+       "value": 1,
+       "unit": "px"
+      }
+     },
+     {
+      "color": "{primitivo.color.violeta.l45}",
+      "offsetX": {
+       "value": 0,
+       "unit": "px"
+      },
+      "offsetY": {
+       "value": 0,
+       "unit": "px"
+      },
+      "blur": {
+       "value": 22,
+       "unit": "px"
+      },
+      "spread": {
+       "value": -10,
+       "unit": "px"
+      }
+     }
+    ],
+    "$type": "shadow"
+   }
+  },
+  "relieve": {
+   "membrana": {
+    "$value": [
+     {
+      "color": "{primitivo.color.fijo.blanco}",
+      "offsetX": {
+       "value": 0,
+       "unit": "px"
+      },
+      "offsetY": {
+       "value": 1,
+       "unit": "px"
+      },
+      "blur": {
+       "value": 0,
+       "unit": "px"
+      },
+      "spread": {
+       "value": 0,
+       "unit": "px"
+      },
+      "inset": true
+     },
+     {
+      "color": "{primitivo.color.fijo.sombra-claro}",
+      "offsetX": {
+       "value": 0,
+       "unit": "px"
+      },
+      "offsetY": {
+       "value": 10,
+       "unit": "px"
+      },
+      "blur": {
+       "value": 26,
+       "unit": "px"
+      },
+      "spread": {
+       "value": -20,
+       "unit": "px"
+      }
+     }
+    ],
+    "$type": "shadow"
+   }
   }
+ }
 }

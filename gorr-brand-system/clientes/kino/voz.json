@@ -17,7 +17,7 @@
         "serio",
         "divertido"
       ],
-      "nota": "Se trata de quién entra a la casa de alguien. Sin chistes en estados, errores ni permisos."
+      "nota": "Se trata de quién entra a la casa de alguien. Sin chistes en estados, errores ni Pases."
     },
     "respeto": {
       "valor": 1,
@@ -225,7 +225,7 @@
     },
     {
       "id": "mayusculas-enfasis",
-      "regex": "\\b(?!(?:HPH|SIC|ANPR|LPR|QR|PH|API|CSS|MVP|EAFIT|DTCG|WCAG|APCA|SVG|PNG|PDF|CDN|MIT|OFL|IoU|NN|KINO|HTML|URL|UI|SDK|CI|NPM|DANE|GEIH|OTP|ISO|RAE|COP|ANPR|PENDIENTE|HOY)\\b)[A-ZÁÉÍÓÚÑ]{3,}\\b(?![\\s-]?\\d)",
+      "regex": "(?<!#)\\b(?!(?:HPH|GPU|JSON|RGB|CMYK|SIL|WCAG|SIC|ANPR|LPR|QR|PH|API|CSS|MVP|EAFIT|DTCG|WCAG|APCA|SVG|PNG|PDF|CDN|MIT|OFL|IoU|NN|KINO|HTML|URL|UI|SDK|CI|NPM|DANE|GEIH|OTP|ISO|RAE|COP|ANPR|PENDIENTE|HOY|DGT)\\b)[A-ZÁÉÍÓÚÑ]{3,}\\b(?![\\s-]?\\d)",
       "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481).",
       "gravedad": "aviso"
     },
@@ -444,17 +444,19 @@
   "hechos": {
     "$nota": "Lo que el producto hace, confirmado por decisiones del equipo. El copy puede afirmarlo. Lo que no está aquí ni en el contexto de la pieza no se afirma.",
     "confirmado": [
-      "El residente otorga el pase a sus invitados y colaboradores; la administración no aprueba cada ingreso.",
+      "El residente otorga el Pase a sus visitas y colaboradores; la administración no aprueba cada ingreso.",
       "La administración fija los límites: cupos, duración y franjas horarias.",
-      "El invitado no necesita cuenta: entra con QR, placa o un código de un solo uso.",
-      "Todo pase tiene vigencia: desde y hasta una fecha y hora.",
-      "El ingreso lo permite el lector de la puerta (placa, QR o rostro), no el vigilante.",
+      "La visita no necesita cuenta: entra con QR, placa o un código de un solo uso.",
+      "Todo Pase tiene vigencia: desde y hasta una fecha y hora.",
+      "El ingreso lo permite el lector de la entrada (placa, QR o rostro), no portería.",
       "El residente entra a la app con un código por WhatsApp, sin contraseña.",
-      "Un pase está en uno de estos estados: vigente, por vencer, vencido, negado o sin confirmar."
+      "Un Pase está en uno de estos estados: Previsto, Sin confirmar, Vigente, Por vencer, Usado, Vencido o Revocado. En la entrada puede ocurrir el evento Rechazado, con su motivo (V5).",
+      "El Pase llega por WhatsApp como imagen con un enlace al Pase vivo; el PDF es opcional (V7).",
+      "Portería puede llamar al residente desde Kino cuando alguien llega con el Pase vencido. La llamada no abre la entrada (X11, dato del equipo; falta verificar el botón en producto)."
     ],
     "noConfirmado": [
       "Avisos automáticos cuando el lector confirma una placa.",
-      "Un historial o registro de permisos visible para la administración.",
+      "Un historial de Pases visible para la administración.",
       "Que el código se pueda digitar en el lector."
     ]
   }

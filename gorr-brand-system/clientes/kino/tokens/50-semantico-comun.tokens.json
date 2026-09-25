@@ -1,0 +1,89 @@
+{
+ "semantico": {
+  "forma": {
+   "$description": "X8: radio 14 en tarjetas, 8 en controles; el arco solo en lo que es un Pase.",
+   "radio": {
+    "control": {
+     "$value": "{primitivo.medida.radio.m}",
+     "$type": "dimension"
+    },
+    "tarjeta": {
+     "$value": "{primitivo.medida.radio.l}",
+     "$type": "dimension"
+    },
+    "chip": {
+     "$value": "{primitivo.medida.radio.s}",
+     "$type": "dimension"
+    },
+    "pase-arco": {
+     "$value": "{primitivo.medida.radio.pleno}",
+     "$type": "dimension",
+     "$description": "Radio superior de la ventana del QR y del Pase vivo (forma Portal, X1)."
+    }
+   },
+   "trazo": {
+    "icono": {
+     "$value": "{primitivo.medida.trazo.icono}",
+     "$type": "number"
+    }
+   }
+  },
+  "movimiento": {
+   "$description": "X9: aparecer es crecer (820 ms, cascada de 90 ms). La cortina queda solo para presentaciones.",
+   "aparecer": {
+    "duracion": {
+     "$value": "{primitivo.movimiento.duracion.tarjeta}",
+     "$type": "duration"
+    },
+    "curva": {
+     "$value": "{primitivo.movimiento.curva.crecer}",
+     "$type": "cubicBezier"
+    },
+    "escalonado": {
+     "$value": "{primitivo.movimiento.escalonado.tarjetas}",
+     "$type": "duration"
+    }
+   },
+   "responder": {
+    "duracion": {
+     "$value": "{primitivo.movimiento.duracion.corto}",
+     "$type": "duration"
+    },
+    "curva": {
+     "$value": "{primitivo.movimiento.curva.crecer}",
+     "$type": "cubicBezier"
+    }
+   },
+   "caducar": {
+    "duracion": {
+     "$value": "{primitivo.movimiento.duracion.decaer}",
+     "$type": "duration"
+    },
+    "curva": {
+     "$value": "{primitivo.movimiento.curva.decaer}",
+     "$type": "cubicBezier"
+    }
+   },
+   "revocar": {
+    "duracion": {
+     "$value": "{primitivo.movimiento.duracion.corto}",
+     "$type": "duration"
+    },
+    "curva": {
+     "$value": "{primitivo.movimiento.curva.revocar}",
+     "$type": "cubicBezier"
+    }
+   },
+   "latir": {
+    "duracion": {
+     "$value": "{primitivo.movimiento.duracion.latir}",
+     "$type": "duration"
+    },
+    "curva": {
+     "$value": "{primitivo.movimiento.curva.latir}",
+     "$type": "cubicBezier"
+    }
+   }
+  }
+ }
+}

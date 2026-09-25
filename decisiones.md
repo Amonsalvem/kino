@@ -8,7 +8,7 @@ Registro único de decisiones de marca. Cada una dice qué se propuso, qué alte
 - **REVERTIDA**: se deshizo.
 - **HEREDADA**: viene del borrador del 23 sep. No está entre las decisiones firmes del encargo, así que se trata como propuesta y se revisa en su parada.
 
-Última actualización: 23 sep 2026, respuestas de Nico a la Parada 1.
+Última actualización: 25 sep 2026, respuesta de Nico a la Parada 4.
 
 ---
 
@@ -98,6 +98,7 @@ Registro único de decisiones de marca. Cada una dice qué se propuso, qué alte
   - Datos mínimos;
   - Estado honesto.
 - **Alternativa:** tres valores abstractos (confianza, cercanía, control). Se descarta: ninguno se verifica mirando el producto.
+- **Justificación de plataforma:** cada valor responde a un hallazgo de la inspección (P01 a P15 en `auditoria.md`) y se comprueba mirando una pantalla. (Línea agregada el 24 sep para la comprobación 8 de la Fase 5; no cambia la decisión.)
 
 ### P08 · Arquitectura de nombres monolítica · APROBADA (Nico, 23 sep: «todo lo demás es aprobado»)
 - **Qué:**
@@ -115,6 +116,7 @@ Registro único de decisiones de marca. Cada una dice qué se propuso, qué alte
 ### P09 · Manifiesto · APROBADA (Nico, 23 sep: «todo lo demás es aprobado»)
 - **Qué:** cinco párrafos cortos anclados en una casa (la 14) y dos ingresos concretos.
 - **Alternativa:** un manifiesto en primera persona plural («Creemos que…»). Se descarta por la regla 10 (arranques prohibidos).
+- **Justificación de plataforma:** la promesa (P05) contada con un caso: cada frase tiene un objeto, una hora o una casa, como pide la regla 9. (Línea agregada el 24 sep.)
 
 ### P10 · El problema se cuenta con datos del conjunto piloto · APROBADA (Nico, 23 sep: se puede nombrar Monte Sereno y mostrar fallas con cifras)
 - **Qué:** el sitio nombra Monte Sereno y muestra las cifras de la inspección: la placa inventada, 711 errores, 312 cédulas y 0/312 sincronizados.
@@ -149,6 +151,7 @@ Registro único de decisiones de marca. Cada una dice qué se propuso, qué alte
   - se quitaron las páginas que quedaron vacías.
 - **Qué no cambió:** ningún nodo, variable ni estilo se borró.
 - **Cómo revertir:** mover cada sección de vuelta a una página nueva.
+- **Por qué:** el encargo pide que la librería espeje la arquitectura del sitio (sección <figma>) y que nada se borre (regla 13). (Línea agregada el 24 sep.)
 
 ### Estado tras las respuestas del 23 sep
 - Aprobadas: P04 (A), P06, P10; permiso para reajustar los pasos del tema oscuro en la Parada 3.
@@ -204,6 +207,7 @@ Registro único de decisiones de marca. Cada una dice qué se propuso, qué alte
   - calibración 40 de 42 (antes 21), con 0 falsos positivos;
   - 11 de 11 frases de IA de prueba atrapadas;
   - 0 hallazgos sobre el sitio, los textos de la app y las muestras.
+- **Por qué:** la regla 10 del encargo exige que esos patrones no aparezcan; la calibración contra las 42 frases mide que el filtro los atrape sin marcar textos correctos. (Línea agregada el 24 sep.)
 - **Descartados por dar falsos positivos:** «invitado», «lo que sí» y la triple negación. «Invitado» vuelve si se aprueba V4 y se corrigen las frases de referencia.
 - **Otros ajustes:**
   - «permiso» sube a error;
@@ -268,3 +272,116 @@ Estado: **todas APROBADA (A)** · respuesta de Nico a la Parada 3, 24 sep:
 - **Efecto:** la señal de portería y el Pase vivo en estado vencido ofrecen «Llamar al residente». El texto puede prometer esa llamada.
 - **Por verificar en producto:** la inspección no registró un botón de llamada en la vista del portero. Si la función no existe hoy, es un requisito de producto que el sistema de marca da por hecho y hay que construir.
 - **Trazabilidad:** la llamada no autoriza el ingreso. Si el residente quiere dejar entrar a la persona, crea un Pase nuevo o extiende el vencido. Así cada ingreso sigue teniendo un Pase con autor, y HikCentral recibe el alta con su vigencia.
+
+---
+
+## Parada 4 · Sistema completo (propuestas, 25 sep)
+
+Lámina: `kino/parada-4.html` (https://claude.ai/artifact/DBF7w1VTGPtJ9oQwdz4tXa).
+
+### F4-P1 · Llamada desde el Pase vivo vencido · APROBADA (Nico, 25 sep: opción A)
+- **Qué está construido:** el Pase vivo en estado Vencido, que ve la visita, muestra el botón «Llamar al residente», igual que la vista de portería (X11).
+- **El problema:**
+  - X11 aprobó la llamada desde portería.
+  - En el Pase vivo el botón lo toca la visita. Si abre una llamada normal, la visita ve el número del residente: un dato personal expuesto a alguien sin cuenta.
+  - La inspección no registró ninguna función de llamada.
+- **Propuesta (A):** quitar el botón del Pase vivo. El aviso queda: «Tu Pase valía de 2:00 a 6:00 p. m. y son las 7:10 p. m. Pídele uno nuevo a Carolina o pide en portería que la llamen.» La llamada queda solo en portería.
+- **Alternativa (B):** mantener el botón con llamada enmascarada. Kino conecta a la visita con el residente sin mostrar el número. Es una función nueva de producto, con un proveedor de telefonía por elegir y un costo por llamada.
+- **Por qué A:**
+  - no promete una función que no existe (regla «Prometedores» de la voz);
+  - no expone el número;
+  - el camino sigue siendo el mismo: el residente crea un Pase nuevo.
+- **Trazabilidad y HikCentral:** ninguna de las dos autoriza el ingreso. En las dos, entrar exige un Pase nuevo o extendido, con autor, que se sincroniza a HikCentral con su vigencia. B además obliga a guardar un registro de cada llamada: quién llamó, a quién y cuándo.
+- **Si se aprueba A:** cambian `sitio/deptos/pase.py` (función `vivo`) y `pase/construir.py`, y se rehacen `pase-vivo-vencido.png` y la sección Aplicaciones del sitio.
+
+### F4-P2 · Aviso de llegada al residente · APROBADA (Nico, 25 sep: opción A)
+- **El conflicto:**
+  - El inventario de UX writing de la Parada 2 incluye el estado «Aviso de llegada»: «Andrés entró a las 3:12 p. m. con la placa KMN 305.»
+  - El campo de WhatsApp dice «Tu WhatsApp sirve para entrar a Kino y para avisarte cuando alguien llega.»
+  - `voz.json → hechos` lista «Avisos automáticos cuando el lector confirma una placa» como **no confirmado**, así que la regla de voz prohíbe prometerlo.
+  - Observado en la inspección: el aviso no existe hoy.
+- **Propuesta (A):** tratar el aviso como requisito de producto y conservar los dos textos, marcados en el inventario con «requiere el evento del lector». Pasa a «confirmado» en `voz.json` cuando exista, y ningún texto sale a producción antes.
+- **Alternativa (B):** quitar la promesa hasta que el producto la tenga. El campo dice «Tu WhatsApp sirve para entrar a Kino.» y el estado «Aviso de llegada» sale del inventario.
+- **Por qué A:** el aviso responde al núcleo del diagnóstico. El residente otorga el Pase pero hoy no sabe si la persona entró; el aviso le da ese conocimiento sin pasar por portería.
+- **Trazabilidad y HikCentral:**
+  - El aviso sale del evento de paso del lector, ligado al Pase. Por verificar: que HikCentral entregue ese evento a Kino.
+  - Con la integración caída, como en Refugio Campestre, no hay evento. El Pase sigue «Sin confirmar» y no se envía aviso, lo que es coherente con «Estado honesto».
+
+### F4-P3 · Ícono de estado en el chip de Usado, Vencido y Revocado · APROBADA (Nico, 25 sep: opción B)
+- **Origen:** el lector frío notó que Vencido y Usado solo se distinguían por el tono del texto y la palabra.
+- **Decisión:** en esos tres estados, el punto del chip se cambia por el ícono del estado (`usado`, `vencido`, `revocado`, trazo 1,7). Los otros estados conservan el punto.
+- **Alternativa descartada:** (A) dejar solo la palabra.
+- **Efecto:** cambia el componente Estado en código (`capa-componentes.css`, `deptos/comun.py → chip`) y en Figma. No cambia el color ni los tokens.
+
+### F4-P4 · La identidad de marca aplicada al propio sitio · APROBADA (Nico, 25 sep: opción A)
+- **Pedido de Nico (25 sep):** el sitio se lee monótono porque usa dos colores. Aprovechar la identidad ya aprobada dentro del mismo documento.
+- **Propuesta:**
+  - aurora (X7) en la portada y en la apertura de cada sección;
+  - índigo en enlaces y en la navegación, que es lo que la familia significa (profundidad y enlaces);
+  - la gota del logo marca la sección activa del índice y numera las secciones;
+  - capas de superficie (abismo, elevada, membrana) para separar bloques, con el relieve de membrana;
+  - los estados, el ámbar y el violeta siguen solo en lo que significan.
+- **Por qué:** el sitio es la primera pieza de Kino que ve una administración o un aliado. Si se lee monótono, contradice la identidad que describe. Aplica recursos ya aprobados en su uso aprobado: X7 pone la aurora en portadas y la familia índigo significa profundidad y enlaces.
+- **Qué no cambia:** el verde #00D595 sigue solo en el botón que crea un Pase; el arco sigue solo en el Pase; todo texto nuevo sobre aurora se mide con APCA.
+- **Resultado:** aprobada tal como se construyó (aurora en portada y en cada apertura).
+
+### Estado tras la respuesta del 25 sep
+1. **Versión 1.0.0:** aprobados los tokens, el sitio y las piezas del Pase. **La librería de Figma y lo que se exporta de ella no se aprueba**: se revisa el auto-layout y el espaciado de todas las páginas.
+2. F4-P2: opción A.
+3. F4-P1: opción A.
+4. Vencido y Usado: opción B, ver F4-P3.
+5. Detector de IA: opción B, se autoriza un cuarto ciclo.
+6. Pedido nuevo: F4-P4.
+7. El artefacto oficial sigue sin republicarse: la Parada 4 no queda cerrada mientras Figma y F4-P4 esperan revisión.
+
+### F4-P5 · Pantallas con la jerarquía del Pase · APROBADA (Nico, 25 sep: opción A)
+- **Pedido de Nico (25 sep, al aprobar Figma):** las pantallas cargan mucho: toda la información tiene el mismo peso y se vuelve difícil de leer. La distribución, el color y la jerarquía de las piezas del Pase funcionan; aplicarlas a las pantallas.
+- **Qué se toma del Pase:**
+  - un dato manda por pantalla (el nombre, o el código) en Archivo grande;
+  - rótulos cortos en JetBrains Mono, mayúsculas pequeñas, encima de su valor;
+  - la vigencia en el color de su estado, en monoespaciada;
+  - datos agrupados en bloques con aire entre ellos, en vez de una columna pareja;
+  - la monoespaciada solo para datos (hora, placa, código, teléfono), no para nombres;
+  - una sola acción principal por pantalla.
+- **Qué se quita:** textos que repiten lo obvio (por ejemplo «otorgó Carolina Ruiz» en la lista de la propia Carolina) y ayudas que se pueden decir en una línea.
+- **Por qué:** responde a la personalidad «Exacto» (P06) y al valor «Topes a la vista»: el dato que decide un ingreso se lee primero. La aurora solo va en la pantalla de inicio, como fija X7.
+- **Propuesta (A, construida en el sitio y en Figma):** cinco niveles, iguales en las cinco pantallas.
+
+  | Nivel | Qué lleva | Cómo se ve |
+  |---|---|---|
+  | 1 · Manda | El nombre, el código o el límite | Archivo 800 ancho, lo más grande de la pantalla |
+  | 2 · Vigencia | Cuándo vale el Pase | Mono en el color de su estado; en Crear Pase, en texto primario porque aún no hay estado |
+  | 3 · Rótulo | Placa, Código, Vigencia | Mono pequeño en mayúsculas, texto secundario, encima del valor |
+  | 4 · Grupo | Lo que se decide junto | Superficie elevada, radio 14 |
+  | 5 · Acción | Una principal, abajo | Verde solo si crea un Pase; revocar va en texto |
+
+  - **Lista (inicio):** aurora arriba con «Tus Pases» y el conteo. Los Pases se agrupan en «Ahora» y «Próximos» en vez de pestañas. Cada tarjeta lleva el tipo como rótulo, sin «Visita» repetido debajo del nombre.
+  - **Crear Pase:** nombre y WhatsApp en un bloque; vigencia y placa en otro. El día se elige con tres opciones (Hoy, Mañana, Otro día) y la franja de la administración va en una nota con reloj.
+  - **Detalle:** sin «Otorgó Carolina Ruiz · Casa 14», porque es la app de Carolina. Placa y código en grande. «Lo que pasó» como línea de tiempo: los hechos que el lector confirmó llevan punto verde. Extender es el botón; «Revocar Pase» va en texto carmín.
+  - **Acceso por código:** el número enmascarado va en mono como dato. El error va en una línea con ícono, sin bloque rojo. «Entrar» pasa al botón secundario, porque X4 reserva el verde de acción para crear un Pase (la 1.1.0 lo tenía en verde).
+  - **Límites:** cada límite en su tarjeta con el valor en grande. El resumen de la semana va en cifras, y las rechazadas en su color.
+- **Alternativa (B):** la misma jerarquía, pero la lista conserva las pestañas «Activos / Anteriores» de la 1.1.0 en vez de los grupos «Ahora / Próximos».
+- **Contraste:** 6 pares nuevos en `pares.json` (vigencia de cada estado sobre la tarjeta, Revocar y el error de código sobre base). 132 mediciones, 0 fallos. Los rótulos pequeños pasan de texto tenue a secundario: el tenue solo está medido para 24 px o más (Lc 65 en oscuro).
+- **Anterior:** `_obsoleto/d10_producto-2026-09-25.py` (sitio) y la sección «Pantallas 1.1.0 (anterior)» en la página Pantallas de Figma.
+- **Resultado:** aprobada tal como se construyó, con la lista agrupada en «Ahora» y «Próximos» (lámina `parada-4c.html`, https://claude.ai/artifact/NXuGd6VQc7k6Fqqi9pciZZ).
+
+### F4-P6 · Mensaje de alta fallida en HikCentral · APROBADA (Nico, 25 sep: opción A)
+- **Qué es la fila:** el inventario de la Parada 2 traduce cada texto que hoy muestra el sistema. Uno es el error que ve el super administrador: «Incorrect request parameter. [email parameter error]», 711 veces (observado, `inspeccion/diagnostico-inspeccion.md`).
+- **Lo que Nico señaló (25 sep):** con el Pase, la visita no se registra como persona ni necesita correo, así que ese error no es el problema que Kino resuelve.
+- **Lo que dice la inspección:** los 711 errores son `add_person` de todas las personas, no solo de visitas. En Refugio, 0 de 312 usuarios están sincronizados, residentes incluidos.
+- **Efecto del diseño actual:** la visita entra con un Pase y no crea una persona. El residente entra con código por WhatsApp y el correo deja de ser obligatorio (inferido de la decisión del ingreso sin contraseña). Con eso, el error del correo desaparece para todos.
+- **Propuesta (A, construida):** la fila deja de hablar del correo y queda como el mensaje genérico de un alta que HikCentral no acepta: «HikCentral no aceptó el alta de Carolina Ruiz. Hasta que se corrija, el lector no la reconoce.» Sirve para cualquier falla de sincronización, que sigue siendo posible (Refugio es el caso).
+- **Alternativa (B):** quitar la fila del inventario, porque Kino no debería producir ese error.
+- **Por qué A:** la integración caída de Refugio muestra que las altas pueden fallar por otras causas. La administración necesita un mensaje que diga a quién afecta y qué pasa en la puerta. Tampoco promete que Kino reintente solo, porque eso no está confirmado.
+- **Resultado:** la fila queda como mensaje genérico de alta fallida, tal como se construyó en `sitio/verbal.py`.
+
+### Estado tras la respuesta del 25 sep (segunda vuelta)
+1. Librería de Figma: **APROBADA**. Pedido: pantallas con la jerarquía del Pase (F4-P5).
+2. F4-P4: **APROBADA** (A).
+3. La fila del error de HikCentral se explica y se corrige como F4-P6.
+4. Con 1 y 2 aprobadas, la versión 1.1.0 queda aprobada y se republica el artefacto oficial. F4-P5 y F4-P6 van en la 1.2.0.
+
+### Estado tras la respuesta del 25 sep (tercera vuelta)
+1. F4-P5: **APROBADA** (A). Pantallas con la jerarquía del Pase y lista en «Ahora» y «Próximos».
+2. F4-P6: **APROBADA** (A). Mensaje genérico de alta fallida en HikCentral.
+3. Con las dos, la versión 1.2.0 queda aprobada y se republica el artefacto oficial.

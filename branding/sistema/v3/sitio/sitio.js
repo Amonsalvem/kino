@@ -112,5 +112,58 @@
     if(e.key==='Escape')cerrarIndice();
   });
 
+  /* Demos de movimiento: corren al mostrar la sección y con «Repetir». Las secciones ocultas no animan. */
+  function correr(fig){fig.classList.remove('corre');void fig.offsetWidth;fig.classList.add('corre');}
+  function correrEn(v){[].forEach.call(v.querySelectorAll('[data-demo]'),correr);}
+  document.addEventListener('click',function(e){
+    var r=e.target.closest('[data-repetir]');if(r){var f=r.closest('[data-demo]');if(f)correr(f);}
+    var m=e.target.closest('[data-mov-reducido]');
+    if(m){var on=raiz.getAttribute('data-mov')!=='reducido';if(on)raiz.setAttribute('data-mov','reducido');else raiz.removeAttribute('data-mov');
+      [].forEach.call(document.querySelectorAll('[data-mov-reducido]'),function(b){b.setAttribute('aria-pressed',on);b.textContent=on?'Ver con movimiento completo':'Ver en movimiento reducido';});
+      if(actual)correrEn(actual);}
+    /* PNG a partir del SVG descargable. */
+    var p=e.target.closest('[data-png]');
+    if(p){var img=new Image(),w=+p.dataset.ancho,h=+p.dataset.alto;img.onload=function(){var c=document.createElement('canvas');c.width=w;c.height=h;
+      c.getContext('2d').drawImage(img,0,0,w,h);c.toBlob(function(b){if(guardar(p.dataset.png,b,p))return;var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=p.dataset.png;document.body.appendChild(a);a.click();
+      setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},500);},'image/png');};img.src=p.dataset.src;}
+  });
+  window.addEventListener('hashchange',function(){if(actual)correrEn(actual);desmontarMotor();});
+
+  /* Motion Playground: se monta al pedirlo y se desmonta al salir de Motion (su reloj no corre fuera de pantalla). */
+  function desmontarMotor(){var c=document.getElementById('motor');if(c&&actual&&actual.id!=='motion'&&c.firstChild){c.innerHTML='';c.hidden=true;
+    [].forEach.call(document.querySelectorAll('[data-motor]'),function(b){b.lastChild.textContent='Abrir el motor en vivo';});}}
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('[data-motor]');if(!b)return;var c=document.getElementById('motor');
+    if(c.firstChild){c.innerHTML='';c.hidden=true;b.lastChild.textContent='Abrir el motor en vivo';return;}
+    var src=document.getElementById('motor-src').textContent.trim();
+    var bytes=Uint8Array.from(atob(src),function(ch){return ch.charCodeAt(0);});
+    var html=new TextDecoder().decode(bytes).replace('data-tema="oscuro"','data-tema="'+(raiz.getAttribute('data-tema')||'oscuro')+'"');
+    var f=document.createElement('iframe');f.title='Motion Playground de Kino';f.className='motor-marco';f.setAttribute('loading','lazy');f.srcdoc=html;
+    c.appendChild(f);c.hidden=false;b.lastChild.textContent='Cerrar el motor';
+  });
+
   ir(location.hash,false);
+  if(actual)correrEn(actual);
 })();
+
+/* Descargas dentro del visor de artefactos de claude.ai: el visor no deja que la página baje archivos por su cuenta,
+   así que pasan por su función de descarga (el visor pide confirmación). Fuera del visor, el enlace funciona solo.
+   El visor no acepta .css: para esos archivos se dice dónde están en el repositorio. */
+var descargas=null;
+function pedirDescargas(){try{if(!descargas&&window.claude&&typeof window.claude.use==='function')window.claude.use('downloads').then(function(d){descargas=d;},function(){});}catch(_){}}
+setTimeout(pedirDescargas,0);window.addEventListener('load',pedirDescargas);
+var RUTAS={'kino-brand.css':'branding/sistema/kino-brand.css','kino-tokens.css':'gorr-brand-system/clientes/kino/build/kino-tokens.css'};
+function aBlob(uri){var i=uri.indexOf(','),meta=uri.slice(5,i),datos=uri.slice(i+1);
+  if(/;base64/.test(meta)){var b=atob(datos),u=new Uint8Array(b.length);for(var k=0;k<b.length;k++)u[k]=b.charCodeAt(k);return new Blob([u]);}
+  return new Blob([decodeURIComponent(datos)]);}
+function avisar(el,txt){var n=el.nextElementSibling;if(!n||!n.classList.contains('descarga-aviso')){n=document.createElement('p');n.className='descarga-aviso nota';n.setAttribute('role','status');el.insertAdjacentElement('afterend',n);}n.textContent=txt;}
+function guardar(nombre,datos,el){
+  if(!descargas)return false;
+  if(/\.css$/.test(nombre)){avisar(el,'El visor no baja archivos .css. Está en el repositorio: '+(RUTAS[nombre]||'branding/sistema/'+nombre)+'.');return true;}
+  descargas.save({filename:nombre,data:datos}).catch(function(err){var c=err&&err.code;
+    if(c==='declined'||c==='rate_limited')return;
+    avisar(el,'No se pudo bajar '+nombre+' en esta vista.');});
+  return true;}
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[download]');if(!a||!descargas)return;
+  var href=a.getAttribute('href')||'';if(href.indexOf('data:')!==0)return;
+  e.preventDefault();guardar(a.getAttribute('download'),aBlob(href),a);},true);

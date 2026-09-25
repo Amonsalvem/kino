@@ -58,8 +58,8 @@
       "biolum": {
         "h": 163,
         "cmax": 0.19,
-        "significa": "Vigente y la acción de otorgar",
-        "porque": "H1/H5: no existe permiso temporal; el estado vigente tiene que verse vivo."
+        "significa": "Marca (#00BB83, d70), acción de otorgar (#00D595, d90) y el estado Vigente",
+        "porque": "H1/H5: hoy no existe el acceso temporal para una persona; el estado Vigente tiene que verse vivo."
       },
       "ambar": {
         "h": 75,
@@ -70,8 +70,8 @@
       "carmin": {
         "h": 25,
         "cmax": 0.18,
-        "significa": "Rechazo",
-        "porque": "Estado negado distinguible del vencido."
+        "significa": "Revocado y el evento Rechazado",
+        "porque": "Rechazado y Revocado se distinguen de Vencido: tienen causa o autor."
       },
       "violeta": {
         "h": 286.1,
@@ -82,7 +82,7 @@
       "indigo": {
         "h": 264,
         "cmax": 0.17,
-        "significa": "Profundidad y enlaces",
+        "significa": "Profundidad, enlaces y el estado Previsto",
         "porque": "Linaje: índigo #00177D de la Propuesta 1."
       }
     },
@@ -92,7 +92,59 @@
       "blanco": "#FFFFFF",
       "sombra-claro": "#0B201A"
     },
-    "congelar": "legado/paleta-2026-09-19.json"
+    "congelar": "legado/paleta-2026-09-19.json",
+    "ajustes": [
+      {
+        "familia": "hueso",
+        "hex": "#CEDBD6",
+        "para": "Texto secundario del tema oscuro: Lc 77 sobre superficie membrana (X3, Parada 3)."
+      },
+      {
+        "familia": "sustrato",
+        "hex": "#A5C7B8",
+        "para": "Texto tenue del tema oscuro, solo desde 24 px: Lc 62 sobre membrana (X3)."
+      },
+      {
+        "familia": "sustrato",
+        "hex": "#6E8E81",
+        "para": "Borde con información del tema oscuro: Lc 32 sobre membrana (X3)."
+      },
+      {
+        "familia": "sustrato",
+        "hex": "#B8DBCC",
+        "para": "Texto del estado Vencido en oscuro: Lc 77 sobre su fondo (X3, X10)."
+      },
+      {
+        "familia": "biolum",
+        "hex": "#2FF8B2",
+        "para": "Texto del estado Vigente en oscuro: Lc 77 sobre su fondo (X10)."
+      },
+      {
+        "familia": "ambar",
+        "hex": "#FFD49C",
+        "para": "Texto del estado Por vencer en oscuro: Lc 77 sobre su fondo (X10)."
+      },
+      {
+        "familia": "carmin",
+        "hex": "#FEC6C0",
+        "para": "Texto del estado Revocado en oscuro: Lc 77 sobre su fondo (X10)."
+      },
+      {
+        "familia": "carmin",
+        "hex": "#FED6D2",
+        "para": "Texto del evento Rechazado en oscuro: Lc 77 sobre su fondo (X10)."
+      },
+      {
+        "familia": "violeta",
+        "hex": "#DADAFE",
+        "para": "Texto del dato personal en oscuro: Lc 77 sobre su fondo (X10)."
+      },
+      {
+        "familia": "indigo",
+        "hex": "#CCDDFE",
+        "para": "Texto del estado Previsto en oscuro: Lc 77 sobre su fondo (X10)."
+      }
+    ]
   },
   "tipo": {
     "vwMin": 360,
@@ -145,15 +197,17 @@
     "semantico"
   ],
   "reglas": [
-    "El color solo nombra hechos confirmados. Si el lector no confirmó, el estado es sin-confirmar: sin relleno y con borde discontinuo.",
-    "Todo estado lleva palabra además de color.",
-    "El acento es acción, no estado: va en lo que otorga un pase (el botón, el nodo «Otorgar» de un flujo) y en nada más.",
+    "El color solo nombra hechos confirmados. Si el lector no confirmó, el estado es Sin confirmar: sin relleno y con borde discontinuo.",
+    "Todo estado lleva palabra además de color. Estados del Pase: Previsto, Sin confirmar, Vigente, Por vencer, Usado, Vencido, Revocado. Evento en la entrada: Rechazado.",
+    "Dos verdes: #00BB83 (acento-base) es la marca, la gota del logo y el nodo «Otorgar»; #00D595 (accion-fondo) es el botón que crea un Pase. En claro, los dos pasan a #006343.",
     "Kino es la marca. El conjunto aparece como dato (texto o chip), nunca con logo ni colores propios.",
     "Toda afirmación lleva su grado de evidencia (observado, prueba, entorno, inferido) y su fuente.",
     "Placas, códigos, horas, rótulos y cifras van en JetBrains Mono, con cero barrado y cifras tabulares.",
-    "El tema oscuro es el canónico; el claro («Laboratorio») es el segundo.",
+    "El tema oscuro reajustado es el canónico; el claro es el segundo y es el del PDF del Pase.",
+    "Radio 14 en tarjetas, 8 en controles. El arco (radio pleno arriba) solo va en lo que es un Pase.",
+    "Íconos con trazo 1,7 y puntas redondas.",
     "Sin candados, escudos ni muros: Kino es una membrana.",
-    "Lo que se mueve significa algo: crecer es aparecer, decaer es caducar, latir es estar vivo. Nada se anima para decorar."
+    "Lo que se mueve significa algo: crecer es aparecer (820 ms, cascada de 90 ms), decaer es caducar, latir es estar vivo. Nada se anima para decorar."
   ],
   "evals": {
     "proveedor": "anthropic:messages:claude-sonnet-4-5",

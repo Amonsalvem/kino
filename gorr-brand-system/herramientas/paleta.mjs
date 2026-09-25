@@ -99,6 +99,20 @@ for (const [fam, f] of Object.entries(familias)) {
   leonardo.colores.push({ name: fam, colorKeys: [paso(0.6, H, cmax).hex], ratios: cfg.objetivos, colorspace: 'OKLCH' });
 }
 
+// Pasos fijados a mano por APCA (marca.config.json → color.ajustes): colores que una parada aprobó
+// y que la escala por razón WCAG no produce. Se nombran a<Lc> con el Lc APCA truncado contra el fondo
+// oscuro (fondos.d): «biolum.a84» es un verde que da al menos Lc 84 sobre el fondo del tema oscuro.
+const ajustados = [];
+for (const a of cfg.ajustes ?? []) {
+  if (!color[a.familia]) throw new Error(`ajuste: la familia ${a.familia} no existe`);
+  const lcAbs = Math.abs(apca(fondos.d, a.hex));
+  const k = `a${Math.floor(lcAbs)}`;
+  if (color[a.familia][k]) throw new Error(`ajuste: ${a.familia}.${k} ya existe; dos ajustes con el mismo Lc`);
+  const o = new Color(a.hex).to('oklch').coords;
+  color[a.familia][k] = { $value: valor({ hex: a.hex.toUpperCase(), L: o[0], C: o[1] || 0, H: Number.isNaN(o[2]) || o[2] == null ? 0 : o[2] }), $description: a.para };
+  ajustados.push(`${a.familia}.${k} ${a.hex.toUpperCase()} (Lc ${lcAbs.toFixed(1)})`);
+}
+
 // Colores fijos (transparente, negro de sombra…): existen para que la capa semántica nunca lleve literales.
 if (cfg.fijos) {
   color.fijo = { $description: 'Colores fijos: la capa semántica los referencia en vez de escribir literales.' };
@@ -118,4 +132,5 @@ escribir(c.p('reportes', 'leonardo-entrada.json'), leonardo);
 console.log(`paleta · ${Object.keys(color).length} familias · ${Object.values(color).reduce((n, f) => n + Object.keys(f).filter((k) => k !== '$description').length, 0)} colores · formato ${dtcg2025 ? 'DTCG 2025.10' : 'hex legado'}`);
 for (const [fam, r] of Object.entries(reporte))
   console.log(`  ${fam.padEnd(10)} ${Object.entries(r).map(([k, v]) => `${k} ${v.wcag}`).join('  ')}`);
+if (ajustados.length) console.log(`  ajustes APCA · ${ajustados.join(' · ')}`);
 if (faltanRazones.length) console.log(`\n  AVISO: familias sin "porque" (qué problema resuelven): ${faltanRazones.join(', ')}`);

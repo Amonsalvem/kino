@@ -2,9 +2,12 @@ import json,re,random,html
 from apca import lc
 e=html.escape
 src=open('explorar.src.html').read()
-tok=open('/home/claude/sitio/kino-tokens.css').read()
+import pathlib
+R=pathlib.Path(__file__).resolve().parent
+_dtcg=R/'../../../../gorr-brand-system/clientes/kino/build/kino-tokens.css'
+tok=(_dtcg if _dtcg.exists() else R/'../sitio/kino-tokens.css').read_text(encoding='utf8')
 o=json.load(open('oscuro-ajustado.json'))
-sp=open('/home/claude/sitio/sprite.svg').read(); sp=re.search(r'<defs>(.*)</defs>',sp,re.S).group(1)
+sp=open(R/'../sitio/sprite.svg').read(); sp=re.search(r'<defs>(.*)</defs>',sp,re.S).group(1)
 mark=open('mark.json').read(); word=json.dumps(open('wordmark.txt').read())
 random.seed(4); c=['<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500"><rect width="400" height="500" fill="#011F16"/>']
 for _ in range(70):

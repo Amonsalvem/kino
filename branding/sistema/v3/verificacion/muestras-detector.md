@@ -1,0 +1,374 @@
+# Textos del sistema de marca Kino, por sección
+
+
+## Inicio (#inicio)
+- Reglas y archivos de cada pieza de Kino, con el porqué de cada regla. La pieza que más se usa es el Pase que le llega a una visita por WhatsApp.
+- Carolina Ruiz · Casa 14
+- El Pase de Andrés, como le llega por WhatsApp
+- El sistema de acceso de un conjunto residencial cerrado. El residente le entrega un Pase a quien espera y el lector de la entrada lo reconoce.
+- La administración del conjunto.
+- Lectura de placas, reconocimiento facial, cámaras y talanquera que el conjunto ya tiene, a través de HikCentral.
+- Monte Sereno, El Retiro (Antioquia), en dos comunidades.
+
+## Conocer Kino (#conocer)
+- Cinco paradas para entender la marca sin leer las reglas. Cada una abre la sección completa por si quieres seguir.
+
+## Usar la marca (#usar)
+- Doce secciones en el orden en que se construye una pieza: primero por qué, después cómo suena, cómo se ve y dónde se aplica.
+
+## Plataforma (#plataforma)
+- El problema que resuelve Kino, para quién, contra qué compite y qué promete.
+- Cada regla de este sistema cita la fila de esta sección a la que responde. Si no cita ninguna, se revisa.
+- Antes de escribir un texto o de preparar una reunión con una administración.
+- El residente sabe quién viene y la app no tiene dónde anotarlo
+- Entre el 14 y el 16 de septiembre de 2026 inspeccionamos, rol por rol, un sistema de acceso en operación en Monte Sereno. Registramos 60 observaciones. Los valores de esta sección citan estas cinco.
+- Una placa inventada abrió la puerta Un residente de prueba registró la placa de un carro que no existe. Quedó «Permitido» al instante y llegó al lector de la entrada. Dos renglones más abajo, la pantalla decía que el acceso lo controla la administración.
+- La visita queda inscrita para siempre Para dejar entrar a alguien había que crearle una cuenta con rol «Visitante». Esa cuenta no tenía fecha de salida, y nadie en el sistema podía dar un acceso temporal.
+- Un solo campo tumbaba la sincronización Cada falla al enviar una persona a HikCentral tenía el mismo mensaje: correo inválido. El correo es también el dato que una visita menos quiere dar.
+- Portería veía más que el propio residente El turno de vigilancia veía cédula, teléfono y correo de los 312 residentes de una comunidad, y la vigencia de sus carros. El residente no veía ni la vigencia de su propio carro.
+- 43 carros permitidos en la app, uno en la puerta En una de las dos comunidades, la app mostraba 43 carros permitidos y el sistema físico conocía uno, aunque los lectores estaban instalados.
+- Lo que cada persona necesita de la marca
+- Columnas: qué le pasa hoy a cada persona, qué necesita de la marca y en qué pieza se nota.
+- Contra qué compite Kino cada día
+- La competencia que más ingresos resuelve hoy es una llamada a portería. El mapa ordena las alternativas por dos preguntas: quién decide y qué queda escrito cuando la visita se va.
+- Posiciones cualitativas. La ubicación de las apps de visitas es una hipótesis: su página no dice qué queda del pase ni si la visita necesita cuenta.
+- Posicionamiento
+- Tres rasgos, cada uno ligado a un hallazgo de la inspección y con una frase de ejemplo.
+- La hora, la placa, el número de la casa y quién otorgó el Pase.
+- «Pronto» o «pendiente».
+- Lo que el lector confirmó y lo que todavía no.
+- Dar por hecho un ingreso antes de que la puerta responda.
+- El mínimo de datos para dejar entrar a alguien.
+- Un formulario que pide correo para una tarde.
+- Un valor cuenta si se puede verificar mirando el producto. Al lado de cada uno va la conducta que permite comprobarlo.
+- Arquitectura de nombres
+- Todo sale bajo Kino. Cada superficie suma una palabra según quién la usa (Kino Administración, Kino Portería) y los objetos se llaman como los llama un residente: Pase, lector, entrada.
+
+## Voz y UX writing (#verbal)
+- Cómo habla Kino con el residente, con la visita, con portería y con la administración.
+- Para escribir en cualquiera de los seis lugares donde habla Kino sin que cada persona lo resuelva a su manera.
+- Cada vez que un texto va a llegarle a alguien fuera del equipo. Antes de publicar, pásalo por npm run voz -- kino .
+- Perfil de tono
+- Las cuatro dimensiones de Nielsen Norman Group, de 1 a 5, con una frase de ejemplo por valor.
+- Seis lugares donde escribe Kino
+- Cambia el largo: en portería, una línea; en una propuesta comercial, un párrafo con cifras.
+- Tratamiento con la administración
+- Con el residente y la visita, tú. Con la administración, usted: en Antioquia es la forma de respeto con un cliente.
+- «Pase» con mayúscula
+- Una sola forma en todas las piezas.
+- 12 horas en texto y 24 horas en datos. Una pieza usa un solo formato.
+- 20 términos para usar, 5 pares que no se mezclan y 12 que se evitan. Las definiciones completas están en el glosario .
+- Lo que recibe una visita o un colaborador para entrar. Autor, motivo, vigencia y modo.
+- Lo que tiene el residente para usar la app.
+- Quien entra una vez o de vez en cuando. En la interfaz se prefiere a «visitante».
+- Quien entra con regularidad a trabajar: aseo, jardinería, técnicos.
+- Pase preparado antes de que llegue la persona.
+- Crear un Pase. Solo el residente otorga.
+- Cortar un Pase antes de que venza. Siempre con autor.
+- Terminar la vigencia sin que nadie intervenga.
+- Pase activo que el lector confirmó.
+- Pase enviado que el lector todavía no reconoce.
+- Código de un solo uso que ya sirvió para entrar.
+- El equipo de la entrada que reconoce placa, QR, código o rostro.
+- El punto físico por donde se ingresa al conjunto.
+- Cupos, duración y franjas que fija la administración.
+- Cuántos Pases pueden estar activos a la vez. Unidad [PENDIENTE].
+
+## Logo (#logo)
+- El bloque con arco y gota, el logotipo «KINO» y sus versiones.
+- Para poner la marca en cualquier superficie sin deformarla ni dejarla ilegible.
+- Al poner la marca en una pantalla o mandar un archivo a imprenta.
+- Un bloque con un vano y una gota que pasa por él
+- El símbolo se dibuja sobre una grilla de 100 unidades de ancho. Las medidas vienen de la reconstrucción desde el PNG de 1543 × 1425 px (98 % de coincidencia); no existe un vector original [pendiente: vector original del logo] .
+- Alrededor, el ancho de una gota
+- La unidad x es el ancho de la gota: 32 % del ancho del símbolo. Ningún texto, borde ni imagen entra en esa franja.
+- Hasta dónde se puede achicar
+- Por debajo de estos tamaños la gota se funde con el bloque o el logotipo pierde las letras.
+- Seis versiones y cuándo va cada una
+- Todas salen del mismo dibujo; solo cambia el color. Cada una se descarga desde su tarjeta.
+- Color sobre oscuro (principal) App, sitio, portería, redes. Es la versión por defecto.
+- Color sobre claro PDF del Pase, papelería, documentos para administraciones.
+- Una tinta, negro Sello, grabado láser, impresión en una tinta. La gota queda hueca como el arco.
+- Una tinta, blanco Sobre fotografía oscura, vinilo blanco, serigrafía.
+- Solo símbolo Ícono de app, favicon, avatar, sello del Pase. Cuando «Kino» ya está escrito cerca.
+- Vertical Espacios angostos: adhesivo de talanquera, credencial, portada de una página.
+- Seis fondos y la versión que le toca a cada uno
+- Sobre fondo oscuro va la versión principal: bloque en hueso #EFFCF7 y gota en verde #00BB83, con un mínimo de 88 px de ancho (16 px si va solo el símbolo). Sobre claro, bloque en sustrato y gota #006343. Si el fondo ya es verde o es una foto, una tinta.
+- Sustrato Color sobre oscuro
+- Hueso Color sobre claro
+- Aurora Color sobre oscuro
+- Tejido celular (impreso) Color sobre oscuro
+- Verde de marca Una tinta en sustrato: la gota verde se perdería
+- Fotografía oscura Una tinta, blanco
+- Nueve cosas que no se le hacen al logo
+- ✕ Estirar o aplastar. El arco deja de ser un vano.
+- ✕ Rotar. El bloque se lee como una puerta caída.
+
+## Color (#color)
+- La paleta y lo que significa cada color, incluidos los estados de un Pase.
+- Para que un color signifique siempre lo mismo: vigente, por vencer, usado, vencido o rechazado.
+- Al elegir el color de cualquier texto, fondo, borde o gráfico.
+- Siete familias, cada una con un significado
+- Los pasos 100 a 800 ordenan los neutros por luminosidad. d45 quiere decir «4,5:1 sobre el fondo oscuro» y l45 , lo mismo sobre el claro. Los pasos a son los fijados por APCA en el tema oscuro reajustado: a84 da al menos Lc 84 sobre la base.
+- En código se usa el rol, nunca el hex
+- Cada rol apunta a un primitivo distinto en cada tema. Si mañana cambia un paso, cambian todas las piezas.
+- El tema oscuro es el principal; el PDF y la papelería van en claro
+- El oscuro reajustado es el canónico. El claro se usa en el PDF del Pase, la papelería y quien lo elija en la app.
+- Siete estados del Pase, un evento y un dato
+- Todo texto de estado pasa Lc 75, así sirve en chips de 13 px. Todo borde pasa Lc 30. Sin confirmar va sin relleno y Rechazado es un evento de la entrada, no un estado del Pase.
+- Colores para contar cifras
+- El verde ocupa el 4 % de una pantalla
+- Una pantalla típica de Kino, medida por área.
+- Todos los pares, medidos en los dos temas
+- Qué ve alguien que no distingue rojo y verde
+- Valores aproximados para imprenta
+
+## Tipografía (#tipografia)
+- Las dos familias tipográficas y cómo se escriben placas y códigos.
+- Para que una placa y un código de un solo uso se lean igual en la app y en portería.
+- Al componer texto para pantalla o para impresión.
+- Archivo para el texto, JetBrains Mono para placas y códigos
+- Dos familias libres (OFL 1.1). Archivo es variable en ancho: los titulares van al 112 %. JetBrains Mono tiene el cero barrado, que separa la O de la placa del 0 del código.
+- Ocho tamaños que crecen con la pantalla
+- Escala con el método Utopia: 16 px con razón 1,2 en un teléfono de 360 px y 18 px con razón 1,26 en una pantalla de 1440 px. Entre los dos, clamp() .
+- Nueve niveles y el contraste mínimo de cada uno
+- Medidas que no se tocan pieza por pieza
+- Las horas se alinean en columna
+- En tablas, constancias y la vista de portería, las cifras ocupan el mismo ancho.
+- Qué se puede instalar y qué no
+
+## Iconografía e ilustración (#iconografia)
+- Los íconos de Kino y las reglas para dibujar uno nuevo.
+- Para dibujar un Pase o una talanquera con el mismo trazo en la app y en la señalética.
+- Al necesitar un ícono que todavía no está en la biblioteca.
+- Veinticuatro unidades, trazo 1,7, puntas redondas
+- Cada ícono se dibuja en una grilla de 24 con 2 de margen. El trazo es de 1,7 unidades con puntas y uniones redondas, como las curvas del logo.
+- 37 íconos para empezar
+- Toca un ícono para descargarlo en SVG. El sprite trae todos con currentColor , listos para <use> .
+- Arco, membrana y aurora; sin candados
+- La ilustración usa el arco del logo, la membrana y la luz de la aurora. Los colores de estado solo aparecen cuando nombran un estado.
+
+## Imagen (#imagen)
+- La dirección de arte: texturas, fondos y cómo se muestran personas y espacios.
+- Para elegir o producir fondos e imágenes con la paleta y las texturas de Kino, sin fotos de banco.
+- Al armar una presentación comercial, una publicación en redes o una pieza impresa.
+- Biopunk: fondos oscuros con luz verde en lo que está activo
+- Fondos de sustrato, formas redondas y luz que sale de lo activo, como un Pase vigente o un lector que responde. Se evitan el metal y el neón magenta.
+- Aurora Luz verde e índigo que sube desde una esquina, como la bioluminiscencia en agua oscura.
+- Tejido celular Círculos de sustrato con núcleo, como células vistas al microscopio.
+- Membrana Superficie lisa con un borde de luz arriba.
+- Resplandor Halo verde alrededor de un Pase vigente.
+- Cuatro pares para decidir rápido
+- Tres fondos y cómo se arman
+- Todos salen de tokens: la aurora son tres degradados radiales sobre sustrato 100; el tejido, círculos en sustrato 300 a 500.
+- Sin fotos de personas; los espacios, de noche y sin gente
+- Kino maneja datos de quién entra a una casa. Una foto de una persona en una pieza de Kino sugiere que Kino guarda caras. Los espacios se muestran vacíos, a la hora en que más se usa la entrada.
+- Qué fondo va en cada pieza
+
+## Estructura (#estructura)
+- Retículas, espaciado, radios, elevación y puntos de quiebre.
+- Para que una pantalla de teléfono y una hoja carta compartan medidas.
+- Al maquetar cualquier pieza.
+- Una retícula por formato
+- Todas comparten el mismo medianil de 24 (el paso espacio-l ), salvo el teléfono, que usa 16.
+- Teléfono 4 columnas · margen 16 · medianil 16
+- Web 12 columnas · margen 32 · medianil 24
+- Presentación 16:9 12 columnas · margen 40 · medianil 24
+- Carta (impresos) 6 columnas · margen 20 · medianil 12
+- Diez pasos de espacio
+- Dentro de una tarjeta, s o m ; entre tarjetas, l ; entre secciones, 2xl o más.
+- Radio 14 en tarjetas, 8 en controles, el arco solo en el Pase
+- El arco es la forma del vano del logo. Si aparece en cualquier botón, deja de significar «esto es un Pase».
+- nada · 0 Tablas y bordes de pantalla
+- xs · 2px Marcas de texto, código en línea
+- s · 4px Chips de estado
+- m · 8px Controles: botones, campos, selectores
+- l · 14px Tarjetas, hojas, el Pase
+- arco · pleno arriba Solo la ventana del QR y el Pase vivo
+- Cuatro capas de superficie y un solo resplandor
+- En el tema oscuro la altura se nota por luminosidad: lo que está más cerca es más claro. La sombra casi no se ve; el borde de luz arriba sí.
+- Cuatro anchos y qué cambia en cada uno
+
+## Motion (#motion)
+- Cómo se mueve Kino y qué significa cada movimiento.
+- Para que otorgar, confirmar, vencer y revocar un Pase se distingan también por su ritmo.
+- Al animar una pantalla o el logo.
+- Solo se anima lo que le pasa a un Pase
+- Solo se animan los cambios de un Pase: aparece, el lector lo confirma, vence o alguien lo revoca.
+- Diecisiete tokens de movimiento
+- crecer cubic-bezier(0.16, 0.84, 0.3, 1) Aparecer. Arranca rápido y se asienta.
+- decaer cubic-bezier(0.62, 0.03, 0.86, 0.34) Caducar. Empieza lento y se va.
+- latir cubic-bezier(0.45, 0, 0.55, 1) Pase vigente en pantalla. Simétrica, en bucle.
+- revocar cubic-bezier(0.4, 0, 1, 1) Cortar. Acelera hasta el final, sin rebote.
+- cortina cubic-bezier(0.76, 0, 0.24, 1) Abrir, solo en presentaciones.
+- El título entra primero y el botón, al final
+- En una pantalla nueva entra el título, luego las tarjetas en cascada de 90 ms y al final el botón de acción. Máximo ocho elementos en una cascada; del noveno en adelante entran juntos.
+- 13 animaciones en vivo
+- Cada una con su token y su versión en movimiento reducido. Pruébalas también con el botón de abajo.
+- 01 · Aparecer Una tarjeta nueva crece desde abajo.
+- 02 · Cascada La lista de Pases entra una tarjeta tras otra, cada 90 ms.
+- 03 · Latir El punto de un Pase vigente respira mientras está en pantalla.
+- 04 · Caducar La barra de vigencia baja cuando pasa el tiempo.
+- 05 · Confirmar El lector responde: el borde discontinuo se cierra y aparece el relleno.
+- 06 · Por vencer El chip pasa de verde a ámbar cuando entra la ventana de aviso.
+- 07 · Revocar Una línea cruza la tarjeta y la apaga. Queda el nombre de quien revocó.
+- 08 · Usar El código de un solo uso se tacha y pasa a Usado.
+- 09 · Rechazar En portería, el evento aparece con un borde que se enciende una vez.
+- 10 · Enviar El Pase sube y se convierte en el mensaje de WhatsApp.
+- 11 · Presionar El botón Crear Pase baja un poco al tocarlo.
+- 12 · Trazo La línea de un flujo se dibuja de un paso al siguiente.
+- 13 · Cortina En una presentación, la lámina siguiente entra como una cortina.
+
+## Producto (#producto)
+- Los componentes de la app y las pantallas clave, con todos sus estados.
+- Para construir la app con piezas que ya resuelven foco, error, carga y accesibilidad.
+- Al diseñar o programar una pantalla de Kino.
+- Cinco componentes en sus seis estados
+- Cada componente sale de kino-brand.css y solo usa variables. «No aplica» quiere decir que ese estado no existe para ese componente.
+- Las cinco pantallas donde se decide un ingreso
+- Textos finales del inventario de UX writing. Nombres, placas y códigos son de ejemplo.
+- Lista de Pases
+- hoy de 2:00 a 6:00 p. m.
+- Carolina Ruiz · Casa 14
+- Detalle de Pase
+- Acceso por código
+- Límites de la administración · Kino Administración, trato de usted
+- WCAG 2.2 AA, criterio por criterio
+- Los criterios que más afectan a Kino y cómo los cumple cada pieza.
+
+## Aplicaciones (#aplicaciones)
+- Quince piezas con la marca aplicada, del Pase a la papelería.
+- Para duplicar una pieza aprobada y cambiar solo los datos.
+- Al producir una pieza nueva para un conjunto o para un aliado.
+- Quince piezas con su medida y su uso
+- Datos de ejemplo en todas. Las piezas físicas (señal, adhesivo, papelería, credencial) están en 2D: no hubo herramienta 3D disponible para los mockups [pendiente: mockups físicos en 3D] .
+- Lista de Pases
+- App móvil 360 × 780 px La lista de Pases de la Casa 14 con cuatro estados distintos.
+- Carolina Ruiz · Casa 14
+- Mensaje de WhatsApp con el Pase Mensaje de 23 palabras Una frase, la imagen del Pase y el enlace al Pase vivo.
+- Pase QR (imagen) 1080 × 1350 px La imagen que se ve en el chat sin abrir nada. El QR vive en el arco del logo, sobre blanco.
+- Pase vivo 360 px La página del enlace. Dice si el Pase sigue sirviendo; en vencido dice a quién pedir uno nuevo. La llamada queda en portería.
+- Refugio Campestre
+- PDF del Pase Carta, 216 × 279 mm Para imprimir o para quien no usa WhatsApp. Siempre en claro.
+- Señalética de la entrada 60 × 40 cm Tres formas de entrar, leídas a dos metros. Abajo, qué pasa si el Pase venció.
+- Vista de portería 1280 px Nombre, placa y estado. La cédula no aparece. En un rechazo, el turno puede llamar al residente.
+- Adhesivo de talanquera 20 × 10 cm, vinilo En el brazo o el poste de la talanquera, para quien entra en carro.
+- Presentación comercial 1920 × 1080 px Para el consejo de administración: el problema con cifras propias y su fuente.
+- Documento de una página Carta Lo que se deja después de la reunión con una administración. Trato de usted.
+- Plantillas de redes 1080 × 1080 y 1080 × 1920 px Una idea por pieza, con un caso concreto.
+- Correo a la administración 600 px de ancho Resumen semanal con cifras que tienen denominador.
+- Papelería Carta · 90 × 55 mm Hoja membretada y tarjeta de presentación.
+- Credencial 85,6 × 54 mm Para el equipo de Kino que instala y da soporte en un conjunto. Sin foto: iniciales y vigencia.
+- Carta de bienvenida al conjunto Carta La recibe cada residente el día que el conjunto empieza con Kino. Trato de tú.
+- Dónde están las plantillas para duplicar
+- Las plantillas editables viven en la página «Aplicaciones / Plantillas» de la librería de Figma, ligadas a las variables. En código, las piezas del Pase salen de deptos/pase.py .
+
+## Gobernanza (#gobernanza)
+- Quién decide sobre la marca y cómo se pide un archivo o un cambio.
+- Para que la marca siga siendo una sola cuando la usen personas fuera del equipo.
+- Antes de publicar una pieza o de proponer un cambio.
+- El equipo de Kino decide sobre la marca
+- Nico Ramírez y Alejandro Monsalve. Una propuesta de cambio llega con la fila de la plataforma a la que responde; sin esa fila no se discute.
+- Tres datos y el equipo responde
+- Para pedir un archivo o una pieza nueva, escribe qué pieza es, dónde se va a publicar y para cuándo. Si el archivo ya existe, está en el centro de descargas de abajo.
+- Número de versión con tres partes
+- Mayor, menor y corrección, como en el software. El número está en la cabecera de kino-tokens.css y en este registro.
+- Qué cambió y cuándo
+- Qué significa cada código de decisión
+- Las líneas «Responde a» de cada regla citan un código. F son las decisiones fijas del inicio; H, las heredadas del borrador; P, V y X, las aprobadas en las revisiones de plataforma, voz e identidad visual.
+- Doce preguntas antes de publicar una pieza
+- Lo que falta y por qué no se puede resolver todavía
+- Todos los archivos en un lugar
+- Cada archivo también está junto a la regla que lo gobierna.
+
+## Microcopy de la app (textos finales)
+- Crear Pase
+- ¿Quién viene?
+- Ahí le llega el Pase. No necesita instalar nada ni crear cuenta.
+- Ese número tiene 9 cifras. Un celular en Colombia tiene 10.
+- Visita: entra una vez, en la franja que elijas.
+- Colaborador: entra los días que elijas y el Pase se repite.
+- Enviado. Andrés recibió el Pase por WhatsApp. Vale hoy de 2:00 a 6:00 p. m.
+- No pudimos enviar el WhatsApp al 300 555 0142. Revisa el número o copia el código 4817.
+- Enviado al lector. Queda sin confirmar hasta que la entrada responda.
+- El lector no responde desde las 7:40 a. m. La administración ya tiene el aviso.
+- Usado. Andrés entró a las 3:12 p. m. con el código 4817.
+- Vencido a las 6:00 p. m. Andrés ya no puede entrar con este Pase.
+- Crear otro Pase
+- Tienes {cupo} Pases activos, el tope que fijó la administración. Revoca uno o espera a que venza.
+- Las visitas entran de 6:00 a. m. a 10:00 p. m. Elige una hora en esa franja.
+- Andrés entró a las 3:12 p. m. con la placa KMN 305.
+- Carolina Ruiz, de la Casa 14, te dio un Pase para hoy de 2:00 a 6:00 p. m. Muéstralo en la entrada: {enlace}
+- Acerca el QR al lector y espera la luz verde.
+- Avanza despacio hasta la talanquera. La cámara lee la placa KMN 305.
+- Dile a portería el código 4817. Sirve una sola vez.
+- El lector no leyó la placa KMN 305. Muestra el QR o di el código 4817.
+- Tu Pase vale de 2:00 a 6:00 p. m. y son las 7:10 p. m. Pídele uno nuevo a Carolina.
+- Tu código para entrar a Kino es 482 913. Vence en 10 minutos. Si no lo pediste, ignora este mensaje.
+- Te enviamos un código por WhatsApp al 300 *** 0142.
+- Ese código no coincide. Revisa el último mensaje de Kino.
+- Recibir código
+- Escribe tu cédula. La comparamos con el registro de Refugio Campestre.
+- Esa cédula no está en el registro de Refugio Campestre. La administración puede agregarla.
+- Escribir a administración
+- Límites del conjunto
+- Aplican a los Pases nuevos. Los activos conservan su vigencia.
+- Guardar límites
+- Límites guardados. Rigen desde hoy a las 4:32 p. m.
+- Esta semana: 214 Pases otorgados, 187 usados y 3 rechazados en la entrada.
+- 0 de 312 personas reconocidas por el lector. Los Pases nuevos quedan sin confirmar.
+- No tienes Pases activos. Crea uno cuando esperes a alguien.
+- Enviando el Pase a Andrés…
+- Sin conexión. El Pase no se envió; lo que escribiste sigue aquí.
+- Reintentar
+- No pudimos crear el Pase: el servidor no respondió. Intenta en un minuto.
+- Carolina Ruiz, de la Casa 14, te dio un Pase para hoy de 2:00 a 6:00 p. m. Muéstralo en la entrada: kino.co/p/7Hq2
+- Carolina Ruiz, de la Casa 14, te dio un Pase de colaborador: lunes y jueves, de 7:00 a. m. a 5:00 p. m. Muéstralo en la entrada: kino.co/p/9Xc4
+- Andrés, Carolina Ruiz cortó tu Pase para Refugio Campestre. Ya no sirve para entrar. Si fue un error, escríbele a Carolina.
+- Andrés entró a las 3:12 p. m. con la placa KMN 305.
+- Tu código para entrar a Kino es 482 913. Vence en 10 minutos. Si no lo pediste, ignora este mensaje.
+- El Pase de Andrés vence a las 6:00 p. m. Si necesita más tiempo, extiéndelo desde la app.
+- Recibir código
+- Falta tu WhatsApp
+- Tu WhatsApp sirve para entrar a Kino y para avisarte cuando alguien llega.
+- Tu cédula no está ligada a ninguna casa. La administración puede hacerlo.
+- Casa 14 · Refugio Campestre
+- Agregar vehículo
+- Esta placa abre la talanquera en Refugio Campestre y Villas Campestres.
+- Reservar
+- Ves solo las horas libres de esa zona.
+- Propietario · Casa 14
+- Casa 118 · 4 personas con cuenta
+- 1 vehículo. Abre la talanquera hasta el 12 ago 2027.
+- Último ingreso: ninguno registrado
+- Paquetes · Reservas · Ingresos · Mi casa · Vehículos
+- Visita (tipo de Pase)
+- Colaborador
+- Colaborador · aseo
+- Lector
+- Esta placa abre la talanquera desde que la registraste.
+- Confirmada · Por confirmar
+- Vigente · Sin confirmar
+- Vehículos reconocidos por el lector
+- Agregar residente
+- Aún no hay zonas comunes. Agrega la primera para que se pueda reservar.
+- Agregar zona común
+- Agregar colaborador
+- Lector
+- Vale desde · Vale hasta
+- Registrar paquete
+- Entró
+- Sin casa asociada
+- Acceso general
+- Vigente · Lector · Vale hasta · Reconocido · Sin confirmar
+- HikCentral rechazó el registro porque falta el correo. Los Pases no deben crear personas.
+- Andrés recibió el Pase. Vale hoy de 2:00 a 6:00 p. m.
+- Carolina Ruiz, de la Casa 14, te dio un Pase para hoy de 2:00 a 6:00 p. m.
+- Pase vigente · Andrés Gómez · KMN 305
+- Cada Pase guarda quién lo otorgó y hasta qué hora vale. En Refugio Campestre, el lector reconocía 0 de 312 personas.
+- El lector de Refugio Campestre no responde desde las 7:40 a. m. Los Pases nuevos quedan sin confirmar.
+- La señora del aseo entra lunes y jueves. Su Pase se repite esos días y vence solo.
+- Andrés entra hoy de 2:00 a 6:00 p. m.
+- El lector no leyó la placa KMN 305. Muestra el QR.
+- El número 300 555 0142 no tiene WhatsApp. Revísalo o copia el código.
+- Enviado. Vale hasta las 6:00 p. m.

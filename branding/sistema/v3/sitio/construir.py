@@ -10,20 +10,43 @@ leer = lambda p: (R / p).read_text(encoding='utf8')
 # Fuente de verdad: los tokens DTCG del cliente kino, construidos por gorr-brand-system.
 _dtcg = R / '../../../../gorr-brand-system/clientes/kino/build/kino-tokens.css'
 tokens = _dtcg.read_text(encoding='utf8') if _dtcg.exists() else leer('kino-tokens.css')
-sprite = leer('sprite.svg').replace('</defs>',
- '<symbol id="i-flecha" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></symbol>'
- '<symbol id="i-buscar" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></symbol>'
- '<symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>'
+# Íconos base (deptos/d06_iconografia.py) reemplazan a los del sprite anterior con el mismo nombre.
+from deptos.d06_iconografia import ICONOS, simbolos
+_sprite = re.sub(r'<metadata>.*?</metadata>', '', leer('sprite.svg'), flags=re.S)
+for _k, _n, _d in ICONOS:
+    _sprite = re.sub(r'<symbol id="i-%s".*?</symbol>' % re.escape(_k), '', _sprite, flags=re.S)
+sprite = _sprite.replace('</defs>', simbolos() +
  '<symbol id="i-tema" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 0 0 16z" fill="currentColor"/></symbol>'
  '</defs>')
-logo_h = leer('logo-h.svg')
-logo_mark = re.sub(r'<g transform.*?</g>', '', logo_h).replace('viewBox="0 0 267.960 101.824" width="268" height="102" overflow="visible"', 'viewBox="0 0 100 101.824" width="100" height="102"').replace('role="img" aria-label="Kino"', 'aria-hidden="true"')
-contenido_crudo = ''.join(leer(f'contenido/{f}') for f in ['00-inicio.html', '01-plataforma.html', '02-verbal.html', '02-12.html']).replace('{{LOGO_H}}', logo_h)
+from deptos.motor import carga as _motor
+motor_carga = _motor()
+# Temas locales: un bloque puede mostrarse en claro u oscuro sin cambiar la página (.en-claro, .en-oscuro).
+_b = R / '../../../../gorr-brand-system/clientes/kino/build'
+def _tema_local(archivo, clase):
+    t = (_b / archivo).read_text(encoding='utf8') if (_b / archivo).exists() else ''
+    return re.sub(r'^[^{]+\{', '.%s{' % clase, t, count=1)
+# La portada y las aperturas llevan aurora: van siempre en tema oscuro local, también cuando la página está en claro (F4-P4).
+temas_locales = _tema_local('tema-oscuro.css', 'en-oscuro,.abre,.portada') + _tema_local('tema-claro.css', 'en-claro')
+from deptos.d07_imagen import AURORA
+from deptos import pase as _pase
+# Capa de componentes de la marca (kino-brand.css), sin los @import de fuentes autoalojadas.
+componentes = re.sub(r'^@import[^;]+;\s*$', '', (R / '../../capa-componentes.css').read_text(encoding='utf8'), flags=re.M)
+# Logo con la versión aprobada (X2): bloque en hueso y gota en acento. logo-h.svg (una tinta) queda como referencia.
+from deptos.comun import logo as _logo
+logo_h = _logo('horizontal', etiqueta='Kino', clase=None)
+logo_mark = _logo('simbolo', etiqueta=None, clase=None)
+contenido_crudo = ''.join(leer(f'contenido/{f}') for f in ['00-inicio.html', '01-plataforma.html', '02-verbal.html', '03-12.html']).replace('{{LOGO_H}}', logo_h)
+contenido_crudo = contenido_crudo.replace('{{PASE}}', _pase.imagen('vigente'))
+# El número de la sección, grande y en contorno, dentro de la apertura (dato verdadero: el orden de las secciones).
+contenido_crudo = re.sub(r'(<header class="abre">\s*)(<p class="ojo">(\d\d) · )', r'\1<span class="abre-num" aria-hidden="true">\3</span>\2', contenido_crudo)
 # Espacios que no parten: horas, placas, códigos y teléfonos se leen como una unidad.
 NB = '\u00a0'
-contenido = re.sub(r'(\d{1,2}:\d{2}) ([ap])\. m\.', lambda m: m.group(1)+NB+m.group(2)+'.'+NB+'m.', contenido_crudo)
-contenido = re.sub(r'\b([A-Z]{3}) (\d{3})\b', lambda m: m.group(1)+NB+m.group(2), contenido)
-contenido = re.sub(r'\b(\d{3}) (\d{3}|\*{3})( \d{4})?\b', lambda m: m.group(1)+NB+m.group(2)+(NB+m.group(3)[1:] if m.group(3) else ''), contenido)
+def _nb(t):
+    t = re.sub(r'(\d{1,2}:\d{2}) ([ap])\. m\.', lambda m: m.group(1)+NB+m.group(2)+'.'+NB+'m.', t)
+    t = re.sub(r'\b([A-Z]{3}) (\d{3})\b', lambda m: m.group(1)+NB+m.group(2), t)
+    return re.sub(r'\b(\d{3}) (\d{3}|\*{3})( \d{4})?\b', lambda m: m.group(1)+NB+m.group(2)+(NB+m.group(3)[1:] if m.group(3) else ''), t)
+# Solo en el texto, nunca dentro de una etiqueta (un viewBox «0 0 760 460» no se toca).
+contenido = re.sub(r'>[^<]+<', lambda m: _nb(m.group(0)), contenido_crudo)
 
 cuerpo = f'''<title>Kino · Sistema de marca</title>
 <meta name="description" content="Sistema de marca de Kino: plataforma, voz, identidad visual, producto, aplicaciones y gobernanza.">
@@ -31,7 +54,12 @@ cuerpo = f'''<title>Kino · Sistema de marca</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
 <script>document.documentElement.setAttribute('data-tema',(function(){{try{{return localStorage.getItem('kino-tema')}}catch(e){{}}}})()||'oscuro');</script>
 <style>{tokens}
-{leer('sitio.css')}</style>
+{temas_locales}
+{componentes}
+{leer('sitio.css')}
+{leer('deptos.css')}
+:root{{--s-aurora:{AURORA}}}
+{leer('identidad.css')}</style>
 <a class="saltar" href="#contenido">Saltar al contenido</a>
 {sprite}
 <div class="progreso" aria-hidden="true"><i></i></div>
@@ -59,17 +87,21 @@ cuerpo = f'''<title>Kino · Sistema de marca</title>
     </main>
   </div>
 </div>
+{motor_carga}
 <script>{leer('sitio.js')}</script>
 '''
 (R / 'build').mkdir(exist_ok=True)
 (R / 'build/artefacto.html').write_text(cuerpo, encoding='utf8')
 (R / 'build/kino-sistema-de-marca.html').write_text('<!doctype html>\n<html lang="es">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">\n</head>\n<body>\n' + cuerpo + '</body>\n</html>\n', encoding='utf8')
+# Copia definitiva en la raíz del repositorio (el borrador del 23 sep quedó en _obsoleto/).
+import shutil
+shutil.copyfile(R / 'build/kino-sistema-de-marca.html', R / '../../../../Kino_Sistema_de_marca.html')
 print('ok', len(cuerpo))
 
 # Texto visible para las compuertas de voz: excluye ejemplos incorrectos (.no, .tachado) y citas de la app actual (.antes).
 import html as _h
 _s = re.sub(r'<(script|style)[^>]*>.*?</\1>', '', cuerpo, flags=re.S)
-_s = re.sub(r'<(p|td|span|code)[^>]*class="[^"]*\b(no|antes|tachado|plantilla)\b[^"]*"[^>]*>.*?</\1>', '', _s, flags=re.S)
+_s = re.sub(r'<(p|td|span|code|div)[^>]*class="[^"]*\b(no|antes|tachado|plantilla|ej-mal)\b[^"]*"[^>]*>.*?</\1>', '', _s, flags=re.S)
 _s = re.sub(r'<svg.*?</svg>', lambda m: ' '.join(re.findall(r'>([^<]+)<', m.group(0))), _s, flags=re.S)
 _t = _h.unescape(re.sub(r'<[^>]+>', '\n', _s))
 (R / 'texto-visible.md').write_text('\n'.join(l.strip() for l in _t.split('\n') if l.strip()) + '\n', encoding='utf8')

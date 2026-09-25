@@ -26,15 +26,12 @@ Con eso basta. Si la carpeta no está conectada, las copias de `avances` y `deci
 | 2 · Verbal | Aprobada (Parada 2) |
 | V7 · Pase entregado como imagen más enlace | Aprobada |
 | 3 · Identidad visual | Aprobada (Parada 3, 24 sep): X1 a X11 |
-| 4 · Construcción | No iniciada |
-| 5 · Verificación y evaluaciones | No iniciada |
+| 4 · Construcción | 1.2.0 aprobada el 25 sep (F4-P5 A, F4-P6 A); oficial republicado (versión 5). Falta integrar a `main` |
+| 5 · Verificación y evaluaciones | 10 de 10. Lector frío PASA; detector de IA PASA en el ciclo 4 |
 
-**Preguntas abiertas de la Parada 3, en orden de impacto**
-1. ¿La forma del Pase es «Portal», con el QR dentro del arco del logo?
-2. ¿Dos verdes: #00BB83 para la marca y #00D595 para el botón Crear Pase?
-3. ¿El tema oscuro reajustado queda como canónico?
-4. ¿Se aprueban en bloque las opciones A de logo, tipografía, iconografía, imagen, estructura y motion?
-5. ¿Portería puede llamar al residente desde Kino cuando alguien llega con el Pase vencido? Es un dato, no una decisión.
+**Sin preguntas abiertas.** La Parada 4c se respondió el 25 sep: F4-P5 A y F4-P6 A. El PR https://github.com/Amonsalvem/kino/pull/1 espera que Nico lo integre.
+
+Las respuestas a las Paradas 4, 4b y 4c (25 sep) están en `decisiones.md`, «Estado tras la respuesta del 25 sep», «(segunda vuelta)» y «(tercera vuelta)».
 
 ## 3. Enlaces
 
@@ -43,8 +40,14 @@ Con eso basta. Si la carpeta no está conectada, las copias de `avances` y `deci
 | Parada 1 (lámina) | https://claude.ai/artifact/EuPrHetctevY4PGiVAohiM |
 | Parada 2 (lámina) | https://claude.ai/artifact/JZmNsBpL9zizPj29yxE8x9 |
 | Parada 3 (lámina) | https://claude.ai/artifact/788FzxvYPNk3557owP4Mms |
-| Vista previa del sitio v3 | https://claude.ai/artifact/NGW6EEiRghDxq4uFzvsjBa |
-| Artefacto oficial del borrador | https://claude.ai/artifact/K8R2PRduS6SHBKYU31Bo6L (**no se toca hasta aprobar la Parada 4**) |
+| Parada 4 (lámina) | https://claude.ai/artifact/DBF7w1VTGPtJ9oQwdz4tXa · copia en `parada-4.html` |
+| Parada 4b (segunda vuelta) | https://claude.ai/artifact/Bn6AaiChNchG5dhx7BjtQ1 · copia en `parada-4b.html` |
+| Parada 4c (tercera vuelta, 1.2.0) | https://claude.ai/artifact/NXuGd6VQc7k6Fqqi9pciZZ · copia en `parada-4c.html` |
+| Vista previa del sitio 1.2.0 | https://claude.ai/artifact/W5U4Nw4AeZMpM7QZ4gsXcH |
+| Vista previa del sitio 1.1.0 | https://claude.ai/artifact/NnuVUWwUdgk34VHkj3H5Rd |
+| Vista previa del sitio 1.0.0 | https://claude.ai/artifact/AJey2DjrB4K8oo92fn6pfg (copia de `Kino_Sistema_de_marca.html`) |
+| Vista previa del sitio v3 (Paradas 1 y 2) | https://claude.ai/artifact/NGW6EEiRghDxq4uFzvsjBa |
+| Artefacto oficial «Kino · Sistema de marca» | https://claude.ai/artifact/K8R2PRduS6SHBKYU31Bo6L (1.2.0, versión 5, con la capacidad de descargas) |
 | Figma | https://www.figma.com/design/BO7UnDO9iE0aG6yUpNj0bc |
 
 Los artefactos se publicaron desde otra sesión. Una sesión nueva no puede republicarlos por ruta de archivo:
@@ -182,31 +185,40 @@ node herramientas/voz.mjs kino ../branding/sistema/v3/sitio/texto-visible.md ../
 
 **1. Parada 3 cerrada** el 24 sep: X1 a X11 aprobadas en `decisiones.md`.
 
-**2. Fase 4, construir sin parar:**
-- Llevar la paleta aprobada a `gorr-brand-system/clientes/kino`:
-  - `marca.config.json` y `tokens/tema/*.tokens.json`: acción #00D595 y los 7 estados más el evento;
-  - correr `npm run construir` en `branding/sistema` y `npm run contraste`.
-  - Usa la skill `gorr-identidad-en-codigo` y regenera `kino-brand.css`.
-- Escribir los departamentos 03 a 12 en el sitio, reemplazando los apartados «en construcción» de `secciones.py` con contenido de verdad.
-- El sitio definitivo:
-  - guardar copia fechada del borrador `Kino_Sistema_de_marca_2026-09-23.html`;
-  - integrar el Motion Playground (`gorr-brand-system/vendor/motion/`).
-- Figma:
-  - sincronizar las variables con DTCG (hoy 51 contra 118 primitivos, 34 contra 37 semánticos, 12 contra 17 de movimiento, sin colección de tipografía);
-  - llenar las 13 páginas vacías y construir los componentes con todos sus estados y las plantillas.
+**2. Fase 4 y Fase 5 construidas** (24 y 25 sep, rama `marca/fase-4`, un commit por bloque):
+- Bloque 1 · tokens: paleta aprobada, 203 primitivos y 70 semánticos por tema, 112 mediciones WCAG y APCA sin fallos.
+- Bloque 2 · departamentos 03 a 12 en el sitio (`branding/sistema/v3/sitio/deptos/`).
+- Bloque 3 · piezas del Pase (`branding/sistema/v3/pase/`): imagen, Pase vivo, PDF, señal de la entrada y portería. Las fuentes van incrustadas desde el 25 sep; antes los PNG y el PDF salían con una fuente de reemplazo.
+- Bloque 4 · sitio definitivo `Kino_Sistema_de_marca.html` con el Motion Playground; el borrador está en `_obsoleto/`.
+- Bloque 5 · verificación (`branding/sistema/v3/verificacion/`): 10 de 10 PASA; lector frío PASA; detector de IA FALLA con las 8 señales del ciclo 3 corregidas y sin volver a medir.
+- Bloque 6 · Figma: 270 variables iguales a DTCG en los dos modos, más 3 sombras como estilos de efecto; componentes con todos sus estados; 15 páginas. Scripts y exportación en `branding/sistema/v3/figma/` (ver su `LEEME.md`).
+- Bloque 7 · `parada-4.html` publicada; propuestas F4-P1 y F4-P2 en `decisiones.md`.
 
-**3. Fase 5**
-- Las 10 comprobaciones del encargo.
-- Dos evaluaciones en subagentes: lector frío y detector de IA.
-- Parada 4.
-- Solo con aprobación, republicar K8R2PRduS6SHBKYU31Bo6L.
+**3. Parada 4 respondida el 25 sep; segunda vuelta respondida el mismo día.**
+- Hecho: F4-P1 y F4-P2 (A), F4-P3 (íconos en chips), las tres observaciones del lector frío, detector ciclo 4 (pasa), Figma revisada, F4-P4 aplicada al sitio.
+- Al recibir la respuesta a `parada-4b.html`:
+  1. Anotar en `decisiones.md` el estado de F4-P4 y de la librería de Figma. Si F4-P4 es B: en `sitio/identidad.css`, la aurora solo en `.portada`; `.abre` en superficie elevada.
+  2. Pregunta 3 (A): cambiar el texto en `sitio/verbal.py` (fila «Incorrect request parameter»).
+  3. Pasar 1.1.0 a «Aprobada» en `d12_gobernanza.py` (CAMBIOS), en Figma (Registro de cambios 69:2, fila v1.1.0) y en el Léeme (texto 22:143).
+  4. Reconstruir (`secciones.py`, `construir.py`), correr `fase5.py ../figma/variables-figma.json` y la compuerta de voz.
+  5. Republicar el artefacto oficial `K8R2PRduS6SHBKYU31Bo6L`: leerlo con Artifact `read`, publicar `Kino_Sistema_de_marca.html` con su `url` y declarar la capacidad de descargas.
+  6. Nico integra `marca/fase-4` a `main`.
+- Hecho tras la respuesta a la 4b: pasos 1 a 5 (Figma aprobada, F4-P4 A, 1.1.0 aprobada, oficial republicado como versión 4).
+
+**4. Tercera vuelta (1.2.0) respondida el 25 sep: F4-P5 A, F4-P6 A.** Pasos 1 a 3 hechos; queda el 4. Construido: pantallas con la jerarquía del Pase (F4-P5) en el sitio y en Figma, y la fila de HikCentral explicada (F4-P6). Al recibir la respuesta a `parada-4c.html`:
+  1. Anotar F4-P5 y F4-P6 en `decisiones.md`. Si F4-P5 es B: en `deptos/d10_producto.py` (`_lista`), volver a las pestañas «Activos / Anteriores» en lugar de los grupos, y lo mismo en Figma (98:95). Si F4-P6 es B: quitar la fila en `sitio/verbal.py`.
+  2. Pasar 1.2.0 a «Aprobada» en `d12_gobernanza.py`, en Figma (Registro de cambios, fila v1.2.0 100:206) y en el Léeme (22:143).
+  3. Reconstruir, correr `fase5.py` y la compuerta de voz, y republicar el oficial leyéndolo primero, con `capabilities: {downloads: true}`.
+  4. Nico integra `marca/fase-4` a `main`.
 
 ## 10. Estado de Figma
 
-- **Páginas**: Léeme, Plataforma, Voz y UX writing, Logo, Color, Tipografía, Iconografía, Imagen, Estructura, Motion (specs), Componentes, Pantallas, Aplicaciones / Plantillas, Registro de cambios, Referencias.
-- **Referencias**: guarda en secciones «Ref · …» todo el contenido anterior.
-- **Construidas**: solo Léeme (nodo 22:94) y Plataforma (nodo 22:144).
-- **Variables**: las 4 colecciones originales siguen intactas.
+- **Archivo**: `BO7UnDO9iE0aG6yUpNj0bc`, en la cuenta de Alejandro. En una sesión en la nube, el conector de Figma escribe con `use_figma`; la red no deja bajar las capturas al repositorio.
+- **Páginas** (15, todas llenas): Léeme, Plataforma, Voz y UX writing, Logo, Color, Tipografía, Iconografía, Imagen, Estructura, Motion (specs), Componentes, Pantallas, Aplicaciones / Plantillas, Registro de cambios, Referencias.
+- **Variables**: Primitivos 128, Color 52 (Oscuro y Claro, con `texto/enlace`), Espacio y radio 35, Movimiento 28, Tipografía 28 (1440 px y 360 px). Code syntax `var(--kino-*)` y alcances en todas. Las 4 colecciones anteriores quedaron dentro de estas; no se borró ninguna variable.
+- **Componentes** (página Componentes): guía (71:38), íconos (56:2), logo (56:114), Botón de acción, Botón secundario, Campo, Selector de tipo (57:3), Estado, Tarjeta de Pase y Pase en lista (96:100, 1.2.0) en 58:2.
+- **Pantallas** (22:65): Lista 98:95, Crear 98:160, Detalle 99:143, Acceso por código 99:187, Límites 99:217 (1.2.0, aprobada). Las de la 1.1.0, en la sección 98:94 (anteriores).
+- **Verificación**: `branding/sistema/v3/figma/exportar_variables.py`, 0 diferencias y 0 pinturas sin variable (25 sep). Auto-layout y espaciado: `figma/js/p5-verificar-layout.js`, 0 hallazgos en 14 páginas.
 
 ## Repositorio (24 sep)
 
