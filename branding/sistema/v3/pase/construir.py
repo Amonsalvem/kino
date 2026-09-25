@@ -2,7 +2,7 @@
 """Piezas del Pase como archivos sueltos, con la forma Portal (X1) y la llamada de portería (X11).
 Salidas en build/:
   pase-vivo.html          la página del enlace (sigue el tema del teléfono; oscuro por defecto)
-  pase-vivo-vencido.html  el mismo Pase cuando venció: ofrece «Llamar al residente»
+  pase-vivo-vencido.html  el mismo Pase cuando venció: pide un Pase nuevo; la llamada queda en portería (F4-P1)
   imagen-visita.html      la imagen del WhatsApp, a 1080 px de ancho (render.mjs la pasa a PNG)
   imagen-colaborador.html
   pdf.html                el PDF opcional, carta y en claro (render.mjs lo imprime)

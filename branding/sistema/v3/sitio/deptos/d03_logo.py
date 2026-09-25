@@ -158,7 +158,8 @@ def html_():
             + '<p class="nota">Medidas propuestas desde la reconstrucción. Se confirman con una prueba impresa ' + pend('prueba física del logo') + '.</p>'),
         sub('logo.versiones', 'Versiones', 'Seis versiones y cuándo va cada una',
             'Todas salen del mismo dibujo; solo cambia el color. Cada una se descarga desde su tarjeta.',
-            '<div class="lg-versiones">' + ''.join(_version(v) for v in VERSIONES) + '</div>'
+            '<p class="nota">La gota usa el verde de la marca, #00BB83. Kino tiene cuatro verdes y cada uno dice algo distinto: #00BB83 es la marca; #00D595, el botón que crea un Pase; #00EAA5, el borde de Vigente y ese botón al presionarlo; #2FF8B2, el texto de Vigente. Detalle en <a href="#color.roles">Color</a>.</p>'
+            + '<div class="lg-versiones">' + ''.join(_version(v) for v in VERSIONES) + '</div>'
             + traza('X2: bloque en hueso y gota en #00BB83. El acento significa otorgar; en el logo marca lo que pasa por la entrada.')),
         sub('logo.fondos', 'Sobre fondos', 'Seis fondos y la versión que le toca a cada uno',
             'Sobre fondo oscuro va la versión principal: bloque en hueso #EFFCF7 y gota en verde #00BB83, con un mínimo de 88 px de ancho (16 px si va solo el símbolo). Sobre claro, bloque en sustrato y gota #006343. Si el fondo ya es verde o es una foto, una tinta.',

@@ -9,8 +9,7 @@ PEND = [
     ('Unidad del cupo', 'Por casa, por residente o por conjunto. Decisión de producto; los ejemplos dicen «a la vez».'),
     ('Teclado del lector', 'No se sabe si el lector tiene teclado para el código. El texto dice «Dile a portería el código».'),
     ('Llamada de portería al residente', 'Nico confirmó que portería puede llamar desde Kino (X11). La inspección no registró el botón: si no existe, es un requisito de producto.'),
-    ('Llamada desde el Pase vivo', 'Falta decidir si la visita llama sin ver el número del residente. Ver decisiones, F4-P1.'),
-    ('Aviso de llegada', 'El inventario de textos lo incluye, pero el producto no lo tiene confirmado. Ver decisiones, F4-P2.'),
+    ('Evento de paso del lector', 'El aviso de llegada (F4-P2) es requisito de producto: falta confirmar que HikCentral le entregue a Kino el evento de paso. Ningún texto del aviso sale antes.'),
     ('Citas de las entrevistas con residentes', 'Las cinco entrevistas no tienen citas escritas. Las necesidades por actor se apoyan en la inspección.'),
     ('Integración real de las apps de visitas', 'Neivor anuncia integración sin nombrar marcas de hardware. Falta verificar.'),
     ('Prueba física del logo y de color', 'Tamaños mínimos impresos y CMYK sin prueba en papel.'),
@@ -22,7 +21,8 @@ PEND = [
 ]
 
 CAMBIOS = [
-    ('1.0.0', '24 sep 2026', 'Propuesta', 'Tokens con la paleta aprobada, departamentos 03 a 12, piezas del Pase, verificación y librería de Figma. Espera la revisión 4.'),
+    ('1.1.0', '25 sep 2026', 'Propuesta', 'La identidad aplicada al propio sitio, ícono en los chips de Usado, Vencido y Revocado, llamada solo desde portería, librería de Figma corregida. Espera revisión.'),
+    ('1.0.0', '24 sep 2026', 'Aprobada', 'Tokens con la paleta aprobada, departamentos 03 a 12, piezas del Pase y verificación. La librería de Figma quedó en revisión.'),
     ('0.3', '24 sep 2026', 'Aprobada', 'Identidad visual: forma Portal, dos verdes, oscuro reajustado, Archivo al 112 %, trazo 1,7, aurora, radio 14 y arco, crecer, estados. Llamada de portería en vencido.'),
     ('0.2', '23 sep 2026', 'Aprobada', 'Voz: usted con la administración, «Pase» con mayúscula, horas, «Visita», nombres de estado, patrones de voz, imagen más enlace.'),
     ('0.1', '23 sep 2026', 'Aprobada', 'Plataforma y arquitectura: posicionamiento, promesa, personalidad, valores, nombres y manifiesto.'),
@@ -59,8 +59,8 @@ def _registro():
         filas.append((c, f'{t.strip()}: {a.strip()}', 'Aprobada'))
     if '### X11' in d:
         filas.append(('X11', 'Pase vencido en la entrada: portería puede llamar al residente', 'Aprobada'))
-    for c, t in re.findall(r'^### (F4-P\d) · (.+?) · PROPUESTA', d, flags=re.M):
-        filas.append((c, t.strip(), 'Propuesta'))
+    for c, t, est in re.findall(r'^### (F4-P\d) · (.+?) · (APROBADA|PROPUESTA)', d, flags=re.M):
+        filas.append((c, t.strip(), est.capitalize()))
     # En el texto visible, las palabras que la voz evita se reemplazan por su forma aprobada.
     limpiar = lambda t: t.replace(', nunca «permiso»', '').replace('el invitado', 'la visita').replace('invitado', 'visita')
     filas = [(c, limpiar(t), s) for c, t, s in filas]

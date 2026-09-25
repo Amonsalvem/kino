@@ -8,7 +8,7 @@ Registro único de decisiones de marca. Cada una dice qué se propuso, qué alte
 - **REVERTIDA**: se deshizo.
 - **HEREDADA**: viene del borrador del 23 sep. No está entre las decisiones firmes del encargo, así que se trata como propuesta y se revisa en su parada.
 
-Última actualización: 25 sep 2026, propuestas F4-P1 y F4-P2 para la Parada 4.
+Última actualización: 25 sep 2026, respuesta de Nico a la Parada 4.
 
 ---
 
@@ -277,9 +277,9 @@ Estado: **todas APROBADA (A)** · respuesta de Nico a la Parada 3, 24 sep:
 
 ## Parada 4 · Sistema completo (propuestas, 25 sep)
 
-Lámina: `kino/parada-4.html`. La versión 1.0.0 (tokens, sitio, piezas del Pase, librería de Figma) espera la aprobación de Nico. Mientras tanto, todo lo construido en la Fase 4 se trata como PROPUESTA.
+Lámina: `kino/parada-4.html` (https://claude.ai/artifact/DBF7w1VTGPtJ9oQwdz4tXa).
 
-### F4-P1 · Llamada desde el Pase vivo vencido · PROPUESTA
+### F4-P1 · Llamada desde el Pase vivo vencido · APROBADA (Nico, 25 sep: opción A)
 - **Qué está construido:** el Pase vivo en estado Vencido, que ve la visita, muestra el botón «Llamar al residente», igual que la vista de portería (X11).
 - **El problema:**
   - X11 aprobó la llamada desde portería.
@@ -294,7 +294,7 @@ Lámina: `kino/parada-4.html`. La versión 1.0.0 (tokens, sitio, piezas del Pase
 - **Trazabilidad y HikCentral:** ninguna de las dos autoriza el ingreso. En las dos, entrar exige un Pase nuevo o extendido, con autor, que se sincroniza a HikCentral con su vigencia. B además obliga a guardar un registro de cada llamada: quién llamó, a quién y cuándo.
 - **Si se aprueba A:** cambian `sitio/deptos/pase.py` (función `vivo`) y `pase/construir.py`, y se rehacen `pase-vivo-vencido.png` y la sección Aplicaciones del sitio.
 
-### F4-P2 · Aviso de llegada al residente · PROPUESTA
+### F4-P2 · Aviso de llegada al residente · APROBADA (Nico, 25 sep: opción A)
 - **El conflicto:**
   - El inventario de UX writing de la Parada 2 incluye el estado «Aviso de llegada»: «Andrés entró a las 3:12 p. m. con la placa KMN 305.»
   - El campo de WhatsApp dice «Tu WhatsApp sirve para entrar a Kino y para avisarte cuando alguien llega.»
@@ -306,4 +306,31 @@ Lámina: `kino/parada-4.html`. La versión 1.0.0 (tokens, sitio, piezas del Pase
 - **Trazabilidad y HikCentral:**
   - El aviso sale del evento de paso del lector, ligado al Pase. Por verificar: que HikCentral entregue ese evento a Kino.
   - Con la integración caída, como en Refugio Campestre, no hay evento. El Pase sigue «Sin confirmar» y no se envía aviso, lo que es coherente con «Estado honesto».
+
+### F4-P3 · Ícono de estado en el chip de Usado, Vencido y Revocado · APROBADA (Nico, 25 sep: opción B)
+- **Origen:** el lector frío notó que Vencido y Usado solo se distinguían por el tono del texto y la palabra.
+- **Decisión:** en esos tres estados, el punto del chip se cambia por el ícono del estado (`usado`, `vencido`, `revocado`, trazo 1,7). Los otros estados conservan el punto.
+- **Alternativa descartada:** (A) dejar solo la palabra.
+- **Efecto:** cambia el componente Estado en código (`capa-componentes.css`, `deptos/comun.py → chip`) y en Figma. No cambia el color ni los tokens.
+
+### F4-P4 · La identidad de marca aplicada al propio sitio · PROPUESTA
+- **Pedido de Nico (25 sep):** el sitio se lee monótono porque usa dos colores. Aprovechar la identidad ya aprobada dentro del mismo documento.
+- **Propuesta:**
+  - aurora (X7) en la portada y en la apertura de cada sección;
+  - índigo en enlaces y en la navegación, que es lo que la familia significa (profundidad y enlaces);
+  - la gota del logo marca la sección activa del índice y numera las secciones;
+  - capas de superficie (abismo, elevada, membrana) para separar bloques, con el relieve de membrana;
+  - los estados, el ámbar y el violeta siguen solo en lo que significan.
+- **Por qué:** el sitio es la primera pieza de Kino que ve una administración o un aliado. Si se lee monótono, contradice la identidad que describe. Aplica recursos ya aprobados en su uso aprobado: X7 pone la aurora en portadas y la familia índigo significa profundidad y enlaces.
+- **Qué no cambia:** el verde #00D595 sigue solo en el botón que crea un Pase; el arco sigue solo en el Pase; todo texto nuevo sobre aurora se mide con APCA.
+- **Espera:** revisión de Nico en la lámina siguiente.
+
+### Estado tras la respuesta del 25 sep
+1. **Versión 1.0.0:** aprobados los tokens, el sitio y las piezas del Pase. **La librería de Figma y lo que se exporta de ella no se aprueba**: se revisa el auto-layout y el espaciado de todas las páginas.
+2. F4-P2: opción A.
+3. F4-P1: opción A.
+4. Vencido y Usado: opción B, ver F4-P3.
+5. Detector de IA: opción B, se autoriza un cuarto ciclo.
+6. Pedido nuevo: F4-P4.
+7. El artefacto oficial sigue sin republicarse: la Parada 4 no queda cerrada mientras Figma y F4-P4 esperan revisión.
 

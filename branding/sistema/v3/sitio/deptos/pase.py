@@ -44,8 +44,8 @@ def vivo(estado='vigente', tema='en-oscuro'):
     """El Pase vivo: la página que abre el enlace. Dice si el Pase sigue sirviendo."""
     venc = estado == 'vencido'
     chip_ = chip('vencido', 'Vencido') if venc else chip('vigente', 'Vigente')
-    cuerpo_estado = (f'<p class="pv-aviso">Tu Pase valía de 2:00 a 6:00 p. m. y son las 7:10 p. m. Pídele uno nuevo a Carolina.</p>'
-                     f'<button class="kino-boton ancho" type="button" tabindex="-1">{_ic("llamar")}Llamar al residente</button>'
+    # F4-P1 (A): la visita no llama desde aquí; la llamada queda en portería (X11) y el número del residente no se expone.
+    cuerpo_estado = ('<p class="pv-aviso">Tu Pase valía de 2:00 a 6:00 p. m. y son las 7:10 p. m. Pídele uno nuevo a Carolina o pide en portería que la llamen.</p>'
                      if venc else
                      '<span class="kino-vigencia" style="--kino-vida:.62"><i></i></span><p class="pv-queda kino-dato">Vence a las 6:00 p. m.</p>'
                      '<ul class="pv-modos">' + ''.join(f'<li>{_ic(k)}<b>{n}</b><span>{t}</span></li>' for k, n, t in INSTRUCCIONES) + '</ul>'
