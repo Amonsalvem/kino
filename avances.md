@@ -88,7 +88,7 @@ En arquitectura faltaba:
 - Parada 4b (segunda vuelta): https://claude.ai/artifact/Bn6AaiChNchG5dhx7BjtQ1 · copia en `kino/parada-4b.html`
 - Parada 4c (tercera vuelta, 1.2.0): https://claude.ai/artifact/NXuGd6VQc7k6Fqqi9pciZZ · copia en `kino/parada-4c.html`
 - Vista previa del sitio 1.2.0: https://claude.ai/artifact/W5U4Nw4AeZMpM7QZ4gsXcH
-- Artefacto oficial (1.2.0, versión 5): https://claude.ai/artifact/K8R2PRduS6SHBKYU31Bo6L
+- Artefacto oficial (1.2.1, versión 6): https://claude.ai/artifact/K8R2PRduS6SHBKYU31Bo6L
 - PR de la Fase 4 (integrado): https://github.com/Amonsalvem/kino/pull/1
 - PR de la 1.2.1 (integrado): https://github.com/Amonsalvem/kino/pull/2
 - Vista previa del sitio 1.2.1: https://claude.ai/artifact/TKafvu7bHfjeKPSYaaKd7S
