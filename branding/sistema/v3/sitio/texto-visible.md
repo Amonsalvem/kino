@@ -176,6 +176,23 @@ Placa registrada sin vigencia ni aviso
 Apps de visitas QR del residente · sin verificar
 Biometría obligatoria restringida por la SIC
 Kino
+¿Qué queda?
+Pase con autor y hora de salida
+Biometría obligatoria
+restringida por la SIC
+Kino
+Apps de visitas
+QR del residente · sin verificar
+Alta como usuario
+cuenta sin fecha
+Llamada o WhatsApp
+a portería
+Placa registrada
+sin vigencia ni aviso
+Nada
+Portería o administración
+El residente
+¿Quién decide?
 Posiciones cualitativas. La ubicación de las apps de visitas es una hipótesis: su página no dice qué queda del pase ni si la visita necesita cuenta.
 Alternativa
 Por qué la eligen
@@ -288,6 +305,25 @@ QR
 Placa
 Código
 de un solo uso
+Kino
+Superficies
+Kino
+app del residente
+Kino Administración
+panel del conjunto
+Kino Portería
+vista de la entrada
+Objetos
+Pase
+Cuenta
+Acceso previsto
+Límites
+Constancia
+Modos del Pase
+QR
+Placa
+Código
+Código de un solo uso
 Kino Portería
 Una palabra en español que diga para quién es.
 Refugio Campestre · Casa 14

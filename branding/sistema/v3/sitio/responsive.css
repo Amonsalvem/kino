@@ -1,0 +1,105 @@
+/* Kino · Sistema de marca · capa responsive (1.2.1).
+   Va después de identidad.css. Solo tokens --kino-*.
+   Criterio: nada se sale de la pantalla ni obliga a desplazarse de lado, de 320 a 1920 px. */
+
+/* ── Tablas: se leen como tabla cuando caben y como fichas apiladas cuando no ──
+   Cada celda trae data-t con el nombre de su columna (construir.py). */
+.tabla-envoltura{container-type:inline-size}
+.tabla{min-width:0}
+.tabla tbody th{min-width:0}
+@container (max-width:50rem){
+  .tabla th,.tabla td{padding-inline:var(--kino-espacio-s)}
+}
+@container (max-width:42rem){
+  .tabla,.tabla tbody,.tabla tr,.tabla th,.tabla td{display:block;inline-size:auto}
+  .tabla thead{display:none}
+  .tabla tr{padding:var(--kino-espacio-s) var(--kino-espacio-m);border-bottom:var(--kino-linea-fino) solid var(--kino-borde-tenue)}
+  .tabla tr:last-child{border-bottom:0}
+  .tabla tbody th,.tabla td{padding:var(--kino-espacio-2xs) 0;border:0}
+  .tabla tbody th{font-size:var(--kino-texto-0);padding-bottom:var(--kino-espacio-xs)}
+  /* El texto de la celda sigue en línea (texto, código y chips mezclados); el rótulo va a la izquierda. */
+  .tabla td{position:relative;padding-inline-start:calc(7.5rem + var(--kino-espacio-s));overflow-wrap:anywhere}
+  .tabla td>*{max-inline-size:100%;white-space:normal}
+  .tabla td::before{content:attr(data-t);position:absolute;inset-inline-start:0;inline-size:7.5rem;font-family:var(--kino-fuente-dato);font-size:.75rem;
+    letter-spacing:.06em;text-transform:uppercase;color:var(--kino-texto-secundario);padding-top:.2em}
+  .tabla td[data-t=""]{padding-inline-start:0}.tabla td[data-t=""]::before{content:none}
+}
+/* Muy angosto: el rótulo va encima del valor. */
+@container (max-width:26rem){
+  .tabla td{padding-inline-start:0}
+  .tabla td::before{position:static;display:block;inline-size:auto;padding:0 0 var(--kino-espacio-3xs)}
+}
+/* La matriz de componentes (seis estados): una ficha por componente, con los estados en retícula. */
+@container (max-width:80rem){
+  .tabla.matriz,.tabla.matriz tbody,.tabla.matriz tr,.tabla.matriz th,.tabla.matriz td{display:block;inline-size:auto}
+  .tabla.matriz{min-width:0}
+  .tabla.matriz thead{display:none}
+  .tabla.matriz tr{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,11rem),1fr));gap:var(--kino-espacio-s);
+    padding:var(--kino-espacio-m);border-bottom:var(--kino-linea-fino) solid var(--kino-borde-tenue)}
+  .tabla.matriz tbody th{grid-column:1/-1;padding:0;border:0;font-size:var(--kino-texto-1)}
+  .tabla.matriz td{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--kino-espacio-xs);align-content:start;padding:0;border:0;min-inline-size:0}
+  .tabla.matriz td::before{position:static;inline-size:auto;padding:0;content:attr(data-t);font-family:var(--kino-fuente-dato);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--kino-texto-secundario)}
+  .tabla.matriz td:has(.na){display:none}
+}
+
+/* ── Mapa de alternativas y árbol de nombres: SVG en pantallas anchas, HTML en las angostas ── */
+.mapa-movil,.arbol-movil{display:none}
+@media (max-width:40rem){
+  .mapa-alt .mapa-envoltura{display:none}
+  .mapa-movil{display:grid;gap:var(--kino-espacio-xs)}
+}
+@media (max-width:46rem){
+  .arbol .mapa-envoltura{display:none}
+  .arbol-movil{display:grid;gap:var(--kino-espacio-xs)}
+}
+.mapa-movil p{margin:0}
+.mm-eje{font-family:var(--kino-fuente-dato);font-weight:600;font-size:var(--kino-texto-n1);letter-spacing:.06em}
+.mm-centro{text-align:center}
+.mm-pol,.mm-x{font-family:var(--kino-fuente-dato);font-size:.75rem;color:var(--kino-texto-secundario)}
+.mm-x{display:flex;justify-content:space-between;gap:var(--kino-espacio-s)}
+.mm-x span:last-child{text-align:end}
+.mm-cuadros{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-radius:var(--kino-radio-m);overflow:hidden;
+  background:var(--kino-superficie-elevada);border:var(--kino-linea-fino) solid var(--kino-borde-tenue)}
+.mm-c{list-style:none;margin:0;padding:var(--kino-espacio-s);display:grid;gap:var(--kino-espacio-s);align-content:start;min-block-size:6.5rem}
+.mm-c:nth-child(odd){border-inline-end:var(--kino-linea-fino) dashed var(--s-borde-info)}
+.mm-c:nth-child(-n+2){border-bottom:var(--kino-linea-fino) dashed var(--s-borde-info)}
+.mm-c li{position:relative;padding-inline-start:1.1rem;font-weight:600;font-size:var(--kino-texto-n1);line-height:1.3;overflow-wrap:anywhere}
+.mm-c li::before{content:"";position:absolute;inset-inline-start:0;inset-block-start:.2em;inline-size:.7rem;block-size:.7rem;border-radius:50%;
+  border:2px solid var(--kino-texto-primario);background:var(--kino-superficie-base)}
+.mm-c small{display:block;font-family:var(--kino-fuente-dato);font-weight:400;font-size:.75rem;color:var(--kino-texto-secundario)}
+.mm-c .mm-dudosa::before{border-style:dashed}
+.mm-c .mm-kino{font-family:var(--kino-fuente-display);font-weight:800;font-size:var(--kino-texto-2);line-height:1}
+.mm-c .mm-kino::before{inline-size:.9rem;block-size:.9rem;inset-block-start:.15em;background:var(--kino-acento-base);border-color:var(--kino-acento-fuerte)}
+.arbol-movil p{margin:0}
+.am-raiz{justify-self:start;padding:var(--kino-espacio-xs) var(--kino-espacio-l);border-radius:var(--kino-radio-m);background:var(--kino-superficie-inversa);
+  color:var(--kino-texto-inverso);font-family:var(--kino-fuente-display);font-weight:800;font-size:var(--kino-texto-1)}
+.am-grupo{display:grid;gap:var(--kino-espacio-xs);padding-inline-start:var(--kino-espacio-m);border-inline-start:1.5px solid var(--s-borde-info)}
+.am-t{font-family:var(--kino-fuente-dato);font-weight:600;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;padding-top:var(--kino-espacio-xs)}
+.am-lista,.am-chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:var(--kino-espacio-xs)}
+.am-lista{flex-direction:column}
+.am-lista li,.am-chips li{padding:var(--kino-espacio-xs) var(--kino-espacio-s);border-radius:var(--kino-radio-s);background:var(--kino-superficie-elevada);
+  border:var(--kino-linea-fino) solid var(--s-borde-info);font-weight:600;font-size:var(--kino-texto-n1)}
+.am-lista small{display:block;font-family:var(--kino-fuente-dato);font-weight:400;font-size:.75rem;color:var(--kino-texto-secundario)}
+.am-chips .am-pase{border:2px solid var(--kino-texto-primario)}
+.am-modos li{background:transparent;border-radius:var(--kino-radio-pleno)}
+.am-nota{font-family:var(--kino-fuente-dato);font-size:.75rem;color:var(--kino-texto-secundario)}
+
+/* ── Textos y demos que se salían del ancho ── */
+code{overflow-wrap:anywhere}
+.coreo .kino-pase{grid-template-columns:minmax(0,1fr) auto}
+.kino-pase__cabeza:has(.m-a){grid-template-columns:minmax(0,1fr) auto}
+.kino-pase__cabeza>*{min-inline-size:0}
+.kino-pase__cabeza{flex-wrap:wrap}
+.wa,.wa-burbuja{min-inline-size:0;max-inline-size:100%}
+/* .col-mal no parte a propósito: el caso muestra «un renglón que no termina»; su caja lo recorta. */
+.dos{grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr))}
+.vista-porteria{container-type:inline-size}
+.po-fila{grid-template-columns:3rem minmax(0,1fr) 4.5rem auto}
+@container (max-width:24rem){
+  .po-fila{grid-template-columns:2.6rem minmax(0,1fr) auto}.po-fila>span:nth-child(3){display:none}
+}
+@media (max-width:40rem){
+  .demo-escena,.caso-viz,.ap-lienzo{padding:var(--kino-espacio-s)}
+  .m-tarjeta{inline-size:100%}
+  .dos,.tel{grid-template-columns:minmax(0,1fr)}
+}
