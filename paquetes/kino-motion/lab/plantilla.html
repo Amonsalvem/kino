@@ -1,0 +1,179 @@
+<meta charset="utf-8">
+<title>Kino Motion Lab</title>
+<meta name="description" content="El sistema de motion de Kino en vivo: componentes, estados del Pase, resortes, coreografía y tokens.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700;800&family=JetBrains+Mono:wght@400&display=swap">
+<style>/*CSS_SISTEMA*/</style>
+<style>
+:root{--kino-fuente-texto:'Archivo',system-ui,sans-serif;--kino-fuente-dato:'JetBrains Mono',ui-monospace,monospace}
+html{background:var(--kino-superficie-abismo)}
+body{background:var(--kino-superficie-abismo);color:var(--kino-texto-primario);font:15px/1.6 var(--kino-fuente-texto)}
+.hoja-lab{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:36px 120px;display:grid;gap:72px}
+.marca{font:12px/1 var(--kino-fuente-dato);letter-spacing:.08em;text-transform:uppercase;color:var(--kino-texto-tenue)}
+h1{font-weight:800;font-size:clamp(40px,7vw,72px);line-height:1;letter-spacing:-.02em;margin:10px 0 0;text-wrap:balance}
+h2{font-weight:800;font-size:clamp(26px,3.4vw,34px);line-height:1.1;letter-spacing:-.01em;margin:0;text-wrap:balance}
+h3{font-size:16px;font-weight:700;margin:0}
+p{margin:0}
+.bajada{color:var(--kino-texto-secundario);max-width:64ch;font-size:17px}
+.sec{display:grid;gap:22px}
+.cab{display:grid;gap:8px;border-top:1px solid var(--kino-superficie-membrana);padding-top:22px}
+.cab .que{color:var(--kino-texto-secundario);max-width:68ch}
+.cab .num{font:12px/1 var(--kino-fuente-dato);color:var(--kino-texto-tenue)}
+.reglas{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:12px;margin-top:8px}
+.regla{padding:16px;border-radius:12px;background:var(--kino-superficie-base);box-shadow:inset 0 0 0 1px var(--kino-superficie-elevada);display:grid;gap:4px}
+.regla b{font-size:15px}.regla span{color:var(--kino-texto-secundario);font-size:14px}
+.escena{display:grid;grid-template-columns:minmax(0,420px) minmax(0,1fr);gap:28px;align-items:start}
+@media (max-width:860px){.escena{grid-template-columns:1fr}}
+.lienzo{padding:28px;border-radius:18px;background:var(--kino-superficie-base);box-shadow:inset 0 0 0 1px var(--kino-superficie-elevada);display:grid;gap:16px;align-content:start;min-width:0}
+.panel{display:grid;gap:14px;align-content:start;min-width:0}
+.botones{display:flex;flex-wrap:wrap;gap:8px}
+.b{font:700 13px/1 var(--kino-fuente-texto);padding:10px 13px;border-radius:8px;border:1px solid var(--kino-superficie-membrana);background:var(--kino-superficie-elevada);color:var(--kino-texto-primario);cursor:pointer;transition:background-color var(--kino-mov-duracion-instante) var(--kino-mov-curva-crecer),opacity var(--kino-mov-duracion-instante) var(--kino-mov-curva-crecer)}
+.b:hover:not(:disabled){background:var(--kino-superficie-membrana)}
+.b:disabled{opacity:.35;cursor:not-allowed}
+.b:focus-visible{outline:2px solid var(--kino-borde-foco);outline-offset:2px}
+.b.peligro{color:var(--kino-estado-revocado-texto)}
+.nota{font:12px/1.5 var(--kino-fuente-dato);color:var(--kino-texto-tenue)}
+.dato{font-family:var(--kino-fuente-dato);font-variant-numeric:tabular-nums}
+.partitura{display:grid;gap:6px;padding:16px;border-radius:12px;background:var(--kino-superficie-base);box-shadow:inset 0 0 0 1px var(--kino-superficie-elevada);font:12px/1.4 var(--kino-fuente-dato)}
+.partitura .titulo{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--kino-texto-secundario)}
+.pista{display:grid;grid-template-columns:130px 1fr;gap:10px;align-items:center}
+.pista .carril{position:relative;block-size:10px;border-radius:5px;background:var(--kino-superficie-elevada);overflow:hidden}
+.pista .tramo{position:absolute;inset:0;border-radius:5px;background:var(--kino-estado-previsto-borde);opacity:.55}
+.pista .cabezal{position:absolute;top:-3px;bottom:-3px;inline-size:2px;background:var(--kino-texto-primario);left:0}
+.deja{color:var(--kino-estado-vigente-texto)}
+.telefono{inline-size:min(100%,360px);block-size:560px;margin-inline:auto;border-radius:32px;background:var(--kino-superficie-abismo);box-shadow:inset 0 0 0 1px var(--kino-superficie-membrana),0 24px 60px rgb(0 0 0 / .35);overflow:hidden;display:grid;grid-template-rows:auto 1fr;position:relative;contain:layout paint}
+.tel-barra{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:18px 18px 10px;border-bottom:1px solid var(--kino-superficie-elevada)}
+.tel-barra b{font-size:15px}
+.tel-pantalla{view-transition-name:pantalla;overflow:auto;padding:16px;display:grid;gap:12px;align-content:start}
+.tel-pantalla kino-pase{cursor:pointer}
+.detalle{display:grid;gap:14px}
+.detalle dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:0;font-size:14px}
+.detalle dt{color:var(--kino-texto-tenue)}.detalle dd{margin:0;font-family:var(--kino-fuente-dato)}
+canvas{display:block;inline-size:100%;block-size:auto;max-width:100%}
+.curvas{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:14px}
+.curva{padding:14px;border-radius:12px;background:var(--kino-superficie-base);box-shadow:inset 0 0 0 1px var(--kino-superficie-elevada);display:grid;gap:8px;cursor:pointer}
+.curva .riel{position:relative;block-size:14px;border-radius:7px;background:var(--kino-superficie-elevada)}
+.curva .bola{position:absolute;top:1px;inline-size:12px;block-size:12px;border-radius:50%;background:var(--kino-estado-vigente-borde);left:0}
+.controles{display:grid;gap:10px}
+.control{display:grid;grid-template-columns:120px 1fr 56px;gap:10px;align-items:center;font-size:14px}
+.control input{accent-color:var(--kino-accion-fondo);inline-size:100%}
+.control output{font-family:var(--kino-fuente-dato);text-align:right}
+.veredicto{padding:10px 12px;border-radius:8px;font-size:14px}
+.veredicto[data-ok="true"]{background:var(--kino-estado-vigente-fondo);color:var(--kino-estado-vigente-texto)}
+.veredicto[data-ok="false"]{background:var(--kino-estado-por-vencer-fondo);color:var(--kino-estado-por-vencer-texto)}
+pre{margin:0;padding:14px;border-radius:10px;background:var(--kino-superficie-base);box-shadow:inset 0 0 0 1px var(--kino-superficie-elevada);font:12px/1.55 var(--kino-fuente-dato);overflow:auto;color:var(--kino-texto-secundario)}
+.pestanas{display:flex;gap:6px;flex-wrap:wrap}
+.coreo-pista{display:grid;gap:5px}
+.coreo-fila{display:grid;grid-template-columns:28px 1fr;gap:8px;align-items:center;font:11px var(--kino-fuente-dato);color:var(--kino-texto-tenue)}
+.coreo-fila .c{position:relative;block-size:12px}
+.coreo-fila .t{position:absolute;top:0;bottom:0;border-radius:6px;background:var(--kino-estado-vigente-fondo);box-shadow:inset 0 0 0 1px var(--kino-estado-vigente-borde)}
+.tabla{overflow-x:auto;border-radius:12px;box-shadow:inset 0 0 0 1px var(--kino-superficie-elevada)}
+table{border-collapse:collapse;inline-size:100%;font-size:13px;min-inline-size:560px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--kino-superficie-elevada);vertical-align:top}
+th{font-weight:700;color:var(--kino-texto-secundario);background:var(--kino-superficie-base)}
+td code{font:12px var(--kino-fuente-dato);color:var(--kino-texto-secundario)}
+.fila-num{display:flex;gap:10px;align-items:baseline;font-size:40px;font-weight:800;letter-spacing:-.02em}
+.fila-num small{font-size:15px;font-weight:400;color:var(--kino-texto-secundario);letter-spacing:0}
+</style>
+<div class="hoja-lab">
+<header class="sec">
+ <span class="marca">Kino · sistema de motion · borrador 0.1</span>
+ <h1>Kino Motion Lab</h1>
+ <p class="bajada">El sistema con el que se van a construir la web y la app. Todo lo que se mueve aquí sale de tokens y del núcleo que la app también usa. Abajo a la derecha está el inspector: pon la cámara lenta en 0,1× para ver cada movimiento, o activa el movimiento reducido.</p>
+ <div class="reglas">
+  <div class="regla"><b>Solo se mueve lo que le pasa a un Pase</b><span>Cada animación responde a un cambio real: llegó, el lector confirmó, venció, alguien lo cortó.</span></div>
+  <div class="regla"><b>El estado no miente</b><span>El Pase se deriva de los hechos. Sin la confirmación del lector no hay verde ni latido.</span></div>
+  <div class="regla"><b>Lo que se toca responde a la mano</b><span>Resortes físicos que parten de la velocidad del dedo y se pueden interrumpir.</span></div>
+  <div class="regla"><b>Exacto, sin rebote</b><span>Ningún resorte pasa de 3 % de rebote. Kino no es juguetón: es preciso.</span></div>
+  <div class="regla"><b>El tiempo es el real</b><span>La barra de vigencia baja con el reloj. Esperar al lector no tiene spinner.</span></div>
+  <div class="regla"><b>Reducido no es apagado</b><span>Lo que se desplaza pasa a fundido con la misma duración y el mismo orden.</span></div>
+ </div>
+</header>
+
+<section class="sec" id="pase">
+ <div class="cab"><span class="num">01 · componente kino-pase</span><h2>El Pase, de un estado a otro</h2><p class="que">Cada botón es un evento. Solo se habilitan los que son posibles desde el estado actual, y cada cambio toca su partitura: qué parte se mueve, con qué verbo y con qué tokens.</p></div>
+ <div class="escena">
+  <div class="lienzo"><kino-pase id="pase-vivo"></kino-pase><p class="nota" id="pase-deja"></p></div>
+  <div class="panel">
+   <div class="botones" id="pase-eventos"></div>
+   <div class="botones"><button class="b" type="button" id="pase-reiniciar">Reiniciar</button><button class="b peligro" type="button" id="pase-forzar">Forzar «vigente» sin lector</button></div>
+   <div class="partitura" id="partitura"><div class="titulo"><span>Partitura</span><span>toca un evento</span></div></div>
+  </div>
+ </div>
+</section>
+
+<section class="sec" id="lista">
+ <div class="cab"><span class="num">02 · componente kino-lista</span><h2>Llegan, se van, se reordenan</h2><p class="que">Entrada en cascada con máximo de 8 y tope de 520 ms. Al agregar o quitar un Pase, los demás se acomodan con el resorte «pase» (FLIP): nada salta de lugar.</p></div>
+ <div class="escena">
+  <div class="lienzo"><kino-lista id="lista-pases"></kino-lista></div>
+  <div class="panel">
+   <div class="botones"><button class="b" type="button" id="l-agregar">Agregar un Pase</button><button class="b" type="button" id="l-quitar">Quitar el primero</button><button class="b" type="button" id="l-ordenar">Ordenar por hora</button><button class="b" type="button" id="l-entrar">Volver a entrar</button></div>
+   <p class="nota">escalonado/tarjetas · coreografia/cascada-maximo · coreografia/cascada-tope · resorte/pase · coreografia/salida-factor · curva/salir</p>
+  </div>
+ </div>
+</section>
+
+<section class="sec" id="tocar">
+ <div class="cab"><span class="num">03 · kino-accion, kino-hoja, kino-numero, kino-aviso</span><h2>Lo que se toca</h2><p class="que">El botón se hunde con el resorte «tacto». La hoja se arrastra desde el asa: si la sueltas con fuerza hacia abajo se cierra continuando tu velocidad; si no, vuelve. Los números llegan con el resorte «firme», sin pasarse del valor real.</p></div>
+ <div class="escena">
+  <div class="lienzo">
+   <kino-accion id="abrir-hoja" ancho="completo">Ver el Pase de Andrés</kino-accion>
+   <kino-accion variante="secundaria" id="aviso-btn" ancho="completo">Enviar el Pase</kino-accion>
+   <div class="fila-num"><kino-numero id="conf" valor="3"></kino-numero><small>de <span class="dato">8</span> Pases confirmados por el lector</small></div>
+   <div class="botones"><button class="b" type="button" id="num-mas">Confirmar uno más</button><button class="b" type="button" id="num-reset">Reiniciar</button></div>
+  </div>
+  <div class="panel"><p class="nota">resorte/tacto · resorte/hoja (sigue la velocidad del dedo) · resorte/firme · aparecer · coreografia/salida-factor · aviso/visible</p></div>
+ </div>
+</section>
+
+<section class="sec" id="espera">
+ <div class="cab"><span class="num">04 · componente kino-espera-lector</span><h2>Esperar al lector, sin spinner</h2><p class="que">La línea llega una vez al lector y se queda quieta: la espera se cuenta con el tiempo real, no con algo que gira. Cuando el lector responde, el nodo pasa a vigente.</p></div>
+ <div class="escena">
+  <div class="lienzo"><kino-espera-lector id="espera-vivo" lector="Lector Portería"></kino-espera-lector></div>
+  <div class="panel"><div class="botones"><button class="b" type="button" id="e-confirmar">El lector confirma</button><button class="b" type="button" id="e-reiniciar">Enviar de nuevo</button></div><p class="nota">duracion/trazo · curva/crecer · aparecer/duracion</p></div>
+ </div>
+</section>
+
+<section class="sec" id="pantallas">
+ <div class="cab"><span class="num">05 · transicionDeVista()</span><h2>De la lista al detalle</h2><p class="que">View Transitions: la barra de arriba no se mueve, solo la pantalla. El Pase que tocas viaja de la lista al detalle con el resorte «pase», porque es el mismo objeto.</p></div>
+ <div class="escena">
+  <div class="telefono"><div class="tel-barra"><b id="tel-titulo">Pases de la Casa 14</b><button class="b" type="button" id="tel-volver" hidden>Volver</button></div><div class="tel-pantalla" id="tel-pantalla"></div></div>
+  <div class="panel"><p class="nota">view-transition-name: pantalla · pase-&lt;id&gt; · resorte/pase · duracion/crecer · distancia/subida. Sin soporte del navegador o en reducido: fundido en el lugar.</p></div>
+ </div>
+</section>
+
+<section class="sec" id="resortes">
+ <div class="cab"><span class="num">06 · herramienta</span><h2>Laboratorio de resortes</h2><p class="que">Mueve los parámetros y mira la curva. El veredicto aplica la regla de marca (rebote de 3 % como máximo). El código sale listo para web, Reanimated, SwiftUI y Compose: los mismos tres números en todas partes.</p></div>
+ <div class="escena">
+  <div class="lienzo"><canvas id="res-canvas" width="720" height="400" aria-label="Curva del resorte"></canvas><div class="curva" id="res-probar"><div class="riel"><span class="bola"></span></div></div></div>
+  <div class="panel">
+   <div class="pestanas" id="res-presets"></div>
+   <div class="controles">
+    <label class="control">Rigidez<input type="range" id="res-k" min="60" max="900" step="10"><output id="res-k-o"></output></label>
+    <label class="control">Amortiguación<input type="range" id="res-c" min="4" max="80" step="1"><output id="res-c-o"></output></label>
+    <label class="control">Masa<input type="range" id="res-m" min="0.5" max="3" step="0.1"><output id="res-m-o"></output></label>
+   </div>
+   <div class="veredicto" id="res-veredicto"></div>
+   <div class="pestanas" id="res-tabs"></div>
+   <pre id="res-codigo"></pre>
+  </div>
+ </div>
+</section>
+
+<section class="sec" id="coreografia">
+ <div class="cab"><span class="num">07 · herramienta</span><h2>Coreografía de una pantalla</h2><p class="que">Cuántas tarjetas entran y cuándo. Con pocas, el paso es el del token; con muchas, se comprime para no pasar del tope, y de la octava en adelante entran juntas.</p></div>
+ <div class="escena">
+  <div class="lienzo"><div class="coreo-pista" id="coreo"></div></div>
+  <div class="panel"><label class="control">Tarjetas<input type="range" id="coreo-n" min="1" max="20" value="6"><output id="coreo-n-o"></output></label><p class="dato" id="coreo-total"></p></div>
+ </div>
+</section>
+
+<section class="sec" id="curvas">
+ <div class="cab"><span class="num">08 · tokens</span><h2>Curvas, resortes y duraciones</h2><p class="que">Toca una curva para verla correr con su duración. Todo sale de los tokens DTCG de la marca y de tokens/motion.tokens.json.</p></div>
+ <div class="curvas" id="curvas-lista"></div>
+ <div class="tabla"><table id="tabla-tokens"></table></div>
+</section>
+</div>
+<kino-hoja id="hoja"><div class="detalle" style="padding-block:4px 8px"><h3>Pase de Andrés Gómez</h3><kino-pase id="pase-hoja"></kino-pase><dl><dt>Autor</dt><dd>Carolina Ruiz · Casa 14</dd><dt>Motivo</dt><dd>Visita</dd><dt>Modo</dt><dd>Placa KMN 305</dd></dl><kino-accion variante="secundaria" ancho="completo" id="cerrar-hoja">Cerrar</kino-accion></div></kino-hoja>
+<kino-aviso id="avisos"></kino-aviso>
+<script>/*JS_LAB*/</script>

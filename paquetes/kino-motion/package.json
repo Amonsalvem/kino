@@ -1,0 +1,28 @@
+{
+  "name": "@kino/motion",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Sistema de motion de Kino: tokens, núcleo (curvas, resortes, coreografía, estados del Pase), runtime web y herramientas.",
+  "exports": {
+    ".": "./dist/kino-motion.js",
+    "./nucleo": "./dist/nucleo.js",
+    "./css": "./dist/kino-motion.css",
+    "./tokens.json": "./dist/tokens.json"
+  },
+  "scripts": {
+    "tokens": "node scripts/construir-tokens.mjs",
+    "build": "npm run tokens && node scripts/empaquetar.mjs",
+    "tipos": "tsc --noEmit",
+    "test": "vitest run",
+    "lint-motion": "node herramientas/lint-motion.mjs src lab/lab.ts lab/plantilla.html",
+    "lab": "npm run build && node scripts/construir-lab.mjs",
+    "verificar": "npm run build && npm run tipos && npm test && npm run lint-motion && npm run lab && npm run probar-lab",
+    "probar-lab": "node scripts/probar-lab.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.10",
+    "typescript": "5.6.3",
+    "vitest": "2.1.9"
+  }
+}

@@ -196,3 +196,14 @@ En arquitectura faltaba:
 - **Bloqueados:** `flujo-trazo`, `loader-espera-lector` y `onboarding-3-lector-confirma` (`trazo` no tiene curva); el desplazamiento de `control-presionar` (no hay token de magnitud).
 - **Verificación:** tipos sin errores; fotogramas revisados; ProRes 4444 con alfa y H.264 renderizados de punta a punta; voz 0.
 - **Pendiente de Nico:** las preguntas del inventario de motion. Ninguna pieza está aprobada.
+
+## Sistema de motion · @kino/motion 0.1 (26 sep)
+- **Pedido de Nico:** libertad total en motion; dejar a un lado el hero y crear los componentes y herramientas para construir la web y la app con excelencia.
+- **Construido en `paquetes/kino-motion/`:**
+  - Tokens: los de marca más resortes físicos (tacto, hoja, pase, firme), `curva/salir` y reglas de coreografía. Salen como TS, CSS (resortes en `linear()`) y JSON portable.
+  - Núcleo sin DOM: curvas, resortes analíticos, coreografía, máquina de estados del Pase (estado derivado de los hechos) y política de movimiento reducido.
+  - Runtime web: `animar()` interrumpible, física de gestos, FLIP, View Transitions y 9 Web Components (pase, estado, vigencia, lista, acción, hoja, aviso, espera del lector, número).
+  - Herramientas: inspector, `lint-motion`, Lab y pruebas de navegador.
+- **Verificación:** 23 pruebas unitarias, lint 0 hallazgos, 14 pruebas en navegador (390 y 1280 px, claro y oscuro).
+- **Lab:** https://claude.ai/artifact/NoNiKp5nbr3sM9bcsoCzTY
+- **Pendiente de Nico:** stack de la web y la app; aprobar los tokens nuevos.
