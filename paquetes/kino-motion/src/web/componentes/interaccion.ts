@@ -3,7 +3,8 @@ import {escalonar} from '../../nucleo/coreografia';
 import {TOKENS} from '../../nucleo/tokens';
 import {animar, terminada} from '../animar';
 import {entrar, flip, quitar} from '../disposicion';
-import {animarResorte, arrastrar, proyectar, type Control} from '../fisica';
+import {proyectar} from '../../nucleo/gestos';
+import {animarResorte, arrastrar, type Control} from '../fisica';
 import {definir, hora, KinoElemento} from './base';
 
 // <kino-lista> ----------------------------------------------------------------------------------------------

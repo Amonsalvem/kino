@@ -1,5 +1,6 @@
 // Resortes por cuadro (requestAnimationFrame) para lo que sale de un gesto: arrancan con la velocidad del dedo.
 // Y el gesto de arrastre, con velocidad medida y resistencia elástica fuera de los límites.
+import {resistencia} from '../nucleo/gestos';
 import {resolver} from '../nucleo/resorte';
 import {resorteDe, type NombreResorte} from '../nucleo/tokens';
 import {esReducido, obtenerVelocidad, registrar} from './entorno';
@@ -53,9 +54,6 @@ export function animarResorte(o: {
 	};
 }
 
-/** Resistencia elástica: pasado el límite, el desplazamiento rinde cada vez menos (como en iOS). */
-export const resistencia = (exceso: number, dimension: number, c = 0.55) =>
-	Math.sign(exceso) * (1 - 1 / ((Math.abs(exceso) * c) / dimension + 1)) * dimension;
 
 export type Arrastre = {soltar: () => void};
 
@@ -115,5 +113,3 @@ export function arrastrar(
 	};
 }
 
-/** Dónde se detendría un lanzamiento con esa velocidad (para decidir si una hoja se cierra). */
-export const proyectar = (pos: number, velocidad: number, desaceleracion = 0.998) => pos + (velocidad / 1000) * (desaceleracion / (1 - desaceleracion));

@@ -207,3 +207,10 @@ En arquitectura faltaba:
 - **Verificación:** 23 pruebas unitarias, lint 0 hallazgos, 14 pruebas en navegador (390 y 1280 px, claro y oscuro).
 - **Lab:** https://claude.ai/artifact/NoNiKp5nbr3sM9bcsoCzTY
 - **Pendiente de Nico:** stack de la web y la app; aprobar los tokens nuevos.
+
+## Adaptador React Native · @kino/motion-nativo 0.1 (26 sep)
+- **Pedido de Nico:** el adaptador de React Native con Reanimated.
+- **Construido en `paquetes/kino-motion-nativo/`:** configuraciones de Reanimated desde los tokens (los resortes con los mismos parámetros físicos que la web); el plan de cada transición del Pase a partir de la partitura del núcleo; hooks (`usePaseMotion`, `useVigencia`, `usePresion`, `useHoja` con gesto, `useEntrada`, `useNumeroAnimado`); animaciones de disposición y componentes de referencia (`PaseKino`, `BotonKino`, `HojaKino`, `EsperaLectorKino`, `NumeroKino`).
+- **Núcleo:** quedó sin DOM (lo que dependía del navegador pasó a `src/web`) y los tokens traen los colores de marca por tema para la app.
+- **Verificación:** tipos sin errores contra RN 0.76 y Reanimated 3.16; 9 pruebas unitarias; arnés web con react-native-web y 9 pruebas en Chromium (estados, estado honesto, hoja lanzada con el puntero); lint-motion 0. El paquete web sigue en verde.
+- **Pendiente:** probarlo en un simulador o dispositivo; decidir el stack.

@@ -1,6 +1,6 @@
 // animar(): Web Animations con tokens, interrumpible y con modo reducido.
 import {cssBezier} from '../nucleo/curvas';
-import {reducirKeyframes} from '../nucleo/reducido';
+import {reducirKeyframes} from './reducido-web';
 import {curvaDe, ms, TOKENS, type NombreCurva, type NombreDuracion, type NombreResorte} from '../nucleo/tokens';
 import {esReducido, registrar} from './entorno';
 

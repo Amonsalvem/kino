@@ -1,6 +1,7 @@
 // Runtime web de Kino Motion: animar(), física, disposición, inspector y componentes.
 export * from './entorno';
 export * from './animar';
+export * from './reducido-web';
 export * from './fisica';
 export * from './disposicion';
 export {montarInspector} from './inspector';

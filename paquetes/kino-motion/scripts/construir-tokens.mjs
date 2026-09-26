@@ -42,11 +42,31 @@ const coreografia = {
 	cascadaTopeMs: propio.coreografia['cascada-tope'].$value.value,
 	salidaFactor: propio.coreografia['salida-factor'].$value,
 };
+// Colores semánticos resueltos a hex por tema (para la app nativa, que no lee CSS).
+const resolverTema = (tema) => {
+	const arbol = {};
+	const fundir = (a, b) => { for (const [k, v] of Object.entries(b)) { if (v && typeof v === 'object' && !('$value' in v) && a[k] && typeof a[k] === 'object') fundir(a[k], v); else a[k] = v; } };
+	for (const f of ['10-primitivo-color', '50-semantico-comun', `tema/${tema}`]) fundir(arbol, leer(path.join(MARCA, `tokens/${f}.tokens.json`)));
+	const nodo = (ruta) => ruta.split('.').reduce((n, p) => n[p], arbol);
+	const valor = (ruta) => { let v = nodo(ruta).$value; while (typeof v === 'string' && v.startsWith('{')) v = nodo(v.slice(1, -1)).$value; return v; };
+	const salida = {};
+	const recorrer = (n, pre) => { for (const [k, v] of Object.entries(n)) { if (k.startsWith('$')) continue; if (v && '$value' in v) { const x = valor(`semantico.${pre}${k}`); if (x && x.hex) salida[`${pre}${k}`.replaceAll('.', '/')] = (x.alpha ?? 1) < 1 ? 'transparent' : x.hex; } else if (v && typeof v === 'object') recorrer(v, `${pre}${k}.`); } };
+	for (const grupo of ['superficie', 'texto', 'acento', 'accion', 'estado', 'borde']) recorrer({[grupo]: arbol.semantico[grupo]}, '');
+	return salida;
+};
+const medida = leer(path.join(MARCA, 'tokens/30-primitivo-medida.tokens.json')).primitivo.medida;
+const forma = {
+	radio: {tarjeta: medida.radio.l.$value.value, control: medida.radio.m.$value.value, chip: medida.radio.s.$value.value},
+	espacio: Object.fromEntries(hojas(medida.espacio).map(([k, v]) => [k, v.$value.value])),
+};
+
 const TOKENS = {
 	fps: 60,
 	duracion, escalonado, curva, distancia, verbo, resorte, coreografia,
 	latirCiclos: propio.latir.ciclos.$value,
 	avisoVisibleMs: propio.aviso.visible.$value.value,
+	color: {oscuro: resolverTema('oscuro'), claro: resolverTema('claro')},
+	forma,
 	profundidad: Object.fromEntries(hojas(propio.profundidad).map(([k, v]) => [k, v.$value])),
 	escala: Object.fromEntries(hojas(propio.escala).map(([k, v]) => [k, v.$value])),
 };
