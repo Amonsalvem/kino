@@ -1,0 +1,26 @@
+{
+  "name": "kino-motion-remotion",
+  "private": true,
+  "type": "module",
+  "description": "Composiciones Remotion de Kino: hero y composiciones largas, y el wrapper @remotion/lottie que produce los mp4_preview.",
+  "scripts": {
+    "estudio": "remotion studio src/index.ts",
+    "tipos": "tsc --noEmit",
+    "previews": "node render-previews.mjs",
+    "masters": "node render-masters.mjs"
+  },
+  "dependencies": {
+    "@remotion/bundler": "4.0.529",
+    "@remotion/cli": "4.0.529",
+    "@remotion/lottie": "4.0.529",
+    "@remotion/renderer": "4.0.529",
+    "lottie-web": "5.13.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "remotion": "4.0.529"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.12",
+    "typescript": "5.6.3"
+  }
+}

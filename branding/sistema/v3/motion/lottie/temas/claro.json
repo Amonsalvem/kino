@@ -1,0 +1,304 @@
+{
+ "rules": [
+  {
+   "id": "accion-fondo",
+   "type": "Color",
+   "value": [
+    0.0,
+    0.3882,
+    0.2627,
+    1
+   ]
+  },
+  {
+   "id": "accion-fondo-activo",
+   "type": "Color",
+   "value": [
+    0.0,
+    0.3137,
+    0.2118,
+    1
+   ]
+  },
+  {
+   "id": "accion-texto",
+   "type": "Color",
+   "value": [
+    0.9373,
+    0.9882,
+    0.9686,
+    1
+   ]
+  },
+  {
+   "id": "estado-por-vencer-borde",
+   "type": "Color",
+   "value": [
+    0.6118,
+    0.4118,
+    0.0,
+    1
+   ]
+  },
+  {
+   "id": "estado-por-vencer-fondo",
+   "type": "Color",
+   "value": [
+    0.9373,
+    0.9882,
+    0.9686,
+    1
+   ]
+  },
+  {
+   "id": "estado-por-vencer-texto",
+   "type": "Color",
+   "value": [
+    0.4627,
+    0.3059,
+    0.0,
+    1
+   ]
+  },
+  {
+   "id": "estado-previsto-borde",
+   "type": "Color",
+   "value": [
+    0.251,
+    0.4314,
+    0.8431,
+    1
+   ]
+  },
+  {
+   "id": "estado-previsto-fondo",
+   "type": "Color",
+   "value": [
+    0.9373,
+    0.9882,
+    0.9686,
+    1
+   ]
+  },
+  {
+   "id": "estado-previsto-texto",
+   "type": "Color",
+   "value": [
+    0.1412,
+    0.3059,
+    0.7098,
+    1
+   ]
+  },
+  {
+   "id": "estado-rechazado-borde",
+   "type": "Color",
+   "value": [
+    0.8078,
+    0.2471,
+    0.2471,
+    1
+   ]
+  },
+  {
+   "id": "estado-rechazado-fondo",
+   "type": "Color",
+   "value": [
+    1.0,
+    0.7451,
+    0.7216,
+    1
+   ]
+  },
+  {
+   "id": "estado-rechazado-texto",
+   "type": "Color",
+   "value": [
+    0.0,
+    0.0784,
+    0.0471,
+    1
+   ]
+  },
+  {
+   "id": "estado-revocado-borde",
+   "type": "Color",
+   "value": [
+    0.4157,
+    0.4627,
+    0.4431,
+    1
+   ]
+  },
+  {
+   "id": "estado-revocado-fondo",
+   "type": "Color",
+   "value": [
+    0.898,
+    0.9529,
+    0.9294,
+    1
+   ]
+  },
+  {
+   "id": "estado-revocado-texto",
+   "type": "Color",
+   "value": [
+    0.5686,
+    0.0,
+    0.0784,
+    1
+   ]
+  },
+  {
+   "id": "estado-sin-confirmar-borde",
+   "type": "Color",
+   "value": [
+    0.4157,
+    0.4627,
+    0.4431,
+    1
+   ]
+  },
+  {
+   "id": "estado-sin-confirmar-texto",
+   "type": "Color",
+   "value": [
+    0.1647,
+    0.2824,
+    0.2392,
+    1
+   ]
+  },
+  {
+   "id": "estado-usado-borde",
+   "type": "Color",
+   "value": [
+    0.4157,
+    0.4627,
+    0.4431,
+    1
+   ]
+  },
+  {
+   "id": "estado-usado-fondo",
+   "type": "Color",
+   "value": [
+    0.898,
+    0.9529,
+    0.9294,
+    1
+   ]
+  },
+  {
+   "id": "estado-usado-texto",
+   "type": "Color",
+   "value": [
+    0.0902,
+    0.2118,
+    0.1686,
+    1
+   ]
+  },
+  {
+   "id": "estado-vencido-borde",
+   "type": "Color",
+   "value": [
+    0.4157,
+    0.4627,
+    0.4431,
+    1
+   ]
+  },
+  {
+   "id": "estado-vencido-fondo",
+   "type": "Color",
+   "value": [
+    0.8588,
+    0.9137,
+    0.8902,
+    1
+   ]
+  },
+  {
+   "id": "estado-vencido-texto",
+   "type": "Color",
+   "value": [
+    0.1647,
+    0.2824,
+    0.2392,
+    1
+   ]
+  },
+  {
+   "id": "estado-vigente-borde",
+   "type": "Color",
+   "value": [
+    0.0,
+    0.5176,
+    0.3569,
+    1
+   ]
+  },
+  {
+   "id": "estado-vigente-fondo",
+   "type": "Color",
+   "value": [
+    0.9373,
+    0.9882,
+    0.9686,
+    1
+   ]
+  },
+  {
+   "id": "estado-vigente-texto",
+   "type": "Color",
+   "value": [
+    0.0,
+    0.3882,
+    0.2627,
+    1
+   ]
+  },
+  {
+   "id": "superficie-abismo",
+   "type": "Color",
+   "value": [
+    0.8588,
+    0.9137,
+    0.8902,
+    1
+   ]
+  },
+  {
+   "id": "superficie-base",
+   "type": "Color",
+   "value": [
+    0.9373,
+    0.9882,
+    0.9686,
+    1
+   ]
+  },
+  {
+   "id": "superficie-elevada",
+   "type": "Color",
+   "value": [
+    1.0,
+    1.0,
+    1.0,
+    1
+   ]
+  },
+  {
+   "id": "superficie-membrana",
+   "type": "Color",
+   "value": [
+    0.898,
+    0.9529,
+    0.9294,
+    1
+   ]
+  }
+ ]
+}

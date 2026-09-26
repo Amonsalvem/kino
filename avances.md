@@ -189,3 +189,10 @@ En arquitectura faltaba:
 - **Verificación:** 176 vistas sin desborde; `verificar.py` y voz sin hallazgos; Fase 5 10 de 10; capturas en los dos temas sin errores.
 - **Respuesta de Nico (25 sep):** F4-P7 A. 1.2.1 aprobada en `decisiones.md`, Gobernanza, Figma (fila 105:18) y el Léeme; oficial republicado (versión 6), leyéndolo primero.
 - **Integración:** PR https://github.com/Amonsalvem/kino/pull/2 integrado a `main` por pedido de Nico (commit de8ba70).
+
+## Motion · fuentes Lottie y Remotion (26 sep)
+- **Pedido:** Prompt 2B. Lottie JSON fuente con colores como slots de tema, un wrapper `@remotion/lottie` para los mp4_preview y composiciones Remotion con salida ProRes 4444. La codificación final la hace el pipeline.
+- **Construido en `branding/sistema/v3/motion/`:** `tokens.py` (DTCG a frames a 60 fps, curvas y colores); 16 recursos Lottie, cada uno completo y reducido, con 30 slots de color y temas dotLottie oscuro y claro; 4 composiciones Remotion (hero, hero móvil, revocado, turno de Portería), cada una con variante reducida y póster.
+- **Bloqueados:** `flujo-trazo`, `loader-espera-lector` y `onboarding-3-lector-confirma` (`trazo` no tiene curva); el desplazamiento de `control-presionar` (no hay token de magnitud).
+- **Verificación:** tipos sin errores; fotogramas revisados; ProRes 4444 con alfa y H.264 renderizados de punta a punta; voz 0.
+- **Pendiente de Nico:** las preguntas del inventario de motion. Ninguna pieza está aprobada.
