@@ -1,5 +1,5 @@
 {
- "$description": "Tokens de motion que el sistema de marca todavía no tiene. Duraciones, curvas, escalonados y distancias se leen de gorr-brand-system/clientes/kino/tokens/40-movimiento.tokens.json: aquí no se repiten. Aprobados por Nico el 26 sep (decisiones.md, M1).",
+ "$description": "HISTÓRICO (26 sep): estos tokens se aprobaron (M1) y pasaron a gorr-brand-system/clientes/kino/tokens/40-movimiento.tokens.json. No es fuente de nada.",
  "resorte": {
   "$description": "Resortes físicos para lo que el usuario toca o arrastra. Parámetros de Reanimated, SwiftUI (interpolatingSpring) y Compose: rigidez, amortiguación, masa. Regla de marca: Kino es exacto, así que ningún resorte pasa de 3 % de rebote (ζ ≥ 0,75).",
   "tacto": {

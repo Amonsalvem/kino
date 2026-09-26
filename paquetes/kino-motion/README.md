@@ -44,13 +44,13 @@ movimiento es idéntico. El Lab genera el código para cada plataforma.
 
 ## Tokens
 
-- Fuente de marca (no se duplican): `gorr-brand-system/clientes/kino/tokens/40-movimiento.tokens.json` y los
-  verbos de `50-semantico-comun.tokens.json`.
-- Nuevos y aprobados (M1), en `tokens/motion.tokens.json`: `resorte/{tacto,hoja,pase,firme}`, `curva/salir`,
-  `coreografia/{cascada-maximo,cascada-tope,salida-factor}`, `latir/ciclos`, `escala/{presion,entrada}`,
-  `profundidad/*`, `aviso/visible`.
+- Fuente única: los DTCG de la marca. `gorr-brand-system/clientes/kino/tokens/40-movimiento.tokens.json` trae
+  duraciones, curvas (con `curva/salir`), resortes, coreografía, latir, escalas, profundidad y aviso;
+  `50-semantico-comun.tokens.json`, los verbos (con `salir`). Los tokens de M1 se aprobaron el 26 sep y se
+  movieron ahí; el archivo que vivía en el paquete quedó en `_obsoleto/motion.tokens-2026-09-26.json`.
 - `npm run tokens` genera `src/tokens.generados.ts` (tipado), `dist/kino-motion.css` (tokens de marca +
-  `--kino-mov-*`, con los resortes como `linear()`) y `dist/tokens.json` (portable, con frames a 60 fps).
+  `--kino-mov-*`, con los resortes como `linear()`) y `dist/tokens.json` (portable, con frames a 60 fps y los
+  colores de marca por tema).
 
 | Resorte | Rigidez · amortiguación · masa | ζ | Se asienta | Rebote | Para |
 |---|---|---|---|---|---|
@@ -125,5 +125,3 @@ variables de marca (`--kino-estado-*`, `--kino-superficie-*`), así que siguen e
 - El stack de la web y la app. Para React Native ya está el adaptador con Reanimated en `paquetes/kino-motion-nativo`
   (misma partitura, mismos resortes, mismo estado honesto).
 - La ventana de aviso («por vencer») es un parámetro. La fija la administración de cada conjunto.
-- Los tokens nuevos están aprobados (M1), pero todavía viven en el paquete. Falta llevarlos a los DTCG de
-  `gorr-brand-system/clientes/kino/tokens` y a la colección Movimiento de Figma.

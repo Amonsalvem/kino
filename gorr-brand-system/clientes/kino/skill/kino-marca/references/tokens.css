@@ -202,8 +202,33 @@
   --kino-movimiento-curva-latir: cubic-bezier(0.45, 0, 0.55, 1);
   --kino-movimiento-curva-cortina: cubic-bezier(0.76, 0, 0.24, 1);
   --kino-movimiento-curva-revocar: cubic-bezier(0.4, 0, 1, 1);
+  --kino-movimiento-curva-salir: cubic-bezier(0.3, 0, 0.8, 0.15);
   --kino-movimiento-distancia-subida: 26px;
   --kino-movimiento-distancia-desenfoque: 6px;
+  --kino-movimiento-resorte-tacto-rigidez: 520;
+  --kino-movimiento-resorte-tacto-amortiguacion: 34;
+  --kino-movimiento-resorte-tacto-masa: 1;
+  --kino-movimiento-resorte-hoja-rigidez: 260;
+  --kino-movimiento-resorte-hoja-amortiguacion: 30;
+  --kino-movimiento-resorte-hoja-masa: 1;
+  --kino-movimiento-resorte-pase-rigidez: 180;
+  --kino-movimiento-resorte-pase-amortiguacion: 22;
+  --kino-movimiento-resorte-pase-masa: 1;
+  --kino-movimiento-resorte-firme-rigidez: 400;
+  --kino-movimiento-resorte-firme-amortiguacion: 40;
+  --kino-movimiento-resorte-firme-masa: 1;
+  --kino-movimiento-coreografia-cascada-maximo: 8;
+  --kino-movimiento-coreografia-cascada-tope: 520ms;
+  --kino-movimiento-coreografia-salida-factor: 0.6;
+  --kino-movimiento-latir-ciclos: 3;
+  --kino-movimiento-escala-presion: 0.97;
+  --kino-movimiento-escala-entrada: 0.965;
+  --kino-movimiento-profundidad-sustrato: 0;
+  --kino-movimiento-profundidad-membrana: 1;
+  --kino-movimiento-profundidad-pase: 2;
+  --kino-movimiento-profundidad-hoja: 3;
+  --kino-movimiento-profundidad-aviso: 4;
+  --kino-movimiento-aviso-visible: 5400ms;
 }
 
 :root, :root[data-tema="oscuro"] {
@@ -224,6 +249,7 @@
   --kino-movimiento-revocar-curva: var(--kino-movimiento-curva-revocar);
   --kino-movimiento-latir-duracion: var(--kino-movimiento-duracion-latir);
   --kino-movimiento-latir-curva: var(--kino-movimiento-curva-latir);
+  --kino-movimiento-salir-curva: var(--kino-movimiento-curva-salir);
   --kino-superficie-abismo: var(--kino-sustrato-100);
   --kino-superficie-base: var(--kino-sustrato-200);
   --kino-superficie-elevada: var(--kino-sustrato-300);
@@ -299,6 +325,7 @@
   --kino-movimiento-revocar-curva: var(--kino-movimiento-curva-revocar);
   --kino-movimiento-latir-duracion: var(--kino-movimiento-duracion-latir);
   --kino-movimiento-latir-curva: var(--kino-movimiento-curva-latir);
+  --kino-movimiento-salir-curva: var(--kino-movimiento-curva-salir);
   --kino-superficie-abismo: var(--kino-hueso-300);
   --kino-superficie-base: var(--kino-hueso-100);
   --kino-superficie-elevada: var(--kino-fijo-blanco);
@@ -375,6 +402,7 @@
     --kino-movimiento-revocar-curva: var(--kino-movimiento-curva-revocar);
     --kino-movimiento-latir-duracion: var(--kino-movimiento-duracion-latir);
     --kino-movimiento-latir-curva: var(--kino-movimiento-curva-latir);
+    --kino-movimiento-salir-curva: var(--kino-movimiento-curva-salir);
     --kino-superficie-abismo: var(--kino-hueso-300);
     --kino-superficie-base: var(--kino-hueso-100);
     --kino-superficie-elevada: var(--kino-fijo-blanco);

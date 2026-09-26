@@ -1,5 +1,5 @@
 // Tokens de motion → src/tokens.generados.ts, dist/kino-motion.css y dist/tokens.json.
-// Fuentes: los DTCG de la marca (duraciones, curvas, verbos, colores) y tokens/motion.tokens.json (resortes, coreografía).
+// Fuente única: los DTCG de la marca (duraciones, curvas, verbos, resortes, coreografía, colores). Aprobados en M1.
 // Ningún valor se escribe a mano aquí: todo se lee o se calcula.
 import fs from 'node:fs';
 import path from 'node:path';
@@ -18,12 +18,12 @@ const {resolver, cssLinear, bezier} = await import(path.join(PAQ, '.tmp/calculo.
 
 const mov = leer(path.join(MARCA, 'tokens/40-movimiento.tokens.json')).primitivo.movimiento;
 const sem = leer(path.join(MARCA, 'tokens/50-semantico-comun.tokens.json')).semantico.movimiento;
-const propio = leer(path.join(PAQ, 'tokens/motion.tokens.json'));
+const propio = mov; // desde el 26 sep, resortes y coreografía viven en la marca (40-movimiento)
 const hojas = (n) => Object.entries(n).filter(([k]) => !k.startsWith('$'));
 
 const duracion = Object.fromEntries(hojas(mov.duracion).map(([k, v]) => [k, v.$value.value]));
 const escalonado = Object.fromEntries(hojas(mov.escalonado).map(([k, v]) => [k, v.$value.value]));
-const curva = Object.fromEntries([...hojas(mov.curva), ...hojas(propio.curva)].map(([k, v]) => [k, v.$value]));
+const curva = Object.fromEntries(hojas(mov.curva).map(([k, v]) => [k, v.$value]));
 const distancia = Object.fromEntries(hojas(mov.distancia).map(([k, v]) => [k, v.$value.value]));
 const verbo = {};
 for (const [v, props] of hojas(sem)) {
@@ -34,8 +34,9 @@ for (const [v, props] of hojas(sem)) {
 }
 const resorte = {};
 for (const [k, v] of hojas(propio.resorte)) {
-	const s = resolver(v.$value);
-	resorte[k] = {...v.$value, asentamientoMs: Math.round(s.asentamiento * 1000), rebote: +s.rebote.toFixed(4), zeta: +s.zeta.toFixed(3), linear: cssLinear(s.easing)};
+	const params = {rigidez: v.rigidez.$value, amortiguacion: v.amortiguacion.$value, masa: v.masa.$value};
+	const s = resolver(params);
+	resorte[k] = {...params, asentamientoMs: Math.round(s.asentamiento * 1000), rebote: +s.rebote.toFixed(4), zeta: +s.zeta.toFixed(3), linear: cssLinear(s.easing)};
 }
 const coreografia = {
 	cascadaMaximo: propio.coreografia['cascada-maximo'].$value,

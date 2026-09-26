@@ -68,7 +68,8 @@ export const TOKENS = {
 		"revocar/duracion": "duracion/corto",
 		"revocar/curva": "curva/revocar",
 		"latir/duracion": "duracion/latir",
-		"latir/curva": "curva/latir"
+		"latir/curva": "curva/latir",
+		"salir/curva": "curva/salir"
 	},
 	"resorte": {
 		"tacto": {

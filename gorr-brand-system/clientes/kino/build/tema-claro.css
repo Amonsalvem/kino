@@ -16,6 +16,7 @@
   --kino-movimiento-revocar-curva: var(--kino-movimiento-curva-revocar);
   --kino-movimiento-latir-duracion: var(--kino-movimiento-duracion-latir);
   --kino-movimiento-latir-curva: var(--kino-movimiento-curva-latir);
+  --kino-movimiento-salir-curva: var(--kino-movimiento-curva-salir);
   --kino-superficie-abismo: var(--kino-hueso-300);
   --kino-superficie-base: var(--kino-hueso-100);
   --kino-superficie-elevada: var(--kino-fijo-blanco);

@@ -83,6 +83,13 @@
      "$value": "{primitivo.movimiento.curva.latir}",
      "$type": "cubicBezier"
     }
+   },
+   "salir": {
+    "curva": {
+     "$value": "{primitivo.movimiento.curva.salir}",
+     "$type": "cubicBezier"
+    },
+    "$description": "Lo que se va: dura coreografia.salida-factor de lo que entra (M1)."
    }
   }
  }

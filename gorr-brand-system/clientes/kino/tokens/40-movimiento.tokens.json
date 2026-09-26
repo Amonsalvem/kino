@@ -24,12 +24,133 @@
     "decaer":  { "$value": [0.62, 0.03, 0.86, 0.34], "$description": "Empieza lento y cae: algo se apaga solo." },
     "latir":   { "$value": [0.45, 0, 0.55, 1], "$description": "Simétrica: respiración de lo que está vivo." },
     "cortina": { "$value": [0.76, 0, 0.24, 1], "$description": "Apertura con peso: el telón." },
-    "revocar": { "$value": [0.4, 0, 1, 1], "$description": "Salida seca: alguien cortó el pase." }
+    "revocar": { "$value": [0.4, 0, 1, 1], "$description": "Salida seca: alguien cortó el pase." },
+    "salir":   { "$value": [0.3, 0, 0.8, 0.15], "$description": "Lo que se va: arranca lento y acelera fuera. No es revocar: nadie cortó nada." }
    },
    "distancia": {
     "$type": "dimension",
     "subida": { "$value": { "value": 26, "unit": "px" }, "$description": "Recorrido vertical de entrada de una tarjeta." },
     "desenfoque": { "$value": { "value": 6, "unit": "px" }, "$description": "Desenfoque inicial del texto suelto." }
+   },
+   "resorte": {
+    "$type": "number",
+    "$description": "Resortes físicos para lo que el usuario toca o arrastra. Parámetros de Reanimated, SwiftUI (interpolatingSpring) y Compose: rigidez, amortiguación, masa. Regla de marca: Kino es exacto, así que ningún resorte pasa de 3 % de rebote (ζ ≥ 0,75). Aprobado por Nico el 26 sep (decisiones.md, M1).",
+    "tacto": {
+     "$description": "Presionar y soltar un control. Rápido y casi sin rebote.",
+     "rigidez": {
+      "$value": 520
+     },
+     "amortiguacion": {
+      "$value": 34
+     },
+     "masa": {
+      "$value": 1
+     }
+    },
+    "hoja": {
+     "$description": "Hojas, paneles y todo lo que se arrastra. Sigue al dedo y se asienta.",
+     "rigidez": {
+      "$value": 260
+     },
+     "amortiguacion": {
+      "$value": 30
+     },
+     "masa": {
+      "$value": 1
+     }
+    },
+    "pase": {
+     "$description": "Un Pase que cambia de lugar: reordenar la lista, abrir el detalle.",
+     "rigidez": {
+      "$value": 180
+     },
+     "amortiguacion": {
+      "$value": 22
+     },
+     "masa": {
+      "$value": 1
+     }
+    },
+    "firme": {
+     "$description": "Números y datos. Amortiguación crítica: llega sin pasarse.",
+     "rigidez": {
+      "$value": 400
+     },
+     "amortiguacion": {
+      "$value": 40
+     },
+     "masa": {
+      "$value": 1
+     }
+    }
+   },
+   "coreografia": {
+    "$description": "Reglas de orden cuando varias cosas se mueven juntas.",
+    "cascada-maximo": {
+     "$type": "number",
+     "$value": 8,
+     "$description": "Elementos que entran escalonados; del noveno en adelante entran con el octavo."
+    },
+    "cascada-tope": {
+     "$type": "duration",
+     "$value": {
+      "value": 520,
+      "unit": "ms"
+     },
+     "$description": "El escalonado total nunca pasa de este tiempo, aunque haya muchos elementos."
+    },
+    "salida-factor": {
+     "$type": "number",
+     "$value": 0.6,
+     "$description": "Salir dura el 60 % de entrar: lo que se va no debe hacer esperar."
+    }
+   },
+   "latir": {
+    "ciclos": {
+     "$type": "number",
+     "$value": 3,
+     "$description": "Ciclos del punto vigente antes de quedar quieto (WCAG 2.2.2). Vuelve a latir cuando el Pase cambia."
+    }
+   },
+   "escala": {
+    "$type": "number",
+    "presion": {
+     "$value": 0.97,
+     "$description": "Escala de un control mientras se presiona."
+    },
+    "entrada": {
+     "$value": 0.965,
+     "$description": "Escala inicial de una tarjeta que aparece."
+    }
+   },
+   "profundidad": {
+    "$type": "number",
+    "$description": "Capas del espacio de Kino, de atrás hacia adelante. Lo que está más adelante se mueve más rápido.",
+    "sustrato": {
+     "$value": 0
+    },
+    "membrana": {
+     "$value": 1
+    },
+    "pase": {
+     "$value": 2
+    },
+    "hoja": {
+     "$value": 3
+    },
+    "aviso": {
+     "$value": 4
+    }
+   },
+   "aviso": {
+    "visible": {
+     "$type": "duration",
+     "$value": {
+      "value": 5400,
+      "unit": "ms"
+     },
+     "$description": "Tiempo que un aviso queda en pantalla: tres ciclos de latir."
+    }
    }
   }
  }
