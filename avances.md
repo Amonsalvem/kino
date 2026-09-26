@@ -214,3 +214,4 @@ En arquitectura faltaba:
 - **Núcleo:** quedó sin DOM (lo que dependía del navegador pasó a `src/web`) y los tokens traen los colores de marca por tema para la app.
 - **Verificación:** tipos sin errores contra RN 0.76 y Reanimated 3.16; 9 pruebas unitarias; arnés web con react-native-web y 9 pruebas en Chromium (estados, estado honesto, hoja lanzada con el puntero); lint-motion 0. El paquete web sigue en verde.
 - **Pendiente:** probarlo en un simulador o dispositivo; decidir el stack.
+- **Integración (26 sep):** PR https://github.com/Amonsalvem/kino/pull/4 integrado a `main` por pedido de Nico (commit 3dd1f7e). Incluye todo lo de motion: @kino/motion, el adaptador nativo y los recursos animados. Los tokens nuevos siguen como propuesta hasta su aprobación.
