@@ -36,10 +36,16 @@ BRAZO = 4.45
 rnd = random.Random(7)
 
 
+def tramos_quietos(reducido):
+    """Reducido: la cámara no se mueve y no hay latido. Antes de la lectura y después de que el brazo se asienta,
+    nada cambia: esos frames son idénticos y construir.py los renderiza una vez."""
+    return [(1, LECTURA[0] - 1), (TALANQUERA[1] + 2, FIN)] if reducido else []
+
+
 def escena(modo, reducido):
     k.vaciar()
     sc = bpy.context.scene
-    k.configurar(sc, 1920, 1080, 1, FIN, transparente=False, muestras=16)
+    k.configurar(sc, 1920, 1080, 1, FIN, transparente=False, muestras=12)
     sc['kino_recurso'] = 'conjunto-noche-lector-confirma' + ('.reducido' if reducido else '')
     ev = sc.eevee
     ev.volumetric_start, ev.volumetric_end = 0.5, 70

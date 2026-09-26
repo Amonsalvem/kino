@@ -94,22 +94,40 @@ def main():
         registro = AQUI / 'tiempos' / f'{nombre(id_, reducido)}.json'
         registro.parent.mkdir(exist_ok=True)
         datos = json.loads(registro.read_text()) if registro.exists() else {}
-        marcas = []
-        bpy.app.handlers.render_pre.append(lambda *_: marcas.append(time.time()))
+        quietos = modulo.tramos_quietos(reducido) if hasattr(modulo, 'tramos_quietos') else []
         for clip, (a, b) in tramos.items():
-            sc.frame_start, sc.frame_end = a, b
             sub = f'{nombre(id_, reducido)}/{clip}/' if clip else f'{nombre(id_, reducido)}/'
-            sc.render.filepath = str(AQUI / 'render' / sub)
-            marcas.clear()
+            carpeta = AQUI / 'render' / sub
+            # Tramos quietos (idénticos por construcción: cámara y escena sin cambios) se renderizan una vez y se copian.
+            segmentos, f = [], a
+            while f <= b:
+                q = next(((qa, qb) for qa, qb in quietos if qa <= f <= qb), None)
+                if q:
+                    segmentos.append(('quieto', f, min(q[1], b)))
+                    f = min(q[1], b) + 1
+                else:
+                    fin = min([qa - 1 for qa, _ in quietos if qa > f] + [b])
+                    segmentos.append(('render', f, fin))
+                    f = fin + 1
             t0 = time.time()
-            bpy.ops.render.render(animation=True)
+            calculados = 0
+            for tipo, x, y in segmentos:
+                sc.frame_start, sc.frame_end = x, x if tipo == 'quieto' else y
+                sc.render.filepath = str(carpeta)
+                bpy.ops.render.render(animation=True)
+                calculados += sc.frame_end - sc.frame_start + 1
+                if tipo == 'quieto':
+                    import shutil
+                    for g in range(x + 1, y + 1):
+                        shutil.copyfile(carpeta / f'{x:04d}.png', carpeta / f'{g:04d}.png')
             total = time.time() - t0
             n = b - a + 1
-            datos[clip or 'escena'] = {'frames': n, 'segundos': round(total, 1), 'por_frame': round(total / n, 2),
+            datos[clip or 'escena'] = {'frames': n, 'calculados': calculados, 'segundos': round(total, 1),
+                                       'por_frame_calculado': round(total / calculados, 2),
                                        'resolucion': [sc.render.resolution_x, sc.render.resolution_y],
                                        'muestras': sc.eevee.taa_render_samples, 'motor': sc.render.engine}
             registro.write_text(json.dumps(datos, ensure_ascii=False, indent=1) + '\n')
-            print(f'✓ render {sub} frames {a}–{b} · {total:.0f} s · {total / n:.1f} s/frame')
+            print(f'✓ render {sub} frames {a}–{b} · {calculados} calculados · {total:.0f} s · {total / calculados:.1f} s/frame')
     elif etapa == 'exportar':
         import exportar
         exportar.glb(id_, reducido)

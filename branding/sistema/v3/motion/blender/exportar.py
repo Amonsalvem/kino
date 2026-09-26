@@ -41,6 +41,8 @@ def estados():
                 alfa = 0.0  # el latido lo hace el visor con curva/latir
             elif o.parent and o.parent.name.startswith('chip-'):
                 alfa = pase.valor(e, o.parent.name)
+            elif n == 'quien':
+                alfa = 1.0
             else:
                 alfa = pase.valor(e, n)
             token = token_de(o, e)

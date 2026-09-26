@@ -1,59 +1,76 @@
-# Escenas 3D de Kino (Blender, bpy)
+# Escenas 3D de Kino (Blender, bpy) · versión 2
 
-Los tres recursos `blender` del inventario de motion, construidos solo por código: no hay assets descargados. La
-única fuente externa es JetBrains Mono, que se toma de `branding/sistema/fonts` y se convierte a TTF.
+Borrador sin aprobar (26 sep). La versión 1 está en `_obsoleto/v1-2026-09-26/` y sus videos en
+`../entregables/_obsoleto/v1-2026-09-26/`.
 
-| Recurso | Tamaño | Frames (60 fps) | Fondo | Salida |
-|---|---|---|---|---|
-| `pase-3d-objeto` | 1920 × 1080 | 5 clips: aparecer 1–50, confirmar 60–109, latir 120–228, caducar 240–294, revocar 300–314 | transparente | `render/pase-3d-objeto/<clip>/`, `glb/` |
-| `pase-3d-latir` | 1080 × 1080 | 1–109, en loop: el 109 es igual al 1 | transparente | `render/pase-3d-latir/` |
-| `conjunto-noche-lector-confirma` | 1920 × 1080 | 1–50 | opaco | `render/conjunto-noche-lector-confirma/` |
+Todo se construye por código, sin assets descargados. Las únicas fuentes externas son Archivo y JetBrains Mono, que
+se toman de `branding/sistema/fonts` y se convierten a TTF con el corte de la web (Archivo 700, JetBrains Mono 400).
 
-Cada recurso tiene su variante `.reducido`. El render es una secuencia PNG RGBA hecha con EEVEE. La codificación a
-ProRes 4444, HEVC y VP9 la hace el pipeline.
+| Recurso | Tamaño | Frames (60 fps) | Fondo |
+|---|---|---|---|
+| `pase-3d-objeto` | 1920 × 1080 | 7 clips: aparecer, confirmar, latir, avisar, caducar, usar, revocar (ver `pase.inicios()`) | transparente |
+| `pase-3d-latir` | 1080 × 1080 | 1–109 en loop (el 109 es igual al 1) | transparente |
+| `conjunto-noche-lector-confirma` | 1920 × 1080 | 1–260 | opaco |
 
 ```bash
 # bpy 4.2 como módulo (Python 3.11). EEVEE sin GPU necesita EGL de Mesa:
 #   apt-get install libegl1 libgl1-mesa-dri libegl-mesa0 libgles2
-python3.11 -m venv .venv && .venv/bin/pip install bpy==4.2.0 fonttools brotli
-for e in escena modelado materiales animacion verificacion render exportar; do
-  .venv/bin/python construir.py pase-3d-objeto $e            # y --reducido
-done
-# Draco: el exportador glTF del módulo bpy no trae la librería. Se comprime después:
-npx @gltf-transform/cli@4 draco glb/pase-3d-objeto.sin-draco.glb glb/pase-3d-objeto.glb
+python3.11 -m venv .venv && .venv/bin/pip install bpy==4.2.0 fonttools brotli pillow
+(cd ../../../../../paquetes/kino-motion && npm install && npm run build)
+node partitura.mjs                 # tokens y partitura de @kino/motion → partitura.json
+npm install                        # gltf-transform y draco para el GLB
+./etapas.sh pase-3d-objeto escena modelado materiales animacion      # y --reducido
+.venv/bin/python construir.py pase-3d-objeto verificacion            # miniaturas al 50 % (--frames=, --escala=)
+.venv/bin/python construir.py pase-3d-objeto render                  # PNG RGBA; anota tiempos/<id>.json
+.venv/bin/python construir.py pase-3d-objeto exportar                # GLB con variantes y Draco
+.venv/bin/python medir.py render/…/0049.png estado/vigente/borde     # ¿sale el hex del token?
+FFMPEG=… python3 ../codificar.py                                     # ProRes 4444, VP9/HEVC con alfa, H.264
 ```
 
-## Cómo se cumple el sistema
+## Fuentes de verdad
 
-- **Tokens:** duraciones, curvas, distancia y colores salen de `../tokens.motion.json`. Aquí no hay milisegundos,
-  curvas ni hex escritos a mano.
-- **Color:** el hex del token se pasa a lineal. Con `view_transform = Standard` las marcas planas (emisión 1) salen
-  con su hex exacto.
-- **Easing:** cada tramo es un par de claves con handles bezier libres, en las proporciones exactas del cubic-bezier
-  del token. Verificado: la opacidad en el frame 25 de «aparecer» vale 0,9371 en Blender y en el `cubic-bezier`
-  de `curva/crecer`.
-- **Escala:** 1 px = 0,01 u. La tarjeta mide 3,6 × 1,32; `distancia/subida` equivale a 0,26 u. Esto responde la
-  pregunta 10 del inventario.
-- **Estado honesto:** el Pase entra en «sin confirmar». El borde continuo, el punto verde, la barra y el brillo solo
-  aparecen desde el clip «confirmar».
+- **Motion:** `partitura.json` sale de `paquetes/kino-motion/dist/nucleo.js`: duraciones, curvas, resortes, escala de
+  entrada, ciclos de latir y la partitura de cada transición (`TRANSICIONES`). El 3D anima las mismas partes con el
+  mismo verbo que `<kino-pase>`. Aquí no hay milisegundos ni curvas escritos a mano.
+- **Resortes:** `kino3d.Resorte` es la misma solución analítica de `src/nucleo/resorte.ts`. Verificado contra
+  `tokens.json`: ζ y rebote coinciden (tacto 2,98 %, hoja 0,03 %, pase 1,11 %, firme 0 %). Se hornean una clave por
+  frame.
+- **Latir:** como en la web, `curva/latir` se aplica a la iteración entera y la opacidad sube y baja lineal sobre ese
+  tiempo.
+- **Color:** hex de token → lineal. Semánticos para estados y texto; primitivos (sustrato, hueso, índigo, violeta,
+  biolum) para superficies de escena y luces. Sombra y resplandor son los tokens `relieve/membrana` y
+  `resplandor/vigente` leídos del DTCG.
 
-## GLB (solo `pase-3d-objeto`, interactivo en web)
+## Gestión de color
 
-- `glb/pase-3d-objeto.glb` (Draco) lleva las transformaciones: la subida del `root`, la escala de la `barra` y la del
-  `corte`.
-- glTF no anima materiales. Cada pieza lleva su token en `extras.kino_token`, y `glb/pase-3d-objeto.clips.json` da,
-  por clip, el rango, el estado inicial y final, la duración y la curva por nombre de token. También da las piezas
-  visibles y los colores de cada estado. El visor aplica fundidos y colores con esos tokens.
-- Movimiento reducido en el visor: con `prefers-reduced-motion`, no reproduce las transformaciones (subida, escala) y
-  aplica solo los fundidos. El latido queda como punto fijo.
+- Transformada de vista **Standard**, sin look. AgX o Filmic desaturan los verdes de estado y no dejan que un
+  `#00EAA5` salga como `#00EAA5`.
+- La compresión de luces la hace una **curva de tono propia en el compositor** (Reinhard extendido sobre la
+  luminancia, con paso suave al blanco), aplicada a todo menos a las marcas de estado.
+- Las marcas (bordes, chip, textos, barra, corte, indicador del lector) escriben la AOV `marca` y pasan sin curva.
+  Resultado medido con `medir.py`: `estado/vigente/borde`, `estado/vigente/texto`, `estado/vigente/fondo` y
+  `texto/primario` salen con ΔE 0 respecto a su hex.
+- El brillo sale de la AOV `brillo`, que solo escriben las piezas activas (el punto que late, el indicador del lector
+  confirmado). El resplandor del Pase es `resplandor/vigente` aplicado como `box-shadow` en el compositor y su fuerza
+  vale 0 en cualquier estado que no sea vigente.
 
-## Desviaciones de la spec
+## Motor y costo
+
+EEVEE Next en CPU (Mesa llvmpipe, 4 núcleos). Cycles con OpenImageDenoise se evaluó con la misma escena de prueba a
+16 muestras: 41 s por frame contra 21 s de EEVEE con volumétrica, a calidad comparable. Se quedó EEVEE.
+
+En el Pase se quitaron la profundidad de campo (20 s por frame, la tarjeta es casi plana) y el trazado de rayos en
+pantalla (solo reflejaba un mundo oscuro), y se renderiza solo la región del Pase (`use_border`, sin recorte).
+
+## Desviaciones
 
 | Punto | Qué se hizo | Motivo |
 |---|---|---|
-| Rig | Sin armature. Solo un Empty `root`, que es el control de la subida y de la opacidad | Nada se deforma. Los nombres pedidos (spine, head, arm…) son de personaje y la marca prohíbe personas y personajes |
-| Membrana translúcida | La tarjeta es opaca y solo funde al aparecer (tramado) | Si es translúcida, EEVEE ordena por origen de objeto y la tarjeta tapa la barra y el punto |
-| Emisión del indicador de noche | Fuerza 1 | Con más fuerza, el verde vigente satura hacia el cian, que la marca prohíbe |
-| Variante reducida de la noche | Igual a la completa | La ficha la define así: el cambio es de color, sin desplazamiento |
-| `pase-3d-objeto`, clip latir reducido | Un solo frame (120) | El latido se detiene; el punto queda fijo |
-| Herramientas | `execute_blender_code` y `render_thumbnail_to_path` no existen en la sesión | Se reemplazaron por `construir.py` (una etapa por proceso) y la etapa `verificacion` (miniaturas al 50 %) |
+| Alfa 0 en EEVEE Next | Además del fundido, cada marca se oculta del render (`hide_render`) en los frames en que su opacidad efectiva es 0 | Una superficie tramada con alfa 0 deja glifos fantasma |
+| Textos que cambian | Fundido a través: el que sale se va en la primera mitad del verbo y el que entra llega en la segunda | En la web el texto cambia de golpe; en 3D, un fundido cruzado encima los dos |
+| Chip | Un grupo por estado (fondo, borde, punto, texto) que se funde | El texto del chip cambia con el estado |
+| Tarjeta | Color base `superficie/membrana` (la web usa `superficie/elevada`) | El recurso Membrana de la marca: «el fondo de todo lo que se toca»; la pista de la barra usa elevada para contrastar |
+| Talanquera | `resorte/firme` (494 ms) | Llega sin pasarse; no hay token de mecánica. Pregunta para Nico |
+| Llegada de la cámara | `duracion/cortina` con `curva/crecer`; la salida dura el 60 % (`coreografia/salida-factor`) con `curva/salir` | No hay token de cámara. Pregunta para Nico |
+| Aurora de noche | Índigo y violeta, con apenas `biolum/d15` | El verde queda para lo activo (el indicador) |
+| Rig | Sin armature: Empties y un SimpleDeform para la flexión del brazo | Nada se deforma como personaje; la marca prohíbe personajes |

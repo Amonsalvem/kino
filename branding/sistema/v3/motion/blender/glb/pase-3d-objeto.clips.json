@@ -1,0 +1,174 @@
+{
+ "fps": 60,
+ "clips": {
+  "aparecer": {
+   "desde": 1,
+   "hasta": 50,
+   "estado_inicial": "sin-confirmar",
+   "estado_final": "sin-confirmar",
+   "curva": [
+    0.16,
+    0.84,
+    0.3,
+    1
+   ],
+   "nombre_curva": "aparecer/curva",
+   "evento": null,
+   "deja": null
+  },
+  "confirmar": {
+   "desde": 60,
+   "hasta": 109,
+   "estado_inicial": "sin-confirmar",
+   "estado_final": "vigente",
+   "curva": [
+    0.16,
+    0.84,
+    0.3,
+    1
+   ],
+   "nombre_curva": "aparecer/curva",
+   "evento": "confirmar",
+   "deja": "Qué lector confirmó y a qué hora."
+  },
+  "latir": {
+   "desde": 119,
+   "hasta": 227,
+   "estado_inicial": "vigente",
+   "estado_final": "vigente",
+   "curva": [
+    0.45,
+    0,
+    0.55,
+    1
+   ],
+   "nombre_curva": "latir/curva",
+   "evento": null,
+   "deja": null
+  },
+  "avisar": {
+   "desde": 237,
+   "hasta": 251,
+   "estado_inicial": "vigente",
+   "estado_final": "por-vencer",
+   "curva": [
+    0.16,
+    0.84,
+    0.3,
+    1
+   ],
+   "nombre_curva": "responder/curva",
+   "evento": "avisar",
+   "deja": "La hora exacta de vencimiento."
+  },
+  "caducar": {
+   "desde": 261,
+   "hasta": 315,
+   "estado_inicial": "vigente",
+   "estado_final": "vencido",
+   "curva": [
+    0.62,
+    0.03,
+    0.86,
+    0.34
+   ],
+   "nombre_curva": "caducar/curva",
+   "evento": "caducar",
+   "deja": "A qué hora venció."
+  },
+  "usar": {
+   "desde": 325,
+   "hasta": 339,
+   "estado_inicial": "vigente",
+   "estado_final": "usado",
+   "curva": [
+    0.16,
+    0.84,
+    0.3,
+    1
+   ],
+   "nombre_curva": "responder/curva",
+   "evento": "usar",
+   "deja": "A qué hora entró."
+  },
+  "revocar": {
+   "desde": 349,
+   "hasta": 363,
+   "estado_inicial": "vigente",
+   "estado_final": "revocado",
+   "curva": [
+    0.4,
+    0,
+    1,
+    1
+   ],
+   "nombre_curva": "revocar/curva",
+   "evento": "revocar",
+   "deja": "Quién revocó y a qué hora."
+  }
+ },
+ "tokens_motion": {
+  "curva": {
+   "crecer": [
+    0.16,
+    0.84,
+    0.3,
+    1
+   ],
+   "decaer": [
+    0.62,
+    0.03,
+    0.86,
+    0.34
+   ],
+   "latir": [
+    0.45,
+    0,
+    0.55,
+    1
+   ],
+   "cortina": [
+    0.76,
+    0,
+    0.24,
+    1
+   ],
+   "revocar": [
+    0.4,
+    0,
+    1,
+    1
+   ],
+   "salir": [
+    0.3,
+    0,
+    0.8,
+    0.15
+   ]
+  },
+  "verbo": {
+   "aparecer/duracion": "duracion/tarjeta",
+   "aparecer/curva": "curva/crecer",
+   "aparecer/escalonado": "escalonado/tarjetas",
+   "responder/duracion": "duracion/corto",
+   "responder/curva": "curva/crecer",
+   "caducar/duracion": "duracion/decaer",
+   "caducar/curva": "curva/decaer",
+   "revocar/duracion": "duracion/corto",
+   "revocar/curva": "curva/revocar",
+   "latir/duracion": "duracion/latir",
+   "latir/curva": "curva/latir"
+  },
+  "latir": 108,
+  "latir_ciclos": 3
+ },
+ "estados": [
+  "sin-confirmar",
+  "vigente",
+  "por-vencer",
+  "vencido",
+  "usado",
+  "revocado"
+ ],
+ "variantes": "KHR_materials_variants"
+}
