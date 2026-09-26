@@ -15,7 +15,8 @@
     "test": "vitest run",
     "web": "vite build --config web/vite.config.mjs",
     "probar-web": "node web/probar.mjs",
-    "verificar": "npm run tipos && npm test && npm run web && npm run probar-web"
+    "verificar": "npm run tipos && npm test && npm run web && npm run probar-web",
+    "artefacto": "vite build --config web/vite.config.mjs --minify esbuild --sourcemap false && node web/unir.mjs"
   },
   "devDependencies": {
     "@babel/core": "7.26.0",

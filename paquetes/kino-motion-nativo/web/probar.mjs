@@ -32,6 +32,7 @@ const ok = (c, m) => {
 };
 const p = await (await nav.newContext({viewport: {width: 430, height: 1100}, colorScheme: 'dark'})).newPage();
 const errores = [];
+await p.route('https://fonts.googleapis.com/**', (r) => r.fulfill({status: 200, contentType: 'text/css', body: ''})); // la sandbox no alcanza Google Fonts
 p.on('pageerror', (e) => errores.push(e.message));
 p.on('console', (m) => m.type() === 'error' && !/findDOMNode|404/.test(m.text()) && errores.push(m.text()));
 await p.goto(url);
