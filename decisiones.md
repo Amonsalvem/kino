@@ -407,3 +407,6 @@ Lámina: `kino/parada-4.html` (https://claude.ai/artifact/DBF7w1VTGPtJ9oQwdz4tXa
 ### Estado tras la respuesta del 25 sep (1.2.1)
 1. F4-P7: **APROBADA** (A). Sitio responsive de 320 a 1920 px.
 2. La versión 1.2.1 queda aprobada y se republica el artefacto oficial.
+
+## Motion · curva de trazo (26 sep)
+- **Decisión de Nico:** `trazo` usa `duracion/trazo` con `curva/crecer`. Se aplica a `flujo-trazo`, `loader-espera-lector` y `onboarding-3-lector-confirma`. Estado: decidida para el borrador del inventario de motion; el inventario completo sigue sin aprobar.

@@ -34,6 +34,9 @@ LOTTIE = [
     ('presentacion-cortina', 'Cortina', 'Abre una lámina. Solo presentaciones.'),
     ('onboarding-1-crear', 'Onboarding 1 · Crear', 'Se crea como acceso previsto.'),
     ('onboarding-2-entregar', 'Onboarding 2 · Entregar', 'Se entrega sin que la visita cree cuenta.'),
+    ('onboarding-3-lector-confirma', 'Onboarding 3 · El lector confirma', 'Llega al lector y solo entonces queda vigente.'),
+    ('flujo-trazo', 'Trazo', 'Recorre su camino: residente, visita, lector.'),
+    ('loader-espera-lector', 'Esperando al lector', 'Enviado y sin confirmar. La línea llega una vez y se queda quieta.'),
     ('loader-sincronizacion-lote', 'Sincronización con el lector', 'Cada fila se confirma cuando el lector responde.'),
     ('vacio-primer-pase', 'Primer Pase', 'El primero reemplaza el estado vacío.'),
 ]
@@ -45,7 +48,7 @@ TRES_D = [
     ('pase-3d-objeto', 'revocar', 'Pase 3D · revocar', 'Una línea cruza la tarjeta y la apaga.'),
     ('pase-3d-latir', '', 'Pase 3D en reposo', 'Confirmado, con la línea de evidencia; solo late el punto.'),
 ]
-FALTAN = ['flujo-trazo', 'loader-espera-lector', 'onboarding-3-lector-confirma']
+FALTAN = []
 
 archivos = {}
 
@@ -168,7 +171,6 @@ code{font-family:var(--mono);font-size:13px;color:var(--t2)}
 <section>
  <div class="cab"><h2>Catálogo, onboarding, loader y vacío</h2><span class="tecnica">Lottie · vista previa mp4</span></div>
  <div class="rejilla">%(lottie)s</div>
- <p class="faltan"><span class="chip">Sin confirmar</span> Aún no existen: %(faltan)s. Esperan la curva de <code>trazo</code>.</p>
 </section>
 <section>
  <div class="cab"><h2>Escenas 3D</h2><span class="tecnica">Blender · VP9 y HEVC con alfa sobre damero</span></div>

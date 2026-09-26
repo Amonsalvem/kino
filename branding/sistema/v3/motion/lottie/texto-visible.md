@@ -26,6 +26,8 @@ Enviado 3:41 p. m.
 Envío al lector de Portería
 Jardinería
 KMN 305
+Kino
+Lector Portería
 Luz Marina
 Pase vencido a las 6:00 p. m.
 Por vencer

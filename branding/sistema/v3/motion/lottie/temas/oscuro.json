@@ -31,6 +31,16 @@
    ]
   },
   {
+   "id": "acento-base",
+   "type": "Color",
+   "value": [
+    0.0,
+    0.7333,
+    0.5137,
+    1
+   ]
+  },
+  {
    "id": "estado-por-vencer-borde",
    "type": "Color",
    "value": [

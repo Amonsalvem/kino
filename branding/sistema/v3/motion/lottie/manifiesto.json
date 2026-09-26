@@ -831,12 +831,143 @@
     "texto-vacio-primer-pase-4",
     "texto-vacio-primer-pase-5"
    ]
+  },
+  {
+   "id": "flujo-trazo",
+   "reducido": false,
+   "archivo": "fuente/flujo-trazo.json",
+   "fps": 60,
+   "op": 58,
+   "ancho": 300,
+   "alto": 60,
+   "loop": false,
+   "slots_color": [
+    "acento-base",
+    "estado-previsto-borde",
+    "superficie-elevada"
+   ],
+   "slots_texto": []
+  },
+  {
+   "id": "flujo-trazo",
+   "reducido": true,
+   "archivo": "fuente/flujo-trazo.reducido.json",
+   "fps": 60,
+   "op": 58,
+   "ancho": 300,
+   "alto": 60,
+   "loop": false,
+   "slots_color": [
+    "acento-base",
+    "estado-previsto-borde",
+    "superficie-elevada"
+   ],
+   "slots_texto": []
+  },
+  {
+   "id": "loader-espera-lector",
+   "reducido": false,
+   "archivo": "fuente/loader-espera-lector.json",
+   "fps": 60,
+   "op": 58,
+   "ancho": 360,
+   "alto": 200,
+   "loop": false,
+   "slots_color": [
+    "estado-sin-confirmar-borde",
+    "estado-sin-confirmar-texto",
+    "superficie-elevada"
+   ],
+   "slots_texto": [
+    "texto-loader-espera-lector-1",
+    "texto-loader-espera-lector-2",
+    "texto-loader-espera-lector-3",
+    "texto-loader-espera-lector-4",
+    "texto-loader-espera-lector-5"
+   ]
+  },
+  {
+   "id": "loader-espera-lector",
+   "reducido": true,
+   "archivo": "fuente/loader-espera-lector.reducido.json",
+   "fps": 60,
+   "op": 58,
+   "ancho": 360,
+   "alto": 200,
+   "loop": false,
+   "slots_color": [
+    "estado-sin-confirmar-borde",
+    "estado-sin-confirmar-texto",
+    "superficie-elevada"
+   ],
+   "slots_texto": [
+    "texto-loader-espera-lector-1",
+    "texto-loader-espera-lector-2",
+    "texto-loader-espera-lector-3",
+    "texto-loader-espera-lector-4",
+    "texto-loader-espera-lector-5"
+   ]
+  },
+  {
+   "id": "onboarding-3-lector-confirma",
+   "reducido": false,
+   "archivo": "fuente/onboarding-3-lector-confirma.json",
+   "fps": 60,
+   "op": 107,
+   "ancho": 360,
+   "alto": 480,
+   "loop": false,
+   "slots_color": [
+    "estado-sin-confirmar-borde",
+    "estado-sin-confirmar-texto",
+    "estado-vigente-borde",
+    "estado-vigente-fondo",
+    "estado-vigente-texto",
+    "superficie-elevada"
+   ],
+   "slots_texto": [
+    "texto-onboarding-3-lector-confirma-1",
+    "texto-onboarding-3-lector-confirma-2",
+    "texto-onboarding-3-lector-confirma-3",
+    "texto-onboarding-3-lector-confirma-4",
+    "texto-onboarding-3-lector-confirma-5",
+    "texto-onboarding-3-lector-confirma-6",
+    "texto-onboarding-3-lector-confirma-7",
+    "texto-onboarding-3-lector-confirma-8",
+    "texto-onboarding-3-lector-confirma-9"
+   ]
+  },
+  {
+   "id": "onboarding-3-lector-confirma",
+   "reducido": true,
+   "archivo": "fuente/onboarding-3-lector-confirma.reducido.json",
+   "fps": 60,
+   "op": 107,
+   "ancho": 360,
+   "alto": 480,
+   "loop": false,
+   "slots_color": [
+    "estado-sin-confirmar-borde",
+    "estado-sin-confirmar-texto",
+    "estado-vigente-borde",
+    "estado-vigente-fondo",
+    "estado-vigente-texto",
+    "superficie-elevada"
+   ],
+   "slots_texto": [
+    "texto-onboarding-3-lector-confirma-1",
+    "texto-onboarding-3-lector-confirma-2",
+    "texto-onboarding-3-lector-confirma-3",
+    "texto-onboarding-3-lector-confirma-4",
+    "texto-onboarding-3-lector-confirma-5",
+    "texto-onboarding-3-lector-confirma-6",
+    "texto-onboarding-3-lector-confirma-7",
+    "texto-onboarding-3-lector-confirma-8",
+    "texto-onboarding-3-lector-confirma-9"
+   ]
   }
  ],
  "bloqueados": {
-  "flujo-trazo": "El sistema define duracion/trazo pero ningún verbo le asigna curva.",
-  "loader-espera-lector": "Usa flujo-trazo: misma curva sin definir.",
-  "onboarding-3-lector-confirma": "Usa flujo-trazo: misma curva sin definir.",
   "control-presionar (desplazamiento)": "La spec dice «baja levemente», pero el sistema no tiene token para esa magnitud. Se entrega solo el cambio de color."
  }
 }

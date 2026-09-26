@@ -68,8 +68,7 @@ Remotion no puede descargar su navegador (remotion.media no está en la lista de
 
 | Recurso | Contradicción |
 |---|---|
-| `flujo-trazo` | La spec pide `duracion/trazo` con una curva, prohíbe inventar curvas y el sistema no asigna curva a `trazo` |
-| `loader-espera-lector`, `onboarding-3-lector-confirma` | Dependen de `flujo-trazo` |
+| `flujo-trazo`, `loader-espera-lector`, `onboarding-3-lector-confirma` | Resuelto el 26 sep: Nico pidió `curva/crecer` para `trazo` |
 | `control-presionar`, desplazamiento | «Baja levemente» no tiene token de magnitud. Se entrega solo el cambio de `accion/fondo` a `accion/fondo-activo`; la app lo reproduce hacia adelante al tocar y en reversa al soltar |
 
 ## Verificación (26 sep)

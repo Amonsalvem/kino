@@ -11,8 +11,7 @@ Reglas que cumple el código:
 - La variante reducida cambia desplazamientos por fundidos con la misma duración y el mismo orden; el latido se detiene.
 - Lo que entra subiendo lleva distancia/subida de margen bajo la pieza para que el lienzo no lo recorte.
 
-Los recursos bloqueados (flujo-trazo, loader-espera-lector, onboarding-3-lector-confirma) no se generan: su curva no
-está definida en el sistema. Ver BLOQUEADOS al final.
+flujo-trazo, loader-espera-lector y onboarding-3-lector-confirma usan duracion/trazo con curva/crecer (26 sep).
 """
 import json
 import sys
@@ -544,19 +543,100 @@ def vacio_primer_pase(r):
     return lz
 
 
+# trazo: duracion/trazo con curva/crecer (decisión de Nico, 26 sep; el sistema aún no le asigna curva).
+CURVA_TRAZO = 'curva/crecer'
+
+
+def trazo_recorte(t0, r):
+    """Recorte de la línea que se dibuja; reducido: la línea completa aparece por fundido."""
+    d = F('duracion/trazo')
+    if r:
+        return None, kf(t0, t0 + d, [0], [100], C(CURVA_TRAZO))
+    return kf(t0, t0 + d, [0], [100], C(CURVA_TRAZO)), None
+
+
+def nodo(lz, cx, cy, estado, op, **kw):
+    d = ESP['m']
+    return formas(lz, f'nodo-{estado}', [circulo(lz, cx, cy, d, relleno='superficie/elevada', borde=f'estado/{estado}/borde',
+                                                 discontinuo=estado == 'sin-confirmar')], op, **kw)
+
+
+def fila_flujo(lz, op, y, x0, x1, t0, r, token_linea, nombre='linea'):
+    """Línea de x0 a x1 que se dibuja con trazo desde t0."""
+    recorte, opacidad = trazo_recorte(t0, r)
+    kw = {'o': opacidad} if opacidad else {}
+    return formas(lz, nombre, [linea(lz, x0, y, x1, y, token_linea, LINEA * 2, recorte=recorte)], op, **kw)
+
+
+def flujo_trazo(r):
+    """El Pase recorre su camino: residente → visita → lector. Las dos líneas se dibujan una tras otra."""
+    op = F('duracion/trazo')
+    lz = Lienzo('flujo-trazo', 300, 60, op)
+    xs, y, rad = (20, 150, 280), 30, ESP['m'] / 2
+    recorte, opacidad = trazo_recorte(0, r)
+    it = [{'ty': 'sh', 'nm': f'tramo-{i}', 'ks': fijo({'c': False, 'v': [[a + rad, y], [b - rad, y]], 'i': [[0, 0], [0, 0]], 'o': [[0, 0], [0, 0]]})}
+          for i, (a, b) in enumerate(zip(xs, xs[1:]))]
+    it.append({'ty': 'st', 'nm': 'trazo', 'c': lz.color('acento/base'), 'o': fijo(100), 'w': fijo(LINEA * 2), 'lc': 2, 'lj': 2})
+    if recorte:
+        it.append({'ty': 'tm', 'nm': 'recorte', 's': fijo(0), 'e': recorte, 'o': fijo(0), 'm': 2})  # m=2: tramo por tramo
+    it.append(tr())
+    lineas = formas(lz, 'lineas', [{'ty': 'gr', 'nm': 'lineas', 'it': it}], op, **({'o': opacidad} if opacidad else {}))
+    nodos = [nodo(lz, x, y, 'previsto', op) for x in xs]
+    lz.capas = nodos + [lineas]
+    return lz
+
+
+def loader_espera_lector(r):
+    """Enviado y sin confirmar. La línea llega una vez al lector y queda quieta: no hay spinner."""
+    op = F('duracion/trazo')
+    lz = Lienzo('loader-espera-lector', 360, 200, op)
+    t = tarjeta(lz, 'tarjeta-sin-confirmar', 'sin-confirmar', 'Andrés Gómez', 'Casa 14 · enviado 3:41 p. m.', op)
+    y = 132 + ESP['xl']
+    capas = [texto(lz, 'origen', 'Kino', ESP['m'], y + ESP['l'] + ESP['2xs'], 'JetBrainsMono-Regular', 11, 'texto/tenue', op),
+             texto(lz, 'destino', 'Lector Portería', 360 - ESP['m'], y + ESP['l'] + ESP['2xs'], 'JetBrainsMono-Regular', 11, 'texto/tenue', op, just=1),
+             nodo(lz, ESP['l'], y, 'sin-confirmar', op), nodo(lz, 360 - ESP['l'], y, 'sin-confirmar', op),
+             fila_flujo(lz, op, y, ESP['l'] + ESP['xs'], 360 - ESP['l'] - ESP['xs'], 0, r, 'estado/sin-confirmar/borde'),
+             capa_precomp(lz, 'pase', t, 360, 132, op)]
+    lz.capas = capas
+    return lz
+
+
+def onboarding_3_lector_confirma(r):
+    """El Pase llega al lector (trazo) y solo cuando el lector responde queda vigente (aparecer)."""
+    dt, da = F('duracion/trazo'), F('aparecer/duracion')
+    op = dt + da
+    lz = Lienzo('onboarding-3-lector-confirma', 360, 480, op)
+    ca = C('aparecer/curva')
+    a = tarjeta(lz, 'tarjeta-sin-confirmar', 'sin-confirmar', 'Andrés Gómez', 'Casa 14 · enviado 3:41 p. m.', op)
+    b = tarjeta(lz, 'tarjeta-vigente', 'vigente', 'Andrés Gómez', DATO, op, evidencia=EVIDENCIA)
+    y0, y = 110, 110 + 132 + ESP['2xl']
+    xa, xb = ESP['l'], 360 - ESP['l']
+    capas = [
+        texto(lz, 'origen', 'Kino', ESP['m'], y + ESP['l'] + ESP['2xs'], 'JetBrainsMono-Regular', 11, 'texto/tenue', op),
+        texto(lz, 'destino', 'Lector Portería', 360 - ESP['m'], y + ESP['l'] + ESP['2xs'], 'JetBrainsMono-Regular', 11, 'texto/tenue', op, just=1),
+        # El lector pasa de sin confirmar a vigente cuando responde.
+        nodo(lz, xb, y, 'vigente', op, o=kf(dt, op, [0], [100], ca)),
+        nodo(lz, xb, y, 'sin-confirmar', op, o=kf(dt, op, [100], [0], ca)),
+        nodo(lz, xa, y, 'sin-confirmar', op),
+        fila_flujo(lz, op, y, xa + ESP['xs'], xb - ESP['xs'], 0, r, 'estado/sin-confirmar/borde'),
+        capa_precomp(lz, 'despues', b, 360, 132, op, p=(0, y0), o=kf(dt, op, [0], [100], ca)),
+        capa_precomp(lz, 'antes', a, 360, 132, op, p=(0, y0), o=kf(dt, op, [100], [0], ca)),
+    ]
+    lz.capas = capas
+    return lz
+
+
 RECURSOS = {
     'pase-aparecer': pase_aparecer, 'pase-cascada': pase_cascada, 'pase-latir': pase_latir, 'pase-caducar': pase_caducar,
     'pase-confirmar': pase_confirmar, 'pase-por-vencer': pase_por_vencer, 'pase-revocar': pase_revocar, 'pase-usar': pase_usar,
     'entrada-rechazar': entrada_rechazar, 'pase-enviar': pase_enviar, 'control-presionar': control_presionar,
     'presentacion-cortina': presentacion_cortina, 'onboarding-1-crear': onboarding_1_crear,
     'onboarding-2-entregar': onboarding_2_entregar, 'loader-sincronizacion-lote': loader_sincronizacion_lote,
-    'vacio-primer-pase': vacio_primer_pase,
+    'vacio-primer-pase': vacio_primer_pase, 'flujo-trazo': flujo_trazo, 'loader-espera-lector': loader_espera_lector,
+    'onboarding-3-lector-confirma': onboarding_3_lector_confirma,
 }
 
 BLOQUEADOS = {
-    'flujo-trazo': 'El sistema define duracion/trazo pero ningún verbo le asigna curva.',
-    'loader-espera-lector': 'Usa flujo-trazo: misma curva sin definir.',
-    'onboarding-3-lector-confirma': 'Usa flujo-trazo: misma curva sin definir.',
     'control-presionar (desplazamiento)': 'La spec dice «baja levemente», pero el sistema no tiene token para esa magnitud. Se entrega solo el cambio de color.',
 }
 
