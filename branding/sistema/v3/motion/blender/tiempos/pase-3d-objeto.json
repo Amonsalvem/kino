@@ -1,0 +1,26 @@
+{
+ "aparecer": {
+  "frames": 50,
+  "calculados": 41,
+  "segundos": 1139.6,
+  "por_frame_calculado": 27.8,
+  "resolucion": [
+   1920,
+   1080
+  ],
+  "muestras": 14,
+  "motor": "BLENDER_EEVEE_NEXT"
+ },
+ "confirmar": {
+  "frames": 50,
+  "calculados": 50,
+  "segundos": 1403.7,
+  "por_frame_calculado": 28.07,
+  "resolucion": [
+   1920,
+   1080
+  ],
+  "muestras": 14,
+  "motor": "BLENDER_EEVEE_NEXT"
+ }
+}
