@@ -1,6 +1,6 @@
 # @kino/motion · sistema de motion de Kino
 
-Borrador 0.1 (26 sep 2026), sin aprobar. Es la base con la que se van a construir la web y la app: tokens,
+Versión 0.1 (26 sep 2026). Los tokens nuevos están aprobados (decisiones.md, M1). Es la base con la que se van a construir la web y la app: tokens,
 un núcleo sin DOM que sirve en cualquier plataforma, un runtime web con componentes y las herramientas para
 que el motion no se degrade con el tiempo.
 
@@ -46,7 +46,7 @@ movimiento es idéntico. El Lab genera el código para cada plataforma.
 
 - Fuente de marca (no se duplican): `gorr-brand-system/clientes/kino/tokens/40-movimiento.tokens.json` y los
   verbos de `50-semantico-comun.tokens.json`.
-- Nuevos, en `tokens/motion.tokens.json`: `resorte/{tacto,hoja,pase,firme}`, `curva/salir`,
+- Nuevos y aprobados (M1), en `tokens/motion.tokens.json`: `resorte/{tacto,hoja,pase,firme}`, `curva/salir`,
   `coreografia/{cascada-maximo,cascada-tope,salida-factor}`, `latir/ciclos`, `escala/{presion,entrada}`,
   `profundidad/*`, `aviso/visible`.
 - `npm run tokens` genera `src/tokens.generados.ts` (tipado), `dist/kino-motion.css` (tokens de marca +
@@ -125,5 +125,5 @@ variables de marca (`--kino-estado-*`, `--kino-superficie-*`), así que siguen e
 - El stack de la web y la app. Para React Native ya está el adaptador con Reanimated en `paquetes/kino-motion-nativo`
   (misma partitura, mismos resortes, mismo estado honesto).
 - La ventana de aviso («por vencer») es un parámetro. La fija la administración de cada conjunto.
-- Los tokens nuevos (resortes, `curva/salir`, reglas de coreografía) necesitan aprobación de Nico para pasar a
-  la marca.
+- Los tokens nuevos están aprobados (M1), pero todavía viven en el paquete. Falta llevarlos a los DTCG de
+  `gorr-brand-system/clientes/kino/tokens` y a la colección Movimiento de Figma.

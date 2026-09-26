@@ -1,6 +1,6 @@
 # @kino/motion-nativo · adaptador para React Native
 
-Borrador 0.1 (26 sep 2026), sin aprobar. Lleva el sistema de motion de Kino (`paquetes/kino-motion`) a React Native
+Versión 0.1 (26 sep 2026). Usa los tokens de motion aprobados (decisiones.md, M1). Lleva el sistema de motion de Kino (`paquetes/kino-motion`) a React Native
 con **Reanimated 3** y **Gesture Handler 2**. Usa el mismo núcleo que la web: los mismos tokens, los mismos
 resortes físicos, la misma partitura de cada transición del Pase y la misma regla de estado honesto.
 
