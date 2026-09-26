@@ -111,11 +111,22 @@ def main():
                     f = fin + 1
             t0 = time.time()
             calculados = 0
+            carpeta.mkdir(parents=True, exist_ok=True)
+            sc.render.filepath = str(carpeta) + '/'
             for tipo, x, y in segmentos:
-                sc.frame_start, sc.frame_end = x, x if tipo == 'quieto' else y
-                sc.render.filepath = str(carpeta)
-                bpy.ops.render.render(animation=True)
-                calculados += sc.frame_end - sc.frame_start + 1
+                # Reanudación: se saltan los frames que ya están escritos (el contenedor puede reiniciarse).
+                hechos = {int(q.stem) for q in carpeta.glob('[0-9][0-9][0-9][0-9].png')}
+                ultimo = x if tipo == 'quieto' else y
+                faltan = [g for g in range(x, ultimo + 1) if g not in hechos]
+                for c0 in faltan:
+                    if c0 - 1 in faltan:
+                        continue
+                    c1 = c0
+                    while c1 + 1 in faltan:
+                        c1 += 1
+                    sc.frame_start, sc.frame_end = c0, c1
+                    bpy.ops.render.render(animation=True)
+                    calculados += c1 - c0 + 1
                 if tipo == 'quieto':
                     import shutil
                     for g in range(x + 1, y + 1):
@@ -123,11 +134,11 @@ def main():
             total = time.time() - t0
             n = b - a + 1
             datos[clip or 'escena'] = {'frames': n, 'calculados': calculados, 'segundos': round(total, 1),
-                                       'por_frame_calculado': round(total / calculados, 2),
+                                       'por_frame_calculado': round(total / max(calculados, 1), 2),
                                        'resolucion': [sc.render.resolution_x, sc.render.resolution_y],
                                        'muestras': sc.eevee.taa_render_samples, 'motor': sc.render.engine}
             registro.write_text(json.dumps(datos, ensure_ascii=False, indent=1) + '\n')
-            print(f'✓ render {sub} frames {a}–{b} · {calculados} calculados · {total:.0f} s · {total / calculados:.1f} s/frame')
+            print(f'✓ render {sub} frames {a}–{b} · {calculados} calculados · {total:.0f} s · {total / max(calculados, 1):.1f} s/frame')
     elif etapa == 'exportar':
         import exportar
         exportar.glb(id_, reducido)
