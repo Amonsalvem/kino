@@ -99,7 +99,7 @@ def remotion(filtro):
 
 
 def tamano(png):
-    salida = subprocess.run([FF.replace('ffmpeg', 'ffprobe'), '-v', 'error', '-select_streams', 'v', '-show_entries',
+    salida = subprocess.run([str(Path(FF).with_name('ffprobe')) if os.sep in FF else 'ffprobe', '-v', 'error', '-select_streams', 'v', '-show_entries',
                              'stream=width,height', '-of', 'csv=p=0', str(png)], capture_output=True, text=True, check=True)
     w, h = re.findall(r'\d+', salida.stdout)[:2]
     return int(w), int(h)

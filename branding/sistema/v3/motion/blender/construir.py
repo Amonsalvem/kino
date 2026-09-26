@@ -27,6 +27,7 @@ RECURSOS = {
     'conjunto-noche-lector-confirma': (noche, None),
 }
 INTERACTIVO_WEB = {'pase-3d-objeto'}
+ETAPAS = ('escena', 'modelado', 'materiales', 'animacion', 'verificacion', 'render', 'exportar')
 
 
 def nombre(id_, reducido):
@@ -43,8 +44,11 @@ def tramos_render(id_, reducido):
 
 
 def main():
-    id_, etapa = sys.argv[1], sys.argv[2]
+    args = [a for a in sys.argv[1:] if not a.startswith('--')]
     reducido = '--reducido' in sys.argv
+    id_, etapa = args[0], args[1]
+    if etapa not in ETAPAS:
+        sys.exit(f'etapa desconocida: {etapa}. Usa una de: {", ".join(ETAPAS)}')
     modulo, modo = RECURSOS[id_]
     blend = AQUI / f'{nombre(id_, reducido)}.blend'
     if etapa == 'escena':
