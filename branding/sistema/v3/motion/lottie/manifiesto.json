@@ -1,0 +1,973 @@
+{
+ "fps": 60,
+ "recursos": [
+  {
+   "id": "pase-aparecer",
+   "reducido": false,
+   "archivo": "fuente/pase-aparecer.json",
+   "fps": 60,
+   "op": 50,
+   "ancho": 360,
+   "alto": 158,
+   "loop": false,
+   "slots_color": [
+    "estado-previsto-borde",
+    "estado-previsto-fondo",
+    "estado-previsto-texto",
+    "superficie-elevada"
+   ],
+   "slots_texto": [
+    "texto-pase-aparecer-1",
+    "texto-pase-aparecer-2",
+    "texto-pase-aparecer-3"
+   ]
+  },
+  {
+   "id": "pase-aparecer",
+   "reducido": true,
+   "archivo": "fuente/pase-aparecer.reducido.json",
+   "fps": 60,
+   "op": 50,
+   "ancho": 360,
+   "alto": 158,
+   "loop": false,
+   "slots_color": [
+    "estado-previsto-borde",
+    "estado-previsto-fondo",
+    "estado-previsto-texto",
+    "superficie-elevada"
+   ],
+   "slots_texto": [
+    "texto-pase-aparecer-1",
+    "texto-pase-aparecer-2",
+    "texto-pase-aparecer-3"
+   ]
+  },
+  {
+   "id": "pase-cascada",
+   "reducido": false,
+   "archivo": "fuente/pase-cascada.json",
+   "fps": 60,
+   "op": 65,
+   "ancho": 360,
+   "alto": 584,
+   "loop": false,
+   "slots_color": [
+    "estado-previsto-borde",
+    "estado-previsto-fondo",
+    "estado-previsto-texto",
+    "estado-sin-confirmar-borde",
+    "estado-sin-confirmar-texto",
+    "estado-vencido-borde",
+    "estado-vencido-fondo",
+    "estado-vencido-texto",
+    "estado-vigente-borde",
+    "estado-vigente-fondo",
+    "estado-vigente-texto",
+    "superficie-elevada"
+   ],
+   "slots_texto": [
+    "texto-pase-cascada-1",
+    "texto-pase-cascada-2",
+    "texto-pase-cascada-3",
+    "texto-pase-cascada-4",
+    "texto-pase-cascada-5",
+    "texto-pase-cascada-6",
+    "texto-pase-cascada-7",
+    "texto-pase-cascada-8",
+    "texto-pase-cascada-9",
+    "texto-pase-cascada-10",
+    "texto-pase-cascada-11",
+    "texto-pase-cascada-12",
+    "texto-pase-cascada-13"
+   ]
+  },
+  {
+   "id": "pase-cascada",
+   "reducido": true,
+   "archivo": "fuente/pase-cascada.reducido.json",
+   "fps": 60,
+   "op": 65,
+   "ancho": 360,
+   "alto": 584,
+   "loop": false,
+   "slots_color": [
+    "estado-previsto-borde",
+    "estado-previsto-fondo",
+    "estado-previsto-texto",
+    "estado-sin-confirmar-borde",
+    "estado-sin-confirmar-texto",
+    "estado-vencido-borde",
+    "estado-vencido-fondo",
+    "estado-vencido-texto",
+    "estado-vigente-borde",
+    "estado-vigente-fondo",
+    "estado-vigente-texto",
+    "superficie-elevada"
+   ],
+   "slots_texto": [
+    "texto-pase-cascada-1",
+    "texto-pase-cascada-2",
+    "texto-pase-cascada-3",
+    "texto-pase-cascada-4",
+    "texto-pase-cascada-5",
+    "texto-pase-cascada-6",
+    "texto-pase-cascada-7",
+    "texto-pase-cascada-8",
+    "texto-pase-cascada-9",
+    "texto-pase-cascada-10",
+    "texto-pase-cascada-11",
+    "texto-pase-cascada-12",
+    "texto-pase-cascada-13"
+   ]
+  },
+  {
+   "id": "pase-latir",
+   "reducido": false,
+   "archivo": "fuente/pase-latir.json",
+   "fps": 60,
+   "op": 108,
+   "ancho": 24,
+   "alto": 24,
+   "loop": true,
+   "slots_color": [
+    "estado-vigente-borde",
+    "estado-vigente-texto"
+   ],
+   "slots_texto": []
+  },
+  {
+   "id": "pase-latir",
+   "reducido": true,
+   "archivo": "fuente/pase-latir.reducido.json",
+   "fps": 60,
+   "op": 2,
+   "ancho": 24,
+   "alto": 24,
+   "loop": false,
+   "slots_color": [
+    "estado-vigente-borde"
+   ],
+   "slots_texto": []
+  },
+  {
+   "id": "pase-caducar",
+   "reducido": false,
+   "archivo": "fuente/pase-caducar.json",
+   "fps": 60,
+   "op": 55,
+   "ancho": 360,
+   "alto": 8,
+   "loop": false,
+   "slots_color": [
+    "estado-vencido-borde",
+    "estado-vigente-borde",
+    "superficie-membrana"
+   ],
+   "slots_texto": []
+  },
+  {
+   "id": "pase-caducar",
+   "reducido": true,
+   "archivo": "fuente/pase-caducar.reducido.json",
+   "fps": 60,
+   "op": 55,
+   "ancho": 360,
+   "alto": 8,
+   "loop": false,
+   "slots_color": [
+    "estado-vencido-borde",
+    "estado-vigente-borde",
+    "superficie-membrana"
+   ],
+   "slots_texto": []
+  },
+  {
+   "id": "pase-confirmar",
+   "reducido": false,
+   "archivo": "fuente/pase-confirmar.json",
+   "fps": 60,
+   "op": 50,
+   "ancho": 360,
+   "alto": 132,
+   "loop": false,
+   "slots_color": [
+    "estado-sin-confirmar-borde",
+    "estado-sin-confirmar-texto",
+    "estado-vigente-borde",
+    "estado-vigente-fondo",
+    "estado-vigente-texto",
+    "superficie-elevada"
+   ],
+   "slots_texto": [
+    "texto-pase-confirmar-1",
+    "texto-pase-confirmar-2",
+    "texto-pase-confirmar-3",
+    "texto-pase-confirmar-4",
+    "texto-pase-confirmar-5",
+    "texto-pase-confirmar-6",
+    "texto-pase-confirmar-7"
+   ]
+  },
+  {
+   "id": "pase-confirmar",
+   "reducido": true,
+   "archivo": "fuente/pase-confirmar.reducido.json",
+   "fps": 60,
+   "op": 50,
+   "ancho": 360,
+   "alto": 132,
+   "loop": false,
+   "slots_color": [
+    "estado-sin-confirmar-borde",
+    "estado-sin-confirmar-texto",
+    "estado-vigente-borde",
+    "estado-vigente-fondo",
+    "estado-vigente-texto",
+    "superficie-elevada"
+   ],
+   "slots_texto": [
+    "texto-pase-confirmar-1",
+    "texto-pase-confirmar-2",
+    "texto-pase-confirmar-3",
+    "texto-pase-confirmar-4",
+    "texto-pase-confirmar-5",
+    "texto-pase-confirmar-6",
+    "texto-pase-confirmar-7"
+   ]
+  },
+  {
+   "id": "pase-por-vencer",
+   "reducido": false,
+   "archivo": "fuente/pase-por-vencer.json",
+   "fps": 60,
+   "op": 15,
+   "ancho": 360,
+   "alto": 132,
+   "loop": false,
+   "slots_color": [
+    "estado-por-vencer-borde",
+    "estado-por-vencer-fondo",
+    "estado-por-vencer-texto",
+    "estado-vigente-borde",
+    "estado-vigente-fondo",
+    "estado-vigente-texto",
+    "superficie-elevada"
+   ],
+   "slots_texto": [
+    "texto-pase-por-vencer-1",
+    "texto-pase-por-vencer-2",
+    "texto-pase-por-vencer-3",
+    "texto-pase-por-vencer-4",
+    "texto-pase-por-vencer-5",
+    "texto-pase-por-vencer-6"
+   ]
+  },
+  {
+   "id": "pase-por-vencer",
+   "reducido": true,
+   "archivo": "fuente/pase-por-vencer.reducido.json",
+   "fps": 60,
+   "op": 15,
+   "ancho": 360,
+   "alto": 132,
+   "loop": false,
+   "slots_color": [
+    "estado-por-vencer-borde",
+    "estado-por-vencer-fondo",
+    "estado-por-vencer-texto",
+    "estado-vigente-borde",
+    "estado-vigente-fondo",
+    "estado-vigente-texto",
+    "superficie-elevada"
+   ],
+   "slots_texto": [
+    "texto-pase-por-vencer-1",
+    "texto-pase-por-vencer-2",
+    "texto-pase-por-vencer-3",
+    "texto-pase-por-vencer-4",
+    "texto-pase-por-vencer-5",
+    "texto-pase-por-vencer-6"
+   ]
+  },
+  {
+   "id": "pase-revocar",
+   "reducido": false,
+   "archivo": "fuente/pase-revocar.json",
+   "fps": 60,
+   "op": 15,
+   "ancho": 360,
+   "alto": 132,
+   "loop": false,
+   "slots_color": [
+    "estado-revocado-borde",
+    "estado-revocado-fondo",
+    "estado-revocado-texto",
+    "estado-vigente-borde",
+    "estado-vigente-fondo",
+    "estado-vigente-texto",
+    "superficie-base",
+    "superficie-elevada"
+   ],
+   "slots_texto": [
+    "texto-pase-revocar-1",
+    "texto-pase-revocar-2",
+    "texto-pase-revocar-3",
+    "texto-pase-revocar-4",
+    "texto-pase-revocar-5",
+    "texto-pase-revocar-6",
+    "texto-pase-revocar-7"
+   ]
+  },
+  {
+   "id": "pase-revocar",
+   "reducido": true,
+   "archivo": "fuente/pase-revocar.reducido.json",
+   "fps": 60,
+   "op": 15,
+   "ancho": 360,
+   "alto": 132,
+   "loop": false,
+   "slots_color": [
+    "estado-revocado-borde",
+    "estado-revocado-fondo",
+    "estado-revocado-texto",
+    "estado-vigente-borde",
+    "estado-vigente-fondo",
+    "estado-vigente-texto",
+    "superficie-base",
+    "superficie-elevada"
+   ],
+   "slots_texto": [
+    "texto-pase-revocar-1",
+    "texto-pase-revocar-2",
+    "texto-pase-revocar-3",
+    "texto-pase-revocar-4",
+    "texto-pase-revocar-5",
+    "texto-pase-revocar-6",
+    "texto-pase-revocar-7"
+   ]
+  },
+  {
+   "id": "pase-usar",
+   "reducido": false,
+   "archivo": "fuente/pase-usar.json",
+   "fps": 60,
+   "op": 15,
+   "ancho": 360,
+   "alto": 132,
+   "loop": false,
+   "slots_color": [
+    "estado-usado-borde",
+    "estado-usado-fondo",
+    "estado-usado-texto",
+    "estado-vigente-borde",
+    "estado-vigente-fondo",
+    "estado-vigente-texto",
+    "superficie-elevada"
+   ],
+   "slots_texto": [
+    "texto-pase-usar-1",
+    "texto-pase-usar-2",
+    "texto-pase-usar-3",
+    "texto-pase-usar-4",
+    "texto-pase-usar-5",
+    "texto-pase-usar-6"
+   ]
+  },
+  {
+   "id": "pase-usar",
+   "reducido": true,
+   "archivo": "fuente/pase-usar.reducido.json",
+   "fps": 60,
+   "op": 15,
+   "ancho": 360,
+   "alto": 132,
+   "loop": false,
+   "slots_color": [
+    "estado-usado-borde",
+    "estado-usado-fondo",
+    "estado-usado-texto",
+    "estado-vigente-borde",
+    "estado-vigente-fondo",
+    "estado-vigente-texto",
+    "superficie-elevada"
+   ],
+   "slots_texto": [
+    "texto-pase-usar-1",
+    "texto-pase-usar-2",
+    "texto-pase-usar-3",
+    "texto-pase-usar-4",
+    "texto-pase-usar-5",
+    "texto-pase-usar-6"
+   ]
+  },
+  {
+   "id": "entrada-rechazar",
+   "reducido": false,
+   "archivo": "fuente/entrada-rechazar.json",
+   "fps": 60,
+   "op": 26,
+   "ancho": 480,
+   "alto": 122,
+   "loop": false,
+   "slots_color": [
+    "estado-rechazado-borde",
+    "estado-rechazado-fondo",
+    "estado-rechazado-texto"
+   ],
+   "slots_texto": [
+    "texto-entrada-rechazar-1",
+    "texto-entrada-rechazar-2",
+    "texto-entrada-rechazar-3",
+    "texto-entrada-rechazar-4"
+   ]
+  },
+  {
+   "id": "entrada-rechazar",
+   "reducido": true,
+   "archivo": "fuente/entrada-rechazar.reducido.json",
+   "fps": 60,
+   "op": 26,
+   "ancho": 480,
+   "alto": 122,
+   "loop": false,
+   "slots_color": [
+    "estado-rechazado-borde",
+    "estado-rechazado-fondo",
+    "estado-rechazado-texto"
+   ],
+   "slots_texto": [
+    "texto-entrada-rechazar-1",
+    "texto-entrada-rechazar-2",
+    "texto-entrada-rechazar-3",
+    "texto-entrada-rechazar-4"
+   ]
+  },
+  {
+   "id": "pase-enviar",
+   "reducido": false,
+   "archivo": "fuente/pase-enviar.json",
+   "fps": 60,
+   "op": 50,
+   "ancho": 360,
+   "alto": 240,
+   "loop": false,
+   "slots_color": [
+    "estado-previsto-borde",
+    "estado-previsto-fondo",
+    "estado-previsto-texto",
+    "estado-sin-confirmar-borde",
+    "estado-sin-confirmar-texto",
+    "superficie-elevada",
+    "superficie-membrana"
+   ],
+   "slots_texto": [
+    "texto-pase-enviar-1",
+    "texto-pase-enviar-2",
+    "texto-pase-enviar-3",
+    "texto-pase-enviar-4",
+    "texto-pase-enviar-5",
+    "texto-pase-enviar-6",
+    "texto-pase-enviar-7",
+    "texto-pase-enviar-8"
+   ]
+  },
+  {
+   "id": "pase-enviar",
+   "reducido": true,
+   "archivo": "fuente/pase-enviar.reducido.json",
+   "fps": 60,
+   "op": 50,
+   "ancho": 360,
+   "alto": 240,
+   "loop": false,
+   "slots_color": [
+    "estado-previsto-borde",
+    "estado-previsto-fondo",
+    "estado-previsto-texto",
+    "estado-sin-confirmar-borde",
+    "estado-sin-confirmar-texto",
+    "superficie-elevada",
+    "superficie-membrana"
+   ],
+   "slots_texto": [
+    "texto-pase-enviar-1",
+    "texto-pase-enviar-2",
+    "texto-pase-enviar-3",
+    "texto-pase-enviar-4",
+    "texto-pase-enviar-5",
+    "texto-pase-enviar-6",
+    "texto-pase-enviar-7",
+    "texto-pase-enviar-8"
+   ]
+  },
+  {
+   "id": "control-presionar",
+   "reducido": false,
+   "archivo": "fuente/control-presionar.json",
+   "fps": 60,
+   "op": 15,
+   "ancho": 320,
+   "alto": 56,
+   "loop": false,
+   "slots_color": [
+    "accion-fondo",
+    "accion-fondo-activo",
+    "accion-texto"
+   ],
+   "slots_texto": [
+    "texto-control-presionar-1",
+    "texto-control-presionar-2"
+   ]
+  },
+  {
+   "id": "control-presionar",
+   "reducido": true,
+   "archivo": "fuente/control-presionar.reducido.json",
+   "fps": 60,
+   "op": 15,
+   "ancho": 320,
+   "alto": 56,
+   "loop": false,
+   "slots_color": [
+    "accion-fondo",
+    "accion-fondo-activo",
+    "accion-texto"
+   ],
+   "slots_texto": [
+    "texto-control-presionar-1",
+    "texto-control-presionar-2"
+   ]
+  },
+  {
+   "id": "presentacion-cortina",
+   "reducido": false,
+   "archivo": "fuente/presentacion-cortina.json",
+   "fps": 60,
+   "op": 97,
+   "ancho": 1920,
+   "alto": 1080,
+   "loop": false,
+   "slots_color": [
+    "superficie-abismo"
+   ],
+   "slots_texto": []
+  },
+  {
+   "id": "presentacion-cortina",
+   "reducido": true,
+   "archivo": "fuente/presentacion-cortina.reducido.json",
+   "fps": 60,
+   "op": 97,
+   "ancho": 1920,
+   "alto": 1080,
+   "loop": false,
+   "slots_color": [
+    "superficie-abismo"
+   ],
+   "slots_texto": []
+  },
+  {
+   "id": "onboarding-1-crear",
+   "reducido": false,
+   "archivo": "fuente/onboarding-1-crear.json",
+   "fps": 60,
+   "op": 64,
+   "ancho": 360,
+   "alto": 480,
+   "loop": false,
+   "slots_color": [
+    "accion-fondo",
+    "accion-fondo-activo",
+    "accion-texto",
+    "estado-previsto-borde",
+    "estado-previsto-fondo",
+    "estado-previsto-texto",
+    "superficie-elevada"
+   ],
+   "slots_texto": [
+    "texto-onboarding-1-crear-1",
+    "texto-onboarding-1-crear-2",
+    "texto-onboarding-1-crear-3",
+    "texto-onboarding-1-crear-4",
+    "texto-onboarding-1-crear-5"
+   ]
+  },
+  {
+   "id": "onboarding-1-crear",
+   "reducido": true,
+   "archivo": "fuente/onboarding-1-crear.reducido.json",
+   "fps": 60,
+   "op": 64,
+   "ancho": 360,
+   "alto": 480,
+   "loop": false,
+   "slots_color": [
+    "accion-fondo",
+    "accion-fondo-activo",
+    "accion-texto",
+    "estado-previsto-borde",
+    "estado-previsto-fondo",
+    "estado-previsto-texto",
+    "superficie-elevada"
+   ],
+   "slots_texto": [
+    "texto-onboarding-1-crear-1",
+    "texto-onboarding-1-crear-2",
+    "texto-onboarding-1-crear-3",
+    "texto-onboarding-1-crear-4",
+    "texto-onboarding-1-crear-5"
+   ]
+  },
+  {
+   "id": "onboarding-2-entregar",
+   "reducido": false,
+   "archivo": "fuente/onboarding-2-entregar.json",
+   "fps": 60,
+   "op": 50,
+   "ancho": 360,
+   "alto": 480,
+   "loop": false,
+   "slots_color": [
+    "estado-previsto-borde",
+    "estado-previsto-fondo",
+    "estado-previsto-texto",
+    "estado-sin-confirmar-borde",
+    "estado-sin-confirmar-texto",
+    "superficie-elevada",
+    "superficie-membrana"
+   ],
+   "slots_texto": [
+    "texto-onboarding-2-entregar-1",
+    "texto-onboarding-2-entregar-2",
+    "texto-onboarding-2-entregar-3",
+    "texto-onboarding-2-entregar-4",
+    "texto-onboarding-2-entregar-5",
+    "texto-onboarding-2-entregar-6",
+    "texto-onboarding-2-entregar-7",
+    "texto-onboarding-2-entregar-8"
+   ]
+  },
+  {
+   "id": "onboarding-2-entregar",
+   "reducido": true,
+   "archivo": "fuente/onboarding-2-entregar.reducido.json",
+   "fps": 60,
+   "op": 50,
+   "ancho": 360,
+   "alto": 480,
+   "loop": false,
+   "slots_color": [
+    "estado-previsto-borde",
+    "estado-previsto-fondo",
+    "estado-previsto-texto",
+    "estado-sin-confirmar-borde",
+    "estado-sin-confirmar-texto",
+    "superficie-elevada",
+    "superficie-membrana"
+   ],
+   "slots_texto": [
+    "texto-onboarding-2-entregar-1",
+    "texto-onboarding-2-entregar-2",
+    "texto-onboarding-2-entregar-3",
+    "texto-onboarding-2-entregar-4",
+    "texto-onboarding-2-entregar-5",
+    "texto-onboarding-2-entregar-6",
+    "texto-onboarding-2-entregar-7",
+    "texto-onboarding-2-entregar-8"
+   ]
+  },
+  {
+   "id": "loader-sincronizacion-lote",
+   "reducido": false,
+   "archivo": "fuente/loader-sincronizacion-lote.json",
+   "fps": 60,
+   "op": 62,
+   "ancho": 960,
+   "alto": 480,
+   "loop": false,
+   "slots_color": [
+    "estado-sin-confirmar-borde",
+    "estado-sin-confirmar-texto",
+    "estado-vigente-borde",
+    "estado-vigente-fondo",
+    "estado-vigente-texto",
+    "superficie-elevada"
+   ],
+   "slots_texto": [
+    "texto-loader-sincronizacion-lote-contador",
+    "texto-loader-sincronizacion-lote-2",
+    "texto-loader-sincronizacion-lote-3",
+    "texto-loader-sincronizacion-lote-4",
+    "texto-loader-sincronizacion-lote-5",
+    "texto-loader-sincronizacion-lote-6",
+    "texto-loader-sincronizacion-lote-7",
+    "texto-loader-sincronizacion-lote-8",
+    "texto-loader-sincronizacion-lote-9",
+    "texto-loader-sincronizacion-lote-10",
+    "texto-loader-sincronizacion-lote-11",
+    "texto-loader-sincronizacion-lote-12",
+    "texto-loader-sincronizacion-lote-13",
+    "texto-loader-sincronizacion-lote-14",
+    "texto-loader-sincronizacion-lote-15",
+    "texto-loader-sincronizacion-lote-16",
+    "texto-loader-sincronizacion-lote-17",
+    "texto-loader-sincronizacion-lote-18",
+    "texto-loader-sincronizacion-lote-19",
+    "texto-loader-sincronizacion-lote-20",
+    "texto-loader-sincronizacion-lote-21",
+    "texto-loader-sincronizacion-lote-22",
+    "texto-loader-sincronizacion-lote-23",
+    "texto-loader-sincronizacion-lote-24",
+    "texto-loader-sincronizacion-lote-25",
+    "texto-loader-sincronizacion-lote-26",
+    "texto-loader-sincronizacion-lote-27",
+    "texto-loader-sincronizacion-lote-28",
+    "texto-loader-sincronizacion-lote-29",
+    "texto-loader-sincronizacion-lote-30",
+    "texto-loader-sincronizacion-lote-31",
+    "texto-loader-sincronizacion-lote-32"
+   ]
+  },
+  {
+   "id": "loader-sincronizacion-lote",
+   "reducido": true,
+   "archivo": "fuente/loader-sincronizacion-lote.reducido.json",
+   "fps": 60,
+   "op": 62,
+   "ancho": 960,
+   "alto": 480,
+   "loop": false,
+   "slots_color": [
+    "estado-sin-confirmar-borde",
+    "estado-sin-confirmar-texto",
+    "estado-vigente-borde",
+    "estado-vigente-fondo",
+    "estado-vigente-texto",
+    "superficie-elevada"
+   ],
+   "slots_texto": [
+    "texto-loader-sincronizacion-lote-contador",
+    "texto-loader-sincronizacion-lote-2",
+    "texto-loader-sincronizacion-lote-3",
+    "texto-loader-sincronizacion-lote-4",
+    "texto-loader-sincronizacion-lote-5",
+    "texto-loader-sincronizacion-lote-6",
+    "texto-loader-sincronizacion-lote-7",
+    "texto-loader-sincronizacion-lote-8",
+    "texto-loader-sincronizacion-lote-9",
+    "texto-loader-sincronizacion-lote-10",
+    "texto-loader-sincronizacion-lote-11",
+    "texto-loader-sincronizacion-lote-12",
+    "texto-loader-sincronizacion-lote-13",
+    "texto-loader-sincronizacion-lote-14",
+    "texto-loader-sincronizacion-lote-15",
+    "texto-loader-sincronizacion-lote-16",
+    "texto-loader-sincronizacion-lote-17",
+    "texto-loader-sincronizacion-lote-18",
+    "texto-loader-sincronizacion-lote-19",
+    "texto-loader-sincronizacion-lote-20",
+    "texto-loader-sincronizacion-lote-21",
+    "texto-loader-sincronizacion-lote-22",
+    "texto-loader-sincronizacion-lote-23",
+    "texto-loader-sincronizacion-lote-24",
+    "texto-loader-sincronizacion-lote-25",
+    "texto-loader-sincronizacion-lote-26",
+    "texto-loader-sincronizacion-lote-27",
+    "texto-loader-sincronizacion-lote-28",
+    "texto-loader-sincronizacion-lote-29",
+    "texto-loader-sincronizacion-lote-30",
+    "texto-loader-sincronizacion-lote-31",
+    "texto-loader-sincronizacion-lote-32"
+   ]
+  },
+  {
+   "id": "vacio-primer-pase",
+   "reducido": false,
+   "archivo": "fuente/vacio-primer-pase.json",
+   "fps": 60,
+   "op": 50,
+   "ancho": 360,
+   "alto": 480,
+   "loop": false,
+   "slots_color": [
+    "accion-fondo",
+    "accion-texto",
+    "estado-previsto-borde",
+    "estado-previsto-fondo",
+    "estado-previsto-texto",
+    "superficie-elevada"
+   ],
+   "slots_texto": [
+    "texto-vacio-primer-pase-1",
+    "texto-vacio-primer-pase-2",
+    "texto-vacio-primer-pase-3",
+    "texto-vacio-primer-pase-4",
+    "texto-vacio-primer-pase-5"
+   ]
+  },
+  {
+   "id": "vacio-primer-pase",
+   "reducido": true,
+   "archivo": "fuente/vacio-primer-pase.reducido.json",
+   "fps": 60,
+   "op": 50,
+   "ancho": 360,
+   "alto": 480,
+   "loop": false,
+   "slots_color": [
+    "accion-fondo",
+    "accion-texto",
+    "estado-previsto-borde",
+    "estado-previsto-fondo",
+    "estado-previsto-texto",
+    "superficie-elevada"
+   ],
+   "slots_texto": [
+    "texto-vacio-primer-pase-1",
+    "texto-vacio-primer-pase-2",
+    "texto-vacio-primer-pase-3",
+    "texto-vacio-primer-pase-4",
+    "texto-vacio-primer-pase-5"
+   ]
+  },
+  {
+   "id": "flujo-trazo",
+   "reducido": false,
+   "archivo": "fuente/flujo-trazo.json",
+   "fps": 60,
+   "op": 58,
+   "ancho": 300,
+   "alto": 60,
+   "loop": false,
+   "slots_color": [
+    "acento-base",
+    "estado-previsto-borde",
+    "superficie-elevada"
+   ],
+   "slots_texto": []
+  },
+  {
+   "id": "flujo-trazo",
+   "reducido": true,
+   "archivo": "fuente/flujo-trazo.reducido.json",
+   "fps": 60,
+   "op": 58,
+   "ancho": 300,
+   "alto": 60,
+   "loop": false,
+   "slots_color": [
+    "acento-base",
+    "estado-previsto-borde",
+    "superficie-elevada"
+   ],
+   "slots_texto": []
+  },
+  {
+   "id": "loader-espera-lector",
+   "reducido": false,
+   "archivo": "fuente/loader-espera-lector.json",
+   "fps": 60,
+   "op": 58,
+   "ancho": 360,
+   "alto": 200,
+   "loop": false,
+   "slots_color": [
+    "estado-sin-confirmar-borde",
+    "estado-sin-confirmar-texto",
+    "superficie-elevada"
+   ],
+   "slots_texto": [
+    "texto-loader-espera-lector-1",
+    "texto-loader-espera-lector-2",
+    "texto-loader-espera-lector-3",
+    "texto-loader-espera-lector-4",
+    "texto-loader-espera-lector-5"
+   ]
+  },
+  {
+   "id": "loader-espera-lector",
+   "reducido": true,
+   "archivo": "fuente/loader-espera-lector.reducido.json",
+   "fps": 60,
+   "op": 58,
+   "ancho": 360,
+   "alto": 200,
+   "loop": false,
+   "slots_color": [
+    "estado-sin-confirmar-borde",
+    "estado-sin-confirmar-texto",
+    "superficie-elevada"
+   ],
+   "slots_texto": [
+    "texto-loader-espera-lector-1",
+    "texto-loader-espera-lector-2",
+    "texto-loader-espera-lector-3",
+    "texto-loader-espera-lector-4",
+    "texto-loader-espera-lector-5"
+   ]
+  },
+  {
+   "id": "onboarding-3-lector-confirma",
+   "reducido": false,
+   "archivo": "fuente/onboarding-3-lector-confirma.json",
+   "fps": 60,
+   "op": 107,
+   "ancho": 360,
+   "alto": 480,
+   "loop": false,
+   "slots_color": [
+    "estado-sin-confirmar-borde",
+    "estado-sin-confirmar-texto",
+    "estado-vigente-borde",
+    "estado-vigente-fondo",
+    "estado-vigente-texto",
+    "superficie-elevada"
+   ],
+   "slots_texto": [
+    "texto-onboarding-3-lector-confirma-1",
+    "texto-onboarding-3-lector-confirma-2",
+    "texto-onboarding-3-lector-confirma-3",
+    "texto-onboarding-3-lector-confirma-4",
+    "texto-onboarding-3-lector-confirma-5",
+    "texto-onboarding-3-lector-confirma-6",
+    "texto-onboarding-3-lector-confirma-7",
+    "texto-onboarding-3-lector-confirma-8",
+    "texto-onboarding-3-lector-confirma-9"
+   ]
+  },
+  {
+   "id": "onboarding-3-lector-confirma",
+   "reducido": true,
+   "archivo": "fuente/onboarding-3-lector-confirma.reducido.json",
+   "fps": 60,
+   "op": 107,
+   "ancho": 360,
+   "alto": 480,
+   "loop": false,
+   "slots_color": [
+    "estado-sin-confirmar-borde",
+    "estado-sin-confirmar-texto",
+    "estado-vigente-borde",
+    "estado-vigente-fondo",
+    "estado-vigente-texto",
+    "superficie-elevada"
+   ],
+   "slots_texto": [
+    "texto-onboarding-3-lector-confirma-1",
+    "texto-onboarding-3-lector-confirma-2",
+    "texto-onboarding-3-lector-confirma-3",
+    "texto-onboarding-3-lector-confirma-4",
+    "texto-onboarding-3-lector-confirma-5",
+    "texto-onboarding-3-lector-confirma-6",
+    "texto-onboarding-3-lector-confirma-7",
+    "texto-onboarding-3-lector-confirma-8",
+    "texto-onboarding-3-lector-confirma-9"
+   ]
+  }
+ ],
+ "bloqueados": {
+  "control-presionar (desplazamiento)": "La spec dice «baja levemente», pero el sistema no tiene token para esa magnitud. Se entrega solo el cambio de color."
+ }
+}

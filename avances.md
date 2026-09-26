@@ -189,3 +189,28 @@ En arquitectura faltaba:
 - **Verificación:** 176 vistas sin desborde; `verificar.py` y voz sin hallazgos; Fase 5 10 de 10; capturas en los dos temas sin errores.
 - **Respuesta de Nico (25 sep):** F4-P7 A. 1.2.1 aprobada en `decisiones.md`, Gobernanza, Figma (fila 105:18) y el Léeme; oficial republicado (versión 6), leyéndolo primero.
 - **Integración:** PR https://github.com/Amonsalvem/kino/pull/2 integrado a `main` por pedido de Nico (commit de8ba70).
+
+## Motion · fuentes Lottie y Remotion (26 sep)
+- **Pedido:** Prompt 2B. Lottie JSON fuente con colores como slots de tema, un wrapper `@remotion/lottie` para los mp4_preview y composiciones Remotion con salida ProRes 4444. La codificación final la hace el pipeline.
+- **Construido en `branding/sistema/v3/motion/`:** `tokens.py` (DTCG a frames a 60 fps, curvas y colores); 16 recursos Lottie, cada uno completo y reducido, con 30 slots de color y temas dotLottie oscuro y claro; 4 composiciones Remotion (hero, hero móvil, revocado, turno de Portería), cada una con variante reducida y póster.
+- **Bloqueados:** `flujo-trazo`, `loader-espera-lector` y `onboarding-3-lector-confirma` (`trazo` no tiene curva); el desplazamiento de `control-presionar` (no hay token de magnitud).
+- **Verificación:** tipos sin errores; fotogramas revisados; ProRes 4444 con alfa y H.264 renderizados de punta a punta; voz 0.
+- **Pendiente de Nico:** las preguntas del inventario de motion. Ninguna pieza está aprobada.
+
+## Sistema de motion · @kino/motion 0.1 (26 sep)
+- **Pedido de Nico:** libertad total en motion; dejar a un lado el hero y crear los componentes y herramientas para construir la web y la app con excelencia.
+- **Construido en `paquetes/kino-motion/`:**
+  - Tokens: los de marca más resortes físicos (tacto, hoja, pase, firme), `curva/salir` y reglas de coreografía. Salen como TS, CSS (resortes en `linear()`) y JSON portable.
+  - Núcleo sin DOM: curvas, resortes analíticos, coreografía, máquina de estados del Pase (estado derivado de los hechos) y política de movimiento reducido.
+  - Runtime web: `animar()` interrumpible, física de gestos, FLIP, View Transitions y 9 Web Components (pase, estado, vigencia, lista, acción, hoja, aviso, espera del lector, número).
+  - Herramientas: inspector, `lint-motion`, Lab y pruebas de navegador.
+- **Verificación:** 23 pruebas unitarias, lint 0 hallazgos, 14 pruebas en navegador (390 y 1280 px, claro y oscuro).
+- **Lab:** https://claude.ai/artifact/NoNiKp5nbr3sM9bcsoCzTY
+- **Pendiente de Nico:** stack de la web y la app; aprobar los tokens nuevos.
+
+## Adaptador React Native · @kino/motion-nativo 0.1 (26 sep)
+- **Pedido de Nico:** el adaptador de React Native con Reanimated.
+- **Construido en `paquetes/kino-motion-nativo/`:** configuraciones de Reanimated desde los tokens (los resortes con los mismos parámetros físicos que la web); el plan de cada transición del Pase a partir de la partitura del núcleo; hooks (`usePaseMotion`, `useVigencia`, `usePresion`, `useHoja` con gesto, `useEntrada`, `useNumeroAnimado`); animaciones de disposición y componentes de referencia (`PaseKino`, `BotonKino`, `HojaKino`, `EsperaLectorKino`, `NumeroKino`).
+- **Núcleo:** quedó sin DOM (lo que dependía del navegador pasó a `src/web`) y los tokens traen los colores de marca por tema para la app.
+- **Verificación:** tipos sin errores contra RN 0.76 y Reanimated 3.16; 9 pruebas unitarias; arnés web con react-native-web y 9 pruebas en Chromium (estados, estado honesto, hoja lanzada con el puntero); lint-motion 0. El paquete web sigue en verde.
+- **Pendiente:** probarlo en un simulador o dispositivo; decidir el stack.

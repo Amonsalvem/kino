@@ -1,0 +1,104 @@
+{
+ "fps": 60,
+ "clips": {
+  "aparecer": {
+   "desde": 1,
+   "hasta": 50,
+   "estado_inicial": "sin-confirmar",
+   "estado_final": "sin-confirmar",
+   "duracion": "aparecer/duracion",
+   "curva": "aparecer/curva"
+  },
+  "confirmar": {
+   "desde": 60,
+   "hasta": 109,
+   "estado_inicial": "sin-confirmar",
+   "estado_final": "vigente",
+   "duracion": "aparecer/duracion",
+   "curva": "aparecer/curva"
+  },
+  "latir": {
+   "desde": 120,
+   "hasta": 228,
+   "estado_inicial": "vigente",
+   "estado_final": "vigente",
+   "duracion": "latir/duracion",
+   "curva": "latir/curva"
+  },
+  "caducar": {
+   "desde": 240,
+   "hasta": 294,
+   "estado_inicial": "vigente",
+   "estado_final": "vencido",
+   "duracion": "caducar/duracion",
+   "curva": "caducar/curva"
+  },
+  "revocar": {
+   "desde": 300,
+   "hasta": 314,
+   "estado_inicial": "vigente",
+   "estado_final": "revocado",
+   "duracion": "revocar/duracion",
+   "curva": "revocar/curva"
+  }
+ },
+ "piezas_por_estado": {
+  "sin-confirmar": [
+   "tarjeta",
+   "borde-sin",
+   "punto"
+  ],
+  "vigente": [
+   "tarjeta",
+   "borde",
+   "punto",
+   "brillo",
+   "pista",
+   "barra"
+  ],
+  "vencido": [
+   "tarjeta",
+   "borde",
+   "punto",
+   "pista"
+  ],
+  "revocado": [
+   "tarjeta",
+   "borde",
+   "punto",
+   "corte"
+  ]
+ },
+ "color_por_estado": {
+  "sin-confirmar": {
+   "punto": "estado/sin-confirmar/borde",
+   "tarjeta": "superficie/membrana"
+  },
+  "vigente": {
+   "borde": "estado/vigente/borde",
+   "punto": "estado/vigente/borde",
+   "tarjeta": "superficie/membrana"
+  },
+  "vencido": {
+   "borde": "estado/vencido/borde",
+   "punto": "estado/vencido/borde",
+   "tarjeta": "superficie/membrana"
+  },
+  "revocado": {
+   "borde": "estado/revocado/borde",
+   "punto": "estado/revocado/borde",
+   "tarjeta": "superficie/base"
+  }
+ },
+ "tokens": {
+  "estado/revocado/borde": "#86A799",
+  "estado/revocado/texto": "#FEC6C0",
+  "estado/sin-confirmar/borde": "#86A799",
+  "estado/vencido/borde": "#86A799",
+  "estado/vigente/borde": "#00EAA5",
+  "estado/vigente/texto": "#2FF8B2",
+  "superficie/base": "#011F16",
+  "superficie/elevada": "#0B2A20",
+  "superficie/membrana": "#17362B"
+ }
+}

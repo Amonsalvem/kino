@@ -1,0 +1,111 @@
+{
+ "$description": "Tokens de motion que el sistema de marca todavía no tiene. Duraciones, curvas, escalonados y distancias se leen de gorr-brand-system/clientes/kino/tokens/40-movimiento.tokens.json: aquí no se repiten. Borrador sin aprobar (26 sep).",
+ "resorte": {
+  "$description": "Resortes físicos para lo que el usuario toca o arrastra. Parámetros de Reanimated, SwiftUI (interpolatingSpring) y Compose: rigidez, amortiguación, masa. Regla de marca: Kino es exacto, así que ningún resorte pasa de 3 % de rebote (ζ ≥ 0,75).",
+  "tacto": {
+   "$value": {
+    "rigidez": 520,
+    "amortiguacion": 34,
+    "masa": 1
+   },
+   "$description": "Presionar y soltar un control. Rápido y casi sin rebote."
+  },
+  "hoja": {
+   "$value": {
+    "rigidez": 260,
+    "amortiguacion": 30,
+    "masa": 1
+   },
+   "$description": "Hojas, paneles y todo lo que se arrastra. Sigue al dedo y se asienta."
+  },
+  "pase": {
+   "$value": {
+    "rigidez": 180,
+    "amortiguacion": 22,
+    "masa": 1
+   },
+   "$description": "Un Pase que cambia de lugar: reordenar la lista, abrir el detalle."
+  },
+  "firme": {
+   "$value": {
+    "rigidez": 400,
+    "amortiguacion": 40,
+    "masa": 1
+   },
+   "$description": "Números y datos. Amortiguación crítica: llega sin pasarse."
+  }
+ },
+ "coreografia": {
+  "$description": "Reglas de orden cuando varias cosas se mueven juntas.",
+  "cascada-maximo": {
+   "$value": 8,
+   "$description": "Elementos que entran escalonados; del noveno en adelante entran con el octavo."
+  },
+  "cascada-tope": {
+   "$value": {
+    "value": 520,
+    "unit": "ms"
+   },
+   "$description": "El escalonado total nunca pasa de este tiempo, aunque haya muchos elementos."
+  },
+  "salida-factor": {
+   "$value": 0.6,
+   "$description": "Salir dura el 60 % de entrar: lo que se va no debe hacer esperar."
+  }
+ },
+ "latir": {
+  "ciclos": {
+   "$value": 3,
+   "$description": "Ciclos del punto vigente antes de quedar quieto (WCAG 2.2.2). Vuelve a latir cuando el Pase cambia."
+  }
+ },
+ "profundidad": {
+  "$description": "Capas del espacio de Kino, de atrás hacia adelante. Lo que está más adelante se mueve más rápido.",
+  "sustrato": {
+   "$value": 0
+  },
+  "membrana": {
+   "$value": 1
+  },
+  "pase": {
+   "$value": 2
+  },
+  "hoja": {
+   "$value": 3
+  },
+  "aviso": {
+   "$value": 4
+  }
+ },
+ "escala": {
+  "presion": {
+   "$value": 0.97,
+   "$description": "Escala de un control mientras se presiona."
+  },
+  "entrada": {
+   "$value": 0.965,
+   "$description": "Escala inicial de una tarjeta que aparece."
+  }
+ },
+ "curva": {
+  "$description": "Curvas que la marca aún no tiene.",
+  "salir": {
+   "$value": [
+    0.3,
+    0,
+    0.8,
+    0.15
+   ],
+   "$description": "Lo que se va: arranca lento y acelera fuera. No es revocar: nadie cortó nada."
+  }
+ },
+ "aviso": {
+  "visible": {
+   "$value": {
+    "value": 5400,
+    "unit": "ms"
+   },
+   "$description": "Tiempo que un aviso queda en pantalla: tres ciclos de latir."
+  }
+ }
+}

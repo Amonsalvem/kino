@@ -1,0 +1,35 @@
+{
+  "name": "@kino/motion-nativo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Adaptador de @kino/motion para React Native con Reanimated 3 y Gesture Handler 2: mismos tokens, resortes y partitura del Pase que la web.",
+  "main": "src/index.ts",
+  "peerDependencies": {
+    "react": ">=18",
+    "react-native": ">=0.74",
+    "react-native-reanimated": ">=3.10 <4",
+    "react-native-gesture-handler": ">=2.14"
+  },
+  "scripts": {
+    "tipos": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run",
+    "web": "vite build --config web/vite.config.mjs",
+    "probar-web": "node web/probar.mjs",
+    "verificar": "npm run tipos && npm test && npm run web && npm run probar-web",
+    "artefacto": "vite build --config web/vite.config.mjs --minify esbuild --sourcemap false && node web/unir.mjs"
+  },
+  "devDependencies": {
+    "@babel/core": "7.26.0",
+    "@types/react": "18.3.12",
+    "@vitejs/plugin-react": "4.3.4",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-native": "0.76.9",
+    "react-native-gesture-handler": "2.20.2",
+    "react-native-reanimated": "3.16.7",
+    "react-native-web": "0.19.13",
+    "typescript": "5.6.3",
+    "vite": "5.4.11",
+    "vitest": "2.1.9"
+  }
+}
