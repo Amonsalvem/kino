@@ -412,7 +412,7 @@ Lámina: `kino/parada-4.html` (https://claude.ai/artifact/DBF7w1VTGPtJ9oQwdz4tXa
 - **Decisión de Nico:** `trazo` usa `duracion/trazo` con `curva/crecer`. Se aplica a `flujo-trazo`, `loader-espera-lector` y `onboarding-3-lector-confirma`. Estado: decidida para el borrador del inventario de motion; el inventario completo sigue sin aprobar.
 
 ### M1 · Tokens nuevos de motion · APROBADA (Nico, 26 sep)
-- **Qué se aprueba** (fuente: `paquetes/kino-motion/tokens/motion.tokens.json`):
+- **Qué se aprueba** (fuente original: `paquetes/kino-motion/tokens/motion.tokens.json`, hoy en `_obsoleto/motion.tokens-2026-09-26.json`):
   - `resorte/tacto` 520 · 34 · 1 (ζ 0,745, 396 ms, rebote 2,98 %): presionar y soltar.
   - `resorte/hoja` 260 · 30 · 1 (ζ 0,93, 479 ms, rebote 0,03 %): hojas y lo que se arrastra.
   - `resorte/pase` 180 · 22 · 1 (ζ 0,82, 689 ms, rebote 1,11 %): un Pase que cambia de lugar.
@@ -422,4 +422,4 @@ Lámina: `kino/parada-4.html` (https://claude.ai/artifact/DBF7w1VTGPtJ9oQwdz4tXa
   - Coreografía: `cascada-maximo` 8, `cascada-tope` 520 ms, `salida-factor` 0,6.
   - `latir/ciclos` 3, `escala/presion` 0,97, `escala/entrada` 0,965, `profundidad/*` (sustrato 0 → aviso 4), `aviso/visible` 5 400 ms.
 - **Formato:** los resortes van en rigidez, amortiguación y masa, los mismos parámetros de Reanimated, SwiftUI y Compose.
-- **Dónde viven:** en el paquete de motion, que lee de la marca las duraciones, curvas y verbos que ya existían. Todavía no están en `gorr-brand-system/clientes/kino/tokens` ni en la colección Movimiento de Figma. Llevarlos allá es el paso siguiente.
+- **Dónde viven (26 sep):** en los DTCG de la marca (`gorr-brand-system/clientes/kino/tokens/40-movimiento.tokens.json` y el verbo `salir` en `50-semantico-comun.tokens.json`) y en la colección Movimiento de Figma (`BO7UnDO9iE0aG6yUpNj0bc`, de 28 a 54 variables). `@kino/motion` y `@kino/motion-nativo` los leen de la marca; el archivo del paquete pasó a `_obsoleto/`.

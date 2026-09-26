@@ -216,3 +216,4 @@ En arquitectura faltaba:
 - **Pendiente:** probarlo en un simulador o dispositivo; decidir el stack.
 - **Integración (26 sep):** PR https://github.com/Amonsalvem/kino/pull/4 integrado a `main` por pedido de Nico (commit 3dd1f7e). Incluye todo lo de motion: @kino/motion, el adaptador nativo y los recursos animados. Los tokens nuevos siguen como propuesta hasta su aprobación.
 - **Tokens de motion aprobados (26 sep):** Nico aprueba los tokens nuevos: resortes, `curva/salir`, coreografía, latir, escalas, profundidad y aviso. Registrado en `decisiones.md` (M1). Pendiente: llevarlos a los DTCG de la marca y a Figma.
+- **Tokens de motion en la marca y en Figma (26 sep):** los tokens de M1 entran a `40-movimiento.tokens.json` y `50-semantico-comun.tokens.json` (validación: 0 errores; ciclo de marca completo). La colección Movimiento de Figma pasa de 28 a 54 variables, 0 errores. `@kino/motion` lee todo de la marca; el archivo de tokens del paquete quedó en `_obsoleto/`.

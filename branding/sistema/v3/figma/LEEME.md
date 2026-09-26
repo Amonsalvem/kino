@@ -4,7 +4,7 @@ Archivo `BO7UnDO9iE0aG6yUpNj0bc` (https://www.figma.com/design/BO7UnDO9iE0aG6yUp
 
 ## Cómo se sincroniza
 
-1. `python3 espec.py`: lee los tokens DTCG de `gorr-brand-system/clientes/kino/tokens/` y escribe `espec.json` (271 variables, cinco colecciones).
+1. `python3 espec.py`: lee los tokens DTCG de `gorr-brand-system/clientes/kino/tokens/` y escribe `espec.json` (297 variables, cinco colecciones).
 2. `python3 sincronizar.py`: escribe un `sync-<colección>.js` por colección. Cada uno se corre con `use_figma`, en este orden: primitivos, espacio, movimiento, tipografía, color. Crea lo que falta y actualiza valores y alias. No borra variables.
 3. `js/preludio.js` define las ayudas que ligan relleno, trazo, radio, espacio y estilo de texto a una variable. Los scripts `js/p3a-*.js` y `js/p3b-*.js` construyen los componentes; `js/_run.js` es el último que se corrió (preludio más la parte que tocaba).
 4. Reglas de `use_figma`: una página por llamada, llamadas en serie, fuentes cargadas antes de escribir texto.
@@ -20,6 +20,8 @@ Archivo `BO7UnDO9iE0aG6yUpNj0bc` (https://www.figma.com/design/BO7UnDO9iE0aG6yUp
 3. `python3 ../verificacion/fase5.py ../figma/variables-figma.json`: comprobaciones 6 y 7.
 
 Resultado del 25 sep 2026 (después de la revisión de la Parada 4): 271 variables (con `texto/enlace`) y 3 estilos de efecto por tema; 0 tokens sin variable; 0 valores distintos; 0 pinturas sin variable en 14 páginas.
+
+26 sep 2026: con los tokens de motion aprobados (M1), `espec.json` pasa a 297 variables. La sincronización de Movimiento creó 26 (`curva/salir`, `resorte/*`, `coreografia/*`, `latir/ciclos`, `escala/*`, `profundidad/*`, `aviso/visible` y el verbo `salir/curva`): la colección queda en 54 variables, sin errores. Los resortes se guardan como tres números (rigidez, amortiguación, masa) porque Figma no tiene tipo resorte.
 
 ## Auto-layout y espaciado (revisión de la Parada 4)
 
