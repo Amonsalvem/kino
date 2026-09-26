@@ -8,7 +8,8 @@ Entradas
 
 Salidas en entregables/<id>/ (se ignoran en git, salvo lo liviano; ver README):
   blender  → <nombre>.master.mov (ProRes 4444 + alfa), <nombre>.hevc_app.mp4;
-             con fondo transparente además <nombre>.alpha.webm (VP9) y <nombre>.alpha.mov (HEVC con alfa, hvc1)
+             con fondo transparente además <nombre>.alpha.webm (VP9) y <nombre>.alpha.mp4 (HEVC con alfa, hvc1);
+             opacos además <nombre>.vp9.webm y <nombre>.h264.mp4 para la web
   remotion → <id>.av1.webm, <id>.h264.mp4, <id>.poster.avif
 
 Los comandos son los de Nico con dos ajustes: 60 fps (el sistema entero está a 60) y HEVC con alfa por libx265
@@ -78,7 +79,13 @@ def blender(filtro):
                destino / f'{nombre}.alpha.webm')
             # Web con transparencia (Safari): HEVC con capa alfa por libx265
             ff('-i', master, *cuadros, '-c:v', 'libx265', '-pix_fmt', 'yuva420p', '-crf', 24, '-tag:v', 'hvc1',
-               '-movflags', '+faststart', destino / f'{nombre}.alpha.mov')
+               '-movflags', '+faststart', destino / f'{nombre}.alpha.mp4')
+        else:
+            # Web opaca: VP9 y respaldo H.264
+            ff('-i', master, *cuadros, '-c:v', 'libvpx-vp9', '-pix_fmt', 'yuv420p', '-crf', 32, '-b:v', 0, '-row-mt', 1,
+               destino / f'{nombre}.vp9.webm')
+            ff('-i', master, *cuadros, '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', 20, '-movflags', '+faststart',
+               destino / f'{nombre}.h264.mp4')
 
 
 def remotion(filtro):
