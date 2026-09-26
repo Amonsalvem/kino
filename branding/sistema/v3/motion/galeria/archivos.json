@@ -122,5 +122,7 @@
  "entregables/conjunto-noche-lector-confirma/conjunto-noche-lector-confirma.vp9.webm": "branding/sistema/v3/motion/entregables/conjunto-noche-lector-confirma/conjunto-noche-lector-confirma.vp9.webm",
  "entregables/conjunto-noche-lector-confirma/conjunto-noche-lector-confirma.h264.mp4": "branding/sistema/v3/motion/entregables/conjunto-noche-lector-confirma/conjunto-noche-lector-confirma.h264.mp4",
  "entregables/conjunto-noche-lector-confirma/conjunto-noche-lector-confirma.reducido.vp9.webm": "branding/sistema/v3/motion/entregables/conjunto-noche-lector-confirma/conjunto-noche-lector-confirma.reducido.vp9.webm",
- "entregables/conjunto-noche-lector-confirma/conjunto-noche-lector-confirma.reducido.h264.mp4": "branding/sistema/v3/motion/entregables/conjunto-noche-lector-confirma/conjunto-noche-lector-confirma.reducido.h264.mp4"
+ "entregables/conjunto-noche-lector-confirma/conjunto-noche-lector-confirma.reducido.h264.mp4": "branding/sistema/v3/motion/entregables/conjunto-noche-lector-confirma/conjunto-noche-lector-confirma.reducido.h264.mp4",
+ "galeria/draco/draco_wasm_wrapper.js": "branding/sistema/v3/motion/galeria/draco/draco_wasm_wrapper.js",
+ "galeria/draco/draco_decoder.wasm": "branding/sistema/v3/motion/galeria/draco/draco_decoder.wasm"
 }

@@ -53,6 +53,23 @@ FALTAN = []
 archivos = {}
 
 
+def datos_visor():
+    import base64
+    import struct
+    glb = (AQUI.parent / 'blender/glb/pase-3d-objeto.glb').read_bytes()
+    n = struct.unpack_from('<I', glb, 12)[0]
+    gltf = json.loads(glb[20:20 + n])
+    token_pieza = {nodo['name']: nodo['extras']['kino_token'] for nodo in gltf['nodes'] if 'kino_token' in nodo.get('extras', {})}
+    clips = json.loads((AQUI.parent / 'blender/glb/pase-3d-objeto.clips.json').read_text())
+    datos = {'fps': clips['fps'], 'clips': clips['clips'], 'piezas_por_estado': clips['piezas_por_estado'],
+             'color_por_estado': clips['color_por_estado'], 'token_pieza': token_pieza, 'tokens': C,
+             'curvas': T['curva'], 'verbos': T['verbo'], 'duracion_latir': T['duracion']['latir']['frames'],
+             'glb': base64.b64encode(glb).decode()}
+    for f in ('draco_wasm_wrapper.js', 'draco_decoder.wasm'):
+        archivos[f'galeria/draco/{f}'] = str((AQUI / 'draco' / f).relative_to(AQUI.parents[4]))
+    return json.dumps(datos, ensure_ascii=False).replace('</', '<\\/')
+
+
 def pub(rel):
     ruta = ENT / rel
     if not ruta.exists():
@@ -113,6 +130,7 @@ def seccion_3d():
 PAGINA = """<meta charset="utf-8">
 <title>Motion de Kino</title>
 <meta name="description" content="Galería de las piezas animadas de Kino.">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700;800&family=JetBrains+Mono:wght@400&display=swap">
 <style>
@@ -149,6 +167,10 @@ h2{font-weight:700;font-size:24px;margin:0}
 figcaption h3{font-size:16px;font-weight:700;margin:0}
 figcaption p{margin:2px 0 0;color:var(--t2);font-size:14px}
 .chip{display:inline-flex;align-items:center;gap:6px;font:700 12px/1.3 var(--archivo);padding:3px 10px;border-radius:var(--r-chip);border:1px dashed var(--sin-b);color:var(--sin-t)}
+.visor{display:grid;gap:12px}
+.visor canvas{display:block;width:100%%;aspect-ratio:16/9;border-radius:var(--r-tarjeta);border:1px solid var(--elevada);background:radial-gradient(80%% 90%% at 50%% 40%%,var(--base),var(--abismo));touch-action:pan-y;cursor:grab}
+.clips{display:flex;flex-wrap:wrap;gap:8px}
+.clips .boton{padding:9px 12px;font-size:13px}
 .faltan{display:flex;flex-wrap:wrap;gap:8px;align-items:center;color:var(--t2);font-size:14px}
 code{font-family:var(--mono);font-size:13px;color:var(--t2)}
 @media (prefers-reduced-motion:reduce){.boton{transition:none}}
@@ -174,6 +196,20 @@ code{font-family:var(--mono);font-size:13px;color:var(--t2)}
 </section>
 <section>
  <div class="cab"><h2>Escenas 3D</h2><span class="tecnica">Blender · VP9 y HEVC con alfa sobre damero</span></div>
+ <figure class="pieza visor">
+  <canvas id="visor-lienzo" aria-label="Pase 3D interactivo; arrastra para girarlo"></canvas>
+  <div class="clips">
+   <button class="boton" type="button" data-clip="secuencia" aria-pressed="true">Secuencia</button>
+   <button class="boton" type="button" data-clip="aparecer" aria-pressed="false">Aparecer</button>
+   <button class="boton" type="button" data-clip="confirmar" aria-pressed="false">Confirmar</button>
+   <button class="boton" type="button" data-clip="latir" aria-pressed="false">Latir</button>
+   <button class="boton" type="button" data-clip="caducar" aria-pressed="false">Caducar</button>
+   <button class="boton" type="button" data-clip="revocar" aria-pressed="false">Revocar</button>
+  </div>
+  <figcaption><h3>Pase 3D interactivo</h3><p>El modelo GLB con Draco, en three.js. Arrástralo para girarlo. <span class="nota" id="visor-estado">Cargando el modelo…</span></p></figcaption>
+ </figure>
+ <script type="application/json" id="visor-datos">%(visor_datos)s</script>
+ <script type="module">%(visor_js)s</script>
  <div class="rejilla">%(tres_d)s</div>
 </section>
 </div>
@@ -200,6 +236,7 @@ code{font-family:var(--mono);font-size:13px;color:var(--t2)}
       if (v) vista.observe(v);
     });
     botonR.setAttribute('aria-pressed', String(reducido));
+    document.documentElement.dataset.reducido = reducido ? '1' : '0';
   }
   botonR.addEventListener('click', () => { reducido = !reducido; pintar(); });
   botonP.addEventListener('click', () => {
@@ -223,6 +260,7 @@ def main():
         'sin_b': C['estado/sin-confirmar/borde'], 'sin_t': C['estado/sin-confirmar/texto'],
         'remotion': seccion_remotion(), 'lottie': seccion_lottie(), 'tres_d': seccion_3d(),
         'faltan': ', '.join(f'<code>{f}</code>' for f in FALTAN),
+        'visor_datos': datos_visor(), 'visor_js': (AQUI / 'visor.js').read_text(),
     }
     (AQUI / 'index.html').write_text(pagina)
     (AQUI / 'archivos.json').write_text(json.dumps(archivos, ensure_ascii=False, indent=1) + '\n')
