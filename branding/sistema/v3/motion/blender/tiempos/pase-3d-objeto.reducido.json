@@ -1,0 +1,50 @@
+{
+ "aparecer": {
+  "frames": 50,
+  "calculados": 50,
+  "segundos": 1364.9,
+  "por_frame_calculado": 27.3,
+  "resolucion": [
+   1920,
+   1080
+  ],
+  "muestras": 14,
+  "motor": "BLENDER_EEVEE_NEXT"
+ },
+ "confirmar": {
+  "frames": 50,
+  "calculados": 50,
+  "segundos": 1377.1,
+  "por_frame_calculado": 27.54,
+  "resolucion": [
+   1920,
+   1080
+  ],
+  "muestras": 14,
+  "motor": "BLENDER_EEVEE_NEXT"
+ },
+ "latir": {
+  "frames": 1,
+  "calculados": 1,
+  "segundos": 27.7,
+  "por_frame_calculado": 27.72,
+  "resolucion": [
+   1920,
+   1080
+  ],
+  "muestras": 14,
+  "motor": "BLENDER_EEVEE_NEXT"
+ },
+ "avisar": {
+  "frames": 15,
+  "calculados": 15,
+  "segundos": 412.2,
+  "por_frame_calculado": 27.48,
+  "resolucion": [
+   1920,
+   1080
+  ],
+  "muestras": 14,
+  "motor": "BLENDER_EEVEE_NEXT"
+ }
+}

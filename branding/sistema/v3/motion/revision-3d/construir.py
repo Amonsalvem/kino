@@ -24,6 +24,7 @@ R = BL / 'render'
 T = json.loads((MOTION / 'tokens.motion.json').read_text())['oscuro']
 C = T['color']
 sys.path.insert(0, str(BL))
+import bpy  # noqa: E402,F401  (bmesh, que usa pase.py, solo existe tras importar bpy)
 
 
 def jpeg(ruta, fondo=None, ancho=1280, recorte=None):
@@ -78,6 +79,11 @@ def tiempos():
     return filas, total_s, total_f
 
 
+def _noche(f):
+    red = R / f'conjunto-noche-lector-confirma.reducido/{f:04d}.png'
+    return red if red.exists() else R / f'conjunto-noche-lector-confirma/{f:04d}.png'
+
+
 def medir():
     import medir as m
     casos = [
@@ -86,8 +92,8 @@ def medir():
         ('Pase sin confirmar (aparecer, último frame)', cuadro('pase-3d-objeto', 'aparecer', 50),
          ['estado/sin-confirmar/borde', 'estado/sin-confirmar/texto', 'texto/primario']),
         ('Pase por vencer (avisar, último frame)', None, ['estado/por-vencer/borde', 'estado/por-vencer/texto', 'estado/por-vencer/fondo']),
-        ('Portería: indicador antes de la lectura', R / 'conjunto-noche-lector-confirma.reducido/0090.png', ['estado/sin-confirmar/borde']),
-        ('Portería: indicador confirmado', R / 'conjunto-noche-lector-confirma.reducido/0200.png', ['estado/vigente/borde']),
+        ('Portería: indicador antes de la lectura', _noche(100), ['estado/sin-confirmar/borde']),
+        ('Portería: indicador confirmado', _noche(175), ['estado/vigente/borde']),
     ]
     import pase
     s, f = pase.rango('avisar')

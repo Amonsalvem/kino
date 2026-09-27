@@ -1,0 +1,90 @@
+{
+ "Pase vigente (latir, frame 55)": {
+  "estado/vigente/borde": {
+   "hex": "#00EAA5",
+   "pixeles_exactos": 6841,
+   "delta_e_min": 0.0,
+   "exacto": true
+  },
+  "estado/vigente/texto": {
+   "hex": "#2FF8B2",
+   "pixeles_exactos": 852,
+   "delta_e_min": 0.0,
+   "exacto": true
+  },
+  "estado/vigente/fondo": {
+   "hex": "#00422C",
+   "pixeles_exactos": 6361,
+   "delta_e_min": 0.0,
+   "exacto": true
+  },
+  "texto/primario": {
+   "hex": "#EFFCF7",
+   "pixeles_exactos": 1013,
+   "delta_e_min": 0.0,
+   "exacto": true
+  },
+  "texto/secundario": {
+   "hex": "#CEDBD6",
+   "pixeles_exactos": 379,
+   "delta_e_min": 0.0,
+   "exacto": true
+  }
+ },
+ "Pase sin confirmar (aparecer, último frame)": {
+  "estado/sin-confirmar/borde": {
+   "hex": "#86A799",
+   "pixeles_exactos": 3042,
+   "delta_e_min": 0.0,
+   "exacto": true
+  },
+  "estado/sin-confirmar/texto": {
+   "hex": "#DBE9E3",
+   "pixeles_exactos": 1088,
+   "delta_e_min": 0.0,
+   "exacto": true
+  },
+  "texto/primario": {
+   "hex": "#EFFCF7",
+   "pixeles_exactos": 2052,
+   "delta_e_min": 0.0,
+   "exacto": true
+  }
+ },
+ "Pase por vencer (avisar, último frame)": {
+  "estado/por-vencer/borde": {
+   "hex": "#FFC36D",
+   "pixeles_exactos": 8593,
+   "delta_e_min": 0.0,
+   "exacto": true
+  },
+  "estado/por-vencer/texto": {
+   "hex": "#FFD49C",
+   "pixeles_exactos": 969,
+   "delta_e_min": 0.0,
+   "exacto": true
+  },
+  "estado/por-vencer/fondo": {
+   "hex": "#503300",
+   "pixeles_exactos": 15637,
+   "delta_e_min": 0.0,
+   "exacto": true
+  }
+ },
+ "Portería: indicador antes de la lectura": {
+  "estado/sin-confirmar/borde": {
+   "hex": "#86A799",
+   "pixeles_exactos": 0,
+   "delta_e_min": 1.11,
+   "exacto": false
+  }
+ },
+ "Portería: indicador confirmado": {
+  "estado/vigente/borde": {
+   "hex": "#00EAA5",
+   "pixeles_exactos": 0,
+   "delta_e_min": 0.74,
+   "exacto": false
+  }
+ }
+}

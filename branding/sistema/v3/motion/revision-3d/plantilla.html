@@ -26,9 +26,10 @@ section{display:grid;gap:24px}
 .bloque ul{margin:0;padding-inline-start:18px;display:grid;gap:6px;color:var(--texto-secundario);font-size:15px}
 .bloque li::marker{color:var(--borde-definido)}
 code{font-family:var(--mono);font-size:.86em;color:var(--texto-tenue)}
-.comparador{position:relative;aspect-ratio:var(--r);max-width:100%;border-radius:var(--r-tarjeta);overflow:hidden;background:var(--superficie-base);border:1px solid var(--superficie-elevada);--x:50%;touch-action:pan-y}
-.comparador img{position:absolute;inset:0;inline-size:100%;block-size:100%;object-fit:cover;display:block}
+.comparador{position:relative;max-width:100%;border-radius:var(--r-tarjeta);overflow:hidden;background:var(--superficie-base);border:1px solid var(--superficie-elevada);--x:50%;touch-action:pan-y}
+.comparador > img{display:block;inline-size:100%;block-size:auto}
 .comparador .despues{position:absolute;inset:0;clip-path:inset(0 0 0 var(--x))}
+.comparador .despues img{display:block;inline-size:100%;block-size:100%;object-fit:fill}
 .comparador .despues::before{content:"";position:absolute;inset-block:0;inset-inline-start:var(--x);inline-size:2px;margin-inline-start:-1px;background:var(--texto-primario);z-index:1;box-shadow:0 0 0 1px var(--superficie-abismo)}
 .comparador input{position:absolute;inset:0;inline-size:100%;block-size:100%;margin:0;opacity:0;cursor:ew-resize}
 .comparador:has(input:focus-visible){outline:2px solid var(--borde-foco);outline-offset:3px}
@@ -116,7 +117,7 @@ a:focus-visible{outline:2px solid var(--borde-foco);outline-offset:2px}
 <section>
  <div class="cab"><h2>¿Los estados salen con su color?</h2><p>La escena usa una curva de tono propia para las luces, pero las marcas de estado pasan sin curva. Se contaron los píxeles opacos con el hex exacto de cada token (±1 por canal, redondeo de 8 bits).</p></div>
  {{TABLA_COLOR}}
- <p class="nota">Los estados terminales (vencido, usado, revocado) van a 0,72 de opacidad, como manda la partitura; sobre fondo transparente no son opacos y no entran en esta cuenta.</p>
+ <p class="nota">Los estados terminales (vencido, usado, revocado) van a 0,72 de opacidad, como manda la partitura; sobre fondo transparente no son opacos y no entran en esta cuenta. En la portería completa la cámara se mueve: el desenfoque de movimiento y la profundidad de campo mezclan el borde del indicador, que mide pocos píxeles, y el color queda a ΔE 0,7–1,1 del token (el ojo no distingue diferencias menores a 2). La variante reducida, con la cámara quieta, se mide cuando termine su render.</p>
 </section>
 
 <section>
