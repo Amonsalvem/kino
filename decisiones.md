@@ -458,4 +458,5 @@ Pedido de Nico: subir las tres escenas de Blender a nivel profesional; libertad 
 3. M3D-6: **APROBADA** (A). Sin cambios: la aurora de noche ya es índigo y violeta.
 4. M3D-7: **APROBADA** (A). Sin cambios: no hay escena del Pase vivo con arco.
 5. Las siete decisiones de motion 3D quedan aprobadas.
-- **Pendiente por M3D-4:** las fuentes de Remotion (`motion/remotion/src/piezas.tsx`) y Lottie (`motion/lottie/generar.py`) siguen con la tarjeta en `superficie/elevada`; cambiarlas exige volver a renderizar los heroes y los previews. Las piezas del Pase del sitio oficial (1.2.1) tampoco cambian sin una versión nueva.
+- **M3D-4 en Remotion y Lottie (27 sep):** `piezas.tsx` y `generar.py` pasan la tarjeta a membrana y la pista a elevada; heroes, revocado y 28 previews re-renderizados. Las piezas del Pase del sitio oficial (1.2.1) no cambian sin una versión nueva.
+- **Queda fuera:** M3D-5 en Remotion y Lottie. Las dos cambian de estado con un fundido cruzado de la tarjeta entera; llevar ahí el fundido a través exige separar fondo y textos en capas.

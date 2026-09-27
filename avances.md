@@ -230,4 +230,5 @@ En arquitectura faltaba:
 - **Segunda respuesta de Nico (27 sep):** M3D-4 A, M3D-5 A, M3D-6 A y M3D-7 A. Las siete decisiones de motion 3D quedan aprobadas.
   - **Aplicado en `@kino/motion` y `@kino/motion-nativo`:** tarjeta en membrana, pista de la barra en elevada, fundido a través de chip, dato y nota con la regla común `nucleo/textos.ts`.
   - **Verificación:** web con 26 pruebas unitarias, `lint-motion` sin hallazgos y 18 pruebas en navegador (entre ellas, el fundido del chip a 1280 y 390 px); app con tipos sin errores, pruebas unitarias y 11 pruebas en el arnés web.
-  - **Pendiente:** Remotion, Lottie y las piezas del sitio siguen con la tarjeta en elevada (ver `decisiones.md`).
+  - **Remotion y Lottie (27 sep):** tarjeta en membrana y pista en elevada; 14 recursos Lottie regenerados, 28 previews y los masters de hero, hero móvil y revocado re-renderizados (≈12 min de render y 5 de codificación). Galería republicada (versión 5).
+  - **Pendiente:** M3D-5 en Remotion y Lottie (fundido a través con capas separadas) y las piezas del Pase del sitio, que esperan una versión nueva.
