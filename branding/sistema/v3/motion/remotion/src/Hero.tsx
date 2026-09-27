@@ -3,9 +3,9 @@
 // del inventario); la aurora es fija y nunca queda detrás de un QR (esta composición no muestra QR).
 import React from 'react';
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
-import {Boton, Burbuja, Tarjeta} from './piezas';
+import {Boton, Burbuja, PaseEnSecuencia} from './piezas';
 import {avance, latido, lineaDeTiempo} from './tiempo';
-import {AURORA, dur, ESP, Estado, SUBIDA} from './tokens';
+import {AURORA, dur, ESP, SUBIDA} from './tokens';
 
 export const HERO = lineaDeTiempo([
 	{id: 'presionar', duracion: 'responder/duracion'},
@@ -35,18 +35,23 @@ export const Hero: React.FC<HeroProps> = ({reducido, vertical}) => {
 	const soltar = avance(f, {inicio: tramos.aparecer.inicio, fin: tramos.aparecer.inicio + dur('responder/duracion')}, 'responder/curva');
 	const a = avance(f, tramos.aparecer, 'aparecer/curva');
 	const e = avance(f, tramos.enviar, 'aparecer/curva');
-	const c = avance(f, tramos.confirmar, 'aparecer/curva');
-	const v = avance(f, tramos.porVencer, 'responder/curva');
 	const k = avance(f, tramos.caducar, 'caducar/curva');
 	const brillo = reducido ? 0 : latido(f, tramos.vigente);
 
-	// Un Pase solo es vigente después de confirmar: la capa vigente vale c, que es 0 antes de ese tramo.
-	const capas: {estado: Estado; opacidad: number; dato: string; evidencia?: string; barra?: number}[] = [
-		{estado: 'previsto', opacidad: 1 - e, dato: DATO},
-		{estado: 'sin-confirmar', opacidad: e * (1 - c), dato: 'Casa 14 · enviado 3:41 p. m.'},
-		{estado: 'vigente', opacidad: c * (1 - v), dato: DATO, evidencia: EVIDENCIA, barra: 1},
-		{estado: 'por-vencer', opacidad: v * (1 - k), dato: 'Casa 14 · vence 6:00 p. m.', evidencia: EVIDENCIA, barra: 1 - k},
-		{estado: 'vencido', opacidad: k, dato: 'Casa 14 · venció 6:00 p. m.', barra: 0},
+	// Un Pase solo es vigente después de confirmar: la capa vigente empieza a entrar en el tramo confirmar.
+	// Cuerpo en fundido cruzado; textos en fundido a través (M3D-5) con el verbo de cada cambio.
+	const estados = [
+		{estado: 'previsto' as const, dato: DATO},
+		{estado: 'sin-confirmar' as const, dato: 'Casa 14 · enviado 3:41 p. m.'},
+		{estado: 'vigente' as const, dato: DATO, evidencia: EVIDENCIA, barra: 1, brillo},
+		{estado: 'por-vencer' as const, dato: 'Casa 14 · vence 6:00 p. m.', evidencia: EVIDENCIA, barra: 1 - k},
+		{estado: 'vencido' as const, dato: 'Casa 14 · venció 6:00 p. m.', barra: 0},
+	];
+	const cambios = [
+		{tramo: tramos.enviar, curva: 'aparecer/curva'},
+		{tramo: tramos.confirmar, curva: 'aparecer/curva'},
+		{tramo: tramos.porVencer, curva: 'responder/curva'},
+		{tramo: tramos.caducar, curva: 'caducar/curva'},
 	];
 	const desplazar = (p: number) => (reducido ? 0 : SUBIDA * (1 - p));
 	const escala = vertical ? 2.4 : 2;
@@ -64,13 +69,8 @@ export const Hero: React.FC<HeroProps> = ({reducido, vertical}) => {
 				}}
 			>
 				<div style={{display: 'flex', flexDirection: 'column', gap: ESP.l, alignItems: 'center'}}>
-					<div style={{position: 'relative', width: 360, height: 176, opacity: a, transform: `translateY(${desplazar(a)}px)`}}>
-						{capas.map((p) => (
-							<div key={p.estado} style={{position: 'absolute', inset: 0, opacity: p.opacidad}}>
-								<Tarjeta estado={p.estado} quien={QUIEN} dato={p.dato} evidencia={p.evidencia} barra={p.barra} brillo={p.estado === 'vigente' ? brillo : 0} />
-							</div>
-						))}
-					</div>
+					<PaseEnSecuencia frame={f} quien={QUIEN} estados={estados} cambios={cambios}
+						style={{width: 360, height: 176, opacity: a, transform: `translateY(${desplazar(a)}px)`}} />
 					<Boton activo={pulsar * (1 - soltar)} />
 				</div>
 				<div style={{width: 320, height: 150, opacity: e, transform: `translateY(${desplazar(e)}px)`}}>

@@ -8,6 +8,8 @@ Reglas que cumple el código:
   guiones: estado/vigente/borde → estado-vigente-borde. temas/oscuro.json y temas/claro.json traen los valores.
 - Los textos también son slots (tipo texto): el pipeline puede cambiar nombre, hora o casa sin tocar la animación.
 - Cambiar de estado es un fundido cruzado entre dos capas con colores fijos: así cada color sigue siendo un slot.
+  Los textos que cambian van aparte y se funden a través (M3D-5, aprobada el 27 sep, regla de nucleo/textos.ts): el
+  que sale se va en la primera mitad del verbo y el que entra llega en la segunda, así nunca se enciman.
 - La tarjeta del Pase es superficie/membrana y la pista de la barra, superficie/elevada (M3D-4, aprobada el 27 sep).
 - La variante reducida cambia desplazamientos por fundidos con la misma duración y el mismo orden; el latido se detiene.
 - Lo que entra subiendo lleva distancia/subida de margen bajo la pieza para que el lienzo no lo recorte.
@@ -317,11 +319,64 @@ def pase_caducar(r):
 
 
 def cruce(lz, op, t0, verbo, a, b, w=360, h=132):
-    """Fundido cruzado entre dos precomps con el verbo dado."""
-    d, c = F(f'{verbo}/duracion'), C(f'{verbo}/curva')
-    ca = capa_precomp(lz, 'antes', a, w, h, op, o=kf(t0, t0 + d, [100], [0], c))
-    cb = capa_precomp(lz, 'despues', b, w, h, op, o=kf(t0, t0 + d, [0], [100], c))
-    return [cb, ca]
+    """Cambio de estado entre dos precomps con el verbo dado: cuerpo en fundido cruzado, textos a través."""
+    return cambio_de_estado(lz, op, t0, F(f'{verbo}/duracion'), C(f'{verbo}/curva'), a, b, w, h)
+
+
+# Textos que cambian (M3D-5): la misma regla que cambioDeTexto y tramosDeTexto de @kino/motion.
+def cambio_de_texto(antes, despues):
+    if antes == despues:
+        return 'igual'
+    if not antes:
+        return 'entra'
+    if not despues:
+        return 'sale'
+    return 'a-traves'
+
+
+def _textos(asset):
+    """Textos de una precomp por puesto: quien, chip, dato, evidencia… (el chip se llama por su puesto, no por su estado)."""
+    out = {}
+    for capa in asset['layers']:
+        if capa['ty'] == 5:
+            clave = 'chip' if capa['nm'].endswith('-texto') else capa['nm']
+            out[clave] = capa
+    return out
+
+
+def _cadena(capa):
+    return capa['t']['d']['k'][0]['s']['t'] if capa else ''
+
+
+def cambio_de_estado(lz, op, t0, d, c, a, b, w, h, nombre='', **pos):
+    """Separa cada precomp en cuerpo (formas) y textos. El cuerpo se funde cruzado con el verbo; cada texto se funde
+    según cambio_de_texto: a través (sale en la primera mitad, entra en la segunda), solo sale, solo entra o igual
+    (el que queda no se apaga: el nuevo, quizá de otro color, llega encima y el viejo se retira al final)."""
+    mitad = round(d / 2)
+    assets = {x['id']: x for x in lz.assets}
+    ta, tb = _textos(assets[a]), _textos(assets[b])
+    for clave in set(ta) | set(tb):
+        ca, cb = ta.get(clave), tb.get(clave)
+        cambio = cambio_de_texto(_cadena(ca), _cadena(cb))
+        if cambio == 'a-traves':
+            ca['ks']['o'] = kf(t0, t0 + mitad, [100], [0], c)
+            cb['ks']['o'] = kf(t0 + mitad, t0 + d, [0], [100], c)
+        elif cambio == 'sale':
+            ca['ks']['o'] = kf(t0, t0 + d, [100], [0], c)
+        elif cambio == 'entra':
+            cb['ks']['o'] = kf(t0, t0 + d, [0], [100], c)
+        else:
+            ca['ks']['o'] = {'a': 1, 'k': [{'t': t0, 's': [100], 'h': 1}, {'t': t0 + d, 's': [0]}]}
+            cb['ks']['o'] = kf(t0, t0 + d, [0], [100], c)
+    capas_cuerpo, capas_textos = [], []
+    for ref, rol, o in ((b, 'despues', kf(t0, t0 + d, [0], [100], c)), (a, 'antes', kf(t0, t0 + d, [100], [0], c))):
+        asset = assets[ref]
+        lz.assets.remove(asset)
+        cuerpo = precomp(lz, f'{ref}-cuerpo', [x for x in asset['layers'] if x['ty'] != 5], w, h)
+        textos = precomp(lz, f'{ref}-textos', [x for x in asset['layers'] if x['ty'] == 5], w, h)
+        capas_cuerpo.append(capa_precomp(lz, f'{nombre}{rol}', cuerpo, w, h, op, o=o, **pos))
+        capas_textos.append(capa_precomp(lz, f'{nombre}{rol}-textos', textos, w, h, op, **pos))
+    return capas_textos + capas_cuerpo
 
 
 def pase_confirmar(r):
@@ -333,7 +388,7 @@ def pase_confirmar(r):
     if not r:
         # El borde discontinuo se cierra: el hueco del trazo va a cero con la misma curva.
         for asset in lz.assets:
-            if asset['id'] == 'tarjeta-sin-confirmar':
+            if asset['id'] == 'tarjeta-sin-confirmar-cuerpo':
                 for capa in asset['layers']:
                     for g in capa.get('shapes', []):
                         for it in g['it']:
@@ -523,9 +578,7 @@ def loader_sincronizacion_lote(r):
         b = tarjeta(lz, f'fila-{i}-vigente', 'vigente', quien, f'{casa} · confirmado', op, w=w - 2 * ESP['l'], h=alto)
         y = y0 + i * (alto + gap)
         t0 = i * esc
-        ca = capa_precomp(lz, f'fila-{i + 1}-antes', a, w - 2 * ESP['l'], alto, op, p=(ESP['l'], y), o=kf(t0, t0 + d, [100], [0], C('aparecer/curva')))
-        cb = capa_precomp(lz, f'fila-{i + 1}-despues', b, w - 2 * ESP['l'], alto, op, p=(ESP['l'], y), o=kf(t0, t0 + d, [0], [100], C('aparecer/curva')))
-        capas += [cb, ca]
+        capas += cambio_de_estado(lz, op, t0, d, C('aparecer/curva'), a, b, w - 2 * ESP['l'], alto, nombre=f'fila-{i + 1}-', p=(ESP['l'], y))
     lz.capas = capas
     return lz
 
@@ -620,9 +673,7 @@ def onboarding_3_lector_confirma(r):
         nodo(lz, xb, y, 'sin-confirmar', op, o=kf(dt, op, [100], [0], ca)),
         nodo(lz, xa, y, 'sin-confirmar', op),
         fila_flujo(lz, op, y, xa + ESP['xs'], xb - ESP['xs'], 0, r, 'estado/sin-confirmar/borde'),
-        capa_precomp(lz, 'despues', b, 360, 132, op, p=(0, y0), o=kf(dt, op, [0], [100], ca)),
-        capa_precomp(lz, 'antes', a, 360, 132, op, p=(0, y0), o=kf(dt, op, [100], [0], ca)),
-    ]
+    ] + cambio_de_estado(lz, op, dt, da, ca, a, b, 360, 132, p=(0, y0))
     lz.capas = capas
     return lz
 

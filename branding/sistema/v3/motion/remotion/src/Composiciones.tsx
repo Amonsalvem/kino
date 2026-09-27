@@ -3,7 +3,7 @@
 // (misma convención de pausa que el hero, pendiente de aprobación).
 import React from 'react';
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
-import {ARCHIVO, Evento, FilaPorteria, Tarjeta} from './piezas';
+import {ARCHIVO, Evento, FilaPorteria, PaseEnSecuencia} from './piezas';
 import {avance, latido, lineaDeTiempo, Tramo} from './tiempo';
 import {color, dur, ESP, LINEA, SUBIDA} from './tokens';
 
@@ -33,12 +33,12 @@ export const Revocado: React.FC<{reducido: boolean; poster?: number}> = ({reduci
 			<div style={{display: 'flex', flexDirection: 'column', gap: ESP.m, transform: 'scale(1.6)'}}>
 				{titulo('Kino · Casa 14')}
 				<div style={{position: 'relative', width: 360, height: 150, opacity: a, transform: `translateY(${reducido ? 0 : SUBIDA * (1 - a)}px)`}}>
-					<div style={{position: 'absolute', inset: 0, opacity: 1 - r}}>
-						<Tarjeta estado="vigente" quien="Andrés Gómez" dato="Casa 14 · hoy 4:00–6:00 p. m." evidencia="Confirmó Lector Portería · 3:58 p. m." brillo={brillo} />
-					</div>
-					<div style={{position: 'absolute', inset: 0, opacity: r}}>
-						<Tarjeta estado="revocado" quien="Andrés Gómez" dato="Casa 14 · hoy 4:00–6:00 p. m." evidencia="Revocó Carolina Ruiz · 4:10 p. m." relleno="superficie/base" />
-					</div>
+					<PaseEnSecuencia frame={f} quien="Andrés Gómez" style={{position: 'absolute', inset: 0}}
+						estados={[
+							{estado: 'vigente', dato: 'Casa 14 · hoy 4:00–6:00 p. m.', evidencia: 'Confirmó Lector Portería · 3:58 p. m.', brillo},
+							{estado: 'revocado', dato: 'Casa 14 · hoy 4:00–6:00 p. m.', evidencia: 'Revocó Carolina Ruiz · 4:10 p. m.', relleno: 'superficie/base'},
+						]}
+						cambios={[{tramo: tramos.revocar, curva: 'revocar/curva'}]} />
 					{reducido ? null : (
 						<div
 							style={{
