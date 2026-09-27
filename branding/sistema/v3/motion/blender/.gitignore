@@ -2,3 +2,8 @@ render/
 .fuentes/
 __pycache__/
 *.blend1
+.venv/
+node_modules/
+glb/*.base.glb
+tiempos/*.tmp
+render.log

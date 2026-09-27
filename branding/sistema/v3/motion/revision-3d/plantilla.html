@@ -1,0 +1,174 @@
+<title>Pase y portería en 3D</title>
+<meta name="description" content="Revisión de la segunda versión de las escenas 3D de Kino: antes y después, color medido, costo de render y preguntas para Nico.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=JetBrains+Mono:wght@400;700&display=swap">
+<style>
+/* Una sola apariencia a propósito: las escenas se diseñaron sobre el tema oscuro de Kino. Solo tokens (tokens.motion.json). */
+:root{color-scheme:dark;{{C}}
+ --archivo:'Archivo',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+ --r-tarjeta:14px;--r-control:8px;--r-chip:4px}
+body{background:var(--superficie-abismo);color:var(--texto-primario);font-family:var(--archivo);font-size:16px;line-height:1.6;margin:0}
+.hoja{max-width:1160px;margin:0 auto;padding-inline:16px;padding-block:40px 88px;display:grid;gap:72px}
+header{display:grid;gap:16px;max-width:72ch}
+.eyebrow{font:700 12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--texto-tenue)}
+h1{font-weight:800;font-stretch:112%;font-size:clamp(36px,6.4vw,64px);line-height:1.02;letter-spacing:-.02em;margin:0;text-wrap:balance}
+h2{font-weight:800;font-stretch:112%;font-size:clamp(24px,3.2vw,32px);line-height:1.1;margin:0;text-wrap:balance}
+h3{font-size:17px;margin:0}
+p{margin:0}
+.bajada{color:var(--texto-secundario);font-size:18px}
+.estado{display:inline-flex;align-items:center;gap:8px;font:700 13px/1.3 var(--archivo);padding:4px 10px;border-radius:var(--r-chip);border:1px dashed var(--estado-sin-confirmar-borde);color:var(--estado-sin-confirmar-texto);justify-self:start}
+.estado::before{content:"";inline-size:6px;block-size:6px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--estado-sin-confirmar-borde)}
+section{display:grid;gap:24px}
+.cab{display:grid;gap:8px;border-block-end:1px solid var(--superficie-membrana);padding-block-end:16px}
+.cab p{color:var(--texto-secundario);max-width:70ch}
+.tres{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}
+.bloque{background:var(--superficie-base);border:1px solid var(--superficie-elevada);border-radius:var(--r-tarjeta);padding:20px;display:grid;gap:10px;align-content:start}
+.bloque ul{margin:0;padding-inline-start:18px;display:grid;gap:6px;color:var(--texto-secundario);font-size:15px}
+.bloque li::marker{color:var(--borde-definido)}
+code{font-family:var(--mono);font-size:.86em;color:var(--texto-tenue)}
+.comparador{position:relative;max-width:100%;border-radius:var(--r-tarjeta);overflow:hidden;background:var(--superficie-base);border:1px solid var(--superficie-elevada);--x:50%;touch-action:pan-y}
+.comparador > img{display:block;inline-size:100%;block-size:auto}
+.comparador .despues{position:absolute;inset:0;clip-path:inset(0 0 0 var(--x))}
+.comparador .despues img{display:block;inline-size:100%;block-size:100%;object-fit:fill}
+.comparador .despues::before{content:"";position:absolute;inset-block:0;inset-inline-start:var(--x);inline-size:2px;margin-inline-start:-1px;background:var(--texto-primario);z-index:1;box-shadow:0 0 0 1px var(--superficie-abismo)}
+.comparador input{position:absolute;inset:0;inline-size:100%;block-size:100%;margin:0;opacity:0;cursor:ew-resize}
+.comparador:has(input:focus-visible){outline:2px solid var(--borde-foco);outline-offset:3px}
+.rot{position:absolute;inset-block-start:12px;font:700 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;background:var(--superficie-abismo);color:var(--texto-secundario);padding:6px 8px;border-radius:var(--r-chip);pointer-events:none}
+.rot.izq{inset-inline-start:12px}.rot.der{inset-inline-end:12px}
+.pie{font-size:14px;color:var(--texto-tenue);margin-block-start:-14px}
+.tira{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr));gap:12px}
+.tira figure{margin:0;display:grid;gap:6px}
+.tira img{inline-size:100%;border-radius:var(--r-control);border:1px solid var(--superficie-elevada);display:block}
+.tira figcaption{font:400 12px/1.3 var(--mono);color:var(--texto-tenue)}
+.video{margin:0;display:grid;gap:8px}
+.video video{inline-size:100%;border-radius:var(--r-tarjeta);border:1px solid var(--superficie-elevada);background:var(--superficie-base);display:block}
+.video figcaption{font-size:14px;color:var(--texto-tenue)}
+.dos{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:16px}
+.tabla{overflow-x:auto;border:1px solid var(--superficie-elevada);border-radius:var(--r-tarjeta)}
+table{border-collapse:collapse;inline-size:100%;font-size:14px;min-inline-size:640px}
+th,td{text-align:start;padding:10px 14px;border-block-end:1px solid var(--superficie-elevada);vertical-align:middle}
+th{font:700 11px/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--texto-tenue);background:var(--superficie-base)}
+.num td{font-variant-numeric:tabular-nums}
+tbody tr:last-child td{border-block-end:0}
+.muestra{display:inline-block;inline-size:12px;block-size:12px;border-radius:3px;margin-inline-end:8px;vertical-align:-1px;box-shadow:0 0 0 1px var(--borde-tenue)}
+.si{color:var(--estado-vigente-texto)}.no{color:var(--estado-revocado-texto)}
+.total{font:700 15px/1.4 var(--mono);color:var(--texto-primario)}
+.nota{font-size:14px;color:var(--texto-tenue);max-width:75ch}
+.preguntas{display:grid;gap:16px}
+.pregunta{background:var(--superficie-base);border:1px solid var(--superficie-elevada);border-radius:var(--r-tarjeta);padding:20px;display:grid;gap:12px}
+.pregunta .codigo{font:700 12px/1 var(--mono);color:var(--texto-tenue);letter-spacing:.06em}
+.opciones{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px}
+.opcion{border:1px solid var(--superficie-membrana);border-radius:var(--r-control);padding:12px 14px;display:grid;gap:4px;font-size:15px;color:var(--texto-secundario)}
+.opcion b{color:var(--texto-primario);font-size:13px;font-family:var(--mono)}
+footer{color:var(--texto-tenue);font-size:14px;display:grid;gap:6px}
+a{color:var(--texto-enlace)}
+a:focus-visible{outline:2px solid var(--borde-foco);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){video{animation:none}}
+</style>
+<div class="hoja">
+<header>
+ <span class="eyebrow">Kino · motion 3D · revisión del 26 sep</span>
+ <h1>Pase y portería en 3D</h1>
+ <p class="bajada">Segunda versión de las tres escenas de Blender. Se mueven con los tokens y la partitura de <code>@kino/motion</code>, los mismos que usa la web. Desliza cada imagen para comparar con la versión 1.</p>
+ <span class="estado">Sin aprobar · preguntas al final</span>
+</header>
+
+<section>
+ <div class="cab"><h2>Qué cambió</h2></div>
+ <div class="tres">
+  <div class="bloque"><h3>El Pase</h3><ul>
+   <li>Es la tarjeta de <code>&lt;kino-pase&gt;</code>: nombre, chip de estado, casa y franja, evidencia del lector y barra de vigencia, en Archivo y JetBrains Mono.</li>
+   <li>Siete clips desde la partitura: aparecer, confirmar, latir, avisar, caducar, usar y revocar.</li>
+   <li>Membrana con canto biselado, laca, sheen y microvariación. Sombra y resplandor son los tokens <code>relieve/membrana</code> y <code>resplandor/vigente</code>.</li>
+   <li>Al aparecer, la membrana se asienta con <code>resorte/pase</code>; al confirmar, la cámara se acerca con el mismo resorte.</li>
+  </ul></div>
+  <div class="bloque"><h3>Pase en reposo</h3><ul>
+   <li>Vigente, con la evidencia «Confirmó Lector Portería · 3:58 p. m.».</li>
+   <li>El punto late como en la web: <code>curva/latir</code> sobre el ciclo entero. El resplandor respira con él.</li>
+   <li>Loop exacto: el último frame es igual al primero.</li>
+  </ul></div>
+  <div class="bloque"><h3>Portería de noche</h3><ul>
+   <li>Lector con placa, ventana de lectura, juntas y tornillería; talanquera con gabinete, rejillas y brazo con franjas; portería, marquesina, muros con pilastras, setos, árboles y casas en la niebla.</li>
+   <li>Niebla volumétrica, conos de luz, asfalto con charcos, aurora índigo y violeta.</li>
+   <li>Cámara a la altura de quien conduce, con los faros de un vehículo que no se ve. El lector lee, confirma y solo entonces sube la talanquera.</li>
+  </ul></div>
+ </div>
+</section>
+
+<section>
+ <div class="cab"><h2>El Pase</h2><p>Mismo momento de cada clip en las dos versiones. El fondo de la lámina es <code>superficie/base</code>; el render es transparente.</p></div>
+ {{COMP_PASE}}
+ <div class="tira">{{TIRA}}</div>
+ {{VIDEO_PASE}}
+</section>
+
+<section>
+ <div class="cab"><h2>Pase en reposo</h2><p>Frame 55 de 109: el punto está en lo más alto del latido.</p></div>
+ <div style="max-width:620px">{{LATIR}}</div>
+</section>
+
+<section>
+ <div class="cab"><h2>Portería de noche</h2><p>En la versión 1 solo cambiaba el color del indicador. Ahora la escena cuenta el ingreso completo, y nada se pone verde antes de la confirmación.</p></div>
+ {{NOCHE}}
+ <div class="tira">{{TIRA_NOCHE}}</div>
+ <div class="dos">{{VIDEO_PORTERIA}}</div>
+</section>
+
+<section>
+ <div class="cab"><h2>¿Los estados salen con su color?</h2><p>La escena usa una curva de tono propia para las luces, pero las marcas de estado pasan sin curva. Se contaron los píxeles opacos con el hex exacto de cada token (±1 por canal, redondeo de 8 bits).</p></div>
+ {{TABLA_COLOR}}
+ <p class="nota">Los estados terminales (vencido, usado, revocado) van a 0,72 de opacidad, como manda la partitura; sobre fondo transparente no son opacos y no entran en esta cuenta. En la portería el indicador queda a ΔE 0,7–1,1 del token, también en la variante reducida con la cámara quieta: la niebla volumétrica está entre la cámara y el indicador y le suma luz, como en una noche con bruma, y el anillo mide pocos píxeles. El ojo no distingue diferencias menores a 2. Si se pide exactitud también ahí, la opción es excluir el indicador de la niebla.</p>
+</section>
+
+<section>
+ <div class="cab"><h2>Costo del render</h2><p>EEVEE Next en CPU, 4 núcleos, sin GPU. En la prueba inicial, Cycles con OpenImageDenoise tardó 41 s por frame contra 21 s de EEVEE con la misma calidad aparente, así que se quedó EEVEE.</p></div>
+ {{TABLA_TIEMPOS}}
+ <p class="total">Total: {{TOTAL_TIEMPO}}</p>
+ <p class="nota">En el Pase se quitaron la profundidad de campo (costaba 20 s por frame y la tarjeta es casi plana) y el trazado de rayos en pantalla. En la portería reducida la cámara no se mueve: los tramos sin cambios se calculan una vez y se copian.</p>
+</section>
+
+<section>
+ <div class="cab"><h2>Visor web</h2><p>El GLB del Pase pesa 471 KB con Draco y trae 41 piezas con un material por estado (variantes glTF): el color de cada token y su opacidad ya van horneados. El visor solo interpola entre el estado inicial y el final con la curva del clip. Probado en Chromium: 6 variantes, 7 clips en completo y reducido, 0 errores de consola.</p></div>
+ <p><a href="https://claude.ai/artifact/EiPApRKP6NNECfu5i5rKNV">Abrir la galería de motion con el visor</a></p>
+</section>
+
+<section>
+ <div class="cab"><h2>Preguntas para Nico</h2><p>Cada una está en <code>decisiones.md</code> como PROPUESTA. La opción A es la que está construida.</p></div>
+ <div class="preguntas">
+  <div class="pregunta"><span class="codigo">M3D-1 · Gestión de color</span><h3>¿Aceptas la curva de tono propia con marcas exactas?</h3><div class="opciones">
+   <div class="opcion"><b>A · construida</b>Vista Standard y curva de tono en el compositor para la escena; bordes, chip, textos e indicador salen con el hex de su token.</div>
+   <div class="opcion"><b>B</b>AgX para todo: más cinematográfico, pero desatura los verdes de estado y el hex del token ya no sale igual.</div></div></div>
+  <div class="pregunta"><span class="codigo">M3D-2 · Talanquera</span><h3>¿Con qué tiempo sube la talanquera?</h3><div class="opciones">
+   <div class="opcion"><b>A · construida</b><code>resorte/firme</code>: 494 ms, llega sin pasarse, el brazo se flexiona un poco por su inercia.</div>
+   <div class="opcion"><b>B</b>Un token nuevo de mecánica, más lento (1 a 1,5 s), más cercano a una barrera real.</div></div></div>
+  <div class="pregunta"><span class="codigo">M3D-3 · Cámara de la portería</span><h3>¿La cámara se mueve?</h3><div class="opciones">
+   <div class="opcion"><b>A · construida</b>Llega con <code>duracion/cortina</code> y <code>curva/crecer</code>, espera la confirmación y avanza al 60 % de ese tiempo con <code>curva/salir</code>. Faros del vehículo, sin mostrarlo.</div>
+   <div class="opcion"><b>B</b>Cámara fija, como en la versión 1. Es lo que ya hace la variante reducida.</div></div></div>
+  <div class="pregunta"><span class="codigo">M3D-4 · Base de la tarjeta</span><h3>¿La tarjeta del Pase es membrana o elevada?</h3><div class="opciones">
+   <div class="opcion"><b>A · construida en 3D</b><code>superficie/membrana</code>, como dice el recurso Membrana. La web tendría que pasar a membrana.</div>
+   <div class="opcion"><b>B</b><code>superficie/elevada</code>, como <code>&lt;kino-pase&gt;</code> hoy. Cambia el 3D.</div></div></div>
+  <div class="pregunta"><span class="codigo">M3D-5 · Textos que cambian con el estado</span><h3>¿Cómo cambia el texto del chip y del dato?</h3><div class="opciones">
+   <div class="opcion"><b>A · construida en 3D</b>Fundido a través: el texto que sale se va en la primera mitad del verbo y el nuevo llega en la segunda. Se llevaría a la web.</div>
+   <div class="opcion"><b>B</b>Cambio de golpe, como en la web hoy; solo los colores tienen transición.</div></div></div>
+  <div class="pregunta"><span class="codigo">M3D-6 · Aurora de noche</span><h3>¿La aurora lleva el verde de la marca?</h3><div class="opciones">
+   <div class="opcion"><b>A · construida</b>Índigo y violeta, con un rastro de <code>biolum/d15</code>. El único verde de la escena es el indicador confirmado.</div>
+   <div class="opcion"><b>B</b>Aurora completa, verde e índigo, como en las portadas.</div></div></div>
+  <div class="pregunta"><span class="codigo">M3D-7 · Arco Portal</span><h3>¿Se hace una escena del Pase vivo con arco?</h3><div class="opciones">
+   <div class="opcion"><b>A · construida</b>No se usa el arco: estas escenas muestran la tarjeta de la lista, y el arco es del Pase vivo con el QR (X1, X8).</div>
+   <div class="opcion"><b>B</b>Sumar una escena del Pase vivo, en claro, con el arco y el QR sobre fondo liso.</div></div></div>
+ </div>
+</section>
+
+<footer>
+ <span>Rama <code>claude/youthful-mccarthy-91cyy5</code> · código en <code>branding/sistema/v3/motion/blender/</code> · versión 1 en <code>_obsoleto/v1-2026-09-26/</code></span>
+ <span>Nada de esta lámina está aprobado.</span>
+</footer>
+</div>
+<script>
+document.querySelectorAll('.comparador').forEach((c) => {
+  const r = c.querySelector('input');
+  const poner = () => c.style.setProperty('--x', r.value + '%');
+  r.addEventListener('input', poner);
+  poner();
+});
+</script>

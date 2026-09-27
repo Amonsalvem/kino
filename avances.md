@@ -214,3 +214,15 @@ En arquitectura faltaba:
 - **Núcleo:** quedó sin DOM (lo que dependía del navegador pasó a `src/web`) y los tokens traen los colores de marca por tema para la app.
 - **Verificación:** tipos sin errores contra RN 0.76 y Reanimated 3.16; 9 pruebas unitarias; arnés web con react-native-web y 9 pruebas en Chromium (estados, estado honesto, hoja lanzada con el puntero); lint-motion 0. El paquete web sigue en verde.
 - **Pendiente:** probarlo en un simulador o dispositivo; decidir el stack.
+
+## Motion 3D · segunda versión de las escenas (26–27 sep)
+- **Pedido de Nico:** las tres escenas de Blender se veían mediocres; subirlas a nivel profesional, con libertad total en motion.
+- **Construido en `branding/sistema/v3/motion/blender/`:** tokens y partitura de `@kino/motion` (`partitura.mjs`), resortes analíticos horneados, curva de tono propia con marcas de estado exactas (AOV), sombra y resplandor como los tokens `relieve/membrana` y `resplandor/vigente`. Pase con chip, dato, evidencia, barra, corte y tachado en siete clips; portería con lector, talanquera, marquesina, muros, vegetación, niebla y aurora, con la talanquera que sube solo tras la confirmación. La versión 1 queda en `_obsoleto/v1-2026-09-26/`.
+- **GLB:** 471 KB con Draco, 41 piezas × 6 estados (`KHR_materials_variants`); visor nuevo probado en Chromium sin errores de consola.
+- **Verificado:** 11 de 13 mediciones de color con el hex exacto (ΔE 0); el indicador de la portería queda a ΔE 0,9–1,1 aun con la cámara quieta, porque la niebla volumétrica le suma luz. Loop del Pase en reposo cerrado (diferencia máxima 1/255).
+- **Costo:** EEVEE Next en CPU de 4 núcleos, sin GPU. Pase 28 s por frame, Pase en reposo 16,6 s, portería 49,3 s. Detalle en `blender/tiempos/`.
+- **Defecto corregido en el camino:** en avisar, caducar y usar volvía el chip del estado anterior al final del clip (la última clave de un tramo interpolaba hacia el clip siguiente). Se corrigió y se re-renderizaron los tres.
+- **Lámina:** https://claude.ai/artifact/8MzyYi7R99Cs5egeBFysvb
+- **Reducidos:** Pase (fundidos en lugar de subida, escala y líneas; latido quieto) y portería (cámara quieta, talanquera por fundido, sin latido). La portería reducida calculó 97 de 260 frames: los tramos quietos se copian.
+- **Galería republicada** (versión 4, con los 36 videos 3D nuevos): https://claude.ai/artifact/EiPApRKP6NNECfu5i5rKNV
+- **Pendiente de Nico:** M3D-1 a M3D-7 en `decisiones.md`. Nada está aprobado.

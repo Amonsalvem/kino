@@ -1,0 +1,12 @@
+{
+ "name": "kino-blender-glb",
+ "private": true,
+ "type": "module",
+ "description": "Variantes por estado (KHR_materials_variants) y Draco para el GLB del Pase.",
+ "dependencies": {
+  "@gltf-transform/core": "4.2.1",
+  "@gltf-transform/extensions": "4.2.1",
+  "@gltf-transform/functions": "4.2.1",
+  "draco3dgltf": "1.5.7"
+ }
+}

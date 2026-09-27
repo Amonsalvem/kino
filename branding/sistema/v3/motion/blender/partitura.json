@@ -1,0 +1,498 @@
+{
+ "fuente": "paquetes/kino-motion (dist/nucleo.js y src/web/componentes/base.ts)",
+ "tokens": {
+  "fps": 60,
+  "duracion": {
+   "instante": 120,
+   "corto": 240,
+   "crecer": 420,
+   "tarjeta": 820,
+   "decaer": 900,
+   "trazo": 950,
+   "cortina": 1600,
+   "latir": 1800
+  },
+  "escalonado": {
+   "tarjetas": 90,
+   "filas": 55
+  },
+  "curva": {
+   "crecer": [
+    0.16,
+    0.84,
+    0.3,
+    1
+   ],
+   "decaer": [
+    0.62,
+    0.03,
+    0.86,
+    0.34
+   ],
+   "latir": [
+    0.45,
+    0,
+    0.55,
+    1
+   ],
+   "cortina": [
+    0.76,
+    0,
+    0.24,
+    1
+   ],
+   "revocar": [
+    0.4,
+    0,
+    1,
+    1
+   ],
+   "salir": [
+    0.3,
+    0,
+    0.8,
+    0.15
+   ]
+  },
+  "distancia": {
+   "subida": 26,
+   "desenfoque": 6
+  },
+  "verbo": {
+   "aparecer/duracion": "duracion/tarjeta",
+   "aparecer/curva": "curva/crecer",
+   "aparecer/escalonado": "escalonado/tarjetas",
+   "responder/duracion": "duracion/corto",
+   "responder/curva": "curva/crecer",
+   "caducar/duracion": "duracion/decaer",
+   "caducar/curva": "curva/decaer",
+   "revocar/duracion": "duracion/corto",
+   "revocar/curva": "curva/revocar",
+   "latir/duracion": "duracion/latir",
+   "latir/curva": "curva/latir"
+  },
+  "resorte": {
+   "tacto": {
+    "rigidez": 520,
+    "amortiguacion": 34,
+    "masa": 1,
+    "asentamientoMs": 396,
+    "rebote": 0.0298,
+    "zeta": 0.745,
+    "linear": "linear(0, 0.0024 0.7813%, 0.0093 1.5625%, 0.0346 3.125%, 0.0723 4.6875%, 0.1196 6.25%, 0.1736 7.8125%, 0.2323 9.375%, 0.3558 12.5%, 0.4785 15.625%, 0.5928 18.75%, 0.6941 21.875%, 0.7803 25%, 0.8512 28.125%, 0.9073 31.25%, 0.9501 34.375%, 0.9814 37.5%, 1.0032 40.625%, 1.0173 43.75%, 1.0254 46.875%, 1.0291 50%, 1.0281 56.25%, 1.0218 62.5%, 1.0083 75%, 1.0012 87.5%, 1)"
+   },
+   "hoja": {
+    "rigidez": 260,
+    "amortiguacion": 30,
+    "masa": 1,
+    "asentamientoMs": 479,
+    "rebote": 0.0003,
+    "zeta": 0.93,
+    "linear": "linear(0, 0.0068 1.5625%, 0.0251 3.125%, 0.0525 4.6875%, 0.0867 6.25%, 0.1686 9.375%, 0.2597 12.5%, 0.4419 18.75%, 0.525 21.875%, 0.6003 25%, 0.667 28.125%, 0.7251 31.25%, 0.775 34.375%, 0.8174 37.5%, 0.853 40.625%, 0.8826 43.75%, 0.9069 46.875%, 0.9268 50%, 0.9559 56.25%, 0.9744 62.5%, 0.9858 68.75%, 0.9926 75%, 0.9986 87.5%, 1)"
+   },
+   "pase": {
+    "rigidez": 180,
+    "amortiguacion": 22,
+    "masa": 1,
+    "asentamientoMs": 689,
+    "rebote": 0.0111,
+    "zeta": 0.82,
+    "linear": "linear(0, 0.0025 0.7813%, 0.0096 1.5625%, 0.0356 3.125%, 0.074 4.6875%, 0.1214 6.25%, 0.2329 9.375%, 0.3529 12.5%, 0.4704 15.625%, 0.5785 18.75%, 0.6736 21.875%, 0.7544 25%, 0.8209 28.125%, 0.8741 31.25%, 0.9156 34.375%, 0.947 37.5%, 0.97 40.625%, 0.9864 43.75%, 0.9974 46.875%, 1.0045 50%, 1.0106 56.25%, 1.0107 62.5%, 1.0059 75%, 1.002 87.5%, 1)"
+   },
+   "firme": {
+    "rigidez": 400,
+    "amortiguacion": 40,
+    "masa": 1,
+    "asentamientoMs": 494,
+    "rebote": 0,
+    "zeta": 1,
+    "linear": "linear(0, 0.0028 0.7813%, 0.0108 1.5625%, 0.0389 3.125%, 0.0792 4.6875%, 0.1277 6.25%, 0.35 12.5%, 0.4567 15.625%, 0.5526 18.75%, 0.6359 21.875%, 0.7065 25%, 0.7653 28.125%, 0.8135 31.25%, 0.8527 34.375%, 0.8843 37.5%, 0.9094 40.625%, 0.9294 43.75%, 0.9575 50%, 0.9747 56.25%, 0.9851 62.5%, 0.9949 75%, 0.9983 87.5%, 1)"
+   }
+  },
+  "coreografia": {
+   "cascadaMaximo": 8,
+   "cascadaTopeMs": 520,
+   "salidaFactor": 0.6
+  },
+  "latirCiclos": 3,
+  "avisoVisibleMs": 5400,
+  "color": {
+   "oscuro": {
+    "superficie/abismo": "#00140C",
+    "superficie/base": "#011F16",
+    "superficie/elevada": "#0B2A20",
+    "superficie/membrana": "#17362B",
+    "superficie/inversa": "#EFFCF7",
+    "texto/primario": "#EFFCF7",
+    "texto/secundario": "#CEDBD6",
+    "texto/tenue": "#A5C7B8",
+    "texto/inverso": "#00140C",
+    "texto/sobre-acento": "#00140C",
+    "texto/enlace": "#CCDDFE",
+    "acento/base": "#00BB83",
+    "acento/fuerte": "#00EAA5",
+    "acento/sordo": "#00422C",
+    "accion/fondo": "#00D595",
+    "accion/fondo-activo": "#00EAA5",
+    "accion/texto": "#00140C",
+    "estado/previsto/fondo": "#092D93",
+    "estado/previsto/texto": "#CCDDFE",
+    "estado/previsto/borde": "#B6CEFF",
+    "estado/sin-confirmar/fondo": "transparent",
+    "estado/sin-confirmar/texto": "#DBE9E3",
+    "estado/sin-confirmar/borde": "#86A799",
+    "estado/vigente/fondo": "#00422C",
+    "estado/vigente/texto": "#2FF8B2",
+    "estado/vigente/borde": "#00EAA5",
+    "estado/por-vencer/fondo": "#503300",
+    "estado/por-vencer/texto": "#FFD49C",
+    "estado/por-vencer/borde": "#FFC36D",
+    "estado/usado/fondo": "#0B2A20",
+    "estado/usado/texto": "#E5F3ED",
+    "estado/usado/borde": "#86A799",
+    "estado/vencido/fondo": "#0B2A20",
+    "estado/vencido/texto": "#B8DBCC",
+    "estado/vencido/borde": "#86A799",
+    "estado/revocado/fondo": "#0B2A20",
+    "estado/revocado/texto": "#FEC6C0",
+    "estado/revocado/borde": "#86A799",
+    "estado/rechazado/fondo": "#79000F",
+    "estado/rechazado/texto": "#FED6D2",
+    "estado/rechazado/borde": "#FFBEB8",
+    "estado/identidad/fondo": "#3E1C96",
+    "estado/identidad/texto": "#DADAFE",
+    "estado/identidad/borde": "#CAC9FF",
+    "estado/negado/fondo": "#79000F",
+    "estado/negado/texto": "#FED6D2",
+    "estado/negado/borde": "#FFBEB8",
+    "borde/tenue": "#2A483D",
+    "borde/definido": "#6E8E81",
+    "borde/foco": "#00BB83"
+   },
+   "claro": {
+    "superficie/abismo": "#DBE9E3",
+    "superficie/base": "#EFFCF7",
+    "superficie/elevada": "#FFFFFF",
+    "superficie/membrana": "#E5F3ED",
+    "superficie/inversa": "#00140C",
+    "texto/primario": "#00140C",
+    "texto/secundario": "#17362B",
+    "texto/tenue": "#426155",
+    "texto/inverso": "#EFFCF7",
+    "texto/sobre-acento": "#EFFCF7",
+    "texto/enlace": "#153CA2",
+    "acento/base": "#006343",
+    "acento/fuerte": "#00422C",
+    "acento/sordo": "#E5F3ED",
+    "accion/fondo": "#006343",
+    "accion/fondo-activo": "#005036",
+    "accion/texto": "#EFFCF7",
+    "estado/previsto/fondo": "#EFFCF7",
+    "estado/previsto/texto": "#244EB5",
+    "estado/previsto/borde": "#406ED7",
+    "estado/sin-confirmar/fondo": "transparent",
+    "estado/sin-confirmar/texto": "#2A483D",
+    "estado/sin-confirmar/borde": "#6A7671",
+    "estado/vigente/fondo": "#EFFCF7",
+    "estado/vigente/texto": "#006343",
+    "estado/vigente/borde": "#00845B",
+    "estado/por-vencer/fondo": "#EFFCF7",
+    "estado/por-vencer/texto": "#764E00",
+    "estado/por-vencer/borde": "#9C6900",
+    "estado/usado/fondo": "#E5F3ED",
+    "estado/usado/texto": "#17362B",
+    "estado/usado/borde": "#6A7671",
+    "estado/vencido/fondo": "#DBE9E3",
+    "estado/vencido/texto": "#2A483D",
+    "estado/vencido/borde": "#6A7671",
+    "estado/revocado/fondo": "#E5F3ED",
+    "estado/revocado/texto": "#910014",
+    "estado/revocado/borde": "#6A7671",
+    "estado/rechazado/fondo": "#FFBEB8",
+    "estado/rechazado/texto": "#00140C",
+    "estado/rechazado/borde": "#CE3F3F",
+    "estado/identidad/fondo": "#EFFCF7",
+    "estado/identidad/texto": "#5840B8",
+    "estado/identidad/borde": "#7360DB",
+    "estado/negado/fondo": "#FFBEB8",
+    "estado/negado/texto": "#00140C",
+    "estado/negado/borde": "#CE3F3F",
+    "borde/tenue": "#CEDCD6",
+    "borde/definido": "#6A7671",
+    "borde/foco": "#00845B"
+   }
+  },
+  "forma": {
+   "radio": {
+    "tarjeta": 14,
+    "control": 8,
+    "chip": 4
+   },
+   "espacio": {
+    "3xs": 2,
+    "2xs": 4,
+    "xs": 8,
+    "s": 12,
+    "m": 16,
+    "l": 24,
+    "xl": 32,
+    "2xl": 48,
+    "3xl": 72,
+    "4xl": 112
+   }
+  },
+  "profundidad": {
+   "sustrato": 0,
+   "membrana": 1,
+   "pase": 2,
+   "hoja": 3,
+   "aviso": 4
+  },
+  "escala": {
+   "presion": 0.97,
+   "entrada": 0.965
+  }
+ },
+ "transiciones": [
+  {
+   "evento": "enviar",
+   "de": [
+    "previsto"
+   ],
+   "a": "sin-confirmar",
+   "verbo": "responder",
+   "duracion": "responder/duracion",
+   "curva": "responder/curva",
+   "pistas": [
+    {
+     "parte": "chip",
+     "propiedad": "color",
+     "de": "previsto",
+     "a": "sin-confirmar"
+    },
+    {
+     "parte": "borde",
+     "propiedad": "color",
+     "de": "previsto",
+     "a": "sin-confirmar"
+    },
+    {
+     "parte": "borde",
+     "propiedad": "trazo",
+     "de": "continuo",
+     "a": "discontinuo"
+    }
+   ],
+   "deja": "La hora de envío al lector."
+  },
+  {
+   "evento": "confirmar",
+   "de": [
+    "sin-confirmar"
+   ],
+   "a": "vigente",
+   "verbo": "aparecer",
+   "duracion": "aparecer/duracion",
+   "curva": "aparecer/curva",
+   "pistas": [
+    {
+     "parte": "chip",
+     "propiedad": "color",
+     "de": "sin-confirmar",
+     "a": "vigente"
+    },
+    {
+     "parte": "borde",
+     "propiedad": "color",
+     "de": "sin-confirmar",
+     "a": "vigente"
+    },
+    {
+     "parte": "borde",
+     "propiedad": "trazo",
+     "de": "discontinuo",
+     "a": "continuo"
+    },
+    {
+     "parte": "barra",
+     "propiedad": "opacidad",
+     "de": 0,
+     "a": 1
+    },
+    {
+     "parte": "nota",
+     "propiedad": "opacidad",
+     "de": 0,
+     "a": 1
+    },
+    {
+     "parte": "nota",
+     "propiedad": "y",
+     "de": "subida",
+     "a": 0
+    }
+   ],
+   "deja": "Qué lector confirmó y a qué hora.",
+   "late": true
+  },
+  {
+   "evento": "avisar",
+   "de": [
+    "vigente"
+   ],
+   "a": "por-vencer",
+   "verbo": "responder",
+   "duracion": "responder/duracion",
+   "curva": "responder/curva",
+   "pistas": [
+    {
+     "parte": "chip",
+     "propiedad": "color",
+     "de": "vigente",
+     "a": "por-vencer"
+    },
+    {
+     "parte": "borde",
+     "propiedad": "color",
+     "de": "vigente",
+     "a": "por-vencer"
+    },
+    {
+     "parte": "barra",
+     "propiedad": "color",
+     "de": "vigente",
+     "a": "por-vencer"
+    }
+   ],
+   "deja": "La hora exacta de vencimiento."
+  },
+  {
+   "evento": "caducar",
+   "de": [
+    "vigente",
+    "por-vencer",
+    "sin-confirmar",
+    "previsto"
+   ],
+   "a": "vencido",
+   "verbo": "caducar",
+   "duracion": "caducar/duracion",
+   "curva": "caducar/curva",
+   "pistas": [
+    {
+     "parte": "barra",
+     "propiedad": "escalaX",
+     "de": "actual",
+     "a": 0
+    },
+    {
+     "parte": "tarjeta",
+     "propiedad": "opacidad",
+     "de": 1,
+     "a": 0.72
+    },
+    {
+     "parte": "chip",
+     "propiedad": "color",
+     "de": "vigente",
+     "a": "vencido"
+    },
+    {
+     "parte": "borde",
+     "propiedad": "color",
+     "de": "vigente",
+     "a": "vencido"
+    }
+   ],
+   "deja": "A qué hora venció."
+  },
+  {
+   "evento": "usar",
+   "de": [
+    "vigente",
+    "por-vencer"
+   ],
+   "a": "usado",
+   "verbo": "responder",
+   "duracion": "responder/duracion",
+   "curva": "responder/curva",
+   "pistas": [
+    {
+     "parte": "tachado",
+     "propiedad": "escalaX",
+     "de": 0,
+     "a": 1
+    },
+    {
+     "parte": "chip",
+     "propiedad": "color",
+     "de": "vigente",
+     "a": "usado"
+    },
+    {
+     "parte": "borde",
+     "propiedad": "color",
+     "de": "vigente",
+     "a": "usado"
+    }
+   ],
+   "deja": "A qué hora entró."
+  },
+  {
+   "evento": "revocar",
+   "de": [
+    "previsto",
+    "sin-confirmar",
+    "vigente",
+    "por-vencer"
+   ],
+   "a": "revocado",
+   "verbo": "revocar",
+   "duracion": "revocar/duracion",
+   "curva": "revocar/curva",
+   "pistas": [
+    {
+     "parte": "corte",
+     "propiedad": "escalaX",
+     "de": 0,
+     "a": 1
+    },
+    {
+     "parte": "tarjeta",
+     "propiedad": "opacidad",
+     "de": 1,
+     "a": 0.72
+    },
+    {
+     "parte": "chip",
+     "propiedad": "color",
+     "de": "vigente",
+     "a": "revocado"
+    },
+    {
+     "parte": "borde",
+     "propiedad": "color",
+     "de": "vigente",
+     "a": "revocado"
+    },
+    {
+     "parte": "nota",
+     "propiedad": "opacidad",
+     "de": 0,
+     "a": 1
+    }
+   ],
+   "deja": "Quién revocó y a qué hora."
+  }
+ ],
+ "etiqueta": {
+  "previsto": "Previsto",
+  "sin-confirmar": "Sin confirmar",
+  "vigente": "Vigente",
+  "por-vencer": "Por vencer",
+  "vencido": "Vencido",
+  "usado": "Usado",
+  "revocado": "Revocado",
+  "rechazado": "Rechazado"
+ }
+}

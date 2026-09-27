@@ -1,15 +1,17 @@
 """Construye las escenas 3D de Kino por etapas, una por proceso. Guarda el .blend entre etapas.
 
-    python construir.py <id> <etapa> [--reducido]
+    python construir.py <id> <etapa> [--reducido] [--clip=<clip>] [--frames=a,b,c] [--escala=50]
 
 id:     pase-3d-objeto · pase-3d-latir · conjunto-noche-lector-confirma
 etapa:  escena · modelado · materiales · animacion · verificacion · render · exportar
 
-Se corre con bpy 4.2 como módulo de Python (pip install bpy==4.2.0, Python 3.11). El .blend queda en
-blender/<id>[.reducido].blend y el render en //render/<id>[.reducido]/ (junto al .blend).
+Se corre con bpy 4.2 como módulo de Python (pip install bpy==4.2.0, Python 3.11) y EEVEE Next. El .blend queda en
+blender/<id>[.reducido].blend y el render en blender/render/<id>[.reducido]/[<clip>/]NNNN.png. El render anota el
+tiempo de cada frame en blender/tiempos/<id>[.reducido].json.
 """
 import json
 import sys
+import time
 from pathlib import Path
 
 AQUI = Path(__file__).resolve().parent
@@ -26,7 +28,6 @@ RECURSOS = {
     'pase-3d-latir': (pase, 'latir'),
     'conjunto-noche-lector-confirma': (noche, None),
 }
-INTERACTIVO_WEB = {'pase-3d-objeto'}
 ETAPAS = ('escena', 'modelado', 'materiales', 'animacion', 'verificacion', 'render', 'exportar')
 
 
@@ -34,12 +35,23 @@ def nombre(id_, reducido):
     return id_ + ('.reducido' if reducido else '')
 
 
+def opcion(clave, defecto=None):
+    for a in sys.argv:
+        if a.startswith(f'--{clave}='):
+            return a.split('=', 1)[1]
+    return defecto
+
+
 def tramos_render(id_, reducido):
-    """Rangos a renderizar: por clip en pase-3d-objeto; el rango de la escena en los demás."""
+    """Rangos a renderizar: por clip en pase-3d-objeto; el rango de la escena en los demás.
+    Reducido: el clip latir es un solo frame (el latido se detiene)."""
     sc = bpy.context.scene
     if id_ == 'pase-3d-objeto':
-        return {clip: pase.rango(clip) for clip in pase.CLIPS if not (reducido and clip == 'latir')} | (
-            {'latir': (pase.CLIPS['latir'][0],) * 2} if reducido else {})
+        out = {}
+        for clip in pase.CLIPS:
+            a, b = pase.rango(clip)
+            out[clip] = (a, a) if (reducido and clip == 'latir') else (a, b)
+        return out
     return {'': (sc.frame_start, sc.frame_end)}
 
 
@@ -62,44 +74,77 @@ def main():
         print(f'✓ {etapa} · {blend.name}')
         return
     sc = bpy.context.scene
+    solo = opcion('clip')
+    tramos = {c: r for c, r in tramos_render(id_, reducido).items() if not solo or c == solo}
     if etapa == 'verificacion':
         destino = AQUI / 'verificacion' / nombre(id_, reducido)
         destino.mkdir(parents=True, exist_ok=True)
-        sc.render.resolution_percentage = 50
-        for clip, (a, b) in tramos_render(id_, reducido).items():
-            for f in sorted({a, (a + b) // 2, b}):
+        sc.render.resolution_percentage = int(opcion('escala', 50))
+        k.escalar_compositor(sc)
+        pedidos = opcion('frames')
+        for clip, (a, b) in tramos.items():
+            cuadros = [int(x) for x in pedidos.split(',')] if pedidos else sorted({a, (a + b) // 2, b})
+            for f in cuadros:
                 sc.frame_set(f)
                 sc.render.filepath = str(destino / f'{clip + "-" if clip else ""}f{f:04d}.png')
+                t0 = time.time()
                 bpy.ops.render.render(write_still=True)
-                print('✓ miniatura', sc.render.filepath)
+                print(f'✓ miniatura {sc.render.filepath} · {time.time() - t0:.1f} s')
     elif etapa == 'render':
-        for clip, (a, b) in tramos_render(id_, reducido).items():
-            sc.frame_start, sc.frame_end = a, b
+        registro = AQUI / 'tiempos' / f'{nombre(id_, reducido)}.json'
+        registro.parent.mkdir(exist_ok=True)
+        datos = json.loads(registro.read_text()) if registro.exists() else {}
+        quietos = modulo.tramos_quietos(reducido) if hasattr(modulo, 'tramos_quietos') else []
+        for clip, (a, b) in tramos.items():
             sub = f'{nombre(id_, reducido)}/{clip}/' if clip else f'{nombre(id_, reducido)}/'
-            sc.render.filepath = f'//render/{sub}'
-            bpy.ops.render.render(animation=True)
-            print(f'✓ render {sub} frames {a}–{b}')
+            carpeta = AQUI / 'render' / sub
+            # Tramos quietos (idénticos por construcción: cámara y escena sin cambios) se renderizan una vez y se copian.
+            segmentos, f = [], a
+            while f <= b:
+                q = next(((qa, qb) for qa, qb in quietos if qa <= f <= qb), None)
+                if q:
+                    segmentos.append(('quieto', f, min(q[1], b)))
+                    f = min(q[1], b) + 1
+                else:
+                    fin = min([qa - 1 for qa, _ in quietos if qa > f] + [b])
+                    segmentos.append(('render', f, fin))
+                    f = fin + 1
+            t0 = time.time()
+            calculados = 0
+            carpeta.mkdir(parents=True, exist_ok=True)
+            sc.render.filepath = str(carpeta) + '/'
+            for tipo, x, y in segmentos:
+                # Reanudación: se saltan los frames que ya están escritos (el contenedor puede reiniciarse).
+                hechos = {int(q.stem) for q in carpeta.glob('[0-9][0-9][0-9][0-9].png')}
+                ultimo = x if tipo == 'quieto' else y
+                faltan = [g for g in range(x, ultimo + 1) if g not in hechos]
+                for c0 in faltan:
+                    if c0 - 1 in faltan:
+                        continue
+                    c1 = c0
+                    while c1 + 1 in faltan:
+                        c1 += 1
+                    sc.frame_start, sc.frame_end = c0, c1
+                    bpy.ops.render.render(animation=True)
+                    calculados += c1 - c0 + 1
+                if tipo == 'quieto':
+                    import shutil
+                    for g in range(x + 1, y + 1):
+                        shutil.copyfile(carpeta / f'{x:04d}.png', carpeta / f'{g:04d}.png')
+            total = time.time() - t0
+            n = b - a + 1
+            if calculados == 0 and (clip or 'escena') in datos:
+                print(f'✓ render {sub} ya estaba completo')
+                continue  # reanudación: se conserva el tiempo de la corrida que lo calculó
+            datos[clip or 'escena'] = {'frames': n, 'calculados': calculados, 'segundos': round(total, 1),
+                                       'por_frame_calculado': round(total / max(calculados, 1), 2),
+                                       'resolucion': [sc.render.resolution_x, sc.render.resolution_y],
+                                       'muestras': sc.eevee.taa_render_samples, 'motor': sc.render.engine}
+            registro.write_text(json.dumps(datos, ensure_ascii=False, indent=1) + '\n')
+            print(f'✓ render {sub} frames {a}–{b} · {calculados} calculados · {total:.0f} s · {total / max(calculados, 1):.1f} s/frame')
     elif etapa == 'exportar':
-        if id_ not in INTERACTIVO_WEB or reducido:
-            print('— sin GLB: el recurso no es interactivo en web')
-            return
-        # glTF no anima materiales: cada pieza lleva su token en extras y clips.json dice qué se ve en cada estado.
-        for ob in bpy.data.objects:
-            if ob.name in pase.TOKEN_PIEZA:
-                ob['kino_token'] = pase.TOKEN_PIEZA[ob.name]
-        glb = AQUI / 'glb' / f'{id_}.sin-draco.glb'
-        glb.parent.mkdir(exist_ok=True)
-        sc.frame_start, sc.frame_end = 1, pase.rango('revocar')[1]
-        bpy.ops.export_scene.gltf(filepath=str(glb), export_format='GLB', export_animations=True,
-                                  export_animation_mode='SCENE', export_force_sampling=True, export_apply=True,
-                                  export_cameras=False, export_lights=False, export_extras=True)
-        clips = {c: {'desde': pase.rango(c)[0], 'hasta': pase.rango(c)[1], 'estado_inicial': pase.ESTADOS_CLIP[c][0],
-                     'estado_final': pase.ESTADOS_CLIP[c][1], 'duracion': pase.CLIPS[c][1],
-                     'curva': pase.CURVA_CLIP[c]} for c in pase.CLIPS}
-        datos = {'fps': k.FPS, 'clips': clips, 'piezas_por_estado': pase.PIEZAS_POR_ESTADO,
-                 'color_por_estado': pase.COLOR_POR_ESTADO, 'tokens': {t: k.TOKENS['color'][t] for t in pase.tokens_usados()}}
-        (AQUI / 'glb' / f'{id_}.clips.json').write_text(json.dumps(datos, ensure_ascii=False, indent=1) + '\n')
-        print('✓ GLB', glb)
+        import exportar
+        exportar.glb(id_, reducido)
 
 
 if __name__ == '__main__':

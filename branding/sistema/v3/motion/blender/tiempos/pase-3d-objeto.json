@@ -1,0 +1,86 @@
+{
+ "aparecer": {
+  "frames": 50,
+  "calculados": 41,
+  "segundos": 1140.0,
+  "por_frame_calculado": 27.8,
+  "resolucion": [
+   1920,
+   1080
+  ],
+  "muestras": 14,
+  "motor": "BLENDER_EEVEE_NEXT"
+ },
+ "confirmar": {
+  "frames": 50,
+  "calculados": 50,
+  "segundos": 1404.0,
+  "por_frame_calculado": 28.08,
+  "resolucion": [
+   1920,
+   1080
+  ],
+  "muestras": 14,
+  "motor": "BLENDER_EEVEE_NEXT"
+ },
+ "latir": {
+  "frames": 109,
+  "calculados": 109,
+  "segundos": 3068.0,
+  "por_frame_calculado": 28.15,
+  "resolucion": [
+   1920,
+   1080
+  ],
+  "muestras": 14,
+  "motor": "BLENDER_EEVEE_NEXT"
+ },
+ "avisar": {
+  "frames": 15,
+  "calculados": 15,
+  "segundos": 417.0,
+  "por_frame_calculado": 27.8,
+  "resolucion": [
+   1920,
+   1080
+  ],
+  "muestras": 14,
+  "motor": "BLENDER_EEVEE_NEXT"
+ },
+ "caducar": {
+  "frames": 55,
+  "calculados": 55,
+  "segundos": 1530.0,
+  "por_frame_calculado": 27.82,
+  "resolucion": [
+   1920,
+   1080
+  ],
+  "muestras": 14,
+  "motor": "BLENDER_EEVEE_NEXT"
+ },
+ "usar": {
+  "frames": 15,
+  "calculados": 15,
+  "segundos": 427.0,
+  "por_frame_calculado": 28.47,
+  "resolucion": [
+   1920,
+   1080
+  ],
+  "muestras": 14,
+  "motor": "BLENDER_EEVEE_NEXT"
+ },
+ "revocar": {
+  "frames": 15,
+  "calculados": 15,
+  "segundos": 422.0,
+  "por_frame_calculado": 28.13,
+  "resolucion": [
+   1920,
+   1080
+  ],
+  "muestras": 14,
+  "motor": "BLENDER_EEVEE_NEXT"
+ }
+}

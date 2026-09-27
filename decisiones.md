@@ -410,3 +410,38 @@ Lámina: `kino/parada-4.html` (https://claude.ai/artifact/DBF7w1VTGPtJ9oQwdz4tXa
 
 ## Motion · curva de trazo (26 sep)
 - **Decisión de Nico:** `trazo` usa `duracion/trazo` con `curva/crecer`. Se aplica a `flujo-trazo`, `loader-espera-lector` y `onboarding-3-lector-confirma`. Estado: decidida para el borrador del inventario de motion; el inventario completo sigue sin aprobar.
+
+## Motion 3D · segunda versión de las escenas (26 sep)
+Pedido de Nico: subir las tres escenas de Blender a nivel profesional; libertad total en motion. Lámina de revisión: ver `avances.md`. Todas quedan en **PROPUESTA**; la opción A es la construida en `branding/sistema/v3/motion/blender/`.
+
+### M3D-1 · Gestión de color de las escenas · PROPUESTA
+- **A (construida):** vista Standard y curva de tono propia en el compositor para la escena; las marcas de estado (bordes, chip, textos, barra, indicador) escriben la AOV `marca` y pasan sin curva. Medido con `blender/medir.py`: vigente borde, texto y fondo y texto primario salen con ΔE 0.
+- **B:** AgX para todo. Más cinematográfico, pero desatura los verdes de estado: `#00EAA5` deja de salir como `#00EAA5`.
+- **Por qué A:** estado honesto y colores solo de tokens; el color de un estado es información.
+
+### M3D-2 · Tiempo de la talanquera · PROPUESTA
+- **A (construida):** `resorte/firme` (494 ms, sin rebote). El brazo se flexiona un poco por su inercia y se asienta.
+- **B:** token nuevo de mecánica, de 1 a 1,5 s, más cercano a una barrera real.
+- **Regla que se cumple en las dos:** la talanquera sube solo después de que el lector confirma.
+
+### M3D-3 · Cámara de la portería · PROPUESTA
+- **A (construida):** llega con `duracion/cortina` y `curva/crecer`, espera la confirmación y avanza al 60 % de ese tiempo (`coreografia/salida-factor`) con `curva/salir`. Faros de un vehículo que no se ve (sin placa ni personas).
+- **B:** cámara fija, como en la versión 1 y como la variante reducida.
+- **Falta:** no hay token de cámara; A reutiliza tokens que existen.
+
+### M3D-4 · Base de la tarjeta del Pase · PROPUESTA
+- **A (construida en 3D):** `superficie/membrana`, como el recurso Membrana. Implica cambiar `<kino-pase>` en la web, que hoy usa `superficie/elevada`.
+- **B:** `superficie/elevada` en los dos. Se cambia el 3D.
+
+### M3D-5 · Textos que cambian con el estado · PROPUESTA
+- **A (construida en 3D):** fundido a través: el texto que sale se va en la primera mitad del verbo y el nuevo llega en la segunda. Se llevaría a `<kino-pase>` y `<kino-estado>`.
+- **B:** cambio de golpe, como la web hoy; solo los colores tienen transición.
+- **Por qué se propone:** en 3D un fundido cruzado encima los dos textos a mitad de la transición.
+
+### M3D-6 · Aurora en la portería · PROPUESTA
+- **A (construida):** índigo y violeta con un rastro de `biolum/d15`; el único verde de la escena es el indicador confirmado.
+- **B:** aurora completa, verde e índigo, como en las portadas (X7).
+
+### M3D-7 · Arco Portal en 3D · PROPUESTA
+- **A (construida):** sin arco. Las escenas muestran la tarjeta de la lista; el arco es del Pase vivo con el QR (X1, X8).
+- **B:** sumar una escena del Pase vivo, en claro, con el arco y el QR sobre fondo liso (nunca aurora detrás del QR).

@@ -1,0 +1,1423 @@
+{
+ "fps": 60,
+ "estados": {
+  "sin-confirmar": {
+   "barra": {
+    "token": "estado/vencido/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "borde": {
+    "token": "estado/vigente/borde",
+    "hex": "#00EAA5",
+    "alfa": 0.0
+   },
+   "borde-sin": {
+    "token": "estado/sin-confirmar/borde",
+    "hex": "#86A799",
+    "alfa": 1.0
+   },
+   "brillo": {
+    "token": "estado/vigente/texto",
+    "hex": "#2FF8B2",
+    "alfa": 0.0
+   },
+   "chip-por-vencer-borde": {
+    "token": "estado/por-vencer/borde",
+    "hex": "#FFC36D",
+    "alfa": 0.0
+   },
+   "chip-por-vencer-fondo": {
+    "token": "estado/por-vencer/fondo",
+    "hex": "#503300",
+    "alfa": 0.0
+   },
+   "chip-por-vencer-punto": {
+    "token": "estado/por-vencer/borde",
+    "hex": "#FFC36D",
+    "alfa": 0.0
+   },
+   "chip-por-vencer-texto": {
+    "token": "estado/por-vencer/texto",
+    "hex": "#FFD49C",
+    "alfa": 0.0
+   },
+   "chip-revocado-borde": {
+    "token": "estado/revocado/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "chip-revocado-fondo": {
+    "token": "estado/revocado/fondo",
+    "hex": "#0B2A20",
+    "alfa": 0.0
+   },
+   "chip-revocado-punto": {
+    "token": "estado/revocado/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "chip-revocado-texto": {
+    "token": "estado/revocado/texto",
+    "hex": "#FEC6C0",
+    "alfa": 0.0
+   },
+   "chip-sin-confirmar-borde": {
+    "token": "estado/sin-confirmar/borde",
+    "hex": "#86A799",
+    "alfa": 1.0
+   },
+   "chip-sin-confirmar-punto": {
+    "token": "estado/sin-confirmar/borde",
+    "hex": "#86A799",
+    "alfa": 1.0
+   },
+   "chip-sin-confirmar-texto": {
+    "token": "estado/sin-confirmar/texto",
+    "hex": "#DBE9E3",
+    "alfa": 1.0
+   },
+   "chip-usado-borde": {
+    "token": "estado/usado/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "chip-usado-fondo": {
+    "token": "estado/usado/fondo",
+    "hex": "#0B2A20",
+    "alfa": 0.0
+   },
+   "chip-usado-punto": {
+    "token": "estado/usado/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "chip-usado-texto": {
+    "token": "estado/usado/texto",
+    "hex": "#E5F3ED",
+    "alfa": 0.0
+   },
+   "chip-vencido-borde": {
+    "token": "estado/vencido/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "chip-vencido-fondo": {
+    "token": "estado/vencido/fondo",
+    "hex": "#0B2A20",
+    "alfa": 0.0
+   },
+   "chip-vencido-punto": {
+    "token": "estado/vencido/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "chip-vencido-texto": {
+    "token": "estado/vencido/texto",
+    "hex": "#B8DBCC",
+    "alfa": 0.0
+   },
+   "chip-vigente-borde": {
+    "token": "estado/vigente/borde",
+    "hex": "#00EAA5",
+    "alfa": 0.0
+   },
+   "chip-vigente-fondo": {
+    "token": "estado/vigente/fondo",
+    "hex": "#00422C",
+    "alfa": 0.0
+   },
+   "chip-vigente-punto": {
+    "token": "estado/vigente/borde",
+    "hex": "#00EAA5",
+    "alfa": 0.0
+   },
+   "chip-vigente-texto": {
+    "token": "estado/vigente/texto",
+    "hex": "#2FF8B2",
+    "alfa": 0.0
+   },
+   "corte": {
+    "token": "estado/revocado/texto",
+    "hex": "#FEC6C0",
+    "alfa": 0.0
+   },
+   "dato-por-vencer": {
+    "token": "texto/secundario",
+    "hex": "#CEDBD6",
+    "alfa": 0.0
+   },
+   "dato-revocado": {
+    "token": "texto/secundario",
+    "hex": "#CEDBD6",
+    "alfa": 0.0
+   },
+   "dato-sin-confirmar": {
+    "token": "texto/secundario",
+    "hex": "#CEDBD6",
+    "alfa": 1.0
+   },
+   "dato-usado": {
+    "token": "texto/secundario",
+    "hex": "#CEDBD6",
+    "alfa": 0.0
+   },
+   "dato-vencido": {
+    "token": "texto/secundario",
+    "hex": "#CEDBD6",
+    "alfa": 0.0
+   },
+   "dato-vigente": {
+    "token": "texto/secundario",
+    "hex": "#CEDBD6",
+    "alfa": 0.0
+   },
+   "nota-confirmo": {
+    "token": "estado/vigente/texto",
+    "hex": "#2FF8B2",
+    "alfa": 0.0
+   },
+   "nota-revoco": {
+    "token": "estado/revocado/texto",
+    "hex": "#FEC6C0",
+    "alfa": 0.0
+   },
+   "pista": {
+    "token": "superficie/elevada",
+    "hex": "#0B2A20",
+    "alfa": 0.0
+   },
+   "quien": {
+    "token": "texto/primario",
+    "hex": "#EFFCF7",
+    "alfa": 1.0
+   },
+   "tachado": {
+    "token": "estado/usado/texto",
+    "hex": "#E5F3ED",
+    "alfa": 0.0
+   },
+   "tarjeta": {
+    "token": "superficie/membrana",
+    "hex": "#17362B",
+    "alfa": 1.0,
+    "pbr": true
+   },
+   "resplandor": {
+    "token": "biolum/d110",
+    "hex": "#00EAA5",
+    "alfa": 0.0
+   }
+  },
+  "vigente": {
+   "barra": {
+    "token": "estado/vigente/borde",
+    "hex": "#00EAA5",
+    "alfa": 1.0
+   },
+   "borde": {
+    "token": "estado/vigente/borde",
+    "hex": "#00EAA5",
+    "alfa": 1.0
+   },
+   "borde-sin": {
+    "token": "estado/sin-confirmar/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "brillo": {
+    "token": "estado/vigente/texto",
+    "hex": "#2FF8B2",
+    "alfa": 0.0
+   },
+   "chip-por-vencer-borde": {
+    "token": "estado/por-vencer/borde",
+    "hex": "#FFC36D",
+    "alfa": 0.0
+   },
+   "chip-por-vencer-fondo": {
+    "token": "estado/por-vencer/fondo",
+    "hex": "#503300",
+    "alfa": 0.0
+   },
+   "chip-por-vencer-punto": {
+    "token": "estado/por-vencer/borde",
+    "hex": "#FFC36D",
+    "alfa": 0.0
+   },
+   "chip-por-vencer-texto": {
+    "token": "estado/por-vencer/texto",
+    "hex": "#FFD49C",
+    "alfa": 0.0
+   },
+   "chip-revocado-borde": {
+    "token": "estado/revocado/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "chip-revocado-fondo": {
+    "token": "estado/revocado/fondo",
+    "hex": "#0B2A20",
+    "alfa": 0.0
+   },
+   "chip-revocado-punto": {
+    "token": "estado/revocado/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "chip-revocado-texto": {
+    "token": "estado/revocado/texto",
+    "hex": "#FEC6C0",
+    "alfa": 0.0
+   },
+   "chip-sin-confirmar-borde": {
+    "token": "estado/sin-confirmar/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "chip-sin-confirmar-punto": {
+    "token": "estado/sin-confirmar/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "chip-sin-confirmar-texto": {
+    "token": "estado/sin-confirmar/texto",
+    "hex": "#DBE9E3",
+    "alfa": 0.0
+   },
+   "chip-usado-borde": {
+    "token": "estado/usado/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "chip-usado-fondo": {
+    "token": "estado/usado/fondo",
+    "hex": "#0B2A20",
+    "alfa": 0.0
+   },
+   "chip-usado-punto": {
+    "token": "estado/usado/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "chip-usado-texto": {
+    "token": "estado/usado/texto",
+    "hex": "#E5F3ED",
+    "alfa": 0.0
+   },
+   "chip-vencido-borde": {
+    "token": "estado/vencido/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "chip-vencido-fondo": {
+    "token": "estado/vencido/fondo",
+    "hex": "#0B2A20",
+    "alfa": 0.0
+   },
+   "chip-vencido-punto": {
+    "token": "estado/vencido/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "chip-vencido-texto": {
+    "token": "estado/vencido/texto",
+    "hex": "#B8DBCC",
+    "alfa": 0.0
+   },
+   "chip-vigente-borde": {
+    "token": "estado/vigente/borde",
+    "hex": "#00EAA5",
+    "alfa": 1.0
+   },
+   "chip-vigente-fondo": {
+    "token": "estado/vigente/fondo",
+    "hex": "#00422C",
+    "alfa": 1.0
+   },
+   "chip-vigente-punto": {
+    "token": "estado/vigente/borde",
+    "hex": "#00EAA5",
+    "alfa": 1.0
+   },
+   "chip-vigente-texto": {
+    "token": "estado/vigente/texto",
+    "hex": "#2FF8B2",
+    "alfa": 1.0
+   },
+   "corte": {
+    "token": "estado/revocado/texto",
+    "hex": "#FEC6C0",
+    "alfa": 0.0
+   },
+   "dato-por-vencer": {
+    "token": "texto/secundario",
+    "hex": "#CEDBD6",
+    "alfa": 0.0
+   },
+   "dato-revocado": {
+    "token": "texto/secundario",
+    "hex": "#CEDBD6",
+    "alfa": 0.0
+   },
+   "dato-sin-confirmar": {
+    "token": "texto/secundario",
+    "hex": "#CEDBD6",
+    "alfa": 0.0
+   },
+   "dato-usado": {
+    "token": "texto/secundario",
+    "hex": "#CEDBD6",
+    "alfa": 0.0
+   },
+   "dato-vencido": {
+    "token": "texto/secundario",
+    "hex": "#CEDBD6",
+    "alfa": 0.0
+   },
+   "dato-vigente": {
+    "token": "texto/secundario",
+    "hex": "#CEDBD6",
+    "alfa": 1.0
+   },
+   "nota-confirmo": {
+    "token": "estado/vigente/texto",
+    "hex": "#2FF8B2",
+    "alfa": 1.0
+   },
+   "nota-revoco": {
+    "token": "estado/revocado/texto",
+    "hex": "#FEC6C0",
+    "alfa": 0.0
+   },
+   "pista": {
+    "token": "superficie/elevada",
+    "hex": "#0B2A20",
+    "alfa": 1.0
+   },
+   "quien": {
+    "token": "texto/primario",
+    "hex": "#EFFCF7",
+    "alfa": 1.0
+   },
+   "tachado": {
+    "token": "estado/usado/texto",
+    "hex": "#E5F3ED",
+    "alfa": 0.0
+   },
+   "tarjeta": {
+    "token": "superficie/membrana",
+    "hex": "#17362B",
+    "alfa": 1.0,
+    "pbr": true
+   },
+   "resplandor": {
+    "token": "biolum/d110",
+    "hex": "#00EAA5",
+    "alfa": 1.0
+   }
+  },
+  "por-vencer": {
+   "barra": {
+    "token": "estado/por-vencer/borde",
+    "hex": "#FFC36D",
+    "alfa": 1.0
+   },
+   "borde": {
+    "token": "estado/por-vencer/borde",
+    "hex": "#FFC36D",
+    "alfa": 1.0
+   },
+   "borde-sin": {
+    "token": "estado/sin-confirmar/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "brillo": {
+    "token": "estado/vigente/texto",
+    "hex": "#2FF8B2",
+    "alfa": 0.0
+   },
+   "chip-por-vencer-borde": {
+    "token": "estado/por-vencer/borde",
+    "hex": "#FFC36D",
+    "alfa": 1.0
+   },
+   "chip-por-vencer-fondo": {
+    "token": "estado/por-vencer/fondo",
+    "hex": "#503300",
+    "alfa": 1.0
+   },
+   "chip-por-vencer-punto": {
+    "token": "estado/por-vencer/borde",
+    "hex": "#FFC36D",
+    "alfa": 1.0
+   },
+   "chip-por-vencer-texto": {
+    "token": "estado/por-vencer/texto",
+    "hex": "#FFD49C",
+    "alfa": 1.0
+   },
+   "chip-revocado-borde": {
+    "token": "estado/revocado/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "chip-revocado-fondo": {
+    "token": "estado/revocado/fondo",
+    "hex": "#0B2A20",
+    "alfa": 0.0
+   },
+   "chip-revocado-punto": {
+    "token": "estado/revocado/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "chip-revocado-texto": {
+    "token": "estado/revocado/texto",
+    "hex": "#FEC6C0",
+    "alfa": 0.0
+   },
+   "chip-sin-confirmar-borde": {
+    "token": "estado/sin-confirmar/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "chip-sin-confirmar-punto": {
+    "token": "estado/sin-confirmar/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "chip-sin-confirmar-texto": {
+    "token": "estado/sin-confirmar/texto",
+    "hex": "#DBE9E3",
+    "alfa": 0.0
+   },
+   "chip-usado-borde": {
+    "token": "estado/usado/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "chip-usado-fondo": {
+    "token": "estado/usado/fondo",
+    "hex": "#0B2A20",
+    "alfa": 0.0
+   },
+   "chip-usado-punto": {
+    "token": "estado/usado/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "chip-usado-texto": {
+    "token": "estado/usado/texto",
+    "hex": "#E5F3ED",
+    "alfa": 0.0
+   },
+   "chip-vencido-borde": {
+    "token": "estado/vencido/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "chip-vencido-fondo": {
+    "token": "estado/vencido/fondo",
+    "hex": "#0B2A20",
+    "alfa": 0.0
+   },
+   "chip-vencido-punto": {
+    "token": "estado/vencido/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "chip-vencido-texto": {
+    "token": "estado/vencido/texto",
+    "hex": "#B8DBCC",
+    "alfa": 0.0
+   },
+   "chip-vigente-borde": {
+    "token": "estado/vigente/borde",
+    "hex": "#00EAA5",
+    "alfa": 0.0
+   },
+   "chip-vigente-fondo": {
+    "token": "estado/vigente/fondo",
+    "hex": "#00422C",
+    "alfa": 0.0
+   },
+   "chip-vigente-punto": {
+    "token": "estado/vigente/borde",
+    "hex": "#00EAA5",
+    "alfa": 0.0
+   },
+   "chip-vigente-texto": {
+    "token": "estado/vigente/texto",
+    "hex": "#2FF8B2",
+    "alfa": 0.0
+   },
+   "corte": {
+    "token": "estado/revocado/texto",
+    "hex": "#FEC6C0",
+    "alfa": 0.0
+   },
+   "dato-por-vencer": {
+    "token": "texto/secundario",
+    "hex": "#CEDBD6",
+    "alfa": 1.0
+   },
+   "dato-revocado": {
+    "token": "texto/secundario",
+    "hex": "#CEDBD6",
+    "alfa": 0.0
+   },
+   "dato-sin-confirmar": {
+    "token": "texto/secundario",
+    "hex": "#CEDBD6",
+    "alfa": 0.0
+   },
+   "dato-usado": {
+    "token": "texto/secundario",
+    "hex": "#CEDBD6",
+    "alfa": 0.0
+   },
+   "dato-vencido": {
+    "token": "texto/secundario",
+    "hex": "#CEDBD6",
+    "alfa": 0.0
+   },
+   "dato-vigente": {
+    "token": "texto/secundario",
+    "hex": "#CEDBD6",
+    "alfa": 0.0
+   },
+   "nota-confirmo": {
+    "token": "estado/vigente/texto",
+    "hex": "#2FF8B2",
+    "alfa": 1.0
+   },
+   "nota-revoco": {
+    "token": "estado/revocado/texto",
+    "hex": "#FEC6C0",
+    "alfa": 0.0
+   },
+   "pista": {
+    "token": "superficie/elevada",
+    "hex": "#0B2A20",
+    "alfa": 1.0
+   },
+   "quien": {
+    "token": "texto/primario",
+    "hex": "#EFFCF7",
+    "alfa": 1.0
+   },
+   "tachado": {
+    "token": "estado/usado/texto",
+    "hex": "#E5F3ED",
+    "alfa": 0.0
+   },
+   "tarjeta": {
+    "token": "superficie/membrana",
+    "hex": "#17362B",
+    "alfa": 1.0,
+    "pbr": true
+   },
+   "resplandor": {
+    "token": "biolum/d110",
+    "hex": "#00EAA5",
+    "alfa": 0.0
+   }
+  },
+  "vencido": {
+   "barra": {
+    "token": "estado/vencido/borde",
+    "hex": "#86A799",
+    "alfa": 0.72
+   },
+   "borde": {
+    "token": "estado/vencido/borde",
+    "hex": "#86A799",
+    "alfa": 0.72
+   },
+   "borde-sin": {
+    "token": "estado/sin-confirmar/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "brillo": {
+    "token": "estado/vigente/texto",
+    "hex": "#2FF8B2",
+    "alfa": 0.0
+   },
+   "chip-por-vencer-borde": {
+    "token": "estado/por-vencer/borde",
+    "hex": "#FFC36D",
+    "alfa": 0.0
+   },
+   "chip-por-vencer-fondo": {
+    "token": "estado/por-vencer/fondo",
+    "hex": "#503300",
+    "alfa": 0.0
+   },
+   "chip-por-vencer-punto": {
+    "token": "estado/por-vencer/borde",
+    "hex": "#FFC36D",
+    "alfa": 0.0
+   },
+   "chip-por-vencer-texto": {
+    "token": "estado/por-vencer/texto",
+    "hex": "#FFD49C",
+    "alfa": 0.0
+   },
+   "chip-revocado-borde": {
+    "token": "estado/revocado/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "chip-revocado-fondo": {
+    "token": "estado/revocado/fondo",
+    "hex": "#0B2A20",
+    "alfa": 0.0
+   },
+   "chip-revocado-punto": {
+    "token": "estado/revocado/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "chip-revocado-texto": {
+    "token": "estado/revocado/texto",
+    "hex": "#FEC6C0",
+    "alfa": 0.0
+   },
+   "chip-sin-confirmar-borde": {
+    "token": "estado/sin-confirmar/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "chip-sin-confirmar-punto": {
+    "token": "estado/sin-confirmar/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "chip-sin-confirmar-texto": {
+    "token": "estado/sin-confirmar/texto",
+    "hex": "#DBE9E3",
+    "alfa": 0.0
+   },
+   "chip-usado-borde": {
+    "token": "estado/usado/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "chip-usado-fondo": {
+    "token": "estado/usado/fondo",
+    "hex": "#0B2A20",
+    "alfa": 0.0
+   },
+   "chip-usado-punto": {
+    "token": "estado/usado/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "chip-usado-texto": {
+    "token": "estado/usado/texto",
+    "hex": "#E5F3ED",
+    "alfa": 0.0
+   },
+   "chip-vencido-borde": {
+    "token": "estado/vencido/borde",
+    "hex": "#86A799",
+    "alfa": 0.72
+   },
+   "chip-vencido-fondo": {
+    "token": "estado/vencido/fondo",
+    "hex": "#0B2A20",
+    "alfa": 0.72
+   },
+   "chip-vencido-punto": {
+    "token": "estado/vencido/borde",
+    "hex": "#86A799",
+    "alfa": 0.72
+   },
+   "chip-vencido-texto": {
+    "token": "estado/vencido/texto",
+    "hex": "#B8DBCC",
+    "alfa": 0.72
+   },
+   "chip-vigente-borde": {
+    "token": "estado/vigente/borde",
+    "hex": "#00EAA5",
+    "alfa": 0.0
+   },
+   "chip-vigente-fondo": {
+    "token": "estado/vigente/fondo",
+    "hex": "#00422C",
+    "alfa": 0.0
+   },
+   "chip-vigente-punto": {
+    "token": "estado/vigente/borde",
+    "hex": "#00EAA5",
+    "alfa": 0.0
+   },
+   "chip-vigente-texto": {
+    "token": "estado/vigente/texto",
+    "hex": "#2FF8B2",
+    "alfa": 0.0
+   },
+   "corte": {
+    "token": "estado/revocado/texto",
+    "hex": "#FEC6C0",
+    "alfa": 0.0
+   },
+   "dato-por-vencer": {
+    "token": "texto/secundario",
+    "hex": "#CEDBD6",
+    "alfa": 0.0
+   },
+   "dato-revocado": {
+    "token": "texto/secundario",
+    "hex": "#CEDBD6",
+    "alfa": 0.0
+   },
+   "dato-sin-confirmar": {
+    "token": "texto/secundario",
+    "hex": "#CEDBD6",
+    "alfa": 0.0
+   },
+   "dato-usado": {
+    "token": "texto/secundario",
+    "hex": "#CEDBD6",
+    "alfa": 0.0
+   },
+   "dato-vencido": {
+    "token": "texto/secundario",
+    "hex": "#CEDBD6",
+    "alfa": 0.72
+   },
+   "dato-vigente": {
+    "token": "texto/secundario",
+    "hex": "#CEDBD6",
+    "alfa": 0.0
+   },
+   "nota-confirmo": {
+    "token": "estado/vigente/texto",
+    "hex": "#2FF8B2",
+    "alfa": 0.0
+   },
+   "nota-revoco": {
+    "token": "estado/revocado/texto",
+    "hex": "#FEC6C0",
+    "alfa": 0.0
+   },
+   "pista": {
+    "token": "superficie/elevada",
+    "hex": "#0B2A20",
+    "alfa": 0.72
+   },
+   "quien": {
+    "token": "texto/primario",
+    "hex": "#EFFCF7",
+    "alfa": 0.72
+   },
+   "tachado": {
+    "token": "estado/usado/texto",
+    "hex": "#E5F3ED",
+    "alfa": 0.0
+   },
+   "tarjeta": {
+    "token": "superficie/membrana",
+    "hex": "#17362B",
+    "alfa": 0.72,
+    "pbr": true
+   },
+   "resplandor": {
+    "token": "biolum/d110",
+    "hex": "#00EAA5",
+    "alfa": 0.0
+   }
+  },
+  "usado": {
+   "barra": {
+    "token": "estado/vencido/borde",
+    "hex": "#86A799",
+    "alfa": 0.72
+   },
+   "borde": {
+    "token": "estado/vencido/borde",
+    "hex": "#86A799",
+    "alfa": 0.72
+   },
+   "borde-sin": {
+    "token": "estado/sin-confirmar/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "brillo": {
+    "token": "estado/vigente/texto",
+    "hex": "#2FF8B2",
+    "alfa": 0.0
+   },
+   "chip-por-vencer-borde": {
+    "token": "estado/por-vencer/borde",
+    "hex": "#FFC36D",
+    "alfa": 0.0
+   },
+   "chip-por-vencer-fondo": {
+    "token": "estado/por-vencer/fondo",
+    "hex": "#503300",
+    "alfa": 0.0
+   },
+   "chip-por-vencer-punto": {
+    "token": "estado/por-vencer/borde",
+    "hex": "#FFC36D",
+    "alfa": 0.0
+   },
+   "chip-por-vencer-texto": {
+    "token": "estado/por-vencer/texto",
+    "hex": "#FFD49C",
+    "alfa": 0.0
+   },
+   "chip-revocado-borde": {
+    "token": "estado/revocado/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "chip-revocado-fondo": {
+    "token": "estado/revocado/fondo",
+    "hex": "#0B2A20",
+    "alfa": 0.0
+   },
+   "chip-revocado-punto": {
+    "token": "estado/revocado/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "chip-revocado-texto": {
+    "token": "estado/revocado/texto",
+    "hex": "#FEC6C0",
+    "alfa": 0.0
+   },
+   "chip-sin-confirmar-borde": {
+    "token": "estado/sin-confirmar/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "chip-sin-confirmar-punto": {
+    "token": "estado/sin-confirmar/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "chip-sin-confirmar-texto": {
+    "token": "estado/sin-confirmar/texto",
+    "hex": "#DBE9E3",
+    "alfa": 0.0
+   },
+   "chip-usado-borde": {
+    "token": "estado/usado/borde",
+    "hex": "#86A799",
+    "alfa": 0.72
+   },
+   "chip-usado-fondo": {
+    "token": "estado/usado/fondo",
+    "hex": "#0B2A20",
+    "alfa": 0.72
+   },
+   "chip-usado-punto": {
+    "token": "estado/usado/borde",
+    "hex": "#86A799",
+    "alfa": 0.72
+   },
+   "chip-usado-texto": {
+    "token": "estado/usado/texto",
+    "hex": "#E5F3ED",
+    "alfa": 0.72
+   },
+   "chip-vencido-borde": {
+    "token": "estado/vencido/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "chip-vencido-fondo": {
+    "token": "estado/vencido/fondo",
+    "hex": "#0B2A20",
+    "alfa": 0.0
+   },
+   "chip-vencido-punto": {
+    "token": "estado/vencido/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "chip-vencido-texto": {
+    "token": "estado/vencido/texto",
+    "hex": "#B8DBCC",
+    "alfa": 0.0
+   },
+   "chip-vigente-borde": {
+    "token": "estado/vigente/borde",
+    "hex": "#00EAA5",
+    "alfa": 0.0
+   },
+   "chip-vigente-fondo": {
+    "token": "estado/vigente/fondo",
+    "hex": "#00422C",
+    "alfa": 0.0
+   },
+   "chip-vigente-punto": {
+    "token": "estado/vigente/borde",
+    "hex": "#00EAA5",
+    "alfa": 0.0
+   },
+   "chip-vigente-texto": {
+    "token": "estado/vigente/texto",
+    "hex": "#2FF8B2",
+    "alfa": 0.0
+   },
+   "corte": {
+    "token": "estado/revocado/texto",
+    "hex": "#FEC6C0",
+    "alfa": 0.0
+   },
+   "dato-por-vencer": {
+    "token": "texto/secundario",
+    "hex": "#CEDBD6",
+    "alfa": 0.0
+   },
+   "dato-revocado": {
+    "token": "texto/secundario",
+    "hex": "#CEDBD6",
+    "alfa": 0.0
+   },
+   "dato-sin-confirmar": {
+    "token": "texto/secundario",
+    "hex": "#CEDBD6",
+    "alfa": 0.0
+   },
+   "dato-usado": {
+    "token": "texto/secundario",
+    "hex": "#CEDBD6",
+    "alfa": 0.72
+   },
+   "dato-vencido": {
+    "token": "texto/secundario",
+    "hex": "#CEDBD6",
+    "alfa": 0.0
+   },
+   "dato-vigente": {
+    "token": "texto/secundario",
+    "hex": "#CEDBD6",
+    "alfa": 0.0
+   },
+   "nota-confirmo": {
+    "token": "estado/vigente/texto",
+    "hex": "#2FF8B2",
+    "alfa": 0.0
+   },
+   "nota-revoco": {
+    "token": "estado/revocado/texto",
+    "hex": "#FEC6C0",
+    "alfa": 0.0
+   },
+   "pista": {
+    "token": "superficie/elevada",
+    "hex": "#0B2A20",
+    "alfa": 0.72
+   },
+   "quien": {
+    "token": "texto/primario",
+    "hex": "#EFFCF7",
+    "alfa": 0.72
+   },
+   "tachado": {
+    "token": "estado/usado/texto",
+    "hex": "#E5F3ED",
+    "alfa": 0.72
+   },
+   "tarjeta": {
+    "token": "superficie/membrana",
+    "hex": "#17362B",
+    "alfa": 0.72,
+    "pbr": true
+   },
+   "resplandor": {
+    "token": "biolum/d110",
+    "hex": "#00EAA5",
+    "alfa": 0.0
+   }
+  },
+  "revocado": {
+   "barra": {
+    "token": "estado/vencido/borde",
+    "hex": "#86A799",
+    "alfa": 0.72
+   },
+   "borde": {
+    "token": "estado/vencido/borde",
+    "hex": "#86A799",
+    "alfa": 0.72
+   },
+   "borde-sin": {
+    "token": "estado/sin-confirmar/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "brillo": {
+    "token": "estado/vigente/texto",
+    "hex": "#2FF8B2",
+    "alfa": 0.0
+   },
+   "chip-por-vencer-borde": {
+    "token": "estado/por-vencer/borde",
+    "hex": "#FFC36D",
+    "alfa": 0.0
+   },
+   "chip-por-vencer-fondo": {
+    "token": "estado/por-vencer/fondo",
+    "hex": "#503300",
+    "alfa": 0.0
+   },
+   "chip-por-vencer-punto": {
+    "token": "estado/por-vencer/borde",
+    "hex": "#FFC36D",
+    "alfa": 0.0
+   },
+   "chip-por-vencer-texto": {
+    "token": "estado/por-vencer/texto",
+    "hex": "#FFD49C",
+    "alfa": 0.0
+   },
+   "chip-revocado-borde": {
+    "token": "estado/revocado/borde",
+    "hex": "#86A799",
+    "alfa": 0.72
+   },
+   "chip-revocado-fondo": {
+    "token": "estado/revocado/fondo",
+    "hex": "#0B2A20",
+    "alfa": 0.72
+   },
+   "chip-revocado-punto": {
+    "token": "estado/revocado/borde",
+    "hex": "#86A799",
+    "alfa": 0.72
+   },
+   "chip-revocado-texto": {
+    "token": "estado/revocado/texto",
+    "hex": "#FEC6C0",
+    "alfa": 0.72
+   },
+   "chip-sin-confirmar-borde": {
+    "token": "estado/sin-confirmar/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "chip-sin-confirmar-punto": {
+    "token": "estado/sin-confirmar/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "chip-sin-confirmar-texto": {
+    "token": "estado/sin-confirmar/texto",
+    "hex": "#DBE9E3",
+    "alfa": 0.0
+   },
+   "chip-usado-borde": {
+    "token": "estado/usado/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "chip-usado-fondo": {
+    "token": "estado/usado/fondo",
+    "hex": "#0B2A20",
+    "alfa": 0.0
+   },
+   "chip-usado-punto": {
+    "token": "estado/usado/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "chip-usado-texto": {
+    "token": "estado/usado/texto",
+    "hex": "#E5F3ED",
+    "alfa": 0.0
+   },
+   "chip-vencido-borde": {
+    "token": "estado/vencido/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "chip-vencido-fondo": {
+    "token": "estado/vencido/fondo",
+    "hex": "#0B2A20",
+    "alfa": 0.0
+   },
+   "chip-vencido-punto": {
+    "token": "estado/vencido/borde",
+    "hex": "#86A799",
+    "alfa": 0.0
+   },
+   "chip-vencido-texto": {
+    "token": "estado/vencido/texto",
+    "hex": "#B8DBCC",
+    "alfa": 0.0
+   },
+   "chip-vigente-borde": {
+    "token": "estado/vigente/borde",
+    "hex": "#00EAA5",
+    "alfa": 0.0
+   },
+   "chip-vigente-fondo": {
+    "token": "estado/vigente/fondo",
+    "hex": "#00422C",
+    "alfa": 0.0
+   },
+   "chip-vigente-punto": {
+    "token": "estado/vigente/borde",
+    "hex": "#00EAA5",
+    "alfa": 0.0
+   },
+   "chip-vigente-texto": {
+    "token": "estado/vigente/texto",
+    "hex": "#2FF8B2",
+    "alfa": 0.0
+   },
+   "corte": {
+    "token": "estado/revocado/texto",
+    "hex": "#FEC6C0",
+    "alfa": 0.72
+   },
+   "dato-por-vencer": {
+    "token": "texto/secundario",
+    "hex": "#CEDBD6",
+    "alfa": 0.0
+   },
+   "dato-revocado": {
+    "token": "texto/secundario",
+    "hex": "#CEDBD6",
+    "alfa": 0.72
+   },
+   "dato-sin-confirmar": {
+    "token": "texto/secundario",
+    "hex": "#CEDBD6",
+    "alfa": 0.0
+   },
+   "dato-usado": {
+    "token": "texto/secundario",
+    "hex": "#CEDBD6",
+    "alfa": 0.0
+   },
+   "dato-vencido": {
+    "token": "texto/secundario",
+    "hex": "#CEDBD6",
+    "alfa": 0.0
+   },
+   "dato-vigente": {
+    "token": "texto/secundario",
+    "hex": "#CEDBD6",
+    "alfa": 0.0
+   },
+   "nota-confirmo": {
+    "token": "estado/vigente/texto",
+    "hex": "#2FF8B2",
+    "alfa": 0.0
+   },
+   "nota-revoco": {
+    "token": "estado/revocado/texto",
+    "hex": "#FEC6C0",
+    "alfa": 0.72
+   },
+   "pista": {
+    "token": "superficie/elevada",
+    "hex": "#0B2A20",
+    "alfa": 0.72
+   },
+   "quien": {
+    "token": "texto/primario",
+    "hex": "#EFFCF7",
+    "alfa": 0.72
+   },
+   "tachado": {
+    "token": "estado/usado/texto",
+    "hex": "#E5F3ED",
+    "alfa": 0.0
+   },
+   "tarjeta": {
+    "token": "superficie/base",
+    "hex": "#011F16",
+    "alfa": 0.72,
+    "pbr": true
+   },
+   "resplandor": {
+    "token": "biolum/d110",
+    "hex": "#00EAA5",
+    "alfa": 0.0
+   }
+  }
+ },
+ "pbr_tarjeta": {
+  "rugosidad": 0.42,
+  "laca": 0.35,
+  "laca_rugosidad": 0.14,
+  "sheen_token": "sustrato/d70",
+  "sheen_hex": "#8AAC9E",
+  "sheen_rugosidad": 0.35
+ },
+ "clips": {
+  "aparecer": {
+   "desde": 1,
+   "hasta": 50,
+   "estado_inicial": "sin-confirmar",
+   "estado_final": "sin-confirmar",
+   "curva": [
+    0.16,
+    0.84,
+    0.3,
+    1
+   ],
+   "nombre_curva": "aparecer/curva",
+   "evento": null,
+   "deja": null
+  },
+  "confirmar": {
+   "desde": 60,
+   "hasta": 109,
+   "estado_inicial": "sin-confirmar",
+   "estado_final": "vigente",
+   "curva": [
+    0.16,
+    0.84,
+    0.3,
+    1
+   ],
+   "nombre_curva": "aparecer/curva",
+   "evento": "confirmar",
+   "deja": "Qué lector confirmó y a qué hora."
+  },
+  "latir": {
+   "desde": 119,
+   "hasta": 227,
+   "estado_inicial": "vigente",
+   "estado_final": "vigente",
+   "curva": [
+    0.45,
+    0,
+    0.55,
+    1
+   ],
+   "nombre_curva": "latir/curva",
+   "evento": null,
+   "deja": null
+  },
+  "avisar": {
+   "desde": 237,
+   "hasta": 251,
+   "estado_inicial": "vigente",
+   "estado_final": "por-vencer",
+   "curva": [
+    0.16,
+    0.84,
+    0.3,
+    1
+   ],
+   "nombre_curva": "responder/curva",
+   "evento": "avisar",
+   "deja": "La hora exacta de vencimiento."
+  },
+  "caducar": {
+   "desde": 261,
+   "hasta": 315,
+   "estado_inicial": "vigente",
+   "estado_final": "vencido",
+   "curva": [
+    0.62,
+    0.03,
+    0.86,
+    0.34
+   ],
+   "nombre_curva": "caducar/curva",
+   "evento": "caducar",
+   "deja": "A qué hora venció."
+  },
+  "usar": {
+   "desde": 325,
+   "hasta": 339,
+   "estado_inicial": "vigente",
+   "estado_final": "usado",
+   "curva": [
+    0.16,
+    0.84,
+    0.3,
+    1
+   ],
+   "nombre_curva": "responder/curva",
+   "evento": "usar",
+   "deja": "A qué hora entró."
+  },
+  "revocar": {
+   "desde": 349,
+   "hasta": 363,
+   "estado_inicial": "vigente",
+   "estado_final": "revocado",
+   "curva": [
+    0.4,
+    0,
+    1,
+    1
+   ],
+   "nombre_curva": "revocar/curva",
+   "evento": "revocar",
+   "deja": "Quién revocó y a qué hora."
+  }
+ },
+ "tokens_motion": {
+  "curva": {
+   "crecer": [
+    0.16,
+    0.84,
+    0.3,
+    1
+   ],
+   "decaer": [
+    0.62,
+    0.03,
+    0.86,
+    0.34
+   ],
+   "latir": [
+    0.45,
+    0,
+    0.55,
+    1
+   ],
+   "cortina": [
+    0.76,
+    0,
+    0.24,
+    1
+   ],
+   "revocar": [
+    0.4,
+    0,
+    1,
+    1
+   ],
+   "salir": [
+    0.3,
+    0,
+    0.8,
+    0.15
+   ]
+  },
+  "verbo": {
+   "aparecer/duracion": "duracion/tarjeta",
+   "aparecer/curva": "curva/crecer",
+   "aparecer/escalonado": "escalonado/tarjetas",
+   "responder/duracion": "duracion/corto",
+   "responder/curva": "curva/crecer",
+   "caducar/duracion": "duracion/decaer",
+   "caducar/curva": "curva/decaer",
+   "revocar/duracion": "duracion/corto",
+   "revocar/curva": "curva/revocar",
+   "latir/duracion": "duracion/latir",
+   "latir/curva": "curva/latir"
+  },
+  "latir": 108,
+  "latir_ciclos": 3
+ }
+}

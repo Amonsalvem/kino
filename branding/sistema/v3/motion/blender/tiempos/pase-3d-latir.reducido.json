@@ -1,0 +1,14 @@
+{
+ "escena": {
+  "frames": 1,
+  "calculados": 1,
+  "segundos": 33.0,
+  "por_frame_calculado": 32.95,
+  "resolucion": [
+   1080,
+   1080
+  ],
+  "muestras": 14,
+  "motor": "BLENDER_EEVEE_NEXT"
+ }
+}

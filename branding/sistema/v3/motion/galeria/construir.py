@@ -41,12 +41,14 @@ LOTTIE = [
     ('vacio-primer-pase', 'Primer Pase', 'El primero reemplaza el estado vacío.'),
 ]
 TRES_D = [
-    ('pase-3d-objeto', 'aparecer', 'Pase 3D · aparecer', 'Entra en sin confirmar.'),
-    ('pase-3d-objeto', 'confirmar', 'Pase 3D · confirmar', 'El borde discontinuo se cierra y queda vigente.'),
-    ('pase-3d-objeto', 'latir', 'Pase 3D · latir', 'El punto de un Pase vigente respira.'),
-    ('pase-3d-objeto', 'caducar', 'Pase 3D · caducar', 'La barra se vacía y el borde pasa a vencido.'),
-    ('pase-3d-objeto', 'revocar', 'Pase 3D · revocar', 'Una línea cruza la tarjeta y la apaga.'),
-    ('pase-3d-latir', '', 'Pase 3D en reposo', 'Confirmado, con la línea de evidencia; solo late el punto.'),
+    ('pase-3d-objeto', 'aparecer', 'Pase 3D · aparecer', 'Entra en sin confirmar: sube, crece desde escala/entrada y la membrana se asienta con resorte/pase.'),
+    ('pase-3d-objeto', 'confirmar', 'Pase 3D · confirmar', 'El lector confirma: el borde se cierra, el chip pasa a vigente, llega la evidencia y aparece el resplandor.'),
+    ('pase-3d-objeto', 'latir', 'Pase 3D · latir', 'El punto de un Pase vigente respira con curva/latir.'),
+    ('pase-3d-objeto', 'avisar', 'Pase 3D · avisar', 'Entra en la ventana de aviso: el resplandor se apaga y la barra pasa a por vencer.'),
+    ('pase-3d-objeto', 'caducar', 'Pase 3D · caducar', 'La barra se vacía y la tarjeta baja a 0,72.'),
+    ('pase-3d-objeto', 'usar', 'Pase 3D · usar', 'Una línea tacha el nombre: el código ya entró.'),
+    ('pase-3d-objeto', 'revocar', 'Pase 3D · revocar', 'Una línea cruza la tarjeta y queda quién revocó.'),
+    ('pase-3d-latir', '', 'Pase 3D en reposo', 'Vigente, con la evidencia del lector; solo late el punto.'),
 ]
 FALTAN = []
 
@@ -55,15 +57,10 @@ archivos = {}
 
 def datos_visor():
     import base64
-    import struct
+    # Versión 2: colores y opacidades de cada estado van dentro del GLB (KHR_materials_variants).
     glb = (AQUI.parent / 'blender/glb/pase-3d-objeto.glb').read_bytes()
-    n = struct.unpack_from('<I', glb, 12)[0]
-    gltf = json.loads(glb[20:20 + n])
-    token_pieza = {nodo['name']: nodo['extras']['kino_token'] for nodo in gltf['nodes'] if 'kino_token' in nodo.get('extras', {})}
     clips = json.loads((AQUI.parent / 'blender/glb/pase-3d-objeto.clips.json').read_text())
-    datos = {'fps': clips['fps'], 'clips': clips['clips'], 'piezas_por_estado': clips['piezas_por_estado'],
-             'color_por_estado': clips['color_por_estado'], 'token_pieza': token_pieza, 'tokens': C,
-             'curvas': T['curva'], 'verbos': T['verbo'], 'duracion_latir': T['duracion']['latir']['frames'],
+    datos = {'fps': clips['fps'], 'clips': clips['clips'], 'tokens_motion': clips['tokens_motion'],
              'glb': base64.b64encode(glb).decode()}
     for f in ('draco_wasm_wrapper.js', 'draco_decoder.wasm'):
         archivos[f'galeria/draco/{f}'] = str((AQUI / 'draco' / f).relative_to(AQUI.parents[4]))
@@ -122,7 +119,7 @@ def seccion_3d():
     n = 'conjunto-noche-lector-confirma'
     v = lambda red: video([(pub(f'{n}/{n}{".reducido" if red else ""}.vp9.webm'), 'video/webm'),  # noqa: E731
                            (pub(f'{n}/{n}{".reducido" if red else ""}.h264.mp4'), 'video/mp4')])
-    out.append(tarjeta('Conjunto de noche', 'El indicador del lector pasa de sin confirmar a vigente. Nada más se mueve.',
+    out.append(tarjeta('Portería de noche', 'Se llega, el lector lee y confirma; solo entonces sube la talanquera y la vía se abre.',
                        v(False), v(True), 'ancha', '16 / 9'))
     return ''.join(out)
 
@@ -203,10 +200,12 @@ code{font-family:var(--mono);font-size:13px;color:var(--t2)}
    <button class="boton" type="button" data-clip="aparecer" aria-pressed="false">Aparecer</button>
    <button class="boton" type="button" data-clip="confirmar" aria-pressed="false">Confirmar</button>
    <button class="boton" type="button" data-clip="latir" aria-pressed="false">Latir</button>
+   <button class="boton" type="button" data-clip="avisar" aria-pressed="false">Avisar</button>
    <button class="boton" type="button" data-clip="caducar" aria-pressed="false">Caducar</button>
+   <button class="boton" type="button" data-clip="usar" aria-pressed="false">Usar</button>
    <button class="boton" type="button" data-clip="revocar" aria-pressed="false">Revocar</button>
   </div>
-  <figcaption><h3>Pase 3D interactivo</h3><p>El modelo GLB con Draco, en three.js. Arrástralo para girarlo. <span class="nota" id="visor-estado">Cargando el modelo…</span></p></figcaption>
+  <figcaption><h3>Pase 3D interactivo</h3><p>El modelo GLB con Draco, en three.js, con un material por estado (variantes glTF). Arrástralo para girarlo. <span class="nota" id="visor-estado">Cargando el modelo…</span></p></figcaption>
  </figure>
  <script type="application/json" id="visor-datos">%(visor_datos)s</script>
  <script type="module">%(visor_js)s</script>
