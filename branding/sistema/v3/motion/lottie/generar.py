@@ -8,6 +8,7 @@ Reglas que cumple el código:
   guiones: estado/vigente/borde → estado-vigente-borde. temas/oscuro.json y temas/claro.json traen los valores.
 - Los textos también son slots (tipo texto): el pipeline puede cambiar nombre, hora o casa sin tocar la animación.
 - Cambiar de estado es un fundido cruzado entre dos capas con colores fijos: así cada color sigue siendo un slot.
+- La tarjeta del Pase es superficie/membrana y la pista de la barra, superficie/elevada (M3D-4, aprobada el 27 sep).
 - La variante reducida cambia desplazamientos por fundidos con la misma duración y el mismo orden; el latido se detiene.
 - Lo que entra subiendo lleva distancia/subida de margen bajo la pieza para que el lienzo no lo recorte.
 
@@ -207,7 +208,7 @@ def chip(lz, estado, x_der, y, op, prefijo='chip'):
 
 
 def tarjeta(lz, id_, estado, quien, dato, op, w=360, h=132, evidencia=None, barra=None, borde_estado=True,
-            relleno='superficie/elevada', con_chip=True, fuente_quien='Archivo-Bold'):
+            relleno='superficie/membrana', con_chip=True, fuente_quien='Archivo-Bold'):
     """Precomp de una tarjeta de Pase. dato y evidencia en JetBrains Mono."""
     capas = []
     compacta = h < 100  # filas de tabla: menos aire, mismo orden
@@ -223,7 +224,7 @@ def tarjeta(lz, id_, estado, quien, dato, op, w=360, h=132, evidencia=None, barr
         capas.append(texto(lz, 'evidencia', evidencia, pad, pad + 17 + ESP['2xl'], 'JetBrainsMono-Regular', 12, f'estado/{estado}/texto', op))
     if barra is not None:
         capas.append(formas(lz, 'vigencia', [rect(lz, pad, h - pad, (w - 2 * pad) * barra, ESP['2xs'], ESP['3xs'], relleno=f'estado/{estado}/borde'),
-                                             rect(lz, pad, h - pad, w - 2 * pad, ESP['2xs'], ESP['3xs'], relleno='superficie/membrana')], op))
+                                             rect(lz, pad, h - pad, w - 2 * pad, ESP['2xs'], ESP['3xs'], relleno='superficie/elevada')], op))
     borde = f'estado/{estado}/borde' if borde_estado else 'borde/tenue'
     capas.append(formas(lz, 'tarjeta', [rect(lz, LINEA / 2, LINEA / 2, w - LINEA, h - LINEA, R_TARJETA, relleno=relleno, borde=borde,
                                              discontinuo=estado == 'sin-confirmar')], op))
@@ -310,7 +311,7 @@ def pase_caducar(r):
                      o=kf(0, op, [100], [0], c))
     borde_b = formas(lz, 'borde-vencido', [rect(lz, 0.5, 0.5, 359, 7, ESP['2xs'], borde='estado/vencido/borde')], op,
                      o=kf(0, op, [0], [100], c))
-    pista = formas(lz, 'pista', [rect(lz, 0, 0, 360, 8, ESP['2xs'], relleno='superficie/membrana')], op)
+    pista = formas(lz, 'pista', [rect(lz, 0, 0, 360, 8, ESP['2xs'], relleno='superficie/elevada')], op)
     lz.capas = [borde_b, borde_a, barra, pista]
     return lz
 

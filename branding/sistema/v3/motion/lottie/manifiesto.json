@@ -14,7 +14,7 @@
     "estado-previsto-borde",
     "estado-previsto-fondo",
     "estado-previsto-texto",
-    "superficie-elevada"
+    "superficie-membrana"
    ],
    "slots_texto": [
     "texto-pase-aparecer-1",
@@ -35,7 +35,7 @@
     "estado-previsto-borde",
     "estado-previsto-fondo",
     "estado-previsto-texto",
-    "superficie-elevada"
+    "superficie-membrana"
    ],
    "slots_texto": [
     "texto-pase-aparecer-1",
@@ -64,7 +64,7 @@
     "estado-vigente-borde",
     "estado-vigente-fondo",
     "estado-vigente-texto",
-    "superficie-elevada"
+    "superficie-membrana"
    ],
    "slots_texto": [
     "texto-pase-cascada-1",
@@ -103,7 +103,7 @@
     "estado-vigente-borde",
     "estado-vigente-fondo",
     "estado-vigente-texto",
-    "superficie-elevada"
+    "superficie-membrana"
    ],
    "slots_texto": [
     "texto-pase-cascada-1",
@@ -162,7 +162,7 @@
    "slots_color": [
     "estado-vencido-borde",
     "estado-vigente-borde",
-    "superficie-membrana"
+    "superficie-elevada"
    ],
    "slots_texto": []
   },
@@ -178,7 +178,7 @@
    "slots_color": [
     "estado-vencido-borde",
     "estado-vigente-borde",
-    "superficie-membrana"
+    "superficie-elevada"
    ],
    "slots_texto": []
   },
@@ -197,7 +197,7 @@
     "estado-vigente-borde",
     "estado-vigente-fondo",
     "estado-vigente-texto",
-    "superficie-elevada"
+    "superficie-membrana"
    ],
    "slots_texto": [
     "texto-pase-confirmar-1",
@@ -224,7 +224,7 @@
     "estado-vigente-borde",
     "estado-vigente-fondo",
     "estado-vigente-texto",
-    "superficie-elevada"
+    "superficie-membrana"
    ],
    "slots_texto": [
     "texto-pase-confirmar-1",
@@ -252,7 +252,7 @@
     "estado-vigente-borde",
     "estado-vigente-fondo",
     "estado-vigente-texto",
-    "superficie-elevada"
+    "superficie-membrana"
    ],
    "slots_texto": [
     "texto-pase-por-vencer-1",
@@ -279,7 +279,7 @@
     "estado-vigente-borde",
     "estado-vigente-fondo",
     "estado-vigente-texto",
-    "superficie-elevada"
+    "superficie-membrana"
    ],
    "slots_texto": [
     "texto-pase-por-vencer-1",
@@ -307,7 +307,7 @@
     "estado-vigente-fondo",
     "estado-vigente-texto",
     "superficie-base",
-    "superficie-elevada"
+    "superficie-membrana"
    ],
    "slots_texto": [
     "texto-pase-revocar-1",
@@ -336,7 +336,7 @@
     "estado-vigente-fondo",
     "estado-vigente-texto",
     "superficie-base",
-    "superficie-elevada"
+    "superficie-membrana"
    ],
    "slots_texto": [
     "texto-pase-revocar-1",
@@ -364,7 +364,7 @@
     "estado-vigente-borde",
     "estado-vigente-fondo",
     "estado-vigente-texto",
-    "superficie-elevada"
+    "superficie-membrana"
    ],
    "slots_texto": [
     "texto-pase-usar-1",
@@ -391,7 +391,7 @@
     "estado-vigente-borde",
     "estado-vigente-fondo",
     "estado-vigente-texto",
-    "superficie-elevada"
+    "superficie-membrana"
    ],
    "slots_texto": [
     "texto-pase-usar-1",
@@ -459,7 +459,6 @@
     "estado-previsto-texto",
     "estado-sin-confirmar-borde",
     "estado-sin-confirmar-texto",
-    "superficie-elevada",
     "superficie-membrana"
    ],
    "slots_texto": [
@@ -488,7 +487,6 @@
     "estado-previsto-texto",
     "estado-sin-confirmar-borde",
     "estado-sin-confirmar-texto",
-    "superficie-elevada",
     "superficie-membrana"
    ],
    "slots_texto": [
@@ -584,7 +582,7 @@
     "estado-previsto-borde",
     "estado-previsto-fondo",
     "estado-previsto-texto",
-    "superficie-elevada"
+    "superficie-membrana"
    ],
    "slots_texto": [
     "texto-onboarding-1-crear-1",
@@ -610,7 +608,7 @@
     "estado-previsto-borde",
     "estado-previsto-fondo",
     "estado-previsto-texto",
-    "superficie-elevada"
+    "superficie-membrana"
    ],
    "slots_texto": [
     "texto-onboarding-1-crear-1",
@@ -635,7 +633,6 @@
     "estado-previsto-texto",
     "estado-sin-confirmar-borde",
     "estado-sin-confirmar-texto",
-    "superficie-elevada",
     "superficie-membrana"
    ],
    "slots_texto": [
@@ -664,7 +661,6 @@
     "estado-previsto-texto",
     "estado-sin-confirmar-borde",
     "estado-sin-confirmar-texto",
-    "superficie-elevada",
     "superficie-membrana"
    ],
    "slots_texto": [
@@ -693,7 +689,7 @@
     "estado-vigente-borde",
     "estado-vigente-fondo",
     "estado-vigente-texto",
-    "superficie-elevada"
+    "superficie-membrana"
    ],
    "slots_texto": [
     "texto-loader-sincronizacion-lote-contador",
@@ -745,7 +741,7 @@
     "estado-vigente-borde",
     "estado-vigente-fondo",
     "estado-vigente-texto",
-    "superficie-elevada"
+    "superficie-membrana"
    ],
    "slots_texto": [
     "texto-loader-sincronizacion-lote-contador",
@@ -797,7 +793,7 @@
     "estado-previsto-borde",
     "estado-previsto-fondo",
     "estado-previsto-texto",
-    "superficie-elevada"
+    "superficie-membrana"
    ],
    "slots_texto": [
     "texto-vacio-primer-pase-1",
@@ -822,7 +818,7 @@
     "estado-previsto-borde",
     "estado-previsto-fondo",
     "estado-previsto-texto",
-    "superficie-elevada"
+    "superficie-membrana"
    ],
    "slots_texto": [
     "texto-vacio-primer-pase-1",
@@ -876,7 +872,8 @@
    "slots_color": [
     "estado-sin-confirmar-borde",
     "estado-sin-confirmar-texto",
-    "superficie-elevada"
+    "superficie-elevada",
+    "superficie-membrana"
    ],
    "slots_texto": [
     "texto-loader-espera-lector-1",
@@ -898,7 +895,8 @@
    "slots_color": [
     "estado-sin-confirmar-borde",
     "estado-sin-confirmar-texto",
-    "superficie-elevada"
+    "superficie-elevada",
+    "superficie-membrana"
    ],
    "slots_texto": [
     "texto-loader-espera-lector-1",
@@ -923,7 +921,8 @@
     "estado-vigente-borde",
     "estado-vigente-fondo",
     "estado-vigente-texto",
-    "superficie-elevada"
+    "superficie-elevada",
+    "superficie-membrana"
    ],
    "slots_texto": [
     "texto-onboarding-3-lector-confirma-1",
@@ -952,7 +951,8 @@
     "estado-vigente-borde",
     "estado-vigente-fondo",
     "estado-vigente-texto",
-    "superficie-elevada"
+    "superficie-elevada",
+    "superficie-membrana"
    ],
    "slots_texto": [
     "texto-onboarding-3-lector-confirma-1",
