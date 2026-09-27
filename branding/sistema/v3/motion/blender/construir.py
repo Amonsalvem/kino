@@ -133,6 +133,9 @@ def main():
                         shutil.copyfile(carpeta / f'{x:04d}.png', carpeta / f'{g:04d}.png')
             total = time.time() - t0
             n = b - a + 1
+            if calculados == 0 and (clip or 'escena') in datos:
+                print(f'✓ render {sub} ya estaba completo')
+                continue  # reanudación: se conserva el tiempo de la corrida que lo calculó
             datos[clip or 'escena'] = {'frames': n, 'calculados': calculados, 'segundos': round(total, 1),
                                        'por_frame_calculado': round(total / max(calculados, 1), 2),
                                        'resolucion': [sc.render.resolution_x, sc.render.resolution_y],
