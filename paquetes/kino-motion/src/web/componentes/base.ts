@@ -1,4 +1,7 @@
 // Base de los componentes: Shadow DOM, estilos con tokens de marca y reacción al cambio de modo.
+import {cambioDeTexto, tramosDeTexto} from '../../nucleo/textos';
+import type {NombreCurva} from '../../nucleo/tokens';
+import {animar} from '../animar';
 import {alCambiarModo, esReducido} from '../entorno';
 
 export const ETIQUETA: Record<string, string> = {
@@ -56,3 +59,39 @@ export const definir = (nombre: string, clase: CustomElementConstructor) => {
 
 /** Hora corta en español de Colombia: «3:41 p. m.». */
 export const hora = (d: Date) => d.toLocaleTimeString('es-CO', {hour: 'numeric', minute: '2-digit'});
+
+const turnos = new WeakMap<HTMLElement, number>();
+/**
+ * Cambia el texto de un elemento con la regla M3D-5: si uno sale y otro entra, fundido a través (mitad y mitad);
+ * si solo sale o solo entra, un fundido en toda la duración. Si llega otro cambio a mitad, gana el último.
+ * `conPista`: el texto que entra ya lo anima la partitura (por ejemplo, la nota al confirmar); solo se pone.
+ */
+export function fundirTexto(el: HTMLElement, nuevo: string, duracionMs: number, curva: NombreCurva, conPista = false) {
+	const cambio = cambioDeTexto(el.textContent ?? '', nuevo);
+	if (cambio === 'igual') return cambio;
+	const turno = (turnos.get(el) ?? 0) + 1;
+	turnos.set(el, turno);
+	const {sale, entra} = tramosDeTexto(cambio, duracionMs);
+	const entrar = () => {
+		if (turnos.get(el) !== turno) return;
+		el.textContent = nuevo;
+		if (!entra || conPista) return;
+		animar(el, [{opacity: 0}, {opacity: 1}], {duracionMs: entra[1], curva, canal: 'texto', etiqueta: 'texto entra'});
+	};
+	if (!sale) {
+		entrar();
+		return cambio;
+	}
+	const a = animar(el, [{opacity: 1}, {opacity: 0}], {duracionMs: sale[1], curva, canal: 'texto', etiqueta: 'texto sale'});
+	const alSalir = () => {
+		if (turnos.get(el) !== turno) return;
+		if (entra) entrar();
+		else {
+			el.textContent = '';
+			el.style.opacity = '';
+		}
+	};
+	if (a) a.finished.then(alSalir, () => {});
+	else alSalir();
+	return cambio;
+}

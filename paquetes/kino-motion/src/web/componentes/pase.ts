@@ -10,7 +10,7 @@ import {ms, TOKENS} from '../../nucleo/tokens';
 import {animar} from '../animar';
 import {entrar} from '../disposicion';
 import {registrar} from '../entorno';
-import {definir, hora, KinoElemento} from './base';
+import {definir, fundirTexto, hora, KinoElemento} from './base';
 import type {KinoEstado} from './estado';
 import './estado';
 import './vigencia';
@@ -24,7 +24,7 @@ export class KinoPase extends KinoElemento {
 	protected montar() {
 		this.estilo(`
 :host{display:block;position:relative;--d:var(--kino-mov-duracion-corto);--c:var(--kino-mov-curva-crecer)}
-.tarjeta{position:relative;display:grid;gap:8px;padding:20px;border-radius:var(--kino-forma-radio-tarjeta, 14px);background:var(--kino-superficie-elevada);isolation:isolate}
+.tarjeta{position:relative;display:grid;gap:8px;padding:20px;border-radius:var(--kino-forma-radio-tarjeta, 14px);background:var(--kino-superficie-membrana);isolation:isolate}
 .borde{position:absolute;inset:0;border-radius:inherit;pointer-events:none;border:1px solid var(--kino-estado-vigente-borde);transition:border-color var(--d) var(--c),opacity var(--d) var(--c)}
 .borde.discontinuo{border-style:dashed;border-color:var(--kino-estado-sin-confirmar-borde);opacity:0}
 .cabeza{display:flex;align-items:center;justify-content:space-between;gap:12px}
@@ -117,9 +117,20 @@ kino-vigencia{margin-block-start:4px}
 
 		this.$('.nombre').textContent = this.getAttribute('codigo') ?? this.getAttribute('quien') ?? '';
 		this.$('.quien').classList.toggle('mono', this.hasAttribute('codigo'));
-		this.$('.dato').textContent = this.dato(estado);
-		this.$('.nota').textContent = this.nota(estado);
 		const chip = this.raiz.querySelector('kino-estado') as KinoEstado;
+		// Textos que cambian con el estado: fundido a través con el verbo de la transición (M3D-5).
+		let notaConPista = true;
+		if (t) {
+			const curvaT = t.curva;
+			fundirTexto(this.$('.dato'), this.dato(estado), dur, curvaT);
+			const notaEntraConPista = t.pistas.some((p) => p.parte === 'nota' && p.propiedad === 'opacidad');
+			const cambio = fundirTexto(this.$('.nota'), this.nota(estado), dur, curvaT, notaEntraConPista && !this.$('.nota').textContent);
+			notaConPista = cambio === 'entra' || cambio === 'igual';
+			chip.fundido = {ms: dur, curva: curvaT};
+		} else {
+			this.$('.dato').textContent = this.dato(estado);
+			this.$('.nota').textContent = this.nota(estado);
+		}
 		chip.setAttribute('estado', estado);
 		const vig = this.raiz.querySelector('kino-vigencia')!;
 		for (const a of ['desde', 'hasta']) if (this.hasAttribute(a)) vig.setAttribute(a, this.getAttribute(a)!);
@@ -129,14 +140,15 @@ kino-vigencia{margin-block-start:4px}
 		// Sin atributo estado todavía no hay un estado real: el primero que llegue es el inicial, no un cambio.
 		this.estadoPintado = this.hasAttribute('estado') ? estado : null;
 
-		if (t) this.interpretar(t, chip);
+		if (t) this.interpretar(t, chip, notaConPista);
 		else if (animarCambio && previo && previo !== estado) registrar(null, {etiqueta: `${previo} → ${estado} sin transición: cambio directo`, elemento: this, duracion: 0, tokens: '—', reducido: this.reducido});
 		if (!t && estado === 'vigente' && !previo) chip.latir();
 	}
 
 	/** Ejecuta la partitura: cada pista, en su parte, con la duración y la curva del verbo. */
-	private interpretar(t: Transicion, chip: KinoEstado) {
-		const pistas = this.reducido ? reducirPistas(t.pistas) : [...t.pistas];
+	private interpretar(t: Transicion, chip: KinoEstado, notaConPista = true) {
+		// Si la nota cambia de un texto a otro, la funde fundirTexto (a través); la pista de la partitura no la toca.
+		const pistas = (this.reducido ? reducirPistas(t.pistas) : [...t.pistas]).filter((p) => notaConPista || p.parte !== 'nota');
 		const partes: Record<string, HTMLElement | undefined> = {
 			tarjeta: this.$('.tarjeta'), nota: this.$('.nota'), corte: this.$('.corte'), tachado: this.$('.tachado'),
 			barra: (this.raiz.querySelector('kino-vigencia') as HTMLElement & {barra?: HTMLElement})?.barra,

@@ -3,11 +3,14 @@
 // El punto late solo en vigente, un máximo de latir.ciclos veces, y se queda quieto (WCAG 2.2.2).
 import {TOKENS} from '../../nucleo/tokens';
 import {animar} from '../animar';
-import {definir, ETIQUETA, KinoElemento} from './base';
+import type {NombreCurva} from '../../nucleo/tokens';
+import {definir, ETIQUETA, fundirTexto, KinoElemento} from './base';
 
 export class KinoEstado extends KinoElemento {
 	static observedAttributes = ['estado'];
 	private latido: Animation | null = null;
+	/** Lo fija quien contiene el chip justo antes de cambiar el estado: el texto se funde a través (M3D-5). */
+	fundido?: {ms: number; curva: NombreCurva};
 
 	protected montar() {
 		this.estilo(`
@@ -49,8 +52,11 @@ ${Object.keys(ETIQUETA).map((e) => `:host([estado="${e}"]){--fondo:var(--kino-es
 
 	private pintar() {
 		const e = this.getAttribute('estado') ?? 'previsto';
-		const t = this.raiz.querySelector('.texto');
-		if (t) t.textContent = ETIQUETA[e] ?? e;
+		const t = this.raiz.querySelector('.texto') as HTMLElement | null;
+		const nuevo = ETIQUETA[e] ?? e;
+		if (t && this.fundido && t.textContent) fundirTexto(t, nuevo, this.fundido.ms, this.fundido.curva);
+		else if (t) t.textContent = nuevo;
+		this.fundido = undefined;
 		this.setAttribute('role', 'status');
 		if (e !== 'vigente') this.latido?.cancel();
 	}

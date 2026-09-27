@@ -6,3 +6,4 @@ export * from './coreografia';
 export * from './pase';
 export * from './reducido';
 export * from './gestos';
+export * from './textos';

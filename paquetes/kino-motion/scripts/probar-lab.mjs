@@ -37,7 +37,20 @@ for (const [ancho, esquema] of [[1280, 'dark'], [390, 'light']]) {
 	await ev.getByRole('button', {name: 'Enviar al lector'}).click();
 	await p.waitForTimeout(300);
 	await ev.getByRole('button', {name: 'El lector confirma'}).click();
-	await p.waitForTimeout(900);
+	// M3D-5: el texto del chip se funde a través. Muestras cada 40 ms: nunca hay dos etiquetas a la vez y, mientras
+	// el texto es el viejo, su opacidad solo baja; al final dice «Vigente» con opacidad 1.
+	const chipTexto = () => p.evaluate(() => {
+		const t = document.querySelector('#pase-vivo').shadowRoot.querySelector('kino-estado').shadowRoot.querySelector('.texto');
+		return {texto: t.textContent, opacidad: Number(getComputedStyle(t).opacity)};
+	});
+	const muestras = [];
+	for (let i = 0; i < 12; i++) { muestras.push(await chipTexto()); await p.waitForTimeout(40); }
+	const viejo = muestras.filter((m) => m.texto === 'Sin confirmar').map((m) => m.opacidad);
+	ok(muestras.every((m) => ['Sin confirmar', 'Vigente'].includes(m.texto)) && viejo.every((o, i) => i === 0 || o <= viejo[i - 1] + 1e-3),
+		`${ancho} px: el chip se funde a través (${muestras.map((m) => `${m.texto[0]}${m.opacidad.toFixed(2)}`).join(' ')})`);
+	await p.waitForTimeout(700);
+	const fin = await chipTexto();
+	ok(fin.texto === 'Vigente' && fin.opacidad > 0.99, `${ancho} px: al terminar el chip dice «Vigente» (${fin.texto}, ${fin.opacidad})`);
 	ok((await p.evaluate(() => document.querySelector('#pase-vivo').dataset.estado)) === 'vigente', `${ancho} px: enviar → confirmar deja el Pase vigente`);
 	await p.click('#pase-forzar');
 	await p.waitForTimeout(100);
