@@ -18,13 +18,3 @@ export function reducirPista(p: Pista, todas: readonly Pista[]): Pista | null {
 
 export const reducirPistas = (pistas: readonly Pista[]): Pista[] =>
 	pistas.map((p) => reducirPista(p, pistas)).filter((p): p is Pista => p !== null);
-
-/** Keyframes de WAAPI en modo reducido: se quitan transformaciones; si no queda nada, se funde. */
-export function reducirKeyframes(frames: Keyframe[]): Keyframe[] {
-	const sinMover = frames.map((f) => {
-		const {transform: _t, translate: _tr, scale: _s, rotate: _r, ...resto} = f as Record<string, unknown>;
-		return resto as Keyframe;
-	});
-	const cambia = sinMover.some((f) => Object.keys(f).some((k) => !['offset', 'easing', 'composite'].includes(k)));
-	return cambia ? sinMover : [];
-}

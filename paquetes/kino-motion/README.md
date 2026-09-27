@@ -122,8 +122,8 @@ variables de marca (`--kino-estado-*`, `--kino-superficie-*`), así que siguen e
 
 ## Lo que falta decidir
 
-- El stack de la web y la app. Si es React Native, el siguiente paso es un adaptador con Reanimated que lea la
-  misma partitura y los mismos resortes. El núcleo ya corre ahí sin cambios.
+- El stack de la web y la app. Para React Native ya está el adaptador con Reanimated en `paquetes/kino-motion-nativo`
+  (misma partitura, mismos resortes, mismo estado honesto).
 - La ventana de aviso («por vencer») es un parámetro. La fija la administración de cada conjunto.
 - Los tokens nuevos (resortes, `curva/salir`, reglas de coreografía) necesitan aprobación de Nico para pasar a
   la marca.

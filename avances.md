@@ -208,6 +208,13 @@ En arquitectura faltaba:
 - **Lab:** https://claude.ai/artifact/NoNiKp5nbr3sM9bcsoCzTY
 - **Pendiente de Nico:** stack de la web y la app; aprobar los tokens nuevos.
 
+## Adaptador React Native · @kino/motion-nativo 0.1 (26 sep)
+- **Pedido de Nico:** el adaptador de React Native con Reanimated.
+- **Construido en `paquetes/kino-motion-nativo/`:** configuraciones de Reanimated desde los tokens (los resortes con los mismos parámetros físicos que la web); el plan de cada transición del Pase a partir de la partitura del núcleo; hooks (`usePaseMotion`, `useVigencia`, `usePresion`, `useHoja` con gesto, `useEntrada`, `useNumeroAnimado`); animaciones de disposición y componentes de referencia (`PaseKino`, `BotonKino`, `HojaKino`, `EsperaLectorKino`, `NumeroKino`).
+- **Núcleo:** quedó sin DOM (lo que dependía del navegador pasó a `src/web`) y los tokens traen los colores de marca por tema para la app.
+- **Verificación:** tipos sin errores contra RN 0.76 y Reanimated 3.16; 9 pruebas unitarias; arnés web con react-native-web y 9 pruebas en Chromium (estados, estado honesto, hoja lanzada con el puntero); lint-motion 0. El paquete web sigue en verde.
+- **Pendiente:** probarlo en un simulador o dispositivo; decidir el stack.
+
 ## Motion 3D · segunda versión de las escenas (26–27 sep)
 - **Pedido de Nico:** las tres escenas de Blender se veían mediocres; subirlas a nivel profesional, con libertad total en motion.
 - **Construido en `branding/sistema/v3/motion/blender/`:** tokens y partitura de `@kino/motion` (`partitura.mjs`), resortes analíticos horneados, curva de tono propia con marcas de estado exactas (AOV), sombra y resplandor como los tokens `relieve/membrana` y `resplandor/vigente`. Pase con chip, dato, evidencia, barra, corte y tachado en siete clips; portería con lector, talanquera, marquesina, muros, vegetación, niebla y aurora, con la talanquera que sube solo tras la confirmación. La versión 1 queda en `_obsoleto/v1-2026-09-26/`.

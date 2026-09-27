@@ -1,8 +1,9 @@
 import {describe, expect, it} from 'vitest';
 import {
-	bezier, cssLinear, curvaDe, escalonar, entradaDePantalla, estadoDelPase, eventosDesde, lineaDeTiempo, ms, reducirKeyframes,
+	bezier, cssLinear, curvaDe, escalonar, entradaDePantalla, estadoDelPase, eventosDesde, lineaDeTiempo, ms,
 	reducirPistas, resolver, resorteDe, salida, TOKENS, transicion, TRANSICIONES, TransicionInvalida, vigenciaRestante, type Estado, type Hechos,
 } from '../src/nucleo';
+import {reducirKeyframes} from '../src/web/reducido-web';
 
 describe('curvas', () => {
 	it('cubic-bezier coincide con el cálculo de referencia', () => {
