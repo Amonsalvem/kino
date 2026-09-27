@@ -20,7 +20,7 @@ npm run voz -- kino <archivo>  # compuerta de voz sobre un texto
 npm run calibrar-voz -- kino   # 40/42 frases atrapadas, 0 falsos positivos (24 sep)
 
 # Sitio «Kino · Sistema de marca» (Python 3, sin dependencias)
-cd branding/sistema/v3/sitio && python3 construir.py && python3 verificar.py
+cd branding/sistema/v3/sitio && python3 verbal.py && python3 secciones.py && python3 construir.py && python3 verificar.py
 # Salida: build/kino-sistema-de-marca.html, build/artefacto.html, texto-visible.md
 
 # Láminas de la Parada 3
