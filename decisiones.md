@@ -414,17 +414,17 @@ Lámina: `kino/parada-4.html` (https://claude.ai/artifact/DBF7w1VTGPtJ9oQwdz4tXa
 ## Motion 3D · segunda versión de las escenas (26 sep)
 Pedido de Nico: subir las tres escenas de Blender a nivel profesional; libertad total en motion. Lámina de revisión: ver `avances.md`. Todas quedan en **PROPUESTA**; la opción A es la construida en `branding/sistema/v3/motion/blender/`.
 
-### M3D-1 · Gestión de color de las escenas · PROPUESTA
+### M3D-1 · Gestión de color de las escenas · APROBADA (Nico, 27 sep: opción A)
 - **A (construida):** vista Standard y curva de tono propia en el compositor para la escena; las marcas de estado (bordes, chip, textos, barra, indicador) escriben la AOV `marca` y pasan sin curva. Medido con `blender/medir.py`: vigente borde, texto y fondo y texto primario salen con ΔE 0.
 - **B:** AgX para todo. Más cinematográfico, pero desatura los verdes de estado: `#00EAA5` deja de salir como `#00EAA5`.
 - **Por qué A:** estado honesto y colores solo de tokens; el color de un estado es información.
 
-### M3D-2 · Tiempo de la talanquera · PROPUESTA
+### M3D-2 · Tiempo de la talanquera · APROBADA (Nico, 27 sep: opción A)
 - **A (construida):** `resorte/firme` (494 ms, sin rebote). El brazo se flexiona un poco por su inercia y se asienta.
 - **B:** token nuevo de mecánica, de 1 a 1,5 s, más cercano a una barrera real.
 - **Regla que se cumple en las dos:** la talanquera sube solo después de que el lector confirma.
 
-### M3D-3 · Cámara de la portería · PROPUESTA
+### M3D-3 · Cámara de la portería · APROBADA (Nico, 27 sep: opción A)
 - **A (construida):** llega con `duracion/cortina` y `curva/crecer`, espera la confirmación y avanza al 60 % de ese tiempo (`coreografia/salida-factor`) con `curva/salir`. Faros de un vehículo que no se ve (sin placa ni personas).
 - **B:** cámara fija, como en la versión 1 y como la variante reducida.
 - **Falta:** no hay token de cámara; A reutiliza tokens que existen.
@@ -445,3 +445,9 @@ Pedido de Nico: subir las tres escenas de Blender a nivel profesional; libertad 
 ### M3D-7 · Arco Portal en 3D · PROPUESTA
 - **A (construida):** sin arco. Las escenas muestran la tarjeta de la lista; el arco es del Pase vivo con el QR (X1, X8).
 - **B:** sumar una escena del Pase vivo, en claro, con el arco y el QR sobre fondo liso (nunca aurora detrás del QR).
+
+### Estado tras la respuesta del 27 sep (motion 3D)
+1. M3D-1: **APROBADA** (A). Vista Standard con curva de tono propia; las marcas de estado salen con el hex de su token.
+2. M3D-2: **APROBADA** (A). La talanquera sube con `resorte/firme`, solo después de la confirmación del lector.
+3. M3D-3: **APROBADA** (A). La cámara de la portería llega con `duracion/cortina` y `curva/crecer`, espera la confirmación y avanza al 60 % con `curva/salir`; faros sin mostrar el vehículo.
+4. M3D-4 a M3D-7: sin respuesta. Siguen PROPUESTA.

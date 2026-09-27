@@ -226,3 +226,4 @@ En arquitectura faltaba:
 - **Reducidos:** Pase (fundidos en lugar de subida, escala y líneas; latido quieto) y portería (cámara quieta, talanquera por fundido, sin latido). La portería reducida calculó 97 de 260 frames: los tramos quietos se copian.
 - **Galería republicada** (versión 4, con los 36 videos 3D nuevos): https://claude.ai/artifact/EiPApRKP6NNECfu5i5rKNV
 - **Pendiente de Nico:** M3D-1 a M3D-7 en `decisiones.md`. Nada está aprobado.
+- **Respuesta de Nico (27 sep):** M3D-1 A, M3D-2 A y M3D-3 A, aprobadas tal como se construyeron; no cambia ningún render. M3D-4 a M3D-7 siguen PROPUESTA.

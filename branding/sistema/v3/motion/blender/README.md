@@ -41,7 +41,7 @@ FFMPEG=… python3 ../codificar.py                                     # ProRes 
   biolum) para superficies de escena y luces. Sombra y resplandor son los tokens `relieve/membrana` y
   `resplandor/vigente` leídos del DTCG.
 
-## Gestión de color
+## Gestión de color (M3D-1 A, aprobada el 27 sep)
 
 - Transformada de vista **Standard**, sin look. AgX o Filmic desaturan los verdes de estado y no dejan que un
   `#00EAA5` salga como `#00EAA5`.
@@ -70,7 +70,7 @@ pantalla (solo reflejaba un mundo oscuro), y se renderiza solo la región del Pa
 | Textos que cambian | Fundido a través: el que sale se va en la primera mitad del verbo y el que entra llega en la segunda | En la web el texto cambia de golpe; en 3D, un fundido cruzado encima los dos |
 | Chip | Un grupo por estado (fondo, borde, punto, texto) que se funde | El texto del chip cambia con el estado |
 | Tarjeta | Color base `superficie/membrana` (la web usa `superficie/elevada`) | El recurso Membrana de la marca: «el fondo de todo lo que se toca»; la pista de la barra usa elevada para contrastar |
-| Talanquera | `resorte/firme` (494 ms) | Llega sin pasarse; no hay token de mecánica. Pregunta para Nico |
-| Llegada de la cámara | `duracion/cortina` con `curva/crecer`; la salida dura el 60 % (`coreografia/salida-factor`) con `curva/salir` | No hay token de cámara. Pregunta para Nico |
+| Talanquera | `resorte/firme` (494 ms) | Llega sin pasarse; no hay token de mecánica. Aprobada (M3D-2 A, 27 sep) |
+| Llegada de la cámara | `duracion/cortina` con `curva/crecer`; la salida dura el 60 % (`coreografia/salida-factor`) con `curva/salir` | No hay token de cámara. Aprobada (M3D-3 A, 27 sep) |
 | Aurora de noche | Índigo y violeta, con apenas `biolum/d15` | El verde queda para lo activo (el indicador) |
 | Rig | Sin armature: Empties y un SimpleDeform para la flexión del brazo | Nada se deforma como personaje; la marca prohíbe personajes |
