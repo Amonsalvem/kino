@@ -46,5 +46,41 @@
   ],
   "muestras": 14,
   "motor": "BLENDER_EEVEE_NEXT"
+ },
+ "caducar": {
+  "frames": 55,
+  "calculados": 55,
+  "segundos": 1582.6,
+  "por_frame_calculado": 28.77,
+  "resolucion": [
+   1920,
+   1080
+  ],
+  "muestras": 14,
+  "motor": "BLENDER_EEVEE_NEXT"
+ },
+ "usar": {
+  "frames": 15,
+  "calculados": 15,
+  "segundos": 424.7,
+  "por_frame_calculado": 28.31,
+  "resolucion": [
+   1920,
+   1080
+  ],
+  "muestras": 14,
+  "motor": "BLENDER_EEVEE_NEXT"
+ },
+ "revocar": {
+  "frames": 15,
+  "calculados": 15,
+  "segundos": 421.2,
+  "por_frame_calculado": 28.08,
+  "resolucion": [
+   1920,
+   1080
+  ],
+  "muestras": 14,
+  "motor": "BLENDER_EEVEE_NEXT"
  }
 }

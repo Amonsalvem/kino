@@ -92,8 +92,8 @@ def medir():
         ('Pase sin confirmar (aparecer, último frame)', cuadro('pase-3d-objeto', 'aparecer', 50),
          ['estado/sin-confirmar/borde', 'estado/sin-confirmar/texto', 'texto/primario']),
         ('Pase por vencer (avisar, último frame)', None, ['estado/por-vencer/borde', 'estado/por-vencer/texto', 'estado/por-vencer/fondo']),
-        ('Portería: indicador antes de la lectura', _noche(100), ['estado/sin-confirmar/borde']),
-        ('Portería: indicador confirmado', _noche(175), ['estado/vigente/borde']),
+        ('Portería reducida: indicador antes de la lectura', _noche(100), ['estado/sin-confirmar/borde']),
+        ('Portería reducida: indicador confirmado', _noche(200), ['estado/vigente/borde']),
     ]
     import pase
     s, f = pase.rango('avisar')

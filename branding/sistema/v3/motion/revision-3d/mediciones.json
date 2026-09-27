@@ -71,7 +71,7 @@
    "exacto": true
   }
  },
- "Portería: indicador antes de la lectura": {
+ "Portería reducida: indicador antes de la lectura": {
   "estado/sin-confirmar/borde": {
    "hex": "#86A799",
    "pixeles_exactos": 0,
@@ -79,11 +79,11 @@
    "exacto": false
   }
  },
- "Portería: indicador confirmado": {
+ "Portería reducida: indicador confirmado": {
   "estado/vigente/borde": {
    "hex": "#00EAA5",
    "pixeles_exactos": 0,
-   "delta_e_min": 0.74,
+   "delta_e_min": 0.86,
    "exacto": false
   }
  }
