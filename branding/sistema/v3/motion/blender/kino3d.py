@@ -562,6 +562,8 @@ def tramo(dueno, ruta, indice, t0, t1, v0, v1, nombre_curva):
     dt, dv = t1 - t0, v1 - v0
     k0.handle_right = (t0 + x1 * dt, v0 + y1 * dv)
     k1.handle_left = (t0 + x2 * dt, v0 + y2 * dv)
+    # El valor final se sostiene hasta la clave siguiente (no interpola hacia el estado del clip que viene).
+    k1.interpolation = 'CONSTANT'
     fc.update()
 
 
