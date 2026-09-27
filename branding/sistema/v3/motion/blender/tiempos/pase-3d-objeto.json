@@ -1,9 +1,9 @@
 {
  "aparecer": {
   "frames": 50,
-  "calculados": 41,
-  "segundos": 1139.6,
-  "por_frame_calculado": 27.8,
+  "calculados": 0,
+  "segundos": 0.0,
+  "por_frame_calculado": 0.0,
   "resolucion": [
    1920,
    1080
@@ -13,9 +13,45 @@
  },
  "confirmar": {
   "frames": 50,
-  "calculados": 50,
-  "segundos": 1403.7,
-  "por_frame_calculado": 28.07,
+  "calculados": 0,
+  "segundos": 0.0,
+  "por_frame_calculado": 0.0,
+  "resolucion": [
+   1920,
+   1080
+  ],
+  "muestras": 14,
+  "motor": "BLENDER_EEVEE_NEXT"
+ },
+ "latir": {
+  "frames": 109,
+  "calculados": 0,
+  "segundos": 0.0,
+  "por_frame_calculado": 0.0,
+  "resolucion": [
+   1920,
+   1080
+  ],
+  "muestras": 14,
+  "motor": "BLENDER_EEVEE_NEXT"
+ },
+ "avisar": {
+  "frames": 15,
+  "calculados": 15,
+  "segundos": 415.2,
+  "por_frame_calculado": 27.68,
+  "resolucion": [
+   1920,
+   1080
+  ],
+  "muestras": 14,
+  "motor": "BLENDER_EEVEE_NEXT"
+ },
+ "caducar": {
+  "frames": 55,
+  "calculados": 55,
+  "segundos": 1553.1,
+  "por_frame_calculado": 28.24,
   "resolucion": [
    1920,
    1080
