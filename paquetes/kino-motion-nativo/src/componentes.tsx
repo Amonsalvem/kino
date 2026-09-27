@@ -5,7 +5,7 @@ import {Pressable, StyleSheet, Text, TextInput, View, type StyleProp, type TextS
 import {GestureDetector} from 'react-native-gesture-handler';
 import Animated, {interpolateColor, useAnimatedStyle, useSharedValue, withTiming} from 'react-native-reanimated';
 import {tiempo} from './configuracion';
-import {useEntrada, usePaseMotion, useHoja, useMinuto, useNumeroAnimado, usePresion, useTemaKino, useVigencia, type Tema} from './hooks';
+import {useEntrada, usePaseMotion, useHoja, useMinuto, useNumeroAnimado, usePresion, useTemaKino, useTextoFundido, useTiempoDeCambio, useVigencia, type Tema, type TiempoDeCambio} from './hooks';
 import {TOKENS, type Estado, type Evidencia} from './nucleo';
 
 // Fuentes ----------------------------------------------------------------------------------------------------
@@ -65,6 +65,10 @@ export function PaseKino(p: PaseKinoProps) {
 				? `Revocó ${p.revocacion.nombre} · ${hora(p.revocacion.hora)}`
 				: '';
 	const colorNota = estado === 'revocado' ? color('estado/revocado/texto') : color('estado/vigente/texto');
+	// Los textos que cambian con el estado se funden a través con el verbo de la transición (M3D-5).
+	const cambio = useTiempoDeCambio(estado);
+	const datoF = useTextoFundido(dato[estado], cambio);
+	const notaF = useTextoFundido(nota, cambio);
 	const colorBarra = estado === 'por-vencer' ? color('estado/por-vencer/borde') : ['vencido', 'usado', 'revocado'].includes(estado) ? color('estado/vencido/borde') : color('estado/vigente/borde');
 
 	return (
@@ -72,7 +76,7 @@ export function PaseKino(p: PaseKinoProps) {
 			testID={p.testID}
 			accessibilityRole="summary"
 			accessibilityLabel={`${p.quien ?? p.codigo}, ${ETIQUETA[estado]}, ${dato[estado]}. ${nota}`}
-			style={[s.tarjeta, {backgroundColor: color(estado === 'revocado' ? 'superficie/base' : 'superficie/elevada')}, estilos.tarjeta, p.style]}
+			style={[s.tarjeta, {backgroundColor: color(estado === 'revocado' ? 'superficie/base' : 'superficie/membrana')}, estilos.tarjeta, p.style]}
 		>
 			<Animated.View pointerEvents="none" style={[StyleSheet.absoluteFill, s.borde, estilos.bordeContinuo]} />
 			<Animated.View pointerEvents="none" style={[StyleSheet.absoluteFill, s.borde, {borderStyle: 'dashed', borderColor: color('estado/sin-confirmar/borde')}, estilos.bordeDiscontinuo]} />
@@ -81,11 +85,13 @@ export function PaseKino(p: PaseKinoProps) {
 					<Text style={[s.quien, {color: color('texto/primario'), fontFamily: p.codigo ? f.dato : f.titulo}]}>{p.codigo ?? p.quien}</Text>
 					{p.codigo ? <Animated.View style={[s.tachado, {backgroundColor: color('estado/usado/texto')}, estilos.tachado]} /> : null}
 				</View>
-				<ChipAnimado estado={estado} estilos={estilos} fuente={f.titulo} discontinuo={estado === 'sin-confirmar'} />
+				<ChipAnimado estado={estado} estilos={estilos} fuente={f.titulo} discontinuo={estado === 'sin-confirmar'} cambio={cambio} />
 			</View>
-			<Text style={[s.dato, {color: color('texto/secundario'), fontFamily: f.dato}]}>{dato[estado]}</Text>
-			<Animated.Text style={[s.nota, {color: colorNota, fontFamily: f.dato}, estilos.nota]}>{nota}</Animated.Text>
-			<Animated.View style={[s.pista, {backgroundColor: color('superficie/membrana')}, estilos.barra]}>
+			<Animated.Text style={[s.dato, {color: color('texto/secundario'), fontFamily: f.dato}, datoF.estilo]}>{datoF.mostrado}</Animated.Text>
+			{/* La opacidad del fundido va al final: si la nota cambia de un texto a otro, manda sobre la de la partitura. */}
+			<Animated.Text style={[s.nota, {color: colorNota, fontFamily: f.dato}, estilos.nota, notaF.estilo]}>{notaF.mostrado}</Animated.Text>
+			{/* Pista en elevada: la tarjeta es membrana (M3D-4) y la pista debe verse sobre ella. */}
+			<Animated.View style={[s.pista, {backgroundColor: color('superficie/elevada')}, estilos.barra]}>
 				<Animated.View style={[s.barra, {backgroundColor: colorBarra}, barra]} />
 			</Animated.View>
 			<Animated.View pointerEvents="none" style={[s.corte, {backgroundColor: color('estado/revocado/texto')}, estilos.corte]} />
@@ -93,13 +99,14 @@ export function PaseKino(p: PaseKinoProps) {
 	);
 }
 
-function ChipAnimado({estado, estilos, fuente, discontinuo}: {estado: Estado; estilos: ReturnType<typeof usePaseMotion>['estilos']; fuente: string; discontinuo: boolean}) {
+function ChipAnimado({estado, estilos, fuente, discontinuo, cambio = null}: {estado: Estado; estilos: ReturnType<typeof usePaseMotion>['estilos']; fuente: string; discontinuo: boolean; cambio?: TiempoDeCambio}) {
+	const etiqueta = useTextoFundido(ETIQUETA[estado], cambio);
 	return (
 		<Animated.View accessibilityRole="text" style={[s.chip, discontinuo && {borderStyle: 'dashed'}, estilos.chip]}>
 			<Animated.View style={[s.punto, estilos.punto]}>
 				<Animated.View style={[StyleSheet.absoluteFill, s.puntoBrillo, estilos.brillo]} />
 			</Animated.View>
-			<Animated.Text style={[s.chipTexto, {fontFamily: fuente}, estilos.chipTexto]}>{ETIQUETA[estado]}</Animated.Text>
+			<Animated.Text style={[s.chipTexto, {fontFamily: fuente}, estilos.chipTexto, etiqueta.estilo]}>{etiqueta.mostrado}</Animated.Text>
 		</Animated.View>
 	);
 }
@@ -108,7 +115,8 @@ function ChipAnimado({estado, estilos, fuente, discontinuo}: {estado: Estado; es
 export function EstadoKino({estado, evidencia, tema}: {estado: Estado; evidencia?: Evidencia | null; tema?: Tema}) {
 	const f = useFuentes();
 	const m = usePaseMotion(estado, evidencia, tema);
-	return <ChipAnimado estado={m.estado} estilos={m.estilos} fuente={f.titulo} discontinuo={m.estado === 'sin-confirmar'} />;
+	const cambio = useTiempoDeCambio(m.estado);
+	return <ChipAnimado estado={m.estado} estilos={m.estilos} fuente={f.titulo} discontinuo={m.estado === 'sin-confirmar'} cambio={cambio} />;
 }
 
 // Entrar -----------------------------------------------------------------------------------------------------

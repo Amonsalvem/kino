@@ -7,7 +7,7 @@ import Animated, {
 	withDelay, withRepeat, withSequence, withSpring, withTiming, type SharedValue,
 } from 'react-native-reanimated';
 import {resorte, tiempo, tiempoMs} from './configuracion';
-import {curvaDe, escalonar, ms, TOKENS, vigenciaRestante, type Estado, type Evidencia} from './nucleo';
+import {cambioDeTexto, curvaDe, escalonar, ms, TOKENS, tramosDeTexto, transicionEntre, vigenciaRestante, type Bezier, type Estado, type Evidencia} from './nucleo';
 
 
 import {estadoHonesto, planDeTransicion, valoresDeEstado, type Clave, type Valores} from './plan';
@@ -32,6 +32,66 @@ export function useTemaKino(fijo?: Tema) {
 		};
 		return {tema, color};
 	}, [tema]);
+}
+
+// Textos que cambian con el estado (M3D-5) --------------------------------------------------------------------
+export type TiempoDeCambio = {duracionMs: number; bezier: Bezier} | null;
+
+/** Duración y curva del verbo con que el Pase pasa del estado anterior al actual (null si no hay transición). */
+export function useTiempoDeCambio(estado: Estado): TiempoDeCambio {
+	const previo = useRef<Estado | null>(null);
+	const de = previo.current;
+	useEffect(() => {
+		previo.current = estado;
+	});
+	if (!de || de === estado) return null;
+	const t = transicionEntre(de, estado);
+	return t ? {duracionMs: ms(t.duracion), bezier: curvaDe(t.curva)} : null;
+}
+
+/**
+ * Texto que se funde al cambiar (M3D-5, misma regla que la web): si uno sale y otro entra, el que sale se va en la
+ * primera mitad del verbo y el nuevo llega en la segunda; si solo sale o solo entra, un fundido en toda la duración.
+ * Devuelve el texto que se muestra en este momento y su estilo de opacidad.
+ */
+export function useTextoFundido(texto: string, cambio: TiempoDeCambio) {
+	const [mostrado, setMostrado] = useState(texto);
+	const opacidad = useSharedValue(1);
+	const previo = useRef(texto);
+	useEffect(() => {
+		const antes = previo.current;
+		previo.current = texto;
+		const tipo = cambioDeTexto(antes, texto);
+		if (tipo === 'igual') return;
+		cancelAnimation(opacidad);
+		if (!cambio) {
+			setMostrado(texto);
+			opacidad.value = 1;
+			return;
+		}
+		const {sale, entra} = tramosDeTexto(tipo, cambio.duracionMs);
+		const entrar = () => {
+			setMostrado(texto);
+			if (!entra) return;
+			opacidad.value = 0;
+			opacidad.value = withTiming(1, tiempoMs(entra[1], cambio.bezier));
+		};
+		if (!sale) {
+			entrar();
+			return;
+		}
+		opacidad.value = withTiming(0, tiempoMs(sale[1], cambio.bezier));
+		const reloj = setTimeout(() => {
+			if (entra) entrar();
+			else {
+				setMostrado('');
+				opacidad.value = 1;
+			}
+		}, sale[1]);
+		return () => clearTimeout(reloj);
+	}, [texto]); // eslint-disable-line react-hooks/exhaustive-deps
+	const estilo = useAnimatedStyle(() => ({opacity: opacidad.value}));
+	return {mostrado, estilo};
 }
 
 // El Pase ----------------------------------------------------------------------------------------------------

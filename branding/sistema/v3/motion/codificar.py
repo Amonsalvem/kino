@@ -11,6 +11,8 @@ Salidas en entregables/<id>/ (se ignoran en git, salvo lo liviano; ver README):
              con fondo transparente además <nombre>.alpha.webm (VP9) y <nombre>.alpha.mp4 (HEVC con alfa, hvc1);
              opacos además <nombre>.vp9.webm y <nombre>.h264.mp4 para la web
   remotion → <id>.av1.webm, <id>.h264.mp4, <id>.poster.avif
+  previews → entregables/lottie-previews/<id>.mp4 (H.264 de Remotion, con faststart) y <id>.webm (VP9)
+             a partir de remotion/salida/previews/<id>.mp4
 
 Los comandos son los de Nico con dos ajustes: 60 fps (el sistema entero está a 60) y HEVC con alfa por libx265
 (FFmpeg ≥ 7.1) en vez de hevc_videotoolbox, que solo existe en macOS. FFMPEG debe tener libx265 con yuva420p.
@@ -105,6 +107,17 @@ def remotion(filtro):
                destino / f'{id_}.poster.avif')
 
 
+def previews(filtro):
+    for mp4 in sorted((AQUI / 'remotion' / 'salida' / 'previews').glob('*.mp4')):
+        id_ = mp4.stem
+        if filtro and filtro not in id_:
+            continue
+        destino = SALIDA / 'lottie-previews'
+        destino.mkdir(parents=True, exist_ok=True)
+        ff('-i', mp4, '-c', 'copy', '-movflags', '+faststart', destino / f'{id_}.mp4')
+        ff('-i', mp4, '-c:v', 'libvpx-vp9', '-pix_fmt', 'yuv420p', '-crf', 32, '-b:v', 0, '-row-mt', 1, destino / f'{id_}.webm')
+
+
 def tamano(png):
     salida = subprocess.run([str(Path(FF).with_name('ffprobe')) if os.sep in FF else 'ffprobe', '-v', 'error', '-select_streams', 'v', '-show_entries',
                              'stream=width,height', '-of', 'csv=p=0', str(png)], capture_output=True, text=True, check=True)
@@ -116,3 +129,4 @@ if __name__ == '__main__':
     filtro = sys.argv[1] if len(sys.argv) > 1 else ''
     blender(filtro)
     remotion(filtro)
+    previews(filtro)

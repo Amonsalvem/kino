@@ -70,7 +70,7 @@ a:focus-visible{outline:2px solid var(--borde-foco);outline-offset:2px}
  <span class="eyebrow">Kino · motion 3D · revisión del 26 sep</span>
  <h1>Pase y portería en 3D</h1>
  <p class="bajada">Segunda versión de las tres escenas de Blender. Se mueven con los tokens y la partitura de <code>@kino/motion</code>, los mismos que usa la web. Desliza cada imagen para comparar con la versión 1.</p>
- <span class="estado">Sin aprobar · preguntas al final</span>
+ <span class="estado">Decisiones aprobadas el 27 sep · detalle al final</span>
 </header>
 
 <section>
@@ -133,27 +133,27 @@ a:focus-visible{outline:2px solid var(--borde-foco);outline-offset:2px}
 </section>
 
 <section>
- <div class="cab"><h2>Preguntas para Nico</h2><p>Cada una está en <code>decisiones.md</code> como PROPUESTA. La opción A es la que está construida.</p></div>
+ <div class="cab"><h2>Preguntas para Nico</h2><p>Están en <code>decisiones.md</code>. La opción A es la construida. Nico aprobó las siete (A) el 27 sep. M3D-4 y M3D-5 ya están aplicadas en la web y en la app.</p></div>
  <div class="preguntas">
-  <div class="pregunta"><span class="codigo">M3D-1 · Gestión de color</span><h3>¿Aceptas la curva de tono propia con marcas exactas?</h3><div class="opciones">
+  <div class="pregunta"><span class="codigo">M3D-1 · Gestión de color · <b class="si">APROBADA A (27 sep)</b></span><h3>¿Aceptas la curva de tono propia con marcas exactas?</h3><div class="opciones">
    <div class="opcion"><b>A · construida</b>Vista Standard y curva de tono en el compositor para la escena; bordes, chip, textos e indicador salen con el hex de su token.</div>
    <div class="opcion"><b>B</b>AgX para todo: más cinematográfico, pero desatura los verdes de estado y el hex del token ya no sale igual.</div></div></div>
-  <div class="pregunta"><span class="codigo">M3D-2 · Talanquera</span><h3>¿Con qué tiempo sube la talanquera?</h3><div class="opciones">
+  <div class="pregunta"><span class="codigo">M3D-2 · Talanquera · <b class="si">APROBADA A (27 sep)</b></span><h3>¿Con qué tiempo sube la talanquera?</h3><div class="opciones">
    <div class="opcion"><b>A · construida</b><code>resorte/firme</code>: 494 ms, llega sin pasarse, el brazo se flexiona un poco por su inercia.</div>
    <div class="opcion"><b>B</b>Un token nuevo de mecánica, más lento (1 a 1,5 s), más cercano a una barrera real.</div></div></div>
-  <div class="pregunta"><span class="codigo">M3D-3 · Cámara de la portería</span><h3>¿La cámara se mueve?</h3><div class="opciones">
+  <div class="pregunta"><span class="codigo">M3D-3 · Cámara de la portería · <b class="si">APROBADA A (27 sep)</b></span><h3>¿La cámara se mueve?</h3><div class="opciones">
    <div class="opcion"><b>A · construida</b>Llega con <code>duracion/cortina</code> y <code>curva/crecer</code>, espera la confirmación y avanza al 60 % de ese tiempo con <code>curva/salir</code>. Faros del vehículo, sin mostrarlo.</div>
    <div class="opcion"><b>B</b>Cámara fija, como en la versión 1. Es lo que ya hace la variante reducida.</div></div></div>
-  <div class="pregunta"><span class="codigo">M3D-4 · Base de la tarjeta</span><h3>¿La tarjeta del Pase es membrana o elevada?</h3><div class="opciones">
+  <div class="pregunta"><span class="codigo">M3D-4 · Base de la tarjeta · <b class="si">APROBADA A (27 sep)</b></span><h3>¿La tarjeta del Pase es membrana o elevada?</h3><div class="opciones">
    <div class="opcion"><b>A · construida en 3D</b><code>superficie/membrana</code>, como dice el recurso Membrana. La web tendría que pasar a membrana.</div>
    <div class="opcion"><b>B</b><code>superficie/elevada</code>, como <code>&lt;kino-pase&gt;</code> hoy. Cambia el 3D.</div></div></div>
-  <div class="pregunta"><span class="codigo">M3D-5 · Textos que cambian con el estado</span><h3>¿Cómo cambia el texto del chip y del dato?</h3><div class="opciones">
+  <div class="pregunta"><span class="codigo">M3D-5 · Textos que cambian con el estado · <b class="si">APROBADA A (27 sep)</b></span><h3>¿Cómo cambia el texto del chip y del dato?</h3><div class="opciones">
    <div class="opcion"><b>A · construida en 3D</b>Fundido a través: el texto que sale se va en la primera mitad del verbo y el nuevo llega en la segunda. Se llevaría a la web.</div>
    <div class="opcion"><b>B</b>Cambio de golpe, como en la web hoy; solo los colores tienen transición.</div></div></div>
-  <div class="pregunta"><span class="codigo">M3D-6 · Aurora de noche</span><h3>¿La aurora lleva el verde de la marca?</h3><div class="opciones">
+  <div class="pregunta"><span class="codigo">M3D-6 · Aurora de noche · <b class="si">APROBADA A (27 sep)</b></span><h3>¿La aurora lleva el verde de la marca?</h3><div class="opciones">
    <div class="opcion"><b>A · construida</b>Índigo y violeta, con un rastro de <code>biolum/d15</code>. El único verde de la escena es el indicador confirmado.</div>
    <div class="opcion"><b>B</b>Aurora completa, verde e índigo, como en las portadas.</div></div></div>
-  <div class="pregunta"><span class="codigo">M3D-7 · Arco Portal</span><h3>¿Se hace una escena del Pase vivo con arco?</h3><div class="opciones">
+  <div class="pregunta"><span class="codigo">M3D-7 · Arco Portal · <b class="si">APROBADA A (27 sep)</b></span><h3>¿Se hace una escena del Pase vivo con arco?</h3><div class="opciones">
    <div class="opcion"><b>A · construida</b>No se usa el arco: estas escenas muestran la tarjeta de la lista, y el arco es del Pase vivo con el QR (X1, X8).</div>
    <div class="opcion"><b>B</b>Sumar una escena del Pase vivo, en claro, con el arco y el QR sobre fondo liso.</div></div></div>
  </div>
@@ -161,7 +161,7 @@ a:focus-visible{outline:2px solid var(--borde-foco);outline-offset:2px}
 
 <footer>
  <span>Rama <code>claude/youthful-mccarthy-91cyy5</code> · código en <code>branding/sistema/v3/motion/blender/</code> · versión 1 en <code>_obsoleto/v1-2026-09-26/</code></span>
- <span>Nada de esta lámina está aprobado.</span>
+ <span>Decisiones M3D-1 a M3D-7 aprobadas por Nico el 27 sep (opción A).</span>
 </footer>
 </div>
 <script>

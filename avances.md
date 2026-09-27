@@ -226,3 +226,9 @@ En arquitectura faltaba:
 - **Reducidos:** Pase (fundidos en lugar de subida, escala y líneas; latido quieto) y portería (cámara quieta, talanquera por fundido, sin latido). La portería reducida calculó 97 de 260 frames: los tramos quietos se copian.
 - **Galería republicada** (versión 4, con los 36 videos 3D nuevos): https://claude.ai/artifact/EiPApRKP6NNECfu5i5rKNV
 - **Pendiente de Nico:** M3D-1 a M3D-7 en `decisiones.md`. Nada está aprobado.
+- **Respuesta de Nico (27 sep):** M3D-1 A, M3D-2 A y M3D-3 A, aprobadas tal como se construyeron; no cambia ningún render. M3D-4 a M3D-7 siguen PROPUESTA.
+- **Segunda respuesta de Nico (27 sep):** M3D-4 A, M3D-5 A, M3D-6 A y M3D-7 A. Las siete decisiones de motion 3D quedan aprobadas.
+  - **Aplicado en `@kino/motion` y `@kino/motion-nativo`:** tarjeta en membrana, pista de la barra en elevada, fundido a través de chip, dato y nota con la regla común `nucleo/textos.ts`.
+  - **Verificación:** web con 26 pruebas unitarias, `lint-motion` sin hallazgos y 18 pruebas en navegador (entre ellas, el fundido del chip a 1280 y 390 px); app con tipos sin errores, pruebas unitarias y 11 pruebas en el arnés web.
+  - **Remotion y Lottie (27 sep):** tarjeta en membrana y pista en elevada; 14 recursos Lottie regenerados, 28 previews y los masters de hero, hero móvil y revocado re-renderizados (≈12 min de render y 5 de codificación). Galería republicada (versión 5).
+  - **Pendiente:** M3D-5 en Remotion y Lottie (fundido a través con capas separadas) y las piezas del Pase del sitio, que esperan una versión nueva.

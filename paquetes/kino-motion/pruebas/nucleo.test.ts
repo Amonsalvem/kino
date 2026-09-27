@@ -164,3 +164,24 @@ describe('movimiento reducido', () => {
 		expect(reducirKeyframes([{transform: 'scale(.97)'}, {transform: 'none'}])).toEqual([]);
 	});
 });
+
+describe('textos que cambian (M3D-5)', async () => {
+	const {cambioDeTexto, tramosDeTexto} = await import('../src/nucleo');
+	it('clasifica el cambio', () => {
+		expect(cambioDeTexto('Vigente', 'Vigente')).toBe('igual');
+		expect(cambioDeTexto('', 'Confirmó Lector')).toBe('entra');
+		expect(cambioDeTexto('Confirmó Lector', '')).toBe('sale');
+		expect(cambioDeTexto('Sin confirmar', 'Vigente')).toBe('a-traves');
+	});
+	it('a través: el que sale termina justo cuando empieza el que entra, sin encimarse', () => {
+		const {sale, entra} = tramosDeTexto('a-traves', ms('aparecer/duracion'));
+		expect(sale![0]).toBe(0);
+		expect(sale![0] + sale![1]).toBe(entra![0]);
+		expect(entra![0] + entra![1]).toBe(ms('aparecer/duracion'));
+	});
+	it('solo sale o solo entra: un tramo en toda la duración', () => {
+		expect(tramosDeTexto('sale', 240)).toEqual({sale: [0, 240]});
+		expect(tramosDeTexto('entra', 240)).toEqual({entra: [0, 240]});
+		expect(tramosDeTexto('igual', 240)).toEqual({});
+	});
+});

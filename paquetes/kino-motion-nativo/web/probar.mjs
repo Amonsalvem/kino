@@ -45,9 +45,22 @@ await click('Enviar al lector');
 await p.waitForTimeout(400);
 ok((await etiqueta('pase-vivo')).includes('Sin confirmar'), 'enviar → sin confirmar');
 await click('El lector confirma');
-await p.waitForTimeout(1000);
+// M3D-5: el texto del chip se funde a través (misma regla que la web). Muestras cada 40 ms del texto del chip.
+const chip = () => p.evaluate(() => {
+	const raiz = document.querySelector('[data-testid="pase-vivo"]');
+	const t = [...raiz.querySelectorAll('*')].find((n) => n.children.length === 0 && ['Sin confirmar', 'Vigente'].includes(n.textContent));
+	return t ? {texto: t.textContent, opacidad: Number(getComputedStyle(t).opacity)} : {texto: '', opacidad: 0};
+});
+const muestras = [];
+for (let i = 0; i < 12; i++) { muestras.push(await chip()); await p.waitForTimeout(40); }
+const viejo = muestras.filter((m) => m.texto === 'Sin confirmar').map((m) => m.opacidad);
+ok(muestras.every((m) => ['Sin confirmar', 'Vigente'].includes(m.texto)) && viejo.every((o, i) => i === 0 || o <= viejo[i - 1] + 1e-3) && viejo.length < muestras.length,
+	`el chip se funde a través (${muestras.map((m) => `${m.texto[0]}${m.opacidad.toFixed(2)}`).join(' ')})`);
+await p.waitForTimeout(700);
 const vig = await etiqueta('pase-vivo');
 ok(vig.includes('Vigente') && vig.includes('Confirmó Lector Portería'), 'confirmar → vigente, con la evidencia del lector');
+const final = await chip();
+ok(final.texto === 'Vigente' && final.opacidad > 0.99, `al terminar el chip dice «Vigente» (${final.texto}, ${final.opacidad})`);
 await click('Revocar');
 await p.waitForTimeout(400);
 ok((await etiqueta('pase-vivo')).includes('Revocó Carolina Ruiz'), 'revocar → revocado, con autor');

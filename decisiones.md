@@ -414,34 +414,49 @@ Lámina: `kino/parada-4.html` (https://claude.ai/artifact/DBF7w1VTGPtJ9oQwdz4tXa
 ## Motion 3D · segunda versión de las escenas (26 sep)
 Pedido de Nico: subir las tres escenas de Blender a nivel profesional; libertad total en motion. Lámina de revisión: ver `avances.md`. Todas quedan en **PROPUESTA**; la opción A es la construida en `branding/sistema/v3/motion/blender/`.
 
-### M3D-1 · Gestión de color de las escenas · PROPUESTA
+### M3D-1 · Gestión de color de las escenas · APROBADA (Nico, 27 sep: opción A)
 - **A (construida):** vista Standard y curva de tono propia en el compositor para la escena; las marcas de estado (bordes, chip, textos, barra, indicador) escriben la AOV `marca` y pasan sin curva. Medido con `blender/medir.py`: vigente borde, texto y fondo y texto primario salen con ΔE 0.
 - **B:** AgX para todo. Más cinematográfico, pero desatura los verdes de estado: `#00EAA5` deja de salir como `#00EAA5`.
 - **Por qué A:** estado honesto y colores solo de tokens; el color de un estado es información.
 
-### M3D-2 · Tiempo de la talanquera · PROPUESTA
+### M3D-2 · Tiempo de la talanquera · APROBADA (Nico, 27 sep: opción A)
 - **A (construida):** `resorte/firme` (494 ms, sin rebote). El brazo se flexiona un poco por su inercia y se asienta.
 - **B:** token nuevo de mecánica, de 1 a 1,5 s, más cercano a una barrera real.
 - **Regla que se cumple en las dos:** la talanquera sube solo después de que el lector confirma.
 
-### M3D-3 · Cámara de la portería · PROPUESTA
+### M3D-3 · Cámara de la portería · APROBADA (Nico, 27 sep: opción A)
 - **A (construida):** llega con `duracion/cortina` y `curva/crecer`, espera la confirmación y avanza al 60 % de ese tiempo (`coreografia/salida-factor`) con `curva/salir`. Faros de un vehículo que no se ve (sin placa ni personas).
 - **B:** cámara fija, como en la versión 1 y como la variante reducida.
 - **Falta:** no hay token de cámara; A reutiliza tokens que existen.
 
-### M3D-4 · Base de la tarjeta del Pase · PROPUESTA
+### M3D-4 · Base de la tarjeta del Pase · APROBADA (Nico, 27 sep: opción A)
 - **A (construida en 3D):** `superficie/membrana`, como el recurso Membrana. Implica cambiar `<kino-pase>` en la web, que hoy usa `superficie/elevada`.
 - **B:** `superficie/elevada` en los dos. Se cambia el 3D.
 
-### M3D-5 · Textos que cambian con el estado · PROPUESTA
+### M3D-5 · Textos que cambian con el estado · APROBADA (Nico, 27 sep: opción A)
 - **A (construida en 3D):** fundido a través: el texto que sale se va en la primera mitad del verbo y el nuevo llega en la segunda. Se llevaría a `<kino-pase>` y `<kino-estado>`.
 - **B:** cambio de golpe, como la web hoy; solo los colores tienen transición.
 - **Por qué se propone:** en 3D un fundido cruzado encima los dos textos a mitad de la transición.
 
-### M3D-6 · Aurora en la portería · PROPUESTA
+### M3D-6 · Aurora en la portería · APROBADA (Nico, 27 sep: opción A)
 - **A (construida):** índigo y violeta con un rastro de `biolum/d15`; el único verde de la escena es el indicador confirmado.
 - **B:** aurora completa, verde e índigo, como en las portadas (X7).
 
-### M3D-7 · Arco Portal en 3D · PROPUESTA
+### M3D-7 · Arco Portal en 3D · APROBADA (Nico, 27 sep: opción A)
 - **A (construida):** sin arco. Las escenas muestran la tarjeta de la lista; el arco es del Pase vivo con el QR (X1, X8).
 - **B:** sumar una escena del Pase vivo, en claro, con el arco y el QR sobre fondo liso (nunca aurora detrás del QR).
+
+### Estado tras la respuesta del 27 sep (motion 3D)
+1. M3D-1: **APROBADA** (A). Vista Standard con curva de tono propia; las marcas de estado salen con el hex de su token.
+2. M3D-2: **APROBADA** (A). La talanquera sube con `resorte/firme`, solo después de la confirmación del lector.
+3. M3D-3: **APROBADA** (A). La cámara de la portería llega con `duracion/cortina` y `curva/crecer`, espera la confirmación y avanza al 60 % con `curva/salir`; faros sin mostrar el vehículo.
+4. M3D-4 a M3D-7: sin respuesta. Siguen PROPUESTA.
+
+### Estado tras la segunda respuesta del 27 sep (motion 3D)
+1. M3D-4: **APROBADA** (A). La tarjeta del Pase es `superficie/membrana`. Aplicado en `<kino-pase>` (web) y `PaseKino` (app); la pista de la barra pasa a `superficie/elevada` para verse sobre la membrana.
+2. M3D-5: **APROBADA** (A). Los textos que cambian con el estado (chip, dato, nota) se funden a través. La regla vive en el núcleo (`nucleo/textos.ts`) y la usan la web (`fundirTexto`) y la app (`useTextoFundido`).
+3. M3D-6: **APROBADA** (A). Sin cambios: la aurora de noche ya es índigo y violeta.
+4. M3D-7: **APROBADA** (A). Sin cambios: no hay escena del Pase vivo con arco.
+5. Las siete decisiones de motion 3D quedan aprobadas.
+- **M3D-4 en Remotion y Lottie (27 sep):** `piezas.tsx` y `generar.py` pasan la tarjeta a membrana y la pista a elevada; heroes, revocado y 28 previews re-renderizados. Las piezas del Pase del sitio oficial (1.2.1) no cambian sin una versión nueva.
+- **Queda fuera:** M3D-5 en Remotion y Lottie. Las dos cambian de estado con un fundido cruzado de la tarjeta entera; llevar ahí el fundido a través exige separar fondo y textos en capas.

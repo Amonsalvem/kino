@@ -1,6 +1,7 @@
 // <kino-vigencia desde="…" hasta="…" estado="vigente">: la barra de vigencia con la hora real.
 // No es una animación de adorno: la barra baja al ritmo del reloj (lineal, en tiempo real) hasta la hora de vencimiento.
 // En modo reducido no se mueve: se actualiza una vez por minuto.
+// La pista es superficie/elevada: la tarjeta del Pase es membrana (M3D-4) y la pista debe verse sobre ella.
 import {vigenciaRestante} from '../../nucleo/pase';
 import {definir, KinoElemento} from './base';
 
@@ -13,7 +14,7 @@ export class KinoVigencia extends KinoElemento {
 		this.estilo(`
 :host{display:block;block-size:4px}
 :host([hidden]){display:none}
-.pista{position:relative;block-size:100%;border-radius:2px;background:var(--kino-superficie-membrana);overflow:hidden}
+.pista{position:relative;block-size:100%;border-radius:2px;background:var(--kino-superficie-elevada);overflow:hidden}
 .barra{position:absolute;inset:0;transform-origin:left center;background:var(--color, var(--kino-estado-vigente-borde));
  transition:background-color var(--kino-estado-dur, var(--kino-mov-duracion-corto)) var(--kino-estado-curva, var(--kino-mov-curva-crecer))}
 :host([estado="por-vencer"]){--color:var(--kino-estado-por-vencer-borde)}

@@ -68,7 +68,7 @@ export type TarjetaProps = {
 	ancho?: number;
 };
 
-export const Tarjeta: React.FC<TarjetaProps> = ({estado, quien, dato, evidencia, barra, brillo, relleno = 'superficie/elevada', quienMono, ancho = 360}) => {
+export const Tarjeta: React.FC<TarjetaProps> = ({estado, quien, dato, evidencia, barra, brillo, relleno = 'superficie/membrana', quienMono, ancho = 360}) => {
 	const pad = ESP.m + ESP['2xs'];
 	return (
 		<div
@@ -93,7 +93,8 @@ export const Tarjeta: React.FC<TarjetaProps> = ({estado, quien, dato, evidencia,
 			{dato ? <span style={{fontFamily: MONO, fontSize: 13, color: color('texto/secundario')}}>{dato}</span> : null}
 			{evidencia ? <span style={{fontFamily: MONO, fontSize: 12, color: color(`estado/${estado}/texto`)}}>{evidencia}</span> : null}
 			{barra === undefined ? null : (
-				<div style={{height: ESP['2xs'], borderRadius: ESP['3xs'], background: color('superficie/membrana'), overflow: 'hidden', marginTop: ESP['2xs']}}>
+				// Pista en elevada: la tarjeta es membrana (M3D-4) y la pista debe verse sobre ella.
+				<div style={{height: ESP['2xs'], borderRadius: ESP['3xs'], background: color('superficie/elevada'), overflow: 'hidden', marginTop: ESP['2xs']}}>
 					<div
 						style={{
 							height: '100%',
