@@ -65,6 +65,14 @@ python3 verbal.py && python3 secciones.py && python3 construir.py
 python3 verificar.py
 ```
 
+Después de construir, pasa la compuerta de voz sobre el texto visible, desde `gorr-brand-system/`:
+
+```bash
+npm run voz -- kino ../branding/sistema/v3/sitio/texto-visible.md
+```
+
+Cada vez que corre reescribe `gorr-brand-system/clientes/kino/reportes/voz.json`, que está versionado. Si solo estás comprobando, descarta ese cambio antes de hacer commit.
+
 Más detalle en su [`LEEME.md`](branding/sistema/v3/sitio/LEEME.md).
 
 **Láminas de las paradas**:
