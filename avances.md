@@ -265,3 +265,14 @@ En arquitectura faltaba:
 - **Verificación:** `p5-verificar-layout.js` en la página 03: 0 en todo después de corregir 7 desbordes y 2 filas desiguales. 0 pinturas sin variable y 0 textos sin estilo. Contraste: 12 pares nuevos en `pares.json`, 156 pares y 0 fallos. Voz: `textos/fase-2.md`, 0 errores.
 - **Propuestas:** D-UX-08 (subir a la librería después de la Fase 3) y D-UX-09 (QR del Pase vivo solo mientras puede servir).
 - **Estado:** PARADA 2 abierta; la Fase 3 sigue sobre las opciones A.
+
+## UX/UI en Figma · Fase 3 (28 sep)
+- **Construido en «Kino · App»**, cada pantalla en oscuro y claro, con su ficha y el nombre `<ID> · <Pantalla> · <Estado> · <Oscuro|Claro>`:
+  - página 05 · Pases: R-P-01 a R-P-13 (Tus Pases, crear Pase paso a paso, detalle, extender, revocar, Pases anteriores) con sus estados, más variantes de reflujo a 320 y 430 px. Aurora local en la cabecera. 98 marcos;
+  - página 04 · Acceso: entrada con WhatsApp, código, cédula contra el registro, casa, tratamiento de datos, avisos e instalación de la PWA. 32 marcos;
+  - página 06 · Avisos, Mi casa y Cuenta: 21 marcos;
+  - página 10 · Estados del sistema: sin conexión, error del servidor, lector caído, sesión vencida, versión nueva. 14 marcos.
+- **Verificación:** `auditoria-uxui.js` 1.2 en 04, 05, 06 y 10: 165 marcos, 0 hallazgos (se corrigió «Sin contraseña.» en R-A-02, que nombraba lo que Kino no usa). `p5-verificar-layout.js`: 0 en las cuatro páginas. Espacios de no separación en 191 textos de horas y placas. Voz: `textos/fase-3.md`, 1 texto, 0 errores.
+- **Pendientes nuevos:** texto legal de tratamiento de datos (Ley 1581 de 2012) por redactar con la administración, marcado en R-A-06; Reservas y Paquetes quedan como «Sección sin definir» en Mi casa.
+- **Propuestas:** D-UX-10 (correcciones a la librería) y D-UX-11 (espacios de no separación).
+- **Estado:** PARADA 3 abierta; la Fase 4 sigue bajo la delegación, sobre las opciones A.

@@ -536,3 +536,26 @@ Construidas en «Kino · App», página 03. Siguen PROPUESTA hasta que Nico resp
 - **B:** el QR siempre visible, con el estado encima.
 - **Por qué A:** un QR que ya no sirve invita a intentar en el lector y a recibir un rechazo; Estado honesto. La constancia no cambia: el Pase y sus eventos se conservan.
 - **Trazabilidad y HikCentral:** ninguno. Es una regla de presentación; la vigencia la aplica el lector.
+
+### Estado tras la delegación del 28 sep (PARADA 2)
+Sin respuesta nueva de Nico a la PARADA 2. Se avanza bajo la delegación del 28 sep («Has todo lo que consideres óptimo y sigue adelante») sobre las opciones A de D-UX-08 y D-UX-09, que siguen PROPUESTA: el silencio no las aprueba.
+
+## UX/UI en Figma · Fase 3, residente (28 sep)
+
+Construidas en «Kino · App», páginas 04, 05, 06 y 10. Siguen PROPUESTA hasta que Nico responda la PARADA 3.
+
+### D-UX-10 · Correcciones a la librería que salieron de las pantallas · PROPUESTA
+Las pantallas usan la librería tal cual donde se puede y corrigen en la instancia donde no. Tres cosas quedarían mejor en la librería (se hacen en la misma subida de D-UX-08, porque el prompt no deja escribir en ella desde aquí):
+1. **Selector de tipo** mide 44 px de alto. La app pide 48 px táctiles; en «Kino · App» cada instancia se estira a 48.
+2. **Campo** muestra el valor en JetBrains Mono y el error como un bloque rojo. Mono va en placas y códigos, no en nombres; el error de F4-P5 es borde en `rechazado/borde` más una línea con ícono y texto. En las pantallas se reestiló el valor a Texto/cuerpo y se armó el error con la variante Reposo.
+3. **Botón secundario** dice en su descripción que sirve para revocar. F4-P5 deja Revocar como botón de texto; solo cambia la descripción.
+- **A (recomendada):** corregir las tres en la librería con D-UX-08 y cambiar las instancias de «Kino · App» por las nuevas.
+- **B:** dejar la librería como está y mantener los ajustes en cada instancia.
+- **Por qué A:** con B cada pantalla nueva repite el ajuste y basta olvidarlo una vez para romper la regla táctil o la de mono.
+- **Trazabilidad y HikCentral:** ninguno.
+
+### D-UX-11 · Espacios de no separación en horas y placas · PROPUESTA
+- **A (construida):** «2:00 p. m.» y «KMN 305» llevan espacio de no separación. A 320 px la hora ya no se parte en «2:00 p.» / «m.» ni la placa en dos líneas. La auditoría acepta ese espacio.
+- **B:** espacio normal y aceptar el corte.
+- **Por qué A:** una placa partida no se lee de un vistazo en portería, y el reflujo a 320 px es parte de F4-P7. En código es ` ` (o `&nbsp;`) en el formateador de horas y placas, no a mano.
+- **Trazabilidad y HikCentral:** ninguno; el dato guardado no lleva el espacio.
