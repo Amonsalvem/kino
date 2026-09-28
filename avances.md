@@ -348,3 +348,10 @@ En arquitectura faltaba:
   - La rúbrica de `evals.md` con el prompt del juez: tiene que correrla un modelo distinto del que diseñó (LEEME §2), y Nico tiene que calificar 4 de las 12 capturas para medir el acuerdo.
   - La subida a la librería (D-UX-08 y D-UX-10): el conector no copia nodos entre archivos ni publica. Hay que reconstruir los componentes en `BO7UnDO9iE0aG6yUpNj0bc` y que Nico publique desde Assets.
 - **Estado:** PARADA FINAL del prompt. Lo construido en Figma está aprobado (respuesta del 28 sep). Siguen abiertos los pendientes de producto de `decisiones.md` (D-UX-14 y los de cada ficha).
+
+## Librería · componentes de producto (28 sep)
+- **Subidos:** los 36 componentes de producto de «Kino · App» se reconstruyeron en la librería (Componentes › «Componentes de producto», 140:55). La sección tiene fondo `superficie/base` en modo Oscuro, para que se lean los tokens claros.
+- **D-UX-10 aplicada:** Selector de tipo a 48 px, Campo con valor en Texto/cuerpo y error en línea, descripción del Botón secundario.
+- **Heredados:** cuatro componentes de Referencias retirados con guion bajo; no se borró nada.
+- **Revisión:** capturas de la Imagen del Pase, del Campo y de la sección. Durante la revisión se corrigió el tamaño del símbolo del logo (24 px en la Imagen del Pase, 50 px en el Menú lateral).
+- **Falta:** que Nico publique desde Assets y, después, cambiar las instancias de «Kino · App» a la librería publicada.

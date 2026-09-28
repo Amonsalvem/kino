@@ -590,3 +590,18 @@ Construidas en «Kino · App», páginas 07, 08 y 09. Quedan **APROBADAS** por l
   - si la administración puede revocar (A-05).
 - **Lo que sigue abierto:** la respuesta de producto a cada uno. Elegir la variante no cambia el resto de las pantallas.
 - **Trazabilidad y HikCentral:** en P-E-04 sin teclado y en P-E-05 con apertura a mano, la constancia guarda que actuó portería, con su turno (P-E-07). Por verificar si Kino puede ordenar a HikCentral que abra la talanquera.
+
+## Librería · subida de los componentes de producto (28 sep)
+
+Pedido de Nico: «Sube los componentes nuevos a la librería». Cumple D-UX-08 y D-UX-10, que ya están APROBADAS. El pedido explícito levanta la regla del prompt de no escribir en la librería.
+
+### Estado de la subida
+- **Construidos en `BO7UnDO9iE0aG6yUpNj0bc`:** los 36 componentes de producto de «Kino · App» (página 03) quedan en Componentes › sección «Componentes de producto» (140:55). Llevan las mismas variables, estilos de texto y efecto, modos y componentes de la librería que los originales. Se transcribieron por claves; el conector no copia nodos entre archivos. El último es Imagen del Pase (153:311).
+- **D-UX-10 aplicada en la librería:**
+  - Selector de tipo: alto mínimo de 48 px ligado a `espacio/2xl`, en las 8 variantes.
+  - Campo: el valor pasa a Texto/cuerpo. El error queda como borde `estado/rechazado/borde` más una línea con Icono/rechazado y texto, sin el bloque rojo. Es el mismo patrón del Campo de código.
+  - Botón secundario: la descripción ya no incluye revocar. Revocar va en el Botón de texto carmín.
+- **Retirados sin borrar** (página Referencias): _Estado, _Pase/Boleto, _Pase/Fila y _Tarjeta/Aviso. El guion bajo los saca de la publicación y la descripción dice qué los reemplaza. Las instancias que ya existen no se rompen.
+- **Falta, fuera del conector:**
+  1. Nico publica desde el panel Assets de la librería. Publicar no está en el conector.
+  2. Después, las instancias de «Kino · App» se cambian por los componentes publicados. Hasta entonces «Kino · App» sigue con sus componentes locales, que son idénticos.
