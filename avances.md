@@ -330,3 +330,21 @@ En arquitectura faltaba:
 - **Página 12:** once notas de movimiento, cada una con verbo, token de la sección 12, duración, alternativa reducida y pantallas. La navegación entre pantallas es un fundido de 240 ms; no es movimiento de marca.
 - **Página 13:** accesibilidad de las pantallas P0 (orden de foco, encabezados, aria-live, notas) y lámina de handoff (nombres, modos, componentes, textos, pendientes, verificación).
 - **Estado:** aprobada por la respuesta del 28 sep sobre lo hecho en Figma. Sigue la Fase 6.
+
+## UX/UI en Figma · Fase 6, auditoría (28 sep)
+- **Auditoría final:** `auditoria-uxui.js` 1.2 y `p5-verificar-layout.js` en las páginas 04 a 10: 226 pantallas, 0 hallazgos de marca y producto, 0 de layout. El resultado está en la página 14 de «Kino · App».
+
+  | Página | Pantallas |
+  |---|---|
+  | 04 | 32 |
+  | 05 | 98 |
+  | 06 | 21 |
+  | 07 | 27 |
+  | 08 | 17 |
+  | 09 | 17 |
+  | 10 | 14 |
+
+- **Falta, y no se puede hacer desde esta sesión:**
+  - La rúbrica de `evals.md` con el prompt del juez: tiene que correrla un modelo distinto del que diseñó (LEEME §2), y Nico tiene que calificar 4 de las 12 capturas para medir el acuerdo.
+  - La subida a la librería (D-UX-08 y D-UX-10): el conector no copia nodos entre archivos ni publica. Hay que reconstruir los componentes en `BO7UnDO9iE0aG6yUpNj0bc` y que Nico publique desde Assets.
+- **Estado:** PARADA FINAL del prompt. Lo construido en Figma está aprobado (respuesta del 28 sep). Siguen abiertos los pendientes de producto de `decisiones.md` (D-UX-14 y los de cada ficha).
