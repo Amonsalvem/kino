@@ -276,3 +276,44 @@ En arquitectura faltaba:
 - **Pendientes nuevos:** texto legal de tratamiento de datos (Ley 1581 de 2012) por redactar con la administración, marcado en R-A-06; Reservas y Paquetes quedan como «Sección sin definir» en Mi casa.
 - **Propuestas:** D-UX-10 (correcciones a la librería) y D-UX-11 (espacios de no separación).
 - **Estado:** PARADA 3 abierta; la Fase 4 sigue bajo la delegación, sobre las opciones A.
+
+## UX/UI en Figma · Fase 4 (28 sep)
+- **Respuesta de Nico durante la fase:** «Apruebo todo lo que se realice en figma, no me vuelvas a solicitar permisos». D-UX-08 a D-UX-14 aprobadas; permisos del conector de Figma preaprobados en `.claude/settings.json`.
+- **Construido en «Kino · App»:**
+  - página 07 · Visita, 27 marcos:
+    - V-L-01, Pase vivo, en 7 estados en QR y 4 en Placa y Código (claro);
+    - V-L-02, Pase vivo de colaborador, con dos variantes de vigencia;
+    - V-I-01, imagen del Pase (432 × 540, exporta a 1080 × 1350);
+    - V-W-01 a V-W-03, WhatsApp en oscuro y claro;
+    - V-D-01, PDF en tamaño carta;
+  - página 08 · Portería a 1280 px, 17 marcos:
+    - P-E-01 en oscuro y claro;
+    - P-E-02 en reposo, llamando y no contestó;
+    - P-E-03, buscar, con y sin resultados;
+    - P-E-04, código, con y sin teclado, en cinco estados;
+    - P-E-05, lector sin respuesta, con dos variantes;
+    - P-E-06 y P-E-07 en P2;
+  - página 09 · Administración a 1440 px y en usted, 17 marcos:
+    - A-01, ingreso;
+    - A-02, resumen, en oscuro y claro;
+    - A-03, límites, en cuatro estados;
+    - A-04, constancia;
+    - A-05, constancia de un Pase, con dos variantes;
+    - A-06, residentes con alta fallida;
+    - A-07, lector caído y en orden;
+    - A-08 y A-09, sin definir;
+    - A-10, correo semanal;
+  - página 03: la Ventana del QR con Modo (9 variantes) y el componente nuevo «Imagen del Pase» (Visita y Colaborador).
+- **Verificación:**
+  - `auditoria-uxui.js` en 07, 08 y 09: 61 marcos, 0 hallazgos.
+  - `p5-verificar-layout.js`: 0 en las tres, después de ligar los espacios sueltos a `espacio/*` y de igualar 12 filas en portería.
+  - Voz: `textos/fase-4.md`, 1 texto, 0 errores.
+- **Pendientes nuevos:**
+  - número y plantilla de WhatsApp aprobada por Meta;
+  - si portería ve Pases de otros días;
+  - cómo entra portería (turno o equipo);
+  - si Kino puede ordenar a HikCentral abrir la talanquera;
+  - exportar la constancia y cuánto tiempo se guarda;
+  - reintento del alta fallida;
+  - destinatarios y día del correo semanal.
+- **Siguiente:** subir a la librería los componentes de D-UX-08 y D-UX-10 (Nico publica desde Assets); Fase 5 (prototipos, motion y handoff).

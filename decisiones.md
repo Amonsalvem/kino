@@ -557,5 +557,36 @@ Las pantallas usan la librería tal cual donde se puede y corrigen en la instanc
 ### D-UX-11 · Espacios de no separación en horas y placas · PROPUESTA
 - **A (construida):** «2:00 p. m.» y «KMN 305» llevan espacio de no separación. A 320 px la hora ya no se parte en «2:00 p.» / «m.» ni la placa en dos líneas. La auditoría acepta ese espacio.
 - **B:** espacio normal y aceptar el corte.
-- **Por qué A:** una placa partida no se lee de un vistazo en portería, y el reflujo a 320 px es parte de F4-P7. En código es ` ` (o `&nbsp;`) en el formateador de horas y placas, no a mano.
+- **Por qué A:** una placa partida no se lee de un vistazo en portería, y el reflujo a 320 px es parte de F4-P7. En código es `\u00A0` (o `&nbsp;`) en el formateador de horas y placas, no a mano.
 - **Trazabilidad y HikCentral:** ninguno; el dato guardado no lleva el espacio.
+
+### Estado tras la respuesta del 28 sep (Figma)
+Respuesta de Nico, durante la Fase 4: «Apruebo todo lo que se realice en figma, no me vuelvas a solicitar permisos». Se registra así:
+1. D-UX-08 a D-UX-11: **APROBADAS** (A), porque son decisiones que se construyen en Figma.
+2. Lo que se construya en «Kino · App» en las fases 4 a 6 queda aprobado al construirse; cada fase sigue dejando su entrada en `avances.md` y sus decisiones aquí, para la constancia.
+3. Los permisos del conector de Figma quedan preaprobados en `.claude/settings.json` (`mcp__Figma`).
+4. La subida a la librería (D-UX-08 y D-UX-10) se hace al cerrar la Fase 4, en una sola publicación. Nico la publica desde el panel Assets, porque publicar no está en el conector.
+5. Lo que no es Figma sigue igual: las decisiones de producto (pendientes del MAESTRO §7) y de marca fuera de Figma esperan respuesta explícita.
+
+## UX/UI en Figma · Fase 4, visita, portería y administración (28 sep)
+
+Construidas en «Kino · App», páginas 07, 08 y 09. Quedan **APROBADAS** por la respuesta de Nico del 28 sep («Apruebo todo lo que se realice en figma»), porque son decisiones de diseño construidas en Figma. Los pendientes de producto que tocan siguen abiertos.
+
+### D-UX-12 · Placa y código en el arco del Pase vivo · APROBADA (Nico, 28 sep: aprobación de lo hecho en Figma)
+- **Construida:** la Ventana del QR suma la propiedad Modo (QR, Placa, Código). En Placa y Código el arco muestra el dato en Dato/placa dentro de un marco con borde, con el rótulo encima y una línea de qué hace («La lee la cámara», «Sirve una sola vez»). El Selector de modo del Pase vivo cambia el arco y la instrucción.
+- **Por qué:** los tres modos conviven (decisión tomada) y la visita debe ver el dato que va a usar en el mismo lugar donde miraría el QR.
+- **Token por proponer:** no hay estilo mono grande para la placa en el arco; se usa Dato/placa (22,7 px). Si hace falta más tamaño, se propone `Dato/placa-grande` a la librería.
+- **Trazabilidad y HikCentral:** ninguno; es presentación.
+
+### D-UX-13 · La imagen del Pase no dice el estado · APROBADA (Nico, 28 sep: aprobación de lo hecho en Figma)
+- **Construida:** la imagen del WhatsApp (V-I-01) y el PDF (V-D-01) no llevan palabra de estado ni resplandor, porque no pueden saber si el Pase venció. El pie remite al Pase vivo («Mira si sigue vigente: kino.co/p/…», «Este papel no sabe si el Pase sigue vigente»). La imagen de colaborador no lleva código, porque el código sirve una sola vez y ese Pase se repite.
+- **Por qué:** Estado honesto; una imagen que dice «Vigente» sigue diciéndolo cuando ya venció.
+
+### D-UX-14 · Dos variantes donde el producto no ha decidido · APROBADA como forma de trabajo (Nico, 28 sep)
+- **Construidas:** una variante por respuesta posible en cuatro pendientes:
+  - teclado del lector (P-E-04: la visita escribe el código en el lector, o portería lo escribe en Kino);
+  - portería sin lector (P-E-05: nadie entra con Pase, o portería abre a mano con constancia);
+  - vigencia del colaborador (V-L-02: sin fecha de fin, o con fecha de fin);
+  - si la administración puede revocar (A-05).
+- **Lo que sigue abierto:** la respuesta de producto a cada uno. Elegir la variante no cambia el resto de las pantallas.
+- **Trazabilidad y HikCentral:** en P-E-04 sin teclado y en P-E-05 con apertura a mano, la constancia guarda que actuó portería, con su turno (P-E-07). Por verificar si Kino puede ordenar a HikCentral que abra la talanquera.
