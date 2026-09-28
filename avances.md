@@ -232,3 +232,14 @@ En arquitectura faltaba:
   - **Verificación:** web con 26 pruebas unitarias, `lint-motion` sin hallazgos y 18 pruebas en navegador (entre ellas, el fundido del chip a 1280 y 390 px); app con tipos sin errores, pruebas unitarias y 11 pruebas en el arnés web.
   - **Remotion y Lottie (27 sep):** tarjeta en membrana y pista en elevada; 14 recursos Lottie regenerados, 28 previews y los masters de hero, hero móvil y revocado re-renderizados (≈12 min de render y 5 de codificación). Galería republicada (versión 5).
   - **Pendiente:** M3D-5 en Remotion y Lottie (fundido a través con capas separadas) y las piezas del Pase del sitio, que esperan una versión nueva.
+
+## Prompt UX/UI en Figma · revisión y versión 1.2 (28 sep)
+- **Pedido de Nico:** revisar `prompt.md`, `evals.md`, `LEEME.md` y `auditoria-uxui.js` (1.1) antes de usarlos, y aplicar los arreglos.
+- **Hallazgos que bloqueaban:**
+  - la librería `BO7UnDO9iE0aG6yUpNj0bc` no está publicada: `search_design_system` no encuentra «Botón de acción»;
+  - la compuerta de voz, con la ruta de los evals, terminaba en 0 errores sin revisar nada (`voz.mjs` descarta rutas que no existen);
+  - la auditoría no entraba en las secciones de Figma y eximía del arco toda pantalla con «Pase» en el nombre;
+  - «R-A-07 Permiso de avisos» usaba la palabra prohibida.
+- **Hecho en `prompts/uxui-figma/` (1.2):** ruta de voz corregida y comprobada; auditoría que entra en secciones, avisa si no ve pantallas, revisa qué dice el botón verde, el fondo y el modo del marco, y salta lo oculto; `probar-auditoria.mjs` con un Figma simulado (la 1.1 veía 1 de 3 pantallas); fuentes 05 a 07, 11 y 12 del sistema de marca; «marca blanca» del MAESTRO subordinada a F4; C14 sin cifras del conjunto en la app del residente; C21; LEEME sin `temperature` ni prefill, que la API actual rechaza. La 1.1 queda en `_obsoleto/uxui-figma-1.1/`.
+- **Pendiente de Nico:** D-UX-01 y D-UX-02 en `decisiones.md`; publicar la librería en Figma antes de correr la Fase 0.
+- **Fuera de este cambio:** el MAESTRO (§1 y §2) todavía dice «marca blanca», contra F4. Corregirlo toca el documento maestro y su copia canónica en el proyecto de claude.ai.
