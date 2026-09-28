@@ -19,7 +19,7 @@ Decisiones tomadas con Nico para este prompt: todo el ecosistema (residente, vis
 
 1. Abre Claude Code en la raíz del repositorio `kino` (rama propia, por ejemplo `uxui/fase-1`), con el conector de Figma activo y la cuenta que ve la librería.
 2. Confirma que la librería «Kino · Sistema de marca» está **publicada** en el equipo de Figma (en el archivo de la librería: panel Assets → Publish). Sin eso, el archivo nuevo no puede usar sus componentes y el agente se detiene en la Fase 0 (caso C18). Publicada el 28 sep (04:39 UTC) con el nombre «Kino — Sistema de marca v2»; clave de librería `lk-a3f297165a3d5747ca42346d3688318f271672ebeb692321b9cef0d5b1230b13b9292556704588eba4376ee35e649bdd305eabe6e59d19a466edbcc967e7e87e`, para `includeLibraryKeys`.
-3. Pega el contenido de `prompt.md` como primer mensaje. El agente arranca con `<plan>` para la Fase 0.
+3. El archivo «Kino · App» ya existe (https://www.figma.com/design/wXZ10ygSOp8RXINwg0ZvJw, creado el 28 sep). Una sesión nueva lo retoma con `prompt.md` más «Retoma desde la Fase N; lee `avances.md` y `decisiones.md`». Pega el contenido de `prompt.md` como primer mensaje. El agente arranca con `<plan>` para la Fase 0.
 4. En cada PARADA responde con aprobadas, cambios o la opción elegida (A/B). Las respuestas van a `decisiones.md`.
 5. En la Fase 6 corre la rúbrica con el prompt del juez de `evals.md` y califica tú 4 de las 12 capturas para medir el acuerdo.
 
