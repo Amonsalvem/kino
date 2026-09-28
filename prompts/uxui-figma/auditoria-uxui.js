@@ -10,13 +10,13 @@ const p = await figma.getNodeByIdAsync(PAGINA); await figma.setCurrentPageAsync(
 // <ID> · <Pantalla> · <Estado> · [<ancho> · ]<Oscuro|Claro>. El ancho solo en variantes de reflujo (320, 430).
 const RX_MARCO = /^([RVPAS](?:-[A-Z])?-\d{2}) · .+ · (?:(\d{3,4}) · )?(Oscuro|Claro)$/;
 const NO_PANTALLA = /^Ficha · |^Nota · |^Sección/;
-const VERDE_OK = /^(Crear Pase|Crear otro Pase)$/; // Únicos textos con accion/fondo (D-UX-02). Extender, Entrar y Guardar límites son secundarios.
+const VERDE_OK = /^(Crear Pase|Crear otro Pase|Enviando…)$/; // Únicos textos con accion/fondo (D-UX-02); «Enviando…» es el estado de carga del mismo botón. Extender, Entrar y Guardar límites son secundarios.
 const ES_PASE = /Ventana del QR|Pase vivo|Imagen del Pase|Portal/i; // Lo único que lleva arco (X1, X8).
 const SUPERFICIE_PASE = /^V-[LID]-/; // Pase vivo, imagen y PDF: la pantalla entera es un Pase.
 const EVITAR = /\b(permiso|permisos|invitad[oa]s?|acceso concedido|permitido|empleada|guardia|celador|contraseñas?|seguridad total|100 ?% segur|arcana|marca blanca|pendiente de aprobación|aprobad[oa]s?|autorizad[oa]s?|usuario visitante)\b|¡|!/i;
 const HORA_MAL = /\b\d{1,2}(:\d{2})?\s?(am|pm|AM|PM)\b|\bp\.m\.|\ba\.m\.|\d{1,2}:\d{2}\s?-\s?\d{1,2}:\d{2}\s?(a|p)\./; // bien: «2:00 p. m.», «de 2:00 a 6:00 p. m.»
-const PLACA = /\b[A-Z]{3}[- ]?\d{2}[0-9A-Z]\b/g;
-const PLACA_BIEN = /^[A-Z]{3} \d{2}[0-9A-Z]$/;
+const PLACA = /\b[A-Z]{3}[- \u00A0]?\d{2}[0-9A-Z]\b/g;
+const PLACA_BIEN = /^[A-Z]{3}[ \u00A0]\d{2}[0-9A-Z]$/; // El espacio puede ser de no separación: la placa no se parte en dos líneas.
 const DATO_PERSONAL = /c[ée]dula|\bC\.?C\.?\s?\d|\b\d{1,3}(\.\d{3}){2,3}\b|\b3\d{2} \d{3} \d{4}\b|@/i;
 
 const varCache = new Map();
