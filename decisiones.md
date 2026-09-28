@@ -488,29 +488,36 @@ Salen de la revisión del prompt UX/UI 1.1 (`prompts/uxui-figma/`). El prompt 1.
 
 Construidas con su opción A en «Kino · App» (https://www.figma.com/design/wXZ10ygSOp8RXINwg0ZvJw), páginas 01 y 02. Esperan respuesta en la PARADA 1.
 
-### D-UX-03 · Navegación del residente · PROPUESTA
+### D-UX-03 · Navegación del residente · APROBADA (Nico, 28 sep: «Has todo lo que consideres óptimo y sigue adelante»; opción A)
 - **A (construida):** barra inferior con Pases · Avisos · Mi casa; «Crear Pase» fijo abajo en Pases; Cuenta desde la cabecera.
 - **B:** Pases · Mi casa; avisos como ícono en la cabecera.
 - **Por qué A:** la llegada de una visita y un rechazo en la entrada se revisan sin estar creando un Pase.
 
-### D-UX-04 · Revocado antes de que el lector lo quite · PROPUESTA
+### D-UX-04 · Revocado antes de que el lector lo quite · APROBADA (Nico, 28 sep: «Has todo lo que consideres óptimo y sigue adelante»; opción A)
 - **A (construida):** el chip dice Revocado al instante, con la línea «El lector todavía no lo quita» hasta que el lector confirme la baja.
 - **B:** «Revocando…» sin estado hasta la confirmación.
 - **Por qué A:** la decisión del residente es un hecho con autor y hora; lo que no se afirma es el efecto en la puerta (H4, Estado honesto).
 - **Trazabilidad y HikCentral:** la constancia guarda quién revocó y la hora, y aparte la hora en que el lector confirmó la baja. Si la baja no se confirma, la administración recibe el aviso.
 
-### D-UX-05 · Extensión antes de la confirmación · PROPUESTA
+### D-UX-05 · Extensión antes de la confirmación · APROBADA (Nico, 28 sep: «Has todo lo que consideres óptimo y sigue adelante»; opción A)
 - **A (construida):** el Pase conserva su estado y su hora de fin; la hora nueva va «sin confirmar» hasta que el lector acepte el cambio. Un Pase Vencido que se extiende vuelve a Sin confirmar (X11).
 - **B:** todo el Pase vuelve a Sin confirmar mientras el lector acepta el cambio.
 - **Por qué A:** mientras el lector no acepte, la hora anterior es la que vale en la puerta; B diría que la visita ya no puede entrar y no es cierto.
 - **Trazabilidad y HikCentral:** la constancia guarda el fin anterior, el nuevo, quién extendió y la hora de la confirmación. HikCentral recibe un cambio de vigencia, no una persona nueva.
 
-### D-UX-06 · Aviso de rechazo al residente · PROPUESTA
+### D-UX-06 · Aviso de rechazo al residente · APROBADA (Nico, 28 sep: «Has todo lo que consideres óptimo y sigue adelante»; opción A)
 - **A (construida):** cuando el lector rechaza a alguien con un Pase de la casa, el residente recibe un aviso con el motivo.
 - **B:** el rechazo solo lo ve portería.
 - **Por qué A:** quien conoce a la visita es quien puede resolver (extender o crear otro Pase). Sale del mismo evento del lector que F4-P2; por verificar que HikCentral lo entregue.
 
-### D-UX-07 · Tratamiento en portería · PROPUESTA
+### D-UX-07 · Tratamiento en portería · APROBADA (Nico, 28 sep: «Has todo lo que consideres óptimo y sigue adelante»; opción A)
 - **A (construida):** tú, como el resto de Kino fuera de la administración.
 - **B:** usted.
 - **Por qué A:** F6 y V1 no definen portería. Sus textos son cortos y operativos, y V1 reserva usted para quien paga y responde ante un consejo.
+
+### Estado tras la respuesta del 28 sep (PARADA 1)
+Respuesta de Nico: «Has todo lo que consideres óptimo y sigue adelante». Se registra como delegación explícita, con la opción recomendada en cada punto:
+1. D-UX-03 a D-UX-07: **APROBADAS** (A).
+2. Componentes de la versión anterior publicados en la librería: sigue como propuesta. Quitarlos exige escribir en la librería, que el prompt prohíbe; en «Kino · App» solo se usan los de V5.
+3. A-08 «Colaboradores del conjunto»: fuera del alcance hasta decidir quién otorga ese Pase. Se deja en el mapa con su pendiente.
+4. Pendientes 1 (cierre del Pase de visita por QR o placa) y 3 (vigencia del colaborador): se construye una variante por respuesta posible.

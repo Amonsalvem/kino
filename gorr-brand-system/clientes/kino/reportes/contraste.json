@@ -660,6 +660,126 @@
     "pasa": true
   },
   {
+    "tema": "oscuro",
+    "que": "Revocar Pase en un diálogo (texto revocado sobre elevada)",
+    "wcag": 10.29,
+    "apcaLc": -77.1,
+    "min": 4.5,
+    "apcaMin": 75,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "oscuro",
+    "que": "borde de foco sobre elevada",
+    "wcag": 6.17,
+    "apcaLc": -50.8,
+    "min": 3,
+    "apcaMin": 30,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "oscuro",
+    "que": "borde de foco sobre membrana",
+    "wcag": 5.28,
+    "apcaLc": -48.5,
+    "min": 3,
+    "apcaMin": 30,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "oscuro",
+    "que": "vigencia o motivo vigente sobre base (texto vigente sobre base)",
+    "wcag": 12.57,
+    "apcaLc": -84,
+    "min": 4.5,
+    "apcaMin": 75,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "oscuro",
+    "que": "vigencia o motivo por-vencer sobre base (texto por-vencer sobre base)",
+    "wcag": 12.53,
+    "apcaLc": -83.3,
+    "min": 4.5,
+    "apcaMin": 75,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "oscuro",
+    "que": "vigencia o motivo previsto sobre base (texto previsto sobre base)",
+    "wcag": 12.69,
+    "apcaLc": -84,
+    "min": 4.5,
+    "apcaMin": 75,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "oscuro",
+    "que": "vigencia o motivo usado sobre base (texto usado sobre base)",
+    "wcag": 15.2,
+    "apcaLc": -96.3,
+    "min": 4.5,
+    "apcaMin": 75,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "oscuro",
+    "que": "vigencia o motivo vencido sobre base (texto vencido sobre base)",
+    "wcag": 11.62,
+    "apcaLc": -78.5,
+    "min": 4.5,
+    "apcaMin": 75,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "oscuro",
+    "que": "texto usado sobre elevada",
+    "wcag": 13.45,
+    "apcaLc": -94.8,
+    "min": 4.5,
+    "apcaMin": 75,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "oscuro",
+    "que": "texto vencido sobre elevada",
+    "wcag": 10.28,
+    "apcaLc": -77,
+    "min": 4.5,
+    "apcaMin": 75,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "oscuro",
+    "que": "texto rechazado sobre elevada",
+    "wcag": 11.54,
+    "apcaLc": -84.3,
+    "min": 4.5,
+    "apcaMin": 75,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "oscuro",
+    "que": "texto revocado sobre elevada",
+    "wcag": 10.29,
+    "apcaLc": -77.1,
+    "min": 4.5,
+    "apcaMin": 75,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
     "tema": "claro",
     "que": "texto primario sobre base",
     "wcag": 18.04,
@@ -1314,6 +1434,126 @@
     "que": "error de código (texto rechazado sobre base)",
     "wcag": 18.04,
     "apcaLc": 101.7,
+    "min": 4.5,
+    "apcaMin": 75,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "claro",
+    "que": "Revocar Pase en un diálogo (texto revocado sobre elevada)",
+    "wcag": 9.48,
+    "apcaLc": 89.5,
+    "min": 4.5,
+    "apcaMin": 75,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "claro",
+    "que": "borde de foco sobre elevada",
+    "wcag": 4.72,
+    "apcaLc": 72.1,
+    "min": 3,
+    "apcaMin": 30,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "claro",
+    "que": "borde de foco sobre membrana",
+    "wcag": 4.13,
+    "apcaLc": 63,
+    "min": 3,
+    "apcaMin": 30,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "claro",
+    "que": "vigencia o motivo vigente sobre base (texto vigente sobre base)",
+    "wcag": 6.96,
+    "apcaLc": 81.3,
+    "min": 4.5,
+    "apcaMin": 75,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "claro",
+    "que": "vigencia o motivo por-vencer sobre base (texto por-vencer sobre base)",
+    "wcag": 6.97,
+    "apcaLc": 81.6,
+    "min": 4.5,
+    "apcaMin": 75,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "claro",
+    "que": "vigencia o motivo previsto sobre base (texto previsto sobre base)",
+    "wcag": 7.04,
+    "apcaLc": 81.6,
+    "min": 4.5,
+    "apcaMin": 75,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "claro",
+    "que": "vigencia o motivo usado sobre base (texto usado sobre base)",
+    "wcag": 12.47,
+    "apcaLc": 95.7,
+    "min": 4.5,
+    "apcaMin": 75,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "claro",
+    "que": "vigencia o motivo vencido sobre base (texto vencido sobre base)",
+    "wcag": 9.53,
+    "apcaLc": 89.6,
+    "min": 4.5,
+    "apcaMin": 75,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "claro",
+    "que": "texto usado sobre elevada",
+    "wcag": 13.13,
+    "apcaLc": 99.3,
+    "min": 4.5,
+    "apcaMin": 75,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "claro",
+    "que": "texto vencido sobre elevada",
+    "wcag": 10.03,
+    "apcaLc": 93.2,
+    "min": 4.5,
+    "apcaMin": 75,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "claro",
+    "que": "texto rechazado sobre elevada",
+    "wcag": 19,
+    "apcaLc": 105.3,
+    "min": 4.5,
+    "apcaMin": 75,
+    "fuenteMinima": null,
+    "pasa": true
+  },
+  {
+    "tema": "claro",
+    "que": "texto revocado sobre elevada",
+    "wcag": 9.48,
+    "apcaLc": 89.5,
     "min": 4.5,
     "apcaMin": 75,
     "fuenteMinima": null,

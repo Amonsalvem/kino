@@ -460,5 +460,89 @@
   "bg": "kino-superficie-base",
   "min": 4.5,
   "apcaMin": 75
+ },
+ {
+  "que": "Revocar Pase en un diálogo (texto revocado sobre elevada)",
+  "fg": "kino-estado-revocado-texto",
+  "bg": "kino-superficie-elevada",
+  "min": 4.5,
+  "apcaMin": 75
+ },
+ {
+  "que": "borde de foco sobre elevada",
+  "fg": "kino-borde-foco",
+  "bg": "kino-superficie-elevada",
+  "min": 3.0,
+  "apcaMin": 30
+ },
+ {
+  "que": "borde de foco sobre membrana",
+  "fg": "kino-borde-foco",
+  "bg": "kino-superficie-membrana",
+  "min": 3.0,
+  "apcaMin": 30
+ },
+ {
+  "que": "vigencia o motivo vigente sobre base (texto vigente sobre base)",
+  "fg": "kino-estado-vigente-texto",
+  "bg": "kino-superficie-base",
+  "min": 4.5,
+  "apcaMin": 75
+ },
+ {
+  "que": "vigencia o motivo por-vencer sobre base (texto por-vencer sobre base)",
+  "fg": "kino-estado-por-vencer-texto",
+  "bg": "kino-superficie-base",
+  "min": 4.5,
+  "apcaMin": 75
+ },
+ {
+  "que": "vigencia o motivo previsto sobre base (texto previsto sobre base)",
+  "fg": "kino-estado-previsto-texto",
+  "bg": "kino-superficie-base",
+  "min": 4.5,
+  "apcaMin": 75
+ },
+ {
+  "que": "vigencia o motivo usado sobre base (texto usado sobre base)",
+  "fg": "kino-estado-usado-texto",
+  "bg": "kino-superficie-base",
+  "min": 4.5,
+  "apcaMin": 75
+ },
+ {
+  "que": "vigencia o motivo vencido sobre base (texto vencido sobre base)",
+  "fg": "kino-estado-vencido-texto",
+  "bg": "kino-superficie-base",
+  "min": 4.5,
+  "apcaMin": 75
+ },
+ {
+  "que": "texto usado sobre elevada",
+  "fg": "kino-estado-usado-texto",
+  "bg": "kino-superficie-elevada",
+  "min": 4.5,
+  "apcaMin": 75
+ },
+ {
+  "que": "texto vencido sobre elevada",
+  "fg": "kino-estado-vencido-texto",
+  "bg": "kino-superficie-elevada",
+  "min": 4.5,
+  "apcaMin": 75
+ },
+ {
+  "que": "texto rechazado sobre elevada",
+  "fg": "kino-estado-rechazado-texto",
+  "bg": "kino-superficie-elevada",
+  "min": 4.5,
+  "apcaMin": 75
+ },
+ {
+  "que": "texto revocado sobre elevada",
+  "fg": "kino-estado-revocado-texto",
+  "bg": "kino-superficie-elevada",
+  "min": 4.5,
+  "apcaMin": 75
  }
 ]
