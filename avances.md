@@ -317,3 +317,16 @@ En arquitectura faltaba:
   - reintento del alta fallida;
   - destinatarios y día del correo semanal.
 - **Siguiente:** subir a la librería los componentes de D-UX-08 y D-UX-10 (Nico publica desde Assets); Fase 5 (prototipos, motion y handoff).
+
+## UX/UI en Figma · Fase 5 (28 sep)
+- **Prototipos:** cinco flujos sobre las pantallas originales, sin copias, cada uno con su punto de inicio en el panel Prototype de su página:
+  - crear Pase hasta Vigente (05);
+  - revocar (05);
+  - Pase vivo desde el WhatsApp (07);
+  - rechazo en portería (08);
+  - fijar límites (09).
+  Los estados que dependen del sistema avanzan solos: Enviando 1,2 s; confirmación del lector 2 s; Revocando 0,8 s; baja en el lector 3 s.
+- **Página 11:** índice de los flujos (pasos y qué prueba cada uno).
+- **Página 12:** once notas de movimiento, cada una con verbo, token de la sección 12, duración, alternativa reducida y pantallas. La navegación entre pantallas es un fundido de 240 ms; no es movimiento de marca.
+- **Página 13:** accesibilidad de las pantallas P0 (orden de foco, encabezados, aria-live, notas) y lámina de handoff (nombres, modos, componentes, textos, pendientes, verificación).
+- **Estado:** aprobada por la respuesta del 28 sep sobre lo hecho en Figma. Sigue la Fase 6.
