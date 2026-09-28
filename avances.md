@@ -253,3 +253,15 @@ En arquitectura faltaba:
 - **Propuestas:** D-UX-03 a D-UX-07 en `decisiones.md`.
 - **Pendientes nuevos:** cierre del Pase de visita tras el primer ingreso por QR o placa; duración de Por vencer; vigencia y renovación del Pase de colaborador; umbral de integración caída; qué hace portería sin lector; rol del super administrador; quién otorga el Pase del personal del conjunto (A-08, choca con «solo el residente otorga»); ingreso de la administración (A-01); canal de «Escribir a administración»; registro de la llamada de portería.
 - **Estado:** PARADA 1. Nada de la Fase 1 está aprobado.
+
+## UX/UI en Figma · Fase 2 (28 sep)
+- **Respuesta de Nico a la PARADA 1:** «Has todo lo que consideres óptimo y sigue adelante». D-UX-03 a D-UX-07 aprobadas por delegación; la limpieza de la librería queda como propuesta (D-UX-08).
+- **Construido en la página 03 de «Kino · App»:** cinco láminas con 33 componentes o sets, cada uno con variantes, los dos temas y el par «Así / Así no»:
+  - base: íconos reloj, calendario y copiar; Iniciales; Botón de texto; Chip de filtro; Esqueleto de carga;
+  - navegación y acciones: Barra del teléfono, Barra superior, Barra inferior, Acción fija inferior, Hoja inferior, Diálogo, Aviso breve, Aviso de sistema;
+  - entradas: Campo de código, Selector de fecha, Selector de franja horaria, Día y Selector de días, Control numérico, Buscador, Selector de modo;
+  - listas y datos: Fila de lista, Fila de evento, Línea de tiempo de constancia, Estado vacío, Pase anterior, Cifra con denominador, Fila de tabla, Menú lateral, Barra de escritorio;
+  - Pase: QR de maqueta, Ventana del QR (arco), Pase vivo en siete estados (en claro), Ficha de pantalla.
+- **Verificación:** `p5-verificar-layout.js` en la página 03: 0 en todo después de corregir 7 desbordes y 2 filas desiguales. 0 pinturas sin variable y 0 textos sin estilo. Contraste: 12 pares nuevos en `pares.json`, 156 pares y 0 fallos. Voz: `textos/fase-2.md`, 0 errores.
+- **Propuestas:** D-UX-08 (subir a la librería después de la Fase 3) y D-UX-09 (QR del Pase vivo solo mientras puede servir).
+- **Estado:** PARADA 2 abierta; la Fase 3 sigue sobre las opciones A.

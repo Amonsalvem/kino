@@ -521,3 +521,18 @@ Respuesta de Nico: «Has todo lo que consideres óptimo y sigue adelante». Se r
 2. Componentes de la versión anterior publicados en la librería: sigue como propuesta. Quitarlos exige escribir en la librería, que el prompt prohíbe; en «Kino · App» solo se usan los de V5.
 3. A-08 «Colaboradores del conjunto»: fuera del alcance hasta decidir quién otorga ese Pase. Se deja en el mapa con su pendiente.
 4. Pendientes 1 (cierre del Pase de visita por QR o placa) y 3 (vigencia del colaborador): se construye una variante por respuesta posible.
+
+## UX/UI en Figma · Fase 2, componentes de producto (28 sep)
+
+Construidas en «Kino · App», página 03. Siguen PROPUESTA hasta que Nico responda la PARADA 2; lo que se construya encima se rehace si cambian.
+
+### D-UX-08 · Subir los componentes nuevos a la librería · PROPUESTA
+- **A (recomendada):** subirlos después de la Fase 3, cuando las pantallas del residente los hayan probado: los tres íconos (reloj, calendario, copiar), Botón de texto, Iniciales, Chip de filtro, Esqueleto, las barras, Acción fija, Hoja inferior, Diálogo, Avisos, las entradas de datos, las filas, la línea de tiempo, Pase anterior (como variantes Usado, Vencido y Revocado de «Pase en lista»), Cifra con denominador, Menú lateral, Barra de escritorio, Ventana del QR y Pase vivo. En la misma subida se retiran de la publicación los componentes de la versión anterior («Estado» de seis estados, «Pase/Fila», «Pase/Boleto», «Tarjeta/Aviso»).
+- **B:** subirlos ahora.
+- **Por qué A:** la librería está aprobada y la tocan otras piezas; subir componentes que las pantallas todavía no han probado obliga a publicar dos veces.
+
+### D-UX-09 · El QR del Pase vivo solo mientras puede servir · PROPUESTA
+- **A (construida):** el QR y «Descargar PDF» aparecen en Previsto, Sin confirmar, Vigente y Por vencer. En Usado, Vencido y Revocado se reemplazan por qué pasó y a quién pedir otro Pase.
+- **B:** el QR siempre visible, con el estado encima.
+- **Por qué A:** un QR que ya no sirve invita a intentar en el lector y a recibir un rechazo; Estado honesto. La constancia no cambia: el Pase y sus eventos se conservan.
+- **Trazabilidad y HikCentral:** ninguno. Es una regla de presentación; la vigencia la aplica el lector.
