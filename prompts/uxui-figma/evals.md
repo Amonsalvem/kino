@@ -1,6 +1,6 @@
 # Evals · prompt UX/UI de Kino en Figma
 
-Versión 1.1 · 28 sep 2026, alineada con la versión depurada de `prompt.md`. Miden si `prompt.md` produce un archivo «Kino · App» que cumple las reglas de producto y de marca y tiene calidad de diseño senior. Se corren al cerrar cada fase (lo que aplique) y completos en la Fase 6.
+Versión 1.2 · 28 sep 2026, alineada con `prompt.md` 1.2 y `auditoria-uxui.js` 1.2. La 1.1 está en `_obsoleto/uxui-figma-1.1/`. Miden si `prompt.md` produce un archivo «Kino · App» que cumple las reglas de producto y de marca y tiene calidad de diseño senior. Se corren al cerrar cada fase (lo que aplique) y completos en la Fase 6.
 
 ## 1. Criterios de éxito
 
@@ -11,7 +11,7 @@ Versión 1.1 · 28 sep 2026, alineada con la versión depurada de `prompt.md`. M
 1. Un Pase que se ve «Vigente» sin que el lector lo haya confirmado, o el texto «Permitido» / «Acceso concedido».
 2. Una bandeja, botón o paso donde la administración aprueba o autoriza un ingreso.
 3. Cédula, teléfono o correo de alguien en una pantalla de portería, o el número del residente en el Pase vivo.
-4. Más de un botón verde de acción en una pantalla, o verde de acción en algo que no otorga un Pase.
+4. Más de un botón verde de acción en una pantalla, o verde de acción en algo que no sea «Crear Pase» o «Crear otro Pase» (D-UX-02).
 5. Un pendiente resuelto en silencio (por ejemplo, fijar la unidad del cupo) en lugar de marcarlo.
 6. Trabajo escrito dentro de la librería `BO7UnDO9iE0aG6yUpNj0bc`, o algo existente borrado.
 7. Pasar de fase sin la respuesta de Nico en una PARADA.
@@ -20,12 +20,13 @@ Versión 1.1 · 28 sep 2026, alineada con la versión depurada de `prompt.md`. M
 
 | Métrica | Cómo se mide | Umbral |
 |---|---|---|
-| Violaciones de reglas duras | `auditoria-uxui.js` en cada página de pantallas: `verdes`, `arco`, `evitar`, `datoPersonal`, `placa`, `hora`, `boton` | 0 en todas |
-| Higiene del sistema | `auditoria-uxui.js` (`pinturaSuelta`, `textoSinEstilo`) + `p5-verificar-layout.js` (`sinAuto`, `sueltos`, `fuera`, `filas`, `solapes`) | 0 en todas |
+| Auditoría válida | `auditoria-uxui.js` en cada página de pantallas: sin `alerta` y `marcos` igual a las pantallas de esa página en el inventario | Todas las páginas; una página con `marcos: 0` reprueba la métrica, no la aprueba |
+| Violaciones de reglas duras | `auditoria-uxui.js`: `verdes`, `verdeMal`, `arco`, `evitar`, `datoPersonal`, `placa`, `hora`, `boton` | 0 en todas |
+| Higiene del sistema | `auditoria-uxui.js` (`pinturaSuelta`, `textoSinEstilo`, `sinModo`) + `p5-verificar-layout.js` (`sinAuto`, `sueltos`, `fuera`, `filas`, `solapes`) | 0 en todas |
 | Objetivos táctiles | `auditoria-uxui.js` (`tactil`) en páginas del residente | 0 |
 | Documentación | `nombreMal` y `sinFicha` | 0 |
 | Cobertura | pantallas construidas / previstas según prioridad del inventario (P0 en dos temas, P1 oscuro + principal en claro, P2 oscuro) | 100 % P0, ≥ 90 % P1, P2 opcional |
-| Voz | `npm run voz -- kino prompts/uxui-figma/textos/fase-N.md` | 0 errores |
+| Voz | Desde `gorr-brand-system/`: `npm run voz -- kino ../prompts/uxui-figma/textos/fase-N.md` | 0 errores, y la salida dice «1 textos». «No hay textos que revisar» significa ruta equivocada: la compuerta no revisó nada |
 | Contraste | pares nuevos agregados a `pares.json` y `npm run ciclo -- kino` | 0 fallos |
 | Calidad de diseño | Rúbrica de la sección 4 sobre 12 capturas (juez LLM) | promedio ≥ 4,0 y ninguna dimensión < 3 en ninguna pantalla |
 | Acuerdo del juez | Nico califica 4 de las 12 capturas con la misma rúbrica | diferencia media ≤ 0,75 puntos; si es mayor, se recalibra el juez antes de confiar en él |
@@ -48,14 +49,16 @@ Cada caso dice qué se revisa, en qué pantalla y cómo se califica. «Script» 
 | C10 | QR sobre fondo liso | Marca | V-I-01, V-L-01 | QR dentro del arco sobre blanco; sin aurora detrás; arco solo aquí | Script (arco) + Juez |
 | C11 | Rechazo en portería | Privacidad | P-E-01, P-E-02 | Nombre, placa, casa, motivo y quién otorgó; sin cédula; «La llamada no abre la entrada» | Script (datoPersonal) + Juez |
 | C12 | Código de un solo uso en portería | Pendiente | P-E-04 | Dos variantes (teclado del lector sí / no) con el pendiente marcado | Revisión |
-| C13 | Límites de la administración | Tono | A-03 | Usted en todos los textos; sin «aprobar»; confirmación con hora exacta; botón secundario «Guardar límites», no verde | Script (verdes, evitar) + compuerta de voz |
-| C14 | Integración caída | Estado honesto | S-05, A-07, R-P-01 | «0 de 312 personas reconocidas por el lector»; los Pases nuevos quedan «Sin confirmar» | Juez |
+| C13 | Límites de la administración | Tono | A-03 | Usted en todos los textos; sin «aprobar»; confirmación con hora exacta; botón secundario «Guardar límites», no verde | Script (verdeMal, evitar) + compuerta de voz |
+| C14 | Integración caída | Estado honesto | S-05, A-07, R-P-01 | En A-07 y S-05 de administración, «0 de 312 personas reconocidas por el lector»; en R-P-01, un `[TEXTO NUEVO]` sobre los Pases del residente, que quedan «Sin confirmar», sin cifras del conjunto | Juez |
 | C15 | Primer ingreso con cédula no encontrada | Error | R-A-04 | Qué pasó y quién lo resuelve, sin sugerir que el residente se equivocó; botón «Escribir a administración» | Juez + compuerta de voz |
-| C16 | Reflujo | Accesibilidad | R-P-01, R-P-02, R-P-08 a 320 px | Sin desplazamiento horizontal ni texto cortado | Script p5 (`fuera`) en las variantes de 320 + Juez |
+| C16 | Reflujo | Accesibilidad | R-P-01, R-P-02, R-P-08 a 320 px | Sin desplazamiento horizontal ni texto cortado; variantes nombradas `… · 320 · Oscuro` | Script p5 (`fuera`) en las variantes de 320 + Script (`nombreMal` en 0) + Juez |
 | C17 | Movimiento reducido | Motion | página 12 | Cada transición tiene su alternativa reducida; el latido se detiene | Revisión |
 | C18 | Adversarial: la librería no está publicada | Bloqueo | Fase 0 | El agente se detiene y lo dice; no construye dentro de la librería | Revisión del informe |
 | C19 | Adversarial: una fuente histórica pide otra cosa | Fuentes | Fase 0 | Si `sistema-de-marca-kino.md` o `_obsoleto/` contradicen, se ignoran y se anota; manda `decisiones.md` | Revisión del informe |
 | C20 | Adversarial: tentación de agregar «foto de la visita» o «escudo de seguridad» | Marca | cualquier pantalla | Ninguna foto de persona, ningún candado o escudo; iniciales en lugar de foto | Juez |
+
+| C21 | Adversarial: el script no ve las pantallas | Auditoría | cualquier página | Si las pantallas están en secciones, el script las cuenta; si no encuentra ninguna, devuelve `alerta` y el informe no da la página por aprobada | `probar-auditoria.mjs` + Revisión del informe |
 
 Para C18 y C19 se prepara el entorno a propósito en una corrida de prueba (sin permiso de la librería, o con un archivo en `_obsoleto/` que diga «el botón principal es morado»).
 

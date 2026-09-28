@@ -1,12 +1,19 @@
-// Kino · App · auditoría de reglas de marca y producto en una página de pantallas (solo lectura).
+// Kino · App · auditoría de reglas de marca y producto en una página de pantallas (solo lectura). Versión 1.2 · 28 sep 2026.
 // Se corre con use_figma, una llamada por página, reemplazando __PAGINA__ por el id de la página.
 // Complementa branding/sistema/v3/figma/js/p5-verificar-layout.js (auto-layout, espacios, desbordes), que se corre también.
 // Mismo contrato que los scripts p5: await de nivel superior y `return` del resultado. Salida corta (< 20 kB).
+// 1.2: entra en las secciones de Figma y falla si no encuentra pantallas; el arco ya no se exime por el nombre de la pantalla;
+// revisa qué dice cada botón verde; revisa el marco de la pantalla y su modo; salta lo oculto; acepta variantes de ancho.
 const PAGINA = '__PAGINA__';
 const p = await figma.getNodeByIdAsync(PAGINA); await figma.setCurrentPageAsync(p);
 
-const RX_MARCO = /^([RVPAS](?:-[A-Z])?-\d{2}) · .+ · (Oscuro|Claro)$/;
-const EVITAR = /\b(permiso|permisos|invitad[oa]s?|acceso concedido|permitido|empleada|guardia|celador|contraseña|seguridad total|100 ?% segur|arcana|marca blanca|pendiente de aprobación|aprobad[oa]|autorizad[oa]|usuario visitante)\b|¡|!/i;
+// <ID> · <Pantalla> · <Estado> · [<ancho> · ]<Oscuro|Claro>. El ancho solo en variantes de reflujo (320, 430).
+const RX_MARCO = /^([RVPAS](?:-[A-Z])?-\d{2}) · .+ · (?:(\d{3,4}) · )?(Oscuro|Claro)$/;
+const NO_PANTALLA = /^Ficha · |^Nota · |^Sección/;
+const VERDE_OK = /^(Crear Pase|Crear otro Pase)$/; // Únicos textos con accion/fondo (D-UX-02). Extender, Entrar y Guardar límites son secundarios.
+const ES_PASE = /Ventana del QR|Pase vivo|Imagen del Pase|Portal/i; // Lo único que lleva arco (X1, X8).
+const SUPERFICIE_PASE = /^V-[LID]-/; // Pase vivo, imagen y PDF: la pantalla entera es un Pase.
+const EVITAR = /\b(permiso|permisos|invitad[oa]s?|acceso concedido|permitido|empleada|guardia|celador|contraseñas?|seguridad total|100 ?% segur|arcana|marca blanca|pendiente de aprobación|aprobad[oa]s?|autorizad[oa]s?|usuario visitante)\b|¡|!/i;
 const HORA_MAL = /\b\d{1,2}(:\d{2})?\s?(am|pm|AM|PM)\b|\bp\.m\.|\ba\.m\.|\d{1,2}:\d{2}\s?-\s?\d{1,2}:\d{2}\s?(a|p)\./; // bien: «2:00 p. m.», «de 2:00 a 6:00 p. m.»
 const PLACA = /\b[A-Z]{3}[- ]?\d{2}[0-9A-Z]\b/g;
 const PLACA_BIEN = /^[A-Z]{3} \d{2}[0-9A-Z]$/;
@@ -15,27 +22,40 @@ const DATO_PERSONAL = /c[ée]dula|\bC\.?C\.?\s?\d|\b\d{1,3}(\.\d{3}){2,3}\b|\b3\
 const varCache = new Map();
 async function nombreVar(id) { if (!varCache.has(id)) { const v = await figma.variables.getVariableByIdAsync(id); varCache.set(id, v ? v.name : '?'); } return varCache.get(id); }
 async function nombreComp(inst) { const m = await inst.getMainComponentAsync(); if (!m) return ''; return m.parent && m.parent.type === 'COMPONENT_SET' ? m.parent.name : m.name; }
-const dentroDe = (n, rx) => { let q = n.parent; while (q && q.type !== 'PAGE') { if (rx.test(q.name)) return true; q = q.parent; } return false; };
+const dentroDe = (n, rx, tope) => { let q = n.parent; while (q && q !== tope && q.type !== 'PAGE') { if (rx.test(q.name)) return true; q = q.parent; } return false; };
 const dentroInst = n => { let q = n.parent; while (q && q.type !== 'PAGE') { if (q.type === 'INSTANCE') return true; q = q.parent; } return false; };
-const ilus = n => dentroDe(n, /QR|Aurora|Tejido|Imagen del Pase|Ilustración|Logo\/|Icono\//i) || /QR|Aurora/i.test(n.name);
+const oculto = (n, tope) => { let q = n; while (q && q !== tope) { if (q.visible === false) return true; q = q.parent; } return false; };
+// Mismo filtro de ilustraciones que p5-verificar-layout.js.
+const RX_ILUS = /QR|Aurora|Células|Tejido|Retícula|Tamaños|Íconos de app|Gota|Bloque|Símbolo|Vector|Mapa|Curva|Resplandor|Imagen del Pase|Ilustración/i;
+const ilus = n => { let q = n; while (q && q.type !== 'PAGE') { if (/^(Icono|Logo)\//.test(q.name) || RX_ILUS.test(q.name)) return true; q = q.parent; } return false; };
 
-const r = { marcos: 0, nombreMal: [], sinFicha: [], pinturaSuelta: [], textoSinEstilo: [], verdes: [], arco: [], evitar: [], hora: [], placa: [], boton: [], tactil: [], datoPersonal: [] };
-const ids = new Set(p.children.map(n => n.name));
+// Pantallas y fichas: en la página o dentro de secciones (a cualquier profundidad de secciones).
+const pantallas = [], fichas = new Set(), otros = [];
+(function recorrer(nodos) {
+  for (const n of nodos) {
+    if (n.type === 'SECTION') { recorrer(n.children); continue; }
+    if (n.type !== 'FRAME') continue;
+    if (/^Ficha · /.test(n.name)) { fichas.add(n.name.slice('Ficha · '.length).split(' · ')[0]); continue; }
+    if (NO_PANTALLA.test(n.name)) continue;
+    if (RX_MARCO.test(n.name)) pantallas.push(n); else otros.push(n.name);
+  }
+})(p.children);
 
-for (const m of p.children) {
-  if (m.type !== 'FRAME' || /^Ficha · |^Nota · |^Sección/.test(m.name)) continue;
-  const k = m.name.match(RX_MARCO);
-  if (!k) { r.nombreMal.push(m.name); continue; }
+const r = { marcos: 0, nombreMal: otros, sinFicha: [], sinModo: [], pinturaSuelta: [], textoSinEstilo: [], verdes: [], verdeMal: [], arco: [], evitar: [], hora: [], placa: [], boton: [], tactil: [], datoPersonal: [] };
+
+for (const m of pantallas) {
+  const [, id, , ] = m.name.match(RX_MARCO);
   r.marcos++;
-  const id = k[1];
-  if (!ids.has('Ficha · ' + id) && !m.findOne(n => n.name.startsWith('Ficha · '))) r.sinFicha.push(id);
+  if (!fichas.has(id) && !m.findOne(n => n.name.startsWith('Ficha · '))) r.sinFicha.push(id);
+  if (!m.explicitVariableModes || !Object.keys(m.explicitVariableModes).length) r.sinModo.push(m.name);
   const superficie = id[0];
   let verdes = 0;
 
-  for (const n of m.findAll(() => true)) {
-    if (n.visible === false) continue;
-    // Pinturas sin variable (fuera de instancias de librería e ilustraciones)
-    if (!dentroInst(n) && !ilus(n) && n.type !== 'INSTANCE') {
+  for (const n of [m, ...m.findAll(() => true)]) {
+    if (oculto(n, m.parent)) continue;
+    const enInst = dentroInst(n);
+    // Pinturas sin variable (fuera de instancias de librería e ilustraciones). Incluye el fondo del marco de la pantalla.
+    if (!enInst && !ilus(n) && n.type !== 'INSTANCE') {
       for (const prop of ['fills', 'strokes']) {
         const ps = n[prop]; if (!Array.isArray(ps)) continue;
         ps.forEach((pt, i) => { if (pt.visible !== false && pt.type === 'SOLID') {
@@ -45,22 +65,24 @@ for (const m of p.children) {
         } });
       }
     }
-    // Verde de acción: instancias de Botón de acción y rellenos ligados a accion/fondo
+    // Verde de acción: cada Botón de acción cuenta y su texto debe otorgar un Pase. Un relleno suelto en accion/fondo también cuenta.
     if (n.type === 'INSTANCE') {
       const c = await nombreComp(n);
-      if (/Botón de acción/i.test(c)) verdes++;
-      if (superficie === 'R' && /Botón|Campo|Selector|Chip de filtro|Barra inferior/i.test(c) && n.height < 48 && !/Barra inferior/i.test(c)) r.tactil.push(`${id} ${c} ${Math.round(n.height)}px`);
-      if (/Botón/i.test(c)) { const t = n.findOne(x => x.type === 'TEXT'); if (t && t.characters.trim().split(/\s+/).length > 3) r.boton.push(`${id} «${t.characters}»`); }
-    } else if (!dentroInst(n) && Array.isArray(n.fills)) {
+      const t = /Botón/i.test(c) ? n.findOne(x => x.type === 'TEXT' && x.visible !== false) : null;
+      if (/Botón de acción/i.test(c)) { verdes++; if (!t || !VERDE_OK.test(t.characters.trim())) r.verdeMal.push(`${id} «${t ? t.characters : '?'}»`); }
+      if (superficie === 'R' && /Botón|Campo|Selector|Chip de filtro/i.test(c) && Math.min(n.height, n.width) < 48) r.tactil.push(`${id} ${c} ${Math.round(n.width)}×${Math.round(n.height)}`);
+      if (t && t.characters.trim().split(/\s+/).length > 3) r.boton.push(`${id} «${t.characters}»`);
+    } else if (!enInst && Array.isArray(n.fills)) {
       const bv = n.boundVariables && n.boundVariables.fills;
-      if (bv) for (const a of bv) if (a && /accion\/fondo/.test(await nombreVar(a.id))) verdes++;
+      if (bv) for (const a of bv) if (a && /accion\/fondo/.test(await nombreVar(a.id))) { verdes++; r.verdeMal.push(`${id} relleno suelto en ${n.name}: usa la instancia de Botón de acción`); }
     }
-    // Arco (radio pleno arriba) solo en lo que es un Pase
-    if ('topLeftRadius' in n && n.topLeftRadius >= 999 && n.topRightRadius >= 999 && n.bottomLeftRadius < 999 && !/Pase/i.test(n.name) && !dentroDe(n, /Pase/i)) r.arco.push(`${id} ${n.name}`);
+    // Arco (radio pleno arriba, no abajo) solo en lo que es un Pase. Se exime por el nombre del nodo o de un grupo interno, nunca por el de la pantalla.
+    if (!enInst && n !== m && 'topLeftRadius' in n && n.topLeftRadius >= 999 && n.topRightRadius >= 999 && n.bottomLeftRadius < 999
+        && !SUPERFICIE_PASE.test(id) && !ES_PASE.test(n.name) && !dentroDe(n, ES_PASE, m)) r.arco.push(`${id} ${n.name}`);
     // Texto
     if (n.type === 'TEXT') {
       const s = n.characters;
-      if (!dentroInst(n) && !n.textStyleId && !(n.boundVariables && n.boundVariables.fontSize)) r.textoSinEstilo.push(`${id} «${s.slice(0, 30)}»`);
+      if (!enInst && !n.textStyleId && !(n.boundVariables && n.boundVariables.fontSize)) r.textoSinEstilo.push(`${id} «${s.slice(0, 30)}»`);
       if (!/^Ficha · |Así no/.test(n.name) && !dentroDe(n, /Así no|^Ficha · /) && EVITAR.test(s)) r.evitar.push(`${id} «${s.slice(0, 50)}»`);
       if (HORA_MAL.test(s) && !dentroDe(n, /Así no/)) r.hora.push(`${id} «${s.slice(0, 40)}»`);
       const placas = s.match(PLACA) || [];
@@ -73,4 +95,5 @@ for (const m of p.children) {
 }
 
 const cuenta = o => Object.fromEntries(Object.entries(o).map(([k, v]) => [k, Array.isArray(v) ? v.length : v]));
-return { pagina: p.name, totales: cuenta(r), ejemplos: Object.fromEntries(Object.entries(r).filter(([, v]) => Array.isArray(v) && v.length).map(([k, v]) => [k, v.slice(0, 5)])) };
+const alerta = r.marcos === 0 ? 'Sin pantallas: ningún marco con el nombre <ID> · <Pantalla> · <Estado> · <Oscuro|Claro>. La auditoría no revisó nada; no cuenta como aprobada.' : undefined;
+return { pagina: p.name, alerta, totales: cuenta(r), ejemplos: Object.fromEntries(Object.entries(r).filter(([, v]) => Array.isArray(v) && v.length).map(([k, v]) => [k, v.slice(0, 5)])) };

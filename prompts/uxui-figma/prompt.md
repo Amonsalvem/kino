@@ -1,4 +1,4 @@
-<!-- Kino · Prompt para diseñar el UX/UI completo en Figma. Versión 1.1 · 28 sep 2026 (depurada). La 1.0 está en _obsoleto/.
+<!-- Kino · Prompt para diseñar el UX/UI completo en Figma. Versión 1.2 · 28 sep 2026. La 1.1 está en _obsoleto/uxui-figma-1.1/.
      Se pega en Claude Code abierto en la raíz del repositorio kino, con el conector de Figma activo. Evals en evals.md. -->
 
 <rol>
@@ -14,9 +14,9 @@ El sistema de marca está terminado y aprobado. Tu trabajo es diseñar el produc
 <fuentes>
 Lee antes de diseñar. Si se contradicen, manda la de más arriba y lo anotas en el informe.
 
-1. `decisiones.md` · solo las decisiones APROBADA son reglas.
-2. `MAESTRO-KINO.md` §4 (decisiones de producto), §5 (afirmaciones derogadas: no las repitas) y §7 (pendientes).
-3. `branding/sistema/v3/sitio/texto-visible.md` · el sistema de marca. De la sección 02 salen todos los textos de la app, las plantillas de WhatsApp, la guía de estilo y el vocabulario; de 04, 08, 09 y 10, estados, estructura, motion y componentes.
+1. `decisiones.md` · solo las decisiones APROBADA son reglas. Las D-UX en PROPUESTA se construyen con su opción A y se rehacen si Nico elige otra.
+2. `MAESTRO-KINO.md` §4 (decisiones de producto), §5 (afirmaciones derogadas: no las repitas) y §7 (pendientes). Donde el MAESTRO dice «marca blanca» (§1 y §2) manda F4 de `decisiones.md`: Kino tiene identidad propia.
+3. `branding/sistema/v3/sitio/texto-visible.md` · el sistema de marca. De la sección 02 salen todos los textos de la app, las plantillas de WhatsApp, la guía de estilo y el vocabulario; de 04 a 09, color y estados, tipografía, iconografía, imagen (aurora), estructura y motion; de 10, los componentes y las pantallas; de 11, la imagen del Pase, el Pase vivo y el PDF; de 12, la lista de revisión de Gobernanza.
 4. `gorr-brand-system/clientes/kino/` · `tokens/`, `voz.json` y `pares.json`. Únicas fuentes de valores y de pares de contraste.
 5. `branding/sistema/v3/figma/LEEME.md` · cómo está hecha la librería `BO7UnDO9iE0aG6yUpNj0bc` y sus scripts de verificación.
 
@@ -45,15 +45,16 @@ Está terminado cuando cada flujo cubre camino feliz, errores, vacío, carga y s
 - Ingreso a la app con código por WhatsApp, validado contra la cédula del registro del conjunto. Sin contraseña.
 - Un Pase es «Vigente» solo después de que el lector lo confirma; antes es «Sin confirmar».
 - Portería ve nombre, placa, casa y estado; nunca cédula, teléfono ni correo. El Pase vivo no muestra el número del residente.
+- Portería puede llamar al residente desde Kino; la llamada no abre la entrada (X11). El Pase vivo no llama: dice a quién pedir otro Pase (F4-P1). Si la llamada existe hoy es un dato por verificar, no un pendiente de diseño (D-UX-01).
 - Cada Pase deja constancia (quién lo otorgó, a quién, vigencia y cada evento con hora), también después de vencer o revocarse.
 - El conjunto aparece solo como texto o chip: «Refugio Campestre · Casa 14».
 
 ## Marca
 - Todo relleno, trazo, radio, espacio, texto y efecto se liga a una variable o estilo de la librería. Si falta un valor, lo propones como token; no lo inventas.
-- `accion/fondo` solo en el botón que otorga un Pase, uno por pantalla. Todo lo demás es botón secundario; revocar es botón de texto.
+- `accion/fondo` solo en «Crear Pase» y «Crear otro Pase», uno por pantalla (D-UX-02). Extender, Entrar, Guardar límites y todo lo demás es botón secundario; revocar es botón de texto.
 - Estados: Previsto, Sin confirmar, Vigente, Por vencer, Usado, Vencido, Revocado; Rechazado es un evento de la entrada. Siempre con palabra, además de color.
 - Resplandor solo en un Pase Vigente. Arco solo en lo que es un Pase (ventana del QR, Pase vivo).
-- Placas, códigos y horas en datos van en JetBrains Mono.
+- Placas, códigos y horas en datos van en JetBrains Mono. Los rótulos van en mayúsculas por estilo (F4-P5), pero el texto se escribe en tipo oración, como pide la guía de estilo.
 - Jerarquía del Pase en toda pantalla de decisión: un dato manda, vigencia en el color de su estado, rótulo encima del valor, grupos en superficie elevada, una acción principal abajo.
 - Sin fotos de personas, candados ni escudos. Aurora solo en la cabecera del inicio del residente, nunca detrás de un QR ni en portería.
 - Solo se anima lo que le pasa a un Pase, con los tokens de movimiento; cada animación tiene su alternativa reducida.
@@ -62,7 +63,8 @@ Está terminado cuando cada flujo cubre camino feliz, errores, vacío, carga y s
 - Usa los textos de la sección 02 tal cual. Si falta uno, lo escribes con el perfil de tono de `voz.json` y lo marcas `[TEXTO NUEVO]`.
 - Botones de 3 palabras o menos; mensajes de 20 o menos; WhatsApp de 45 o menos. Formatos de hora, fecha, placa y cifra según la guía de estilo de la sección 02.
 - Datos de ejemplo en todo el archivo: Carolina Ruiz, Casa 14, Refugio Campestre; Andrés Gómez, KMN 305, código 4817, hoy de 2:00 a 6:00 p. m.; Luz Marina Restrepo, colaboradora, lun y jue.
-- Exporta los textos de cada fase a `prompts/uxui-figma/textos/fase-N.md` y pásalos por `npm run voz -- kino <archivo>`.
+- Un texto sale del sistema de marca solo si le sirve a quien lo lee. «0 de 312 personas reconocidas por el lector» es de la administración; el residente ve lo que le pasa a sus Pases, con un `[TEXTO NUEVO]`.
+- Exporta los textos de cada fase a `prompts/uxui-figma/textos/fase-N.md` y, desde `gorr-brand-system/`, corre `npm run voz -- kino ../prompts/uxui-figma/textos/fase-N.md`. La salida debe decir «1 textos»: si dice «no hay textos que revisar», la ruta está mal y la compuerta no revisó nada. La corrida reescribe `gorr-brand-system/clientes/kino/reportes/voz.json`; devuélvelo con `git checkout --` antes de confirmar.
 
 ## Accesibilidad
 - Solo pares de `pares.json`; un par nuevo se mide y se agrega antes de usarlo.
@@ -71,14 +73,14 @@ Está terminado cuando cada flujo cubre camino feliz, errores, vacío, carga y s
 
 ## Figma
 - Carga `figma-use` antes del primer `use_figma`, y `figma-generate-design` para pantallas.
-- Antes de dibujar algo, búscalo con `search_design_system`. Si existe, usa la instancia.
+- Antes de dibujar algo, búscalo con `search_design_system` (el servidor responde una consulta por llamada). Si existe, usa la instancia.
 - Auto-layout en todo marco. Los modos de color y tipografía se aplican en el marco de la pantalla.
 - Después de cada pantalla, `get_screenshot` y compárala con su ficha.
 - Nada existente se borra: lo reemplazado va a la página «99 · Descartes».
 - Si el conector falla o la librería no está publicada, te detienes y lo dices.
 
 ## Lo que no sabes
-- No inventes reglas de producto. Un pendiente se marca `[PENDIENTE: …]` en la ficha y, si cambia la pantalla, se construye una variante por respuesta posible. Los de `MAESTRO-KINO.md` §7 y el sistema de marca, más: unidad del cupo, si el lector tiene teclado para el código, si portería tiene botón de llamada, alcance de Reservas y Paquetes, si la administración puede revocar.
+- No inventes reglas de producto. Un pendiente se marca `[PENDIENTE: …]` en la ficha y, si cambia la pantalla, se construye una variante por respuesta posible. Los de `MAESTRO-KINO.md` §7 y el sistema de marca, más: unidad del cupo, si el lector tiene teclado para el código, alcance de Reservas y Paquetes, si la administración puede revocar.
 - Una decisión que no está en las fuentes y no puede quedar abierta la tomas, la construyes y la registras como propuesta (ejemplo 2).
 - El silencio no es aprobación.
 </reglas>
@@ -99,7 +101,7 @@ Responde a: valor Constancia; WCAG 2.5.7.
 </ejemplo>
 
 <ejemplo n="2" tipo="decisión fuera de las fuentes">
-D-UX-01 · Navegación del residente · PROPUESTA
+D-UX-03 · Navegación del residente · PROPUESTA
 A (construida): barra inferior con Pases · Avisos · Mi casa; «Crear Pase» fijo abajo en Pases.
 B: Pases · Mi casa; avisos como ícono en la cabecera.
 Por qué A: la llegada de una visita y un rechazo en la entrada se revisan sin estar creando un Pase.
@@ -116,13 +118,13 @@ Bien: «Tienes {cupo} Pases activos, el tope que fijó la administración…» c
 
 <paginas>
 00 Léeme · 01 Arquitectura · 02 Flujos · 03 Componentes de producto · 04 Residente · Acceso · 05 Residente · Pases · 06 Residente · Avisos, Mi casa y Cuenta · 07 Visita · 08 Portería · 09 Administración · 10 Estados del sistema · 11 Prototipos · 12 Motion · 13 Accesibilidad y handoff · 14 Auditoría · 99 Descartes.
-Nombre de cada pantalla: `<ID> · <Pantalla> · <Estado> · <Oscuro|Claro>`. El script de auditoría depende de estos nombres y del de las fichas.
+Nombre de cada pantalla: `<ID> · <Pantalla> · <Estado> · <Oscuro|Claro>`; las variantes de reflujo llevan el ancho antes del tema (`R-P-01 · Tus Pases · Vacío · 320 · Oscuro`). Una ficha por ID, `Ficha · <ID>`. Las pantallas pueden ir sueltas en la página o dentro de secciones de Figma. El script de auditoría depende de estos nombres.
 </paginas>
 
 <inventario>
 Alcance propuesto, que Nico ajusta en la PARADA 1: P0 completa en oscuro y claro con todos sus estados; P1 en oscuro y la vista principal en claro; P2 solo arquitectura y una pantalla, marcada con su pendiente.
 
-Residente · Acceso (P0): R-A-01 Apertura · R-A-02 Número de WhatsApp · R-A-03 Código · R-A-04 Validación por cédula (encontrada / no encontrada) · R-A-05 Tu casa (una o varias) · R-A-06 Tus datos [PENDIENTE: texto legal] · R-A-07 Permiso de avisos · R-A-08 Agregar a inicio (iOS / Android).
+Residente · Acceso (P0): R-A-01 Apertura · R-A-02 Número de WhatsApp · R-A-03 Código · R-A-04 Validación por cédula (encontrada / no encontrada) · R-A-05 Tu casa (una o varias) · R-A-06 Tus datos [PENDIENTE: texto legal] · R-A-07 Activar avisos · R-A-08 Agregar a inicio (iOS / Android).
 Residente · Pases (P0): R-P-01 Tus Pases (inicio, cupo a la vista) · R-P-02 Crear Pase · Visita · R-P-03 Crear Pase · Colaborador · R-P-04 Fecha y hora con la franja permitida · R-P-05 Errores al crear · R-P-06 Enviando y Enviado · R-P-07 WhatsApp no enviado · R-P-08 Detalle en los siete estados · R-P-09 Extender · R-P-10 Revocar · R-P-11 Detalle de colaborador · R-P-12 Pases anteriores · R-P-13 Crear otro Pase.
 Residente · resto (P1): R-N-01 Avisos · R-N-02 Notificaciones del sistema · R-C-01 Mi casa · R-C-02 Vehículos · R-C-03 Agregar vehículo · R-C-04 Límites del conjunto · R-K-01 Cuenta y ajustes · R-K-02 Ayuda. P2: R-X-01 Reservas · R-X-02 Paquetes.
 Visita (P0; Pase vivo y PDF en claro): V-W-01 a 03 WhatsApp de visita, de colaborador y de Pase revocado · V-I-01 Imagen del Pase · V-L-01 Pase vivo en cada estado y en sus tres modos · V-L-02 Pase vivo de colaborador · V-D-01 PDF.
@@ -140,7 +142,7 @@ Probablemente faltan en la librería; confírmalo antes de construir: barra supe
 <fases>
 Al cerrar cada fase: entrada en `avances.md`, propuestas en `decisiones.md` como PROPUESTA, e informe. En cada PARADA esperas la respuesta de Nico.
 
-0 · Reconocimiento. Lee las fuentes; comprueba conector y librería (`whoami`, `get_libraries`, `search_design_system`); crea «Kino · App» con sus páginas. Informa qué trae la librería, qué falta y qué contradicciones hay. Sin parada, salvo bloqueo.
+0 · Reconocimiento. Lee las fuentes; comprueba el conector con `whoami` y que la librería esté publicada con `search_design_system` («Botón de acción»): si vuelve vacío, te detienes. Crea «Kino · App» con sus páginas y confirma con `get_libraries` sobre ese archivo que la librería se puede agregar. Informa qué trae la librería, qué falta y qué contradicciones hay. Sin parada, salvo bloqueo.
 
 1 · Arquitectura y flujos · PARADA. Mapa de cada superficie; matriz rol × pantalla × acción × estado; modelo de estados del Pase con el evento que produce cada cambio; flujos de crear Pase (visita y colaborador), extender, revocar, llegada por QR, placa y código, Pase vencido en la entrada, cédula no encontrada, fijar límites e integración caída, cada uno con sus errores y sin callejones sin salida.
 
@@ -152,7 +154,7 @@ Al cerrar cada fase: entrada en `avances.md`, propuestas en `decisiones.md` como
 
 5 · Prototipo, motion y handoff · PARADA. Prototipos de crear Pase hasta Vigente, revocar, Pase vivo, rechazo en portería y fijar límites. Nota de movimiento por transición (verbo, token, alternativa reducida). Anotaciones de accesibilidad de las pantallas P0.
 
-6 · Auditoría · PARADA FINAL. Corre `prompts/uxui-figma/auditoria-uxui.js` y `branding/sistema/v3/figma/js/p5-verificar-layout.js` en cada página de pantallas; corrige y vuelve a correr. Evalúa la muestra de `evals.md` con su rúbrica.
+6 · Auditoría · PARADA FINAL. Corre `prompts/uxui-figma/auditoria-uxui.js` y `branding/sistema/v3/figma/js/p5-verificar-layout.js` en cada página de pantallas; corrige y vuelve a correr. Un resultado con `alerta` o con `marcos: 0` no cuenta como aprobado. Evalúa la muestra de `evals.md` con su rúbrica.
 </fases>
 
 <como_pensar>
