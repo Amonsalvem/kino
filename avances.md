@@ -241,5 +241,5 @@ En arquitectura faltaba:
   - la auditoría no entraba en las secciones de Figma y eximía del arco toda pantalla con «Pase» en el nombre;
   - «R-A-07 Permiso de avisos» usaba la palabra prohibida.
 - **Hecho en `prompts/uxui-figma/` (1.2):** ruta de voz corregida y comprobada; auditoría que entra en secciones, avisa si no ve pantallas, revisa qué dice el botón verde, el fondo y el modo del marco, y salta lo oculto; `probar-auditoria.mjs` con un Figma simulado (la 1.1 veía 1 de 3 pantallas); fuentes 05 a 07, 11 y 12 del sistema de marca; «marca blanca» del MAESTRO subordinada a F4; C14 sin cifras del conjunto en la app del residente; C21; LEEME sin `temperature` ni prefill, que la API actual rechaza. La 1.1 queda en `_obsoleto/uxui-figma-1.1/`.
-- **Pendiente de Nico:** D-UX-01 y D-UX-02 en `decisiones.md`; publicar la librería en Figma antes de correr la Fase 0.
+- **Respuesta de Nico (28 sep):** D-UX-01 A y D-UX-02 A, aprobadas; librería publicada y comprobada con `search_design_system`. El prompt 1.2 queda listo para la Fase 0.
 - **Fuera de este cambio:** el MAESTRO (§1 y §2) todavía dice «marca blanca», contra F4. Corregirlo toca el documento maestro y su copia canónica en el proyecto de claude.ai.

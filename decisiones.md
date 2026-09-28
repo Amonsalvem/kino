@@ -465,16 +465,21 @@ Pedido de Nico: subir las tres escenas de Blender a nivel profesional; libertad 
 
 Salen de la revisión del prompt UX/UI 1.1 (`prompts/uxui-figma/`). El prompt 1.2 se construyó con la opción A de cada una; si Nico elige B, se ajustan `prompt.md`, `evals.md` y `auditoria-uxui.js` (`VERDE_OK`).
 
-### D-UX-01 · Llamada de portería en el producto nuevo · PROPUESTA
+### D-UX-01 · Llamada de portería en el producto nuevo · APROBADA (Nico, 28 sep: opción A)
 - **El conflicto:** el prompt 1.1 listaba «si portería tiene botón de llamada» como pendiente, pero X11 está APROBADA (dato de Nico: portería puede llamar al residente desde Kino) y el caso C11 de los evals ya esperaba «La llamada no abre la entrada».
 - **Propuesta (A, en el prompt 1.2):** la llamada es un requisito del producto nuevo. P-E-01 y P-E-02 ofrecen «Llamar al residente» con el texto «La llamada no abre la entrada». Lo único por verificar es si la función existe hoy, que X11 ya deja como «por verificar en producto».
 - **Alternativa (B):** tratarla como pendiente y construir P-E-01 y P-E-02 con y sin botón.
 - **Por qué A:** X11 ya lo decidió; B duplica pantallas por algo que no está abierto.
 - **Trazabilidad y HikCentral:** la llamada no autoriza el ingreso. Para entrar hace falta un Pase nuevo o extendido, con autor, que se sincroniza a HikCentral con su vigencia (X11, F4-P1). El Pase vivo sigue sin llamada (F4-P1).
 
-### D-UX-02 · Verde de acción: lista cerrada de botones · PROPUESTA
+### D-UX-02 · Verde de acción: lista cerrada de botones · APROBADA (Nico, 28 sep: opción A)
 - **El conflicto:** el prompt 1.1 decía «`accion/fondo` solo en el botón que otorga un Pase». Eso deja abierto Extender (otorga más tiempo) y «Crear otro Pase».
 - **Propuesta (A, en el prompt 1.2):** `accion/fondo` solo en «Crear Pase» y «Crear otro Pase», uno por pantalla. Extender, Entrar y Guardar límites van en secundario; revocar, en botón de texto.
 - **Alternativa (B):** Extender también en verde, porque amplía lo que el Pase deja hacer.
 - **Por qué A:** el sistema de marca dice que Crear Pase «es el único botón con color de acento» (X4, `texto-visible.md` §02), y la librería 1.2.0 (F4-P5, APROBADA) ya tiene Extender en secundario. «Crear otro Pase» es el mismo acto que Crear Pase, con los datos de antes.
 - **Efecto:** la auditoría compara el texto de cada Botón de acción con esa lista (`verdeMal`). Sin efecto en la trazabilidad ni en HikCentral: es una regla visual.
+
+### Estado tras la respuesta del 28 sep (prompt UX/UI)
+1. D-UX-01: **APROBADA** (A). La llamada de portería es requisito del producto nuevo; queda por verificar si existe hoy.
+2. D-UX-02: **APROBADA** (A). `accion/fondo` solo en «Crear Pase» y «Crear otro Pase».
+3. Librería publicada por Nico (28 sep, 04:39 UTC) como «Kino — Sistema de marca v2». `search_design_system` ya encuentra «Botón de acción». El prompt 1.2 no cambia: ya estaba construido con la opción A de las dos.
