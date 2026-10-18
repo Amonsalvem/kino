@@ -10,6 +10,8 @@ Este repositorio es la carpeta de trabajo de Kino. Las instrucciones del proyect
 - **Nada existente se borra.** Lo que se reemplaza se mueve a `_obsoleto/` o se marca como histórico.
 - **Commits.** Uno por paso con sentido, mensaje en español, en una rama propia (`marca/fase-4`, por ejemplo). Nico integra a `main`.
 
+- **Leer antes de correr.** Con cada prompt de Nico, primero entiende qué quiere lograr, no solo lo que dice la letra: qué entregable espera, para quién, con qué fin y qué decisión o hecho vigente lo toca. Si la intención queda clara, ejecuta; si dos lecturas llevan a entregables distintos, pregunta antes de construir (regla 9). Al responder, deja en una línea cómo entendiste el pedido.
+
 ## Comandos
 
 ```bash
