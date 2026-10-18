@@ -245,9 +245,13 @@ def tarjeta(lz, id_, estado, quien, dato, op, w=360, h=132, evidencia=None, barr
     return precomp(lz, id_, capas, w, h)
 
 
-def boton(lz, id_, etiqueta, token_fondo, op, w=320, h=56):
-    capas = [texto(lz, 'etiqueta', etiqueta, w / 2, h / 2 + 16 * 0.36, 'Archivo-Bold', 16, 'accion/texto', op, just=2),
-             formas(lz, 'boton', [rect(lz, 0, 0, w, h, R_CONTROL, relleno=token_fondo)], op)]
+def boton(lz, id_, etiqueta, token_fondo, op, w=320, h=56, partes='todo', o=None):
+    """partes: 'todo', 'fondo' (sin etiqueta) o 'textos' (solo la etiqueta, con opacidad o)."""
+    capas = []
+    if partes != 'fondo':
+        capas.append(texto(lz, 'etiqueta', etiqueta, w / 2, h / 2 + 16 * 0.36, 'Archivo-Bold', 16, 'accion/texto', op, just=2, o=o))
+    if partes != 'textos':
+        capas.append(formas(lz, 'boton', [rect(lz, 0, 0, w, h, R_CONTROL, relleno=token_fondo)], op))
     return precomp(lz, id_, capas, w, h)
 
 
@@ -328,14 +332,6 @@ def pase_caducar(r):
     pista = formas(lz, 'pista', [rect(lz, 0, 0, 360, 8, ESP['2xs'], relleno='superficie/elevada')], op)
     lz.capas = [borde_b, borde_a, barra, pista]
     return lz
-
-
-def cruce(lz, op, t0, verbo, a, b, w=360, h=132):
-    """Fundido cruzado entre dos precomps con el verbo dado."""
-    d, c = F(f'{verbo}/duracion'), C(f'{verbo}/curva')
-    ca = capa_precomp(lz, 'antes', a, w, h, op, o=kf(t0, t0 + d, [100], [0], c))
-    cb = capa_precomp(lz, 'despues', b, w, h, op, o=kf(t0, t0 + d, [0], [100], c))
-    return [cb, ca]
 
 
 def cambio_de_texto(antes, despues):
@@ -522,9 +518,15 @@ def control_presionar(r):
     # El desplazamiento «baja levemente» no se genera: el sistema no tiene token para su magnitud (ver BLOQUEADOS).
     op = F('responder/duracion')
     lz = Lienzo('control-presionar', 320, 56, op)
-    a = boton(lz, 'boton-reposo', 'Crear Pase', 'accion/fondo', op)
-    b = boton(lz, 'boton-activo', 'Crear Pase', 'accion/fondo-activo', op)
-    lz.capas = cruce(lz, op, 0, 'responder', a, b, 320, 56)
+    # El fondo se funde cruzado. La etiqueta es la misma en los dos estados: la de reposo queda fija y la activa llega
+    # encima (regla de texto igual, ver cambio_de_estado), así la etiqueta no pierde opacidad a mitad del tramo.
+    c = C('responder/curva')
+    fondo_a, textos_a = boton(lz, 'boton-reposo', 'Crear Pase', 'accion/fondo', op, partes='fondo'), boton(lz, 'boton-reposo-etiqueta', 'Crear Pase', 'accion/fondo', op, partes='textos')
+    fondo_b = boton(lz, 'boton-activo', 'Crear Pase', 'accion/fondo-activo', op, partes='fondo')
+    textos_b = boton(lz, 'boton-activo-etiqueta', 'Crear Pase', 'accion/fondo-activo', op, partes='textos', o=kf(0, op, [0], [100], c))
+    lz.capas = [capa_precomp(lz, 'etiqueta-activo', textos_b, 320, 56, op), capa_precomp(lz, 'etiqueta-reposo', textos_a, 320, 56, op),
+                capa_precomp(lz, 'activo', fondo_b, 320, 56, op, o=kf(0, op, [0], [100], c)),
+                capa_precomp(lz, 'reposo', fondo_a, 320, 56, op, o=kf(0, op, [100], [0], c))]
     return lz
 
 

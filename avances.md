@@ -240,5 +240,5 @@ En arquitectura faltaba:
   - Lottie: `cambio_de_estado` en `generar.py` repite la regla. Cambian `pase-confirmar`, `pase-por-vencer`, `pase-revocar`, `pase-usar`, `loader-sincronizacion-lote` y `onboarding-3-lector-confirma`. Los slots de texto conservan su número y su texto (comparados uno a uno con la versión anterior).
 - **Verificación:** tipos sin errores; fotogramas a mitad de cada cambio en Remotion y en las vistas previas de Lottie: ningún texto se encima con otro. Re-renderizados 12 previews y 6 maestros, y codificados sus entregables.
 - **Galería republicada** (versión 7): https://claude.ai/artifact/EiPApRKP6NNECfu5i5rKNV
-- **Queda igual:** `control-presionar` todavía funde dos etiquetas «Crear Pase» idénticas, con una baja leve de opacidad a mitad del tramo. No es un texto de estado, así que M3D-5 no lo cubre.
+- **`control-presionar` (pedido de Nico, 18 oct):** la etiqueta «Crear Pase» ya no se funde cruzada consigo misma. El fondo se funde; la etiqueta de reposo queda fija y la activa llega encima (regla de texto igual). Medido en la vista previa: antes la etiqueta se aclaraba hasta 5 niveles a mitad del tramo, ahora no. Se quitó `cruce`, que ya no usaba ningún recurso.
 - **Pendiente:** las piezas del Pase del sitio, que esperan una versión nueva.
