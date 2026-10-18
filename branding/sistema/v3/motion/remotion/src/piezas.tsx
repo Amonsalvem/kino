@@ -1,9 +1,10 @@
 // Piezas de marca para las composiciones: tarjeta de Pase, chip, burbuja, botón y fila de Portería.
 // Solo tokens: colores por nombre semántico, radios y espacios del repositorio.
 import React from 'react';
-import {cancelRender, continueRender, delayRender} from 'remotion';
+import {cancelRender, continueRender, delayRender, useCurrentFrame} from 'remotion';
 import '../../../../fonts/archivo.css';
 import '../../../../fonts/jetbrains-mono.css';
+import {Cambio, opacidadTexto} from './cambios';
 import {color, ESP, ETIQUETA, Estado, LINEA, RADIO} from './tokens';
 
 // Fuentes locales del repositorio (branding/sistema/fonts): el render no depende de la red.
@@ -16,9 +17,17 @@ Promise.all(['400 16px Archivo', '700 16px Archivo', '800 16px Archivo', '400 16
 
 const fondoEstado = (e: Estado) => color(`estado/${e}/fondo`);
 
-export const Chip: React.FC<{estado: Estado; brillo?: number}> = ({estado, brillo = 0}) => {
+/**
+ * Qué se dibuja de una pieza. 'fondo': formas sin textos; 'textos': solo textos. Las dos ocupan las mismas medidas,
+ * así que puestas una sobre otra calzan: el fondo se funde cruzado y cada texto, a través (M3D-5).
+ */
+export type Partes = 'todo' | 'fondo' | 'textos';
+const TRANSPARENTE = 'transparent';
+
+export const Chip: React.FC<{estado: Estado; brillo?: number; partes?: Partes; opacidad?: number}> = ({estado, brillo = 0, partes = 'todo', opacidad = 1}) => {
 	const discontinuo = estado === 'sin-confirmar';
 	const punto = ESP.xs - ESP['3xs'];
+	const forma = (c: string) => (partes === 'textos' ? TRANSPARENTE : c);
 	return (
 		<span
 			style={{
@@ -27,8 +36,8 @@ export const Chip: React.FC<{estado: Estado; brillo?: number}> = ({estado, brill
 				gap: ESP['2xs'] + ESP['3xs'],
 				padding: `${ESP['2xs']}px ${ESP.s}px`,
 				borderRadius: RADIO.chip,
-				border: `${LINEA.fino}px ${discontinuo ? 'dashed' : 'solid'} ${color(`estado/${estado}/borde`)}`,
-				background: fondoEstado(estado),
+				border: `${LINEA.fino}px ${discontinuo ? 'dashed' : 'solid'} ${forma(color(`estado/${estado}/borde`))}`,
+				background: forma(fondoEstado(estado)),
 				color: color(`estado/${estado}/texto`),
 				fontFamily: ARCHIVO,
 				fontWeight: 700,
@@ -37,7 +46,7 @@ export const Chip: React.FC<{estado: Estado; brillo?: number}> = ({estado, brill
 				whiteSpace: 'nowrap',
 			}}
 		>
-			<span style={{position: 'relative', width: punto, height: punto}}>
+			<span style={{position: 'relative', width: punto, height: punto, opacity: partes === 'textos' ? 0 : 1}}>
 				<span
 					style={{
 						position: 'absolute',
@@ -51,7 +60,7 @@ export const Chip: React.FC<{estado: Estado; brillo?: number}> = ({estado, brill
 					<span style={{position: 'absolute', inset: 0, borderRadius: '50%', background: color('estado/vigente/texto'), opacity: brillo}} />
 				) : null}
 			</span>
-			{ETIQUETA[estado]}
+			<span style={{opacity: partes === 'fondo' ? 0 : opacidad}}>{ETIQUETA[estado]}</span>
 		</span>
 	);
 };
@@ -66,10 +75,17 @@ export type TarjetaProps = {
 	relleno?: string;
 	quienMono?: boolean;
 	ancho?: number;
+	partes?: Partes;
+	/** Opacidad de cada texto cuando partes es 'textos' (ver cambios.ts). */
+	opacidad?: Partial<Record<TextoDeTarjeta, number>>;
 };
+export type TextoDeTarjeta = 'quien' | 'chip' | 'dato' | 'evidencia';
 
-export const Tarjeta: React.FC<TarjetaProps> = ({estado, quien, dato, evidencia, barra, brillo, relleno = 'superficie/membrana', quienMono, ancho = 360}) => {
+export const Tarjeta: React.FC<TarjetaProps> = (props) => {
+	const {estado, quien, dato, evidencia, barra, brillo, relleno = 'superficie/membrana', quienMono, ancho = 360, partes = 'todo'} = props;
 	const pad = ESP.m + ESP['2xs'];
+	const forma = (c: string) => (partes === 'textos' ? TRANSPARENTE : c);
+	const op = (t: TextoDeTarjeta) => (partes === 'fondo' ? 0 : (props.opacidad?.[t] ?? 1));
 	return (
 		<div
 			style={{
@@ -77,36 +93,64 @@ export const Tarjeta: React.FC<TarjetaProps> = ({estado, quien, dato, evidencia,
 				boxSizing: 'border-box',
 				padding: pad,
 				borderRadius: RADIO.tarjeta,
-				border: `${LINEA.fino}px ${estado === 'sin-confirmar' ? 'dashed' : 'solid'} ${color(`estado/${estado}/borde`)}`,
-				background: color(relleno),
+				border: `${LINEA.fino}px ${estado === 'sin-confirmar' ? 'dashed' : 'solid'} ${forma(color(`estado/${estado}/borde`))}`,
+				background: forma(color(relleno)),
 				display: 'flex',
 				flexDirection: 'column',
 				gap: ESP.xs,
 			}}
 		>
 			<div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: ESP.s}}>
-				<span style={{fontFamily: quienMono ? MONO : ARCHIVO, fontWeight: quienMono ? 400 : 700, fontSize: 17, color: color('texto/primario')}}>
+				<span style={{fontFamily: quienMono ? MONO : ARCHIVO, fontWeight: quienMono ? 400 : 700, fontSize: 17, color: color('texto/primario'), opacity: op('quien')}}>
 					{quien}
 				</span>
-				<Chip estado={estado} brillo={brillo} />
+				<Chip estado={estado} brillo={brillo} partes={partes} opacidad={op('chip')} />
 			</div>
-			{dato ? <span style={{fontFamily: MONO, fontSize: 13, color: color('texto/secundario')}}>{dato}</span> : null}
-			{evidencia ? <span style={{fontFamily: MONO, fontSize: 12, color: color(`estado/${estado}/texto`)}}>{evidencia}</span> : null}
+			{dato ? <span style={{fontFamily: MONO, fontSize: 13, color: color('texto/secundario'), opacity: op('dato')}}>{dato}</span> : null}
+			{evidencia ? <span style={{fontFamily: MONO, fontSize: 12, color: color(`estado/${estado}/texto`), opacity: op('evidencia')}}>{evidencia}</span> : null}
 			{barra === undefined ? null : (
 				// Pista en elevada: la tarjeta es membrana (M3D-4) y la pista debe verse sobre ella.
-				<div style={{height: ESP['2xs'], borderRadius: ESP['3xs'], background: color('superficie/elevada'), overflow: 'hidden', marginTop: ESP['2xs']}}>
+				<div style={{height: ESP['2xs'], borderRadius: ESP['3xs'], background: forma(color('superficie/elevada')), overflow: 'hidden', marginTop: ESP['2xs']}}>
 					<div
 						style={{
 							height: '100%',
 							width: '100%',
 							transformOrigin: 'left center',
 							transform: `scaleX(${barra})`,
-							background: color(`estado/${estado}/borde`),
+							background: forma(color(`estado/${estado}/borde`)),
 						}}
 					/>
 				</div>
 			)}
 		</div>
+	);
+};
+
+export type CapaDeTarjeta = Omit<TarjetaProps, 'partes' | 'opacidad'> & {fondo: number};
+const TEXTOS: TextoDeTarjeta[] = ['quien', 'chip', 'dato', 'evidencia'];
+
+/**
+ * Tarjeta que pasa por varios estados, una capa por estado; cambios[i] lleva de la capa i a la i + 1.
+ * Los fondos se funden cruzado con la opacidad que trae cada capa; los textos van encima, con el fundido a través.
+ */
+export const TarjetaEnCambio: React.FC<{capas: CapaDeTarjeta[]; cambios: Cambio[]}> = ({capas, cambios}) => {
+	const f = useCurrentFrame();
+	const texto = (c: CapaDeTarjeta, t: TextoDeTarjeta) => (t === 'chip' ? ETIQUETA[c.estado] : t === 'quien' ? c.quien : c[t]);
+	const opacidad = (i: number) =>
+		Object.fromEntries(TEXTOS.map((t) => [t, opacidadTexto(f, capas.map((c) => texto(c, t)), cambios, i)]));
+	return (
+		<>
+			{capas.map(({fondo, ...c}) => (
+				<div key={`fondo-${c.estado}`} style={{position: 'absolute', inset: 0, opacity: fondo}}>
+					<Tarjeta {...c} partes="fondo" />
+				</div>
+			))}
+			{capas.map(({fondo, ...c}, i) => (
+				<div key={`textos-${c.estado}`} style={{position: 'absolute', inset: 0}}>
+					<Tarjeta {...c} partes="textos" opacidad={opacidad(i)} />
+				</div>
+			))}
+		</>
 	);
 };
 

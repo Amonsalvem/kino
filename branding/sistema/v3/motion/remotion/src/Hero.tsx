@@ -3,9 +3,9 @@
 // del inventario); la aurora es fija y nunca queda detrás de un QR (esta composición no muestra QR).
 import React from 'react';
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
-import {Boton, Burbuja, Tarjeta} from './piezas';
+import {Boton, Burbuja, CapaDeTarjeta, TarjetaEnCambio} from './piezas';
 import {avance, latido, lineaDeTiempo} from './tiempo';
-import {AURORA, dur, ESP, Estado, SUBIDA} from './tokens';
+import {AURORA, dur, ESP, SUBIDA} from './tokens';
 
 export const HERO = lineaDeTiempo([
 	{id: 'presionar', duracion: 'responder/duracion'},
@@ -41,12 +41,19 @@ export const Hero: React.FC<HeroProps> = ({reducido, vertical}) => {
 	const brillo = reducido ? 0 : latido(f, tramos.vigente);
 
 	// Un Pase solo es vigente después de confirmar: la capa vigente vale c, que es 0 antes de ese tramo.
-	const capas: {estado: Estado; opacidad: number; dato: string; evidencia?: string; barra?: number}[] = [
-		{estado: 'previsto', opacidad: 1 - e, dato: DATO},
-		{estado: 'sin-confirmar', opacidad: e * (1 - c), dato: 'Casa 14 · enviado 3:41 p. m.'},
-		{estado: 'vigente', opacidad: c * (1 - v), dato: DATO, evidencia: EVIDENCIA, barra: 1},
-		{estado: 'por-vencer', opacidad: v * (1 - k), dato: 'Casa 14 · vence 6:00 p. m.', evidencia: EVIDENCIA, barra: 1 - k},
-		{estado: 'vencido', opacidad: k, dato: 'Casa 14 · venció 6:00 p. m.', barra: 0},
+	// Los fondos se funden cruzado; chip, dato y evidencia, a través (M3D-5).
+	const capas: CapaDeTarjeta[] = [
+		{estado: 'previsto', fondo: 1 - e, dato: DATO},
+		{estado: 'sin-confirmar', fondo: e * (1 - c), dato: 'Casa 14 · enviado 3:41 p. m.'},
+		{estado: 'vigente', fondo: c * (1 - v), dato: DATO, evidencia: EVIDENCIA, barra: 1, brillo},
+		{estado: 'por-vencer', fondo: v * (1 - k), dato: 'Casa 14 · vence 6:00 p. m.', evidencia: EVIDENCIA, barra: 1 - k},
+		{estado: 'vencido', fondo: k, dato: 'Casa 14 · venció 6:00 p. m.', barra: 0},
+	].map((p) => ({quien: QUIEN, ...p}) as CapaDeTarjeta);
+	const cambios = [
+		{tramo: tramos.enviar, curva: 'aparecer/curva'},
+		{tramo: tramos.confirmar, curva: 'aparecer/curva'},
+		{tramo: tramos.porVencer, curva: 'responder/curva'},
+		{tramo: tramos.caducar, curva: 'caducar/curva'},
 	];
 	const desplazar = (p: number) => (reducido ? 0 : SUBIDA * (1 - p));
 	const escala = vertical ? 2.4 : 2;
@@ -65,11 +72,7 @@ export const Hero: React.FC<HeroProps> = ({reducido, vertical}) => {
 			>
 				<div style={{display: 'flex', flexDirection: 'column', gap: ESP.l, alignItems: 'center'}}>
 					<div style={{position: 'relative', width: 360, height: 176, opacity: a, transform: `translateY(${desplazar(a)}px)`}}>
-						{capas.map((p) => (
-							<div key={p.estado} style={{position: 'absolute', inset: 0, opacity: p.opacidad}}>
-								<Tarjeta estado={p.estado} quien={QUIEN} dato={p.dato} evidencia={p.evidencia} barra={p.barra} brillo={p.estado === 'vigente' ? brillo : 0} />
-							</div>
-						))}
+						<TarjetaEnCambio capas={capas} cambios={cambios} />
 					</div>
 					<Boton activo={pulsar * (1 - soltar)} />
 				</div>
