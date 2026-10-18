@@ -231,4 +231,14 @@ En arquitectura faltaba:
   - **Aplicado en `@kino/motion` y `@kino/motion-nativo`:** tarjeta en membrana, pista de la barra en elevada, fundido a través de chip, dato y nota con la regla común `nucleo/textos.ts`.
   - **Verificación:** web con 26 pruebas unitarias, `lint-motion` sin hallazgos y 18 pruebas en navegador (entre ellas, el fundido del chip a 1280 y 390 px); app con tipos sin errores, pruebas unitarias y 11 pruebas en el arnés web.
   - **Remotion y Lottie (27 sep):** tarjeta en membrana y pista en elevada; 14 recursos Lottie regenerados, 28 previews y los masters de hero, hero móvil y revocado re-renderizados (≈12 min de render y 5 de codificación). Galería republicada (versión 5).
-  - **Pendiente:** M3D-5 en Remotion y Lottie (fundido a través con capas separadas) y las piezas del Pase del sitio, que esperan una versión nueva.
+  - **Pendiente:** M3D-5 en Remotion y Lottie (hecho el 18 oct, ver abajo) y las piezas del Pase del sitio, que esperan una versión nueva.
+
+## M3D-5 en Remotion y Lottie (18 oct)
+- **Pedido de Nico:** retomar lo pendiente de M3D-5 en Remotion y Lottie.
+- **Construido:** fondo y textos de la tarjeta en capas separadas. El fondo (borde, relleno, chip, barra) sigue con fundido cruzado; chip, dato y evidencia se funden a través: el que sale se va en la primera mitad del verbo y el nuevo llega en la segunda. Un texto igual no se mueve; si solo cambia su color, el nuevo llega encima sin hueco de opacidad.
+  - Remotion: `src/cambios.ts` importa la regla del núcleo (`paquetes/kino-motion/src/nucleo/textos.ts`); `TarjetaEnCambio` en `piezas.tsx`. Cambian hero, hero móvil y revocado.
+  - Lottie: `cambio_de_estado` en `generar.py` repite la regla. Cambian `pase-confirmar`, `pase-por-vencer`, `pase-revocar`, `pase-usar`, `loader-sincronizacion-lote` y `onboarding-3-lector-confirma`. Los slots de texto conservan su número y su texto (comparados uno a uno con la versión anterior).
+- **Verificación:** tipos sin errores; fotogramas a mitad de cada cambio en Remotion y en las vistas previas de Lottie: ningún texto se encima con otro. Re-renderizados 12 previews y 6 maestros, y codificados sus entregables.
+- **Galería republicada** (versión 7): https://claude.ai/artifact/EiPApRKP6NNECfu5i5rKNV
+- **Queda igual:** `control-presionar` todavía funde dos etiquetas «Crear Pase» idénticas, con una baja leve de opacidad a mitad del tramo. No es un texto de estado, así que M3D-5 no lo cubre.
+- **Pendiente:** las piezas del Pase del sitio, que esperan una versión nueva.
