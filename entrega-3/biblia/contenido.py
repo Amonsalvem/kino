@@ -165,12 +165,12 @@ S.append(('3.2', [
 S.append(('3.3', [
     ('h', 'SOSTAC · S · Estrategias (el cómo) y SOSTAC · T · Tácticas (qué · cómo · quién · cuándo)'),
     ('t', [
-        ['#', 'Estrategia · eje', 'Táctica: qué y cómo', 'Quién', 'Cuándo'],
-        ['OE1', 'Simplificación · eje 1', '«Volver a invitar»: las 4 personas recientes abren la hoja ya llena', 'Equipo', 'Oct 2026 · hecho'],
-        ['OE2', 'Acompañamiento · eje 4', 'Día de lanzamiento en portería: primer Pase con cada residente que pase', 'Equipo y administración', 'Semana 1, ene 2027'],
-        ['OE3', 'Recurrencia · eje 3', 'Pase de colaborador con días y franja, creado una vez', 'Equipo con Manuel', 'Dic 2026'],
-        ['OE4', 'Integración · eje 3', 'Alta con teléfono en vez de correo; reintentar las 711 altas fallidas', 'Equipo con Manuel', 'Nov–dic 2026'],
-        ['OE5', 'Penetración · eje 2', 'Alianza con instaladores Hikvision del Valle de Aburrá y el Oriente', 'Equipo', 'Abr–jun 2027'],
+        ['#', 'Estrategia · eje', 'Táctica · qué se hace y cómo', 'Quién', 'Cuándo'],
+        ['OE1', 'Simplificación · eje 1', 'Botón «Volver a invitar». Cómo: las 4 visitas recientes abren la hoja con nombre, WhatsApp y placa ya puestos; el Pase sale en 3 toques', 'Equipo', 'Oct 2026 · hecho'],
+        ['OE2', 'Acompañamiento · eje 4', 'Día de lanzamiento en portería. Cómo: un puesto en la entrada la semana 1; cada residente que pasa crea su primer Pase con el equipo', 'Equipo y administración', 'Semana 1, ene 2027'],
+        ['OE3', 'Recurrencia · eje 3', 'Pase de colaborador. Cómo: el residente elige días y franja una vez; el lector lo acepta cada semana sin renovarlo', 'Equipo con Manuel', 'Dic 2026'],
+        ['OE4', 'Integración · eje 3', 'Alta con teléfono. Cómo: Kino da de alta en HikCentral con el teléfono, no con el correo, y reintenta las 711 altas fallidas', 'Equipo con Manuel', 'Nov–dic 2026'],
+        ['OE5', 'Penetración · eje 2', 'Alianza con instaladores Hikvision. Cómo: ficha comercial con los KPI del piloto para instaladores del Valle de Aburrá y el Oriente; 10 conjuntos contactados', 'Equipo', 'Abr–jun 2027'],
     ], [600, 2400, 3900, 1500, 1360]),
     ('h', 'Ejes estratégicos del curso'),
     ('t', [

@@ -195,31 +195,36 @@ SOSTAC · S y T · Estrategias (el cómo, con su eje estratégico) y tácticas (
 Cada objetivo, una estrategia y una táctica
 Objetivo
 Estrategia · eje
-Táctica: qué y cómo
+Táctica · qué se hace y cómo
 Quién · cuándo
 OE1
 Simplificación eje 1 · interactividad
-«Volver a invitar» abre la hoja ya llena
+Botón «Volver a invitar»
+Cómo Las 4 visitas recientes abren la hoja con nombre, WhatsApp y placa ya puestos: el Pase sale en 3 toques
 Equipo
 oct 2026 · hecho
 OE2
 Acompañamiento eje 4 · soporte
-Día de lanzamiento en portería: primer Pase con cada residente
+Día de lanzamiento en portería
+Cómo Un puesto en la entrada la semana 1: cada residente que pasa crea su primer Pase con el equipo
 Equipo y adm.
-semana 1 · ene 2027
+ene 2027
 OE3
 Recurrencia eje 3 · automatización
-Pase de colaborador con días y franja, se crea una vez
+Pase de colaborador
+Cómo El residente elige días y franja una vez; el lector lo acepta cada semana sin renovarlo
 Equipo y Manuel
 dic 2026
 OE4
 Integración eje 3 · automatización
-Alta con teléfono en vez de correo: reintentar las 711
+Alta con teléfono
+Cómo Kino da de alta en HikCentral con el teléfono, no con el correo, y reintenta las 711 altas fallidas
 Equipo y Manuel
 nov–dic 2026
 OE5
 Penetración eje 2 · omnicanalidad
-Alianza con instaladores Hikvision del Valle de Aburrá y el Oriente
+Alianza con instaladores Hikvision
+Cómo Ficha comercial con los KPI del piloto para instaladores del Valle de Aburrá y el Oriente: 10 conjuntos contactados
 Equipo
 abr–jun 2027
 1

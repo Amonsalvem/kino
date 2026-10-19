@@ -245,13 +245,15 @@ section.actual .embudo .barra-v{transform:none}
 
 /* Estrategia → táctica */
 .ramas{display:grid;gap:calc(var(--u)*.7)}
-.rama{display:grid;grid-template-columns:calc(var(--u)*4.4) calc(var(--u)*3) calc(var(--u)*15) calc(var(--u)*3) minmax(0,1fr) calc(var(--u)*13);gap:calc(var(--u)*.6);align-items:center;font-size:var(--t-min)}
+.rama{display:grid;grid-template-columns:calc(var(--u)*4.4) calc(var(--u)*1.6) calc(var(--u)*17.5) calc(var(--u)*1.6) minmax(0,1fr) calc(var(--u)*12);gap:calc(var(--u)*.6);align-items:center;font-size:var(--t-min)}
 .rama .oe{font-family:var(--dato);font-weight:600;text-align:center;padding:.4em 0;border-radius:10px;background:var(--membrana)}
 .rama .conector{width:100%}
 .rama .est{font-family:var(--display);font-weight:800;font-size:var(--t-cuerpo);color:var(--vig)}
 .rama .est small{display:block;font-family:var(--dato);font-weight:400;font-size:var(--t-min);color:var(--tenue)}
 .rama .tac{background:var(--elevada);border:1px solid var(--borde);border-radius:12px;padding:calc(var(--u)*.6) calc(var(--u)*.9);color:var(--texto)}
-.rama .tac span{color:var(--texto-2)}
+.rama .tac b{display:block;font-weight:700}
+.rama .tac span{display:block;color:var(--texto-2);line-height:1.3}
+.rama .tac i{font-style:normal;font-family:var(--dato);color:var(--vig);margin-right:.6em}
 .rama .cuando{font-family:var(--dato);color:var(--texto-2)}
 .rama .cuando b{display:block;color:var(--texto);font-weight:500}
 
@@ -576,12 +578,12 @@ section.densa .grafica{height:calc(var(--u)*4.6)}
   <p class="rot">SOSTAC · S y T · Estrategias (el cómo, con su eje estratégico) y tácticas (qué · cómo · quién · cuándo)</p>
   <h2>Cada objetivo, una estrategia y una táctica</h2>
   <div class="ramas">
-    <div class="rama cab-rama"><span>Objetivo</span><span></span><span>Estrategia · eje</span><span></span><span>Táctica: qué y cómo</span><span>Quién · cuándo</span></div>
-    <div class="rama" data-r style="--r:1"><span class="oe">OE1</span><span class="conector" style="--r:1"></span><span class="est">Simplificación<small>eje 1 · interactividad</small></span><span class="conector" style="--r:2"></span><span class="tac">«Volver a invitar» <span>abre la hoja ya llena</span></span><span class="cuando"><b>Equipo</b>oct 2026 · hecho</span></div>
-    <div class="rama" data-r style="--r:2"><span class="oe">OE2</span><span class="conector" style="--r:2"></span><span class="est">Acompañamiento<small>eje 4 · soporte</small></span><span class="conector" style="--r:3"></span><span class="tac">Día de lanzamiento <span>en portería: primer Pase con cada residente</span></span><span class="cuando"><b>Equipo y adm.</b>semana 1 · ene 2027</span></div>
-    <div class="rama" data-r style="--r:3"><span class="oe">OE3</span><span class="conector" style="--r:3"></span><span class="est">Recurrencia<small>eje 3 · automatización</small></span><span class="conector" style="--r:4"></span><span class="tac">Pase de colaborador <span>con días y franja, se crea una vez</span></span><span class="cuando"><b>Equipo y Manuel</b>dic 2026</span></div>
-    <div class="rama" data-r style="--r:4"><span class="oe">OE4</span><span class="conector" style="--r:4"></span><span class="est">Integración<small>eje 3 · automatización</small></span><span class="conector" style="--r:5"></span><span class="tac">Alta con teléfono <span>en vez de correo: reintentar las 711</span></span><span class="cuando"><b>Equipo y Manuel</b>nov–dic 2026</span></div>
-    <div class="rama" data-r style="--r:5"><span class="oe">OE5</span><span class="conector" style="--r:5"></span><span class="est">Penetración<small>eje 2 · omnicanalidad</small></span><span class="conector" style="--r:6"></span><span class="tac">Alianza con instaladores <span>Hikvision del Valle de Aburrá y el Oriente</span></span><span class="cuando"><b>Equipo</b>abr–jun 2027</span></div>
+    <div class="rama cab-rama"><span>Objetivo</span><span></span><span>Estrategia · eje</span><span></span><span>Táctica · qué se hace y cómo</span><span>Quién · cuándo</span></div>
+    <div class="rama" data-r style="--r:1"><span class="oe">OE1</span><span class="conector" style="--r:1"></span><span class="est">Simplificación<small>eje 1 · interactividad</small></span><span class="conector" style="--r:2"></span><span class="tac"><b>Botón «Volver a invitar»</b><span><i>Cómo</i>Las 4 visitas recientes abren la hoja con nombre, WhatsApp y placa ya puestos: el Pase sale en 3 toques</span></span><span class="cuando"><b>Equipo</b>oct 2026 · hecho</span></div>
+    <div class="rama" data-r style="--r:2"><span class="oe">OE2</span><span class="conector" style="--r:2"></span><span class="est">Acompañamiento<small>eje 4 · soporte</small></span><span class="conector" style="--r:3"></span><span class="tac"><b>Día de lanzamiento en portería</b><span><i>Cómo</i>Un puesto en la entrada la semana 1: cada residente que pasa crea su primer Pase con el equipo</span></span><span class="cuando"><b>Equipo y adm.</b>ene 2027</span></div>
+    <div class="rama" data-r style="--r:3"><span class="oe">OE3</span><span class="conector" style="--r:3"></span><span class="est">Recurrencia<small>eje 3 · automatización</small></span><span class="conector" style="--r:4"></span><span class="tac"><b>Pase de colaborador</b><span><i>Cómo</i>El residente elige días y franja una vez; el lector lo acepta cada semana sin renovarlo</span></span><span class="cuando"><b>Equipo y Manuel</b>dic 2026</span></div>
+    <div class="rama" data-r style="--r:4"><span class="oe">OE4</span><span class="conector" style="--r:4"></span><span class="est">Integración<small>eje 3 · automatización</small></span><span class="conector" style="--r:5"></span><span class="tac"><b>Alta con teléfono</b><span><i>Cómo</i>Kino da de alta en HikCentral con el teléfono, no con el correo, y reintenta las 711 altas fallidas</span></span><span class="cuando"><b>Equipo y Manuel</b>nov–dic 2026</span></div>
+    <div class="rama" data-r style="--r:5"><span class="oe">OE5</span><span class="conector" style="--r:5"></span><span class="est">Penetración<small>eje 2 · omnicanalidad</small></span><span class="conector" style="--r:6"></span><span class="tac"><b>Alianza con instaladores Hikvision</b><span><i>Cómo</i>Ficha comercial con los KPI del piloto para instaladores del Valle de Aburrá y el Oriente: 10 conjuntos contactados</span></span><span class="cuando"><b>Equipo</b>abr–jun 2027</span></div>
   </div>
   <div class="ejes" data-r style="--r:7"><span><b>1</b> Interactividad y personalización</span><span><b>2</b> Omnicanalidad y accesibilidad</span><span><b>3</b> Automatización y gestión de la experiencia</span><span><b>4</b> Soporte y acompañamiento</span></div>
   <aside class="guion">Estrategia: un sustantivo que dice cómo; su eje estratégico del curso debajo. Táctica: qué se hará, quién y cuándo. Las demás tácticas están en estrategia.md §5.</aside>

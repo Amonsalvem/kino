@@ -399,3 +399,7 @@ En arquitectura faltaba:
 ## Objetivo general reescrito desde Kino (19 oct)
 - Pedido de Nico: que parta de «Kino», proyecte el año y diga la posición. Nuevo: «Kino, en octubre de 2027, es el control de acceso de los conjuntos del Oriente antioqueño que ya tienen lector Hikvision: el residente da y revoca los Pases y la administración fija las franjas.» Más una línea de posición: autoriza sobre el lector que el conjunto ya pagó, sin cambiarlo, y la visita entra sin crear cuenta.
 - Aplicado en el deck (lámina 10 y su guion), la Biblia (3.1) y `estrategia.md` (§2 y diagrama). `verificar.mjs` sin fallas.
+
+## Lámina 13: tácticas explícitas (19 oct)
+- Cada táctica separa el **qué** (nombre en negrita) del **cómo** (rótulo «Cómo» y el paso concreto con su cifra: 3 toques, semana 1, 711 altas, 10 conjuntos). Columnas reajustadas para que el eje quepa en una línea. Misma redacción en la Biblia 3.3.
+- `verificar.mjs` sin fallas; compuerta de voz igual que antes (solo el nombre literal del eje 3).
