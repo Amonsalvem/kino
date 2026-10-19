@@ -172,22 +172,22 @@ export const RECIENTES: {nombre: string; tipo: Tipo; telefono: string; placa?: s
 
 export const INTERACCIONES: Interaccion[] = [
 	{id: 'I-01', nombre: 'Código por WhatsApp', disparador: 'Escribir el número y tocar «Enviar código»', respuesta: 'Llega el código; los 6 dígitos se llenan solos y la app entra', regla: 'Teléfono obligatorio y único; se entra con el código', hik: 'Ninguno: la cuenta del residente no viaja al lector', estado: 'implementada'},
-	{id: 'I-02', nombre: 'Pase vivo en la lista', disparador: 'Paso del tiempo', respuesta: 'La barra de vigencia se consume; vigente late; al final pasa a Por vencer y Vencido', regla: 'El estado sale de los hechos, nunca se escribe a mano', hik: 'Vencido = el lector deja de aceptarlo en su «Válido hasta»', estado: 'implementada'},
+	{id: 'I-02', nombre: 'Pase vivo en la lista', disparador: 'Paso del tiempo', respuesta: 'La barra de vigencia se consume; vigente brilla quieto y el brillo baja en Por vencer; al final, Vencido', regla: 'El estado sale de los hechos, nunca se escribe a mano', hik: 'Vencido = el lector deja de aceptarlo en su «Válido hasta»', estado: 'implementada'},
 	{id: 'I-03', nombre: 'Volver a invitar', disparador: 'Tocar una persona reciente', respuesta: 'La hoja se abre con nombre, teléfono, placa y franja ya puestos', regla: 'Crear un Pase en 3 toques o menos', hik: 'La misma alta: persona temporal con fechas', estado: 'implementada'},
 	{id: 'I-04', nombre: 'Hoja de Crear Pase con gesto', disparador: 'Arrastrar la hoja hacia abajo', respuesta: 'Sigue al dedo y se cierra con resorte; si se suelta antes, vuelve', regla: 'Nada se crea hasta tocar «Crear Pase»', hik: 'Ninguno', estado: 'implementada'},
 	{id: 'I-05', nombre: 'Vigencia a tu medida', disparador: 'Elegir unas horas, todo el día o varios días', respuesta: 'Una visita de un día o una estadía de semanas o meses; la franja del conjunto se ve antes de crear', regla: 'Sin tope de visitas ni de duración: decide el residente (E3-2)', hik: 'Persona temporal con su «Válido desde / hasta»', estado: 'implementada'},
 	{id: 'I-06', nombre: 'Nacimiento del Pase', disparador: 'Tocar «Crear Pase»', respuesta: 'El botón se convierte en el Pase con su arco; queda Sin confirmar con borde punteado', regla: 'Recién creado queda Sin confirmar', hik: 'Kino da de alta la persona temporal en HikCentral', estado: 'implementada'},
-	{id: 'I-07', nombre: 'Espera del lector', disparador: 'El lector responde el alta', respuesta: 'El borde pasa de punteado a continuo, aparece la barra y el Pase late', regla: 'Vigente solo con la confirmación del lector', hik: 'add_person responde con el alta hecha', estado: 'implementada'},
+	{id: 'I-07', nombre: 'Espera del lector', disparador: 'El lector responde el alta', respuesta: 'El borde pasa de punteado a continuo; un destello, tres latidos y luego brillo quieto', regla: 'Vigente solo con la confirmación del lector', hik: 'add_person responde con el alta hecha', estado: 'implementada'},
 	{id: 'I-08', nombre: 'Compartir por WhatsApp', disparador: 'Tocar «Enviar por WhatsApp»', respuesta: 'La visita recibe imagen y enlace al Pase vivo', regla: 'La visita no crea cuenta', hik: 'Ninguno: el enlace muestra el mismo Pase', estado: 'implementada'},
 	{id: 'I-09', nombre: 'Pase vivo de la visita', disparador: 'Abrir el enlace', respuesta: 'Arco con QR, placa o código; cuenta regresiva; cambia solo si el residente revoca o extiende', regla: 'Tres modos conviven en el mismo Pase', hik: 'El QR es la credencial que el lector ya tiene', estado: 'implementada'},
-	{id: 'I-10', nombre: 'Lectura en la entrada', disparador: 'Acercar QR, leer placa o digitar código', respuesta: 'El lector reconoce; la talanquera sube; el resultado se lee desde lejos', regla: 'Abre el lector; portería ve el porqué', hik: 'Evento de acceso de HikCentral', estado: 'implementada'},
+	{id: 'I-10', nombre: 'Lectura en la entrada', disparador: 'Acercar QR, leer placa o digitar código', respuesta: 'El veredicto se ve en el primer cuadro; tres anillos forman la diana en el lector; la talanquera sube', regla: 'Abre el lector; portería ve el porqué', hik: 'Evento de acceso de HikCentral', estado: 'implementada'},
 	{id: 'I-11', nombre: 'Aviso de llegada', disparador: 'El lector deja entrar a la visita', respuesta: 'Al residente le llega «Andrés entró por Portería principal»', regla: 'Solo se avisa lo que el lector confirmó', hik: 'Suscripción a eventos de acceso', estado: 'implementada'},
 	{id: 'I-12', nombre: 'Rechazo con motivo', disparador: 'Lectura de un Pase vencido, revocado o fuera de franja', respuesta: 'Pantalla roja con el motivo y «Llamar a Carolina»', regla: 'La llamada no abre la entrada', hik: 'El lector ya negó; Kino explica por qué', estado: 'implementada'},
 	{id: 'I-13', nombre: 'Mantener para revocar', disparador: 'Mantener presionado 0,8 s', respuesta: 'Un anillo se llena; al soltar, el Pase queda cortado y aparece «Deshacer» por 5 s', regla: 'Revoca al instante; 5 s para deshacer', hik: 'Baja en HikCentral al vencer el deshacer', estado: 'implementada'},
 	{id: 'I-14', nombre: 'Extender', disparador: 'Tocar +1 h, +1 día o +1 semana', respuesta: 'La barra crece y la nueva fecha entra con fundido', regla: 'Sin máximo: una visita se puede volver estadía', hik: 'Actualiza «Válido hasta»', estado: 'implementada'},
 	{id: 'I-15', nombre: 'Franjas con vista previa', disparador: 'Mover una franja', respuesta: 'Se ve qué Pase activo quedaría por fuera; aplica a los nuevos', regla: 'La administración solo fija franjas', hik: 'Los activos conservan su «Válido hasta»', estado: 'implementada'},
 	{id: 'I-16', nombre: 'Integración caída y arreglo', disparador: 'Tocar «Reintentar con teléfono»', respuesta: 'Los contadores suben mientras se sincroniza; la causa queda escrita', regla: 'El teléfono reemplaza al correo obligatorio', hik: '711 errores add_person por el campo correo', estado: 'implementada'},
-	{id: 'I-17', nombre: 'Movimiento reducido', disparador: 'Ajuste del sistema', respuesta: 'Fundidos en lugar de escalas y latidos', regla: 'Política de @kino/motion', hik: 'Ninguno', estado: 'implementada'},
+	{id: 'I-17', nombre: 'Movimiento reducido', disparador: 'Ajuste del sistema', respuesta: 'Lo que aparece se funde en 240 ms; nada late, gira ni se desplaza', regla: 'Política de @kino/motion', hik: 'Ninguno', estado: 'implementada'},
 	{id: 'I-18', nombre: 'Pase en la billetera del teléfono', disparador: 'Tocar «Agregar a la billetera»', respuesta: 'El Pase vive en la pantalla bloqueada', regla: 'Sin app para la visita', hik: 'Mismo QR', estado: 'planeada'},
 	{id: 'I-19', nombre: 'Háptica por estado', disparador: 'Confirmación, rechazo, revocar', respuesta: 'Vibración distinta para cada evento', regla: 'Nunca solo color', hik: 'Ninguno', estado: 'planeada'},
 	{id: 'I-20', nombre: 'Rostro como cuarto modo', disparador: 'El colaborador se enrola una vez', respuesta: 'Entra sin sacar el teléfono', regla: 'Solo colaboradores recurrentes, con autorización', hik: 'Reconocimiento facial de HikCentral', estado: 'planeada'},
@@ -274,6 +274,14 @@ export function estado(p: Pase, t = ahora()): Estado {
 }
 
 export const restante = (p: Pase, t = ahora()) => vigenciaRestante(ventana(p, t), t);
+/** Brillo del Pase (motion-e-ilustracion.md): quieto mientras está vigente y, como la bioluminiscencia que se fatiga,
+ *  baja en proporción al tiempo que le queda dentro del aviso de Por vencer. */
+export function brillo(p: Pase, e = estado(p), t = ahora()) {
+	if (e === 'vigente') return 1;
+	if (e !== 'por-vencer') return 0;
+	const queda = ventana(p, t).hasta.getTime() - t.getTime();
+	return Math.max(0.12, Math.min(1, queda / avisoMs()));
+}
 
 export const duraMasDeUnDia = (r: {desde: Date; hasta: Date}) => r.hasta.getTime() - r.desde.getTime() > 20 * 3_600_000;
 export const esEstadia = (p: Pase) => p.tipo === 'visita' && duraMasDeUnDia(p.hechos);

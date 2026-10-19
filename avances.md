@@ -281,3 +281,22 @@ En arquitectura faltaba:
 - **HikCentral (Manuel vía Nico):** la vigencia por persona o visitante llega hasta 2037 o 2099. Cierra la pregunta 1 de `estrategia.md` §11; queda probar el alta por OpenAPI.
 - **Biblia:** grupo «Diseño para la interacción», 2026-2. 6.1 rehecha como evaluación por inspección con los perfiles del estudio de mercado de iAgency (2024) y los arquetipos: 11 hallazgos, 6 resueltos, 3 planeados (Pase de evento, Pase familiar, editar recurrente), 1 pendiente (número extranjero).
 - No se registraron participantes ni resultados de una prueba que no ocurrió.
+
+## Motion e ilustración desde procesos reales (19 oct)
+- **Pedido de Nico:** la espiral del lector no tenía que ver con la estética; investigar y crear las animaciones e ilustraciones de Kino.
+- **Investigación:** tres frentes. Las guías de motion y la evidencia (Apple, Carbon, Material 3, WCAG, NN/g, Heer y Robertson, Phosphor); la biología documentada para cada estado del Pase; y el inventario de lo que la marca ya decidió. Síntesis en `entrega-3/motion-e-ilustracion.md` (PROPUESTA E3-8).
+- **Construido en el prototipo:**
+  - el veredicto de portería se lee en el primer cuadro;
+  - la diana de la sinapsis reemplaza a la espiral;
+  - el rechazo se contrae en lugar de sacudirse;
+  - la talanquera pivota en el borde del poste;
+  - Sin confirmar queda quieto;
+  - al confirmarse hay un destello y tres latidos;
+  - el brillo se fatiga en Por vencer;
+  - el Pase nuevo germina;
+  - el micelio, la membrana y la quitina dejan de moverse;
+  - la red de Physarum muestra la sincronización en administración;
+  - cuatro ilustraciones de una sola familia;
+  - el movimiento reducido pasa a fundidos y la talanquera no gira.
+- **OE1 (E3-7):** se mide con `prototipo/pruebas/oe1.mjs`: 3 toques y 8 s; visita nueva, 19,4 s (KLM).
+- **Verificación:** e2e 17 de 17; barrido sin cortes; deck de 36 láminas sin desborde; fotogramas en `prototipo/build/fotogramas/`.

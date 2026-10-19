@@ -114,7 +114,7 @@ S.append(('2.4', [
     'El diseño emocional parte de una pregunta del diagnóstico: ¿qué siente el residente cuando la app le dice una cosa y la puerta hace otra? La respuesta es desconfianza. Por eso la emoción que busca Kino es **certeza tranquila**: saber, sin tener que preguntar, que la persona puede entrar.',
     ('t', [
         ['Nivel (Norman)', 'Decisión', 'Responde a'],
-        ['Visceral', 'El Pase vigente late; al vencer se apaga; al revocarse queda cortado. Tema oscuro canónico y aurora bioluminiscente, sin candados, escudos ni muros', 'Hoy no existe el concepto de acceso temporal: el estado tiene que verse vivo'],
+        ['Visceral', 'El Pase vigente brilla quieto y se apaga con el tiempo que le queda; al vencer se marchita; al revocarse queda cortado. Tema oscuro canónico y aurora bioluminiscente, sin candados, escudos ni muros', 'Hoy no existe el concepto de acceso temporal: el estado tiene que verse vivo'],
         ['Conductual', 'Crear un Pase en 3 toques o menos; la franja se ve antes de crear; revocar se deshace durante 5 s', 'El competidor es la llamada a portería, que es gratis y conocida'],
         ['Reflexivo', 'Estado honesto: solo es vigente lo que el lector confirmó; cada rechazo lleva su motivo', 'Simetría invertida: el portero ve de los residentes lo que ellos no ven de sí mismos'],
     ], [1800, 4560, 3400]),
@@ -203,7 +203,7 @@ S.append(('5.2', [
     ('t', [
         ['ID', 'Interacción', 'Disparador → respuesta', 'Regla · efecto en HikCentral'],
         ['I-01', 'Código por WhatsApp', 'Enviar código → llega y se llena solo', 'Teléfono obligatorio y único'],
-        ['I-02', 'Pase vivo en la lista', 'Paso del tiempo → la barra se consume; vigente late', 'Vencido = el lector deja de aceptarlo'],
+        ['I-02', 'Pase vivo en la lista', 'Paso del tiempo → la barra se consume; vigente brilla quieto', 'Vencido = el lector deja de aceptarlo'],
         ['I-03', 'Volver a invitar', 'Tocar una persona reciente → hoja ya llena', 'Crear en 3 toques o menos'],
         ['I-04', 'Hoja con gesto', 'Arrastrar → se cierra con resorte', 'Nada se crea hasta tocar Crear Pase'],
         ['I-05', 'Vigencia a tu medida', 'Unas horas, un día o Se queda → resumen «Así queda»', 'Sin tope: persona temporal con «Válido desde / hasta»'],
@@ -224,7 +224,7 @@ S.append(('5.2', [
         ['I-20', 'Rostro como cuarto modo (planeada)', 'Enrolamiento único → entra sin teléfono', 'Opcional, con autorización (SIC 52185)'],
     ], [700, 2300, 3660, 3100]),
     ('h', 'Dirección biopunk (aprobada, E3-1)'),
-    'El Pase como tejido: late mientras está vigente, se marchita al vencer, cicatriza al revocarse y el lector reconoce con una sinapsis. Aprobada por el equipo el 19 oct 2026 (decisiones.md E3-1). La tecla B la apaga para compararla con la marca base.',
+    'El Pase como tejido: se enciende al confirmarse, brilla quieto mientras está vigente, se marchita al vencer, cicatriza al revocarse y el lector reconoce como en la sinapsis inmunológica, con tres anillos que forman una diana. Cada movimiento sale de un proceso real (entrega-3/motion-e-ilustracion.md, PROPUESTA E3-8). Aprobada por el equipo el 19 oct 2026 (decisiones.md E3-1). La tecla B la apaga para compararla con la marca base.',
 ]))
 
 # 6 · DISEÑO Y EVALUACIÓN DE LA EXPERIENCIA ------------------------------------------------------------

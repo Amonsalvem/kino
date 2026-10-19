@@ -193,6 +193,31 @@ const Control = ({rotulo, valor, menos, mas}: {rotulo: string; valor: string; me
 	</div>
 );
 
+/** Red de Physarum (Tero y otros, 2010): el tubo se engrosa con el flujo y se seca sin él.
+ *  Cada tubo es una proporción sincronizada real; nada se mueve si los contadores no cambian. */
+function Red({usuarios, vehiculos}: {usuarios: [number, number]; vehiculos: [number, number]}) {
+	const tubo = ([n, de]: [number, number], y: number, rotulo: string) => {
+		const f = de ? n / de : 0;
+		const seco = f < 0.05;
+		return (
+			<g class={`red__tubo ${seco ? 'red__tubo--seco' : f < 0.95 ? 'red__tubo--parcial' : ''}`}>
+				<path d={`M48 48C100 48 108 ${y} 162 ${y}S226 48 276 48`} style={{strokeWidth: seco ? 1.6 : 2 + f * 9}} />
+				<text x="162" y={y + (y < 48 ? -12 : 24)} text-anchor="middle">{`${rotulo} · ${n} de ${de}`}</text>
+			</g>
+		);
+	};
+	return (
+		<svg class="red" viewBox="0 0 332 104" role="img" aria-label={`Kino a HikCentral: ${usuarios[0]} de ${usuarios[1]} personas y ${vehiculos[0]} de ${vehiculos[1]} vehículos sincronizados`}>
+			{tubo(usuarios, 26, 'Personas')}
+			{tubo(vehiculos, 70, 'Vehículos')}
+			<circle class="red__nodo" cx="26" cy="48" r="22" />
+			<text class="red__rotulo" x="26" y="52" text-anchor="middle">Kino</text>
+			<rect class="red__nodo" x="276" y="30" width="52" height="36" rx="8" />
+			<text class="red__rotulo red__rotulo--tenue" x="302" y="84" text-anchor="middle">HikCentral</text>
+		</svg>
+	);
+}
+
 function Lector() {
 	const est = useKino(500);
 	return (
@@ -210,7 +235,7 @@ function Lector() {
 						</div>
 						{s.usuarios[1] > 0 ? (
 							<>
-								<div class="sync__barra"><i style={{transform: `scaleX(${s.usuarios[0] / s.usuarios[1]})`}} /></div>
+								<Red usuarios={s.usuarios} vehiculos={s.vehiculos} />
 								<dl class="datos">
 									<div><dt>Usuarios en el lector</dt><dd class="mono">{s.usuarios[0]} de {s.usuarios[1]}</dd></div>
 									<div><dt>Vehículos en el lector</dt><dd class="mono">{s.vehiculos[0]} de {s.vehiculos[1]}</dd></div>

@@ -1,13 +1,21 @@
 // La visita, sin cuenta: recibe el mensaje y abre el Pase vivo en el navegador (en claro, X1).
 import {useState} from 'preact/hooks';
 import {anotar, corto, cuentaRegresiva, E, estado, hora24, horaCorta, ventana, vigenciaTexto} from './modelo';
-import {ChipEstado, Icono, Marca, Portal, QR, useKino, type ModoVista} from './componentes';
+import {ChipEstado, Icono, Ilustracion, Marca, Portal, QR, useKino, type ModoVista} from './componentes';
 
 export function Visita() {
 	const est = useKino(1000);
 	const [vista, setVista] = useState<'chat' | 'pase'>('chat');
 	const p = est.pases.find((x) => x.id === est.visitaPaseId && x.compartido) ?? est.pases.find((x) => x.compartido);
-	if (!p) return <div class="app app--visita"><p class="nota">Aún no hay Pases enviados.</p></div>;
+	if (!p)
+		return (
+			<div class="app app--visita">
+				<div class="vacio vacio--ilustrado">
+					<Ilustracion tipo="pase-vacio" />
+					<p class="nota">Aún no hay Pases enviados.</p>
+				</div>
+			</div>
+		);
 	return (
 		<div class="app app--visita">
 			{vista === 'chat' ? <Chat onAbrir={() => (setVista('pase'), anotar('I-09'))} /> : <PaseVivo id={p.id} onVolver={() => setVista('chat')} />}

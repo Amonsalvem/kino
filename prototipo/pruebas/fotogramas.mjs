@@ -15,13 +15,13 @@ const p = await nav.newPage({viewport: {width: 1080, height: 820}});
 await p.goto(`file://${raiz}/prototipo/build/kino-prototipo.html?actor=porteria&solo=1`);
 await p.waitForTimeout(600);
 const panel = p.locator('.lector');
-for (const [nombre, quien] of [['entra', 'Andrés Gómez'], ['no-entra', 'Andrés Gómez']]) {
+for (const [nombre, quien] of [['entra', 'Andrés Gómez'], ['no-entra', 'Juan Pablo']]) {
 	await p.locator('.llegada', {hasText: quien}).first().click();
 	await p.waitForTimeout(500);
 	await panel.screenshot({path: path.join(salida, `${nombre}-leyendo.png`)});
 	await p.waitForFunction(() => !document.querySelector('.lector--leyendo'));
 	const t0 = Date.now();
-	for (const ms of [0, 120, 280, 480, 800, 1400, 4600]) {
+	for (const ms of [0, 60, 120, 280, 480, 800, 1400, 4600]) {
 		const espera = ms - (Date.now() - t0);
 		if (espera > 0) await p.waitForTimeout(espera);
 		await panel.screenshot({path: path.join(salida, `${nombre}-${String(ms).padStart(4, '0')}.png`)});

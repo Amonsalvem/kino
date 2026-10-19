@@ -1,9 +1,9 @@
-// Piezas compartidas: marca, íconos, Pase (tarjeta y Portal), QR, botón de mantener, dispositivos y micelio.
+// Piezas compartidas: marca, íconos, Pase (tarjeta y Portal), QR, botón de mantener, dispositivos, micelio e ilustraciones.
 import {useEffect, useLayoutEffect, useRef, useState} from 'preact/hooks';
 import type {ComponentChildren, JSX} from 'preact';
 import qrcode from 'qrcode-generator';
 import type {Estado} from '../../paquetes/kino-motion/src/nucleo/pase';
-import {ahora, E, esEstadia, ESTADO_TEXTO, estado, hora24, restante, suscribir, vigenciaTexto, type Pase} from './modelo';
+import {ahora, brillo, E, esEstadia, ESTADO_TEXTO, estado, hora24, restante, suscribir, vigenciaTexto, type Pase} from './modelo';
 import {animar, C, D, reducido, resorte, vibrar} from './movimiento';
 
 // Estado vivo -------------------------------------------------------------------------------------------
@@ -104,7 +104,7 @@ export function TarjetaPase({p, onAbrir, retraso = 0}: {p: Pase; onAbrir: (p: Pa
 		transicion(ref.current, antes, e);
 	}, [e]);
 	return (
-		<button ref={ref} class={`tarjeta tarjeta--${e} ${p.nuevo ? 'tarjeta--nueva' : ''}`} data-estado={e} onClick={() => onAbrir(p, ref.current!)} aria-label={`${p.nombre}, ${ESTADO_TEXTO[e]}`}>
+		<button ref={ref} class={`tarjeta tarjeta--${e} ${p.nuevo ? 'tarjeta--nueva' : ''}`} data-estado={e} style={{'--brillo': brillo(p, e)}} onClick={() => onAbrir(p, ref.current!)} aria-label={`${p.nombre}, ${ESTADO_TEXTO[e]}`}>
 			<span class="membrana" aria-hidden="true" />
 			<span class="tarjeta__cabeza">
 				<span class="rotulo">{p.tipo === 'colaborador' ? 'Colaborador' : esEstadia(p) ? 'Estadía' : 'Visita'}</span>
@@ -133,8 +133,13 @@ export function lineaVigencia(p: Pase, e: Estado) {
 export function transicion(el: HTMLElement, de: Estado, a: Estado) {
 	const op = {fill: 'none' as const};
 	if (a === 'vigente' && de === 'sin-confirmar') {
-		animar(el.querySelector('.portal__arco') ?? el, [{boxShadow: '0 0 0 0 var(--kino-biolum-d110)'}, {boxShadow: '0 0 0 14px transparent'}], {duration: D.tarjeta, easing: C.crecer, ...op});
+		// Quorum: la señal se acumuló sin efecto visible y la luz se enciende de golpe (destello de 120 ms: sube un tercio, cae el resto).
+		animar(el.querySelector('.portal__arco') ?? el, [{filter: 'brightness(1)'}, {filter: 'brightness(1.7)', offset: 0.36}, {filter: 'brightness(1)'}], {duration: D.instante, easing: 'linear', ...op});
+		// Tres latidos con sístole corta (un tercio del ciclo) y después brillo quieto, como los hongos luminiscentes.
+		animar(el.querySelector('.chip__punto'), [{transform: 'scale(1)'}, {transform: 'scale(1.7)', offset: 0.12}, {transform: 'scale(1)', offset: 0.33}, {transform: 'scale(1)'}], {duration: D.latir, iterations: 3, easing: C.latir});
 		animar(el.querySelector('.vida'), [{opacity: 0, transform: 'scaleX(.4)'}, {opacity: 1, transform: 'none'}], {duration: D.tarjeta, easing: C.crecer});
+		// La nota de lo que pasó sube (partitura: confirmar).
+		animar(el.querySelector('.tarjeta__vigencia'), [{opacity: 0, transform: 'translateY(8px)'}, {opacity: 1, transform: 'none'}], {duration: D.crecer, easing: C.crecer});
 		vibrar(20);
 	} else if (a === 'revocado') {
 		animar(el.querySelector('.corte'), [{transform: 'scaleX(0)'}, {transform: 'scaleX(1)'}], {duration: D.corto, easing: C.revocar, fill: 'forwards'});
@@ -175,7 +180,7 @@ export function Portal({p, modo = 'qr', claro, tam = 260}: {p: Pase; modo?: Modo
 	}, [e]);
 	const muerto = e === 'vencido' || e === 'revocado' || e === 'usado';
 	return (
-		<div ref={ref} class={`portal portal--${e} ${claro ? 'portal--claro' : ''}`} data-estado={e} style={{'--tam': `${tam}px`}}>
+		<div ref={ref} class={`portal portal--${e} ${claro ? 'portal--claro' : ''}`} data-estado={e} style={{'--tam': `${tam}px`, '--brillo': brillo(p, e)}}>
 			<span class="portal__halo" aria-hidden="true" />
 			<div class="portal__arco">
 				{modo === 'qr' && <QR texto={`https://kino.co/p/${p.id}`} tam={tam * 0.62} />}
@@ -273,108 +278,92 @@ export const Telefono = ({children, claro, etiqueta}: {children: ComponentChildr
 	);
 };
 
-// Micelio: fondo vivo de la exploración biopunk ---------------------------------------------------------
+// Micelio: textura de fondo de la dirección biopunk. Se dibuja una vez: nada se mueve si no cambia un dato.
 export function Micelio({densidad = 46, clase = ''}: {densidad?: number; clase?: string}) {
 	const ref = useRef<HTMLCanvasElement>(null);
 	useEffect(() => {
 		const cv = ref.current!;
 		const ctx = cv.getContext('2d')!;
-		let w = 0;
-		let h = 0;
-		let raf = 0;
 		const dpr = Math.min(2, devicePixelRatio || 1);
-		const nodos = Array.from({length: densidad}, () => ({x: Math.random(), y: Math.random(), vx: (Math.random() - 0.5) * 0.00012, vy: (Math.random() - 0.5) * 0.00012, r: 0.6 + Math.random() * 1.8, f: Math.random() * 6.28}));
-		const medir = () => {
+		// Semilla fija: el mismo dibujo en cada visita.
+		let s = 7;
+		const azar = () => ((s = (s * 16807) % 2147483647) / 2147483647);
+		const nodos = Array.from({length: densidad}, () => ({x: azar(), y: azar(), r: 0.6 + azar() * 1.8}));
+		const verde = getComputedStyle(document.documentElement).getPropertyValue('--bio-filamento').trim() || '#00BB83';
+		const dibujar = () => {
 			const r = cv.getBoundingClientRect();
-			w = r.width;
-			h = r.height;
+			const w = r.width;
+			const h = r.height;
 			cv.width = w * dpr;
 			cv.height = h * dpr;
 			ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-		};
-		medir();
-		const ro = new ResizeObserver(medir);
-		ro.observe(cv);
-		const css = getComputedStyle(document.documentElement);
-		const verde = css.getPropertyValue('--bio-filamento').trim() || '#00BB83';
-		const dibujar = (t: number) => {
 			ctx.clearRect(0, 0, w, h);
-			const quieto = reducido();
-			for (const n of nodos) {
-				if (!quieto) {
-					n.x += n.vx * 16;
-					n.y += n.vy * 16;
-					if (n.x < 0 || n.x > 1) n.vx *= -1;
-					if (n.y < 0 || n.y > 1) n.vy *= -1;
-				}
-			}
 			const lim = Math.min(w, h) * 0.28;
 			ctx.lineWidth = 0.8;
+			ctx.strokeStyle = verde;
+			ctx.fillStyle = verde;
 			for (let i = 0; i < nodos.length; i++)
 				for (let j = i + 1; j < nodos.length; j++) {
 					const a = nodos[i];
 					const b = nodos[j];
-					const dx = (a.x - b.x) * w;
-					const dy = (a.y - b.y) * h;
-					const dist = Math.hypot(dx, dy);
+					const dist = Math.hypot((a.x - b.x) * w, (a.y - b.y) * h);
 					if (dist > lim) continue;
-					const al = (1 - dist / lim) * 0.32;
-					ctx.strokeStyle = verde;
-					ctx.globalAlpha = al;
+					ctx.globalAlpha = (1 - dist / lim) * 0.32;
 					ctx.beginPath();
-					const mx = (a.x * w + b.x * w) / 2 + Math.sin(t / 2400 + i) * 6;
-					const my = (a.y * h + b.y * h) / 2 + Math.cos(t / 2600 + j) * 6;
 					ctx.moveTo(a.x * w, a.y * h);
-					ctx.quadraticCurveTo(mx, my, b.x * w, b.y * h);
+					ctx.quadraticCurveTo((a.x + b.x) * w / 2 + Math.sin(i) * 6, (a.y + b.y) * h / 2 + Math.cos(j) * 6, b.x * w, b.y * h);
 					ctx.stroke();
 				}
 			for (const n of nodos) {
-				const pulso = quieto ? 0.6 : 0.5 + 0.5 * Math.sin(t / 900 + n.f);
-				ctx.globalAlpha = 0.25 + pulso * 0.55;
-				ctx.fillStyle = verde;
+				ctx.globalAlpha = 0.55;
 				ctx.beginPath();
-				ctx.arc(n.x * w, n.y * h, n.r + pulso, 0, 6.283);
+				ctx.arc(n.x * w, n.y * h, n.r + 0.6, 0, 6.283);
 				ctx.fill();
 			}
 			ctx.globalAlpha = 1;
-			if (!quieto) raf = requestAnimationFrame(dibujar);
 		};
-		raf = requestAnimationFrame(dibujar);
-		return () => {
-			cancelAnimationFrame(raf);
-			ro.disconnect();
-		};
+		dibujar();
+		const ro = new ResizeObserver(dibujar);
+		ro.observe(cv);
+		return () => ro.disconnect();
 	}, []);
 	return <canvas ref={ref} class={`micelio ${clase}`} aria-hidden="true" />;
 }
 
-/** Sinapsis: filamentos que salen del punto de lectura cuando el lector reconoce. */
-export function Sinapsis({activa, tono = 'vigente'}: {activa: number; tono?: 'vigente' | 'rechazado'}) {
-	const ref = useRef<SVGSVGElement>(null);
-	useEffect(() => {
-		if (!activa || !ref.current) return;
-		ref.current.querySelectorAll('path').forEach((p, i) => {
-			const l = (p as SVGPathElement).getTotalLength();
-			animar(p, [{strokeDashoffset: l, opacity: 1}, {strokeDashoffset: 0, opacity: 1, offset: 0.7}, {strokeDashoffset: 0, opacity: 0}], {duration: D.trazo + 300, easing: C.crecer, delay: i * 40, fill: 'both'});
-		});
-	}, [activa]);
-	const rayos = Array.from({length: 14}, (_, i) => {
-		const a = (i / 14) * Math.PI * 2;
-		const r1 = 60;
-		const r2 = 150 + (i % 3) * 30;
-		const x1 = 200 + Math.cos(a) * r1;
-		const y1 = 200 + Math.sin(a) * r1;
-		const x2 = 200 + Math.cos(a + 0.25) * r2;
-		const y2 = 200 + Math.sin(a + 0.25) * r2;
-		const cx = 200 + Math.cos(a - 0.3) * (r1 + r2) * 0.55;
-		const cy = 200 + Math.sin(a - 0.3) * (r1 + r2) * 0.55;
-		return `M${x1} ${y1}Q${cx} ${cy} ${x2} ${y2}`;
-	});
+// Ilustraciones ----------------------------------------------------------------------------------------
+// Una sola familia, hecha con la geometría del logo: el arco y la gota. Trazo de 1,7 con puntas redondas (X6),
+// dos colores apagados, sin sombras ni personas. El arco aparece solo cuando la ilustración muestra un Pase (X8).
+const GOTA = 'M0 -15.6A16.2 17.6 0 0 1 16.2 2L0 15.1L-16.2 2A16.2 17.6 0 0 1 0 -15.6Z';
+const ARCO = 'M44 112V58a36 36 0 0 1 72 0v54';
+export type TipoIlustracion = 'membrana' | 'pase-vacio' | 'llegada';
+export function Ilustracion({tipo, titulo}: {tipo: TipoIlustracion; titulo?: string}) {
 	return (
-		<svg ref={ref} class={`sinapsis sinapsis--${tono}`} viewBox="0 0 400 400" aria-hidden="true">
-			{rayos.map((d) => (
-				<path d={d} pathLength={undefined} style={{strokeDasharray: 400, strokeDashoffset: 400, opacity: 0}} />
-			))}
+		<svg class={`ilustracion ilustracion--${tipo}`} viewBox="0 0 160 124" role={titulo ? 'img' : undefined} aria-label={titulo} aria-hidden={titulo ? undefined : 'true'}>
+			{tipo === 'membrana' && (
+				<>
+					{/* Kino es una membrana: un borde vivo con una abertura por donde pasa quien tiene Pase. */}
+					<path class="ilustracion__trazo" d="M118 34C104 16 74 12 52 22 28 33 18 58 26 82c8 24 34 36 60 32 18-3 30-12 36-24" />
+					<path class="ilustracion__trazo ilustracion__trazo--tenue" d="M108 44C97 31 76 28 60 35 43 43 37 60 42 77c6 17 24 26 42 23 12-2 21-8 26-17" />
+					<g transform="translate(130 60) scale(.62)"><path class="ilustracion__gota" d={GOTA} /></g>
+				</>
+			)}
+			{tipo === 'pase-vacio' && (
+				<>
+					{/* El Pase que todavía no existe: el arco con el borde punteado de Sin confirmar. */}
+					<path class="ilustracion__trazo ilustracion__trazo--punteado" d={ARCO} />
+					<path class="ilustracion__trazo ilustracion__trazo--tenue" d="M34 112h92" />
+					<g transform="translate(80 84) scale(.5)"><path class="ilustracion__gota ilustracion__gota--tenue" d={GOTA} /></g>
+				</>
+			)}
+			{tipo === 'llegada' && (
+				<>
+					{/* Alguien llega con su Pase: el rastro punteado termina en el umbral del arco. */}
+					<path class="ilustracion__trazo" d={ARCO} />
+					<path class="ilustracion__trazo ilustracion__trazo--tenue" d="M18 112h124" />
+					<path class="ilustracion__trazo ilustracion__trazo--punteado" d="M80 124v-12" />
+					<g transform="translate(80 98) scale(.5)"><path class="ilustracion__gota" d={GOTA} /></g>
+				</>
+			)}
 		</svg>
 	);
 }

@@ -465,7 +465,7 @@ Pedido de Nico: subir las tres escenas de Blender a nivel profesional; libertad 
 
 ### E3-1 · Exploración biopunk en el prototipo · APROBADA (opción A, Nico, 19 oct)
 - **Qué es:** una capa de tema (`prototipo/src/estilos.css`, bloque «Exploración biopunk»). Desde la aprobación va encendida por defecto; la tecla B la apaga para comparar. No toca ningún token aprobado.
-- **Rasgos:** el Pase vigente late como tejido; el vencido se marchita (pierde saturación y se deforma); el revocado cicatriza (el corte punteado); el lector reconoce con una sinapsis; el borde del Portal es una quitina iridiscente; micelio vivo de fondo.
+- **Rasgos:** el Pase vigente late como tejido; el vencido se marchita (pierde saturación y se deforma); el revocado cicatriza (el corte punteado); el lector reconoce con una sinapsis; el borde del Portal es una quitina iridiscente; micelio vivo de fondo. *El movimiento de estos rasgos lo reemplaza E3-8 si se aprueba.*
 - **Por qué:** hoy no existe el acceso temporal para una persona, así que el estado tiene que verse vivo (H1/H5). Cada rasgo nombra un hecho del Pase; ninguno decora.
 - **Decidido:** A, adoptar la capa en la app. Pendiente: llevar la capa a tokens y a la librería de Figma con una versión nueva del sistema.
 
@@ -511,3 +511,26 @@ Pedido de Nico: subir las tres escenas de Blender a nivel profesional; libertad 
 - **Ahora:** en el prototipo, crear y enviar un Pase toma 3 toques o menos con una visita reciente y menos de 30 s estimados con KLM con una visita nueva, verificado por `prototipo/pruebas/oe1.mjs`.
 - **Medido el 19 oct:** 3 toques y 8 s; visita nueva, 5 toques y 19,4 s.
 - **Lo que no mide:** KLM predice a alguien que ya conoce la interfaz; no mide si un residente la entiende la primera vez. La satisfacción (SUS) pasa a OE2, con residentes, en el piloto.
+
+### E3-8 · Motion e ilustración desde procesos reales · PROPUESTA
+- **Pedido de Nico (19 oct):** la espiral del lector «no tiene nada que ver con la estética»; investigar y crear las animaciones e ilustraciones que debe tener Kino.
+- **Qué propone:** `entrega-3/motion-e-ilustracion.md`. Cada movimiento sale de un proceso documentado:
+  - el lector reconoce como en la sinapsis inmunológica;
+  - el encendido al confirmarse es bioluminiscente;
+  - por vencer es la fatiga de la luz;
+  - no entra es la contracción de la *Mimosa*;
+  - la integración es la red de *Physarum*.
+- **Reglas** (Apple HIG, Carbon, Material 3, WCAG 2.2):
+  - el veredicto se lee en el primer cuadro;
+  - nada gira;
+  - nada se mueve si no cambia un dato;
+  - los latidos son 3;
+  - reducido es fundido.
+- **Ilustraciones:** una familia con el arco y la gota del logo, solo en primer uso, estados vacíos y el diagrama de integración.
+- **Ya está en el prototipo.** Corrige cinco contradicciones con la marca:
+  - latidos infinitos;
+  - spinner en la espera;
+  - reducido que apagaba todo;
+  - fondos en movimiento;
+  - la nota de confirmación sin el movimiento que pide la partitura.
+- **Falta:** aprobarla; llevar `destello` y la curva de sístole a `@kino/motion`; pasar las ilustraciones a Figma.

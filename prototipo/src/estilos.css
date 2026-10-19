@@ -105,10 +105,11 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--kino-borde-foco
 .chip__punto{width:7px;height:7px;border-radius:50%;background:currentColor}
 .chip--previsto{color:var(--kino-estado-previsto-texto);background:var(--kino-estado-previsto-fondo);border-color:var(--kino-estado-previsto-borde)}
 .chip--sin-confirmar{color:var(--kino-estado-sin-confirmar-texto);border-style:dashed;border-color:var(--kino-estado-sin-confirmar-borde)}
-.chip--sin-confirmar .chip__punto{background:none;border:1.5px solid currentColor;animation:gira 1.2s linear infinite;border-right-color:transparent}
-@keyframes gira{to{transform:rotate(1turn)}}
+/* Sin confirmar: la señal se acumula sin efecto visible (quorum). Punto hueco y quieto; nada gira. */
+.chip--sin-confirmar .chip__punto{background:none;border:1.5px solid currentColor}
 .chip--vigente{color:var(--kino-estado-vigente-texto);background:var(--kino-estado-vigente-fondo);border-color:var(--kino-estado-vigente-borde)}
-.chip--vigente .chip__punto{animation:latir var(--d-latir) var(--c-latir) infinite}
+/* Vigente brilla quieto, como los hongos luminiscentes; los tres latidos van solo al confirmarse (componentes.tsx). */
+.chip--vigente .chip__punto{box-shadow:0 0 6px currentColor}
 .chip--por-vencer{color:var(--kino-estado-por-vencer-texto);background:var(--kino-estado-por-vencer-fondo);border-color:var(--kino-estado-por-vencer-borde)}
 .chip--usado,.chip--vencido{color:var(--kino-estado-vencido-texto);background:var(--kino-estado-vencido-fondo);border-color:var(--kino-estado-vencido-borde)}
 .chip--revocado{color:var(--kino-estado-revocado-texto);background:var(--kino-estado-revocado-fondo);border-color:var(--kino-estado-revocado-borde)}
@@ -183,15 +184,19 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--kino-borde-foco
 .vida__fluido{display:block;height:100%;background:var(--kino-estado-vigente-texto);transform-origin:left center;transition:transform 1s linear}
 .vida--por-vencer .vida__fluido{background:var(--kino-estado-por-vencer-texto)}
 .vida--previsto .vida__fluido{background:var(--kino-estado-previsto-borde);opacity:.5}
-.vida--sin-confirmar .vida__fluido{background:repeating-linear-gradient(90deg,var(--kino-borde-definido) 0 8px,transparent 8px 14px);animation:fluir 1.2s linear infinite}
+.vida--sin-confirmar .vida__fluido{background:repeating-linear-gradient(90deg,var(--kino-borde-definido) 0 8px,transparent 8px 14px)}
 .membrana{display:none}
-@keyframes fluir{to{background-position:28px 0}}
+/* Nacimiento: germinación. La tarjeta se hincha pareja y la vigencia crece por la punta, a pulsos. */
+.tarjeta--nueva{animation:germina var(--d-tarjeta) var(--c-crecer) both}
+.tarjeta--nueva .vida{animation:apical var(--d-tarjeta) var(--c-crecer) both;animation-delay:calc(var(--d-crecer) * .5)}
+@keyframes germina{from{opacity:0;transform:scale(.94)}}
+@keyframes apical{0%{clip-path:inset(0 100% 0 0)}28%,40%{clip-path:inset(0 66% 0 0)}62%,74%{clip-path:inset(0 33% 0 0)}100%{clip-path:inset(0 0 0 0)}}
 
 /* Portal: el arco del logo con el QR --------------------------------------------------------------- */
 .portal{position:relative;width:var(--tam);display:grid;place-items:center;isolation:isolate}
 .portal__arco{position:relative;width:100%;aspect-ratio:1/1.08;border-radius:50% 50% 14px 14px / 46% 46% 14px 14px;background:#F4FFFA;color:#00140C;display:grid;place-items:center;padding-top:10%;box-shadow:0 0 0 2px var(--kino-estado-vigente-borde),var(--kino-resplandor-vigente);overflow:hidden;transition:box-shadow var(--d-tarjeta) var(--c-crecer),filter var(--d-decaer) var(--c-decaer)}
 .portal__halo{position:absolute;inset:-12%;border-radius:50%;background:radial-gradient(closest-side,color-mix(in oklab,var(--kino-biolum-d110) 40%,transparent),transparent);z-index:-1;opacity:0;transition:opacity var(--d-tarjeta)}
-.portal--vigente .portal__halo{opacity:1;animation:respira var(--d-latir) var(--c-latir) infinite}
+.portal--vigente .portal__halo,.portal--por-vencer .portal__halo{opacity:var(--brillo,1)}
 .portal--por-vencer .portal__arco{box-shadow:0 0 0 2px var(--kino-estado-por-vencer-borde)}
 .portal--sin-confirmar .portal__arco{box-shadow:0 0 0 2px var(--kino-estado-sin-confirmar-borde);outline:2px dashed var(--kino-estado-sin-confirmar-borde);outline-offset:6px}
 .portal--sin-confirmar .qr,.portal--previsto .qr{opacity:.35}
@@ -203,7 +208,6 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--kino-borde-foco
 .portal__dato{display:grid;gap:8px;text-align:center}
 .portal__dato .rotulo{color:#3D5C50}
 .portal__grande{font-family:var(--kino-fuente-dato);font-size:44px;font-weight:600;letter-spacing:.04em}
-@keyframes respira{0%,100%{transform:scale(.96);opacity:.7}50%{transform:scale(1.04);opacity:1}}
 
 /* Residente ----------------------------------------------------------------------------------------- */
 .ingreso{position:absolute;inset:0;display:flex;flex-direction:column;padding:24px;gap:28px;overflow:hidden;background:radial-gradient(120% 70% at 30% 0%,var(--kino-sustrato-400),var(--kino-superficie-abismo))}
@@ -247,6 +251,7 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--kino-borde-foco
 .pagina{padding:12px 20px 120px;display:grid;gap:16px;align-content:start}
 .pagina__cabeza{display:grid;gap:8px}
 .vacio{display:grid;gap:10px;padding:20px;border-radius:var(--kino-forma-radio-tarjeta);border:1px dashed var(--kino-borde-definido)}
+.vacio--ilustrado{border:0;padding:24px 16px;text-align:center;justify-items:center;gap:16px}
 .fila-aviso{display:flex;gap:12px;align-items:flex-start;text-align:left;padding:14px;border-radius:14px;background:var(--kino-superficie-elevada);border-left:3px solid var(--kino-estado-vigente-borde);animation:entra var(--d-crecer) var(--c-crecer) both}
 .fila-aviso__texto{display:grid;gap:4px;min-width:0}
 .fila-aviso--rechazado{border-left-color:var(--kino-estado-rechazado-borde)}
@@ -326,11 +331,11 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--kino-borde-foco
 .porteria__principal{display:grid;grid-template-rows:minmax(0,1fr) auto;gap:24px;min-width:0;min-height:0}
 .lector{position:relative;isolation:isolate;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) 200px;grid-template-rows:minmax(0,1fr) auto;border-radius:24px;border:2px solid var(--kino-borde-tenue);background:var(--kino-superficie-elevada);transition:border-color var(--d-crecer) var(--c-crecer)}
 .lector--leyendo{border-color:var(--kino-estado-por-vencer-borde)}
-.lector--entra{border-color:var(--kino-estado-vigente-borde)}
-.lector--rechazado{border-color:var(--kino-estado-rechazado-borde)}
-.lector__ola{position:absolute;inset:0;z-index:-1;opacity:0;clip-path:circle(0% at 86% 64%)}
-.lector--entra .lector__ola{background:radial-gradient(120% 140% at 86% 64%,color-mix(in oklab,var(--kino-biolum-d45) 55%,var(--kino-estado-vigente-fondo)),var(--kino-estado-vigente-fondo) 55%)}
-.lector--rechazado .lector__ola{background:radial-gradient(90% 120% at 86% 64%,color-mix(in oklab,var(--kino-carmin-d110) 16%,var(--kino-estado-rechazado-fondo)),var(--kino-estado-rechazado-fondo) 60%)}
+/* El color del veredicto está en el primer cuadro; el destello solo explica de dónde vino. */
+.lector--entra{border-color:var(--kino-estado-vigente-borde);background:var(--kino-estado-vigente-fondo)}
+.lector--rechazado{border-color:var(--kino-estado-rechazado-borde);background:var(--kino-estado-rechazado-fondo)}
+.lector__ola{position:absolute;inset:0;z-index:-1;opacity:0;pointer-events:none}
+.lector--entra .lector__ola{background:radial-gradient(70% 90% at 86% 52%,color-mix(in oklab,var(--kino-biolum-d45) 60%,transparent),transparent 70%)}
 .lector__contenido{grid-area:1/1;display:flex;align-items:center;padding:24px 32px;min-width:0;min-height:0}
 .lector__texto{display:grid;gap:12px;width:100%;align-content:center}
 .lector__titulo{font-family:var(--kino-fuente-display);font-weight:800;font-stretch:112%;font-size:36px;line-height:1.05}
@@ -365,9 +370,9 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--kino-borde-foco
 .lector__cuenta{display:grid;gap:8px;margin-top:12px}
 .lector__cuenta-pista{display:block;height:4px;border-radius:2px;background:color-mix(in oklab,var(--kino-estado-vigente-texto) 20%,transparent);overflow:hidden}
 .lector__cuenta-pista span{display:block;height:100%;background:var(--kino-estado-vigente-texto);transform-origin:left}
-.sinapsis{position:absolute;left:-24px;bottom:8px;width:200px;height:200px;pointer-events:none;fill:none;stroke-width:2;stroke-linecap:round}
-.sinapsis--vigente{stroke:var(--kino-estado-vigente-texto)}
-.sinapsis--rechazado{stroke:var(--kino-estado-rechazado-texto)}
+/* Sinapsis inmunológica: los anillos convergen en la ventana del lector y forman la diana. */
+.diana__anillo{fill:none;stroke:var(--kino-estado-vigente-texto);stroke-width:1.6;opacity:0;transform-box:fill-box;transform-origin:center}
+.diana__anillo:nth-child(2){stroke-opacity:.7}.diana__anillo:nth-child(3){stroke-opacity:.45}
 .porteria__lateral{display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:12px;min-width:0;min-height:0}
 .llegadas{display:grid;gap:8px;align-content:start;overflow-y:auto;padding-bottom:24px;scrollbar-width:none;-webkit-mask-image:linear-gradient(#000 calc(100% - 32px),transparent);mask-image:linear-gradient(#000 calc(100% - 32px),transparent)}
 .llegada{display:flex;gap:12px;align-items:center;min-height:56px;text-align:left;padding:8px 12px;border-radius:12px;border:1px solid var(--kino-borde-tenue);background:var(--kino-superficie-elevada);transition:transform var(--r-tacto-ms) var(--r-tacto),border-color var(--d-corto)}
@@ -425,38 +430,59 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--kino-borde-foco
 .sync__barra{height:8px;border-radius:4px;background:var(--kino-superficie-base);overflow:hidden}
 .sync__barra i{display:block;height:100%;background:var(--kino-estado-vigente-texto);transform-origin:left;transition:transform .1s linear}
 .causa{margin:0;font-size:15px;color:var(--kino-texto-secundario)}
+.red{width:100%;height:auto;overflow:visible}
+.red__tubo path{fill:none;stroke:var(--kino-estado-vigente-texto);stroke-linecap:round;transition:stroke-width var(--d-crecer) var(--c-crecer),stroke var(--d-corto)}
+.red__tubo--parcial path{stroke:var(--kino-estado-por-vencer-texto)}
+.red__tubo--seco path{stroke:var(--kino-estado-rechazado-texto);stroke-dasharray:2 6}
+.red__tubo text{font-family:var(--kino-fuente-dato);font-size:12px;fill:var(--kino-texto-secundario)}
+.red__nodo{fill:var(--kino-superficie-membrana);stroke:var(--kino-borde-definido);stroke-width:1.5}
+.red__rotulo{font-family:var(--kino-fuente-dato);font-size:12px;fill:var(--kino-texto-primario)}
+.red__rotulo--tenue{fill:var(--kino-texto-secundario)}
 
-/* Exploración biopunk (PROPUESTA) ------------------------------------------------------------------- */
+/* Dirección biopunk (E3-1, aprobada). Movimiento según entrega-3/motion-e-ilustracion.md: nada se mueve si no cambia un dato. */
 :root{--bio-filamento:#00D595;--bio-quitina:conic-gradient(from var(--giro,0deg),var(--kino-biolum-d110),var(--kino-indigo-d110),var(--kino-violeta-d110),var(--kino-biolum-d70),var(--kino-biolum-d110))}
 @property --giro{syntax:'<angle>';inherits:false;initial-value:0deg}
 [data-bio="1"] .titulo--xl,[data-bio="1"] .titulo--l{font-stretch:125%}
 [data-bio="1"] .micelio--cabecera{opacity:.7}
 [data-bio="1"] .tarjeta{border-radius:24px 18px 26px 16px}
-[data-bio="1"] .tarjeta .membrana{display:block;position:absolute;inset:-30%;z-index:-1;background:radial-gradient(40% 50% at var(--mx,30%) 40%,color-mix(in oklab,var(--kino-biolum-d45) 50%,transparent),transparent 70%);animation:membrana 9s ease-in-out infinite alternate;opacity:.55}
-[data-bio="1"] .tarjeta--vigente{animation:pulso-tejido var(--d-latir) var(--c-latir) infinite}
-[data-bio="1"] .tarjeta--vencido{border-radius:30px 12px 34px 10px;filter:saturate(.25) brightness(.9);transform:scale(.985)}
+[data-bio="1"] .tarjeta .membrana{display:block;position:absolute;inset:-30%;z-index:-1;background:radial-gradient(40% 50% at 30% 40%,color-mix(in oklab,var(--kino-biolum-d45) 50%,transparent),transparent 70%);opacity:calc(.55 * var(--brillo,1))}
+[data-bio="1"] .tarjeta--vigente{box-shadow:0 0 0 1px var(--kino-biolum-d70),0 0 32px -8px var(--kino-biolum-d110),var(--kino-relieve-membrana)}
+/* Por vencer: la bioluminiscencia se fatiga; el brillo baja con el tiempo que queda. */
+[data-bio="1"] .tarjeta--por-vencer{box-shadow:0 0 0 1px color-mix(in oklab,var(--kino-ambar-d110) calc(var(--brillo,1) * 100%),transparent),0 0 30px -8px color-mix(in oklab,var(--kino-ambar-d110) calc(var(--brillo,1) * 100%),transparent),var(--kino-relieve-membrana)}
+[data-bio="1"] .tarjeta--vencido{border-radius:30px 12px 34px 10px;filter:saturate(.25) sepia(.3) brightness(.9);transform:scale(.985)}
 [data-bio="1"] .tarjeta--vencido .membrana,[data-bio="1"] .tarjeta--usado .membrana,[data-bio="1"] .tarjeta--revocado .membrana{display:none}
 [data-bio="1"] .corte{height:4px;background:repeating-linear-gradient(90deg,var(--kino-estado-revocado-texto) 0 10px,transparent 10px 14px);filter:drop-shadow(0 0 4px var(--kino-carmin-d110))}
 [data-bio="1"] .vida{height:7px;border-radius:4px}
-[data-bio="1"] .vida--vigente .vida__fluido,[data-bio="1"] .vida--por-vencer .vida__fluido{background:linear-gradient(90deg,var(--kino-biolum-d45),var(--kino-estado-vigente-texto),var(--kino-biolum-d45)) 0 0/60px 100%;animation:fluir 1.6s linear infinite;border-radius:4px;box-shadow:0 0 10px var(--kino-biolum-d110)}
+[data-bio="1"] .vida--vigente .vida__fluido,[data-bio="1"] .vida--por-vencer .vida__fluido{background:linear-gradient(90deg,var(--kino-biolum-d45),var(--kino-estado-vigente-texto),var(--kino-biolum-d45)) 0 0/60px 100%;border-radius:4px;box-shadow:0 0 10px var(--kino-biolum-d110)}
 [data-bio="1"] .vida--por-vencer .vida__fluido{background:linear-gradient(90deg,var(--kino-ambar-d110),var(--kino-estado-por-vencer-texto),var(--kino-ambar-d110)) 0 0/60px 100%}
 [data-bio="1"] .portal__arco{box-shadow:none}
-[data-bio="1"] .portal--vigente .portal__arco::before,[data-bio="1"] .portal--por-vencer .portal__arco::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:4px;background:var(--bio-quitina);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:quitina 6s linear infinite}
+[data-bio="1"] .portal--vigente .portal__arco::before,[data-bio="1"] .portal--por-vencer .portal__arco::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:4px;background:var(--bio-quitina);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:var(--brillo,1)}
 [data-bio="1"] .portal--vigente .portal__halo{background:radial-gradient(closest-side,color-mix(in oklab,var(--kino-biolum-d110) 60%,transparent),color-mix(in oklab,var(--kino-violeta-d45) 30%,transparent) 60%,transparent)}
 [data-bio="1"] .portal--vencido .portal__arco{border-radius:44% 56% 20px 12px / 40% 50% 20px 12px;filter:saturate(0) contrast(.8)}
 [data-bio="1"] .accion--crear{background:radial-gradient(120% 140% at 30% 0%,#3dffb8,#00D595 50%,#00a874);box-shadow:0 0 0 1px #00ffaa55,0 10px 30px -10px #00D595}
 [data-bio="1"] .accion--crear[aria-disabled="true"]{background:var(--kino-superficie-membrana);box-shadow:none}
-[data-bio="1"] .iniciales{border-radius:48% 52% 45% 55%/55% 45% 55% 45%;animation:membrana 7s ease-in-out infinite alternate}
-[data-bio="1"] .tarjeta--nueva{animation:nace var(--d-tarjeta) var(--c-crecer) both}
-@keyframes membrana{0%{--mx:20%;transform:translate(-4%,-2%) scale(1)}100%{--mx:80%;transform:translate(4%,3%) scale(1.08)}}
-@keyframes pulso-tejido{0%,100%{box-shadow:var(--kino-resplandor-vigente),var(--kino-relieve-membrana)}50%{box-shadow:0 0 0 1px var(--kino-biolum-d70),0 0 36px -6px var(--kino-biolum-d110),var(--kino-relieve-membrana)}}
-@keyframes quitina{to{--giro:360deg}}
-@keyframes division{0%,100%{transform:scale(1)}50%{transform:scale(1.18,0.9)}}
-@keyframes nace{0%{clip-path:circle(0% at 50% 50%);filter:blur(6px)}100%{clip-path:circle(120% at 50% 50%);filter:none}}
+[data-bio="1"] .iniciales{border-radius:48% 52% 45% 55%/55% 45% 55% 45%}
 
 /* Movimiento reducido ------------------------------------------------------------------------------- */
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:1ms!important;animation-iteration-count:1!important;transition-duration:1ms!important}}
-[data-reducido="1"] *,[data-reducido="1"] *::before,[data-reducido="1"] *::after{animation-duration:1ms!important;animation-iteration-count:1!important;transition-duration:1ms!important}
+/* Reducido no es apagado: lo que aparece se funde en 240 ms o menos; lo que late o barre se queda quieto;
+   las transiciones de color siguen, las de forma no. Las animaciones WAAPI se adaptan en movimiento.ts. */
+@keyframes fundido{from{opacity:0}}
+@media (prefers-reduced-motion:reduce){
+	.entra,.nota-interaccion,.traza__item,.burbuja,.fila-aviso,.notificacion,.banner,.deshacer,.tabla tr.nueva td,.tarjeta--nueva{animation:fundido var(--d-corto) linear both!important}
+	.tarjeta--nueva .vida,.puntos i,.llamando,.puerta__barrido,.lector--leyendo .puerta__luz{animation:none!important}
+	*,*::before,*::after{transition-property:color,background-color,border-color,opacity,box-shadow!important}
+}
+[data-reducido="1"] :is(.entra,.nota-interaccion,.traza__item,.burbuja,.fila-aviso,.notificacion,.banner,.deshacer,.tabla tr.nueva td,.tarjeta--nueva){animation:fundido var(--d-corto) linear both!important}
+[data-reducido="1"] :is(.tarjeta--nueva .vida,.puntos i,.llamando,.puerta__barrido,.lector--leyendo .puerta__luz){animation:none!important}
+[data-reducido="1"] *,[data-reducido="1"] *::before,[data-reducido="1"] *::after{transition-property:color,background-color,border-color,opacity,box-shadow!important}
+
+/* Ilustraciones: una familia con el arco y la gota del logo; trazo 1,7 de puntas redondas, dos colores apagados. */
+.ilustracion{width:148px;height:auto;justify-self:center;overflow:visible}
+.ilustracion__trazo{fill:none;stroke:var(--kino-texto-secundario);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.ilustracion__trazo--tenue{stroke:var(--kino-borde-definido)}
+.ilustracion__trazo--punteado{stroke-dasharray:2 6}
+.ilustracion__gota{fill:color-mix(in oklab,var(--kino-marca-gota) 70%,var(--kino-superficie-base))}
+.ilustracion__gota--tenue{fill:none;stroke:var(--kino-borde-definido);stroke-width:3.4;stroke-dasharray:4 8}
 
 /* Pantallas pequeñas: el prototipo se usa como app a pantalla completa ------------------------------- */
 @media (max-width:820px){

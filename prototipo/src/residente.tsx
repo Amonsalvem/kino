@@ -4,7 +4,7 @@ import {
 	ahora, anotar, compartir, crearPase, cuentaRegresiva, deshacerRevocar, diasTexto, duraMasDeUnDia, duracionTexto, E, emitir, esEstadia, estado, extender,
 	fechaCorta, hora24, horaBreve, horaCorta, horaTexto, min, RECIENTES, RESIDENTE, revocar, validar, ventana, vigenciaTexto, type Modo, type Pase, type Tipo,
 } from './modelo';
-import {BotonMantener, ChipEstado, Icono, Iniciales, lineaVigencia, Marca, Micelio, Portal, TarjetaPase, useKino, type ModoVista} from './componentes';
+import {BotonMantener, ChipEstado, Icono, Ilustracion, Iniciales, lineaVigencia, Marca, Micelio, Portal, TarjetaPase, useKino, type ModoVista} from './componentes';
 import {animar, C, D, R, vibrar} from './movimiento';
 
 type Pantalla = {v: 'ingreso'} | {v: 'inicio'; tab: 'pases' | 'avisos' | 'casa'} | {v: 'detalle'; id: string};
@@ -96,7 +96,6 @@ function Ingreso({onListo}: {onListo: () => void}) {
 
 	return (
 		<div class="ingreso">
-			<Micelio clase="micelio--ingreso" densidad={38} />
 			<div class="ingreso__marca">
 				<Marca tam={56} />
 				<span class="ingreso__logotipo">KINO</span>
@@ -135,6 +134,7 @@ function Ingreso({onListo}: {onListo: () => void}) {
 			)}
 			{paso === 'bienvenida' && (
 				<div class="ingreso__cuerpo ingreso__bienvenida entra">
+					<Ilustracion tipo="membrana" />
 					<span class="rotulo">{RESIDENTE.comunidad}</span>
 					<h1 class="titulo">Hola, Carolina</h1>
 					<p class="secundario">{RESIDENTE.casa}</p>
@@ -216,6 +216,12 @@ function Inicio({tab, onTab, onAbrir, onCrear}: {tab: Tab; onTab: (t: Tab) => vo
 							</div>
 						</section>
 
+						{grupos.ahora_.length === 0 && grupos.proximos.length === 0 && (
+							<div class="vacio vacio--ilustrado">
+								<Ilustracion tipo="pase-vacio" />
+								<p class="secundario">No tienes Pases vivos. Crea uno cuando esperes a alguien.</p>
+							</div>
+						)}
 						{grupos.ahora_.length > 0 && (
 							<section class="seccion">
 								<h2 class="rotulo">Ahora</h2>
@@ -276,7 +282,8 @@ function Avisos({onAbrir}: {onAbrir: (p: Pase) => void}) {
 		<div class="pagina">
 			<h1 class="titulo titulo--xl">Avisos</h1>
 			{lista.length === 0 && (
-				<div class="vacio">
+				<div class="vacio vacio--ilustrado">
+					<Ilustracion tipo="llegada" />
 					<p class="secundario">Aquí aparece cada entrada con tu Pase y cada rechazo con su motivo.</p>
 					<p class="nota">Prueba: en Portería, lee el QR de Andrés.</p>
 				</div>

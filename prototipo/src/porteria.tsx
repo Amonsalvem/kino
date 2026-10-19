@@ -1,13 +1,15 @@
 // Portería: el lector decide y portería ve el porqué. Se lee desde 3 m.
-// Coreografía de la lectura (decaer, crecer y firme de @kino/motion):
-//   leyendo  → el lector parpadea en ámbar y una línea barre la ventana del lector
-//   entra    → una ola verde nace del lector y llena el panel; el check se dibuja; el texto sube en cascada de 90 ms;
-//              la talanquera sube con resorte firme y baja sola a los 4 s, con la cuenta a la vista
-//   no entra → la misma ola en carmín; la X se dibuja; el veredicto niega una vez; la talanquera no se mueve y la luz roja late dos veces
+// Coreografía de la lectura (entrega-3/motion-e-ilustracion.md):
+//   leyendo  → una línea barre la ventana del lector y la luz ámbar parpadea
+//   veredicto → el color, el ícono y la palabra están en el primer cuadro; lo demás entra en cascada de 20 ms
+//   entra    → el barrido se detiene; un destello de 120 ms sale del lector y deja un brillo quieto; tres anillos convergen
+//              en la ventana como en la sinapsis inmunológica; la talanquera sube con resorte firme y baja sola a los 4 s
+//   no entra → sin destello ni diana; el panel se contrae en 120 ms y se recupera en 900 ms (Mimosa pudica);
+//              la luz roja late dos veces y se detiene; la talanquera no se mueve
 // Con movimiento reducido todo se vuelve fundido (movimiento.ts).
 import {useEffect, useLayoutEffect, useRef, useState} from 'preact/hooks';
 import {ahora, E, estado, hora24, leer, llamar, vigenciaTexto, type Lectura, type Modo} from './modelo';
-import {ChipEstado, Icono, Marca, Sinapsis, useKino} from './componentes';
+import {ChipEstado, Icono, Marca, useKino} from './componentes';
 import {animar, C, D, R, reducido, vibrar} from './movimiento';
 
 type Llegada = {etiqueta: string; modo: Modo; valor: string; quien: string};
@@ -137,6 +139,7 @@ function Panel({estado: ep, leyendo, ultima, pulso, llamada, onLlamar}: {estado:
 	const brazo = useRef<SVGGElement>(null);
 	const luz = useRef<SVGCircleElement>(null);
 	const cuenta = useRef<HTMLSpanElement>(null);
+	const diana = useRef<SVGGElement>(null);
 	const pase = ultima?.paseId ? E.pases.find((p) => p.id === ultima.paseId) : undefined;
 	const entra = ultima?.resultado === 'entra';
 
@@ -148,29 +151,40 @@ function Panel({estado: ep, leyendo, ultima, pulso, llamada, onLlamar}: {estado:
 		brazo.current?.getAnimations().forEach((a) => a.cancel());
 		cuenta.current?.getAnimations().forEach((a) => a.cancel());
 		const abierta = giro !== 'none' && giro !== 'matrix(1, 0, 0, 1, 0, 0)';
-		// 1 · la ola nace en el lector y llena el panel
-		animar(ola.current, [{clipPath: 'circle(0% at 86% 64%)', opacity: 1}, {clipPath: 'circle(150% at 86% 64%)', opacity: 1}], {duration: D.tarjeta, easing: C.crecer, fill: 'both'});
-		// 2 · el ícono se dibuja
+		const anillos = [...(diana.current?.children ?? [])];
+		[ola.current, el, ...anillos].forEach((n) => n?.getAnimations().forEach((a) => a.cancel()));
+		// 1 · el color, el ícono y la palabra ya están en el primer cuadro (la clase del panel). El ícono se traza sin espera.
 		el.querySelectorAll<SVGPathElement>('.veredicto__trazo').forEach((p, i) =>
-			animar(p, [{strokeDashoffset: 1}, {strokeDashoffset: 0}], {duration: D.crecer, easing: C.crecer, delay: 140 + i * 90, fill: 'both'}),
+			animar(p, [{strokeDashoffset: 1}, {strokeDashoffset: 0}], {duration: D.corto, easing: C.crecer, delay: i * 40, fill: 'both'}),
 		);
-		// 3 · el texto sube en cascada
+		// 2 · lo secundario (nombre, motivo, datos, llamar) entra en cascada de 20 ms; el veredicto no espera
 		el.querySelectorAll<HTMLElement>('[data-cascada]').forEach((n) => {
 			const i = Number(n.dataset.cascada);
-			animar(n, [{opacity: 0, transform: 'translateY(18px)'}, {opacity: 1, transform: 'none'}], {duration: D.crecer, easing: C.crecer, delay: 160 + i * 90, fill: 'both'});
+			if (i === 0) return;
+			animar(n, [{opacity: 0, transform: 'translateY(8px)'}, {opacity: 1, transform: 'none'}], {duration: D.corto, easing: C.crecer, delay: i * 20, fill: 'both'});
 		});
 		if (entra) {
-			// 4a · la talanquera sube con resorte firme, espera y baja con decaer
-			animar(brazo.current, [{transform: 'rotate(0deg)'}, {transform: 'rotate(-84deg)'}], {duration: R.firme.ms, easing: R.firme.linear, delay: 220, fill: 'forwards'})?.finished.then(() =>
+			// 3a · destello de reconocimiento (Noctiluca: sube un tercio, cae el resto) que deja un brillo quieto
+			animar(ola.current, [{opacity: 0}, {opacity: 1, offset: 0.36}, {opacity: 0.45}], {duration: D.instante, easing: 'linear', fill: 'forwards'});
+			// 3b · sinapsis: tres anillos convergen en la ventana del lector y forman la diana mientras la entrada está abierta
+			anillos.forEach((a, i) => {
+				animar(a, [{transform: 'scale(2.8)', opacity: 0}, {transform: 'scale(1)', opacity: 1}], {duration: D.tarjeta, easing: C.crecer, delay: i * 90, fill: 'forwards'})?.finished.then(() =>
+					animar(a, [{opacity: 1}, {opacity: 0}], {duration: D.decaer, easing: C.decaer, delay: ABIERTA_MS - D.tarjeta - i * 90, fill: 'forwards'}),
+				).catch(() => {});
+			});
+			// 3c · la talanquera sube después de la confirmación (M3D-2), espera y baja con decaer.
+			//      Con movimiento reducido no gira: queda arriba mientras la entrada está abierta y vuelve de golpe.
+			if (reducido()) brazo.current?.animate([{transform: 'rotate(-84deg)'}, {transform: 'rotate(-84deg)'}], {duration: ABIERTA_MS});
+			else animar(brazo.current, [{transform: 'rotate(0deg)'}, {transform: 'rotate(-84deg)'}], {duration: R.firme.ms, easing: R.firme.linear, delay: D.instante, fill: 'forwards'})?.finished.then(() =>
 				animar(brazo.current, [{transform: 'rotate(-84deg)'}, {transform: 'rotate(0deg)'}], {duration: D.decaer, easing: C.decaer, delay: ABIERTA_MS - R.firme.ms, fill: 'forwards'}),
 			).catch(() => {});
-			animar(cuenta.current, [{transform: 'scaleX(1)'}, {transform: 'scaleX(0)'}], {duration: ABIERTA_MS, easing: 'linear', delay: 220, fill: 'both'});
+			animar(cuenta.current, [{transform: 'scaleX(1)'}, {transform: 'scaleX(0)'}], {duration: ABIERTA_MS, easing: 'linear', delay: D.instante, fill: 'both'});
 		} else {
-			// 4b · el veredicto niega una vez; la luz roja late dos veces; si quedó abierta por el ingreso anterior, baja
+			// 3d · si quedó abierta por el ingreso anterior, baja; el panel se contrae rápido y se recupera lento
 			if (abierta) animar(brazo.current, [{transform: giro}, {transform: 'rotate(0deg)'}], {duration: D.decaer, easing: C.decaer, fill: 'forwards'});
-			if (!reducido())
-				animar(el.querySelector('.veredicto'), [{transform: 'translateX(0)'}, {transform: 'translateX(-10px)'}, {transform: 'translateX(8px)'}, {transform: 'translateX(-4px)'}, {transform: 'translateX(0)'}], {duration: D.crecer, easing: C.revocar, delay: 560});
-			animar(luz.current, [{opacity: 1}, {opacity: 0.25}, {opacity: 1}, {opacity: 0.25}, {opacity: 1}], {duration: D.latir, easing: C.latir, delay: 200});
+			if (!reducido()) animar(el, [{transform: 'scale(1)'}, {transform: 'scale(.985)', offset: D.instante / (D.instante + D.decaer)}, {transform: 'scale(1)'}], {duration: D.instante + D.decaer, easing: C.decaer});
+			// la luz roja late dos veces y se detiene
+			animar(luz.current, [{opacity: 1}, {opacity: 0.25}, {opacity: 1}, {opacity: 0.25}, {opacity: 1}], {duration: D.latir, easing: C.latir});
 		}
 	}, [ultima?.id]);
 
@@ -227,17 +241,21 @@ function Panel({estado: ep, leyendo, ultima, pulso, llamada, onLlamar}: {estado:
 				</dl>
 			)}
 			<div class="lector__escena">
-				<Sinapsis activa={pulso} tono={entra ? 'vigente' : 'rechazado'} />
 				<svg class="puerta" viewBox="0 0 240 200" aria-hidden="true">
 					<rect class="puerta__piso" x="0" y="168" width="240" height="2" />
 					<rect class="puerta__poste" x="22" y="78" width="40" height="92" rx="8" />
 					<rect class="puerta__ventana" x="30" y="88" width="24" height="18" rx="4" />
 					{ep === 'leyendo' && <rect class="puerta__barrido" x="30" y="88" width="24" height="2" />}
 					<circle ref={luz} class="puerta__luz" cx="42" cy="122" r="6" />
-					<g ref={brazo} class="puerta__brazo" style={{transformOrigin: '42px 142px', transformBox: 'view-box'}}>
-						<rect x="40" y="136" width="196" height="12" rx="6" />
+					<g ref={diana} class="diana" aria-hidden="true">
+						{[12, 21, 30].map((r) => (
+							<circle class="diana__anillo" cx="42" cy="97" r={r} />
+						))}
+					</g>
+					<g ref={brazo} class="puerta__brazo" style={{transformOrigin: '62px 142px', transformBox: 'view-box'}}>
+						<rect x="56" y="136" width="180" height="12" rx="6" />
 						{[0, 1, 2, 3, 4].map((i) => (
-							<rect class="puerta__franja" x={70 + i * 34} y="136" width="16" height="12" />
+							<rect class="puerta__franja" x={84 + i * 30} y="136" width="14" height="12" />
 						))}
 					</g>
 				</svg>

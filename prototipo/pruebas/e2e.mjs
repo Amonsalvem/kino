@@ -163,7 +163,7 @@ await ok('Integración caída: reintentar con teléfono la recupera', async () =
 	await A.getByRole('button', {name: 'Lector e integración'}).click();
 	await foto('10-integracion-caida');
 	await A.getByRole('button', {name: /Reintentar con teléfono/}).click();
-	await A.getByText('312 de 312').waitFor({timeout: 8000});
+	await A.locator('dd', {hasText: '312 de 312'}).waitFor({timeout: 8000});
 });
 await foto('11-integracion');
 
