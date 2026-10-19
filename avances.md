@@ -360,3 +360,7 @@ En arquitectura faltaba:
 
 ## Biblia: SOSTAC explícito (19 oct)
 - Subtítulos en 3.1 a 3.4 que dicen qué pieza de la guía se muestra: mapa SOSTAC con el apartado de cada letra, objetivo general, SMART, preguntas orientadoras, estrategias y tácticas, ejes estratégicos del curso, plan de acción, fichas de producto, KPI GQM, etapas de los KPI y tablero de seguimiento (figura nueva).
+
+## estrategia.md: SOSTAC explícito (19 oct)
+- Mapa SOSTAC al inicio con la sección de cada letra; cada encabezado dice qué pieza de la guía es (SOSTAC · S/O/S/T/A/C · …).
+- Agregados: preguntas orientadoras SMART por objetivo, tabla de los cuatro ejes estratégicos, paso a paso GQM y función del KPI según la guía, etapas con el KPI que cubre cada una, explicación de «ingresos en minuta» y tablero de seguimiento. Fichas como «Descripción de productos». Numeración §0–§11 conservada.

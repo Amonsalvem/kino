@@ -30,15 +30,30 @@ Entrega 3 · 19 oct 2026 · Nicolás Ramírez y Alejandro Monsalve. Orden de las
 
 ---
 
-## 1. Diagnóstico (S de SOSTAC)
+## Plan estratégico SOSTAC · las seis partes y dónde está cada una
 
-### 1.1 Problema
+| Letra | Parte del plan | Qué contiene | Sección |
+|---|---|---|---|
+| **S** | Situación (diagnóstico) | Problema, público objetivo (arquetipos), conclusiones del journey, insights y situación externa | §1 |
+| **O** | Objetivos | Objetivo general, meta general y 5 objetivos SMART con sus preguntas orientadoras | §2 · §3 |
+| **S** | Estrategia | Una o dos por objetivo, nombradas con sustantivo y ubicadas en un eje estratégico | §4 |
+| **T** | Tácticas | Qué se hará, cómo, quién y cuándo | §5 |
+| **A** | Acción | Plan de acción con hitos, responsables y entregables | §6 |
+| **C** | Control | KPI con método GQM, etapas y tablero de seguimiento | §7 |
+
+Fuera de SOSTAC, la guía pide **descripción de productos** (fichas, §10). El horizonte de empresa (§8 y §9) va como plan a 1 y a 5 años.
+
+---
+
+## 1. SOSTAC · S · Situación (diagnóstico)
+
+### 1.1 SOSTAC · S · Descripción del problema (conclusiones del brief)
 1. El conocimiento y la autoridad para decidir quién entra viven en actores distintos. *Brief v0.2 §02.*
 2. El super administrador no aprueba ingresos: autorizar es dar de alta a un usuario permanente. *Observado.*
 3. El residente ya abre la puerta al registrar una placa, aunque la pantalla diga que lo controla la administración. *Observado.*
 4. El correo obligatorio molesta y además rompe la sincronización. *Observado, 711 errores.*
 
-### 1.2 Público objetivo e insights
+### 1.2 SOSTAC · S · Público objetivo (arquetipos) e insights
 | Arquetipo | Quién es frente al sistema | Insight → qué hace la estrategia |
 |---|---|---|
 | A1 · Residente | El único que sabe a quién espera | Ya decide quién entra y cree que no → nombrar y acotar su autoridad |
@@ -46,10 +61,10 @@ Entrega 3 · 19 oct 2026 · Nicolás Ramírez y Alejandro Monsalve. Orden de las
 | A3 · Visita | Entrega datos de por vida para una tarde | La placa es la vía que menos datos pide → primer canal del Pase |
 | A4 · Administración | Compra y opera; responde ante el consejo | Cree tener un control que no ejerce → franjas y constancia como argumento de venta |
 
-### 1.3 Journey (entrega 2)
+### 1.3 SOSTAC · S · Conclusiones del journey map (entrega 2)
 Los cuatro recorridos se rompen en la puerta, nadie puede decir desde cuándo y hasta cuándo, y el objeto que falta en los cuatro es el Pase. Simetría invertida: el portero ve de los residentes lo que ellos no ven de sí mismos.
 
-### 1.5 Situación externa
+### 1.5 SOSTAC · S · Situación externa: mercado y competencia
 | Dato | Fuente |
 |---|---|
 | 47,88 % de la vivienda urbana de Colombia está en propiedad horizontal (~6,7 M unidades); en Medellín, 61,7 % | Fedelonjas vía [Portafolio, 28 jun 2026](https://www.portafolio.co/mis-finanzas/vivienda/casi-la-mitad-de-viviendas-urbanas-en-colombia-estan-concentradas-en-conjuntos-cerrados-o-edificios-497094); [vivienda.com.co](https://vivienda.com.co/?p=3240) |
@@ -72,7 +87,7 @@ Los cuatro recorridos se rompen en la puerta, nadie puede decir desde cuándo y 
 
 ---
 
-## 2. Objetivo general y meta (O de SOSTAC)
+## 2. SOSTAC · O · Objetivo general (el qué) y meta general
 
 **Objetivo general [P].** Que el residente otorgue, acote y revoque el ingreso de sus visitas y colaboradores, dentro de las franjas de la administración, sobre el hardware que el conjunto ya tiene y sin crear personas permanentes. **[A]** Demostrarlo en un prototipo usable de punta a punta.
 
@@ -80,7 +95,7 @@ Los cuatro recorridos se rompen en la puerta, nadie puede decir desde cuándo y 
 
 ---
 
-## 3. Objetivos específicos SMART
+## 3. SOSTAC · O · Objetivos específicos SMART · acción + métrica + usuario + contexto + tiempo
 
 | # | Acción | Métrica | Usuario | Contexto | Tiempo | Punto de partida |
 |---|---|---|---|---|---|---|
@@ -90,7 +105,19 @@ Los cuatro recorridos se rompen en la puerta, nadie puede decir desde cuándo y 
 | **OE4** [P] | Confirmar el Pase en el lector y recuperar Refugio | 98 % en < 60 s; Refugio ≥ 95 % | Administración (A4) | HikCentral de Monte Sereno | Antes del 31 mar 2027 | Refugio 0/312 · 1/44 · 711 errores |
 | **OE5** [P] | Renovar y firmar pilotos | Monte Sereno renueva + 2 conjuntos | Administración (compra) | Oriente antioqueño | Antes del 31 oct 2027 | 1 cliente |
 
-### Conexión con el plan general
+### SOSTAC · O · SMART · preguntas orientadoras de la guía
+
+| # | Específico · ¿por qué es importante? | ¿Quién está involucrado? | Alcanzable · ¿con qué recursos? | Medible · ¿cómo sabré que se logró? | Relevante · ¿es el momento? |
+|---|---|---|---|---|---|
+| OE1 | Si crear un Pase es más lento que llamar a portería, nadie lo usa | Equipo | Prototipo y recorrido automático `oe1.mjs` | ≤ 3 toques y < 30 s · **ya cumple** | Es la condición de OE2: se valida antes de construir |
+| OE2 | Que el residente lo use es el valor que compra la administración | Equipo y administración | Día de lanzamiento y línea por WhatsApp | 60 % de casas con ≥ 1 Pase | El piloto empieza en enero |
+| OE3 | El colaborador es el ingreso más frecuente | Equipo, Manuel y portería | Pase recurrente; la minuta para medir | 80 % de sus ingresos con Pase | 51,3 % del trabajo doméstico ya es por días |
+| OE4 | Sin integración, el lector no conoce el Pase | Equipo con Manuel | OpenAPI de HikCentral; alta con teléfono | 98 % en < 60 s; Refugio ≥ 95 % | Refugio tiene hardware pagado y 0/312 sincronizados |
+| OE5 | Que Kino siga después de la universidad | Equipo e instaladores | Caso con KPI reales; ficha comercial | Renovación y 2 contratos | La entrega académica termina en noviembre |
+
+A tiempo: la columna **Tiempo** de la tabla anterior (¿qué puedo hacer hoy, en seis semanas, en seis meses?).
+
+### SOSTAC · O · Conexión de los objetivos con el plan general
 
 ```mermaid
 flowchart LR
@@ -107,7 +134,7 @@ flowchart LR
 
 ---
 
-## 4. Estrategias (S de SOSTAC)
+## 4. SOSTAC · S · Estrategias (el cómo), con su eje estratégico
 
 | Objetivo | Estrategia | Cómo | Eje del curso |
 |---|---|---|---|
@@ -121,9 +148,18 @@ flowchart LR
 | OE5 | **Penetración** | Por quien instaló el hardware Hikvision | 2 · Omnicanalidad |
 | OE5 | **Fidelización** | Constancia y reporte semanal a la administración | 3 · Automatización |
 
+### SOSTAC · S · Ejes estratégicos del curso
+
+| Eje | Qué dice la guía | Estrategias de Kino |
+|---|---|---|
+| 1 · Interactividad y personalización | Lo que se ve se adapta a los intereses de quien lo usa, con opciones interactivas | Simplificación |
+| 2 · Omnicanalidad y accesibilidad | Canales físicos y digitales, sin limitaciones de acceso | Diversificación · Penetración |
+| 3 · Automatización y gestión de la experiencia | Sistemas digitales que organizan el recorrido y agilizan el acceso | Recurrencia · Integración · Transparencia · Fidelización |
+| 4 · Soporte y acompañamiento | Orientación y asistencia en puntos clave | Medición · Acompañamiento |
+
 ---
 
-## 5. Tácticas (T de SOSTAC)
+## 5. SOSTAC · T · Tácticas (qué · cómo · quién · cuándo)
 
 | Estrategia | Qué | Cómo | Quién | Cuándo |
 |---|---|---|---|---|
@@ -142,7 +178,7 @@ flowchart LR
 
 ---
 
-## 6. Plan de acción (A de SOSTAC)
+## 6. SOSTAC · A · Plan de acción (hitos, responsables y entregables)
 
 ```mermaid
 gantt
@@ -169,7 +205,9 @@ gantt
 
 ---
 
-## 7. Control (C de SOSTAC): KPI con GQM
+## 7. SOSTAC · C · Control: KPI con método GQM
+
+**Paso a paso de la guía de indicadores:** 1) determinar el objetivo (G), 2) definir una variable (la pregunta Q y su métrica M) y 3) relacionarla con la meta. Un KPI mide el rendimiento de un proceso, se expresa como un valor frente a una meta fijada, siempre está atado a un objetivo y se revisa con periodicidad (columna «Cada»).
 
 Objetivo → pregunta → métrica, con su etapa (captación, comportamiento, conversión, satisfacción, confianza o compromiso). **★** marca el KPI principal de cada objetivo (el que va en el deck y la Biblia).
 
@@ -187,6 +225,22 @@ Objetivo → pregunta → métrica, con su etapa (captación, comportamiento, co
 | OE5 | ¿La administración ve valor? | NPS de la administración | Promotores − detractores | ≥ 30 | Satisfacción | Trimestre |
 | OE5 ★ | ¿Crece la base? | Conjuntos con pago | Contratos | 4 a oct 2027 | Conversión | Mes |
 | OE5 | ¿Los rechazos tienen explicación? | Rechazos con motivo | Con motivo ÷ rechazos | 100 % | Confianza | Semana |
+
+### SOSTAC · C · Etapas del plan y el KPI que cubre cada una
+
+| Etapa | KPI |
+|---|---|
+| Captación | Costo de adquisición por conjunto (§9.2) |
+| Comportamiento | Tiempo para crear (OE1) · toques con visita reciente (OE1) · ingresos con Pase (OE3) |
+| Conversión | Activación de casas (OE2) · conjuntos con pago (OE5) |
+| Satisfacción | SUS (OE2) · NPS de la administración (OE5) |
+| Confianza | Confirmación del lector · sincronización · discrepancia app–puerta (OE4) · rechazos con motivo (OE5) |
+| Compromiso | Retención de residentes (OE2) |
+
+**«Ingresos en minuta» (OE3).** La minuta es el cuaderno donde portería anota a mano cada ingreso. El KPI divide los ingresos de colaboradores que abrió el lector con un Pase entre todos los ingresos de colaboradores anotados. Ejemplo: 80 de 100 en la semana = 80 %, la meta.
+
+### SOSTAC · C · Tablero de seguimiento
+Un panel por objetivo con el último dato, su serie y la meta como línea punteada (deck, lámina 16). OE1 se alimenta de `prototipo/pruebas/oe1.mjs`; en el piloto, OE2 y OE3 de la base de Kino y la minuta, OE4 de HikCentral y OE5 de los contratos.
 
 *Fuentes de medición:* `oe1.mjs`, base de Kino, HikCentral, minuta de portería y encuestas. Las metas de OE2, OE3 y OE5 son supuestos y se recalibran en la semana 1 del piloto.
 
@@ -257,7 +311,7 @@ Objetivo → pregunta → métrica, con su etapa (captación, comportamiento, co
 
 ---
 
-## 10. Fichas de producto
+## 10. Descripción de productos · fichas de producto (insumo para mapas y prototipos)
 
 | Ficha | Propósito | Elementos clave | Tecnología | Escenario | Sirve a |
 |---|---|---|---|---|---|
