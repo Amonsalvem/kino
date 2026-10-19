@@ -391,3 +391,7 @@ En arquitectura faltaba:
 ## Personajes 3D terminados (19 oct)
 - Render completo de residente y administración (45 cuadros cada uno, 15 fps). Videos VP9 con transparencia y póster en `entrega-3/personajes/`; `codificar.sh` en `branding/sistema/v3/motion/blender/` los rearma.
 - Lámina 2 revisada; `verificar.mjs` sin desborde ni errores en 19 láminas. Deck republicado con los dos personajes.
+
+## Prototipo: barrido de muletillas y generalidades (19 oct)
+- Revisados ~560 textos. Las pantallas ya estaban en lenguaje concreto; cambiaron 5: el objetivo de I-13 e I-19 («Kino dice la verdad en la puerta» → «98 % de Pases confirmados en < 60 s»), el de I-17 («cómo lo perciben» → OE2 con su meta), I-18 («vive en la pantalla bloqueada» → «aparece») y la nota de Administración («se confirma en segundos» → «queda vigente cuando el lector lo confirma», sin prometer un tiempo).
+- Tipos, build y e2e completos sin fallas. Prototipo y deck republicados.

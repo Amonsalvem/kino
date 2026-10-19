@@ -188,7 +188,7 @@ export const INTERACCIONES: Interaccion[] = [
 	{id: 'I-15', nombre: 'Franjas con vista previa', disparador: 'Mover una franja', respuesta: 'Se ve qué Pase activo quedaría por fuera; aplica a los nuevos', regla: 'La administración solo fija franjas', hik: 'Los activos conservan su «Válido hasta»', estado: 'implementada'},
 	{id: 'I-16', nombre: 'Integración caída y arreglo', disparador: 'Tocar «Reintentar con teléfono»', respuesta: 'Los contadores suben mientras se sincroniza; la causa queda escrita', regla: 'El teléfono reemplaza al correo obligatorio', hik: '711 errores add_person por el campo correo', estado: 'implementada'},
 	{id: 'I-17', nombre: 'Movimiento reducido', disparador: 'Ajuste del sistema', respuesta: 'Todo se funde en 240 ms; nada late ni se desplaza', regla: 'Política de @kino/motion', hik: 'Ninguno', estado: 'implementada'},
-	{id: 'I-18', nombre: 'Pase en la billetera del teléfono', disparador: 'Tocar «Agregar a la billetera»', respuesta: 'El Pase vive en la pantalla bloqueada', regla: 'Sin app para la visita', hik: 'Mismo QR', estado: 'planeada'},
+	{id: 'I-18', nombre: 'Pase en la billetera del teléfono', disparador: 'Tocar «Agregar a la billetera»', respuesta: 'El Pase aparece en la pantalla bloqueada', regla: 'Sin app para la visita', hik: 'Mismo QR', estado: 'planeada'},
 	{id: 'I-19', nombre: 'Háptica por estado', disparador: 'Confirmación, rechazo, revocar', respuesta: 'Vibración distinta para cada evento', regla: 'Nunca solo color', hik: 'Ninguno', estado: 'planeada'},
 	{id: 'I-20', nombre: 'Rostro como cuarto modo', disparador: 'El colaborador se enrola una vez', respuesta: 'Entra sin sacar el teléfono', regla: 'Solo colaboradores recurrentes, con autorización', hik: 'Reconocimiento facial de HikCentral', estado: 'planeada'},
 ];
@@ -210,13 +210,13 @@ export const SOSTAC: Record<string, Sostac> = {
 	'I-10': {oe: 'OE3 · 80 % de colaboradores entra sin llamada', estrategia: 'Recurrencia', eje: EJE[3], tactica: 'Pase de colaborador con días y franja', kpi: 'Ingresos con Pase ÷ ingresos en minuta ≥ 80 %'},
 	'I-11': {oe: 'OE2 · los residentes vuelven a usarlo', estrategia: 'Acompañamiento', eje: EJE[4], tactica: 'Aviso de cada llegada confirmada', kpi: 'Retención de residentes ≥ 50 %'},
 	'I-12': {oe: 'OE5 · la administración renueva', estrategia: 'Fidelización', eje: EJE[3], tactica: 'Cada rechazo con su motivo, en el reporte semanal', kpi: 'Rechazos con motivo = 100 %'},
-	'I-13': {oe: 'OE4 · Kino dice la verdad en la puerta', estrategia: 'Transparencia', eje: EJE[3], tactica: 'Revocar con deshacer y baja en el lector', kpi: 'Discrepancia app–puerta ≤ 0,5 %'},
+	'I-13': {oe: 'OE4 · 98 % de Pases confirmados en < 60 s', estrategia: 'Transparencia', eje: EJE[3], tactica: 'Revocar con deshacer y baja en el lector', kpi: 'Discrepancia app–puerta ≤ 0,5 %'},
 	'I-14': {oe: 'OE1 · crear un Pase en < 30 s', estrategia: 'Simplificación', eje: EJE[1], tactica: 'Extender en un toque, sin crear otro Pase', kpi: 'Tiempo para crear < 30 s'},
 	'I-15': {oe: 'OE5 · la administración renueva', estrategia: 'Fidelización', eje: EJE[3], tactica: 'Franjas con vista previa y constancia', kpi: 'NPS de la administración ≥ 30'},
 	'I-16': {oe: 'OE4 · Refugio ≥ 95 % sincronizado', estrategia: 'Integración', eje: EJE[3], tactica: 'Alta con teléfono y monitor de sincronización', kpi: 'Usuarios sincronizados ≥ 95 %'},
-	'I-17': {oe: 'OE2 · cómo lo perciben los residentes', estrategia: 'Diversificación', eje: EJE[2], tactica: 'Movimiento reducido: la misma app para todos', kpi: 'SUS ≥ 80'},
+	'I-17': {oe: 'OE2 · 60 % de las casas crea su primer Pase', estrategia: 'Diversificación', eje: EJE[2], tactica: 'Movimiento reducido: la misma app para todos', kpi: 'SUS ≥ 80'},
 	'I-18': {oe: 'OE2 · 60 % de las casas crea su primer Pase', estrategia: 'Diversificación', eje: EJE[2], tactica: 'Pase en la billetera (planeada)', kpi: 'Activación de casas ≥ 60 %'},
-	'I-19': {oe: 'OE4 · Kino dice la verdad en la puerta', estrategia: 'Transparencia', eje: EJE[3], tactica: 'Háptica por estado (planeada)', kpi: 'Discrepancia app–puerta ≤ 0,5 %'},
+	'I-19': {oe: 'OE4 · 98 % de Pases confirmados en < 60 s', estrategia: 'Transparencia', eje: EJE[3], tactica: 'Háptica por estado (planeada)', kpi: 'Discrepancia app–puerta ≤ 0,5 %'},
 	'I-20': {oe: 'OE3 · 80 % de colaboradores entra sin llamada', estrategia: 'Recurrencia', eje: EJE[3], tactica: 'Rostro como cuarto modo opcional (planeada)', kpi: 'Ingresos con Pase ÷ ingresos en minuta ≥ 80 %'},
 };
 

@@ -284,7 +284,7 @@ function Lector() {
 								</dl>
 							</>
 						) : (
-							<p class="nota">Cada Pase nuevo se confirma en segundos.</p>
+							<p class="nota">Cada Pase nuevo queda vigente cuando el lector lo confirma.</p>
 						)}
 						{s.estado !== 'en-linea' && (
 							<>
