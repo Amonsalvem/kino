@@ -16,7 +16,7 @@ Estructura de las guías del curso: `entrega-3/fuentes/Plan_estrategico.pdf` (di
 | **Dónde duele hoy** | Refugio Campestre tiene el hardware instalado y 0 de 312 usuarios y 1 de 44 vehículos sincronizados. Los 711 errores de HikCentral son `add_person` rechazado por el campo correo. *Observado (`MAESTRO-KINO.md` §3).* |
 | **Tiempo** | **[A]** Sustentación del prototipo: segunda semana de noviembre de 2026 (≈ 4 semanas). **[P]** Piloto pagado en Monte Sereno: enero a marzo de 2027. **[P]** Horizonte de este plan: 12 meses, hasta octubre de 2027. |
 | **Solución** | **El Pase**: un objeto con autor, motivo, vigencia y modo (QR, placa o código de un solo uso) que el residente otorga a sus visitas y colaboradores. La administración fija las franjas horarias; no pone tope de visitas ni de duración y no aprueba caso a caso (E3-2). Un Pase puede ser de horas, de un día o una estadía de semanas o meses. La visita no crea cuenta. Kino da de alta el Pase en el hardware que el conjunto ya tiene (HikCentral) y solo lo muestra vigente cuando el lector confirma. |
-| **Diferencia** | No es la autonomía del residente (Neivor ya vende autogestión de visitas por QR: [Neivor](https://landing.neivor.com/control-de-acceso-visitantes)). Es la suma de tres cosas: la integración probada con el hardware instalado, el Pase sin cuenta para la visita y la autoridad del residente dentro de los límites de la administración. |
+| **Diferencia** | La autonomía del residente sola no diferencia a Kino: Neivor ya vende autogestión de visitas por QR ([Neivor](https://landing.neivor.com/control-de-acceso-visitantes)). Kino junta la integración probada con el hardware instalado, el Pase sin cuenta para la visita y la autoridad del residente dentro de las franjas de la administración. |
 
 ### Todo lo que implica la mejora
 
@@ -25,7 +25,7 @@ Estructura de las guías del curso: `entrega-3/fuentes/Plan_estrategico.pdf` (di
 | Producto · residente | App (PWA) con ingreso por código de WhatsApp, Pases vivos, crear en 3 toques, extender y revocar con deshacer | Cada Pase tiene autor y hora. Revocar da de baja en el lector cuando vence el deshacer |
 | Producto · visita | Pase vivo en el navegador (imagen y enlace por WhatsApp), sin cuenta | Ya no se crea un usuario «Visitante» permanente |
 | Producto · portería | Pantalla que dice por qué el lector dejó o no dejó entrar, y botón para llamar al residente | La llamada queda en la constancia. La llamada no abre la entrada |
-| Producto · administración | Límites, constancia y salud de la integración | La administración ve, por primera vez, quién autorizó a quién |
+| Producto · administración | Franjas, constancia y salud de la integración | La administración ve quién autorizó a quién; hoy no puede |
 | Datos | El teléfono pasa a ser obligatorio y único; el correo deja de serlo | Quita la causa de los 711 errores `add_person` |
 | Integración | Alta de persona temporal con «Válido desde / hasta» en HikCentral (por confirmar con Manuel, pendiente 1 del maestro) | Si HikCentral no admite credencial temporal, la placa por LPR es la vía que no crea persona |
 | Operación | Implementación en sitio: carga de casas por cédula, capacitación de portería, señalética del QR | El registro se valida contra la cédula que ya está en la base, no lo aprueba la administración |
@@ -56,10 +56,10 @@ Estructura de las guías del curso: `entrega-3/fuentes/Plan_estrategico.pdf` (di
 - La simetría está invertida: el portero ve de los residentes lo que ellos no ven de sí mismos.
 
 ### 1.4 Insights que mueven la estrategia
-1. **A1.** El residente ya decide quién entra, pero cree que no. → Nombrar y acotar la autoridad que ya tiene, no traspasarla.
-2. **A2.** El dato que más cuesta pedir (el correo) es el que rompe la puerta. → Una sola decisión arregla la fricción y la falla técnica.
+1. **A1.** El residente ya decide quién entra, pero cree que no. → Nombrar y acotar la autoridad que ya ejerce.
+2. **A2.** El dato que más cuesta pedir (el correo) es el que rompe la puerta. → Quitar el correo obligatorio resuelve la queja del registro y los 711 errores.
 3. **A3.** La placa por LPR es la vía que exige menos datos personales. → El vehículo de la visita es el primer canal del Pase.
-4. **A4.** La administración cree conservar un control que no ejerce. → El argumento de venta es «hoy no tiene ese control», no «suéltelo».
+4. **A4.** La administración cree conservar un control que no ejerce. → El argumento de venta: hoy no tiene ese control, y con Kino lo ejerce por franjas y constancia.
 
 ### 1.5 Situación externa
 | Dato | Fuente |
@@ -86,7 +86,7 @@ Estructura de las guías del curso: `entrega-3/fuentes/Plan_estrategico.pdf` (di
 ## 2. Objetivo general y meta general (O de SOSTAC)
 
 **Objetivo general (el qué).**
-- **[P]** Reunir el conocimiento y la autoridad para decidir quién entra a un conjunto: que el residente otorgue, acote y revoque el ingreso de sus visitas y colaboradores, dentro de los límites de la administración, sobre el hardware que el conjunto ya tiene y sin crear personas permanentes.
+- **[P]** Reunir el conocimiento y la autoridad para decidir quién entra a un conjunto: que el residente otorgue, acote y revoque el ingreso de sus visitas y colaboradores, dentro de las franjas de la administración, sobre el hardware que el conjunto ya tiene y sin crear personas permanentes.
 - **[A]** Para la sustentación: demostrarlo en un prototipo que se puede usar de punta a punta.
 
 **Meta general (a 12 meses, octubre de 2027) [P].** Kino opera en **4 conjuntos con pago**: Villas Campestres, Refugio Campestre y 2 conjuntos nuevos del Oriente antioqueño. El **95 % de sus Pases** queda confirmado por el lector en menos de 60 segundos, y **ningún ingreso** exige dar de alta a una persona permanente.
@@ -104,7 +104,7 @@ Fórmula del curso: **acción + métrica + usuario + contexto + tiempo**.
 | **OE1** | Lograr que el 90 % de 5 residentes de Monte Sereno cree un Pase de visita en **menos de 30 s y 3 toques o menos** en una prueba con el prototipo, **antes del 9 nov 2026** **[A+P]** | A1 | Hoy la tarea no existe: no hay cómo crear una visita con vigencia | Si crear un Pase es más lento que llamar a portería, nadie lo adopta (el manual es el competidor) |
 | **OE2** | Lograr que el **60 % de las casas** de Villas Campestres cree al menos un Pase en las **primeras 8 semanas** del piloto (ene–feb 2027) **[P]** | A1 | 0 Pases; Villas tiene 888 usuarios (casas por confirmar) | Adopción del residente = valor para la administración |
 | **OE3** | Lograr que el **80 % de los ingresos de colaboradores recurrentes** de Villas ocurra con un Pase y sin llamada a portería durante el **primer trimestre** del piloto (ene–mar 2027) **[P]** | A2 | Por medir en la semana 1 del piloto con la minuta de portería | Es el ingreso más frecuente |
-| **OE4** | Lograr que el **98 % de los Pases** quede confirmado por el lector en **menos de 60 s**, y recuperar Refugio Campestre de 0/312 a **≥ 95 %** de usuarios sincronizados **antes del 31 mar 2027** **[P]** | A4 | Refugio: 0/312 usuarios, 1/44 vehículos, 711 errores | Sin integración, el Pase es una promesa vacía |
+| **OE4** | Lograr que el **98 % de los Pases** quede confirmado por el lector en **menos de 60 s**, y recuperar Refugio Campestre de 0/312 a **≥ 95 %** de usuarios sincronizados **antes del 31 mar 2027** **[P]** | A4 | Refugio: 0/312 usuarios, 1/44 vehículos, 711 errores | Sin integración, el lector no conoce el Pase |
 | **OE5** | Lograr que la administración de Monte Sereno **renueve el contrato** y que **2 conjuntos nuevos** firmen piloto pagado **antes del 31 oct 2027** **[P]** | A4 (comprador) | 1 cliente (MVP) | Sostenibilidad del producto después de la universidad |
 
 ### Cómo se conecta cada objetivo específico con el plan general
@@ -127,10 +127,10 @@ Regla del curso: cada estrategia empieza por un **sustantivo** y responde al **c
 
 | Objetivo | Estrategia | Eje estratégico |
 |---|---|---|
-| OE1 | **Simplificación** del otorgamiento: el Pase se crea en una hoja, con la persona reciente a un toque y los límites visibles antes de crear | 1 · Interactividad y personalización |
+| OE1 | **Simplificación** del otorgamiento: el Pase se crea en una hoja, con la persona reciente a un toque y la franja visible antes de crear | 1 · Interactividad y personalización |
 | OE1 | **Validación** iterativa con residentes reales antes de construir | 4 · Soporte y acompañamiento |
 | OE2 | **Acompañamiento** de la adopción en el conjunto: el día de lanzamiento se acompaña en sitio y por WhatsApp | 4 · Soporte y acompañamiento |
-| OE2 | **Diversificación** de los canales del Pase (QR, placa, código, imagen por WhatsApp) para que nadie quede por fuera | 2 · Omnicanalidad y accesibilidad |
+| OE2 | **Diversificación** de los canales del Pase (QR, placa, código, imagen por WhatsApp): la visita usa el que tenga a mano | 2 · Omnicanalidad y accesibilidad |
 | OE3 | **Recurrencia** del colaborador: un Pase con días y franja que se crea una vez y no vuelve a pedir nada | 3 · Automatización y gestión |
 | OE4 | **Integración** confiable con HikCentral: alta con teléfono, confirmación del lector y monitoreo | 3 · Automatización y gestión |
 | OE4 | **Transparencia** del estado: Kino nunca muestra vigente lo que el lector no confirmó | 3 · Automatización y gestión |
@@ -192,7 +192,7 @@ Paso a paso del curso: objetivo → variable → meta. Cada KPI está atado a un
 | OE5 | ¿Crece la base? | Conjuntos con pago | Conteo | 4 a oct 2027 | Conversión | Contratos | Mensual |
 | OE5 | ¿Los rechazos tienen explicación? | Rechazos con motivo | Rechazos con motivo ÷ rechazos | 100 % | Confianza | Kino Portería | Semanal |
 
-Las metas de OE2, OE3 y OE5 son supuestos del equipo y se ajustan con el punto de partida que se mida en la semana 1 del piloto. No hay un baseline inventado: donde no existe medición, la tabla lo dice.
+Las metas de OE2, OE3 y OE5 son supuestos del equipo y se ajustan con el punto de partida que se mida en la semana 1 del piloto. Donde no existe medición, la tabla lo dice.
 
 ---
 
@@ -237,7 +237,7 @@ Las metas de OE2, OE3 y OE5 son supuestos del equipo y se ajustan con el punto d
 | **S** | Mercado de propiedad horizontal grande y en crecimiento (§1.5). Competencia de software sin hardware (Neivor, ComunidadFeliz) y de hardware con software propio (ZKTeco). El hueco es la autorización encima del hardware que ya está instalado. |
 | **O** | E1 a E5 |
 | **S** | E1: **Replicación** del caso Monte Sereno con integradores. E2: **Independencia** del fabricante con una capa de conectores. E3: **Expansión** a Bogotá, donde el 69 % de los predios es propiedad horizontal. E4: **Eficiencia** en la implementación (meta: menos de 10 días). E5: **Ampliación** del Pase a todo el que entra por trabajo. |
-| **T** | Programa de aliados instaladores con comisión; kit de implementación; conector ZKTeco con un cliente ancla; ficha para consejos de administración; plantilla de reglamento con límites. |
+| **T** | Programa de aliados instaladores con comisión; kit de implementación; conector ZKTeco con un cliente ancla; ficha para consejos de administración; plantilla de reglamento con franjas. |
 | **A** | 2027: Monte Sereno y 2 conjuntos más. 2028: 40 conjuntos y segundo conector. 2029: equilibrio. 2030: Bogotá. |
 | **C** | KPI de 9.2, revisados cada mes; NPS de la administración cada trimestre. |
 
@@ -265,7 +265,7 @@ Plantilla del curso: nombre · propósito dentro de la estrategia · elementos c
 
 ### F1 · Kino Residente (app)
 - **Propósito:** que el residente otorgue, acote y revoque Pases. Apunta a OE1, OE2 y OE3.
-- **Interacciones:** código por WhatsApp con autollenado (I-01), Pase vivo que se consume (I-02), volver a invitar (I-03), hoja con gesto (I-04), límites a la vista (I-05), nacimiento del Pase (I-06), mantener para revocar con deshacer (I-13), extender (I-14), aviso de llegada (I-11).
+- **Interacciones:** código por WhatsApp con autollenado (I-01), Pase vivo que se consume (I-02), volver a invitar (I-03), hoja con gesto (I-04), vigencia a tu medida (I-05), nacimiento del Pase (I-06), mantener para revocar con deshacer (I-13), extender (I-14), aviso de llegada (I-11).
 - **Componentes:** tarjeta del Pase con barra de vida, Portal (arco del logo con QR), hoja inferior, botón de mantener, banner.
 - **Tecnologías:** PWA en TypeScript, `@kino/motion`, notificaciones push, API de Kino.
 - **Escenario:** Carolina está en la oficina a las 2 p. m. y su hermano llega a las 3. Abre Kino, toca «Andrés» en recientes y luego «Crear Pase». Lo envía por WhatsApp. A las 3:04 le llega «Andrés entró por Portería principal».
@@ -286,8 +286,8 @@ Plantilla del curso: nombre · propósito dentro de la estrategia · elementos c
 
 ### F4 · Kino Administración
 - **Propósito:** fijar el marco y cuidar la integración. Apunta a OE4 y OE5.
-- **Interacciones:** límites con vista previa (I-15), salud de la integración y reintento (I-16), resumen con rechazos y su motivo.
-- **Componentes:** controles de límite, tarjeta de sincronización, cifras del día.
+- **Interacciones:** franjas con vista previa (I-15), salud de la integración y reintento (I-16), resumen con rechazos y su motivo.
+- **Componentes:** controles de franja, tarjeta de sincronización, cifras del día.
 - **Tecnologías:** web, API de Kino, correo semanal.
 - **Escenario:** el consejo pide que las visitas de un día no entren después de las 9 p. m. La administración mueve la franja y ve qué Pase quedaría por fuera; ningún Pase activo se corta.
 

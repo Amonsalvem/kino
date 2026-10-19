@@ -22,16 +22,16 @@ EQUIPO = [
 RESUMEN = [
     'Kino es una plataforma de control de acceso para conjuntos residenciales cerrados, con un producto mínimo en operación en Monte Sereno (El Retiro). Es para el residente, que decide quién entra a su casa; para la visita y el colaborador, que entran; para portería, que opera la entrada, y para la administración del conjunto, que es quien compra.',
     'El problema que resuelve es un desajuste entre conocimiento y autoridad: el residente sabe a quién espera y no tiene cómo decirlo; la administración tiene la autoridad nominal y no sabe a quién dejar entrar; y el sistema actual solo sabe crear personas permanentes, así que la visita necesita cuenta y el colaborador queda registrado como si viviera ahí. En Refugio Campestre el hardware está instalado y 0 de 312 usuarios están sincronizados por un campo de correo obligatorio (observado).',
-    'La solución es el **Pase**: un objeto con autor, motivo, vigencia y modo (QR, placa o código) que el residente otorga dentro de los límites que fija la administración, que la visita usa sin cuenta y que Kino da de alta en el hardware que el conjunto ya tiene (HikCentral). Solo se muestra vigente cuando el lector lo confirma.',
+    'La solución es el **Pase**: un objeto con autor, motivo, vigencia y modo (QR, placa o código) que el residente otorga dentro de las franjas que fija la administración, que la visita usa sin cuenta y que Kino da de alta en el hardware que el conjunto ya tiene (HikCentral). Solo se muestra vigente cuando el lector lo confirma.',
 ]
 
 S = []  # (código, items)
 
 # 1 · CONTEXTO DEL RETO -------------------------------------------------------------------------------
 S.append(('1.1', [
-    'El acceso a un conjunto cerrado es un servicio que ocurre entre cuatro actores que nunca están juntos: el residente que espera, la visita que llega, portería que opera la entrada y la administración que responde ante el consejo. Ninguno de ellos tiene la información completa en el momento en que se decide si alguien entra. Por eso el problema es de diseño de interacción: el servicio falla en el traspaso entre actores, no en una pantalla.',
+    'El acceso a un conjunto cerrado es un servicio que ocurre entre cuatro actores que nunca están juntos: el residente que espera, la visita que llega, portería que opera la entrada y la administración que responde ante el consejo. Ninguno de ellos tiene la información completa en el momento en que se decide si alguien entra. Por eso es un problema de diseño de interacción: el servicio falla en el traspaso entre actores.',
     ('h', 'Por qué un proyecto de servicio basado en la interacción'),
-    ('-', 'La decisión de quién entra la toma una persona (el residente) y la ejecuta una máquina (el lector de placas, QR o rostro). La interacción es el puente entre las dos.'),
+    ('-', 'La decisión de quién entra la toma una persona (el residente) y la ejecuta una máquina (el lector de placas, QR o rostro). Entre las dos solo está la interfaz.'),
     ('-', 'El sistema actual ya concede acceso físico cuando el residente registra una placa, mientras la pantalla le dice que lo controla la administración (observado). La interfaz contradice al servicio.'),
     ('-', 'La visita es el actor con menos interés en el sistema y al que más se le pide: hoy crea una cuenta permanente para una visita de una tarde (observado).'),
     ('h', 'Pregunta guía'),
@@ -43,10 +43,10 @@ S.append(('1.2', [
     ('t', [
         ['Elemento', 'Contenido'],
         ['Visión', 'Ser la capa de autorización entre las personas y el hardware de acceso de los conjuntos residenciales en Colombia, sin importar la marca del lector.'],
-        ['Misión', 'Que quien sabe quién debe entrar pueda decidirlo, con un límite claro y una constancia de quién autorizó a quién.'],
-        ['Objetivos del cliente', 'Eficiencia operativa (un ingreso rutinario no exige dar de alta a una persona), escalabilidad (un conjunto nuevo se integra sin rehacer el producto), marca sólida y fidelización de la administración.'],
+        ['Misión', 'Que quien sabe quién debe entrar pueda decidirlo, dentro de las franjas del conjunto y con constancia de quién autorizó a quién.'],
+        ['Objetivos del cliente', 'Eficiencia operativa (un ingreso rutinario no exige dar de alta a una persona), escalabilidad (un conjunto nuevo se integra sin rehacer el producto), identidad de marca propia y fidelización de la administración.'],
         ['Competidores', 'El método manual (llamada, minuta, WhatsApp) es el más fuerte. Neivor y ComunidadFeliz nacen desde la administración y las finanzas; Neivor ya vende autogestión de visitas por QR. ZKTeco vende su hardware con su software. Portea, app de portería de Medellín.'],
-        ['Diferencia', 'La suma de tres cosas: integración probada con el hardware que el conjunto ya tiene, el Pase sin cuenta para la visita y la autoridad del residente acotada por los límites de la administración.'],
+        ['Diferencia', 'Integración probada con el hardware que el conjunto ya tiene, Pase sin cuenta para la visita y autoridad del residente dentro de las franjas de la administración.'],
     ], [2400, 7360]),
     ('n', 'Fuentes: Brief Kino v0.2 §05 y §06; Neivor, página de producto (consultada 21 sep 2026); estrategia.md §1.5.'),
 ]))
@@ -104,10 +104,10 @@ S.append(('2.2', [
     '**Conclusión del mapa.** Los cuatro recorridos se rompen en el mismo punto: nadie puede decir para cuándo y hasta cuándo. El objeto que falta en los cuatro es el mismo, el Pase.',
 ]))
 S.append(('2.3', [
-    ('-', '**A1.** Los residentes ya deciden quién entra, pero creen que no, porque el producto les niega en pantalla la autoridad que les dio en la base de datos. → Nombrar y acotar, no traspasar.'),
-    ('-', '**A2.** El dato que más cuesta pedirle al colaborador (el correo) es el que rompe la sincronización con la puerta. → Una decisión resuelve la fricción y la falla técnica.'),
+    ('-', '**A1.** Los residentes ya deciden quién entra, pero creen que no, porque el producto les niega en pantalla la autoridad que les dio en la base de datos. → Nombrar y acotar la autoridad que ya ejercen.'),
+    ('-', '**A2.** El dato que más cuesta pedirle al colaborador (el correo) es el que rompe la sincronización con la puerta. → Quitar el correo obligatorio resuelve la queja del registro y los 711 errores.'),
     ('-', '**A3.** La vía que menos datos personales exige (la placa por LPR) es la única que hoy no crea persona en HikCentral. → El vehículo de la visita es el primer canal del Pase.'),
-    ('-', '**A4.** La administración cree conservar un control que no ejerce. → El argumento de venta es «hoy no tiene ese control y esto se lo da».'),
+    ('-', '**A4.** La administración cree conservar un control que no ejerce. → El argumento de venta: hoy no tiene ese control, y con Kino lo ejerce por franjas y constancia.'),
     ('n', 'Los veinte insights completos, cinco por arquetipo, están en el documento unificado de diagnóstico §6.'),
 ]))
 S.append(('2.4', [
@@ -115,7 +115,7 @@ S.append(('2.4', [
     ('t', [
         ['Nivel (Norman)', 'Decisión', 'Responde a'],
         ['Visceral', 'El Pase vigente late; al vencer se apaga; al revocarse queda cortado. Tema oscuro canónico y aurora bioluminiscente, sin candados, escudos ni muros', 'Hoy no existe el concepto de acceso temporal: el estado tiene que verse vivo'],
-        ['Conductual', 'Crear un Pase en 3 toques o menos; los límites se ven antes de crear; revocar se deshace durante 5 s', 'El competidor es la llamada a portería, que es gratis y conocida'],
+        ['Conductual', 'Crear un Pase en 3 toques o menos; la franja se ve antes de crear; revocar se deshace durante 5 s', 'El competidor es la llamada a portería, que es gratis y conocida'],
         ['Reflexivo', 'Estado honesto: solo es vigente lo que el lector confirmó; cada rechazo lleva su motivo', 'Simetría invertida: el portero ve de los residentes lo que ellos no ven de sí mismos'],
     ], [1800, 4560, 3400]),
     ('n', 'Fuentes: decisiones.md (Parada 3 aprobada, 24 sep 2026); voz.json (perfil NN/g aprobado el 22 sep 2026).'),
@@ -123,7 +123,7 @@ S.append(('2.4', [
 
 # 3 · ESTRATEGIA DE SERVICIO --------------------------------------------------------------------------
 S.append(('3.1', [
-    '**Objetivo general.** Reunir el conocimiento y la autoridad para decidir quién entra a un conjunto: que el residente otorgue, acote y revoque el ingreso de sus visitas y colaboradores, dentro de los límites de la administración, sobre el hardware que el conjunto ya tiene y sin crear personas permanentes.',
+    '**Objetivo general.** Reunir el conocimiento y la autoridad para decidir quién entra a un conjunto: que el residente otorgue, acote y revoque el ingreso de sus visitas y colaboradores, dentro de las franjas de la administración, sobre el hardware que el conjunto ya tiene y sin crear personas permanentes.',
     '**Meta general (oct 2027).** 4 conjuntos con pago; 95 % de los Pases confirmados por el lector en menos de 60 s; ningún ingreso que exija dar de alta a una persona permanente.',
     ('t', [
         ['#', 'Objetivo SMART (acción + métrica + usuario + contexto + tiempo)', 'Punto de partida'],
@@ -141,15 +141,15 @@ S.append(('3.2', [
         ['El residente', 'Otorgar, extender y revocar Pases desde el celular, con la persona reciente a un toque, y saber cuándo entró', 'Llamar a portería o mandar un WhatsApp que nadie registra'],
         ['La visita y el colaborador', 'Entrar con QR, placa o código sin crear cuenta', 'Dar documento, teléfono y correo de por vida'],
         ['Portería', 'Ver por qué el lector dejó o no dejó entrar a alguien, y llamar al residente', 'Supervisar sin poder actuar'],
-        ['La administración (compra)', 'Fijar límites y ver quién autorizó a quién, sobre el hardware que ya pagó', 'Una autoridad nominal que no ejerce y una integración caída'],
+        ['La administración (compra)', 'Fijar franjas y ver quién autorizó a quién, sobre el hardware que ya pagó', 'Una autoridad nominal que no ejerce y una integración caída'],
     ], [2300, 4460, 3000]),
-    '**Enunciado.** Para la administración de un conjunto cerrado que ya tiene lectores instalados, Kino es la capa que deja a cada residente otorgar Pases con vigencia dentro de los límites del conjunto, con constancia de cada ingreso y sin crear cuentas para las visitas.',
+    '**Enunciado.** Para la administración de un conjunto cerrado que ya tiene lectores instalados, Kino es la capa que deja a cada residente otorgar Pases con vigencia dentro de las franjas del conjunto, con constancia de cada ingreso y sin crear cuentas para las visitas.',
 ]))
 S.append(('3.3', [
     'Cada estrategia se nombra con un sustantivo, responde al cómo y se ubica en uno de los cuatro ejes del curso.',
     ('t', [
         ['Objetivo', 'Estrategia', 'Eje', 'Tácticas (qué · cómo · quién · cuándo)'],
-        ['OE1', 'Simplificación del otorgamiento', 'Interactividad y personalización', 'Volver a invitar a un toque; límites visibles antes de crear · equipo · prototipo, oct 2026'],
+        ['OE1', 'Simplificación del otorgamiento', 'Interactividad y personalización', 'Volver a invitar a un toque; franja visible antes de crear · equipo · prototipo, oct 2026'],
         ['OE1', 'Validación con residentes reales', 'Soporte y acompañamiento', 'Prueba con 5 residentes, SEQ y SUS · equipo y administración · 27 oct – 7 nov 2026'],
         ['OE2', 'Acompañamiento de la adopción', 'Soporte y acompañamiento', 'Día de lanzamiento en la entrada; línea por WhatsApp · equipo · ene 2027'],
         ['OE2', 'Diversificación de los canales del Pase', 'Omnicanalidad y accesibilidad', 'Imagen y enlace por WhatsApp; QR, placa y código · equipo · dic 2026'],
@@ -188,7 +188,7 @@ S.append(('5.1', [
         ['Atributo del Pase', 'Qué es', 'Responde a'],
         ['Autor', 'El residente que lo otorga. Sin autor no se puede revisar, corregir ni defender ante el consejo', 'Trazabilidad'],
         ['Motivo', 'Por qué entra esta persona', 'Constancia'],
-        ['Vigencia', 'Desde cuándo y hasta cuándo, dentro del máximo que fije el conjunto. Caduca solo', 'Acceso temporal, que hoy no existe'],
+        ['Vigencia', 'Desde cuándo y hasta cuándo: unas horas, un día o una estadía de meses. Caduca sola', 'Acceso temporal, que hoy no existe'],
         ['Modo', 'Cómo se verifica: placa, QR o código de un solo uso. Los tres conviven', 'Visita sin cuenta'],
         ['Prohibición', 'No crea una persona permanente en la puerta', 'Los 711 errores y la cuenta de la visita'],
     ], [2200, 5160, 2400]),
@@ -223,8 +223,8 @@ S.append(('5.2', [
         ['I-19', 'Háptica por estado (planeada)', 'Confirmación, rechazo, revocar → vibración distinta', 'Nunca solo color'],
         ['I-20', 'Rostro como cuarto modo (planeada)', 'Enrolamiento único → entra sin teléfono', 'Opcional, con autorización (SIC 52185)'],
     ], [700, 2300, 3660, 3100]),
-    ('h', 'Exploración biopunk (propuesta)'),
-    'El Pase como tejido: late mientras está vigente, se marchita al vencer, cicatriza al revocarse y el lector reconoce con una sinapsis. Se activa con la tecla B del prototipo y no toca ningún token aprobado. Queda en decisiones.md con estado PROPUESTA.',
+    ('h', 'Dirección biopunk (aprobada, E3-1)'),
+    'El Pase como tejido: late mientras está vigente, se marchita al vencer, cicatriza al revocarse y el lector reconoce con una sinapsis. Aprobada por el equipo el 19 oct 2026 (decisiones.md E3-1). La tecla B la apaga para compararla con la marca base.',
 ]))
 
 # 6 · DISEÑO Y EVALUACIÓN DE LA EXPERIENCIA ------------------------------------------------------------
@@ -235,7 +235,7 @@ S.append(('6.1', [
     ('t', [
         ['Arquetipo y contexto', 'Tarea', 'Dónde se traba', 'Sev.', 'Qué cambió'],
         ['A3 · visita que llega sin datos móviles', 'Entrar con el Pase', 'La imagen del WhatsApp no traía un QR legible', '3', 'La imagen lleva QR real, código y placa'],
-        ['A1 · residente con una mano, fuera de casa', 'Crear un Pase para dentro de varias horas', 'Elegir una hora lejana exige muchos toques', '2', 'Atajos «Ya», «Esta tarde», «Mañana»'],
+        ['A1 · residente con una mano, fuera de casa', 'Crear un Pase para dentro de varias horas', 'Elegir una hora lejana exige muchos toques', '2', '«Unas horas», «Un día», «Se queda»'],
         ['A1 · familiar que se queda un mes', 'Crear un Pase largo', 'Solo había Pases de horas', '3', '«Se queda»: de 3 días a 3 meses, entra y sale'],
         ['A4 · portería en hora pico', 'Leer varias llegadas seguidas', 'Una lectura tapa la anterior', '2', 'Bitácora con la última fila resaltada'],
         ['A1 · revocar por error', 'Revocar un Pase', 'El diálogo no deja arreglar el error común', '3', 'Mantener presionado y deshacer por 5 s'],
@@ -257,7 +257,7 @@ S.append(('6.1', [
     ], [2160, 1100, 1100, 1100, 1100, 1100, 1100, 1000]),
     ('n', 'La hoja se llena en la sesión. Los resultados entran a la Biblia (6.1 y 3.6) y al deck antes de la sustentación.'),
 ]))
-S.append(('6.2', [('n', 'Se entrega en la Entrega 5. Métricas de la experiencia definidas: activación de casas, retención, NPS de la administración (estrategia.md §7).')]))
+S.append(('6.2', [('n', 'Se entrega en la Entrega 5. Métricas ya definidas: activación de casas, retención, NPS de la administración (estrategia.md §7).')]))
 S.append(('6.3', [('n', 'Se entrega en la Entrega 5. Métricas de la interacción definidas: tiempo para crear un Pase, éxito de la tarea, SEQ, SUS y discrepancia app–puerta.')]))
 
 # 7 · IMPLEMENTACIÓN Y TECNOLOGÍA ----------------------------------------------------------------------
