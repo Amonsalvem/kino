@@ -1,53 +1,11 @@
 {
-  "../../../../../../tmp/claude-0/-home-user-kino/34b1231e-cd1d-50c8-a2c8-bb25af9c15da/scratchpad/proto-visible.md": [
+  "../../../../../../tmp/claude-0/-home-user-kino/34b1231e-cd1d-50c8-a2c8-bb25af9c15da/scratchpad/guion.md": [
     {
-      "linea": 147,
-      "id": "exclamacion",
-      "gravedad": "error",
-      "fragmento": "!",
-      "porque": "Regla 10: sin exclamaciones. Confirmar con el dato."
-    },
-    {
-      "linea": 284,
+      "linea": 53,
       "id": "mayusculas-enfasis",
       "gravedad": "aviso",
-      "fragmento": "RESIDENTE",
+      "fragmento": "IMARC",
       "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 292,
-      "id": "exclamacion",
-      "gravedad": "error",
-      "fragmento": "!",
-      "porque": "Regla 10: sin exclamaciones. Confirmar con el dato."
-    },
-    {
-      "linea": 292,
-      "id": "exclamacion",
-      "gravedad": "error",
-      "fragmento": "!",
-      "porque": "Regla 10: sin exclamaciones. Confirmar con el dato."
-    },
-    {
-      "linea": 293,
-      "id": "exclamacion",
-      "gravedad": "error",
-      "fragmento": "!",
-      "porque": "Regla 10: sin exclamaciones. Confirmar con el dato."
-    },
-    {
-      "linea": 307,
-      "id": "exclamacion",
-      "gravedad": "error",
-      "fragmento": "!",
-      "porque": "Regla 10: sin exclamaciones. Confirmar con el dato."
-    },
-    {
-      "linea": 369,
-      "id": "exclamacion",
-      "gravedad": "error",
-      "fragmento": "!",
-      "porque": "Regla 10: sin exclamaciones. Confirmar con el dato."
     }
   ]
 }

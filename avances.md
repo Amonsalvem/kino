@@ -267,3 +267,10 @@ En arquitectura faltaba:
 - **E3-2:** sin cupo ni duración máxima; estadías de varias entradas; la administración fija solo franjas. Biblia, deck, estrategia y Figma actualizados; las variantes de cupo pasaron a «99 Descartes».
 - **Decisiones nuevas PROPUESTA:** E3-4 (franjas en estadías), E3-5 (umbral de estadía), E3-6 (una sola entrada).
 - **Verificación:** e2e 16 de 16; deck sin desborde y sin texto bajo 24 px.
+
+## Entrega 3 · deck como un solo relato (19 oct)
+- **Pedido de Nico:** no separar las materias; un relato que integre Interacción y Estrategia sin dejar ningún requerimiento.
+- **Hilo:** una tarde de Carolina (Casa 14, Villas Campestres). 2:00 p. m. espera a su hermano; 2:01 crea el Pase; 2:02 le llega a Andrés; 3:04 entra; 6:10 Laura llega con el Pase vencido. Marta (colaboradora) y la mamá que se queda dos meses cubren A2 y E3-2. El cierre vuelve a las 3:04 con el aviso.
+- **Cinco actos:** La tarde (problema, evidencia, diagnóstico, situación, tiempo) · El Pase (solución, objetivo y meta, implicaciones) · En uso (QA, prototipo por escena, biopunk, inventario, validación, Biblia) · El plan (SMART atados a una escena, conexión, SOSTAC, estrategias, tácticas, acción, KPI) · Después (1 año, horizonte, lista de mercado, fichas, preguntas abiertas).
+- La escena es construida y se marca así; cada hecho que la sostiene es observado (reporte de inspección por rol).
+- **Verificación:** 35 láminas sin desborde ni texto bajo 24 px; voz sin errores en láminas ni notas.
