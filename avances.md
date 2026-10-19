@@ -374,3 +374,7 @@ En arquitectura faltaba:
 - Cada «Ficha · X» de las páginas 04 a 10 lleva debajo una tarjeta «SOSTAC · Estrategia de servicio» con cuatro líneas: O (objetivo), S (estrategia y eje), T (táctica) y C (KPI y etapa). Usa la misma fuente y el mismo color de la ficha, con borde punteado.
 - 62 tarjetas: 04 → 8, 05 → 13, 06 → 10, 07 → 7, 08 → 7, 09 → 10, 10 → 7. Las pantallas P2 (R-X-01, R-X-02, P-E-06, P-E-07, A-09) dicen «P2: fuera del plan actual». A-08 apunta al horizonte E5.
 - Mapa fuente: la misma tabla `SOSTAC` de `prototipo/src/modelo.ts` y `entrega-3/estrategia.md`. El script es idempotente: no duplica tarjetas si se vuelve a correr.
+
+## Deck: barrido de muletillas y generalidades (19 oct)
+- 16 frases genéricas cambiadas por el dato concreto. Insights de los arquetipos con el hecho observado (placa «Permitido», cuenta permanente por una tarde, sin acceso por días, alta sin aprobación); títulos de las láminas 4, 7, 9 y 18 sin metáforas («objeto vivo», «capa de autorización», «seis letras»); preguntas GQM de OE2, OE4 y OE5 medibles; F4 nombra la sincronización con HikCentral.
+- `verificar.mjs` sin desborde ni errores en 19 láminas. Compuerta de voz: un error que se deja a propósito, «experiencia» en el nombre literal del eje 3 de la guía del curso.
