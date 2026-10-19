@@ -1,0 +1,20 @@
+{
+  "name": "@kino/prototipo",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "description": "Prototipo navegable de Kino para la entrega 3: residente, visita sin cuenta, portería y administración.",
+  "scripts": {
+    "build": "node construir.mjs",
+    "tipos": "tsc --noEmit",
+    "probar": "node pruebas/e2e.mjs"
+  },
+  "dependencies": {
+    "preact": "10.24.3",
+    "qrcode-generator": "^1.4.4"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.10",
+    "typescript": "5.6.3"
+  }
+}
