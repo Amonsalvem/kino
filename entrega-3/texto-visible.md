@@ -5,21 +5,21 @@ Brief
 SOSTAC
 KPI
 Horizonte
-1 / 38
+1 / 35
 
 Diseño para la interacción · Estrategia de servicio · EAFIT LE005
 
-El Pase
-se usa
+Kino
+Entrega 3
 
-Prototipo con todas sus interacciones, avances de la Biblia y el plan para que Kino siga después de noviembre.
+Prototipo navegable, Biblia y plan a 12 meses.
 
 Nico Ramírez · Alejandro Monsalve
 Monte Sereno, El Retiro · oct 2026
 
 Dónde estamos
 
-Tres entregas, un solo hilo
+Del diagnóstico al Pase en uso
 Entrega 1 · ago–sep
 Diagnóstico
 
@@ -38,8 +38,6 @@ El Pase funciona entre cuatro actores, con un plan de 12 meses.
 Parte 1 · Diseño para la interacción
 
 Interacción
-
-Biblia, QA del prototipo de Figma, el prototipo en vivo y cada interacción con su regla.
 
 Avances de la Biblia · documento integrador Diex
 
@@ -60,20 +58,20 @@ pantallas diseñadas, en oscuro y claro, con ficha cada una
 
 22
 
-reacciones en todo el archivo: se recorre, no se usa
+reacciones en todo el archivo, todas «al clic, ir a»
 
 0
 
 interacciones que crucen de un actor a otro
 
-La especificación está completa. Al prototipo le faltaban tiempo, estado y consecuencias entre actores.
+Ni el tiempo ni otro actor cambiaban una pantalla.
 
 QA por especialidad · 31 hallazgos · severidad de Nielsen
 
-Lo genérico que quitamos
+Los cuatro hallazgos que más cambiaron el prototipo
 Interacción · sev. 4
 
-Ningún estado depende del tiempo. Por vencer era otra pantalla, no algo que ocurre.
+Ningún estado depende del tiempo: Por vencer era una pantalla aparte.
 
 Identidad · sev. 3
 
@@ -91,7 +89,7 @@ Prototipo en vivo · el mismo de Reto
 
 Tócalo
 
-Cuatro actores, un solo estado.
+Lo que hace un actor cambia la pantalla de los otros.
 
 Residente crea y envía
 Visita abre sin cuenta
@@ -126,7 +124,7 @@ I-13
 Mantener para revocar
 Anillo de 0,8 s y deshacer por 5 s
 
-Estado honesto · el Pase vive
+Residente · estados del Pase
 
 Vigente solo si el lector confirmó
 I-07
@@ -142,7 +140,7 @@ La barra se consume; vigente late a 1800 ms
 I-14
 
 Extender
-+1 h o +2 h dentro del máximo del conjunto
++1 h, +1 día o +1 semana, sin tope
 
 I-17
 
@@ -167,7 +165,7 @@ I-09
 Pase vivo en el navegador
 QR, placa o código en el mismo arco
 
-—
+I-09
 
 Cambia solo
 Si lo revocan o lo extienden, el enlace lo muestra
@@ -213,13 +211,13 @@ implementadas y probadas de punta a punta en Chromium
 
 planeadas: Pase en la billetera, háptica por estado, rostro como cuarto modo
 
-15/15
+16/16
 
-pasos del recorrido automático sin errores
+pruebas del recorrido automático
 
-Cada interacción tiene disparador, respuesta, regla y efecto en HikCentral. El panel derecho del prototipo los muestra en vivo.
+Cada interacción tiene disparador, respuesta, regla y efecto en HikCentral, visibles en el panel derecho del prototipo.
 
-Exploración biopunk Propuesta
+Dirección biopunk Aprobada · E3-1
 
 El Pase como tejido
 Late
@@ -240,16 +238,16 @@ Revocado tiene autor; queda la marca
 Sinapsis
 
 cuando el lector reconoce
-El estado honesto, en la puerta
+Solo con la confirmación de HikCentral
 
-Tecla B en el prototipo. No toca ningún token aprobado.
+La tecla B la apaga para comparar con la marca base.
 
 Validación · Biblia 6.1
 
 Evaluación por inspección con los cuatro arquetipos
 Arquetipo y contexto	Dónde se traba	Sev.	Qué cambió
 A3 · visita en la puerta sin señal	La imagen del WhatsApp no traía un QR real	3	La imagen lleva QR y código
-A1 · residente con una mano	Elegir una hora lejana exige muchos toques	2	Atajos «Ya», «Esta tarde», «Mañana»
+A1 · residente con una mano	Elegir una hora lejana exige muchos toques	2	«Unas horas», «Un día», «Se queda»
 A4 · portería en hora pico	Una lectura tapa la anterior	2	Bitácora con la última resaltada
 A1 · familiar que se queda un mes	Solo había Pases de horas	3	«Se queda»: de 3 días a 3 meses, entra y sale
 
@@ -258,8 +256,6 @@ Prueba con cinco residentes de Monte Sereno: 27 oct al 7 nov, con protocolo, SEQ
 Parte 2 · Estrategia de servicio
 
 Brief
-
-Problema y tiempo, la solución y lo que implica, objetivo y meta.
 
 El problema
 
@@ -280,7 +276,7 @@ Observado · inspección del 14 al 16 de sep 2026
 
 El tiempo
 
-Cuatro semanas, y doce meses
+Dos plazos: la entrega y el producto
 Académico
 9 nov 2026
 
@@ -306,11 +302,11 @@ QR
 Placa
 Código de un solo uso
 
-La diferencia de Kino es la suma: integración probada con el hardware instalado, Pase sin cuenta y autoridad del residente acotada.
+Lo que diferencia a Kino: integración probada con el hardware instalado, Pase sin cuenta y autoridad del residente dentro de las franjas.
 
-Todo lo que implica la mejora
+Lo que implica la mejora
 
-Seis frentes cambian a la vez
+Seis frentes que cambian
 Producto
 
 App del residente, Pase vivo, portería y administración.
@@ -355,7 +351,7 @@ OE5	Monte Sereno renueva y 2 conjuntos nuevos firman piloto pagado	4 conjuntos	3
 
 Conexión de los objetivos específicos con el plan general
 
-Cada objetivo sostiene al siguiente
+OE4 primero, OE5 al final
 Objetivo general: reunir conocimiento y autoridad
  ├─ OE1 crear un Pase en 30 s ...... Producto    → valida la propuesta
  ├─ OE2 adopción del residente .......... Servicio    → el residente usa su autoridad
@@ -365,13 +361,7 @@ Objetivo general: reunir conocimiento y autoridad
 
 OE4 es la condición técnica de todos. OE2 y OE3 son la evidencia que vende OE5.
 
-Parte 3 · Plan estratégico
-
-SOSTAC
-
-Situación, objetivos, estrategia, tácticas, acción y control.
-
-El plan en una lámina
+Parte 3 · Plan estratégico SOSTAC
 
 S
 Situación
@@ -405,7 +395,7 @@ Control
 
 S · Situación
 
-El problema se repite en miles de conjuntos
+Casi la mitad de la vivienda urbana es propiedad horizontal
 47,88 %
 
 de la vivienda urbana de Colombia en propiedad horizontal
@@ -424,7 +414,7 @@ crecimiento anual del control de acceso global, 2024–2032
 
 Fedelonjas vía Portafolio, jun 2026 · IMARC
 
-S · Estrategias · empiezan por sustantivo
+S · Estrategia · nombradas con sustantivo
 
 Estrategia	Objetivo	Eje estratégico
 Simplificación del otorgamiento	OE1	Interactividad y personalización
@@ -481,13 +471,7 @@ Meta
 
 4 conjuntos
 
-C · Control
-
-KPI
-
-Método GQM: objetivo, pregunta, métrica. Cada KPI atado a un objetivo y a una etapa.
-
-KPI · uso y adopción
+C · Control · KPI de uso y adopción · método GQM
 
 Pregunta	KPI	Meta	Etapa
 ¿Crear un Pase es más rápido que llamar?	Tiempo para crear	< 30 s	Comportamiento
@@ -499,7 +483,7 @@ Pregunta	KPI	Meta	Etapa
 
 OE1 · OE2 · OE3
 
-KPI · confianza y negocio
+C · Control · KPI de confianza y negocio
 
 Pregunta	KPI	Meta	Etapa
 ¿El Pase existe en la puerta?	Confirmados en <60 s	≥ 98 %	Confianza
@@ -511,13 +495,7 @@ Pregunta	KPI	Meta	Etapa
 
 OE4 · OE5 · revisión semanal, mensual y trimestral
 
-Parte 4 · Kino como empresa
-
-Horizonte
-
-A un año y a cinco: objetivos, KPI, estrategias, tácticas y lo que hay que comprar.
-
-Hacia dónde vamos en 1 año · octubre de 2027
+Parte 4 · Kino como empresa · a 1 año, octubre de 2027
 
 4
 
