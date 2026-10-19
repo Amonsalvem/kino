@@ -300,3 +300,19 @@ En arquitectura faltaba:
   - el movimiento reducido pasa a fundidos y la talanquera no gira.
 - **OE1 (E3-7):** se mide con `prototipo/pruebas/oe1.mjs`: 3 toques y 8 s; visita nueva, 19,4 s (KLM).
 - **Verificación:** e2e 17 de 17; barrido sin cortes; deck de 36 láminas sin desborde; fotogramas en `prototipo/build/fotogramas/`.
+
+## Motion a nivel profesional · segunda pasada (19 oct)
+- **Pedido de Nico:** el motion, las ilustraciones, los diagramas y las transiciones seguían viéndose amateur; encontrar la causa y resolverla.
+- **Diagnóstico (7 causas):** un límite de 180 KB que no existía y dejó sin usar la escena 3D aprobada; cortes secos sin elemento compartido; gráficos de primitivas sin dirección de arte; brillo neón en todo; animaciones de una sola propiedad; E3-8 corregida de más contra F7; y un proceso sin cuadros clave ni revisión en video.
+- **Decisiones de Nico:** videos 3D ya renderizados como archivos de apoyo (sin three.js) y empezar por los momentos héroe.
+- **Construido:**
+  - el build copia los videos y pósters a `prototipo/build/assets/` (unos 1,9 MB);
+  - portería con la escena nocturna 3D: reposo, lectura, luz del lector, talanquera; rechazo desaturado con contracción;
+  - crear: el botón crece y toma la forma del arco del Pase; la hoja se arrastra con física;
+  - tarjeta → detalle y Pase creado → detalle con elemento compartido; al volver no se repite la cascada;
+  - visita: la imagen del chat crece hasta el Pase vivo, que se inclina con reflejo y sombra;
+  - inicio con la aurora oficial y brillo solo en el Pase vigente;
+  - administración con la red Kino → HikCentral que fluye solo mientras sincroniza, y transición entre secciones.
+- **Revisión:** `prototipo/pruebas/video.mjs` graba cada momento; comparación en `entrega-3/antes-despues/` y la lámina https://claude.ai/artifact/RYzKtmq3ZTzgfK5LEhBFbC.
+- **Verificación:** e2e 17 de 17; OE1 3 toques y 8 s; barrido sin cortes.
+- **Falta:** visto bueno de Nico; aprobar la corrección de E3-8; llevar el nivel al resto de la app.

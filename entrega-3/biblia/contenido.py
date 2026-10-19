@@ -225,6 +225,8 @@ S.append(('5.2', [
     ], [700, 2300, 3660, 3100]),
     ('h', 'Dirección biopunk (aprobada, E3-1)'),
     'El Pase como tejido: se enciende al confirmarse, brilla quieto mientras está vigente, se marchita al vencer, cicatriza al revocarse y el lector reconoce como en la sinapsis inmunológica, con tres anillos que forman una diana. Cada movimiento sale de un proceso real (entrega-3/motion-e-ilustracion.md, PROPUESTA E3-8). Aprobada por el equipo el 19 oct 2026 (decisiones.md E3-1). La tecla B la apaga para compararla con la marca base.',
+    ('h', 'Motion: segunda pasada (19 oct 2026)'),
+    'Cinco momentos se rehicieron con criterio de estudio de motion. Portería usa la escena nocturna 3D aprobada: reposa en un cuadro fijo, avanza solo con una lectura y el veredicto se lee en el primer cuadro. El botón de crear crece y toma la forma del arco del Pase. El Portal viaja de la tarjeta al detalle y de la imagen del chat al Pase vivo de la visita. Solo el Pase vigente brilla. La red de administración fluye mientras sincroniza. Cada momento se grabó en video y se comparó con la versión anterior (entrega-3/antes-despues.html). Estado: PROPUESTA (decisiones.md E3-8, corrección del 19 oct).',
 ]))
 
 # 6 · DISEÑO Y EVALUACIÓN DE LA EXPERIENCIA ------------------------------------------------------------

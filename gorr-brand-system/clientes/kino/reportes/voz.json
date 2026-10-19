@@ -8,24 +8,17 @@
       "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
     },
     {
-      "linea": 17,
+      "linea": 19,
       "id": "mayusculas-enfasis",
       "gravedad": "aviso",
       "fragmento": "HIG",
       "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
     },
     {
-      "linea": 18,
+      "linea": 20,
       "id": "mayusculas-enfasis",
       "gravedad": "aviso",
       "fragmento": "MIL",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 22,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "HIG",
       "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
     },
     {
@@ -36,32 +29,32 @@
       "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
     },
     {
-      "linea": 25,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "MDN",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
       "linea": 26,
       "id": "mayusculas-enfasis",
       "gravedad": "aviso",
-      "fragmento": "GOV",
+      "fragmento": "HIG",
       "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
     },
     {
       "linea": 27,
       "id": "mayusculas-enfasis",
       "gravedad": "aviso",
-      "fragmento": "WEHI",
+      "fragmento": "MDN",
       "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
     },
     {
-      "linea": 36,
-      "id": "raya",
+      "linea": 28,
+      "id": "mayusculas-enfasis",
       "gravedad": "aviso",
-      "fragmento": " — ",
-      "porque": "Raya (em dash) en texto visible: usar coma, punto o paréntesis."
+      "fragmento": "GOV",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 29,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "WEHI",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
     },
     {
       "linea": 38,
@@ -71,7 +64,7 @@
       "porque": "Raya (em dash) en texto visible: usar coma, punto o paréntesis."
     },
     {
-      "linea": 39,
+      "linea": 40,
       "id": "raya",
       "gravedad": "aviso",
       "fragmento": " — ",
@@ -85,49 +78,91 @@
       "porque": "Raya (em dash) en texto visible: usar coma, punto o paréntesis."
     },
     {
-      "linea": 44,
+      "linea": 43,
       "id": "raya",
       "gravedad": "aviso",
       "fragmento": " — ",
       "porque": "Raya (em dash) en texto visible: usar coma, punto o paréntesis."
     },
     {
-      "linea": 44,
+      "linea": 46,
       "id": "raya",
       "gravedad": "aviso",
       "fragmento": " — ",
       "porque": "Raya (em dash) en texto visible: usar coma, punto o paréntesis."
     },
     {
-      "linea": 60,
+      "linea": 46,
+      "id": "raya",
+      "gravedad": "aviso",
+      "fragmento": " — ",
+      "porque": "Raya (em dash) en texto visible: usar coma, punto o paréntesis."
+    },
+    {
+      "linea": 62,
       "id": "mayusculas-enfasis",
       "gravedad": "aviso",
       "fragmento": "GOV",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 71,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "IBM",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 73,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "MDN",
       "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
     },
     {
       "linea": 76,
       "id": "mayusculas-enfasis",
       "gravedad": "aviso",
+      "fragmento": "HEVC",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 89,
+      "id": "raya",
+      "gravedad": "aviso",
+      "fragmento": " — ",
+      "porque": "Raya (em dash) en texto visible: usar coma, punto o paréntesis."
+    },
+    {
+      "linea": 89,
+      "id": "lexico-vacio",
+      "gravedad": "error",
+      "fragmento": "transforma",
+      "porque": "Regla 10: léxico vacío. Nombrar el objeto o la acción concreta."
+    },
+    {
+      "linea": 90,
+      "id": "raya",
+      "gravedad": "aviso",
+      "fragmento": " — ",
+      "porque": "Raya (em dash) en texto visible: usar coma, punto o paréntesis."
+    },
+    {
+      "linea": 91,
+      "id": "raya",
+      "gravedad": "aviso",
+      "fragmento": " — ",
+      "porque": "Raya (em dash) en texto visible: usar coma, punto o paréntesis."
+    },
+    {
+      "linea": 102,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "IBM",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 104,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "MDN",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 107,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
       "fragmento": "GOV",
       "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
     },
     {
-      "linea": 77,
+      "linea": 108,
       "id": "mayusculas-enfasis",
       "gravedad": "aviso",
       "fragmento": "PNAS",

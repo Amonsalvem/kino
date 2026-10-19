@@ -2,6 +2,8 @@
 
 Estado: **PROPUESTA** (decisiones.md E3-8). Desarrolla E3-1 (biopunk, aprobada) y no toca tokens aprobados.
 
+La **segunda pasada** (al final) corrige la regla 6 y cambia la portería, la continuidad y el brillo. Donde chocan, manda la segunda pasada.
+
 ## Por qué se rehízo
 La animación del lector era una espiral de 14 trazos curvos con el mismo desfase. No correspondía a ningún proceso biológico ni a una regla de la marca: era forma orgánica sin mecanismo, lo que la investigación llama biomorfismo cosmético. El inventario del prototipo encontró además cinco contradicciones con la marca:
 - latidos infinitos, cuando el token permite 3 ciclos (`latirCiclos: 3`, WCAG 2.2.2);
@@ -19,7 +21,7 @@ La animación del lector era una espiral de 14 trazos curvos con el mismo desfas
 | 3 | Estado continuo y evento se mueven distinto. Vigente brilla quieto; el reconocimiento es un destello | Bioluminiscencia de hongos, continua (Oliveira y otros, 2015) frente al destello de *Noctiluca* (Nicol, 1958) |
 | 4 | Nada destella más de 3 veces por segundo; los latidos son 3 y se detienen | WCAG 2.3.1 y 2.2.2; token `latirCiclos` |
 | 5 | Nada gira de forma continua. Una espera de menos de 10 s lleva texto, no un spinner | Nielsen; regla 5 de `@kino/motion` |
-| 6 | Nada se mueve si no cambia un dato | Apple HIG; Zawojski (2025) sobre la imagen tipo salvapantallas |
+| 6 | Nada se mueve si no cambia un dato. *Acotada en la segunda pasada: vale para portería y los estados del Pase; la aurora del inicio se mueve y se pausa a los 5 s* | Apple HIG; Zawojski (2025) sobre la imagen tipo salvapantallas; F7 |
 | 7 | En portería no hay rebote ni sacudida. Contracción rápida y recuperación lenta | Material 3 (resortes de efectos sin rebote); *Mimosa pudica*, cierre en menos de 1 s y recuperación en ~20 min |
 | 8 | Lo frecuente se anima menos que lo ocasional. Crear un Pase puede tener un momento; cada lectura de portería es sobria | Apple HIG; NN/g, duración de la animación |
 | 9 | Movimiento reducido: escala, giro y desplazamiento pasan a fundido de 240 ms o menos; los latidos se detienen; ninguna información vive solo en la animación | MDN `prefers-reduced-motion`; WCAG 2.3.3; Apple, Reduce Motion |
@@ -65,6 +67,35 @@ Familia única, construida con la geometría del logo (el arco y la gota):
 1. Aprobar el catálogo (E3-8).
 2. Llevar los tokens nuevos a `@kino/motion`: `instante` ya existe; faltan `destello` (43 + 80 ms) y la curva de sístole.
 3. Pasar las ilustraciones a la librería de Figma.
+
+## Segunda pasada · nivel profesional (19 oct)
+
+### Por qué seguía viéndose amateur
+| # | Causa | Qué se hizo |
+|---|---|---|
+| 1 | Un límite de un solo HTML de 180 KB que nadie pidió. Todo se dibujó con primitivas y la escena 3D aprobada (M3D) quedó sin usar | El build publica `assets/` con los videos de la portería nocturna (VP9 y HEVC, unos 1,9 MB) |
+| 2 | Cortes secos: Preact desmontaba y montaba, sin elemento compartido ni salidas | Elemento compartido (`volar`) y transformación de contenedor (`morfar`) en `prototipo/src/movimiento.ts` |
+| 3 | Gráficos sin luz, material, profundidad ni escala | Escena 3D en portería; Portal con material; red con cauce y nodos con gradiente |
+| 4 | Brillo neón en todas las tarjetas y micelio sobre el título | Solo el Pase vigente brilla; por vencer en ámbar; aurora oficial en lugar del micelio |
+| 5 | Una propiedad por animación | Superposición: el objeto llega primero y el texto entra al 35 % del resorte; salidas al 60 % |
+| 6 | La regla 6 dejó toda la app quieta, contra F7 | Regla 6 acotada (tabla de reglas) |
+| 7 | Código sin cuadros clave y revisión con capturas fijas | `prototipo/pruebas/video.mjs` graba cada momento a velocidad real y arma la tira de fotogramas |
+
+### Los momentos héroe
+| Momento | Antes | Ahora | Dato que manda |
+|---|---|---|---|
+| El lector confirma | Talanquera de rectángulos y diana de trazos | Escena nocturna 3D. Reposo en 0,75 s; durante la lectura avanza y se detiene en 1,80 s; al confirmar salta a 1,85 s (luz del lector) y la talanquera sube; la diana se ancla sobre la luz | El panel es verde o rojo en el primer cuadro (regla 1) |
+| No entra | Contracción sobre la escena dibujada | Cuadro de 1,70 s desaturado, velo carmín, contracción de 1,5 % y la luz roja late dos veces | Regla 7, sin sacudida |
+| Crear un Pase | Desenfoque y escala | El botón verde crece y toma la forma del arco del Pase (`morfar`, resorte `pase`); la hoja se arrastra con física (`@kino/motion/web/fisica`) | — |
+| Tarjeta → detalle | Corte seco y cascada repetida al volver | El Portal vuela de la tarjeta al detalle y regresa; la cascada ocurre una sola vez | — |
+| La visita abre su Pase | Corte del chat al Pase | La imagen del chat crece hasta el Pase vivo; el Pase se inclina con reflejo y sombra | — |
+| Integración | Dos curvas | Red con cauce; las altas fluyen solo mientras corre el reintento | El grosor es la proporción sincronizada |
+
+**Movimiento reducido:** la portería usa tres pósters fijos (reposo, rechazo y abierta) en lugar del video; los vuelos y cambios de forma pasan a fundido.
+
+**Revisión:** lámina «Antes / después» con los videos de los cinco momentos: https://claude.ai/artifact/RYzKtmq3ZTzgfK5LEhBFbC (`entrega-3/antes-despues.html`).
+
+**Queda:** el visto bueno de Nico; confirmar, vencer y revocar sobre el Pase; llevar el mismo nivel al resto de la app.
 
 ## Fuentes
 - Apple, Human Interface Guidelines: Motion y Accessibility.
