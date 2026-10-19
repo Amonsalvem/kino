@@ -460,3 +460,24 @@ Pedido de Nico: subir las tres escenas de Blender a nivel profesional; libertad 
 5. Las siete decisiones de motion 3D quedan aprobadas.
 - **M3D-4 en Remotion y Lottie (27 sep):** `piezas.tsx` y `generar.py` pasan la tarjeta a membrana y la pista a elevada; heroes, revocado y 28 previews re-renderizados. Las piezas del Pase del sitio oficial (1.2.1) no cambian sin una versión nueva.
 - **Queda fuera:** M3D-5 en Remotion y Lottie. Las dos cambian de estado con un fundido cruzado de la tarjeta entera; llevar ahí el fundido a través exige separar fondo y textos en capas.
+
+## Entrega 3 · prototipo navegable (19 oct 2026)
+
+### E3-1 · Exploración biopunk en el prototipo · PROPUESTA
+- **Qué es:** una capa de tema aparte (`prototipo/src/estilos.css`, bloque «Exploración biopunk»), apagada por defecto. Se enciende con la tecla B. No toca ningún token aprobado.
+- **Rasgos:** el Pase vigente late como tejido; el vencido se marchita (pierde saturación y se deforma); el revocado cicatriza (el corte punteado); el lector reconoce con una sinapsis; el borde del Portal es una quitina iridiscente; micelio vivo de fondo.
+- **Por qué:** hoy no existe el acceso temporal para una persona, así que el estado tiene que verse vivo (H1/H5). Cada rasgo nombra un hecho del Pase; ninguno decora.
+- **Opciones:** A, adoptar la capa en la app; B, adoptar solo el latido del tejido y la sinapsis del lector; C, dejarla como exploración.
+
+### E3-2 · Supuestos del prototipo para los [PENDIENTE] del archivo «Kino · App» · PROPUESTA
+1. Cupo por casa: 5 Pases de visita activos al mismo tiempo.
+2. El Pase de visita queda Usado al entrar (una sola entrada).
+3. Portería digita el código en su pantalla; no se asume teclado en el lector.
+4. La vigencia del código es la del Pase.
+5. La administración no revoca en esta versión.
+6. El Pase de colaborador se repite sin fecha de fin hasta que el residente lo revoque.
+- **Efecto en HikCentral:** 1, 4 y 6 definen el «Válido desde / hasta» de la persona temporal; 2 pide dar de baja el Pase después del primer evento de acceso.
+
+### E3-3 · Revocar con mantener presionado y deshacer · PROPUESTA
+- Reemplaza el diálogo de confirmación de R-P-10. Mantener 0,8 s revoca al instante; «Deshacer» dura 5 s; la baja en HikCentral sale cuando vence el deshacer.
+- **Por qué:** el diálogo protege de un toque accidental que el gesto ya evita y deja sin arreglo el arrepentimiento, que es el error común.

@@ -232,3 +232,30 @@ En arquitectura faltaba:
   - **Verificación:** web con 26 pruebas unitarias, `lint-motion` sin hallazgos y 18 pruebas en navegador (entre ellas, el fundido del chip a 1280 y 390 px); app con tipos sin errores, pruebas unitarias y 11 pruebas en el arnés web.
   - **Remotion y Lottie (27 sep):** tarjeta en membrana y pista en elevada; 14 recursos Lottie regenerados, 28 previews y los masters de hero, hero móvil y revocado re-renderizados (≈12 min de render y 5 de codificación). Galería republicada (versión 5).
   - **Pendiente:** M3D-5 en Remotion y Lottie (fundido a través con capas separadas) y las piezas del Pase del sitio, que esperan una versión nueva.
+
+## Entrega 3 · prototipo, estrategia y Biblia (19 oct)
+- **Pedido de Nico:** la entrega 3 para dos materias (Diseño para la interacción y Estrategia de servicio), con el formato de la entrega 2 y letra legible a distancia; QA del prototipo de Figma, exploración biopunk y prototipo que se use al darle play; brief con SOSTAC, SMART, KPI, horizonte de empresa y lista de mercado, siguiendo `Plan_estrategico.pdf` e `Indicadores_2.pdf`.
+- **Construido:**
+  - `entrega-3/qa-prototipo.md`: QA de «Kino · App» por ocho especialidades, con nodo y severidad.
+  - `prototipo/`: app en código con cuatro actores y un solo estado, 17 interacciones implementadas y 3 planeadas, reloj acelerable y capa biopunk (E3-1).
+  - `entrega-3/kino_entrega_3.html`: deck de 38 láminas con el prototipo adentro.
+  - `entrega-3/estrategia.md`: la estrategia completa, con fuentes.
+  - `entrega-3/Kino_Biblia_E3.docx`: plantilla Diex con 16 apartados llenos y el protocolo de validación 6.1.
+- **Figma «Kino · App»:**
+  - «{cupo}» reemplazado por 5 en 22 textos de pantalla.
+  - «[PENDIENTE: unidad del cupo]» resuelto en las 3 pantallas de Límites.
+  - Las 22 reacciones pasan a Smart Animate (curva crecer, 420 ms).
+  - Página nueva «15 Prototipo navegable».
+- **Verificación:**
+  - e2e del prototipo: 15 de 15.
+  - Deck a 1920×1080: ningún texto visible bajo 24 px, sin desborde a 1920, 1280 y 390 px.
+  - Compuerta de voz: 0 errores en el deck, la estrategia y el QA. Los avisos son siglas (KPI, SMART).
+- **Publicado:**
+  - Deck: https://claude.ai/artifact/VqbNFqTNrLpK16JzfjBMr2
+  - Prototipo: https://claude.ai/artifact/GbcN5QxL9P9r3F7eGfEGuk
+- **Validación con usuarios:** no se inventaron participantes. Se hizo una evaluación por inspección con los arquetipos y quedó listo el protocolo para 5 residentes (27 oct – 7 nov).
+- **Pendiente de Nico:**
+  - E3-1 a E3-3.
+  - Grupo y fecha de entrega en la portada de la Biblia.
+  - Correr la prueba con residentes.
+  - Las cinco preguntas de `estrategia.md` §11.
