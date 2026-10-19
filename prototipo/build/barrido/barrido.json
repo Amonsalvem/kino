@@ -163,6 +163,21 @@
     "toque",
     "button «Placa»",
     "101×44"
+   ],
+   [
+    "toque",
+    ".opcion «+1 h»",
+    "93×44"
+   ],
+   [
+    "toque",
+    ".opcion «+1 día»",
+    "93×44"
+   ],
+   [
+    "toque",
+    ".opcion «+1 semana»",
+    "93×44"
    ]
   ]
  },
