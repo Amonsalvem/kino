@@ -36,50 +36,11 @@ Entrega 3. Una sola historia para las dos materias: el problema, el Pase en el p
 
  
  
+ SOSTAC · S · Situación · Descripción del problema y pregunta guía 
  ¿Quién decide quién entra? 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
  
  El residente Sabe a quién espera 
  la puerta 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
  La administración Tiene la autoridad y no sabe a quién espera 
  
  ¿Cómo reunir conocimiento y autoridad para decidir quién entra? 
@@ -89,6 +50,7 @@ Núcleo del diagnóstico: el conocimiento y la autoridad viven en actores distin
 
  
  
+ SOSTAC · S · Situación · Evidencia del diagnóstico y contexto del mercado 
  El sistema solo sabe crear personas permanentes 
  
  0 /312 usuarios de Refugio Campestre sincronizados con el lector 
@@ -102,6 +64,7 @@ Las tres cifras son observadas en la inspección (MAESTRO-KINO §3). El resident
 
  
  
+ SOSTAC · S · Situación · Público objetivo (arquetipos), conclusiones del journey e insights 
  En los cuatro recorridos, todo se rompe en la puerta 
  
  A1 Residente Ya decide quién entra, pero cree que no 
@@ -178,6 +141,24 @@ Se lee de arriba abajo: cada barra es un filtro más exigente. 31 problemas en e
 
  
  
+ 
+ Plan estratégico SOSTAC · las seis partes y dónde está cada una 
+ El plan, en seis letras 
+ 
+ S Situación Problema, evidencia, arquetipos, journey e insights Láminas 2–4 
+ O Objetivos Objetivo general, meta y 5 objetivos SMART Láminas 10–12 
+ S Estrategia Una por objetivo, con sustantivo y eje estratégico Lámina 13 
+ T Tácticas Qué, cómo, quién y cuándo Lámina 13 
+ A Acción Seis hitos, nov 2026 a oct 2027 Lámina 14 
+ C Control KPI con método GQM y su tablero Láminas 15–16 
+ 
+ 
+Estructura de la guía del curso (Plan_estrategico.pdf). La situación ya se contó al inicio; desde aquí, el plan. Las fichas de producto (lámina 17) cierran como insumo para mapas y prototipos. 
+ 
+
+ 
+ 
+ SOSTAC · O · Objetivo general (el qué) y meta general a 12 meses 
  Que el residente otorgue y revoque el ingreso de sus visitas y colaboradores, dentro de las franjas de la administración, sobre el hardware que el conjunto ya tiene. 
  
  4 conjuntos con pago a octubre de 2027 
@@ -190,6 +171,7 @@ La frase es el qué de toda la estrategia. Las tres cifras son la meta a 12 mese
 
  
  
+ SOSTAC · O · Objetivos específicos SMART · acción + métrica + usuario + contexto + tiempo 
  Cinco objetivos SMART 
  
  Acción Métrica Usuario Contexto Tiempo 
@@ -203,22 +185,45 @@ La frase es el qué de toda la estrategia. Las tres cifras son la meta a 12 mese
 Fórmula del curso: acción + métrica + usuario + contexto + tiempo. OE1 ya se midió el 19 oct: 3 toques y 8 s; visita nueva, 19,4 s. Refugio parte de 0 de 312. 
  
 
+
  
  
+ SOSTAC · O · SMART · preguntas orientadoras: ¿por qué es importante?, ¿quién?, ¿con qué recursos?, ¿cómo sabré que se logró? 
+ Por qué cada objetivo es alcanzable y relevante 
+ 
+ Obj. Relevante · por qué importa Quién lo logra Alcanzable · con qué recursos Medible · se logró cuando 
+ 
+ OE1 Si crear un Pase es más lento que llamar a portería, nadie lo usa Equipo Prototipo y recorrido automático ≤ 3 toques y < 30 s · ya cumple 
+ OE2 Que el residente lo use es el valor que compra la administración Equipo y administración Día de lanzamiento y línea por WhatsApp 60 % de casas con un Pase 
+ OE3 El colaborador es el ingreso más frecuente Equipo, Manuel y portería Pase recurrente y la minuta para medir 80 % de sus ingresos con Pase 
+ OE4 Sin integración, el lector no conoce el Pase Equipo con Manuel OpenAPI de HikCentral y alta con teléfono 98 % en < 60 s; Refugio ≥ 95 % 
+ OE5 Que Kino siga después de la universidad Equipo e instaladores Caso con KPI reales y ficha comercial Renovación y 2 contratos 
+ 
+ 
+ 
+Preguntas orientadoras de la guía: específico (qué, por qué, quién, dónde, recursos), medible (cuánto, cómo sabré), alcanzable (cómo, con qué), relevante (es valioso, es el momento) y a tiempo (la columna Tiempo de la lámina anterior). 
+ 
+
+ 
+ 
+ SOSTAC · S y T · Estrategias (el cómo, con su eje estratégico) y tácticas (qué · cómo · quién · cuándo) 
  Cada objetivo, una estrategia y una táctica 
  
- OE1 Simplificación interactividad «Volver a invitar» abre la hoja ya llena Equipo oct 2026 · hecho 
- OE2 Acompañamiento soporte Día de lanzamiento en portería: primer Pase con cada residente Equipo y adm. semana 1 · ene 2027 
- OE3 Recurrencia automatización Pase de colaborador con días y franja, se crea una vez Equipo y Manuel dic 2026 
- OE4 Integración automatización Alta con teléfono en vez de correo: reintentar las 711 Equipo y Manuel nov–dic 2026 
- OE5 Penetración omnicanalidad Alianza con instaladores Hikvision del Valle de Aburrá y el Oriente Equipo abr–jun 2027 
+ Objetivo Estrategia · eje Táctica: qué y cómo Quién · cuándo 
+ OE1 Simplificación eje 1 · interactividad «Volver a invitar» abre la hoja ya llena Equipo oct 2026 · hecho 
+ OE2 Acompañamiento eje 4 · soporte Día de lanzamiento en portería: primer Pase con cada residente Equipo y adm. semana 1 · ene 2027 
+ OE3 Recurrencia eje 3 · automatización Pase de colaborador con días y franja, se crea una vez Equipo y Manuel dic 2026 
+ OE4 Integración eje 3 · automatización Alta con teléfono en vez de correo: reintentar las 711 Equipo y Manuel nov–dic 2026 
+ OE5 Penetración eje 2 · omnicanalidad Alianza con instaladores Hikvision del Valle de Aburrá y el Oriente Equipo abr–jun 2027 
  
+ 1 Interactividad y personalización 2 Omnicanalidad y accesibilidad 3 Automatización y gestión de la experiencia 4 Soporte y acompañamiento 
  
 Estrategia: un sustantivo que dice cómo; su eje estratégico del curso debajo. Táctica: qué se hará, quién y cuándo. Las demás tácticas están en estrategia.md §5. 
  
 
  
  
+ SOSTAC · A · Plan de acción · hitos, responsables y fechas 
  De la sustentación al cuarto conjunto 
  
  9 nov 2026 Sustentación Prototipo y medición de OE1 
@@ -234,9 +239,10 @@ El primer hito es académico; los demás son de producto y siguen después de no
 
  
  
+ SOSTAC · C · Control · KPI con método GQM: objetivo (G) → pregunta (Q) → métrica (M) y su meta 
  Un KPI por objetivo 
  
- Pregunta KPI Fórmula Meta Etapa Cada 
+ G Q · Pregunta M · KPI Variable · fórmula Meta Etapa Cada 
  OE1 ¿Crear un Pase es más rápido que llamar? Tiempo para crear KLM del recorrido < 30 s Comportamiento versión 
  OE2 ¿Las casas usan su autoridad? Activación de casas casas con ≥ 1 Pase ÷ casas registradas ≥ 60 % Conversión semana 
  OE3 ¿El colaborador entra sin llamada? Ingresos con Pase ingresos por lector ÷ ingresos en minuta ≥ 80 % Comportamiento semana 
@@ -244,12 +250,16 @@ El primer hito es académico; los demás son de producto y siguen después de no
  OE5 ¿La administración ve valor? Conjuntos con pago contratos firmados 4 Conversión mes 
  
  
-Método GQM: objetivo, pregunta, métrica. Hay 12 KPI en total (estrategia.md §7); aquí va el principal de cada objetivo. Las metas de OE2, OE3 y OE5 se recalibran con la medición de la semana 1 del piloto. 
+ Captación costo de adquisición por conjunto Comportamiento OE1 · OE3 Conversión OE2 · OE5 Satisfacción SUS · NPS de la administración Confianza OE4 · rechazos con motivo Compromiso retención de residentes 
+ 
+ 
+Método GQM: objetivo, pregunta, métrica. Paso a paso de la guía: determinar el objetivo, definir una variable y relacionarla con la meta. Abajo, las seis etapas de la guía de indicadores con el KPI que cubre cada una. Hay 12 KPI en total (estrategia.md §7); aquí va el principal de cada objetivo. Las metas de OE2, OE3 y OE5 se recalibran con la medición de la semana 1 del piloto. 
  
 
 
  
  
+ SOSTAC · C · Control · Tablero de seguimiento de los KPI, revisión periódica 
  Así se sigue cada semana 
  
  Tiempo para crear un Pase OE1 8 s visita reciente · nueva 19,4 s 
@@ -271,6 +281,7 @@ Tablero ilustrativo: OE1 tiene datos reales del recorrido automático; OE2 a OE5
 
  
  
+ Descripción de productos · fichas de producto, insumo para mapas y prototipos 
  Seis productos 
  
  F1 Kino Residente App para otorgar, extender y revocar Pases OE1 OE2 OE3 
@@ -286,6 +297,7 @@ Cada ficha completa (propósito, interacciones, componentes, tecnologías y esce
 
  
  
+ Horizonte de empresa · 1 a 5 años y lo que falta verificar antes del piloto 
  La capa de autorización sobre cualquier lector 
  
  2027 4 conjuntos en Monte Sereno y el Oriente 

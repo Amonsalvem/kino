@@ -369,6 +369,18 @@ section.actual .barras i{transform:none}
 body.final .barra,body.final .progreso{opacity:0;pointer-events:none}
 @media (prefers-reduced-motion:reduce){.despedida *{animation:none!important}.despedida .aurora-f{opacity:.5}.logo-f .bloque,.logo-f .gota{opacity:1}}
 @media (max-width:820px){.tablero{grid-template-columns:minmax(0,1fr)}.personaje{width:160px}}
+
+/* Subtítulos de Estrategia de Servicio: dicen qué pieza de la guía se muestra. Ejes y etapas como franjas. */
+.cab-rama{font-family:var(--dato);letter-spacing:.06em;text-transform:uppercase;color:var(--tenue)}
+.ejes,.etapas{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:calc(var(--u)*.6);font-size:var(--t-min)}
+.etapas{grid-template-columns:repeat(6,minmax(0,1fr))}
+.ejes span,.etapas span{display:grid;gap:.2em;padding:calc(var(--u)*.5) calc(var(--u)*.8);border-radius:10px;background:var(--elevada);border:1px solid var(--borde);color:var(--texto-2)}
+.ejes b,.etapas b{font-family:var(--dato);color:var(--vig);font-weight:500}
+.sostac .etiqueta{align-self:flex-start;margin-top:auto}
+@media (max-width:820px){.ejes,.etapas{grid-template-columns:repeat(2,minmax(0,1fr))}.cab-rama{display:none!important}}
+section.densa{gap:calc(var(--u)*1.1);padding-block:calc(var(--u)*4.2) calc(var(--u)*1.6)}
+section.densa .ramas{gap:calc(var(--u)*.45)}
+section.densa .grafica{height:calc(var(--u)*4.6)}
 </style>
 
 <div class="progreso" id="progreso"></div>
@@ -400,6 +412,7 @@ body.final .barra,body.final .progreso{opacity:0;pointer-events:none}
 
 <!-- 2 · El problema -->
 <section data-parte="inicio">
+  <p class="rot">SOSTAC · S · Situación · Descripción del problema y pregunta guía</p>
   <h2>¿Quién decide quién entra?</h2>
   <div class="brecha">
     <div class="nodo" data-r style="--r:1"><video class="personaje personaje--residente" src="personajes/residente.webm" poster="personajes/residente.png" muted playsinline preload="auto" aria-label="El residente, con un Pase en la mano"></video><b>El residente</b><p>Sabe a quién espera</p></div>
@@ -412,6 +425,7 @@ body.final .barra,body.final .progreso{opacity:0;pointer-events:none}
 
 <!-- 3 · Evidencia -->
 <section data-parte="inicio">
+  <p class="rot">SOSTAC · S · Situación · Evidencia del diagnóstico y contexto del mercado</p>
   <h2>El sistema solo sabe crear personas permanentes</h2>
   <div class="evid">
     <div class="caja" data-r style="--r:1"><span class="cifra rech"><span data-contar="0">0</span>/312</span><p>usuarios de Refugio Campestre sincronizados con el lector</p><span class="barrita"><i style="--w:1%"></i></span></div>
@@ -424,6 +438,7 @@ body.final .barra,body.final .progreso{opacity:0;pointer-events:none}
 
 <!-- 4 · Arquetipos e insights -->
 <section data-parte="inicio">
+  <p class="rot">SOSTAC · S · Situación · Público objetivo (arquetipos), conclusiones del journey e insights</p>
   <h2>En los cuatro recorridos, todo se rompe en la puerta</h2>
   <div class="arq">
     <div class="caja" data-r style="--r:1"><span class="id">A1</span><h3>Residente</h3><p class="insight">Ya decide quién entra, pero cree que no</p></div>
@@ -494,7 +509,24 @@ body.final .barra,body.final .progreso{opacity:0;pointer-events:none}
 </section>
 
 <!-- 9 · Objetivo general -->
+<!-- SOSTAC: el mapa -->
 <section id="plan" data-parte="plan">
+  <p class="rot">Plan estratégico SOSTAC · las seis partes y dónde está cada una</p>
+  <h2>El plan, en seis letras</h2>
+  <div class="sostac">
+    <div class="caja" data-r style="--r:1"><span class="letra">S</span><h3>Situación</h3><p>Problema, evidencia, arquetipos, journey e insights</p><span class="etiqueta">Láminas 2–4</span></div>
+    <div class="caja" data-r style="--r:2"><span class="letra">O</span><h3>Objetivos</h3><p>Objetivo general, meta y 5 objetivos SMART</p><span class="etiqueta">Láminas 10–12</span></div>
+    <div class="caja" data-r style="--r:3"><span class="letra">S</span><h3>Estrategia</h3><p>Una por objetivo, con sustantivo y eje estratégico</p><span class="etiqueta">Lámina 13</span></div>
+    <div class="caja" data-r style="--r:4"><span class="letra">T</span><h3>Tácticas</h3><p>Qué, cómo, quién y cuándo</p><span class="etiqueta">Lámina 13</span></div>
+    <div class="caja" data-r style="--r:5"><span class="letra">A</span><h3>Acción</h3><p>Seis hitos, nov 2026 a oct 2027</p><span class="etiqueta">Lámina 14</span></div>
+    <div class="caja" data-r style="--r:6"><span class="letra">C</span><h3>Control</h3><p>KPI con método GQM y su tablero</p><span class="etiqueta">Láminas 15–16</span></div>
+  </div>
+  <aside class="guion">Estructura de la guía del curso (Plan_estrategico.pdf). La situación ya se contó al inicio; desde aquí, el plan. Las fichas de producto (lámina 17) cierran como insumo para mapas y prototipos.</aside>
+</section>
+
+<!-- 9 · Objetivo general -->
+<section data-parte="plan">
+  <p class="rot">SOSTAC · O · Objetivo general (el qué) y meta general a 12 meses</p>
   <p class="objetivo" data-r style="--r:0">Que el residente otorgue y revoque el ingreso de sus visitas y colaboradores, dentro de las franjas de la administración, sobre el hardware que el conjunto ya tiene.</p>
   <div class="meta">
     <div class="caja" data-r style="--r:2"><span class="cifra" data-contar="4">4</span><p>conjuntos con pago a octubre de 2027</p></div>
@@ -506,6 +538,7 @@ body.final .barra,body.final .progreso{opacity:0;pointer-events:none}
 
 <!-- 10 · SMART -->
 <section data-parte="plan">
+  <p class="rot">SOSTAC · O · Objetivos específicos SMART · acción + métrica + usuario + contexto + tiempo</p>
   <h2>Cinco objetivos SMART</h2>
   <div class="smart" role="table" aria-label="Objetivos SMART">
     <span></span><span class="cab acc">Acción</span><span class="cab met">Métrica</span><span class="cab usu">Usuario</span><span class="cab ctx">Contexto</span><span class="cab tie">Tiempo</span>
@@ -518,21 +551,43 @@ body.final .barra,body.final .progreso{opacity:0;pointer-events:none}
   <aside class="guion">Fórmula del curso: acción + métrica + usuario + contexto + tiempo. OE1 ya se midió el 19 oct: 3 toques y 8 s; visita nueva, 19,4 s. Refugio parte de 0 de 312.</aside>
 </section>
 
-<!-- 11 · Estrategia → táctica -->
+
+<!-- SMART: preguntas orientadoras -->
 <section data-parte="plan">
+  <p class="rot">SOSTAC · O · SMART · preguntas orientadoras: ¿por qué es importante?, ¿quién?, ¿con qué recursos?, ¿cómo sabré que se logró?</p>
+  <h2>Por qué cada objetivo es alcanzable y relevante</h2>
+  <div class="tabla"><table>
+    <thead><tr><th>Obj.</th><th>Relevante · por qué importa</th><th>Quién lo logra</th><th>Alcanzable · con qué recursos</th><th>Medible · se logró cuando</th></tr></thead>
+    <tbody>
+      <tr><td>OE1</td><td>Si crear un Pase es más lento que llamar a portería, nadie lo usa</td><td>Equipo</td><td>Prototipo y recorrido automático</td><td>≤ 3 toques y &lt; 30 s · <b>ya cumple</b></td></tr>
+      <tr><td>OE2</td><td>Que el residente lo use es el valor que compra la administración</td><td>Equipo y administración</td><td>Día de lanzamiento y línea por WhatsApp</td><td>60 % de casas con un Pase</td></tr>
+      <tr><td>OE3</td><td>El colaborador es el ingreso más frecuente</td><td>Equipo, Manuel y portería</td><td>Pase recurrente y la minuta para medir</td><td>80 % de sus ingresos con Pase</td></tr>
+      <tr><td>OE4</td><td>Sin integración, el lector no conoce el Pase</td><td>Equipo con Manuel</td><td>OpenAPI de HikCentral y alta con teléfono</td><td>98 % en &lt; 60 s; Refugio ≥ 95 %</td></tr>
+      <tr><td>OE5</td><td>Que Kino siga después de la universidad</td><td>Equipo e instaladores</td><td>Caso con KPI reales y ficha comercial</td><td>Renovación y 2 contratos</td></tr>
+    </tbody>
+  </table></div>
+  <aside class="guion">Preguntas orientadoras de la guía: específico (qué, por qué, quién, dónde, recursos), medible (cuánto, cómo sabré), alcanzable (cómo, con qué), relevante (es valioso, es el momento) y a tiempo (la columna Tiempo de la lámina anterior).</aside>
+</section>
+
+<!-- 11 · Estrategia → táctica -->
+<section data-parte="plan" class="densa">
+  <p class="rot">SOSTAC · S y T · Estrategias (el cómo, con su eje estratégico) y tácticas (qué · cómo · quién · cuándo)</p>
   <h2>Cada objetivo, una estrategia y una táctica</h2>
   <div class="ramas">
-    <div class="rama" data-r style="--r:1"><span class="oe">OE1</span><span class="conector" style="--r:1"></span><span class="est">Simplificación<small>interactividad</small></span><span class="conector" style="--r:2"></span><span class="tac">«Volver a invitar» <span>abre la hoja ya llena</span></span><span class="cuando"><b>Equipo</b>oct 2026 · hecho</span></div>
-    <div class="rama" data-r style="--r:2"><span class="oe">OE2</span><span class="conector" style="--r:2"></span><span class="est">Acompañamiento<small>soporte</small></span><span class="conector" style="--r:3"></span><span class="tac">Día de lanzamiento <span>en portería: primer Pase con cada residente</span></span><span class="cuando"><b>Equipo y adm.</b>semana 1 · ene 2027</span></div>
-    <div class="rama" data-r style="--r:3"><span class="oe">OE3</span><span class="conector" style="--r:3"></span><span class="est">Recurrencia<small>automatización</small></span><span class="conector" style="--r:4"></span><span class="tac">Pase de colaborador <span>con días y franja, se crea una vez</span></span><span class="cuando"><b>Equipo y Manuel</b>dic 2026</span></div>
-    <div class="rama" data-r style="--r:4"><span class="oe">OE4</span><span class="conector" style="--r:4"></span><span class="est">Integración<small>automatización</small></span><span class="conector" style="--r:5"></span><span class="tac">Alta con teléfono <span>en vez de correo: reintentar las 711</span></span><span class="cuando"><b>Equipo y Manuel</b>nov–dic 2026</span></div>
-    <div class="rama" data-r style="--r:5"><span class="oe">OE5</span><span class="conector" style="--r:5"></span><span class="est">Penetración<small>omnicanalidad</small></span><span class="conector" style="--r:6"></span><span class="tac">Alianza con instaladores <span>Hikvision del Valle de Aburrá y el Oriente</span></span><span class="cuando"><b>Equipo</b>abr–jun 2027</span></div>
+    <div class="rama cab-rama"><span>Objetivo</span><span></span><span>Estrategia · eje</span><span></span><span>Táctica: qué y cómo</span><span>Quién · cuándo</span></div>
+    <div class="rama" data-r style="--r:1"><span class="oe">OE1</span><span class="conector" style="--r:1"></span><span class="est">Simplificación<small>eje 1 · interactividad</small></span><span class="conector" style="--r:2"></span><span class="tac">«Volver a invitar» <span>abre la hoja ya llena</span></span><span class="cuando"><b>Equipo</b>oct 2026 · hecho</span></div>
+    <div class="rama" data-r style="--r:2"><span class="oe">OE2</span><span class="conector" style="--r:2"></span><span class="est">Acompañamiento<small>eje 4 · soporte</small></span><span class="conector" style="--r:3"></span><span class="tac">Día de lanzamiento <span>en portería: primer Pase con cada residente</span></span><span class="cuando"><b>Equipo y adm.</b>semana 1 · ene 2027</span></div>
+    <div class="rama" data-r style="--r:3"><span class="oe">OE3</span><span class="conector" style="--r:3"></span><span class="est">Recurrencia<small>eje 3 · automatización</small></span><span class="conector" style="--r:4"></span><span class="tac">Pase de colaborador <span>con días y franja, se crea una vez</span></span><span class="cuando"><b>Equipo y Manuel</b>dic 2026</span></div>
+    <div class="rama" data-r style="--r:4"><span class="oe">OE4</span><span class="conector" style="--r:4"></span><span class="est">Integración<small>eje 3 · automatización</small></span><span class="conector" style="--r:5"></span><span class="tac">Alta con teléfono <span>en vez de correo: reintentar las 711</span></span><span class="cuando"><b>Equipo y Manuel</b>nov–dic 2026</span></div>
+    <div class="rama" data-r style="--r:5"><span class="oe">OE5</span><span class="conector" style="--r:5"></span><span class="est">Penetración<small>eje 2 · omnicanalidad</small></span><span class="conector" style="--r:6"></span><span class="tac">Alianza con instaladores <span>Hikvision del Valle de Aburrá y el Oriente</span></span><span class="cuando"><b>Equipo</b>abr–jun 2027</span></div>
   </div>
+  <div class="ejes" data-r style="--r:7"><span><b>1</b> Interactividad y personalización</span><span><b>2</b> Omnicanalidad y accesibilidad</span><span><b>3</b> Automatización y gestión de la experiencia</span><span><b>4</b> Soporte y acompañamiento</span></div>
   <aside class="guion">Estrategia: un sustantivo que dice cómo; su eje estratégico del curso debajo. Táctica: qué se hará, quién y cuándo. Las demás tácticas están en estrategia.md §5.</aside>
 </section>
 
 <!-- 12 · Plan de acción -->
 <section data-parte="plan">
+  <p class="rot">SOSTAC · A · Plan de acción · hitos, responsables y fechas</p>
   <h2>De la sustentación al cuarto conjunto</h2>
   <div class="tiempo">
     <div class="hito" data-r style="--r:1"><span class="cuando">9 nov 2026</span><b>Sustentación</b><span>Prototipo y medición de OE1</span></div>
@@ -547,21 +602,26 @@ body.final .barra,body.final .progreso{opacity:0;pointer-events:none}
 
 <!-- 13 · KPI -->
 <section data-parte="plan">
+  <p class="rot">SOSTAC · C · Control · KPI con método GQM: objetivo (G) → pregunta (Q) → métrica (M) y su meta</p>
   <h2>Un KPI por objetivo</h2>
   <div class="gqm">
-    <span></span><span class="cab">Pregunta</span><span class="cab">KPI</span><span class="cab">Fórmula</span><span class="cab">Meta</span><span class="cab">Etapa</span><span class="cab">Cada</span>
+    <span class="cab">G</span><span class="cab">Q · Pregunta</span><span class="cab">M · KPI</span><span class="cab">Variable · fórmula</span><span class="cab">Meta</span><span class="cab">Etapa</span><span class="cab">Cada</span>
     <span class="oe" data-r style="--r:1">OE1</span><span class="q" data-r style="--r:1">¿Crear un Pase es más rápido que llamar?</span><span class="k" data-r style="--r:1">Tiempo para crear</span><span class="f" data-r style="--r:1">KLM del recorrido</span><span class="meta-k" data-r style="--r:1">&lt; 30 s</span><span class="chip previsto" data-r style="--r:1">Comportamiento</span><span class="f" data-r style="--r:1">versión</span>
     <span class="oe" data-r style="--r:2">OE2</span><span class="q" data-r style="--r:2">¿Las casas usan su autoridad?</span><span class="k" data-r style="--r:2">Activación de casas</span><span class="f" data-r style="--r:2">casas con ≥ 1 Pase ÷ casas registradas</span><span class="meta-k" data-r style="--r:2">≥ 60 %</span><span class="chip vigente" data-r style="--r:2">Conversión</span><span class="f" data-r style="--r:2">semana</span>
     <span class="oe" data-r style="--r:3">OE3</span><span class="q" data-r style="--r:3">¿El colaborador entra sin llamada?</span><span class="k" data-r style="--r:3">Ingresos con Pase</span><span class="f" data-r style="--r:3">ingresos por lector ÷ ingresos en minuta</span><span class="meta-k" data-r style="--r:3">≥ 80 %</span><span class="chip previsto" data-r style="--r:3">Comportamiento</span><span class="f" data-r style="--r:3">semana</span>
     <span class="oe" data-r style="--r:4">OE4</span><span class="q" data-r style="--r:4">¿El Pase existe en la puerta?</span><span class="k" data-r style="--r:4">Confirmación del lector</span><span class="f" data-r style="--r:4">confirmados en &lt; 60 s ÷ creados</span><span class="meta-k" data-r style="--r:4">≥ 98 %</span><span class="chip porvencer" data-r style="--r:4">Confianza</span><span class="f" data-r style="--r:4">día</span>
     <span class="oe" data-r style="--r:5">OE5</span><span class="q" data-r style="--r:5">¿La administración ve valor?</span><span class="k" data-r style="--r:5">Conjuntos con pago</span><span class="f" data-r style="--r:5">contratos firmados</span><span class="meta-k" data-r style="--r:5">4</span><span class="chip vigente" data-r style="--r:5">Conversión</span><span class="f" data-r style="--r:5">mes</span>
   </div>
-  <aside class="guion">Método GQM: objetivo, pregunta, métrica. Hay 12 KPI en total (estrategia.md §7); aquí va el principal de cada objetivo. Las metas de OE2, OE3 y OE5 se recalibran con la medición de la semana 1 del piloto.</aside>
+  <div class="etapas" data-r style="--r:7">
+    <span><b>Captación</b>costo de adquisición por conjunto</span><span><b>Comportamiento</b>OE1 · OE3</span><span><b>Conversión</b>OE2 · OE5</span><span><b>Satisfacción</b>SUS · NPS de la administración</span><span><b>Confianza</b>OE4 · rechazos con motivo</span><span><b>Compromiso</b>retención de residentes</span>
+  </div>
+  <aside class="guion">Método GQM: objetivo, pregunta, métrica. Paso a paso de la guía: determinar el objetivo, definir una variable y relacionarla con la meta. Abajo, las seis etapas de la guía de indicadores con el KPI que cubre cada una. Hay 12 KPI en total (estrategia.md §7); aquí va el principal de cada objetivo. Las metas de OE2, OE3 y OE5 se recalibran con la medición de la semana 1 del piloto.</aside>
 </section>
 
 
 <!-- 13b · Tablero de seguimiento -->
-<section data-parte="plan">
+<section data-parte="plan" class="densa">
+  <p class="rot">SOSTAC · C · Control · Tablero de seguimiento de los KPI, revisión periódica</p>
   <h2>Así se sigue cada semana</h2>
   <div class="tablero">
     <div class="panel" data-r style="--r:1"><div class="panel__cab"><b>Tiempo para crear un Pase</b><span class="oe">OE1</span></div><div class="panel__valor"><span class="cifra">8 s</span><span>visita reciente · nueva 19,4 s</span></div>
@@ -582,6 +642,7 @@ body.final .barra,body.final .progreso{opacity:0;pointer-events:none}
 
 <!-- 14 · Fichas de producto -->
 <section data-parte="plan">
+  <p class="rot">Descripción de productos · fichas de producto, insumo para mapas y prototipos</p>
   <h2>Seis productos</h2>
   <div class="fichas">
     <div class="caja" data-r style="--r:1"><span class="id">F1</span><h3>Kino Residente</h3><p>App para otorgar, extender y revocar Pases</p><span class="oes"><span class="etiqueta p">OE1</span><span class="etiqueta p">OE2</span><span class="etiqueta p">OE3</span></span></div>
@@ -596,6 +657,7 @@ body.final .barra,body.final .progreso{opacity:0;pointer-events:none}
 
 <!-- 15 · Después -->
 <section id="despues" data-parte="despues">
+  <p class="rot">Horizonte de empresa · 1 a 5 años y lo que falta verificar antes del piloto</p>
   <h2>La capa de autorización sobre cualquier lector</h2>
   <div class="horizonte">
     <div class="caja" data-r style="--r:1"><span class="cuando">2027</span><span class="cifra" data-contar="4">4</span><p>conjuntos en Monte Sereno y el Oriente</p></div>
