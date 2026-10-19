@@ -1,165 +1,53 @@
 {
-  "../../../../../../tmp/claude-0/-home-user-kino/34b1231e-cd1d-50c8-a2c8-bb25af9c15da/scratchpad/biblia.md": [
+  "../../../../../../tmp/claude-0/-home-user-kino/34b1231e-cd1d-50c8-a2c8-bb25af9c15da/scratchpad/proto-visible.md": [
     {
-      "linea": 12,
-      "id": "evitar:Arcana",
+      "linea": 147,
+      "id": "exclamacion",
       "gravedad": "error",
-      "fragmento": "Arcana",
-      "porque": "Nombre anterior del producto. → usar «Kino»"
+      "fragmento": "!",
+      "porque": "Regla 10: sin exclamaciones. Confirmar con el dato."
     },
     {
-      "linea": 47,
+      "linea": 284,
       "id": "mayusculas-enfasis",
       "gravedad": "aviso",
-      "fragmento": "SOSTAC",
+      "fragmento": "RESIDENTE",
       "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
     },
     {
-      "linea": 58,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "NPS",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 121,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "SMART",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 138,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "KPI",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 138,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "GQM",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 167,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "SEQ",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 167,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "SUS",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 197,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "GQM",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 198,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "GQM",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 199,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "GQM",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 200,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "GQM",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 210,
-      "id": "evitar:contraseña",
+      "linea": 292,
+      "id": "exclamacion",
       "gravedad": "error",
-      "fragmento": "contraseña",
-      "porque": "Decisión tomada: el ingreso a la app es con código por WhatsApp, sin contraseña. → usar «código por WhatsApp»"
+      "fragmento": "!",
+      "porque": "Regla 10: sin exclamaciones. Confirmar con el dato."
     },
     {
-      "linea": 222,
-      "id": "evitar:permiso",
+      "linea": 292,
+      "id": "exclamacion",
       "gravedad": "error",
-      "fragmento": "permiso",
-      "porque": "El objeto se llama «Pase» (decisión F3 del encargo). En texto de producto no se usa ni como explicación. → usar «pase»"
+      "fragmento": "!",
+      "porque": "Regla 10: sin exclamaciones. Confirmar con el dato."
     },
     {
-      "linea": 222,
-      "id": "evitar:seguridad total",
+      "linea": 293,
+      "id": "exclamacion",
       "gravedad": "error",
-      "fragmento": "seguridad total",
-      "porque": "Promesa que el sistema no puede sostener. → usar «describir qué registra y qué no»"
+      "fragmento": "!",
+      "porque": "Regla 10: sin exclamaciones. Confirmar con el dato."
     },
     {
-      "linea": 380,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "SEQ",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 380,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "SUS",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 382,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "SUS",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 390,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "SUS",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 432,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "NPS",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 432,
-      "id": "lexico-vacio",
+      "linea": 307,
+      "id": "exclamacion",
       "gravedad": "error",
-      "fragmento": "experiencia",
-      "porque": "Regla 10: léxico vacío. Nombrar el objeto o la acción concreta."
+      "fragmento": "!",
+      "porque": "Regla 10: sin exclamaciones. Confirmar con el dato."
     },
     {
-      "linea": 433,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "SEQ",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 433,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "SUS",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+      "linea": 369,
+      "id": "exclamacion",
+      "gravedad": "error",
+      "fragmento": "!",
+      "porque": "Regla 10: sin exclamaciones. Confirmar con el dato."
     }
   ]
 }

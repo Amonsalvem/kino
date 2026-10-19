@@ -31,7 +31,7 @@ const ACTORES: {k: Vista; t: string; d: string}[] = [
 	{k: 'residente', t: 'Residente', d: 'Otorga y revoca'},
 	{k: 'visita', t: 'Visita', d: 'Sin cuenta'},
 	{k: 'porteria', t: 'Portería', d: 'El lector decide'},
-	{k: 'administracion', t: 'Administración', d: 'Fija el marco'},
+	{k: 'administracion', t: 'Administración', d: 'Fija las franjas'},
 ];
 
 function Escenario() {
@@ -71,7 +71,7 @@ function Escenario() {
 						<Marca tam={30} />
 						<span>
 							<b>Kino · Prototipo</b>
-							<span class="tenue">Entrega 3 · cuatro actores, un estado</span>
+							<span class="tenue">Entrega 3 · residente, visita, portería y administración</span>
 						</span>
 					</div>
 					<nav class="actores" aria-label="Actor">

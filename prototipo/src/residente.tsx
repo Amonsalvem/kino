@@ -277,7 +277,7 @@ function Avisos({onAbrir}: {onAbrir: (p: Pase) => void}) {
 			<h1 class="titulo titulo--xl">Avisos</h1>
 			{lista.length === 0 && (
 				<div class="vacio">
-					<p class="secundario">Aquí llega cada vez que el lector deja entrar a alguien con tu Pase, o lo rechaza y por qué.</p>
+					<p class="secundario">Aquí aparece cada entrada con tu Pase y cada rechazo con su motivo.</p>
 					<p class="nota">Prueba: en Portería, lee el QR de Andrés.</p>
 				</div>
 			)}

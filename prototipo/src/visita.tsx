@@ -73,7 +73,7 @@ function PaseVivo({id, onVolver}: {id: string; onVolver: () => void}) {
 	const e = estado(p);
 	const v = ventana(p);
 	const instruccion =
-		e === 'usado' ? `Bienvenido. Entraste a las ${horaCorta(p.hechos.usadoEn!)}`
+		e === 'usado' ? `Entraste a las ${horaCorta(p.hechos.usadoEn!)}`
 		: e === 'revocado' ? `${p.autor.nombre} revocó este Pase. Escríbele si fue un error.`
 		: e === 'vencido' ? `${p.autor.nombre} puede extenderlo: venció a las ${horaCorta(v.hasta)}`
 		: e === 'sin-confirmar' ? 'El lector está recibiendo tu Pase. Tarda unos segundos.'
