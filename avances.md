@@ -332,3 +332,11 @@ En arquitectura faltaba:
 - **Estrategia de Servicio, una lámina por pieza del curso:** objetivo general con meta en tres cifras; los 5 SMART en cinco columnas (acción, métrica, usuario, contexto, tiempo); una estrategia y una táctica por objetivo con quién y cuándo; línea de tiempo de 6 hitos; un KPI GQM por objetivo con fórmula, meta, etapa y frecuencia; seis fichas de producto. El detalle completo sigue en `estrategia.md` y en la Biblia.
 - **Visual:** diagramas en HTML que se animan al entrar a cada lámina (flujo del Pase, brecha conocimiento–autoridad, embudo de validación, árbol estrategia–táctica, línea de tiempo), cifras contadas, videos del prototipo y el prototipo en vivo. Con movimiento reducido todo queda en su cuadro final.
 - **Verificación:** `entrega-3/verificar.mjs` sin desborde ni errores en 1920, 1280 y 390 px y sin texto menor de 24 px; compuerta de voz sin errores.
+
+## Biblia E3 en versión corta (19 oct)
+- **Pedido de Nico:** el mismo barrido del deck aplicado a la Biblia.
+- **Hecho:** `entrega-3/biblia/contenido.py` reescrito: de unos 27.600 a 15.700 caracteres (−43 %). Una idea por apartado, en tabla o figura. La versión larga quedó en `entrega-3/_obsoleto/biblia-contenido-larga.py` y `Kino_Biblia_E3-larga.docx`.
+- **Portada:** el nombre del proyecto es «Kino». El campo Grupo sigue en «Diseño para la interacción», como pidió Nico.
+- **Estrategia de Servicio:** 3.1 con los 5 SMART en columnas (acción, métrica, usuario, contexto, tiempo); 3.3 con una estrategia y una táctica por objetivo (quién y cuándo), el plan de acción y las 6 fichas; 3.4 con un KPI GQM por objetivo.
+- **Figuras:** 5 diagramas del deck insertados (`construir_biblia.py` admite `('img', archivo, pie)`): brecha conocimiento–autoridad (1.1), insights (2.3), plan de acción (3.3), flujo del Pase (5.1) y validación (6.1).
+- **Verificación:** la Biblia abre en LibreOffice (21 páginas con la plantilla); compuerta de voz sin errores.

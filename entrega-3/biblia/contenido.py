@@ -1,14 +1,15 @@
-"""Contenido de la Biblia de Kino (documento integrador Diex), entrega 3.
+"""Contenido de la Biblia de Kino (documento integrador Diex), entrega 3. Versión corta (19 oct 2026).
 
-Cada apartado lista su fuente. Convención de evidencia del proyecto: observado (inspección 14–16 sep 2026),
-prueba (5 residentes, 2 sep 2026), entorno (fuente externa citada), inferido (lectura del equipo).
-El orden de SECCIONES sigue el de la plantilla: 1.1 a 7.2.
+Una idea por apartado, en tabla o figura; el detalle completo vive en entrega-3/estrategia.md y en los documentos de
+diagnóstico. Convención de evidencia: observado (inspección 14–16 sep 2026), prueba (5 residentes, 2 sep 2026),
+entorno (fuente externa citada), inferido (lectura del equipo). Las figuras salen del deck (entrega-3/biblia/figuras).
+La versión larga anterior quedó en entrega-3/_obsoleto/biblia-contenido-larga.py.
 """
 
 PORTADA = {
-    'Nombre del proyecto': 'Kino · El Pase: quién decide quién entra',
+    'Nombre del proyecto': 'Kino',
     'Grupo': 'Diseño para la interacción',
-    'Organización': 'Kino, con piloto en Monte Sereno (El Retiro, Antioquia): Refugio Campestre y Villas Campestres',
+    'Organización': 'Kino · piloto en Monte Sereno, El Retiro (Refugio Campestre y Villas Campestres)',
     'Integrantes': 'Nicolás Ramírez · Alejandro Monsalve',
     'Semestre y año': '2026-2',
     'Fecha de entrega': 'Entrega 3 · octubre de 2026',
@@ -20,258 +21,248 @@ EQUIPO = [
 ]
 
 RESUMEN = [
-    'Kino es una plataforma de control de acceso para conjuntos residenciales cerrados, con un producto mínimo en operación en Monte Sereno (El Retiro). Es para el residente, que decide quién entra a su casa; para la visita y el colaborador, que entran; para portería, que opera la entrada, y para la administración del conjunto, que es quien compra.',
-    'El problema que resuelve es un desajuste entre conocimiento y autoridad: el residente sabe a quién espera y no tiene cómo decirlo; la administración tiene la autoridad nominal y no sabe a quién dejar entrar; y el sistema actual solo sabe crear personas permanentes, así que la visita necesita cuenta y el colaborador queda registrado como si viviera ahí. En Refugio Campestre el hardware está instalado y 0 de 312 usuarios están sincronizados por un campo de correo obligatorio (observado).',
-    'La solución es el **Pase**: un objeto con autor, motivo, vigencia y modo (QR, placa o código) que el residente otorga dentro de las franjas que fija la administración, que la visita usa sin cuenta y que Kino da de alta en el hardware que el conjunto ya tiene (HikCentral). Solo se muestra vigente cuando el lector lo confirma.',
+    'Kino es el control de acceso de un conjunto cerrado. Lo usan el residente, la visita, el colaborador y portería; lo compra la administración. Piloto: Monte Sereno, El Retiro.',
+    '**Problema.** El residente sabe a quién espera y no tiene cómo decirlo; la administración tiene la autoridad y no sabe a quién espera; y el sistema solo crea personas permanentes. En Refugio Campestre, 0 de 312 usuarios están sincronizados con el lector (observado).',
+    '**Solución.** El **Pase**: autor, motivo, vigencia y modo (QR, placa o código). Lo otorga el residente dentro de las franjas de la administración, la visita lo usa sin cuenta y Kino lo da de alta en el hardware que el conjunto ya tiene (HikCentral).',
 ]
 
 S = []  # (código, items)
 
 # 1 · CONTEXTO DEL RETO -------------------------------------------------------------------------------
 S.append(('1.1', [
-    'El acceso a un conjunto cerrado es un servicio que ocurre entre cuatro actores que nunca están juntos: el residente que espera, la visita que llega, portería que opera la entrada y la administración que responde ante el consejo. Ninguno de ellos tiene la información completa en el momento en que se decide si alguien entra. Por eso es un problema de diseño de interacción: el servicio falla en el traspaso entre actores.',
-    ('h', 'Por qué un proyecto de servicio basado en la interacción'),
-    ('-', 'La decisión de quién entra la toma una persona (el residente) y la ejecuta una máquina (el lector de placas, QR o rostro). Entre las dos solo está la interfaz.'),
-    ('-', 'El sistema actual ya concede acceso físico cuando el residente registra una placa, mientras la pantalla le dice que lo controla la administración (observado). La interfaz contradice al servicio.'),
-    ('-', 'La visita es el actor con menos interés en el sistema y al que más se le pide: hoy crea una cuenta permanente para una visita de una tarde (observado).'),
-    ('h', 'Pregunta guía'),
-    '¿Cómo reunir conocimiento y autoridad para decidir quién entra?',
-    ('n', 'Fuentes: docs/proyecto/diagnostico-consolidado-v1.md; reporte de inspección por rol (14–16 sep 2026, 59 observaciones).'),
+    'El ingreso a un conjunto ocurre entre cuatro actores que nunca están juntos, y ninguno tiene la información completa cuando se decide si alguien entra. El servicio falla en el traspaso: es un problema de interacción.',
+    ('img', 'brecha.png', 'El conocimiento y la autoridad están separados por la puerta. Pregunta guía del proyecto.'),
+    ('n', 'Fuentes: diagnóstico consolidado v1; reporte de inspección por rol (14–16 sep 2026, 59 observaciones).'),
 ]))
 S.append(('1.2', [
-    '**Dueño del proyecto.** Manuel, cliente y negocio. Kino es la marca del producto, antes llamado Arcana. Quien compra el producto es únicamente la administración del conjunto.',
     ('t', [
         ['Elemento', 'Contenido'],
-        ['Visión', 'Ser la capa de autorización entre las personas y el hardware de acceso de los conjuntos residenciales en Colombia, sin importar la marca del lector.'],
-        ['Misión', 'Que quien sabe quién debe entrar pueda decidirlo, dentro de las franjas del conjunto y con constancia de quién autorizó a quién.'],
-        ['Objetivos del cliente', 'Eficiencia operativa (un ingreso rutinario no exige dar de alta a una persona), escalabilidad (un conjunto nuevo se integra sin rehacer el producto), identidad de marca propia y fidelización de la administración.'],
-        ['Competidores', 'El método manual (llamada, minuta, WhatsApp) es el más fuerte. Neivor y ComunidadFeliz nacen desde la administración y las finanzas; Neivor ya vende autogestión de visitas por QR. ZKTeco vende su hardware con su software. Portea, app de portería de Medellín.'],
-        ['Diferencia', 'Integración probada con el hardware que el conjunto ya tiene, Pase sin cuenta para la visita y autoridad del residente dentro de las franjas de la administración.'],
-    ], [2400, 7360]),
-    ('n', 'Fuentes: Brief Kino v0.2 §05 y §06; Neivor, página de producto (consultada 21 sep 2026); estrategia.md §1.5.'),
+        ['Cliente', 'Manuel (negocio). Compra únicamente la administración del conjunto'],
+        ['Visión', 'Ser la capa de autorización entre las personas y el lector de acceso, sin importar la marca del lector'],
+        ['Misión', 'Que quien sabe quién debe entrar pueda decidirlo, dentro de las franjas del conjunto y con constancia'],
+        ['Competencia', 'El método manual (llamada, minuta, WhatsApp); Neivor y ComunidadFeliz (desde la administración); ZKTeco (hardware con software propio); Portea'],
+        ['Diferencia', 'Integración probada con el hardware instalado + Pase sin cuenta + autoridad del residente acotada por la administración'],
+    ], [2000, 7760]),
+    ('n', 'Fuentes: Brief Kino v0.2 §05–06; Neivor, página de producto (21 sep 2026).'),
 ]))
 S.append(('1.3', [
     ('t', [
-        ['Beneficiario', 'Reto principal', 'Oportunidad'],
-        ['A1 · Residente que recibe', 'Sabe a quién espera y no tiene dónde expresarlo; ya abre la puerta sin saberlo al registrar una placa', 'Nombrar y acotar la autoridad que ya tiene'],
-        ['A2 · Colaborador recurrente', 'El ingreso más frecuente es el que menos existe en el producto: 0 contratistas registrados', 'Un Pase recurrente por días y franja, sin correo'],
-        ['A3 · Visitante ocasional', 'Entrega documento, teléfono y correo de por vida para una visita de una tarde', 'Pase sin cuenta por el canal que ya usa (WhatsApp)'],
-        ['A4 · Administración y portería', 'Responde ante el consejo por ingresos que no puede rastrear; paga infraestructura que en Refugio no opera', 'Franjas en vez de aprobaciones, y constancia de cada ingreso'],
-    ], [2600, 4160, 3000]),
-    ('n', 'Fuentes: docs/proyecto/arquetipos-e-insights.md; trabajo doméstico por días 51,3 % en 1S-2026 (GEIH-DANE y Symplifica vía Infobae, 9 sep 2026).'),
+        ['Beneficiario', 'Reto', 'Oportunidad'],
+        ['A1 · Residente', 'Sabe a quién espera y no puede decirlo', 'Nombrar y acotar la autoridad que ya ejerce'],
+        ['A2 · Colaborador', 'Es el ingreso más frecuente y no existe en el producto', 'Pase recurrente por días y franja'],
+        ['A3 · Visita', 'Entrega datos de por vida para una tarde', 'Pase sin cuenta por WhatsApp'],
+        ['A4 · Administración y portería', 'Responde por ingresos que no puede rastrear', 'Franjas y constancia de cada ingreso'],
+    ], [2600, 3760, 3400]),
 ]))
 S.append(('1.4', [
-    '**Expectativas.** Que el residente pueda preparar, acotar en el tiempo y dejar constancia del ingreso de sus visitas y colaboradores, sin que nadie quede dado de alta como usuario permanente, y que eso funcione sobre el hardware ya instalado.',
-    ('h', 'Entregables clave'),
-    ('-', 'Diagnóstico y pregunta guía (entrega 1).'),
-    ('-', 'Flujos actuales y propuestos de los cuatro arquetipos y el mapa de posibilidades (entrega 2).'),
-    ('-', 'Sistema de marca Kino y librería de Figma «Kino · Sistema de marca» (sep 2026).'),
-    ('-', 'Prototipo navegable con 20 interacciones inventariadas, estrategia SOSTAC y esta Biblia (entrega 3).'),
-    ('-', 'Implementación y evaluación (entregas 4, 5 y final).'),
+    '**Expectativa.** Que el residente prepare, acote y deje constancia del ingreso de sus visitas y colaboradores, sin crear personas permanentes, sobre el hardware ya instalado.',
+    ('t', [
+        ['Entrega', 'Entregable'],
+        ['E1', 'Diagnóstico y pregunta guía'],
+        ['E2', 'Recorridos actuales y propuestos de los cuatro arquetipos'],
+        ['E3 (esta)', 'Prototipo navegable con 17 interacciones, estrategia SOSTAC y esta Biblia'],
+        ['E4, E5 y final', 'Implementación y evaluación'],
+    ], [2000, 7760]),
 ]))
 S.append(('1.5', [
     ('t', [
-        ['Criterio de éxito según el cliente', 'Cómo se verifica'],
-        ['Un ingreso rutinario no exige intervención de la administración ni dar de alta a una persona', 'Registros del sistema: ingresos con Pase ÷ ingresos'],
+        ['Criterio de éxito del cliente', 'Cómo se verifica'],
+        ['Un ingreso rutinario no pasa por la administración ni crea una persona', 'Ingresos con Pase ÷ ingresos'],
         ['Un conjunto nuevo se integra sin rehacer el producto', 'Días desde la firma hasta el primer Pase confirmado'],
-        ['La integración con el hardware opera', 'Usuarios y vehículos sincronizados ÷ total (Refugio hoy: 0/312 y 1/44)'],
-        ['La administración renueva', 'Contrato renovado y NPS de la administración'],
+        ['La integración con el lector opera', 'Usuarios sincronizados ÷ total (Refugio hoy: 0/312)'],
+        ['La administración renueva', 'Contrato renovado'],
     ], [5400, 4360]),
-    ('n', 'Las metas numéricas de cada criterio están en 3.1.'),
 ]))
 
 # 2 · USUARIO -----------------------------------------------------------------------------------------
 S.append(('2.1', [
-    'Los arquetipos se construyeron desde la evidencia de esta fase y se definen por su posición frente al sistema, no por una biografía inventada. Con cinco entrevistas sin citas documentadas, una persona con nombre propio sería una ficción con apariencia de dato. Los arquetipos del trabajo 2026-1 (Valeria Gómez y Carlos Ramírez) no se usan: no tienen respaldo en la investigación propia y ponen al vigilante como usuario primario, que es lo que la inspección desmiente.',
+    'Cuatro arquetipos definidos por su posición frente al sistema, no por una biografía inventada.',
     ('t', [
-        ['Arquetipo', 'Qué lo define frente al sistema', 'Evidencia'],
-        ['A1 · El residente que recibe', 'Único que sabe a quién espera y por cuánto tiempo, y el único que no puede expresarlo', 'Inspección, sujetos 1 y 2 (33 obs.); prueba TST001; entrevistas del 2 sep'],
-        ['A2 · El colaborador recurrente', 'Vínculo intermitente y repetido; el sistema solo sabe representar permanencia', 'Rol app.domestic_employee; 0 contratistas registrados; GEIH-DANE 2026'],
-        ['A3 · El visitante ocasional', 'Entrega datos de por vida para una visita de una tarde', 'Ficha de propiedad 346 con 2 «Visitante» permanentes; SIC 52185'],
-        ['A4 · Administración y portería', 'Quien compra y quien opera; el portero ve todo y no puede cambiar nada', 'Sujetos 3, 4 y 5 (26 obs.); 1 super admin para 893 usuarios'],
+        ['Arquetipo', 'Qué lo define', 'Evidencia'],
+        ['A1 · Residente que recibe', 'El único que sabe a quién espera y por cuánto tiempo', 'Inspección, sujetos 1 y 2; entrevistas del 2 sep'],
+        ['A2 · Colaborador recurrente', 'Viene a menudo; el sistema solo sabe de permanencia', '0 contratistas registrados; GEIH-DANE 2026'],
+        ['A3 · Visita ocasional', 'Entrega datos de por vida para una tarde', '2 «Visitante» permanentes en la propiedad 346'],
+        ['A4 · Administración y portería', 'Compra y opera; el portero ve todo y no puede cambiar nada', 'Sujetos 3 a 5; 1 super admin para 893 usuarios'],
     ], [2600, 3960, 3200]),
-    ('n', 'Fuente: docs/proyecto/arquetipos-e-insights.md (21 sep 2026).'),
+    ('n', 'Fuente: docs/proyecto/arquetipos-e-insights.md.'),
 ]))
 S.append(('2.2', [
-    'Los cuatro recorridos actuales se reconstruyeron con las 59 observaciones de la inspección (entrega 2, láminas 14 a 18).',
     ('t', [
-        ['Arquetipo', 'Punto de dolor', 'Final del recorrido hoy', 'Oportunidad'],
-        ['A1 Residente', 'El menú tiene seis destinos y ninguno menciona visitas ni ingresos', 'Sale del sistema por WhatsApp', 'Otorgar un Pase con motivo y ventana'],
-        ['A2 Colaborador', 'Para entrar dos días a la semana queda dado de alta como permanente, con correo', 'Alta de personal permanente', 'Pase recurrente por días y franja'],
-        ['A3 Visitante', 'La única aprobación humana del sistema aprueba su cuenta, no su ingreso', 'Cuenta sin fecha de fin', 'Pase por WhatsApp, sin cuenta'],
-        ['A4 Administración', 'No existe bandeja de aprobación en ninguno de los cuatro paneles', 'Nada que auditar', 'Franjas y constancia'],
-    ], [1900, 3100, 2160, 2600]),
-    '**Conclusión del mapa.** Los cuatro recorridos se rompen en el mismo punto: nadie puede decir para cuándo y hasta cuándo. El objeto que falta en los cuatro es el mismo, el Pase.',
+        ['Arquetipo', 'Punto de dolor', 'Final hoy'],
+        ['A1 Residente', 'Ningún destino del menú menciona visitas', 'Sale por WhatsApp'],
+        ['A2 Colaborador', 'Queda dado de alta como permanente, con correo', 'Alta permanente'],
+        ['A3 Visita', 'La única aprobación del sistema aprueba su cuenta, no su ingreso', 'Cuenta sin fin'],
+        ['A4 Administración', 'No hay bandeja de aprobación', 'Nada que auditar'],
+    ], [2300, 4960, 2500]),
+    '**Conclusión.** Los cuatro recorridos se rompen en la puerta: nadie puede decir desde cuándo y hasta cuándo. Lo que falta en los cuatro es el Pase.',
 ]))
 S.append(('2.3', [
-    ('-', '**A1.** Los residentes ya deciden quién entra, pero creen que no, porque el producto les niega en pantalla la autoridad que les dio en la base de datos. → Nombrar y acotar la autoridad que ya ejercen.'),
-    ('-', '**A2.** El dato que más cuesta pedirle al colaborador (el correo) es el que rompe la sincronización con la puerta. → Quitar el correo obligatorio resuelve la queja del registro y los 711 errores.'),
-    ('-', '**A3.** La vía que menos datos personales exige (la placa por LPR) es la única que hoy no crea persona en HikCentral. → El vehículo de la visita es el primer canal del Pase.'),
-    ('-', '**A4.** La administración cree conservar un control que no ejerce. → El argumento de venta: hoy no tiene ese control, y con Kino lo ejerce por franjas y constancia.'),
-    ('n', 'Los veinte insights completos, cinco por arquetipo, están en el documento unificado de diagnóstico §6.'),
+    ('img', 'arquetipos.png', 'Un insight por arquetipo.'),
+    ('t', [
+        ['Insight', 'Qué hace la estrategia'],
+        ['A1 ya decide quién entra, pero cree que no', 'Nombrar y acotar su autoridad'],
+        ['A2: el correo que más cuesta pedir es el que rompe la puerta (711 errores)', 'Teléfono en lugar de correo'],
+        ['A3: la placa es la vía que menos datos pide', 'La placa es el primer canal del Pase'],
+        ['A4 cree tener un control que no ejerce', 'Franjas y constancia como argumento de venta'],
+    ], [5600, 4160]),
 ]))
 S.append(('2.4', [
-    'El diseño emocional parte de una pregunta del diagnóstico: ¿qué siente el residente cuando la app le dice una cosa y la puerta hace otra? La respuesta es desconfianza. Por eso la emoción que busca Kino es **certeza tranquila**: saber, sin tener que preguntar, que la persona puede entrar.',
+    'Emoción buscada: **certeza tranquila**, saber sin preguntar que la persona puede entrar.',
     ('t', [
-        ['Nivel (Norman)', 'Decisión', 'Responde a'],
-        ['Visceral', 'El Pase vigente brilla quieto y se apaga con el tiempo que le queda; al vencer se marchita; al revocarse queda cortado. Tema oscuro canónico y aurora bioluminiscente, sin candados, escudos ni muros', 'Hoy no existe el concepto de acceso temporal: el estado tiene que verse vivo'],
-        ['Conductual', 'Crear un Pase en 3 toques o menos; la franja se ve antes de crear; revocar se deshace durante 5 s', 'El competidor es la llamada a portería, que es gratis y conocida'],
-        ['Reflexivo', 'Estado honesto: solo es vigente lo que el lector confirmó; cada rechazo lleva su motivo', 'Simetría invertida: el portero ve de los residentes lo que ellos no ven de sí mismos'],
-    ], [1800, 4560, 3400]),
-    ('n', 'Fuentes: decisiones.md (Parada 3 aprobada, 24 sep 2026); voz.json (perfil NN/g aprobado el 22 sep 2026).'),
+        ['Nivel (Norman)', 'Decisión'],
+        ['Visceral', 'El Pase vigente brilla quieto, se apaga al acercarse el fin, se marchita al vencer y queda cortado al revocarse'],
+        ['Conductual', 'Crear un Pase en 3 toques; la franja se ve antes de crear; revocar se deshace por 5 s'],
+        ['Reflexivo', 'Solo es vigente lo que el lector confirmó; cada rechazo lleva su motivo'],
+    ], [2000, 7760]),
 ]))
 
 # 3 · ESTRATEGIA DE SERVICIO --------------------------------------------------------------------------
 S.append(('3.1', [
-    '**Objetivo general.** Reunir el conocimiento y la autoridad para decidir quién entra a un conjunto: que el residente otorgue, acote y revoque el ingreso de sus visitas y colaboradores, dentro de las franjas de la administración, sobre el hardware que el conjunto ya tiene y sin crear personas permanentes.',
-    '**Meta general (oct 2027).** 4 conjuntos con pago; 95 % de los Pases confirmados por el lector en menos de 60 s; ningún ingreso que exija dar de alta a una persona permanente.',
+    '**Objetivo general.** Que el residente otorgue y revoque el ingreso de sus visitas y colaboradores, dentro de las franjas de la administración, sobre el hardware que el conjunto ya tiene.',
+    '**Meta general a oct 2027.** 4 conjuntos con pago · 95 % de los Pases confirmados por el lector en menos de 60 s · 0 personas permanentes creadas para dejar entrar a alguien.',
     ('t', [
-        ['#', 'Objetivo SMART (acción + métrica + usuario + contexto + tiempo)', 'Punto de partida'],
-        ['OE1', 'Lograr que, en el prototipo, crear y enviar un Pase de visita tome 3 toques o menos con una visita reciente y menos de 30 s estimados con el modelo KLM con una visita nueva, verificado en el recorrido automático, antes del 9 nov 2026', 'Medido el 19 oct: 3 toques y 8 s; visita nueva, 19 s'],
-        ['OE2', 'Lograr que el 60 % de las casas de Villas Campestres cree al menos un Pase en las primeras 8 semanas del piloto (ene–feb 2027)', '0 Pases'],
-        ['OE3', 'Lograr que el 80 % de los ingresos de colaboradores recurrentes de Villas ocurra con un Pase y sin llamada a portería en el primer trimestre del piloto', 'Se mide en la semana 1 con la minuta'],
-        ['OE4', 'Lograr que el 98 % de los Pases quede confirmado por el lector en menos de 60 s y recuperar Refugio a ≥ 95 % de usuarios sincronizados antes del 31 mar 2027', 'Refugio: 0/312 y 711 errores'],
-        ['OE5', 'Lograr que Monte Sereno renueve y que 2 conjuntos nuevos firmen piloto pagado antes del 31 oct 2027', '1 cliente'],
-    ], [700, 6560, 2500]),
-    ('n', 'Las metas de OE2, OE3 y OE5 son supuestos del equipo; se ajustan con la medición de la semana 1 del piloto. Detalle y KPI con método GQM: entrega-3/estrategia.md §3 y §7.'),
+        ['#', 'Acción', 'Métrica', 'Usuario', 'Contexto', 'Tiempo'],
+        ['OE1', 'Crear y enviar un Pase', '≤ 3 toques y < 30 s (KLM)', 'Residente (A1)', 'En el prototipo', 'Antes del 9 nov 2026'],
+        ['OE2', 'Crear su primer Pase', '60 % de las casas', 'Residentes (A1)', 'Piloto en Villas Campestres', '8 semanas, ene–feb 2027'],
+        ['OE3', 'Entrar con Pase, sin llamada', '80 % de sus ingresos', 'Colaboradores (A2)', 'Portería de Villas Campestres', 'Ene–mar 2027'],
+        ['OE4', 'Confirmar el Pase en el lector', '98 % en < 60 s; Refugio ≥ 95 %', 'Administración (A4)', 'HikCentral de Monte Sereno', 'Antes del 31 mar 2027'],
+        ['OE5', 'Renovar y firmar pilotos', '1 renovación + 2 conjuntos', 'Administración que compra', 'Oriente antioqueño', 'Antes del 31 oct 2027'],
+    ], [600, 1900, 1900, 1700, 1960, 1700]),
+    ('n', 'OE1 ya se midió el 19 oct: 3 toques y 8 s; visita nueva, 19,4 s. Las metas de OE2, OE3 y OE5 se recalibran con la semana 1 del piloto.'),
 ]))
 S.append(('3.2', [
     ('t', [
-        ['Para', 'Kino le da', 'Frente a'],
-        ['El residente', 'Otorgar, extender y revocar Pases desde el celular, con la persona reciente a un toque, y saber cuándo entró', 'Llamar a portería o mandar un WhatsApp que nadie registra'],
-        ['La visita y el colaborador', 'Entrar con QR, placa o código sin crear cuenta', 'Dar documento, teléfono y correo de por vida'],
-        ['Portería', 'Ver por qué el lector dejó o no dejó entrar a alguien, y llamar al residente', 'Supervisar sin poder actuar'],
-        ['La administración (compra)', 'Fijar franjas y ver quién autorizó a quién, sobre el hardware que ya pagó', 'Una autoridad nominal que no ejerce y una integración caída'],
-    ], [2300, 4460, 3000]),
-    '**Enunciado.** Para la administración de un conjunto cerrado que ya tiene lectores instalados, Kino es la capa que deja a cada residente otorgar Pases con vigencia dentro de las franjas del conjunto, con constancia de cada ingreso y sin crear cuentas para las visitas.',
+        ['Para', 'Kino le da', 'En lugar de'],
+        ['Residente', 'Otorgar, extender y revocar Pases, y saber cuándo entró la persona', 'Llamar a portería'],
+        ['Visita y colaborador', 'Entrar con QR, placa o código, sin cuenta', 'Dar sus datos de por vida'],
+        ['Portería', 'Ver por qué el lector dejó o no dejó entrar', 'Supervisar sin poder actuar'],
+        ['Administración (compra)', 'Fijar franjas y ver quién autorizó a quién', 'Una autoridad que no ejerce'],
+    ], [2400, 4560, 2800]),
+    '**Enunciado.** Para la administración de un conjunto que ya tiene lectores, Kino deja a cada residente otorgar Pases con vigencia dentro de las franjas del conjunto, con constancia de cada ingreso y sin cuentas para las visitas.',
 ]))
 S.append(('3.3', [
-    'Cada estrategia se nombra con un sustantivo, responde al cómo y se ubica en uno de los cuatro ejes del curso.',
+    'Una estrategia por objetivo (un sustantivo que dice cómo) y su táctica principal.',
     ('t', [
-        ['Objetivo', 'Estrategia', 'Eje', 'Tácticas (qué · cómo · quién · cuándo)'],
-        ['OE1', 'Simplificación del otorgamiento', 'Interactividad y personalización', 'Volver a invitar a un toque; franja visible antes de crear · equipo · prototipo, oct 2026'],
-        ['OE1', 'Medición del prototipo', 'Soporte y acompañamiento', 'Toques y tiempo KLM en el recorrido automático; evaluación por inspección · equipo · hecho, 19 oct 2026'],
-        ['OE2', 'Acompañamiento de la adopción', 'Soporte y acompañamiento', 'Día de lanzamiento en la entrada; línea por WhatsApp · equipo · ene 2027'],
-        ['OE2', 'Diversificación de los canales del Pase', 'Omnicanalidad y accesibilidad', 'Imagen y enlace por WhatsApp; QR, placa y código · equipo · dic 2026'],
-        ['OE3', 'Recurrencia del colaborador', 'Automatización y gestión', 'Pase con días y franja en HikCentral · equipo con Manuel · dic 2026 – ene 2027'],
-        ['OE4', 'Integración confiable', 'Automatización y gestión', 'Alta con teléfono; reintentar las 711; monitor de sincronización · nov 2026 – ene 2027'],
-        ['OE4', 'Transparencia del estado', 'Automatización y gestión', 'Vigente solo con la respuesta del lector · prototipo hecho, producción ene 2027'],
-        ['OE5', 'Penetración por los instaladores', 'Omnicanalidad y accesibilidad', 'Ficha comercial para instaladores Hikvision · abr – jun 2027'],
-        ['OE5', 'Fidelización con evidencia', 'Automatización y gestión', 'Reporte semanal con entradas, rechazos y salud del lector · feb 2027'],
-    ], [800, 2500, 2400, 4060]),
-    ('n', 'Plan de acción, horizonte de empresa, lista de mercado y fichas de producto: entrega-3/estrategia.md §6, §9 y §10.'),
+        ['#', 'Estrategia · eje', 'Táctica: qué y cómo', 'Quién', 'Cuándo'],
+        ['OE1', 'Simplificación · interactividad', '«Volver a invitar»: las 4 personas recientes abren la hoja ya llena', 'Equipo', 'Oct 2026 · hecho'],
+        ['OE2', 'Acompañamiento · soporte', 'Día de lanzamiento en portería: primer Pase con cada residente que pase', 'Equipo y administración', 'Semana 1, ene 2027'],
+        ['OE3', 'Recurrencia · automatización', 'Pase de colaborador con días y franja, creado una vez', 'Equipo con Manuel', 'Dic 2026'],
+        ['OE4', 'Integración · automatización', 'Alta con teléfono en vez de correo; reintentar las 711 altas fallidas', 'Equipo con Manuel', 'Nov–dic 2026'],
+        ['OE5', 'Penetración · omnicanalidad', 'Alianza con instaladores Hikvision del Valle de Aburrá y el Oriente', 'Equipo', 'Abr–jun 2027'],
+    ], [600, 2400, 3900, 1500, 1360]),
+    ('h', 'Plan de acción'),
+    ('img', 'plan-accion.png', 'Seis hitos, de la sustentación al cuarto conjunto. El primero es académico; los demás, de producto.'),
+    ('h', 'Fichas de producto'),
+    ('t', [
+        ['Ficha', 'Qué es', 'Sirve a'],
+        ['F1 · Kino Residente', 'App para otorgar, extender y revocar Pases', 'OE1, OE2, OE3'],
+        ['F2 · Pase vivo', 'Página para la visita, sin cuenta ni app', 'OE2'],
+        ['F3 · Kino Portería', 'Dice por qué alguien entró o no entró', 'OE3, OE4'],
+        ['F4 · Kino Administración', 'Franjas y salud de la integración', 'OE4, OE5'],
+        ['F5 · Conector HikCentral', 'Da de alta el Pase en el lector', 'OE4'],
+        ['F6 · Kit de implementación', 'Un conjunto nuevo operando en menos de 10 días', 'OE2'],
+    ], [2800, 5160, 1800]),
+    ('n', 'Tácticas adicionales, horizonte de empresa, lista de mercado y fichas completas: entrega-3/estrategia.md §5, §9 y §10.'),
 ]))
-for c, e in [('3.4', 'Entrega 5'), ('3.5', 'Entrega 5'), ('3.6', 'Entrega 5'), ('3.7', 'Entrega 5')]:
-    S.append((c, [('n', f'Se entrega en la {e}. Los indicadores ya están definidos con el método GQM en entrega-3/estrategia.md §7.')]))
+S.append(('3.4', [
+    'Un KPI principal por objetivo, con el método GQM (objetivo → pregunta → métrica). Los resultados se reportan en la entrega 5.',
+    ('t', [
+        ['#', 'Pregunta', 'KPI y fórmula', 'Meta', 'Etapa', 'Cada'],
+        ['OE1', '¿Crear un Pase es más rápido que llamar?', 'Tiempo para crear (KLM del recorrido)', '< 30 s', 'Comportamiento', 'Versión'],
+        ['OE2', '¿Las casas usan su autoridad?', 'Casas con ≥ 1 Pase ÷ casas registradas', '≥ 60 %', 'Conversión', 'Semana'],
+        ['OE3', '¿El colaborador entra sin llamada?', 'Ingresos por lector ÷ ingresos en minuta', '≥ 80 %', 'Comportamiento', 'Semana'],
+        ['OE4', '¿El Pase existe en la puerta?', 'Confirmados en < 60 s ÷ creados', '≥ 98 %', 'Confianza', 'Día'],
+        ['OE5', '¿La administración ve valor?', 'Contratos firmados', '4', 'Conversión', 'Mes'],
+    ], [600, 2700, 2900, 900, 1560, 1100]),
+    ('n', 'Los 12 KPI del plan están en entrega-3/estrategia.md §7.'),
+]))
+for c in ('3.5', '3.6', '3.7'):
+    S.append((c, [('n', 'Se entrega en la entrega 5, con los datos del piloto.')]))
 
 # 4 · ESPECIFICACIONES FUNCIONALES ---------------------------------------------------------------------
-S.append(('4.1', [('n', 'Se entrega en la Entrega 4. El plan de acción preliminar está en entrega-3/estrategia.md §6.')]))
-S.append(('4.2', [('n', 'Se entrega en la Entrega 4. Los once flujos F-01 a F-11 del archivo de Figma «Kino · App» (página 02 Flujos) son su insumo.')]))
+S.append(('4.1', [('n', 'Se entrega en la entrega 4. Base: el plan de acción de 3.3.')]))
+S.append(('4.2', [('n', 'Se entrega en la entrega 4. Insumo: los flujos F-01 a F-11 de Figma «Kino · App».')]))
 S.append(('4.3', [
     ('t', [
-        ['Tipo', 'Requerimiento', 'Origen'],
-        ['Funcional', 'El residente crea, extiende y revoca Pases de visita y de colaborador; la visita entra con QR, placa o código; la administración fija franjas; el residente decide cuántas visitas y por cuánto tiempo, incluidas estadías de semanas o meses', 'Decisiones del proyecto y E3-2 (19 oct)'],
-        ['Funcional', 'Ingreso a la app con código por WhatsApp, sin contraseña; el registro se valida contra la cédula que ya está en la base', 'Decisiones tomadas'],
-        ['Técnico', 'El Pase se da de alta en HikCentral como persona temporal con «Válido desde / hasta»; el teléfono reemplaza al correo obligatorio', 'Hechos vigentes: 711 errores add_person'],
-        ['Técnico', 'El estado se deriva de hechos: un Pase solo es vigente si el lector lo confirmó', 'Regla de estado honesto, @kino/motion'],
-        ['Estético', 'Tema oscuro canónico; dos verdes (#00BB83 marca, #00D595 crear Pase); el arco solo en lo que es un Pase; JetBrains Mono para placas, horas y códigos', 'decisiones.md, Parada 3'],
-        ['Comunicativo', 'Voz exacta y honesta con el estado; «Pase» y nunca «permiso»; «Visita» en la interfaz; sin exclamaciones ni promesas de seguridad total', 'voz.json, aprobado 22 sep 2026'],
-        ['Legal', 'La biometría nunca se exige y siempre hay una vía no biométrica (Ley 1581 de 2012, Resolución SIC 52185 de 2025)', 'Entorno'],
-    ], [1500, 5660, 2600]),
+        ['Tipo', 'Requerimiento'],
+        ['Funcional', 'El residente crea, extiende y revoca Pases de visita y de colaborador, de horas a meses; la administración fija franjas; la visita entra con QR, placa o código'],
+        ['Funcional', 'Ingreso con código por WhatsApp; el registro se valida contra la cédula en la base'],
+        ['Técnico', 'El Pase es una persona temporal en HikCentral con «Válido desde / hasta»; el teléfono reemplaza al correo'],
+        ['Técnico', 'Un Pase solo es vigente si el lector lo confirmó'],
+        ['Estético', 'Tema oscuro; #00BB83 marca y #00D595 crear Pase; el arco solo en lo que es un Pase'],
+        ['Comunicativo', 'El objeto se llama «Pase» y la persona que llega, «Visita»; se dice qué registra el sistema, sin prometer más'],
+        ['Legal', 'La biometría nunca se exige (Ley 1581 de 2012; SIC, Resolución 52185 de 2025)'],
+    ], [1800, 7960]),
 ]))
-S.append(('4.4', [('n', 'Se entrega en la Entrega Final (Desarrollo Front End).')]))
+S.append(('4.4', [('n', 'Se entrega en la entrega final.')]))
 
 # 5 · DISEÑO DE INTERACCIÓN ---------------------------------------------------------------------------
 S.append(('5.1', [
-    '**Del modelo mental al modelo conceptual.** El modelo mental del residente es «estos son mis invitados y yo decido quién entra a mi casa». El sistema actual piensa «todos son usuarios que un tercero aprueba». El modelo conceptual de Kino adopta el del residente y lo hace objeto: el Pase.',
+    'El residente piensa «yo decido quién entra a mi casa»; el sistema actual piensa «todos son usuarios que un tercero aprueba». Kino adopta el modelo del residente y lo vuelve un objeto: el Pase.',
+    ('img', 'flujo-pase.png', 'El recorrido del Pase dentro de las franjas de la administración, y sus estados.'),
     ('t', [
-        ['Atributo del Pase', 'Qué es', 'Responde a'],
-        ['Autor', 'El residente que lo otorga. Sin autor no se puede revisar, corregir ni defender ante el consejo', 'Trazabilidad'],
-        ['Motivo', 'Por qué entra esta persona', 'Constancia'],
-        ['Vigencia', 'Desde cuándo y hasta cuándo: unas horas, un día o una estadía de meses. Caduca sola', 'Acceso temporal, que hoy no existe'],
-        ['Modo', 'Cómo se verifica: placa, QR o código de un solo uso. Los tres conviven', 'Visita sin cuenta'],
-        ['Prohibición', 'No crea una persona permanente en la puerta', 'Los 711 errores y la cuenta de la visita'],
-    ], [2200, 5160, 2400]),
-    ('h', 'Estados'),
-    'Previsto → Sin confirmar → Vigente → Por vencer → Vencido o Revocado. Mientras está vigente, la persona entra y sale; cada entrada queda en la traza (E3-6). En la entrada puede ocurrir el evento Rechazado, con su motivo. Cada transición tiene su verbo de movimiento: aparecer (820 ms), responder (240 ms), caducar (900 ms) y revocar.',
+        ['Atributo', 'Qué es'],
+        ['Autor', 'El residente que lo otorga'],
+        ['Motivo', 'Por qué entra esta persona'],
+        ['Vigencia', 'Desde cuándo y hasta cuándo, de horas a meses; caduca sola'],
+        ['Modo', 'Placa, QR o código de un solo uso'],
+    ], [2000, 7760]),
+    '**Estados.** Previsto → Sin confirmar → Vigente → Por vencer → Vencido o Revocado. Mientras está vigente, la persona entra y sale.',
 ]))
 S.append(('5.2', [
-    'El diseño conceptual se representa en dos piezas que conviven: el archivo de Figma «Kino · App» (226 pantallas en oscuro y claro, cada una con su ficha) y un prototipo navegable en código donde los cuatro actores comparten un solo estado. Lo que hace uno le cambia la pantalla a otro: el residente crea el Pase, la visita lo abre, portería lo lee y al residente le llega el aviso.',
-    ('h', 'QA del prototipo de Figma (19 oct 2026)'),
-    'Ocho especialidades revisadas, 31 hallazgos con nodo y severidad. Los de mayor severidad: solo 22 reacciones en todo el archivo y ninguna interacción entre actores (4); ningún estado depende del tiempo (3); el residente nunca ve su Pase como objeto (3); variables «{cupo}» y «[PENDIENTE]» visibles en pantallas (3). Detalle: entrega-3/qa-prototipo.md.',
-    ('h', 'Inventario de interacciones'),
+    'Dos piezas: el Figma «Kino · App» (226 pantallas) y un prototipo en código donde los cuatro actores comparten el estado. El QA del Figma encontró 31 hallazgos; el más grave, que nada cruzaba de un actor a otro.',
     ('t', [
-        ['ID', 'Interacción', 'Disparador → respuesta', 'Regla · efecto en HikCentral'],
-        ['I-01', 'Código por WhatsApp', 'Enviar código → llega y se llena solo', 'Teléfono obligatorio y único'],
-        ['I-02', 'Pase vivo en la lista', 'Paso del tiempo → la barra se consume; vigente brilla quieto', 'Vencido = el lector deja de aceptarlo'],
-        ['I-03', 'Volver a invitar', 'Tocar una persona reciente → hoja ya llena', 'Crear en 3 toques o menos'],
-        ['I-04', 'Hoja con gesto', 'Arrastrar → se cierra con resorte', 'Nada se crea hasta tocar Crear Pase'],
-        ['I-05', 'Vigencia a tu medida', 'Unas horas, un día o Se queda → resumen «Así queda»', 'Sin tope: persona temporal con «Válido desde / hasta»'],
-        ['I-06', 'Nacimiento del Pase', 'Crear Pase → aparece el arco, Sin confirmar', 'Alta de persona temporal'],
-        ['I-07', 'Espera del lector', 'Respuesta del lector → borde continuo y latido', 'Vigente solo con confirmación'],
-        ['I-08', 'Compartir por WhatsApp', 'Enviar → la visita recibe imagen con QR y enlace', 'La visita no crea cuenta'],
-        ['I-09', 'Pase vivo de la visita', 'Abrir el enlace → QR, placa o código y cuenta regresiva', 'El QR es la credencial del lector'],
-        ['I-10', 'Lectura en la entrada', 'Leer → la talanquera sube; resultado legible desde 3 m', 'El lector permite el ingreso'],
-        ['I-11', 'Aviso de llegada', 'El lector deja entrar → aviso al residente', 'Evento de acceso de HikCentral'],
-        ['I-12', 'Rechazo con motivo', 'Pase vencido o revocado → motivo y llamar al residente', 'La llamada no abre la entrada'],
-        ['I-13', 'Mantener para revocar', 'Mantener 0,8 s → corte y deshacer por 5 s', 'Baja al vencer el deshacer'],
-        ['I-14', 'Extender', '+1 h, +1 día o +1 semana → la barra crece', 'Actualiza «Válido hasta»'],
-        ['I-15', 'Franjas con vista previa', 'Mover una franja → qué Pase quedaría fuera', 'Los activos conservan su vigencia'],
-        ['I-16', 'Integración caída y arreglo', 'Reintentar con teléfono → los contadores suben', '711 errores por el campo correo'],
-        ['I-17', 'Movimiento reducido', 'Ajuste del sistema → fundidos', 'Política de @kino/motion'],
-        ['I-18', 'Pase en la billetera (planeada)', 'Agregar → vive en la pantalla bloqueada', 'Mismo QR'],
-        ['I-19', 'Háptica por estado (planeada)', 'Confirmación, rechazo, revocar → vibración distinta', 'Nunca solo color'],
-        ['I-20', 'Rostro como cuarto modo (planeada)', 'Enrolamiento único → entra sin teléfono', 'Opcional, con autorización (SIC 52185)'],
-    ], [700, 2300, 3660, 3100]),
-    ('h', 'Dirección biopunk (aprobada, E3-1)'),
-    'El Pase como tejido: se enciende al confirmarse, brilla quieto mientras está vigente, se marchita al vencer, cicatriza al revocarse y el lector reconoce como en la sinapsis inmunológica, con tres anillos que forman una diana. Cada movimiento sale de un proceso real (entrega-3/motion-e-ilustracion.md, PROPUESTA E3-8). Aprobada por el equipo el 19 oct 2026 (decisiones.md E3-1). La tecla B la apaga para compararla con la marca base.',
-    ('h', 'Motion: segunda pasada (19 oct 2026)'),
-    'Cinco momentos se rehicieron con criterio de estudio de motion. Portería usa la escena nocturna 3D aprobada: reposa en un cuadro fijo, avanza solo con una lectura y el veredicto se lee en el primer cuadro. El botón de crear crece y toma la forma del arco del Pase. El Portal viaja de la tarjeta al detalle y de la imagen del chat al Pase vivo de la visita. Solo el Pase vigente brilla. La red de administración fluye mientras sincroniza. Cada momento se grabó en video y se comparó con la versión anterior (entrega-3/antes-despues.html). Aprobada por el equipo el 19 oct (decisiones.md E3-8). Una tercera pasada llevó el mismo criterio al resto de la app: lo que entra también sale, las listas se reacomodan cuando un Pase cambia de grupo, el texto que cambia se funde, las cifras se cuentan y el ciclo del Pase (confirmar, vencer, revocar y deshacer) tiene su coreografía.',
+        ['ID', 'Interacción', 'Disparador → respuesta'],
+        ['I-01', 'Código por WhatsApp', 'Enviar código → llega y se llena solo'],
+        ['I-02', 'Pase vivo en la lista', 'Pasa el tiempo → la barra se consume'],
+        ['I-03', 'Volver a invitar', 'Tocar a alguien reciente → hoja ya llena'],
+        ['I-04', 'Hoja con gesto', 'Arrastrar → se cierra con resorte'],
+        ['I-05', 'Vigencia a tu medida', 'Unas horas, un día o Se queda'],
+        ['I-06', 'Nacimiento del Pase', 'Crear Pase → el botón se vuelve el arco'],
+        ['I-07', 'Espera del lector', 'El lector responde → borde continuo y tres latidos'],
+        ['I-08', 'Compartir por WhatsApp', 'Enviar → imagen con QR y enlace'],
+        ['I-09', 'Pase vivo de la visita', 'Abrir el enlace → QR, placa o código'],
+        ['I-10', 'Lectura en la entrada', 'Leer → veredicto legible desde 3 m'],
+        ['I-11', 'Aviso de llegada', 'El lector deja entrar → aviso al residente'],
+        ['I-12', 'Rechazo con motivo', 'Pase vencido o revocado → motivo y llamar'],
+        ['I-13', 'Mantener para revocar', '0,8 s → corte y deshacer por 5 s'],
+        ['I-14', 'Extender', '+1 h, +1 día, +1 semana'],
+        ['I-15', 'Franjas con vista previa', 'Mover una franja → qué Pase quedaría fuera'],
+        ['I-16', 'Integración caída y arreglo', 'Reintentar con teléfono → los contadores suben'],
+        ['I-17', 'Movimiento reducido', 'Ajuste del sistema → fundidos'],
+    ], [700, 3300, 5760]),
+    ('n', 'Planeadas: Pase en la billetera, háptica por estado y rostro como cuarto modo opcional. Dirección biopunk (E3-1) y motion (E3-8), aprobados el 19 oct.'),
 ]))
 
 # 6 · DISEÑO Y EVALUACIÓN DE LA EXPERIENCIA ------------------------------------------------------------
 S.append(('6.1', [
-    'La validación de esta entrega es una evaluación por inspección del prototipo: recorrido cognitivo de las tareas principales y revisión de las 10 heurísticas de Nielsen, desde el contexto de cada perfil. Los perfiles salen de dos fuentes: los arquetipos del diagnóstico (inspección del 14 al 16 de septiembre y entrevistas del 2 de septiembre) y los perfiles de residente del estudio de mercado de Monte Sereno (iAgency, 2024).',
-    ('h', 'Perfiles'),
+    'Evaluación por inspección (recorrido cognitivo y heurísticas de Nielsen) desde cinco perfiles: los arquetipos del diagnóstico y los perfiles de residente del estudio de mercado de Monte Sereno (iAgency, 2024).',
+    ('img', 'validacion.png', 'Del QA del Figma a la evaluación por inspección.'),
     ('t', [
-        ['Perfil', 'De dónde sale', 'Qué le pide a Kino'],
-        ['Empty nesters, 45 a 75 años', 'Estudio de mercado: usan smartphone y automatización del hogar; extrañan la casa llena', 'Recibir a hijos y nietos que se quedan semanas'],
-        ['Pareja sin hijos, 30 a 45 años', 'Estudio de mercado: cargos digitales, viajan con frecuencia', 'Dejar entrar a alguien estando fuera del país'],
-        ['Familia con hijos pequeños', 'Estudio de mercado: horarios planificados; buscan un entorno seguro', 'Niñera recurrente y cumpleaños con muchos invitados'],
-        ['A1 a A4', 'Diagnóstico: residente, colaborador, visita, administración y portería', 'Las tareas base del Pase'],
-    ], [2600, 4160, 3000]),
-    ('h', 'Hallazgos'),
+        ['Perfil y contexto', 'Dónde se traba', 'Sev.', 'Qué cambió'],
+        ['A3 · visita sin datos móviles', 'La imagen no traía un QR legible', '3', 'La imagen lleva QR, código y placa'],
+        ['Empty nesters · hijos por un mes', 'Solo había Pases de horas', '3', '«Se queda»: de 3 días a 3 meses'],
+        ['Familia · cumpleaños con 15 invitados', 'Quince Pases, uno por uno', '3', 'Planeado: Pase de evento'],
+        ['A1 · revocar por error', 'El diálogo no dejaba arreglarlo', '3', 'Mantener y deshacer por 5 s'],
+        ['A1 · la visita sale a la tienda', 'El Pase quedaba usado al entrar', '3', 'Entra y sale en su vigencia'],
+        ['Familia · niñera en vacaciones', 'Revocar y crear de nuevo', '2', 'Planeado: editar días y franja'],
+        ['A4 · portería en hora pico', 'Una lectura tapa la anterior', '2', 'Bitácora con la última fila resaltada'],
+        ['A4 · mover una franja', 'No se veía el efecto', '2', 'Vista previa del cambio'],
+    ], [3000, 2900, 600, 3260]),
+    ('h', 'Medición de OE1 (KLM)'),
     ('t', [
-        ['Perfil y contexto', 'Tarea', 'Dónde se traba', 'Sev.', 'Qué cambió'],
-        ['A3 · visita que llega sin datos móviles', 'Entrar con el Pase', 'La imagen del WhatsApp no traía un QR legible', '3', 'La imagen lleva QR real, código y placa'],
-        ['Empty nesters · hijos y nietos por un mes', 'Crear un Pase largo', 'Solo había Pases de horas', '3', '«Se queda»: de 3 días a 3 meses o una fecha; entra y sale'],
-        ['Empty nesters · cinco familiares que llegan juntos', 'Crear un Pase por persona', 'Cinco hojas iguales, una por persona', '2', 'Planeado: un Pase con varias personas de la misma familia'],
-        ['Familia con hijos · cumpleaños con 15 invitados', 'Crear Pases para un evento', 'Quince Pases uno por uno; nadie lo hace', '3', 'Planeado: Pase de evento con un enlace y una franja, sin tope de invitados'],
-        ['Familia con hijos · niñera de lunes a viernes', 'Cambiar su horario en vacaciones', 'Hay que revocar y crear de nuevo', '2', 'Planeado: editar días y franja de un Pase recurrente'],
-        ['Pareja sin hijos · de viaje', 'Extender el Pase del jardinero desde otro país', 'Funciona; el aviso de llegada confirma que entró', '0', 'Nada: Extender y el aviso cubren el caso'],
-        ['Pareja sin hijos · número extranjero', 'Entrar a la app con código por WhatsApp', 'El cambio de número pasa por la administración', '2', 'Pendiente con la administración: cómo se pide desde fuera'],
-        ['A1 · revocar por error', 'Revocar un Pase', 'El diálogo no deja arreglar el error común', '3', 'Mantener presionado y deshacer por 5 s'],
-        ['A1 · visita que sale a la tienda', 'Volver a entrar el mismo día', 'El Pase quedaba usado en la primera entrada', '3', 'Entra y sale dentro de su vigencia (E3-6)'],
-        ['A4 · portería en hora pico', 'Leer varias llegadas seguidas', 'Una lectura tapa la anterior', '2', 'Bitácora con la última fila resaltada'],
-        ['A4 · administración', 'Mover una franja', 'No se veía el efecto en los Pases activos', '2', 'Vista previa del cambio'],
-    ], [2400, 1800, 2400, 600, 2560]),
-    ('n', 'Severidad de Nielsen: 0 no es un problema; 4 impide la tarea. Lo planeado entra al inventario de interacciones de la entrega 4.'),
-    ('h', 'Medición de OE1 en el prototipo'),
-    'El recorrido automático `prototipo/pruebas/oe1.mjs` hace las dos formas de crear y enviar un Pase de visita, cuenta los toques y estima el tiempo con el modelo KLM (Card, Moran y Newell, 1980): 1,35 s por decisión, 1,1 s por desplazamiento del dedo, 0,2 s por toque y 0,28 s por carácter, más la espera medida de la interfaz. KLM predice el tiempo de alguien que ya conoce la interfaz.',
-    ('t', [
-        ['Tarea', 'Toques', 'Caracteres', 'Tiempo KLM', 'Meta'],
-        ['Volver a invitar a una visita reciente', '3', '0', '8 s', '≤ 3 toques · cumple'],
-        ['Visita nueva (nombre y WhatsApp)', '5', '22', '19,4 s', '< 30 s · cumple'],
-    ], [3600, 1100, 1300, 1500, 2260]),
-    ('n', 'La satisfacción (SUS) se mide con residentes en la semana 6 del piloto, como KPI de OE2.'),
-    ('n', 'Fuentes: docs/proyecto/arquetipos-e-insights.md; iAgency, Monte Sereno: investigación de mercado y benchmark (2024), perfil e insights del consumidor y mapas de empatía.'),
+        ['Tarea', 'Toques', 'Tiempo', 'Meta'],
+        ['Volver a invitar a una visita reciente', '3', '8 s', '≤ 3 toques · cumple'],
+        ['Visita nueva (nombre y WhatsApp)', '5', '19,4 s', '< 30 s · cumple'],
+    ], [4400, 1300, 1500, 2560]),
+    ('n', 'KLM (Card, Moran y Newell, 1980) predice el tiempo de alguien que ya conoce la interfaz; no reemplaza la prueba con residentes del piloto (SUS en la semana 6).'),
 ]))
-S.append(('6.2', [('n', 'Se entrega en la Entrega 5. Métricas ya definidas: activación de casas, retención, NPS de la administración (estrategia.md §7).')]))
-S.append(('6.3', [('n', 'Se entrega en la Entrega 5. Métricas de la interacción definidas: toques y tiempo KLM para crear un Pase, SUS en el piloto y discrepancia app–puerta.')]))
+S.append(('6.2', [('n', 'Se entrega en la entrega 5. Métricas definidas en 3.4.')]))
+S.append(('6.3', [('n', 'Se entrega en la entrega 5. Métricas: toques y tiempo KLM, SUS y discrepancia entre la app y la puerta.')]))
 
 # 7 · IMPLEMENTACIÓN Y TECNOLOGÍA ----------------------------------------------------------------------
-S.append(('7.1', [('n', 'Se entrega en la Entrega 4. Base disponible: prototipo en TypeScript con Preact, @kino/motion (tokens, núcleo del Pase, runtime web) y @kino/motion-nativo (React Native).')]))
-S.append(('7.2', [('n', 'Se entrega en la Entrega Final.')]))
+S.append(('7.1', [('n', 'Se entrega en la entrega 4. Base: prototipo en TypeScript con Preact y @kino/motion.')]))
+S.append(('7.2', [('n', 'Se entrega en la entrega final.')]))
 
 SECCIONES = S
 HECHOS = ['1.1', '1.2', '1.3', '1.4', '1.5', '2.1', '2.2', '2.3', '2.4', '3.1', '3.2', '3.3', '4.3', '5.1', '5.2', '6.1']

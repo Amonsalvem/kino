@@ -75,8 +75,35 @@ def tabla(filas, anchos=None):
     return ''.join(out)
 
 
+FIGURAS = []  # (rId, archivo) que main() copia a word/media y registra en las relaciones
+
+
+def figura(archivo, pie):
+    """Imagen a todo el ancho del texto (9760 twips), con su pie en cursiva."""
+    from PIL import Image
+    ruta = AQUI / 'figuras' / archivo
+    w, h = Image.open(ruta).size
+    cx = 9760 * 635  # twips → EMU
+    cy = int(cx * h / w)
+    rid = f'rIdKino{len(FIGURAS) + 1}'
+    FIGURAS.append((rid, ruta))
+    n = len(FIGURAS)
+    dib = (
+        f'<w:r><w:drawing><wp:inline distT="0" distB="0" distL="0" distR="0"><wp:extent cx="{cx}" cy="{cy}"/>'
+        f'<wp:docPr id="{900 + n}" name="Figura {n}" descr="{escape(pie)}"/>'
+        '<a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"><a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">'
+        f'<pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:nvPicPr><pic:cNvPr id="{900 + n}" name="{archivo}"/><pic:cNvPicPr/></pic:nvPicPr>'
+        f'<pic:blipFill><a:blip r:embed="{rid}"/><a:stretch><a:fillRect/></a:stretch></pic:blipFill>'
+        f'<pic:spPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="{cx}" cy="{cy}"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom></pic:spPr></pic:pic>'
+        '</a:graphicData></a:graphic></wp:inline></w:drawing></w:r>'
+    )
+    return (f'<w:p><w:pPr><w:keepNext/><w:spacing w:before="60" w:after="40"/></w:pPr>{dib}</w:p>'
+            + par(f'Figura {n}. {pie}', i=True, color='4B5563', sz=17, after=120))
+
+
 def bloque(items):
-    """items: lista de str (párrafo), ('h', str), ('-', str) viñeta, ('t', filas[, anchos]), ('n', str) nota."""
+    """items: lista de str (párrafo), ('h', str), ('-', str) viñeta, ('t', filas[, anchos]), ('n', str) nota,
+    ('img', archivo en figuras/, pie)."""
     out = []
     for it in items:
         if isinstance(it, str):
@@ -89,6 +116,8 @@ def bloque(items):
             out.append(tabla(it[1], it[2] if len(it) > 2 else None))
         elif it[0] == 'n':
             out.append(par(it[1], i=True, color='4B5563', sz=18))
+        elif it[0] == 'img':
+            out.append(figura(it[1], it[2]))
     return ''.join(out)
 
 
@@ -158,6 +187,15 @@ def main():
     x = re.sub(r'<w:tr[ >].*?</w:tr>', marcar, x, flags=re.S)
 
     doc.write_text(x, encoding='utf-8')
+    # Figuras: a word/media y a las relaciones del documento.
+    rels = tmp / 'word' / '_rels' / 'document.xml.rels'
+    r = rels.read_text(encoding='utf-8')
+    (tmp / 'word' / 'media').mkdir(exist_ok=True)
+    for rid, ruta in FIGURAS:
+        destino = f'media/kino-{ruta.name}'
+        shutil.copy(ruta, tmp / 'word' / destino)
+        r = r.replace('</Relationships>', f'<Relationship Id="{rid}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="{destino}"/></Relationships>')
+    rels.write_text(r, encoding='utf-8')
     if SALIDA.exists():
         SALIDA.unlink()
     with zipfile.ZipFile(SALIDA, 'w', zipfile.ZIP_DEFLATED) as z:
@@ -165,7 +203,7 @@ def main():
             if f.is_file():
                 z.write(f, f.relative_to(tmp).as_posix())
     shutil.rmtree(tmp)
-    print(f'ok {SALIDA.relative_to(AQUI.parent.parent)} · {len(SECCIONES)} apartados · {len(hechos)} marcados en la lista')
+    print(f'ok {SALIDA.relative_to(AQUI.parent.parent)} · {len(SECCIONES)} apartados · {len(FIGURAS)} figuras · {len(hechos)} marcados en la lista')
 
 
 if __name__ == '__main__':
