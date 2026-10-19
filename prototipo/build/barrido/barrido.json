@@ -1,0 +1,274 @@
+[
+ {
+  "id": "R-01-ingreso",
+  "hallazgos": []
+ },
+ {
+  "id": "R-02-codigo",
+  "hallazgos": [
+   [
+    "toque",
+    ".enlace «Cambiar número»",
+    "322×44"
+   ]
+  ]
+ },
+ {
+  "id": "R-03-inicio",
+  "hallazgos": []
+ },
+ {
+  "id": "R-04-inicio-abajo",
+  "hallazgos": [
+   [
+    "toque",
+    ".enlace «Ver Pases anteriores · 1»",
+    "330×44"
+   ]
+  ]
+ },
+ {
+  "id": "R-05-crear-vacio",
+  "hallazgos": [
+   [
+    "toque",
+    ".enlace «Ver Pases anteriores · 1»",
+    "330×44"
+   ],
+   [
+    "toque",
+    ".icono-btn «Cerrar»",
+    "44×44"
+   ],
+   [
+    "toque",
+    "button «−»",
+    "44×44"
+   ],
+   [
+    "toque",
+    "button «+»",
+    "44×44"
+   ]
+  ]
+ },
+ {
+  "id": "R-06-crear-lleno",
+  "hallazgos": [
+   [
+    "toque",
+    ".icono-btn «Cerrar»",
+    "44×44"
+   ],
+   [
+    "toque",
+    "button «−»",
+    "44×44"
+   ],
+   [
+    "toque",
+    "button «+»",
+    "44×44"
+   ]
+  ]
+ },
+ {
+  "id": "R-07-crear-colaborador",
+  "hallazgos": [
+   [
+    "toque",
+    ".icono-btn «Cerrar»",
+    "44×44"
+   ],
+   [
+    "toque",
+    "button «D»",
+    "39×48"
+   ],
+   [
+    "toque",
+    ".activo «L»",
+    "39×48"
+   ],
+   [
+    "toque",
+    ".activo «M»",
+    "39×48"
+   ],
+   [
+    "toque",
+    ".activo «J»",
+    "39×48"
+   ],
+   [
+    "toque",
+    ".activo «V»",
+    "39×48"
+   ],
+   [
+    "toque",
+    "button «S»",
+    "39×48"
+   ],
+   [
+    "toque",
+    "button «+»",
+    "44×44"
+   ]
+  ]
+ },
+ {
+  "id": "R-08-creado",
+  "hallazgos": [
+   [
+    "toque",
+    ".icono-btn «Cerrar»",
+    "44×44"
+   ]
+  ]
+ },
+ {
+  "id": "R-09-detalle",
+  "hallazgos": [
+   [
+    "toque",
+    ".icono-btn «Volver»",
+    "44×44"
+   ],
+   [
+    "toque",
+    ".activo «QR»",
+    "101×44"
+   ],
+   [
+    "toque",
+    "button «Código»",
+    "101×44"
+   ],
+   [
+    "toque",
+    "button «Placa»",
+    "101×44"
+   ]
+  ]
+ },
+ {
+  "id": "R-10-detalle-abajo",
+  "hallazgos": [
+   [
+    "toque",
+    ".icono-btn «Volver»",
+    "44×44"
+   ],
+   [
+    "toque",
+    ".activo «QR»",
+    "101×44"
+   ],
+   [
+    "toque",
+    "button «Código»",
+    "101×44"
+   ],
+   [
+    "toque",
+    "button «Placa»",
+    "101×44"
+   ]
+  ]
+ },
+ {
+  "id": "R-11-avisos",
+  "hallazgos": []
+ },
+ {
+  "id": "R-12-mi-casa",
+  "hallazgos": []
+ },
+ {
+  "id": "V-01-chat",
+  "hallazgos": []
+ },
+ {
+  "id": "V-02-pase-vivo",
+  "hallazgos": [
+   [
+    "toque",
+    ".icono-btn «Volver al chat»",
+    "44×44"
+   ],
+   [
+    "toque",
+    ".activo «QR»",
+    "101×44"
+   ],
+   [
+    "toque",
+    "button «Placa»",
+    "101×44"
+   ],
+   [
+    "toque",
+    "button «Código»",
+    "101×44"
+   ]
+  ]
+ },
+ {
+  "id": "V-03-pase-codigo",
+  "hallazgos": [
+   [
+    "toque",
+    ".icono-btn «Volver al chat»",
+    "44×44"
+   ],
+   [
+    "toque",
+    "button «QR»",
+    "101×44"
+   ],
+   [
+    "toque",
+    "button «Placa»",
+    "101×44"
+   ],
+   [
+    "toque",
+    ".activo «Código»",
+    "101×44"
+   ]
+  ]
+ },
+ {
+  "id": "P-01-reposo",
+  "hallazgos": []
+ },
+ {
+  "id": "P-02-leyendo",
+  "hallazgos": []
+ },
+ {
+  "id": "P-03-resultado",
+  "hallazgos": []
+ },
+ {
+  "id": "P-04-rechazo",
+  "hallazgos": []
+ },
+ {
+  "id": "P-05-teclado",
+  "hallazgos": []
+ },
+ {
+  "id": "A-01-resumen",
+  "hallazgos": []
+ },
+ {
+  "id": "A-02-limites",
+  "hallazgos": []
+ },
+ {
+  "id": "A-03-lector",
+  "hallazgos": []
+ }
+]

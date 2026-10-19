@@ -252,7 +252,7 @@ body.con-guion section.actual .guion{display:block}
       <div class="inter">
         <div><b>I-01</b><p>Código por WhatsApp<span>Llega el código y se llena solo</span></p></div>
         <div><b>I-03</b><p>Volver a invitar<span>Un toque abre la hoja ya llena</span></p></div>
-        <div><b>I-05</b><p>Límites a la vista<span>El botón dice por qué no deja crear</span></p></div>
+        <div><b>I-05</b><p>Vigencia a tu medida<span>Unas horas, un día o una estadía de meses</span></p></div>
         <div><b>I-06</b><p>Nacimiento del Pase<span>El botón se vuelve el arco del Pase</span></p></div>
         <div><b>I-13</b><p>Mantener para revocar<span>Anillo de 0,8 s y deshacer por 5 s</span></p></div>
       </div>
@@ -316,15 +316,15 @@ body.con-guion section.actual .guion{display:block}
   <div class="lado">
     <div>
       <p class="rot">Administración · fija el marco</p>
-      <h2>Límites con su consecuencia</h2>
+      <h2>Franjas con su consecuencia</h2>
       <div class="inter">
-        <div><b>I-15</b><p>Vista previa<span>Qué Pase quedaría por encima del tope</span></p></div>
+        <div><b>I-15</b><p>Vista previa<span>Qué Pase quedaría fuera de la franja</span></p></div>
         <div><b>I-16</b><p>Integración y arreglo<span>Refugio: reintentar con teléfono</span></p></div>
       </div>
     </div>
     <div class="marco"><iframe src="prototipo.html?actor=administracion&amp;solo=1" title="Administración" loading="lazy"></iframe></div>
   </div>
-  <aside class="guion">El cambio de límites cruza de actor: si la administración baja el cupo, el residente lo ve en su hoja de Crear Pase al instante. La sincronización de Refugio es una simulación del arreglo propuesto, no un dato.</aside>
+  <aside class="guion">Sin tope de visitas ni de duración (decisión E3-2): la administración solo fija franjas. Si mueve una, ve qué Pase activo quedaría por fuera; los activos conservan su vigencia. La sincronización de Refugio es una simulación del arreglo propuesto, no un dato.</aside>
 </section>
 
 <section data-parte="interaccion">
@@ -365,7 +365,7 @@ body.con-guion section.actual .guion{display:block}
       <tr><td>A3 · visita en la puerta sin señal</td><td>La imagen del WhatsApp no traía un QR real</td><td class="m">3</td><td>La imagen lleva QR y código</td></tr>
       <tr><td>A1 · residente con una mano</td><td>Elegir una hora lejana exige muchos toques</td><td class="m">2</td><td>Atajos «Ya», «Esta tarde», «Mañana»</td></tr>
       <tr><td>A4 · portería en hora pico</td><td>Una lectura tapa la anterior</td><td class="m">2</td><td>Bitácora con la última resaltada</td></tr>
-      <tr><td>A1 · cupo lleno</td><td>El tope aparecía después de escribir el nombre</td><td class="m">2</td><td>El tope se dice antes que todo</td></tr>
+      <tr><td>A1 · familiar que se queda un mes</td><td>Solo había Pases de horas</td><td class="m">3</td><td>«Se queda»: de 3 días a 3 meses, entra y sale</td></tr>
     </tbody>
   </table></div>
   <p class="sec">Prueba con cinco residentes de Monte Sereno: 27 oct al 7 nov, con protocolo, SEQ y SUS.</p>
@@ -407,7 +407,7 @@ body.con-guion section.actual .guion{display:block}
   <div class="fila" style="align-items:center">
     <div style="display:grid;gap:calc(var(--u)*1.4)">
       <h2>El Pase</h2>
-      <p class="sec">Autor, motivo, vigencia y modo. Lo otorga el residente dentro de los límites de la administración. La visita entra sin cuenta.</p>
+      <p class="sec">Autor, motivo, vigencia y modo. Lo otorga el residente, por el tiempo que decida, dentro de las franjas del conjunto. La visita entra sin cuenta.</p>
       <div class="marcas"><span class="etiqueta">QR</span><span class="etiqueta">Placa</span><span class="etiqueta">Código de un solo uso</span></div>
     </div>
     <div style="flex:0 0 auto;display:grid;place-items:center"><div class="portal respira" aria-hidden="true"><svg viewBox="0 0 29 29"><path fill="#00140C" d="M0 0h7v7H0zM1 1v5h5V1zM2 2h3v3H2zM22 0h7v7h-7zM23 1v5h5V1zM24 2h3v3h-3zM0 22h7v7H0zM1 23v5h5v-5zM2 24h3v3H2zM9 0h2v2H9zM12 1h3v2h-3zM16 0h2v3h-2zM9 4h4v2H9zM15 4h3v3h-3zM19 1h2v4h-2zM8 8h3v2H8zM12 8h2v3h-2zM15 9h4v2h-4zM20 8h3v3h-3zM24 9h5v2h-5zM0 9h3v2H0zM4 10h3v3H4zM9 12h3v3H9zM14 13h3v2h-3zM18 12h2v4h-2zM22 13h3v3h-3zM26 12h3v2h-3zM1 15h3v3H1zM5 16h3v2H5zM10 17h2v3h-2zM13 17h4v2h-4zM19 18h3v2h-3zM24 17h2v4h-2zM27 16h2v3h-2zM9 22h3v2H9zM13 21h2v3h-2zM16 22h3v3h-3zM21 22h2v2h-2zM24 23h5v2h-5zM9 26h4v3H9zM15 26h3v2h-3zM20 25h3v4h-3zM25 27h4v2h-4z"/></svg></div></div>
@@ -638,7 +638,7 @@ body.con-guion section.actual .guion{display:block}
     <div class="caja"><span class="rot">F1 · OE1 OE2 OE3</span><h3>Kino Residente</h3><p>Otorga, acota y revoca. PWA con <span class="mono">@kino/motion</span>.</p></div>
     <div class="caja"><span class="rot">F2 · OE2</span><h3>Pase vivo</h3><p>La visita entra sin cuenta, con QR, placa o código.</p></div>
     <div class="caja"><span class="rot">F3 · OE3 OE4</span><h3>Kino Portería</h3><p>El porqué de cada lectura, legible desde 3 m.</p></div>
-    <div class="caja"><span class="rot">F4 · OE4 OE5</span><h3>Kino Administración</h3><p>Límites con vista previa y salud de la integración.</p></div>
+    <div class="caja"><span class="rot">F4 · OE4 OE5</span><h3>Kino Administración</h3><p>Franjas con vista previa y salud de la integración.</p></div>
     <div class="caja"><span class="rot">F5 · OE4</span><h3>Conector HikCentral</h3><p>Persona temporal con vigencia y cola de reintentos.</p></div>
     <div class="caja"><span class="rot">F6 · OE2</span><h3>Kit de implementación</h3><p>Un conjunto nuevo opera en menos de 10 días.</p></div>
   </div>

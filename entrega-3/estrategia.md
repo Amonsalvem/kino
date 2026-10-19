@@ -15,7 +15,7 @@ Estructura de las guías del curso: `entrega-3/fuentes/Plan_estrategico.pdf` (di
 | **Problema** | En los conjuntos cerrados, quien sabe quién debe entrar (el residente) no tiene cómo decirlo, y quien tiene la autoridad (la administración) no sabe a quién dejar entrar. El sistema actual solo sabe crear personas permanentes. Por eso la visita necesita cuenta, el colaborador se registra como si viviera ahí y el residente abre la puerta sin saberlo cuando registra una placa. *Observado, inspección 14–16 sep 2026 (`docs/proyecto/reporte-inspeccion-por-rol.md`).* |
 | **Dónde duele hoy** | Refugio Campestre tiene el hardware instalado y 0 de 312 usuarios y 1 de 44 vehículos sincronizados. Los 711 errores de HikCentral son `add_person` rechazado por el campo correo. *Observado (`MAESTRO-KINO.md` §3).* |
 | **Tiempo** | **[A]** Sustentación del prototipo: segunda semana de noviembre de 2026 (≈ 4 semanas). **[P]** Piloto pagado en Monte Sereno: enero a marzo de 2027. **[P]** Horizonte de este plan: 12 meses, hasta octubre de 2027. |
-| **Solución** | **El Pase**: un objeto con autor, motivo, vigencia y modo (QR, placa o código de un solo uso) que el residente otorga a sus visitas y colaboradores. La administración fija límites (cupo, duración, franjas) y no aprueba caso a caso. La visita no crea cuenta. Kino da de alta el Pase en el hardware que el conjunto ya tiene (HikCentral) y solo lo muestra vigente cuando el lector confirma. |
+| **Solución** | **El Pase**: un objeto con autor, motivo, vigencia y modo (QR, placa o código de un solo uso) que el residente otorga a sus visitas y colaboradores. La administración fija las franjas horarias; no pone tope de visitas ni de duración y no aprueba caso a caso (E3-2). Un Pase puede ser de horas, de un día o una estadía de semanas o meses. La visita no crea cuenta. Kino da de alta el Pase en el hardware que el conjunto ya tiene (HikCentral) y solo lo muestra vigente cuando el lector confirma. |
 | **Diferencia** | No es la autonomía del residente (Neivor ya vende autogestión de visitas por QR: [Neivor](https://landing.neivor.com/control-de-acceso-visitantes)). Es la suma de tres cosas: la integración probada con el hardware instalado, el Pase sin cuenta para la visita y la autoridad del residente dentro de los límites de la administración. |
 
 ### Todo lo que implica la mejora
@@ -146,7 +146,7 @@ Cada táctica responde qué se hará, cómo, quién y cuándo.
 | Estrategia | Qué se hará | Cómo se implementará | Quién | Cuándo |
 |---|---|---|---|---|
 | Simplificación | «Volver a invitar» en la lista | Las 4 personas recientes, a un toque, abren la hoja ya llena | Equipo (diseño y front) | Prototipo, oct 2026 ✔ |
-| Simplificación | Límites visibles antes de crear | El cupo y la franja aparecen en la hoja; el botón dice por qué no deja | Equipo | Prototipo ✔ |
+| Simplificación | Vigencia a tu medida | Unas horas, un día o «Se queda» (3 días a 3 meses); la franja se ve antes de crear | Equipo | Prototipo ✔ |
 | Validación | Prueba de usabilidad con 5 residentes | Protocolo de la Biblia §6.1: 6 tareas, éxito, tiempo, SEQ y SUS | Equipo con la administración | 27 oct – 7 nov 2026 |
 | Acompañamiento | Día de lanzamiento en portería | Un puesto en la entrada con QR al instructivo; se crea el primer Pase con cada residente que pase | Equipo y administración | Semana 1 del piloto, ene 2027 |
 | Acompañamiento | Línea de ayuda por WhatsApp | Número de Kino con respuestas guardadas y un responsable por turno | Equipo | Desde el piloto |
@@ -289,7 +289,7 @@ Plantilla del curso: nombre · propósito dentro de la estrategia · elementos c
 - **Interacciones:** límites con vista previa (I-15), salud de la integración y reintento (I-16), resumen con rechazos y su motivo.
 - **Componentes:** controles de límite, tarjeta de sincronización, cifras del día.
 - **Tecnologías:** web, API de Kino, correo semanal.
-- **Escenario:** el consejo pide limitar las visitas de fin de semana. La administración baja el cupo a 3 y ve que ningún Pase activo se corta.
+- **Escenario:** el consejo pide que las visitas de un día no entren después de las 9 p. m. La administración mueve la franja y ve qué Pase quedaría por fuera; ningún Pase activo se corta.
 
 ### F5 · Conector Kino–HikCentral (servicio)
 - **Propósito:** que el Pase exista en la puerta. Apunta a OE4.

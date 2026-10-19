@@ -1,8 +1,8 @@
 // App del residente: ingreso por WhatsApp, Pases vivos, crear, compartir, detalle, extender y revocar.
 import {useEffect, useLayoutEffect, useMemo, useRef, useState} from 'preact/hooks';
 import {
-	activosDeLaCasa, ahora, anotar, compartir, crearPase, cuentaRegresiva, deshacerRevocar, diasTexto, E, emitir, estado, extender, hora24, horaCorta, horaTexto,
-	min, RECIENTES, RESIDENTE, revocar, validar, ventana, vigenciaTexto, type Modo, type Pase, type Tipo,
+	ahora, anotar, compartir, crearPase, cuentaRegresiva, deshacerRevocar, diasTexto, duraMasDeUnDia, duracionTexto, E, emitir, esEstadia, estado, extender,
+	fechaCorta, hora24, horaBreve, horaCorta, horaTexto, min, RECIENTES, RESIDENTE, revocar, validar, ventana, vigenciaTexto, type Modo, type Pase, type Tipo,
 } from './modelo';
 import {BotonMantener, ChipEstado, Icono, Iniciales, lineaVigencia, Marca, Micelio, Portal, TarjetaPase, useKino, type ModoVista} from './componentes';
 import {animar, C, D, R, vibrar} from './movimiento';
@@ -153,9 +153,12 @@ function Ingreso({onListo}: {onListo: () => void}) {
 }
 
 // Inicio ---------------------------------------------------------------------------------------------
-function Inicio({tab, onTab, onAbrir, onCrear}: {tab: 'pases' | 'avisos' | 'casa'; onTab: (t: 'pases' | 'avisos' | 'casa') => void; onAbrir: (p: Pase) => void; onCrear: (pre?: (typeof RECIENTES)[number]) => void}) {
+type Tab = 'pases' | 'avisos' | 'casa';
+
+function Inicio({tab, onTab, onAbrir, onCrear}: {tab: Tab; onTab: (t: Tab) => void; onAbrir: (p: Pase) => void; onCrear: (pre?: (typeof RECIENTES)[number]) => void}) {
 	const est = useKino(1000);
 	const t = ahora();
+	const firma = est.pases.map((p) => estado(p, t)).join();
 	const grupos = useMemo(() => {
 		const ahora_: Pase[] = [];
 		const proximos: Pase[] = [];
@@ -167,10 +170,10 @@ function Inicio({tab, onTab, onAbrir, onCrear}: {tab: 'pases' | 'avisos' | 'casa
 			else anteriores.push(p);
 		}
 		return {ahora_, proximos, anteriores};
-	}, [est.pases.length, Math.floor(t.getTime() / 15000), est.pases.map((p) => estado(p, t)).join()]);
+	}, [est.pases.length, firma]);
 	const [verAnt, setVerAnt] = useState(false);
-	const usados = activosDeLaCasa();
-	const cupo = est.limites.cupoPorCasa;
+	const estadias = grupos.ahora_.filter(esEstadia).length;
+	const colab = grupos.ahora_.filter((p) => p.tipo === 'colaborador').length;
 
 	return (
 		<div class="inicio">
@@ -185,16 +188,20 @@ function Inicio({tab, onTab, onAbrir, onCrear}: {tab: 'pases' | 'avisos' | 'casa
 								<Marca tam={24} />
 							</div>
 							<h1 class="titulo titulo--xl">Tus Pases</h1>
-							<div class="cupo" aria-label={`${usados} de ${cupo} Pases de visita activos`} onClick={() => anotar('I-05')}>
-								<span class="celulas">
-									{Array.from({length: cupo}, (_, i) => (
-										<i class={i < usados ? 'llena' : ''} style={{animationDelay: `${i * 90}ms`}} />
-									))}
-								</span>
-								<span class="secundario">
-									<b>{usados} de {cupo}</b> visitas activas · tope de la administración
-								</span>
-							</div>
+							<dl class="resumen-casa">
+								<div>
+									<dd class="mono">{grupos.ahora_.length}</dd>
+									<dt>vivos ahora</dt>
+								</div>
+								<div>
+									<dd class="mono">{estadias}</dd>
+									<dt>{estadias === 1 ? 'estadía' : 'estadías'}</dt>
+								</div>
+								<div>
+									<dd class="mono">{colab}</dd>
+									<dt>{colab === 1 ? 'colaborador' : 'colaboradores'}</dt>
+								</div>
+							</dl>
 						</header>
 
 						<section class="seccion">
@@ -223,20 +230,20 @@ function Inicio({tab, onTab, onAbrir, onCrear}: {tab: 'pases' | 'avisos' | 'casa
 						)}
 						{grupos.anteriores.length > 0 && (
 							<section class="seccion">
-								<button class="enlace" onClick={() => setVerAnt(!verAnt)}>
-									{verAnt ? 'Ocultar' : 'Ver'} Pases anteriores ({grupos.anteriores.length})
+								<button class="enlace" onClick={() => setVerAnt(!verAnt)} aria-expanded={verAnt}>
+									{verAnt ? 'Ocultar' : 'Ver'} Pases anteriores · {grupos.anteriores.length}
 								</button>
 								{verAnt && <div class="lista">{grupos.anteriores.map((p, i) => <TarjetaPase key={p.id} p={p} retraso={i * 55} onAbrir={onAbrir} />)}</div>}
 							</section>
 						)}
-						<div style={{height: 150}} />
+						<div class="relleno-pie" />
 					</>
 				)}
 				{tab === 'avisos' && <Avisos onAbrir={onAbrir} />}
 				{tab === 'casa' && <MiCasa />}
 			</div>
 			{tab === 'pases' && (
-				<div class="pie-accion">
+				<div class="pie-accion pie-accion--sobre-barra">
 					<button class="accion accion--crear" onClick={() => onCrear()}>
 						<Icono n="mas" />
 						Crear Pase
@@ -254,7 +261,7 @@ function Inicio({tab, onTab, onAbrir, onCrear}: {tab: 'pases' | 'avisos' | 'casa
 					<button class={`barra-inferior__item ${tab === k ? 'activo' : ''}`} onClick={() => onTab(k)} aria-current={tab === k ? 'page' : undefined}>
 						<Icono n={ic} />
 						<span>{txt}</span>
-						{k === 'avisos' && E.avisos.filter((a) => a.para === 'residente').length > 0 && <i class="punto-aviso" />}
+						{k === 'avisos' && E.avisos.some((a) => a.para === 'residente') && <i class="punto-aviso" />}
 					</button>
 				))}
 			</nav>
@@ -271,7 +278,7 @@ function Avisos({onAbrir}: {onAbrir: (p: Pase) => void}) {
 			{lista.length === 0 && (
 				<div class="vacio">
 					<p class="secundario">Aquí llega cada vez que el lector deja entrar a alguien con tu Pase, o lo rechaza y por qué.</p>
-					<p class="nota">Prueba: ve a Portería y lee el QR de Andrés.</p>
+					<p class="nota">Prueba: en Portería, lee el QR de Andrés.</p>
 				</div>
 			)}
 			<div class="lista">
@@ -280,7 +287,7 @@ function Avisos({onAbrir}: {onAbrir: (p: Pase) => void}) {
 					return (
 						<button class={`fila-aviso fila-aviso--${a.tono}`} onClick={() => p && onAbrir(p)}>
 							<span class="mono tenue">{hora24(a.hora)}</span>
-							<span>
+							<span class="fila-aviso__texto">
 								<b>{a.titulo}</b>
 								<span class="secundario">{a.texto}</span>
 							</span>
@@ -297,16 +304,20 @@ function MiCasa() {
 	const L = est.limites;
 	return (
 		<div class="pagina">
-			<h1 class="titulo titulo--xl">Mi casa</h1>
-			<p class="secundario">{RESIDENTE.casa} · {RESIDENTE.comunidad}</p>
+			<div class="pagina__cabeza">
+				<h1 class="titulo titulo--xl">Mi casa</h1>
+				<p class="secundario">{RESIDENTE.casa} · {RESIDENTE.comunidad}</p>
+			</div>
 			<section class="grupo">
-				<h2 class="rotulo">Límites del conjunto</h2>
-				<p class="nota">Los fija la administración. Tú decides quién entra dentro de este marco.</p>
+				<h2 class="rotulo">Lo que decides tú</h2>
+				<p class="nota">Cuántas visitas tienes y cuánto se queda cada una. Una estadía puede durar semanas o meses.</p>
+			</section>
+			<section class="grupo">
+				<h2 class="rotulo">Lo que fija la administración</h2>
 				<dl class="datos">
-					<div><dt>Visitas activas por casa</dt><dd class="mono">{L.cupoPorCasa}</dd></div>
-					<div><dt>Duración máxima de una visita</dt><dd class="mono">{L.duracionMaxH} h</dd></div>
-					<div><dt>Franja de visitas</dt><dd class="mono">{horaTexto(L.visitaDesde)} – {horaTexto(L.visitaHasta)}</dd></div>
-					<div><dt>Franja de colaboradores</dt><dd class="mono">{horaTexto(L.colabDesde)} – {horaTexto(L.colabHasta)}</dd></div>
+					<div><dt>Visitas de un día</dt><dd class="mono">{horaBreve(dia(L.visitaDesde))} a {horaBreve(dia(L.visitaHasta))}</dd></div>
+					<div><dt>Colaboradores</dt><dd class="mono">{horaBreve(dia(L.colabDesde))} a {horaBreve(dia(L.colabHasta))}</dd></div>
+					<div><dt>Estadías</dt><dd class="mono">a cualquier hora</dd></div>
 				</dl>
 			</section>
 			<section class="grupo">
@@ -321,8 +332,20 @@ function MiCasa() {
 	);
 }
 
+const dia = (minutos: number) => {
+	const d = new Date(ahora());
+	d.setHours(0, minutos, 0, 0);
+	return d;
+};
+
 // Hoja: crear Pase -----------------------------------------------------------------------------------
-type Cuando = 'ahora' | 'tarde' | 'manana' | 'personal';
+type Cuando = 'horas' | 'dia' | 'estadia';
+const PLAZOS: {k: string; dias: number; txt: string}[] = [
+	{k: '3d', dias: 3, txt: '3 días'},
+	{k: '1s', dias: 7, txt: '1 semana'},
+	{k: '1m', dias: 30, txt: '1 mes'},
+	{k: '3m', dias: 90, txt: '3 meses'},
+];
 
 function HojaCrear({precarga, onCerrar, onVer}: {precarga?: (typeof RECIENTES)[number]; onCerrar: () => void; onVer: (p: Pase) => void}) {
 	useKino(1000);
@@ -332,10 +355,11 @@ function HojaCrear({precarga, onCerrar, onVer}: {precarga?: (typeof RECIENTES)[n
 	const [tel, setTel] = useState(precarga?.telefono ?? '');
 	const [placa, setPlaca] = useState(precarga?.placa ?? '');
 	const [motivo] = useState(precarga?.motivo);
-	const [cuando, setCuando] = useState<Cuando>('ahora');
-	const [desdeH, setDesdeH] = useState(Math.min(21, t0.getHours() + 1));
-	const [durH, setDurH] = useState(3);
-	const [dias, setDias] = useState<number[]>([1, 2, 3, 4, 5]);
+	const [cuando, setCuando] = useState<Cuando>('horas');
+	const [horas, setHoras] = useState(3);
+	const [manana, setManana] = useState(false);
+	const [dias, setDiasEstadia] = useState(7);
+	const [diasColab, setDiasColab] = useState<number[]>([1, 2, 3, 4, 5]);
 	const [franja, setFranja] = useState<[number, number]>([7, 17]);
 	const [creado, setCreado] = useState<Pase | null>(null);
 	const [enviado, setEnviado] = useState(false);
@@ -354,8 +378,9 @@ function HojaCrear({precarga, onCerrar, onVer}: {precarga?: (typeof RECIENTES)[n
 		a ? (a.onfinish = onCerrar) : onCerrar();
 	};
 
-	// Gesto: arrastrar la hoja.
+	// Gesto: arrastrar la hoja hacia abajo para cerrarla.
 	const bajar = (e: PointerEvent) => {
+		if ((e.target as HTMLElement).closest('button')) return;
 		arrastre.current = {y0: e.clientY, dy: 0, t0: performance.now()};
 		(e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
 	};
@@ -364,8 +389,7 @@ function HojaCrear({precarga, onCerrar, onVer}: {precarga?: (typeof RECIENTES)[n
 		if (!a) return;
 		const escala = hojaRef.current!.getBoundingClientRect().height / hojaRef.current!.offsetHeight || 1;
 		a.dy = Math.max(-20, (e.clientY - a.y0) / escala);
-		const dy = a.dy < 0 ? a.dy * 0.3 : a.dy;
-		hojaRef.current!.style.transform = `translateY(${dy}px)`;
+		hojaRef.current!.style.transform = `translateY(${a.dy < 0 ? a.dy * 0.3 : a.dy}px)`;
 	};
 	const soltar = () => {
 		const a = arrastre.current;
@@ -382,47 +406,56 @@ function HojaCrear({precarga, onCerrar, onVer}: {precarga?: (typeof RECIENTES)[n
 
 	const rango = (): {desde: Date; hasta: Date} => {
 		const d = new Date(t0);
-		if (cuando === 'ahora') {
-			d.setSeconds(0, 0);
-			return {desde: d, hasta: new Date(d.getTime() + durH * 3_600_000)};
+		d.setSeconds(0, 0);
+		if (tipo === 'colaborador') {
+			const a = new Date(d);
+			a.setHours(franja[0], 0, 0, 0);
+			const b = new Date(d);
+			b.setHours(franja[1], 0, 0, 0);
+			return {desde: a, hasta: b};
 		}
-		if (cuando === 'tarde') {
-			d.setHours(14, 0, 0, 0);
-			const h = new Date(d);
-			h.setHours(18);
-			return {desde: d, hasta: h};
+		if (cuando === 'horas') return {desde: d, hasta: new Date(d.getTime() + horas * 3_600_000)};
+		if (cuando === 'dia') {
+			const a = new Date(d);
+			if (manana) a.setDate(a.getDate() + 1);
+			else a.setHours(Math.max(d.getHours(), 0));
+			if (manana) a.setHours(8, 0, 0, 0);
+			const b = new Date(a);
+			b.setHours(21, 0, 0, 0);
+			return {desde: a, hasta: b};
 		}
-		if (cuando === 'manana') d.setDate(d.getDate() + 1);
-		d.setHours(desdeH, 0, 0, 0);
-		return {desde: d, hasta: new Date(d.getTime() + durH * 3_600_000)};
+		const b = new Date(d);
+		b.setDate(b.getDate() + dias);
+		b.setHours(21, 0, 0, 0);
+		return {desde: d, hasta: b};
 	};
-	const r = tipo === 'visita' ? rango() : (() => {
-		const d = new Date(t0);
-		d.setHours(franja[0], 0, 0, 0);
-		const h = new Date(t0);
-		h.setHours(franja[1], 0, 0, 0);
-		return {desde: d, hasta: h};
-	})();
-	const recurrencia = tipo === 'colaborador' ? {dias, inicio: min(franja[0]), fin: min(franja[1])} : undefined;
-	const errorLimite = validar({tipo, desde: r.desde, hasta: r.hasta, recurrencia});
+	const r = rango();
+	const recurrencia = tipo === 'colaborador' ? {dias: diasColab, inicio: min(franja[0]), fin: min(franja[1])} : undefined;
+	const errorFranja = validar({tipo, desde: r.desde, hasta: r.hasta, recurrencia});
 	const telOk = tel.replace(/\D/g, '').length === 10;
-	const motivoBoton = errorLimite?.includes('tope') ? errorLimite : !nombre.trim() ? 'Escribe quién viene' : !telOk ? 'Falta el WhatsApp (10 cifras)' : tipo === 'colaborador' && dias.length === 0 ? 'Elige al menos un día' : errorLimite;
+	const motivoBoton = !nombre.trim() ? 'Escribe quién viene' : !telOk ? 'Falta el WhatsApp (10 cifras)' : tipo === 'colaborador' && diasColab.length === 0 ? 'Elige al menos un día' : errorFranja;
+	const estadia = tipo === 'visita' && duraMasDeUnDia(r);
 	const L = E.limites;
 
 	useEffect(() => {
-		if (errorLimite) anotar('I-05');
-	}, [errorLimite]);
+		if (estadia) anotar('I-05');
+	}, [estadia]);
 
 	const crear = (ev: MouseEvent) => {
 		if (motivoBoton) return;
 		const modos: Modo[] = ['qr', 'codigo', ...(placa.trim() ? (['placa'] as Modo[]) : [])];
-		const btn = ev.currentTarget as HTMLElement;
-		animar(btn, [{transform: 'scale(1)'}, {transform: 'scale(.94)'}, {transform: 'scale(1)'}], {duration: R.tacto.ms, easing: R.tacto.linear});
+		animar(ev.currentTarget as HTMLElement, [{transform: 'scale(1)'}, {transform: 'scale(.94)'}, {transform: 'scale(1)'}], {duration: R.tacto.ms, easing: R.tacto.linear});
 		vibrar(15);
-		const p = crearPase({tipo, nombre, telefono: tel, motivo, placa, modos, desde: r.desde, hasta: r.hasta, recurrencia});
-		setCreado(p);
+		setCreado(crearPase({tipo, nombre, telefono: tel, motivo, placa, modos, desde: r.desde, hasta: r.hasta, recurrencia}));
 		anotar('I-06');
 	};
+
+	const resumen =
+		tipo === 'colaborador'
+			? `${diasTexto(diasColab) || 'Sin días'} · ${horaBreve(r.desde)} a ${horaBreve(r.hasta)} · hasta que lo revoques`
+			: estadia
+				? `Estadía · hoy al ${fechaCorta(r.hasta, t0)} · ${duracionTexto(r.desde, r.hasta)} · entra y sale`
+				: `${fechaCorta(r.desde, t0) === 'hoy' ? 'Hoy' : 'Mañana'} · ${horaBreve(r.desde)} a ${horaBreve(r.hasta)} · una entrada`;
 
 	return (
 		<div class="capa">
@@ -460,28 +493,39 @@ function HojaCrear({precarga, onCerrar, onVer}: {precarga?: (typeof RECIENTES)[n
 
 						{tipo === 'visita' ? (
 							<div class="grupo">
-								<span class="rotulo">¿Cuándo?</span>
-								<div class="chips">
+								<span class="rotulo">¿Por cuánto tiempo?</span>
+								<div class="opciones" role="radiogroup">
 									{(
 										[
-											['ahora', 'Ya'],
-											['tarde', 'Esta tarde'],
-											['manana', 'Mañana'],
-											['personal', 'Otra hora'],
+											['horas', 'Unas horas'],
+											['dia', 'Un día'],
+											['estadia', 'Se queda'],
 										] as [Cuando, string][]
 									).map(([k, txt]) => (
-										<button class={`chip-opcion ${cuando === k ? 'activo' : ''}`} onClick={() => setCuando(k)}>
+										<button role="radio" aria-checked={cuando === k} class={`opcion ${cuando === k ? 'activo' : ''}`} onClick={() => setCuando(k)}>
 											{txt}
 										</button>
 									))}
 								</div>
-								{(cuando === 'ahora' || cuando === 'personal' || cuando === 'manana') && (
-									<div class="pasos">
-										{cuando !== 'ahora' && <Paso rotulo="Desde" valor={horaCorta(r.desde)} menos={() => setDesdeH(Math.max(0, desdeH - 1))} mas={() => setDesdeH(Math.min(23, desdeH + 1))} />}
-										<Paso rotulo="Dura" valor={`${durH} h`} menos={() => setDurH(Math.max(1, durH - 1))} mas={() => setDurH(durH + 1)} />
+								{cuando === 'horas' && <Paso rotulo="Dura" valor={`${horas} h`} menos={() => setHoras(Math.max(1, horas - 1))} mas={() => setHoras(Math.min(18, horas + 1))} />}
+								{cuando === 'dia' && (
+									<div class="opciones opciones--2">
+										<button class={`opcion ${!manana ? 'activo' : ''}`} onClick={() => setManana(false)}>Hoy</button>
+										<button class={`opcion ${manana ? 'activo' : ''}`} onClick={() => setManana(true)}>Mañana</button>
 									</div>
 								)}
-								<p class={`vigencia-previa dato ${errorLimite ? 'dato--rechazado' : 'dato--vigente'}`}>{`${r.desde.toDateString() === t0.toDateString() ? 'Hoy' : 'Mañana'} · ${horaCorta(r.desde)} a ${horaCorta(r.hasta)}`}</p>
+								{cuando === 'estadia' && (
+									<>
+										<div class="opciones opciones--2">
+											{PLAZOS.map((x) => (
+												<button class={`opcion ${dias === x.dias ? 'activo' : ''}`} onClick={() => setDiasEstadia(x.dias)}>
+													{x.txt}
+												</button>
+											))}
+										</div>
+										<Paso rotulo="Hasta" valor={fechaCorta(r.hasta, t0)} menos={() => setDiasEstadia(Math.max(2, dias - 1))} mas={() => setDiasEstadia(Math.min(365, dias + 1))} />
+									</>
+								)}
 								<label class="campo">
 									<span class="rotulo">Placa · opcional</span>
 									<input class="mono mayus" value={placa} placeholder="ABC 123" onInput={(e) => setPlaca((e.target as HTMLInputElement).value)} />
@@ -492,26 +536,26 @@ function HojaCrear({precarga, onCerrar, onVer}: {precarga?: (typeof RECIENTES)[n
 								<span class="rotulo">Días que viene</span>
 								<div class="dias">
 									{['D', 'L', 'M', 'M', 'J', 'V', 'S'].map((l, i) => (
-										<button class={dias.includes(i) ? 'activo' : ''} aria-pressed={dias.includes(i)} onClick={() => setDias(dias.includes(i) ? dias.filter((x) => x !== i) : [...dias, i])}>
+										<button class={diasColab.includes(i) ? 'activo' : ''} aria-pressed={diasColab.includes(i)} aria-label={['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'][i]} onClick={() => setDiasColab(diasColab.includes(i) ? diasColab.filter((x) => x !== i) : [...diasColab, i])}>
 											{l}
 										</button>
 									))}
 								</div>
 								<div class="pasos">
-									<Paso rotulo="Entra" valor={horaTexto(franja[0] * 60)} menos={() => setFranja([Math.max(0, franja[0] - 1), franja[1]])} mas={() => setFranja([Math.min(franja[1] - 1, franja[0] + 1), franja[1]])} />
-									<Paso rotulo="Sale" valor={horaTexto(franja[1] * 60)} menos={() => setFranja([franja[0], Math.max(franja[0] + 1, franja[1] - 1)])} mas={() => setFranja([franja[0], Math.min(23, franja[1] + 1)])} />
+									<Paso rotulo="Entra" valor={horaBreve(dia(franja[0] * 60))} menos={() => setFranja([Math.max(0, franja[0] - 1), franja[1]])} mas={() => setFranja([Math.min(franja[1] - 1, franja[0] + 1), franja[1]])} />
+									<Paso rotulo="Sale" valor={horaBreve(dia(franja[1] * 60))} menos={() => setFranja([franja[0], Math.max(franja[0] + 1, franja[1] - 1)])} mas={() => setFranja([franja[0], Math.min(23, franja[1] + 1)])} />
 								</div>
-								<p class={`vigencia-previa dato ${errorLimite ? 'dato--rechazado' : 'dato--vigente'}`}>{diasTexto(dias) || 'Sin días'} · se repite hasta que lo revoques</p>
 							</div>
 						)}
 
-						<div class={`limites ${errorLimite ? 'limites--choca' : ''}`}>
-							<Icono n="ajustes" tam={18} />
-							<span>
-								{tipo === 'visita'
-									? `${activosDeLaCasa()} de ${L.cupoPorCasa} visitas activas · hasta ${L.duracionMaxH} h · de ${horaTexto(L.visitaDesde)} a ${horaTexto(L.visitaHasta)}`
-									: `Colaboradores de ${horaTexto(L.colabDesde)} a ${horaTexto(L.colabHasta)}`}
-							</span>
+						<div class={`previa-pase ${errorFranja ? 'previa-pase--choca' : ''}`}>
+							<span class="rotulo">{errorFranja ? 'Fuera de la franja del conjunto' : 'Así queda'}</span>
+							<span class="dato">{resumen}</span>
+							{(errorFranja || (tipo === 'visita' && !estadia)) && (
+								<span class="nota">
+									{tipo === 'visita' ? `Las visitas de un día entran de ${horaTexto(L.visitaDesde)} a ${horaTexto(L.visitaHasta)}` : `Los colaboradores entran de ${horaTexto(L.colabDesde)} a ${horaTexto(L.colabHasta)}`}
+								</span>
+							)}
 						</div>
 					</div>
 				) : (
@@ -533,9 +577,9 @@ const Paso = ({rotulo, valor, menos, mas}: {rotulo: string; valor: string; menos
 	<div class="paso">
 		<span class="rotulo">{rotulo}</span>
 		<div class="paso__fila">
-			<button onClick={menos} aria-label={`Menos ${rotulo}`}>−</button>
+			<button onClick={menos} aria-label={`Menos: ${rotulo}`}>−</button>
 			<span class="mono paso__valor">{valor}</span>
-			<button onClick={mas} aria-label={`Más ${rotulo}`}>+</button>
+			<button onClick={mas} aria-label={`Más: ${rotulo}`}>+</button>
 		</div>
 	</div>
 );
@@ -550,12 +594,14 @@ function Creado({p, enviado, onEnviar, onVer}: {p: Pase; enviado: boolean; onEnv
 	return (
 		<div class="hoja__cuerpo creado">
 			<div ref={ref} class="creado__portal">
-				<Portal p={p} tam={230} />
+				<Portal p={p} tam={220} />
 			</div>
-			<ChipEstado e={e} grande />
-			<h2 class="titulo titulo--l">{p.nombre}</h2>
-			<p class="dato dato--vigente">{vigenciaTexto(p)}</p>
-			<p class="nota">{e === 'sin-confirmar' ? 'Kino lo envió al lector. Queda vigente cuando el lector confirme.' : 'El lector lo confirmó. Ya puede entrar.'}</p>
+			<div class="creado__texto">
+				<ChipEstado e={e} grande />
+				<h2 class="titulo titulo--l">{p.nombre}</h2>
+				<p class="dato dato--vigente">{vigenciaTexto(p)}</p>
+				<p class="nota">{e === 'sin-confirmar' ? 'Kino lo envió al lector. Queda vigente cuando el lector confirme.' : 'El lector lo confirmó. Ya puede entrar.'}</p>
+			</div>
 			<div class="creado__acciones">
 				<button class={`accion ${enviado ? 'accion--hecho' : ''}`} onClick={onEnviar} disabled={enviado}>
 					<Icono n={enviado ? 'check' : 'compartir'} />
@@ -583,18 +629,19 @@ function Detalle({id, onVolver}: {id: string; onVolver: () => void}) {
 	const e = estado(p);
 	const v = ventana(p);
 	const vivo = e === 'vigente' || e === 'por-vencer' || e === 'previsto' || e === 'sin-confirmar';
+	const extensiones: [string, number][] = esEstadia(p) ? [['+1 semana', 168], ['+1 mes', 720]] : [['+1 h', 1], ['+1 día', 24], ['+1 semana', 168]];
 	return (
 		<div ref={ref} class="detalle">
+			<div class="barra-sup">
+				<button class="icono-btn" onClick={onVolver} aria-label="Volver">
+					<Icono n="atras" />
+				</button>
+				<span class="titulo titulo--s">{p.tipo === 'colaborador' ? 'Pase · colaborador' : esEstadia(p) ? 'Pase · estadía' : 'Pase · visita'}</span>
+				<span class="barra-sup__hueco" />
+			</div>
 			<div class="pantalla__scroll">
-				<div class="barra-sup">
-					<button class="icono-btn" onClick={onVolver} aria-label="Volver">
-						<Icono n="atras" />
-					</button>
-					<span class="titulo titulo--s">Pase · {p.tipo === 'visita' ? 'visita' : 'colaborador'}</span>
-					<span style={{width: 44}} />
-				</div>
 				<div class="detalle__portal">
-					<Portal p={p} modo={modo} tam={250} />
+					<Portal p={p} modo={modo} tam={232} />
 					<div class="modos" role="tablist">
 						{p.modos.map((m) => (
 							<button role="tab" aria-selected={modo === m} class={modo === m ? 'activo' : ''} onClick={() => setModo(m)}>
@@ -604,48 +651,49 @@ function Detalle({id, onVolver}: {id: string; onVolver: () => void}) {
 						))}
 					</div>
 				</div>
-				<div class="detalle__cabeza">
-					<ChipEstado e={e} grande />
-					<h1 class="titulo titulo--l">
-						{p.nombre}
-						<span class="tachado" />
-					</h1>
-					<p class={`dato dato--${e}`}>{lineaVigencia(p, e)}</p>
-					{(e === 'vigente' || e === 'por-vencer') && (
-						<p class="cuenta">
-							<span class="rotulo">Vence en</span>
-							<span class="mono cuenta__num">{cuentaRegresiva(v.hasta)}</span>
-						</p>
+				<div class="detalle__cuerpo">
+					<div class="detalle__cabeza">
+						<ChipEstado e={e} grande />
+						<h1 class="titulo titulo--l">
+							{p.nombre}
+							<span class="tachado" />
+						</h1>
+						<p class={`dato dato--${e}`}>{lineaVigencia(p, e)}</p>
+						{(e === 'vigente' || e === 'por-vencer') && (
+							<p class="cuenta">
+								<span class="rotulo">Vence en</span>
+								<span class="mono cuenta__num">{cuentaRegresiva(v.hasta)}</span>
+							</p>
+						)}
+					</div>
+					{vivo && p.tipo === 'visita' && (
+						<section class="grupo">
+							<h2 class="rotulo">Extender</h2>
+							<div class={`opciones opciones--${extensiones.length}`}>
+								{extensiones.map(([txt, h]) => (
+									<button class="opcion" onClick={() => setError(extender(p, h))}>
+										{txt}
+									</button>
+								))}
+							</div>
+							{error && <p class="nota nota--error">{error}</p>}
+						</section>
 					)}
-				</div>
-				<section class="grupo">
-					<h2 class="rotulo">Lo que pasó</h2>
-					<ol class="traza">
-						{[...p.traza].reverse().map((t) => (
-							<li class={`traza__item traza__item--${t.tipo}`}>
-								<span class="mono">{hora24(t.hora)}</span>
-								<span>{t.texto}</span>
-							</li>
-						))}
-					</ol>
-				</section>
-				{vivo && p.tipo === 'visita' && (
 					<section class="grupo">
-						<h2 class="rotulo">Extender</h2>
-						<div class="chips">
-							{[1, 2].map((h) => (
-								<button class="chip-opcion" onClick={() => setError(extender(p, h))}>
-									+{h} h
-								</button>
+						<h2 class="rotulo">Lo que pasó</h2>
+						<ol class="traza">
+							{[...p.traza].reverse().map((t) => (
+								<li class={`traza__item traza__item--${t.tipo}`}>
+									<span class="mono">{fechaCorta(t.hora) === 'hoy' ? hora24(t.hora) : fechaCorta(t.hora)}</span>
+									<span>{t.texto}</span>
+								</li>
 							))}
-						</div>
-						{error && <p class="nota nota--error">{error}</p>}
+						</ol>
 					</section>
-				)}
-				<div style={{height: 120}} />
+				</div>
 			</div>
 			{vivo && (
-				<div class="pie-accion">
+				<div class="pie-accion pie-accion--fijo">
 					<BotonMantener onCompleto={() => revocar(p)} clase="mantener--revocar">
 						Mantén presionado para revocar
 					</BotonMantener>

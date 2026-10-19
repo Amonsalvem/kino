@@ -259,3 +259,11 @@ En arquitectura faltaba:
   - Grupo y fecha de entrega en la portada de la Biblia.
   - Correr la prueba con residentes.
   - Las cinco preguntas de `estrategia.md` §11.
+
+## Entrega 3 · barrido, portería y E3-2 (19 oct)
+- **Pedido de Nico:** E3-1 A, E3-3 aprobada; E3-2 sin límite de visitas y con Pases largos (familiares que se quedan meses); mejorar la animación de aprobado y rechazado en portería; barrido de diagramación antes de seguir; lista de decisiones pendientes.
+- **Barrido:** `prototipo/pruebas/barrido.mjs` sobre 23 pantallas. De 39 hallazgos medidos y 18 vistos en capturas a 0 de diagramación. Detalle: `entrega-3/barrido-diagramacion.md`.
+- **Portería:** panel con retícula y coreografía nueva para entra y no entra.
+- **E3-2:** sin cupo ni duración máxima; estadías de varias entradas; la administración fija solo franjas. Biblia, deck, estrategia y Figma actualizados; las variantes de cupo pasaron a «99 Descartes».
+- **Decisiones nuevas PROPUESTA:** E3-4 (franjas en estadías), E3-5 (umbral de estadía), E3-6 (una sola entrada).
+- **Verificación:** e2e 16 de 16; deck sin desborde y sin texto bajo 24 px.

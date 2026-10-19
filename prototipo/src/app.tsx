@@ -37,7 +37,7 @@ const ACTORES: {k: Vista; t: string; d: string}[] = [
 function Escenario() {
 	const est = useKino(1000);
 	const [vista, setVista] = useState<Vista>((q.get('actor') as Vista) || (leerLocal('kino-proto-vista') as Vista) || 'todos');
-	const [bio, setBio] = useState(q.get('tema') ? q.get('tema') === 'bio' : leerLocal('kino-proto-bio') === '1');
+	const [bio, setBio] = useState(q.get('tema') ? q.get('tema') === 'bio' : leerLocal('kino-proto-bio') !== '0');
 	const [panel, setPanel] = useState(q.get('panel') !== '0');
 	const solo = q.get('solo') === '1';
 

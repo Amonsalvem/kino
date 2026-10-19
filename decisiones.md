@@ -463,21 +463,43 @@ Pedido de Nico: subir las tres escenas de Blender a nivel profesional; libertad 
 
 ## Entrega 3 · prototipo navegable (19 oct 2026)
 
-### E3-1 · Exploración biopunk en el prototipo · PROPUESTA
-- **Qué es:** una capa de tema aparte (`prototipo/src/estilos.css`, bloque «Exploración biopunk»), apagada por defecto. Se enciende con la tecla B. No toca ningún token aprobado.
+### E3-1 · Exploración biopunk en el prototipo · APROBADA (opción A, Nico, 19 oct)
+- **Qué es:** una capa de tema (`prototipo/src/estilos.css`, bloque «Exploración biopunk»). Desde la aprobación va encendida por defecto; la tecla B la apaga para comparar. No toca ningún token aprobado.
 - **Rasgos:** el Pase vigente late como tejido; el vencido se marchita (pierde saturación y se deforma); el revocado cicatriza (el corte punteado); el lector reconoce con una sinapsis; el borde del Portal es una quitina iridiscente; micelio vivo de fondo.
 - **Por qué:** hoy no existe el acceso temporal para una persona, así que el estado tiene que verse vivo (H1/H5). Cada rasgo nombra un hecho del Pase; ninguno decora.
-- **Opciones:** A, adoptar la capa en la app; B, adoptar solo el latido del tejido y la sinapsis del lector; C, dejarla como exploración.
+- **Decidido:** A, adoptar la capa en la app. Pendiente: llevar la capa a tokens y a la librería de Figma con una versión nueva del sistema.
 
-### E3-2 · Supuestos del prototipo para los [PENDIENTE] del archivo «Kino · App» · PROPUESTA
-1. Cupo por casa: 5 Pases de visita activos al mismo tiempo.
-2. El Pase de visita queda Usado al entrar (una sola entrada).
-3. Portería digita el código en su pantalla; no se asume teclado en el lector.
-4. La vigencia del código es la del Pase.
-5. La administración no revoca en esta versión.
-6. El Pase de colaborador se repite sin fecha de fin hasta que el residente lo revoque.
-- **Efecto en HikCentral:** 1, 4 y 6 definen el «Válido desde / hasta» de la persona temporal; 2 pide dar de baja el Pase después del primer evento de acceso.
+### E3-2 · Vigencia y franjas del Pase · APROBADA con cambio (Nico, 19 oct)
+- **Lo que dijo Nico:** sin límite de visitas; Pases con rangos de tiempo amplios a comodidad del residente, porque hay familiares que se quedan meses.
+- **Cambia una decisión tomada.** «La administración fija límites (cupos, duración, franjas)» pasa a «la administración fija solo franjas». Se quitan el cupo por casa y la duración máxima. Se señala aquí porque toca una de las decisiones tomadas del proyecto.
+- **Quedó así en el prototipo:**
+  1. Sin cupo por casa ni duración máxima.
+  2. Tres vigencias al crear: Unas horas, Un día y Se queda (3 días, 1 semana, 1 mes, 3 meses o una fecha).
+  3. «Estadía» es todo Pase de visita de más de 20 h: entra y sale las veces que quiera hasta su fecha de salida.
+  4. La visita de unas horas o de un día queda Usada al entrar (una sola entrada).
+  5. Extender no tiene tope: +1 h, +1 día o +1 semana; en estadía, +1 semana o +1 mes. Un Pase de un día ya usado no se extiende: se crea otro.
+  6. La administración fija dos franjas (visitas de un día y colaboradores) y ve qué Pases activos quedarían fuera; los activos conservan su vigencia.
+  7. Portería digita el código en su pantalla; no se asume teclado en el lector.
+  8. La vigencia del código es la del Pase.
+  9. La administración no revoca en esta versión.
+  10. El Pase de colaborador se repite sin fecha de fin hasta que el residente lo revoque.
+- **Efecto en HikCentral:** cada Pase es una persona temporal con «Válido desde / hasta»; una estadía de meses es la misma persona con una ventana larga. Hay que confirmar con Manuel el máximo que acepta HikCentral en esa ventana. La visita de una sola entrada pide dar de baja la persona después del primer evento de acceso.
+- **Efecto en la trazabilidad:** no cambia. Cada Pase guarda autor, casa, motivo y vigencia; sin tope, la constancia es lo que le responde al consejo.
+- **Variantes de Figma:** las de cupo agotado (R-P-01, R-P-05) se movieron a «99 Descartes», sin borrarlas.
 
-### E3-3 · Revocar con mantener presionado y deshacer · PROPUESTA
+### E3-3 · Revocar con mantener presionado y deshacer · APROBADA (Nico, 19 oct)
 - Reemplaza el diálogo de confirmación de R-P-10. Mantener 0,8 s revoca al instante; «Deshacer» dura 5 s; la baja en HikCentral sale cuando vence el deshacer.
 - **Por qué:** el diálogo protege de un toque accidental que el gesto ya evita y deja sin arreglo el arrepentimiento, que es el error común.
+
+### E3-4 · ¿Las franjas aplican a las estadías? · PROPUESTA
+- **Supuesto del prototipo:** no. Un familiar que se queda un mes entra y sale a cualquier hora.
+- **Opciones:** A, no aplican (supuesto actual); B, aplican también a las estadías; C, la administración decide por conjunto.
+
+### E3-5 · Desde cuándo un Pase es estadía · PROPUESTA
+- **Supuesto del prototipo:** más de 20 h. Por debajo es una visita de una sola entrada.
+- **Opciones:** A, más de 20 h; B, desde 2 días; C, lo marca el residente con «Se queda», sin umbral de horas.
+
+### E3-6 · La visita de unas horas o de un día entra una sola vez · PROPUESTA
+- **Supuesto del prototipo:** sí; queda Usada al entrar. Si sale a la tienda, el residente crea otro Pase.
+- **Opciones:** A, una sola entrada; B, entra y sale dentro de su vigencia, como la estadía.
+- **Efecto en HikCentral:** A pide dar de baja la persona después del primer evento; B solo usa «Válido hasta».

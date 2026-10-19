@@ -121,20 +121,34 @@ await ok('Revocar de verdad: el lector lo rechaza con quién y cuándo', async (
 	await T.getByText(/Revocado por Carolina Ruiz/).first().waitFor({timeout: 3000});
 });
 
-await ok('Administración: bajar el cupo cambia lo que el residente puede crear', async () => {
-	await p.getByRole('button', {name: 'Administración', exact: true}).click();
-	const A = p.getByRole('region', {name: 'Administración'});
-	await A.getByRole('button', {name: 'Límites'}).click();
-	for (let i = 0; i < 4; i++) await A.getByRole('button', {name: 'Menos: Visitas activas por casa'}).click();
-	await A.getByText('Qué pasaría con este cambio').waitFor();
-	await foto('08-limites');
-	await A.getByRole('button', {name: 'Guardar límites'}).click();
+await ok('Estadía: un Pase de 1 mes que entra y sale', async () => {
 	await p.getByRole('button', {name: 'Residente', exact: true}).click();
 	const R2 = p.getByRole('region', {name: 'App del residente'});
 	if (await R2.getByRole('button', {name: 'Volver'}).isVisible()) await R2.getByRole('button', {name: 'Volver'}).click();
-	await R2.getByRole('button', {name: /Crear Pase/}).click();
-	await R2.locator('.hoja__pie', {hasText: /tope/}).waitFor({timeout: 3000});
-	await foto('09-limite-residente');
+	await R2.locator('.reciente', {hasText: 'Felipe'}).click();
+	await R2.getByRole('radio', {name: 'Se queda'}).click();
+	await R2.getByRole('button', {name: '1 mes'}).click();
+	await R2.getByText(/Estadía · hoy al/).waitFor();
+	await foto('08-estadia');
+	await R2.locator('.hoja__pie .accion').click();
+	await R2.locator('.creado .chip--vigente').waitFor({timeout: 5000});
+	await R2.getByRole('button', {name: 'Enviar por WhatsApp'}).click();
+	await p.getByRole('button', {name: 'Portería', exact: true}).click();
+	const T2 = p.getByRole('region', {name: 'Pantalla de portería'});
+	await T2.locator('.llegada', {hasText: 'Felipe Ruiz'}).first().click();
+	await T2.getByText('Puede entrar').waitFor({timeout: 3000});
+	await p.waitForTimeout(600);
+	await T2.locator('.llegada', {hasText: 'Felipe Ruiz'}).first().click();
+	await T2.getByText('Puede entrar').waitFor({timeout: 3000});
+});
+
+await ok('Administración: mover una franja muestra su efecto', async () => {
+	await p.getByRole('button', {name: 'Administración', exact: true}).click();
+	const A = p.getByRole('region', {name: 'Administración'});
+	await A.getByRole('button', {name: 'Franjas'}).click();
+	for (let i = 0; i < 4; i++) await A.getByRole('button', {name: 'Menos: Hasta'}).last().click();
+	await A.getByText(/Marta Ospina queda fuera/).waitFor();
+	await foto('09-franjas');
 });
 
 await ok('Integración caída: reintentar con teléfono la recupera', async () => {

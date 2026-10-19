@@ -1,5 +1,7 @@
 // Modelo del prototipo: un solo estado compartido por los cuatro actores.
-// Supuestos (entrega-3/qa-prototipo.md): cupo por casa, el Pase de visita queda Usado al entrar,
+// Decisiones (decisiones.md E3-2, Nico 19 oct): sin tope de visitas ni de duración; el residente decide la vigencia.
+// Una visita de un día es de una sola entrada; una estadía (más de un día) entra y sale mientras esté vigente.
+// Supuestos aún abiertos: las franjas de la administración no aplican a las estadías,
 // portería digita el código, la vigencia del código es la del Pase, la administración no revoca.
 import {estadoDelPase, vigenciaRestante, type Estado, type Hechos} from '../../paquetes/kino-motion/src/nucleo/pase';
 
@@ -33,7 +35,7 @@ export type Pase = {
 	compartido?: Date;
 };
 
-export type Limites = {cupoPorCasa: number; duracionMaxH: number; visitaDesde: number; visitaHasta: number; colabDesde: number; colabHasta: number; avisoMin: number};
+export type Limites = {visitaDesde: number; visitaHasta: number; colabDesde: number; colabHasta: number; avisoMin: number};
 
 export type Lectura = {
 	id: string;
@@ -142,8 +144,19 @@ const semilla = (): {pases: Pase[]; lecturas: Lectura[]} => {
 			{hora: hoy(23, 0, -1), tipo: 'enviado', texto: 'Venció sin usarse'},
 		],
 	};
+	const rosa: Pase = {
+		id: 'p-rosa', tipo: 'visita', nombre: 'Rosa Ruiz', motivo: 'Mamá · se queda', telefono: '310 555 0161',
+		autor: {nombre: RESIDENTE.nombre, casa: RESIDENTE.casa}, modos: ['qr', 'codigo'], codigo: '5108',
+		hechos: {desde: hoy(10, 0, -12), hasta: hoy(18, 0, 47), enviadoAlLector: hoy(9, 30, -12), confirmacion: {lector: 'Portería principal', hora: hoy(9, 31, -12)}},
+		entradas: [hoy(11, 4, -12), hoy(9, 15)], compartido: hoy(9, 30, -12),
+		traza: [
+			{hora: hoy(9, 30, -12), tipo: 'creado', texto: 'Carolina creó el Pase · estadía de 2 meses'},
+			{hora: hoy(9, 31, -12), tipo: 'confirmado', texto: 'El lector de Portería principal lo confirmó'},
+			{hora: hoy(9, 15), tipo: 'entro', texto: 'Entró por Portería principal con QR'},
+		],
+	};
 	return {
-		pases: [andres, tecnico, marta, laura],
+		pases: [andres, tecnico, rosa, marta, laura],
 		lecturas: [
 			{id: 'l-1', hora: hoy(7, 12), modo: 'qr', valor: 'QR', resultado: 'entra', paseId: 'p-marta', nombre: 'Marta Ospina', casa: 'Casa 14', autor: 'Carolina Ruiz'},
 			{id: 'l-2', hora: hoy(9, 40), modo: 'placa', valor: 'BCD 220', resultado: 'rechazado', motivo: 'Placa sin Pase vigente', nombre: 'Vehículo sin Pase'},
@@ -163,7 +176,7 @@ export const INTERACCIONES: Interaccion[] = [
 	{id: 'I-02', nombre: 'Pase vivo en la lista', disparador: 'Paso del tiempo', respuesta: 'La barra de vigencia se consume; vigente late; al final pasa a Por vencer y Vencido', regla: 'El estado sale de los hechos, nunca se escribe a mano', hik: 'Vencido = el lector deja de aceptarlo en su «Válido hasta»', estado: 'implementada'},
 	{id: 'I-03', nombre: 'Volver a invitar', disparador: 'Tocar una persona reciente', respuesta: 'La hoja se abre con nombre, teléfono, placa y franja ya puestos', regla: 'Crear un Pase en 3 toques o menos', hik: 'Mismo alta: persona temporal con fechas', estado: 'implementada'},
 	{id: 'I-04', nombre: 'Hoja de Crear Pase con gesto', disparador: 'Arrastrar la hoja hacia abajo', respuesta: 'Sigue al dedo y se cierra con resorte; si se suelta antes, vuelve', regla: 'Nada se crea hasta tocar «Crear Pase»', hik: 'Ninguno', estado: 'implementada'},
-	{id: 'I-05', nombre: 'Límites a la vista', disparador: 'Elegir vigencia o franja', respuesta: 'El cupo de la casa y la franja se ven antes de crear; si algo no cabe, el botón dice por qué', regla: 'La administración fija límites; no aprueba caso a caso', hik: 'Lo que no cabe no se envía al lector', estado: 'implementada'},
+	{id: 'I-05', nombre: 'Vigencia a tu medida', disparador: 'Elegir unas horas, todo el día o varios días', respuesta: 'Una visita de un día o una estadía de semanas o meses; la franja del conjunto se ve antes de crear', regla: 'Sin tope de visitas ni de duración: decide el residente (E3-2)', hik: 'Persona temporal con su «Válido desde / hasta»', estado: 'implementada'},
 	{id: 'I-06', nombre: 'Nacimiento del Pase', disparador: 'Tocar «Crear Pase»', respuesta: 'El botón se convierte en el Pase con su arco; queda Sin confirmar con borde punteado', regla: 'Enviado no es vigente (estado honesto)', hik: 'Kino da de alta la persona temporal en HikCentral', estado: 'implementada'},
 	{id: 'I-07', nombre: 'Espera del lector', disparador: 'El lector responde el alta', respuesta: 'El borde pasa de punteado a continuo, aparece la barra y el Pase late', regla: 'Vigente solo con la confirmación del lector', hik: 'add_person responde con el alta hecha', estado: 'implementada'},
 	{id: 'I-08', nombre: 'Compartir por WhatsApp', disparador: 'Tocar «Enviar por WhatsApp»', respuesta: 'La visita recibe imagen y enlace al Pase vivo', regla: 'La visita no crea cuenta', hik: 'Ninguno: el enlace muestra el mismo Pase', estado: 'implementada'},
@@ -172,8 +185,8 @@ export const INTERACCIONES: Interaccion[] = [
 	{id: 'I-11', nombre: 'Aviso de llegada', disparador: 'El lector deja entrar a la visita', respuesta: 'Al residente le llega «Andrés entró por Portería principal»', regla: 'Solo se avisa lo que el lector confirmó', hik: 'Suscripción a eventos de acceso', estado: 'implementada'},
 	{id: 'I-12', nombre: 'Rechazo con motivo', disparador: 'Lectura de un Pase vencido, revocado o fuera de franja', respuesta: 'Pantalla roja con el motivo y «Llamar a Carolina»', regla: 'La llamada no abre la entrada', hik: 'El lector ya negó; Kino explica por qué', estado: 'implementada'},
 	{id: 'I-13', nombre: 'Mantener para revocar', disparador: 'Mantener presionado 0,8 s', respuesta: 'Un anillo se llena; al soltar, el Pase queda cortado y aparece «Deshacer» por 5 s', regla: 'Revocar es inmediato y reversible un momento', hik: 'Baja en HikCentral al vencer el deshacer', estado: 'implementada'},
-	{id: 'I-14', nombre: 'Extender', disparador: 'Tocar +1 h o +2 h', respuesta: 'La barra crece y la nueva hora entra con fundido', regla: 'Dentro de la duración máxima', hik: 'Actualiza «Válido hasta»', estado: 'implementada'},
-	{id: 'I-15', nombre: 'Límites con vista previa', disparador: 'Mover un límite', respuesta: 'Se ve cuántos Pases activos quedarían fuera si fuera retroactivo; se aclara que aplica a los nuevos', regla: 'La administración fija el marco', hik: 'Los activos conservan su «Válido hasta»', estado: 'implementada'},
+	{id: 'I-14', nombre: 'Extender', disparador: 'Tocar +1 h, +1 día o +1 semana', respuesta: 'La barra crece y la nueva fecha entra con fundido', regla: 'Sin máximo: una visita se puede volver estadía', hik: 'Actualiza «Válido hasta»', estado: 'implementada'},
+	{id: 'I-15', nombre: 'Franjas con vista previa', disparador: 'Mover una franja', respuesta: 'Se ve qué Pase activo quedaría por fuera; aplica a los nuevos', regla: 'La administración fija franjas, no cupos ni duración', hik: 'Los activos conservan su «Válido hasta»', estado: 'implementada'},
 	{id: 'I-16', nombre: 'Integración caída y arreglo', disparador: 'Tocar «Reintentar con teléfono»', respuesta: 'Los contadores suben mientras se sincroniza; la causa queda escrita', regla: 'El teléfono reemplaza al correo obligatorio', hik: '711 errores add_person por el campo correo', estado: 'implementada'},
 	{id: 'I-17', nombre: 'Movimiento reducido', disparador: 'Ajuste del sistema', respuesta: 'Fundidos en lugar de escalas y latidos', regla: 'Política de @kino/motion', hik: 'Ninguno', estado: 'implementada'},
 	{id: 'I-18', nombre: 'Pase en la billetera del teléfono', disparador: 'Tocar «Agregar a la billetera»', respuesta: 'El Pase vive en la pantalla bloqueada', regla: 'Sin app para la visita', hik: 'Mismo QR', estado: 'planeada'},
@@ -194,7 +207,7 @@ type Estado_ = {
 	deshacer?: {paseId: string; hasta: number};
 };
 
-const LIMITES: Limites = {cupoPorCasa: 5, duracionMaxH: 12, visitaDesde: min(6), visitaHasta: min(22), colabDesde: min(6), colabHasta: min(19), avisoMin: 30};
+const LIMITES: Limites = {visitaDesde: min(6), visitaHasta: min(22), colabDesde: min(6), colabHasta: min(19), avisoMin: 30};
 
 function inicial(): Estado_ {
 	const s = semilla();
@@ -263,15 +276,15 @@ export function estado(p: Pase, t = ahora()): Estado {
 
 export const restante = (p: Pase, t = ahora()) => vigenciaRestante(ventana(p, t), t);
 
-export const activosDeLaCasa = (t = ahora()) =>
-	E.pases.filter((p) => p.tipo === 'visita' && ['previsto', 'sin-confirmar', 'vigente', 'por-vencer'].includes(estado(p, t))).length;
+export const duraMasDeUnDia = (r: {desde: Date; hasta: Date}) => r.hasta.getTime() - r.desde.getTime() > 20 * 3_600_000;
+export const esEstadia = (p: Pase) => p.tipo === 'visita' && duraMasDeUnDia(p.hechos);
 
 export function validar(borrador: {tipo: Tipo; desde: Date; hasta: Date; recurrencia?: Recurrencia}): string | null {
 	const L = E.limites;
+	if (borrador.hasta.getTime() <= borrador.desde.getTime()) return 'La salida tiene que ser después de la llegada';
 	if (borrador.tipo === 'visita') {
-		if (activosDeLaCasa() >= L.cupoPorCasa) return `Tu casa llegó al tope de ${L.cupoPorCasa} ${L.cupoPorCasa === 1 ? 'visita activa' : 'visitas activas'} que fijó la administración`;
-		const horas = (borrador.hasta.getTime() - borrador.desde.getTime()) / 3_600_000;
-		if (horas > L.duracionMaxH) return `Una visita puede durar hasta ${L.duracionMaxH} h`;
+		// Una estadía entra y sale a cualquier hora: la franja solo aplica a las visitas de un día.
+		if (duraMasDeUnDia(borrador)) return null;
 		const dm = borrador.desde.getHours() * 60 + borrador.desde.getMinutes();
 		const hm = borrador.hasta.getHours() * 60 + borrador.hasta.getMinutes();
 		const mismoDia = borrador.desde.toDateString() === borrador.hasta.toDateString();
@@ -343,11 +356,12 @@ export function deshacerRevocar() {
 }
 
 export function extender(p: Pase, horas: number): string | null {
-	const nueva = new Date(p.hechos.hasta.getTime() + horas * 3_600_000);
-	const total = (nueva.getTime() - p.hechos.desde.getTime()) / 3_600_000;
-	if (total > E.limites.duracionMaxH) return `Supera las ${E.limites.duracionMaxH} h que fijó la administración`;
+	const base_ = Math.max(p.hechos.hasta.getTime(), ahora().getTime());
+	const nueva = new Date(base_ + horas * 3_600_000);
+	if (p.hechos.usadoEn && !duraMasDeUnDia({desde: p.hechos.desde, hasta: nueva})) return 'Ya entró: para otra visita, crea un Pase nuevo';
 	p.hechos.hasta = nueva;
-	p.traza.push({hora: ahora(), tipo: 'extendido', texto: `Carolina lo extendió hasta ${horaCorta(nueva)}`});
+	if (duraMasDeUnDia(p.hechos)) delete p.hechos.usadoEn;
+	p.traza.push({hora: ahora(), tipo: 'extendido', texto: `Carolina lo extendió hasta ${fechaHora(nueva)}`});
 	anotar('I-14');
 	return null;
 }
@@ -376,7 +390,7 @@ export function leer(modo: Modo, valor: string): Lectura {
 
 		if (l.resultado === 'entra') {
 			p.entradas.push(t);
-			if (p.tipo === 'visita') p.hechos.usadoEn = t;
+			if (p.tipo === 'visita' && !esEstadia(p)) p.hechos.usadoEn = t;
 			p.traza.push({hora: t, tipo: 'entro', texto: `Entró por Portería principal con ${MODO_TEXTO[modo]}`});
 			E.avisos.push({id: id('a'), para: 'residente', titulo: `${p.nombre.split(' ')[0]} entró`, texto: `Portería principal · ${MODO_TEXTO[modo]} · ${horaCorta(t)}`, tono: 'vigente', paseId: p.id, hora: t});
 		} else {
@@ -449,30 +463,54 @@ export function hora24(d: Date) {
 const DIAS = ['dom', 'lun', 'mar', 'mié', 'jue', 'vie', 'sáb'];
 export const diasTexto = (dias: number[]) => {
 	const k = [...dias].sort().join();
-	if (k === '1,2,3,4,5') return 'lunes a viernes';
-	if (k === '1,2,3,4,5,6') return 'lunes a sábado';
+	if (k === '1,2,3,4,5') return 'Lun a vie';
+	if (k === '1,2,3,4,5,6') return 'Lun a sáb';
+	if (k === '0,1,2,3,4,5,6') return 'Todos los días';
 	return dias.map((d) => DIAS[d]).join(', ');
 };
+const MESES = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
+/** «hoy», «mañana», «jue» dentro de la semana; «12 nov» más lejos. */
+export function fechaCorta(d: Date, t = ahora()) {
+	const dias = Math.round((new Date(d).setHours(0, 0, 0, 0) - new Date(t).setHours(0, 0, 0, 0)) / 86_400_000);
+	if (dias === 0) return 'hoy';
+	if (dias === 1) return 'mañana';
+	if (dias === -1) return 'ayer';
+	if (dias > 1 && dias < 7) return DIAS[d.getDay()];
+	return `${d.getDate()} ${MESES[d.getMonth()]}`;
+}
+/** 7 a. m., 5:30 p. m. */
+export function horaBreve(d: Date) {
+	return horaCorta(d).replace(':00 ', ' ');
+}
+export function duracionTexto(desde: Date, hasta: Date) {
+	const h = (hasta.getTime() - desde.getTime()) / 3_600_000;
+	if (h < 20) return `${Math.round(h)} h`;
+	const d = Math.round(h / 24);
+	if (d < 14) return `${d} días`;
+	if (d < 60) return `${Math.round(d / 7)} semanas`;
+	return `${Math.round(d / 30)} meses`;
+}
 export function fechaHora(d: Date) {
 	const t = ahora();
 	const mismo = d.toDateString() === t.toDateString();
 	const man = new Date(t);
 	man.setDate(man.getDate() + 1);
-	const dia = mismo ? 'hoy' : d.toDateString() === man.toDateString() ? 'mañana' : DIAS[d.getDay()];
-	return `${dia} ${horaCorta(d)}`;
+	return `${fechaCorta(d, t)} ${horaCorta(d)}`;
 }
 export function vigenciaTexto(p: Pase, t = ahora()) {
 	const v = ventana(p, t);
-	if (p.recurrencia) return `${diasTexto(p.recurrencia.dias)} · ${horaCorta(v.desde).replace(' a. m.', '').replace(' p. m.', '')}–${horaCorta(v.hasta)}`;
-	const mismo = v.desde.toDateString() === t.toDateString();
-	const ayer = new Date(t);
-	ayer.setDate(ayer.getDate() - 1);
-	const dia = mismo ? 'Hoy' : v.desde.toDateString() === ayer.toDateString() ? 'Ayer' : DIAS[v.desde.getDay()];
-	return `${dia} · ${horaCorta(v.desde)} a ${horaCorta(v.hasta)}`;
+	if (p.recurrencia) return `${diasTexto(p.recurrencia.dias)} · ${horaBreve(v.desde)} a ${horaBreve(v.hasta)}`;
+	if (esEstadia(p)) return `Hasta el ${fechaCorta(v.hasta, t)} · ${duracionTexto(v.desde, v.hasta)}`;
+	const dia = fechaCorta(v.desde, t);
+	return `${dia[0].toUpperCase()}${dia.slice(1)} · ${horaBreve(v.desde)} a ${horaBreve(v.hasta)}`;
 }
 export function cuentaRegresiva(hasta: Date, t = ahora()) {
 	const ms = hasta.getTime() - t.getTime();
 	if (ms <= 0) return '0:00:00';
+	if (ms > 86_400_000) {
+		const d = Math.floor(ms / 86_400_000);
+		return `${d} ${d === 1 ? 'día' : 'días'} ${Math.floor((ms % 86_400_000) / 3_600_000)} h`;
+	}
 	const s = Math.floor(ms / 1000);
 	return `${Math.floor(s / 3600)}:${String(Math.floor((s % 3600) / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`;
 }

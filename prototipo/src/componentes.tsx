@@ -3,7 +3,7 @@ import {useEffect, useLayoutEffect, useRef, useState} from 'preact/hooks';
 import type {ComponentChildren, JSX} from 'preact';
 import qrcode from 'qrcode-generator';
 import type {Estado} from '../../paquetes/kino-motion/src/nucleo/pase';
-import {ahora, E, ESTADO_TEXTO, estado, hora24, restante, suscribir, vigenciaTexto, type Pase} from './modelo';
+import {ahora, E, esEstadia, ESTADO_TEXTO, estado, hora24, restante, suscribir, vigenciaTexto, type Pase} from './modelo';
 import {animar, C, D, reducido, resorte, vibrar} from './movimiento';
 
 // Estado vivo -------------------------------------------------------------------------------------------
@@ -107,13 +107,14 @@ export function TarjetaPase({p, onAbrir, retraso = 0}: {p: Pase; onAbrir: (p: Pa
 		<button ref={ref} class={`tarjeta tarjeta--${e} ${p.nuevo ? 'tarjeta--nueva' : ''}`} data-estado={e} onClick={() => onAbrir(p, ref.current!)} aria-label={`${p.nombre}, ${ESTADO_TEXTO[e]}`}>
 			<span class="membrana" aria-hidden="true" />
 			<span class="tarjeta__cabeza">
-				<span class="rotulo">{p.tipo === 'visita' ? 'Visita' : 'Colaborador'}{p.motivo ? ` · ${p.motivo}` : ''}</span>
+				<span class="rotulo">{p.tipo === 'colaborador' ? 'Colaborador' : esEstadia(p) ? 'Estadía' : 'Visita'}</span>
 				<ChipEstado e={e} />
 			</span>
 			<span class="tarjeta__nombre">
 				{p.nombre}
 				<span class="tachado" aria-hidden="true" />
 			</span>
+			{p.motivo && <span class="tarjeta__motivo">{p.motivo}</span>}
 			<span class={`tarjeta__vigencia dato dato--${e}`}>{lineaVigencia(p, e)}</span>
 			<Vida p={p} e={e} />
 			<span class="corte" aria-hidden="true" />
