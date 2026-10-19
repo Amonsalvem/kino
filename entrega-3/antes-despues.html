@@ -1,0 +1,176 @@
+<title>Kino · Motion antes y después</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+/* Lámina de revisión: cada momento héroe es una fila con el video anterior y el nuevo lado a lado, sincronizados.
+   Un solo tema oscuro a propósito: los videos son de la app en su tema de noche. Colores de kino-tokens (tema oscuro). */
+:root{
+  --abismo:#00140C; --base:#011F16; --elevada:#0B2A20; --borde:#2A483D;
+  --texto:#EFFCF7; --secundario:#B9C9C2; --tenue:#86A799;
+  --vigente:#00D595; --previsto:#99BBFF; --rechazo:#FF7D76;
+  --display:Archivo,"Archivo Expanded",system-ui,sans-serif;
+  --cuerpo:Archivo,system-ui,-apple-system,sans-serif;
+  --dato:"JetBrains Mono",ui-monospace,"SF Mono",monospace;
+  color-scheme:dark;
+}
+body{background:var(--abismo);color:var(--texto);font-family:var(--cuerpo);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.hoja{max-width:1180px;margin:0 auto;padding-block:48px 72px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:64px}
+.rotulo{font-family:var(--dato);font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--tenue);margin:0}
+h1,h2,h3{font-family:var(--display);font-stretch:112%;font-weight:800;letter-spacing:-.01em;line-height:1.05;margin:0;text-wrap:balance}
+h1{font-size:clamp(34px,6vw,64px)}
+h2{font-size:clamp(24px,3.4vw,34px)}
+h3{font-size:18px;font-weight:700}
+p{margin:0;max-width:66ch}
+.secundario{color:var(--secundario)}
+.mono{font-family:var(--dato);font-variant-numeric:tabular-nums}
+
+.portada{display:grid;gap:20px}
+.portada p{font-size:18px}
+.estado{display:inline-flex;gap:8px;align-items:center;font-family:var(--dato);font-size:13px;color:var(--previsto);border:1px solid color-mix(in oklab,var(--previsto) 45%,transparent);border-radius:999px;padding:4px 12px;width:max-content;max-width:100%}
+
+/* Diagnóstico */
+.causas{display:grid;gap:0;border-top:1px solid var(--borde)}
+.causa{display:grid;grid-template-columns:3ch minmax(0,1fr) minmax(0,1.3fr);gap:24px;padding-block:18px;border-bottom:1px solid var(--borde)}
+.causa .n{font-family:var(--dato);color:var(--tenue)}
+.causa p{color:var(--secundario)}
+.causa b{color:var(--texto);font-weight:700}
+@media (max-width:760px){.causa{grid-template-columns:3ch minmax(0,1fr)}.causa p{grid-column:2}}
+
+/* Momentos */
+.momento{display:grid;gap:22px}
+.momento__cabeza{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:end;justify-content:space-between}
+.momento__cabeza>div{display:grid;gap:8px;min-width:0}
+.par{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.par--vertical{grid-template-columns:repeat(2,minmax(0,300px));justify-content:start}
+@media (max-width:640px){.par:not(.par--vertical){grid-template-columns:minmax(0,1fr)}.par--vertical{grid-template-columns:repeat(2,minmax(0,1fr))}}
+figure{margin:0;display:grid;gap:8px;min-width:0}
+figcaption{font-family:var(--dato);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--tenue);display:flex;gap:8px;align-items:center}
+figcaption::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--borde)}
+.despues figcaption{color:var(--vigente)}
+.despues figcaption::before{background:var(--vigente);box-shadow:0 0 8px var(--vigente)}
+video{display:block;width:100%;max-width:100%;height:auto;border-radius:10px;background:var(--base);border:1px solid var(--borde)}
+.despues video{border-color:color-mix(in oklab,var(--vigente) 40%,var(--borde))}
+.cambios{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px 28px;margin:0;padding:0;list-style:none}
+.cambios li{display:grid;gap:4px;padding-top:10px;border-top:1px solid var(--borde);color:var(--secundario);font-size:15px;min-width:0}
+.cambios li b{color:var(--texto);font-size:15px}
+.repetir{font:600 15px var(--cuerpo);color:var(--texto);background:var(--elevada);border:1px solid var(--borde);border-radius:999px;padding:10px 18px;min-height:44px;cursor:pointer}
+.repetir:hover{border-color:var(--vigente)}
+.repetir:focus-visible{outline:2px solid var(--previsto);outline-offset:2px}
+
+.cierre{display:grid;gap:16px;border-top:1px solid var(--borde);padding-top:32px}
+.cierre ol{margin:0;padding-left:22px;display:grid;gap:8px;color:var(--secundario);max-width:70ch}
+.cierre b{color:var(--texto)}
+.pruebas{display:flex;flex-wrap:wrap;gap:8px}
+.pruebas span{font-family:var(--dato);font-size:13px;border:1px solid var(--borde);border-radius:6px;padding:4px 10px;color:var(--secundario)}
+</style>
+
+<main class="hoja">
+  <header class="portada">
+    <p class="rotulo">Kino · Entrega 3 · Revisión de motion · 19 oct 2026</p>
+    <h1>Cinco momentos, antes y después</h1>
+    <p class="secundario">Cada fila pone la versión anterior del prototipo junto a la nueva, grabadas con el mismo recorrido y a velocidad real. «Repetir» las arranca a la vez.</p>
+    <span class="estado">Para revisión de Nico · E3-8 sigue como propuesta</span>
+  </header>
+
+  <section class="momento" aria-labelledby="diag">
+    <div class="momento__cabeza"><div><p class="rotulo">Diagnóstico</p><h2 id="diag">Por qué se veía amateur</h2></div></div>
+    <div class="causas">
+      <div class="causa"><span class="n">1</span><b>Un límite que no existía</b><p>Empaqueté el prototipo en un solo HTML de 180 KB y dibujé todo con primitivas. El repo ya tenía la portería nocturna en 3D aprobada (M3D) y nunca se usó.</p></div>
+      <div class="causa"><span class="n">2</span><b>Sin continuidad</b><p>Cada cambio de pantalla era un corte. La tarjeta no crecía hasta el detalle; el Pase creado no viajaba; al volver, la lista entraba como nueva.</p></div>
+      <div class="causa"><span class="n">3</span><b>Sin dirección de arte</b><p>Talanquera de rectángulos, diana de trazos de 1,6 px, red de dos curvas. Sin luz, material, profundidad ni escala.</p></div>
+      <div class="causa"><span class="n">4</span><b>Brillo sin jerarquía</b><p>Todas las tarjetas con borde neón, puntos de micelio encima del título y un Portal blanco plano.</p></div>
+      <div class="causa"><span class="n">5</span><b>Una propiedad por animación</b><p>Fundidos y desplazamientos sueltos, sin anticipación, superposición ni interrupción. El Pase creado entraba con desenfoque y escala, el gesto de plantilla.</p></div>
+      <div class="causa"><span class="n">6</span><b>Corrección de más</b><p>«Nada se mueve si no cambia un dato» dejó quieta toda la app. Vale para portería; F7 pide que el motion de la marca no se sacrifique.</p></div>
+      <div class="causa"><span class="n">7</span><b>El proceso</b><p>Código sin cuadros clave y revisión con capturas fijas. Ahora cada momento se graba y se revisa en video, cuadro a cuadro.</p></div>
+    </div>
+  </section>
+
+  <section class="momento" aria-labelledby="m-porteria">
+    <div class="momento__cabeza"><div><p class="rotulo">Portería · se lee a 3 m</p><h2 id="m-porteria">El lector confirma</h2></div><button class="repetir" type="button">Repetir</button></div>
+    <div class="par">
+      <figure><video src="antes-despues/porteria-antes.webm" poster="antes-despues/porteria-antes.webp" muted loop playsinline preload="metadata"></video><figcaption>Antes</figcaption></figure>
+      <figure class="despues"><video src="antes-despues/porteria-despues.webm" poster="antes-despues/porteria-despues.webp" muted loop playsinline preload="metadata"></video><figcaption>Después</figcaption></figure>
+    </div>
+    <ul class="cambios">
+      <li><b>La escena 3D aprobada</b>Portería de noche (M3D). Reposa en un cuadro fijo y solo avanza cuando hay una lectura.</li>
+      <li><b>El veredicto no espera</b>El panel ya es verde o rojo en el primer cuadro; la luz del lector y la talanquera explican el cambio después.</li>
+      <li><b>Rechazo sin sacudida</b>La escena se desatura, el panel se contrae 1,5 % y la luz roja late dos veces.</li>
+    </ul>
+  </section>
+
+  <section class="momento" aria-labelledby="m-crear">
+    <div class="momento__cabeza"><div><p class="rotulo">Residente · crear un Pase</p><h2 id="m-crear">El botón se vuelve el Pase</h2></div><button class="repetir" type="button">Repetir</button></div>
+    <div class="par par--vertical">
+      <figure><video src="antes-despues/crear-antes.webm" poster="antes-despues/crear-antes.webp" muted loop playsinline preload="metadata"></video><figcaption>Antes</figcaption></figure>
+      <figure class="despues"><video src="antes-despues/crear-despues.webm" poster="antes-despues/crear-despues.webp" muted loop playsinline preload="metadata"></video><figcaption>Después</figcaption></figure>
+    </div>
+    <ul class="cambios">
+      <li><b>Transformación de contenedor</b>El botón verde crece y toma la forma del arco del Pase. Antes: desenfoque y escala.</li>
+      <li><b>La hoja con física</b>Se arrastra con el dedo y vuelve con resorte; su altura cambia sin saltos.</li>
+      <li><b>Texto después del objeto</b>Nombre, vigencia y acciones entran cuando el arco ya llegó.</li>
+    </ul>
+  </section>
+
+  <section class="momento" aria-labelledby="m-detalle">
+    <div class="momento__cabeza"><div><p class="rotulo">Residente · Tus Pases</p><h2 id="m-detalle">La tarjeta viaja al detalle</h2></div><button class="repetir" type="button">Repetir</button></div>
+    <div class="par par--vertical">
+      <figure><video src="antes-despues/detalle-antes.webm" poster="antes-despues/detalle-antes.webp" muted loop playsinline preload="metadata"></video><figcaption>Antes</figcaption></figure>
+      <figure class="despues"><video src="antes-despues/detalle-despues.webm" poster="antes-despues/detalle-despues.webp" muted loop playsinline preload="metadata"></video><figcaption>Después</figcaption></figure>
+    </div>
+    <ul class="cambios">
+      <li><b>Elemento compartido</b>El Portal sale de la tarjeta y aterriza en el detalle; al volver, regresa a su sitio.</li>
+      <li><b>Solo brilla lo vigente</b>Franja verde en el Pase vigente, ámbar que se apaga en el que vence; el resto sin neón.</li>
+      <li><b>Aurora en la cabecera</b>La aurora oficial amanece una vez y queda quieta. Se fue el micelio de encima del título.</li>
+    </ul>
+  </section>
+
+  <section class="momento" aria-labelledby="m-visita">
+    <div class="momento__cabeza"><div><p class="rotulo">Visita · sin cuenta</p><h2 id="m-visita">El Pase sale del chat</h2></div><button class="repetir" type="button">Repetir</button></div>
+    <div class="par par--vertical">
+      <figure><video src="antes-despues/visita-antes.webm" poster="antes-despues/visita-antes.webp" muted loop playsinline preload="metadata"></video><figcaption>Antes</figcaption></figure>
+      <figure class="despues"><video src="antes-despues/visita-despues.webm" poster="antes-despues/visita-despues.webp" muted loop playsinline preload="metadata"></video><figcaption>Después</figcaption></figure>
+    </div>
+    <ul class="cambios">
+      <li><b>De la burbuja al Pase</b>El arco de la imagen en WhatsApp crece hasta el Pase vivo; la conversación se funde detrás.</li>
+      <li><b>El Pase como objeto</b>Se inclina con el dedo o el giroscopio; el reflejo y la sombra siguen el ángulo.</li>
+    </ul>
+  </section>
+
+  <section class="momento" aria-labelledby="m-admin">
+    <div class="momento__cabeza"><div><p class="rotulo">Administración · Lector e integración</p><h2 id="m-admin">La red se llena al sincronizar</h2></div><button class="repetir" type="button">Repetir</button></div>
+    <div class="par">
+      <figure><video src="antes-despues/admin-antes.webm" poster="antes-despues/admin-antes.webp" muted loop playsinline preload="metadata"></video><figcaption>Antes</figcaption></figure>
+      <figure class="despues"><video src="antes-despues/admin-despues.webm" poster="antes-despues/admin-despues.webp" muted loop playsinline preload="metadata"></video><figcaption>Después</figcaption></figure>
+    </div>
+    <ul class="cambios">
+      <li><b>El grosor es el dato</b>Cada tubo Kino → HikCentral engrosa con la proporción sincronizada. Refugio arranca seco: 0 de 312.</li>
+      <li><b>Flujo solo mientras sube</b>Las altas viajan por el tubo mientras corre el reintento y se detienen al terminar.</li>
+      <li><b>Secciones con transición</b>Cambiar de sección desliza el contenido en lugar de cortarlo.</li>
+    </ul>
+  </section>
+
+  <footer class="cierre">
+    <h2>Lo que falta</h2>
+    <ol>
+      <li><b>Visto bueno de Nico</b> sobre estos cinco momentos antes de llevar el mismo nivel al resto de la app.</li>
+      <li><b>Aprobar E3-8 corregida:</b> la regla «nada se mueve sin un dato» queda para portería; la vida ambiental de la marca se mantiene y se pausa a los 5 s.</li>
+      <li><b>Confirmar, vencer y revocar sobre el Pase</b>, el sexto momento, va en la siguiente pasada.</li>
+    </ol>
+    <div class="pruebas"><span>e2e 17/17</span><span>OE1 · 3 toques · 8 s</span><span>barrido sin cortes</span><span>modo reducido con pósters</span></div>
+  </footer>
+</main>
+
+<script>
+const reducido = matchMedia('(prefers-reduced-motion: reduce)').matches;
+document.querySelectorAll('.momento').forEach((m) => {
+  const vs = [...m.querySelectorAll('video')];
+  const b = m.querySelector('.repetir');
+  if (!vs.length || !b) return;
+  const repetir = () => vs.forEach((v) => { v.currentTime = 0; v.play().catch(() => {}); });
+  b.addEventListener('click', repetir);
+  if (reducido) return;
+  new IntersectionObserver(([e]) => {
+    if (e.isIntersecting) repetir(); else vs.forEach((v) => v.pause());
+  }, {threshold: .35}).observe(m.querySelector('.par'));
+});
+</script>
