@@ -465,3 +465,11 @@ En arquitectura faltaba:
 - Lámina 9 nueva, después de «Cómo lo validamos»: «11 tropiezos en 5 perfiles, 6 ya corregidos». Tiene una barra con el reparto (6 corregidos, 3 planeados, 1 pendiente, 1 sin problema), la tabla de los 6 corregidos con su severidad de Nielsen y la medición KLM de OE1. Al pie dice qué falta: la prueba con residentes, con SUS en la semana 6 del piloto.
 - Fuente: la evaluación por inspección de la Biblia 6.1 (versión completa en `_obsoleto/biblia-contenido-larga.py`). No se inventaron participantes: las notas dicen que fue una inspección del equipo.
 - El deck pasa a 20 láminas. Se actualizaron las referencias de lámina en el mapa SOSTAC, en sus notas y en `estrategia.md` §7. `verificar.mjs` sin fallas; compuerta de voz: 0 errores.
+
+## Deck: antes y después de la evaluación de usabilidad (19 oct)
+- Lámina 10 nueva, «Cómo estaba y cómo quedó», con tres pares de capturas. Antes: las pantallas del Figma «Kino · App» que se evaluaron (R-P-02, R-P-10 y A-03). Después: el prototipo actual en el mismo punto.
+  - Vigencia: solo horas → «Se queda».
+  - Revocar: diálogo sin deshacer → mantener presionado y deshacer.
+  - Franjas: sin efecto visible → vista previa.
+- Imágenes en `entrega-3/usabilidad/`. Las tres correcciones restantes se hicieron sobre versiones anteriores del prototipo; las notas lo dicen.
+- El deck pasa a 21 láminas, con las referencias del mapa SOSTAC y de `estrategia.md` actualizadas. `verificar.mjs` sin fallas; compuerta de voz: 0 errores.

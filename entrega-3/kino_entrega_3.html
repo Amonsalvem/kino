@@ -424,6 +424,17 @@ body.en-pantalla .pantalla .cerrar{display:inline}
 .sev--3{background:color-mix(in oklab,var(--pv) 22%,transparent)}
 .usab__pie{margin-top:calc(var(--u)*1.2);font-size:var(--t-min);color:var(--tenue)}
 @media (max-width:820px){.usab{grid-template-columns:minmax(0,1fr)}}
+
+/* Antes y después: un par de capturas por hallazgo. */
+.pares{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.5fr);gap:calc(var(--u)*1.2);align-items:stretch}
+.par h3{font-size:var(--t-cuerpo);margin:0 0 calc(var(--u)*.6)}
+.par__img{display:grid;grid-template-columns:1fr 1fr;gap:calc(var(--u)*.8)}
+.par--ancho .par__img{grid-template-columns:1fr}
+.par figure{margin:0;display:grid;gap:calc(var(--u)*.4);justify-items:start;align-content:start}
+.par img{display:block;width:100%;max-height:44vh;object-fit:contain;object-position:left top;border-radius:10px;border:1px solid var(--borde)}
+.par--ancho img{max-height:21vh}
+.par figcaption{font-size:var(--t-min);color:var(--texto-2);line-height:1.25}
+@media (max-width:820px){.pares{grid-template-columns:minmax(0,1fr)}.par img{max-height:60vh}}
 </style>
 
 <div class="progreso" id="progreso"></div>
@@ -572,19 +583,31 @@ body.en-pantalla .pantalla .cerrar{display:inline}
 </section>
 
 <!-- 9 · Objetivo general -->
+<!-- 8c · Antes y después de la prueba -->
+<section data-parte="pase" class="densa">
+  <p class="rot">Diseño de interacción · antes y después de la evaluación de usabilidad</p>
+  <h2>Cómo estaba y cómo quedó</h2>
+  <div class="pares">
+    <div class="caja par" data-r style="--r:1"><h3>Empty nesters · hijos por un mes</h3><div class="par__img"><figure><span class="chip rechazado">Antes</span><img src="usabilidad/vigencia-antes.webp" alt="Antes: Solo había Pases de horas" loading="lazy"><figcaption>Solo había Pases de horas</figcaption></figure><figure><span class="chip vigente">Después</span><img src="usabilidad/vigencia-despues.webp" alt="Después: «Se queda»: de 3 días a 3 meses" loading="lazy"><figcaption>«Se queda»: de 3 días a 3 meses</figcaption></figure></div></div>
+    <div class="caja par" data-r style="--r:2"><h3>A1 · revocar por error</h3><div class="par__img"><figure><span class="chip rechazado">Antes</span><img src="usabilidad/revocar-antes.webp" alt="Antes: Un diálogo que no deja deshacer" loading="lazy"><figcaption>Un diálogo que no deja deshacer</figcaption></figure><figure><span class="chip vigente">Después</span><img src="usabilidad/revocar-despues.webp" alt="Después: Mantener presionado y deshacer por 5 s" loading="lazy"><figcaption>Mantener presionado y deshacer por 5 s</figcaption></figure></div></div>
+    <div class="caja par par--ancho" data-r style="--r:3"><h3>A4 · mover una franja</h3><div class="par__img"><figure><span class="chip rechazado">Antes</span><img src="usabilidad/franjas-antes.webp" alt="Antes: Los límites se cambiaban sin ver el efecto" loading="lazy"><figcaption>Los límites se cambiaban sin ver el efecto</figcaption></figure><figure><span class="chip vigente">Después</span><img src="usabilidad/franjas-despues.webp" alt="Después: Vista previa: qué Pase quedaría fuera" loading="lazy"><figcaption>Vista previa: qué Pase quedaría fuera</figcaption></figure></div></div>
+  </div>
+  <aside class="guion">Antes: las pantallas del Figma «Kino · App» que se evaluaron (R-P-02, R-P-10 y A-03). Después: el prototipo actual en el mismo punto. Vigencia: el Figma solo dejaba elegir un día con hora de inicio y fin; ahora «Se queda» cubre de 3 días a 3 meses. Revocar: el Figma pedía confirmar en un diálogo sin forma de deshacer; ahora se mantiene presionado 0,8 s y queda Deshacer por 5 s. Franjas: el Figma cambiaba cupo, duración y franjas sin mostrar su efecto; ahora la vista previa dice qué Pase activo quedaría fuera, y por E3-2 ya no hay cupo ni duración máxima. Las otras tres correcciones (QR en la imagen de WhatsApp, entrar y salir con el mismo Pase, bitácora de portería) se hicieron sobre versiones anteriores del prototipo y se ven en la lámina anterior.</aside>
+</section>
+
 <!-- SOSTAC: el mapa -->
 <section id="plan" data-parte="plan">
   <p class="rot">Plan estratégico SOSTAC · las seis partes y dónde está cada una</p>
-  <h2>Las seis partes del plan, láminas 2 a 17</h2>
+  <h2>Las seis partes del plan, láminas 2 a 18</h2>
   <div class="sostac">
     <div class="caja" data-r style="--r:1"><span class="letra">S</span><h3>Situación</h3><p>Problema, evidencia, arquetipos, journey e insights</p><span class="etiqueta">Láminas 2–4</span></div>
-    <div class="caja" data-r style="--r:2"><span class="letra">O</span><h3>Objetivos</h3><p>Objetivo general, meta y 5 objetivos SMART</p><span class="etiqueta">Láminas 11–13</span></div>
-    <div class="caja" data-r style="--r:3"><span class="letra">S</span><h3>Estrategia</h3><p>Una por objetivo, con sustantivo y eje estratégico</p><span class="etiqueta">Lámina 14</span></div>
-    <div class="caja" data-r style="--r:4"><span class="letra">T</span><h3>Tácticas</h3><p>Qué, cómo, quién y cuándo</p><span class="etiqueta">Lámina 14</span></div>
-    <div class="caja" data-r style="--r:5"><span class="letra">A</span><h3>Acción</h3><p>Seis hitos, nov 2026 a oct 2027</p><span class="etiqueta">Lámina 15</span></div>
-    <div class="caja" data-r style="--r:6"><span class="letra">C</span><h3>Control</h3><p>KPI con método GQM y su tablero</p><span class="etiqueta">Láminas 16–17</span></div>
+    <div class="caja" data-r style="--r:2"><span class="letra">O</span><h3>Objetivos</h3><p>Objetivo general, meta y 5 objetivos SMART</p><span class="etiqueta">Láminas 12–14</span></div>
+    <div class="caja" data-r style="--r:3"><span class="letra">S</span><h3>Estrategia</h3><p>Una por objetivo, con sustantivo y eje estratégico</p><span class="etiqueta">Lámina 15</span></div>
+    <div class="caja" data-r style="--r:4"><span class="letra">T</span><h3>Tácticas</h3><p>Qué, cómo, quién y cuándo</p><span class="etiqueta">Lámina 15</span></div>
+    <div class="caja" data-r style="--r:5"><span class="letra">A</span><h3>Acción</h3><p>Seis hitos, nov 2026 a oct 2027</p><span class="etiqueta">Lámina 16</span></div>
+    <div class="caja" data-r style="--r:6"><span class="letra">C</span><h3>Control</h3><p>KPI con método GQM y su tablero</p><span class="etiqueta">Láminas 17–18</span></div>
   </div>
-  <aside class="guion">Estructura de la guía del curso (Plan_estrategico.pdf). La situación ya se contó al inicio; desde aquí, el plan. Las fichas de producto (lámina 18) cierran como insumo para mapas y prototipos.</aside>
+  <aside class="guion">Estructura de la guía del curso (Plan_estrategico.pdf). La situación ya se contó al inicio; desde aquí, el plan. Las fichas de producto (lámina 19) cierran como insumo para mapas y prototipos.</aside>
 </section>
 
 <!-- 9 · Objetivo general -->

@@ -122,8 +122,26 @@ No se veía el efecto de mover una franja
 Vista previa del cambio
 Medido en el prototipo: 3 toques y 8 s para volver a invitar; 19,4 s para una visita nueva (KLM). Falta la prueba con residentes: SUS en la semana 6 del piloto.
 Resultados de la evaluación de usabilidad. Método: recorrido cognitivo de las tareas principales y las 10 heurísticas de Nielsen, desde 5 perfiles: los arquetipos del diagnóstico y los perfiles de residente del estudio de mercado de iAgency para Monte Sereno (2024): empty nesters, pareja sin hijos y familia con hijos pequeños. Severidad de Nielsen: 0 no es un problema, 4 impide la tarea. Es una evaluación por inspección del equipo, no una prueba con personas: no hubo participantes, por eso no hay citas ni tasas de éxito. La prueba con residentes llega en el piloto (SUS en la semana 6, KPI de OE2). Detalle completo en la Biblia 6.1.
+Diseño de interacción · antes y después de la evaluación de usabilidad
+Cómo estaba y cómo quedó
+Empty nesters · hijos por un mes
+Antes
+Solo había Pases de horas
+Después
+«Se queda»: de 3 días a 3 meses
+A1 · revocar por error
+Antes
+Un diálogo que no deja deshacer
+Después
+Mantener presionado y deshacer por 5 s
+A4 · mover una franja
+Antes
+Los límites se cambiaban sin ver el efecto
+Después
+Vista previa: qué Pase quedaría fuera
+Antes: las pantallas del Figma «Kino · App» que se evaluaron (R-P-02, R-P-10 y A-03). Después: el prototipo actual en el mismo punto. Vigencia: el Figma solo dejaba elegir un día con hora de inicio y fin; ahora «Se queda» cubre de 3 días a 3 meses. Revocar: el Figma pedía confirmar en un diálogo sin forma de deshacer; ahora se mantiene presionado 0,8 s y queda Deshacer por 5 s. Franjas: el Figma cambiaba cupo, duración y franjas sin mostrar su efecto; ahora la vista previa dice qué Pase activo quedaría fuera, y por E3-2 ya no hay cupo ni duración máxima. Las otras tres correcciones (QR en la imagen de WhatsApp, entrar y salir con el mismo Pase, bitácora de portería) se hicieron sobre versiones anteriores del prototipo y se ven en la lámina anterior.
 Plan estratégico SOSTAC · las seis partes y dónde está cada una
-Las seis partes del plan, láminas 2 a 17
+Las seis partes del plan, láminas 2 a 18
 S
 Situación
 Problema, evidencia, arquetipos, journey e insights
@@ -131,24 +149,24 @@ Láminas 2–4
 O
 Objetivos
 Objetivo general, meta y 5 objetivos SMART
-Láminas 11–13
+Láminas 12–14
 S
 Estrategia
 Una por objetivo, con sustantivo y eje estratégico
-Lámina 14
+Lámina 15
 T
 Tácticas
 Qué, cómo, quién y cuándo
-Lámina 14
+Lámina 15
 A
 Acción
 Seis hitos, nov 2026 a oct 2027
-Lámina 15
+Lámina 16
 C
 Control
 KPI con método GQM y su tablero
-Láminas 16–17
-Estructura de la guía del curso (Plan_estrategico.pdf). La situación ya se contó al inicio; desde aquí, el plan. Las fichas de producto (lámina 18) cierran como insumo para mapas y prototipos.
+Láminas 17–18
+Estructura de la guía del curso (Plan_estrategico.pdf). La situación ya se contó al inicio; desde aquí, el plan. Las fichas de producto (lámina 19) cierran como insumo para mapas y prototipos.
 SOSTAC · O · Objetivo general (el qué) y meta general a 12 meses
 Posicionar a Kino, a octubre de 2027, como el software de seguridad líder en Antioquia para la propiedad horizontal: el aliado que reúne a residentes, visitas, colaboradores, portería y administración en la decisión de quién entra.
 1
