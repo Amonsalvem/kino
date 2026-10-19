@@ -1,304 +1,59 @@
 {
-  "../../../avances.md": [
+  "../../../entrega-3/texto-visible.md": [
     {
-      "linea": 23,
-      "id": "raya",
-      "gravedad": "aviso",
-      "fragmento": " — ",
-      "porque": "Raya (em dash) en texto visible: usar coma, punto o paréntesis."
-    },
-    {
-      "linea": 24,
-      "id": "raya",
-      "gravedad": "aviso",
-      "fragmento": " — ",
-      "porque": "Raya (em dash) en texto visible: usar coma, punto o paréntesis."
-    },
-    {
-      "linea": 74,
-      "id": "raya",
-      "gravedad": "aviso",
-      "fragmento": " — ",
-      "porque": "Raya (em dash) en texto visible: usar coma, punto o paréntesis."
-    },
-    {
-      "linea": 80,
-      "id": "evitar:permiso",
-      "gravedad": "error",
-      "fragmento": "permiso",
-      "porque": "El objeto se llama «Pase» (decisión F3 del encargo). En texto de producto no se usa ni como explicación. → usar «pase»"
-    },
-    {
-      "linea": 115,
+      "linea": 60,
       "id": "mayusculas-enfasis",
       "gravedad": "aviso",
-      "fragmento": "OLED",
+      "fragmento": "MAESTRO",
       "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
     },
     {
-      "linea": 118,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "CLAUDE",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 122,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "SESION",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 122,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "NUBE",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 130,
-      "id": "evitar:permiso",
-      "gravedad": "error",
-      "fragmento": "permiso",
-      "porque": "El objeto se llama «Pase» (decisión F3 del encargo). En texto de producto no se usa ni como explicación. → usar «pase»"
-    },
-    {
-      "linea": 130,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "PASA",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 131,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "PASA",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 132,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "PASA",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 133,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "PASA",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 134,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "PASA",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 136,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "PASA",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 137,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "PASA",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 138,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "PASA",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 139,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "PASA",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 142,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "PASA",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 143,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "FALLA",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 164,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "LEEME",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 165,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "PASA",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 204,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "DOM",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 205,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "FLIP",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 214,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "DOM",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 220,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "AOV",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 221,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "GLB",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 223,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "EEVEE",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 223,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "CPU",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 229,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "PROPUESTA",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 237,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "SOSTAC",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 237,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "SMART",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 237,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "KPI",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 252,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "KPI",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 252,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "SMART",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 268,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "PROPUESTA",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 274,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "SMART",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 274,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "SOSTAC",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 274,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "KPI",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 287,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "PROPUESTA",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 301,
+      "linea": 105,
       "id": "mayusculas-enfasis",
       "gravedad": "aviso",
       "fragmento": "KLM",
       "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
     },
     {
-      "linea": 322,
+      "linea": 153,
       "id": "mayusculas-enfasis",
       "gravedad": "aviso",
-      "fragmento": "FLIP",
+      "fragmento": "SMART",
       "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
     },
     {
-      "linea": 326,
+      "linea": 197,
       "id": "mayusculas-enfasis",
       "gravedad": "aviso",
-      "fragmento": "FLIP",
+      "fragmento": "KPI",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 199,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "KPI",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 200,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "KLM",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 207,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "GQM",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 207,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "KPI",
       "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
     }
   ]
