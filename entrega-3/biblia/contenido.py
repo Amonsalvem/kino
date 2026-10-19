@@ -118,8 +118,20 @@ S.append(('2.4', [
 
 # 3 · ESTRATEGIA DE SERVICIO --------------------------------------------------------------------------
 S.append(('3.1', [
+    ('h', 'Plan estratégico SOSTAC · las seis partes y dónde está cada una'),
+    ('t', [
+        ['Letra', 'Parte del plan', 'Qué contiene', 'Apartado'],
+        ['S', 'Situación (diagnóstico)', 'Problema, evidencia, público objetivo (arquetipos), conclusiones del journey e insights', '1.1–1.3 · 2.1–2.3'],
+        ['O', 'Objetivos', 'Objetivo general, meta general y 5 objetivos SMART con sus preguntas orientadoras', '3.1'],
+        ['S', 'Estrategia', 'Una por objetivo, nombrada con sustantivo y ubicada en un eje estratégico', '3.3'],
+        ['T', 'Tácticas', 'Qué se hará, cómo, quién y cuándo', '3.3'],
+        ['A', 'Acción', 'Plan de acción: seis hitos de nov 2026 a oct 2027', '3.3'],
+        ['C', 'Control', 'KPI con método GQM, etapas y tablero de seguimiento', '3.4'],
+    ], [800, 2200, 4960, 1800]),
+    ('h', 'SOSTAC · O · Objetivo general (el qué) y meta general'),
     '**Objetivo general.** Que el residente otorgue y revoque el ingreso de sus visitas y colaboradores, dentro de las franjas de la administración, sobre el hardware que el conjunto ya tiene.',
     '**Meta general a oct 2027.** 4 conjuntos con pago · 95 % de los Pases confirmados por el lector en menos de 60 s · 0 personas permanentes creadas para dejar entrar a alguien.',
+    ('h', 'SOSTAC · O · Objetivos específicos SMART · acción + métrica + usuario + contexto + tiempo'),
     ('t', [
         ['#', 'Acción', 'Métrica', 'Usuario', 'Contexto', 'Tiempo'],
         ['OE1', 'Crear y enviar un Pase', '≤ 3 toques y < 30 s (KLM)', 'Residente (A1)', 'En el prototipo', 'Antes del 9 nov 2026'],
@@ -128,6 +140,15 @@ S.append(('3.1', [
         ['OE4', 'Confirmar el Pase en el lector', '98 % en < 60 s; Refugio ≥ 95 %', 'Administración (A4)', 'HikCentral de Monte Sereno', 'Antes del 31 mar 2027'],
         ['OE5', 'Renovar y firmar pilotos', '1 renovación + 2 conjuntos', 'Administración que compra', 'Oriente antioqueño', 'Antes del 31 oct 2027'],
     ], [600, 1900, 1900, 1700, 1960, 1700]),
+    ('h', 'SOSTAC · O · SMART · preguntas orientadoras: relevante, quién, alcanzable y medible'),
+    ('t', [
+        ['#', 'Relevante · por qué importa', 'Quién lo logra', 'Alcanzable · con qué recursos', 'Medible · se logró cuando'],
+        ['OE1', 'Si crear un Pase es más lento que llamar a portería, nadie lo usa', 'Equipo', 'Prototipo y recorrido automático', '≤ 3 toques y < 30 s · ya cumple'],
+        ['OE2', 'Que el residente lo use es el valor que compra la administración', 'Equipo y administración', 'Día de lanzamiento y línea por WhatsApp', '60 % de casas con un Pase'],
+        ['OE3', 'El colaborador es el ingreso más frecuente', 'Equipo, Manuel y portería', 'Pase recurrente y la minuta para medir', '80 % de sus ingresos con Pase'],
+        ['OE4', 'Sin integración, el lector no conoce el Pase', 'Equipo con Manuel', 'OpenAPI de HikCentral y alta con teléfono', '98 % en < 60 s; Refugio ≥ 95 %'],
+        ['OE5', 'Que Kino siga después de la universidad', 'Equipo e instaladores', 'Caso con KPI reales y ficha comercial', 'Renovación y 2 contratos'],
+    ], [600, 3100, 1900, 2260, 1900]),
     ('n', 'OE1 ya se midió el 19 oct: 3 toques y 8 s; visita nueva, 19,4 s. Las metas de OE2, OE3 y OE5 se recalibran con la semana 1 del piloto.'),
 ]))
 S.append(('3.2', [
@@ -141,18 +162,26 @@ S.append(('3.2', [
     '**Enunciado.** Para la administración de un conjunto que ya tiene lectores, Kino deja a cada residente otorgar Pases con vigencia dentro de las franjas del conjunto, con constancia de cada ingreso y sin cuentas para las visitas.',
 ]))
 S.append(('3.3', [
-    'Una estrategia por objetivo (un sustantivo que dice cómo) y su táctica principal.',
+    ('h', 'SOSTAC · S · Estrategias (el cómo) y SOSTAC · T · Tácticas (qué · cómo · quién · cuándo)'),
     ('t', [
         ['#', 'Estrategia · eje', 'Táctica: qué y cómo', 'Quién', 'Cuándo'],
-        ['OE1', 'Simplificación · interactividad', '«Volver a invitar»: las 4 personas recientes abren la hoja ya llena', 'Equipo', 'Oct 2026 · hecho'],
-        ['OE2', 'Acompañamiento · soporte', 'Día de lanzamiento en portería: primer Pase con cada residente que pase', 'Equipo y administración', 'Semana 1, ene 2027'],
-        ['OE3', 'Recurrencia · automatización', 'Pase de colaborador con días y franja, creado una vez', 'Equipo con Manuel', 'Dic 2026'],
-        ['OE4', 'Integración · automatización', 'Alta con teléfono en vez de correo; reintentar las 711 altas fallidas', 'Equipo con Manuel', 'Nov–dic 2026'],
-        ['OE5', 'Penetración · omnicanalidad', 'Alianza con instaladores Hikvision del Valle de Aburrá y el Oriente', 'Equipo', 'Abr–jun 2027'],
+        ['OE1', 'Simplificación · eje 1', '«Volver a invitar»: las 4 personas recientes abren la hoja ya llena', 'Equipo', 'Oct 2026 · hecho'],
+        ['OE2', 'Acompañamiento · eje 4', 'Día de lanzamiento en portería: primer Pase con cada residente que pase', 'Equipo y administración', 'Semana 1, ene 2027'],
+        ['OE3', 'Recurrencia · eje 3', 'Pase de colaborador con días y franja, creado una vez', 'Equipo con Manuel', 'Dic 2026'],
+        ['OE4', 'Integración · eje 3', 'Alta con teléfono en vez de correo; reintentar las 711 altas fallidas', 'Equipo con Manuel', 'Nov–dic 2026'],
+        ['OE5', 'Penetración · eje 2', 'Alianza con instaladores Hikvision del Valle de Aburrá y el Oriente', 'Equipo', 'Abr–jun 2027'],
     ], [600, 2400, 3900, 1500, 1360]),
-    ('h', 'Plan de acción'),
+    ('h', 'Ejes estratégicos del curso'),
+    ('t', [
+        ['Eje', 'Qué es', 'Estrategias de Kino'],
+        ['1 · Interactividad y personalización', 'La experiencia se adapta a quien la usa', 'Simplificación'],
+        ['2 · Omnicanalidad y accesibilidad', 'Canales físicos y digitales, sin limitaciones', 'Penetración · Diversificación (QR, placa, código, WhatsApp)'],
+        ['3 · Automatización y gestión de la experiencia', 'Sistemas que organizan el recorrido y agilizan el acceso', 'Recurrencia · Integración · Transparencia · Fidelización'],
+        ['4 · Soporte y acompañamiento', 'Asistencia en puntos clave, sin fricciones', 'Acompañamiento · Medición'],
+    ], [3200, 3600, 2960]),
+    ('h', 'SOSTAC · A · Plan de acción'),
     ('img', 'plan-accion.png', 'Seis hitos, de la sustentación al cuarto conjunto. El primero es académico; los demás, de producto.'),
-    ('h', 'Fichas de producto'),
+    ('h', 'Descripción de productos · fichas de producto'),
     ('t', [
         ['Ficha', 'Qué es', 'Sirve a'],
         ['F1 · Kino Residente', 'App para otorgar, extender y revocar Pases', 'OE1, OE2, OE3'],
@@ -165,16 +194,29 @@ S.append(('3.3', [
     ('n', 'Tácticas adicionales, horizonte de empresa, lista de mercado y fichas completas: entrega-3/estrategia.md §5, §9 y §10.'),
 ]))
 S.append(('3.4', [
-    'Un KPI principal por objetivo, con el método GQM (objetivo → pregunta → métrica). Los resultados se reportan en la entrega 5.',
+    ('h', 'SOSTAC · C · Control · KPI con método GQM: objetivo (G) → pregunta (Q) → métrica (M) y su meta'),
+    'Paso a paso de la guía: determinar el objetivo, definir una variable y relacionarla con la meta. Un KPI principal por objetivo; los resultados se reportan en la entrega 5.',
     ('t', [
-        ['#', 'Pregunta', 'KPI y fórmula', 'Meta', 'Etapa', 'Cada'],
+        ['G', 'Q · Pregunta', 'M · KPI: variable y fórmula', 'Meta', 'Etapa', 'Cada'],
         ['OE1', '¿Crear un Pase es más rápido que llamar?', 'Tiempo para crear (KLM del recorrido)', '< 30 s', 'Comportamiento', 'Versión'],
         ['OE2', '¿Las casas usan su autoridad?', 'Casas con ≥ 1 Pase ÷ casas registradas', '≥ 60 %', 'Conversión', 'Semana'],
         ['OE3', '¿El colaborador entra sin llamada?', 'Ingresos por lector ÷ ingresos en minuta', '≥ 80 %', 'Comportamiento', 'Semana'],
         ['OE4', '¿El Pase existe en la puerta?', 'Confirmados en < 60 s ÷ creados', '≥ 98 %', 'Confianza', 'Día'],
         ['OE5', '¿La administración ve valor?', 'Contratos firmados', '4', 'Conversión', 'Mes'],
     ], [600, 2700, 2900, 900, 1560, 1100]),
-    ('n', 'Los 12 KPI del plan están en entrega-3/estrategia.md §7.'),
+    ('h', 'SOSTAC · C · Etapas del plan y el KPI que cubre cada una'),
+    ('t', [
+        ['Etapa', 'KPI'],
+        ['Captación', 'Costo de adquisición por conjunto'],
+        ['Comportamiento', 'Tiempo para crear (OE1) · ingresos de colaboradores con Pase (OE3)'],
+        ['Conversión', 'Activación de casas (OE2) · conjuntos con pago (OE5)'],
+        ['Satisfacción', 'SUS de los residentes · NPS de la administración'],
+        ['Confianza', 'Confirmación del lector (OE4) · rechazos con motivo'],
+        ['Compromiso', 'Retención de residentes'],
+    ], [2400, 7360]),
+    ('n', '«Ingresos en minuta»: la minuta es el cuaderno donde portería anota a mano cada ingreso; el KPI de OE3 divide los ingresos de colaboradores que abrió el lector con un Pase entre todos los que anotó portería. Los 12 KPI del plan están en entrega-3/estrategia.md §7.'),
+    ('h', 'SOSTAC · C · Tablero de seguimiento'),
+    ('img', 'tablero.png', 'Un panel por objetivo contra su meta. OE1 con datos medidos el 19 oct; OE2 a OE4 con datos de ejemplo; OE5 como plan.'),
 ]))
 for c in ('3.5', '3.6', '3.7'):
     S.append((c, [('n', 'Se entrega en la entrega 5, con los datos del piloto.')]))

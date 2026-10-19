@@ -357,3 +357,6 @@ En arquitectura faltaba:
 - **Despedida:** última lámina sin texto. La aurora amanece, sube el bloque del logo, cae la gota, hay ondas y tres latidos. El sonido se sintetiza en el navegador: acorde grave, soplo, golpe de la gota y dos notas de «confirmado». Se repite tocando la lámina.
 - **Notas del presentador** con el guion de las láminas 8, 9 y 17 (antes 15).
 - **Verificación:** `verificar.mjs` sin desborde ni errores en 17 láminas; compuerta de voz sin errores.
+
+## Biblia: SOSTAC explícito (19 oct)
+- Subtítulos en 3.1 a 3.4 que dicen qué pieza de la guía se muestra: mapa SOSTAC con el apartado de cada letra, objetivo general, SMART, preguntas orientadoras, estrategias y tácticas, ejes estratégicos del curso, plan de acción, fichas de producto, KPI GQM, etapas de los KPI y tablero de seguimiento (figura nueva).
