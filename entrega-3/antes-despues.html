@@ -67,9 +67,9 @@ video{display:block;width:100%;max-width:100%;height:auto;border-radius:10px;bac
 <main class="hoja">
   <header class="portada">
     <p class="rotulo">Kino · Entrega 3 · Revisión de motion · 19 oct 2026</p>
-    <h1>Cinco momentos, antes y después</h1>
+    <h1>Motion de Kino, antes y después</h1>
     <p class="secundario">Cada fila pone la versión anterior del prototipo junto a la nueva, grabadas con el mismo recorrido y a velocidad real. «Repetir» las arranca a la vez.</p>
-    <span class="estado">Para revisión de Nico · E3-8 sigue como propuesta</span>
+    <span class="estado">Momentos héroe aprobados por Nico · tercera pasada para revisión</span>
   </header>
 
   <section class="momento" aria-labelledby="diag">
@@ -149,14 +149,52 @@ video{display:block;width:100%;max-width:100%;height:auto;border-radius:10px;bac
     </ul>
   </section>
 
+  <section class="momento" aria-labelledby="tercera">
+    <div class="momento__cabeza"><div><p class="rotulo">Tercera pasada · el resto de la app</p><h2 id="tercera">El mismo criterio en todas las pantallas</h2></div></div>
+    <div class="causas">
+      <div class="causa"><span class="n">1</span><b>Toda entrada tiene salida</b><p>El banner, la notificación, Deshacer, el teclado de portería y el panel de notas salen por donde entraron.</p></div>
+      <div class="causa"><span class="n">2</span><b>Las listas tienen identidad</b><p>Un Pase que pasa de Ahora a Anteriores viaja a su nuevo lugar; las llegadas y la bitácora de portería se reacomodan.</p></div>
+      <div class="causa"><span class="n">3</span><b>El texto se funde, las cifras se cuentan</b><p>Chips, vigencias, la cuenta regresiva por dígito y los contadores de sincronización ya no saltan.</p></div>
+      <div class="causa"><span class="n">4</span><b>Un indicador que viaja</b><p>Pestañas, Visita/Colaborador, plazos, modos del Pase, menú de administración y actor del escenario.</p></div>
+      <div class="causa"><span class="n">5</span><b>Cinco errores corregidos</b><p>La cicatriz quedaba pegada tras Deshacer; filas sin identidad animaban la equivocada; la instrucción del Pase vivo no entraba; «usado» no se tachaba en el detalle; la tarjeta vencida recuperaba la opacidad.</p></div>
+    </div>
+  </section>
+
+  <section class="momento" aria-labelledby="m-estados">
+    <div class="momento__cabeza"><div><p class="rotulo">Residente · detalle</p><h2 id="m-estados">El ciclo del Pase</h2></div><button class="repetir" type="button">Repetir</button></div>
+    <div class="par par--vertical">
+      <figure><video src="antes-despues/estados-antes.webm" poster="antes-despues/estados-antes.webp" muted loop playsinline preload="metadata"></video><figcaption>Antes</figcaption></figure>
+      <figure class="despues"><video src="antes-despues/estados-despues.webm" poster="antes-despues/estados-despues.webp" muted loop playsinline preload="metadata"></video><figcaption>Después</figcaption></figure>
+    </div>
+    <ul class="cambios"><li><b>Confirmar</b>El borde punteado se cierra sobre el arco, la luz se enciende y el chip late tres veces.</li><li><b>Extender</b>La cuenta destella una vez y la hora nueva se funde.</li><li><b>Revocar y deshacer</b>Corte, cicatriz y velo; Extender sale y lo de abajo sube. Deshacer retrae la cicatriz.</li></ul>
+  </section>
+
+  <section class="momento" aria-labelledby="m-ingreso">
+    <div class="momento__cabeza"><div><p class="rotulo">Residente · ingreso</p><h2 id="m-ingreso">De WhatsApp a Tus Pases</h2></div><button class="repetir" type="button">Repetir</button></div>
+    <div class="par par--vertical">
+      <figure><video src="antes-despues/ingreso-antes.webm" poster="antes-despues/ingreso-antes.webp" muted loop playsinline preload="metadata"></video><figcaption>Antes</figcaption></figure>
+      <figure class="despues"><video src="antes-despues/ingreso-despues.webm" poster="antes-despues/ingreso-despues.webp" muted loop playsinline preload="metadata"></video><figcaption>Después</figcaption></figure>
+    </div>
+    <ul class="cambios"><li><b>Pasos con relevo</b>El paso anterior sale hacia un lado y el nuevo entra del otro.</li><li><b>La notificación sale</b>Sube por donde llegó al tocarla; cada cifra del código late al llegar.</li><li><b>Llegada al inicio</b>La bienvenida se despide y el inicio entra en cascada.</li></ul>
+  </section>
+
+  <section class="momento" aria-labelledby="m-pestanas">
+    <div class="momento__cabeza"><div><p class="rotulo">Residente · pestañas y hoja</p><h2 id="m-pestanas">Indicadores que viajan</h2></div><button class="repetir" type="button">Repetir</button></div>
+    <div class="par par--vertical">
+      <figure><video src="antes-despues/pestanas-antes.webm" poster="antes-despues/pestanas-antes.webp" muted loop playsinline preload="metadata"></video><figcaption>Antes</figcaption></figure>
+      <figure class="despues"><video src="antes-despues/pestanas-despues.webm" poster="antes-despues/pestanas-despues.webp" muted loop playsinline preload="metadata"></video><figcaption>Después</figcaption></figure>
+    </div>
+    <ul class="cambios"><li><b>Barra inferior</b>Una línea de luz viaja a la pestaña activa; el botón Crear Pase se encoge y vuelve.</li><li><b>Hoja de crear</b>Visita y Colaborador se relevan; la hoja se desliza a su nueva altura.</li><li><b>Plazo</b>El indicador viaja entre Unas horas, Un día y Se queda.</li></ul>
+  </section>
+
   <footer class="cierre">
     <h2>Lo que falta</h2>
     <ol>
-      <li><b>Visto bueno de Nico</b> sobre estos cinco momentos antes de llevar el mismo nivel al resto de la app.</li>
-      <li><b>Aprobar E3-8 corregida:</b> la regla «nada se mueve sin un dato» queda para portería; la vida ambiental de la marca se mantiene y se pausa a los 5 s.</li>
-      <li><b>Confirmar, vencer y revocar sobre el Pase</b>, el sexto momento, va en la siguiente pasada.</li>
+      <li><b>Revisar la tercera pasada</b> en el prototipo; el resto de la app ya lleva el mismo criterio.</li>
+      <li><b>Llevar los tokens nuevos a <code>@kino/motion</code></b>: <code>destello</code> y la curva de sístole.</li>
+      <li><b>Pasar las piezas a Figma</b>: indicadores, relevo y estados del Pase.</li>
     </ol>
-    <div class="pruebas"><span>e2e 17/17</span><span>OE1 · 3 toques · 8 s</span><span>barrido sin cortes</span><span>modo reducido con pósters</span></div>
+    <div class="pruebas"><span>e2e 18/18 · también en reducido</span><span>OE1 · 3 toques · 8 s</span><span>barrido sin cortes</span><span>modo reducido con pósters</span></div>
   </footer>
 </main>
 
