@@ -1,6 +1,6 @@
 <title>Kino · Entrega 3</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Entrega 3 de Kino contada con una tarde de una residente: el problema, el Pase en uso en el prototipo y el plan SOSTAC para llegar a cuatro conjuntos.">
+<meta name="description" content="Entrega 3 de Kino en 15 láminas: el problema, el Pase en el prototipo y la estrategia de servicio para llegar a cuatro conjuntos.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -139,16 +139,190 @@ body.con-guion section.actual .guion{display:block}
 .escena div{display:grid;grid-template-columns:calc(var(--u)*7) 1fr;gap:.8em;align-items:baseline}
 .escena b{font-family:var(--dato);font-weight:500;color:var(--tenue);font-size:var(--t-min)}
 .pregunta{border-left:6px solid var(--marca);padding-left:calc(var(--u)*1.4);font-family:var(--display);font-weight:800;font-stretch:112%;font-size:var(--t-l);max-width:34ch}
+
+/* Versión corta (19 oct): una idea por lámina, mostrada. Las piezas entran cuando la lámina está en pantalla
+   (.actual); con movimiento reducido quedan en su cuadro final. */
+[data-r]{opacity:0;transform:translateY(calc(var(--u)*1.2));transition:opacity .6s cubic-bezier(.2,0,0,1),transform .7s cubic-bezier(.2,0,0,1);transition-delay:calc(var(--r,0) * 110ms)}
+section.actual [data-r]{opacity:1;transform:none}
+.conector{display:block;height:3px;background:linear-gradient(90deg,var(--marca),var(--vig));border-radius:2px;transform:scaleX(0);transform-origin:left;transition:transform .7s cubic-bezier(.2,0,0,1);transition-delay:calc(var(--r,0) * 110ms)}
+section.actual .conector{transform:none}
+@media (prefers-reduced-motion:reduce){[data-r],.conector{opacity:1!important;transform:none!important;transition:none!important}}
+
+/* Portada */
+.portada{background:var(--abismo);justify-content:center;align-items:flex-start}
+.portada .aurora{position:absolute;inset:-20% -10% auto auto;width:80%;height:120%;background:radial-gradient(50% 45% at 60% 40%,#006142 0%,transparent 70%),radial-gradient(40% 35% at 75% 25%,#092D93 0%,transparent 70%),radial-gradient(35% 30% at 45% 60%,#3E1C96 0%,transparent 75%);filter:blur(30px);opacity:.85;animation:amanece 5s cubic-bezier(.2,0,0,1) both;pointer-events:none}
+@keyframes amanece{from{opacity:0;transform:translateY(-6%) scale(1.08)}}
+.portada .titulo-kino{font-family:var(--display);font-weight:900;font-stretch:125%;font-size:calc(var(--u)*17);line-height:.9;letter-spacing:-.03em;display:flex;align-items:center;gap:calc(var(--u)*2.4)}
+.portada .logo{width:calc(var(--u)*13);height:auto;flex:none}
+.logo .arco{fill:#EFFCF7;transform-box:fill-box;transform-origin:50% 100%;animation:surge 1s cubic-bezier(.2,0,0,1) .2s both}
+.logo .gota{fill:#00BB83;transform-box:fill-box;transform-origin:50% 100%;animation:cae .9s cubic-bezier(.3,1.4,.5,1) 1.2s both}
+@keyframes surge{from{opacity:0;transform:scaleY(.6)}}
+@keyframes cae{from{opacity:0;transform:translateY(-60%) scale(.7)}}
+.portada .materias{display:flex;flex-wrap:wrap;gap:calc(var(--u)*.8) calc(var(--u)*2.4);font-size:var(--t-l);font-weight:700}
+.portada .materias span{display:flex;align-items:center;gap:.5em}
+.portada .materias span::before{content:"";width:.5em;height:.5em;border-radius:50%;background:var(--marca)}
+.portada .autores{font-size:var(--t-l);color:var(--texto-2)}
+.portada .eafit{font-family:var(--dato);font-size:var(--t-l);letter-spacing:.14em;color:var(--tenue)}
+@media (prefers-reduced-motion:reduce){.portada .aurora,.logo .gota{animation:none}.logo .arco{animation:none}}
+
+/* Diagrama: conocimiento y autoridad separados por la puerta */
+.brecha{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:calc(var(--u)*2);align-items:center}
+.nodo{display:grid;gap:calc(var(--u)*.6);justify-items:center;text-align:center;padding:calc(var(--u)*1.8);border-radius:20px;background:var(--elevada);border:1px solid var(--borde)}
+.nodo .ico{width:calc(var(--u)*6);height:calc(var(--u)*6);border-radius:50%;display:grid;place-items:center;background:var(--vig-f);color:var(--vig);font-family:var(--display);font-weight:900;font-size:calc(var(--u)*2.6)}
+.nodo.aut .ico{background:var(--prev-f);color:var(--prev)}
+.nodo b{font-size:var(--t-l)}
+.nodo p{color:var(--texto-2)}
+.puerta{display:grid;justify-items:center;gap:calc(var(--u)*.6);color:var(--rech)}
+.puerta i{display:block;width:calc(var(--u)*.6);height:calc(var(--u)*14);border-radius:4px;background:repeating-linear-gradient(180deg,var(--rech-b) 0 14px,transparent 14px 26px)}
+.pregunta-guia{font-family:var(--display);font-weight:800;font-stretch:112%;font-size:var(--t-h2);line-height:1.05;max-width:24ch;border-left:8px solid var(--marca);padding-left:calc(var(--u)*1.6)}
+
+/* Cifras de evidencia */
+.evid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:calc(var(--u)*2)}
+.evid .caja{gap:calc(var(--u)*.8)}
+.evid .cifra{font-size:calc(var(--u)*9)}
+.evid .barrita{height:calc(var(--u)*.8);border-radius:6px;background:var(--membrana);overflow:hidden}
+.evid .barrita i{display:block;height:100%;width:var(--w,0);background:var(--rech-b)}
+.franja-dato{display:flex;gap:calc(var(--u)*1.4);align-items:baseline;flex-wrap:wrap;color:var(--texto-2)}
+.franja-dato b{font-family:var(--dato);color:var(--vig);font-size:var(--t-l)}
+.fuente{font-family:var(--dato);font-size:var(--t-min);color:var(--tenue)}
+
+/* Arquetipos */
+.arq{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:calc(var(--u)*1.4)}
+.arq .caja{border-top:5px solid var(--marca)}
+.arq .caja:nth-child(2){border-top-color:var(--pv-b)}
+.arq .caja:nth-child(3){border-top-color:var(--prev-b)}
+.arq .caja:nth-child(4){border-top-color:var(--iden)}
+.arq .id{font-family:var(--dato);color:var(--tenue);font-size:var(--t-min)}
+.arq h3{font-size:var(--t-l)}
+.arq .insight{color:var(--texto);font-weight:600}
+
+/* Flujo del Pase */
+.marco-adm{position:relative;border:2px dashed var(--prev-b);border-radius:24px;padding:calc(var(--u)*2.6) calc(var(--u)*1.8) calc(var(--u)*1.8)}
+.marco-adm>.rotulo-adm{position:absolute;top:calc(var(--u)*-1.1);left:calc(var(--u)*2);background:var(--abismo);padding:0 .5em;color:var(--prev);font-family:var(--dato);font-size:var(--t-min);letter-spacing:.06em;text-transform:uppercase}
+.flujo{display:grid;grid-template-columns:repeat(9,auto);align-items:center;justify-content:space-between;gap:calc(var(--u)*.6)}
+.flujo .conector{width:calc(var(--u)*4)}
+.paso{display:grid;gap:calc(var(--u)*.5);justify-items:center;text-align:center;max-width:calc(var(--u)*17)}
+.paso .ico{width:calc(var(--u)*7);height:calc(var(--u)*7);border-radius:22px;display:grid;place-items:center;background:var(--elevada);border:1px solid var(--borde-def);font-size:calc(var(--u)*2.6)}
+.paso b{font-size:var(--t-cuerpo)}
+.paso span{color:var(--texto-2);font-size:var(--t-min)}
+.mini-pase{width:calc(var(--u)*9);aspect-ratio:1/1.08;border-radius:50% 50% 12px 12px / 46% 46% 12px 12px;background:#F4FFFA;box-shadow:0 0 0 3px var(--vig-b),0 0 50px -8px var(--marca);display:grid;place-items:center}
+.mini-pase svg{width:52%;margin-top:14%}
+.atributos{display:flex;gap:calc(var(--u)*.6);flex-wrap:wrap;justify-content:center}
+
+/* Videos de motion */
+.videos{display:grid;grid-template-columns:auto auto minmax(0,1fr);gap:calc(var(--u)*1.6);align-items:end}
+.videos figure{margin:0;display:grid;gap:calc(var(--u)*.5)}
+.videos video{display:block;border-radius:16px;border:1px solid var(--borde-def);background:var(--base);height:calc(var(--u)*34);width:auto;max-width:100%}
+.videos figure:last-child video{width:100%;height:auto;max-height:calc(var(--u)*34)}
+.videos figcaption{font-size:var(--t-min);color:var(--texto-2)}
+
+/* Embudo de validación */
+.embudo{display:grid;gap:calc(var(--u)*1)}
+.embudo .tramo{display:grid;grid-template-columns:calc(var(--u)*11) minmax(0,1fr);gap:calc(var(--u)*1.4);align-items:center}
+.embudo .tramo .barra-v{height:calc(var(--u)*4.4);border-radius:12px;background:linear-gradient(90deg,var(--vig-f),color-mix(in oklab,var(--marca) 60%,var(--vig-f)));width:var(--w);display:flex;align-items:center;padding:0 calc(var(--u)*1.2);font-weight:700;transform-origin:left;transform:scaleX(0);transition:transform .8s cubic-bezier(.2,0,0,1);transition-delay:calc(var(--r,0) * 140ms)}
+section.actual .embudo .barra-v{transform:none}
+.embudo .tramo .cifra{font-size:calc(var(--u)*5);text-align:right}
+.biblia{display:grid;grid-template-columns:3fr 2fr 2fr;border-radius:12px;overflow:hidden;font-size:var(--t-min)}
+.biblia span{padding:calc(var(--u)*.6) calc(var(--u)*1)}
+.biblia .b1{background:var(--vig-f);color:var(--vig)}
+.biblia .b2{background:color-mix(in oklab,var(--marca) 45%,var(--vig-f));color:var(--texto)}
+.biblia .b3{background:var(--membrana);color:var(--tenue);border:1px dashed var(--borde-def)}
+@media (prefers-reduced-motion:reduce){.embudo .barra-v{transform:none;transition:none}}
+
+/* Meta general */
+.meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:calc(var(--u)*2)}
+.meta .cifra{font-size:calc(var(--u)*10);color:var(--vig)}
+.objetivo{font-family:var(--display);font-weight:800;font-stretch:112%;font-size:var(--t-h2);line-height:1.08;max-width:30ch}
+
+/* SMART: cinco piezas por objetivo, alineadas en columnas */
+.smart{display:grid;grid-template-columns:calc(var(--u)*4.4) repeat(5,minmax(0,1fr));gap:calc(var(--u)*.5);font-size:var(--t-min);line-height:1.25}
+.smart .cab{font-family:var(--dato);letter-spacing:.06em;text-transform:uppercase;color:var(--tenue);padding:0 .5em}
+.smart .oe{font-family:var(--dato);font-weight:600;color:var(--texto);display:grid;place-items:center;background:var(--membrana);border-radius:10px}
+.smart .p{padding:calc(var(--u)*.55) calc(var(--u)*.7);border-radius:10px;background:var(--elevada);border-left:5px solid var(--c);color:var(--texto)}
+.smart .p.acc{--c:var(--marca)}.smart .p.met{--c:var(--vig-b);font-weight:700}.smart .p.usu{--c:var(--pv-b)}.smart .p.ctx{--c:var(--prev-b)}.smart .p.tie{--c:var(--iden)}
+.smart .cab.acc{color:var(--marca)}.smart .cab.met{color:var(--vig)}.smart .cab.usu{color:var(--pv)}.smart .cab.ctx{color:var(--prev)}.smart .cab.tie{color:var(--iden)}
+
+/* Estrategia → táctica */
+.ramas{display:grid;gap:calc(var(--u)*.7)}
+.rama{display:grid;grid-template-columns:calc(var(--u)*4.4) calc(var(--u)*3) calc(var(--u)*15) calc(var(--u)*3) minmax(0,1fr) calc(var(--u)*13);gap:calc(var(--u)*.6);align-items:center;font-size:var(--t-min)}
+.rama .oe{font-family:var(--dato);font-weight:600;text-align:center;padding:.4em 0;border-radius:10px;background:var(--membrana)}
+.rama .conector{width:100%}
+.rama .est{font-family:var(--display);font-weight:800;font-size:var(--t-cuerpo);color:var(--vig)}
+.rama .est small{display:block;font-family:var(--dato);font-weight:400;font-size:var(--t-min);color:var(--tenue)}
+.rama .tac{background:var(--elevada);border:1px solid var(--borde);border-radius:12px;padding:calc(var(--u)*.6) calc(var(--u)*.9);color:var(--texto)}
+.rama .tac span{color:var(--texto-2)}
+.rama .cuando{font-family:var(--dato);color:var(--texto-2)}
+.rama .cuando b{display:block;color:var(--texto);font-weight:500}
+
+/* Línea de tiempo */
+.tiempo{position:relative;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:calc(var(--u)*1);padding-top:calc(var(--u)*3)}
+.tiempo::before{content:"";position:absolute;top:calc(var(--u)*1.1);left:0;right:0;height:4px;border-radius:2px;background:linear-gradient(90deg,var(--prev-b) 0 16%,var(--marca) 16%);transform:scaleX(0);transform-origin:left;transition:transform 1.4s cubic-bezier(.2,0,0,1)}
+section.actual .tiempo::before{transform:none}
+.hito{position:relative;display:grid;gap:calc(var(--u)*.5);font-size:var(--t-min)}
+.hito::before{content:"";position:absolute;top:calc(var(--u)*-2.4);left:0;width:calc(var(--u)*1.3);height:calc(var(--u)*1.3);border-radius:50%;background:var(--abismo);border:4px solid var(--marca)}
+.hito:first-child::before{border-color:var(--prev-b)}
+.hito:last-child::before{background:var(--vig);border-color:var(--vig)}
+.hito .cuando{font-family:var(--dato);color:var(--vig)}
+.hito:first-child .cuando{color:var(--prev)}
+.hito b{font-size:var(--t-cuerpo);line-height:1.15}
+.hito span{color:var(--texto-2)}
+@media (prefers-reduced-motion:reduce){.tiempo::before{transform:none;transition:none}}
+
+/* KPI GQM */
+.gqm{display:grid;grid-template-columns:calc(var(--u)*4.4) minmax(0,1.3fr) minmax(0,1fr) minmax(0,1.5fr) calc(var(--u)*7) calc(var(--u)*14) calc(var(--u)*6);gap:calc(var(--u)*.5) calc(var(--u)*.8);font-size:var(--t-min);align-items:center}
+.gqm .cab{font-family:var(--dato);letter-spacing:.06em;text-transform:uppercase;color:var(--tenue)}
+.gqm .oe{font-family:var(--dato);font-weight:600;text-align:center;padding:.5em 0;border-radius:10px;background:var(--membrana)}
+.gqm .q{color:var(--texto-2)}
+.gqm .k{font-weight:700;color:var(--texto)}
+.gqm .f{font-family:var(--dato);color:var(--texto-2)}
+.gqm .meta-k{font-family:var(--dato);font-size:var(--t-l);color:var(--vig);font-weight:600}
+.gqm .chip{font-size:var(--t-min);align-self:center;letter-spacing:.02em}
+.gqm .fila-l{grid-column:1/-1;height:1px;background:var(--borde)}
+
+/* Fichas */
+.fichas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:calc(var(--u)*1.2)}
+.fichas .caja{gap:calc(var(--u)*.4)}
+.fichas .id{font-family:var(--dato);color:var(--marca);font-size:var(--t-min)}
+.fichas h3{font-size:var(--t-l)}
+.fichas .oes{display:flex;gap:.4em;flex-wrap:wrap;margin-top:auto}
+
+/* Cierre */
+.horizonte{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:calc(var(--u)*1.6);align-items:end}
+.horizonte .caja{border-bottom:6px solid var(--marca)}
+.horizonte .caja:nth-child(1){min-height:calc(var(--u)*13)}
+.horizonte .caja:nth-child(2){min-height:calc(var(--u)*17)}
+.horizonte .caja:nth-child(3){min-height:calc(var(--u)*21);border-bottom-color:var(--vig)}
+.horizonte .cuando{font-family:var(--dato);color:var(--vig);font-size:var(--t-l)}
+.horizonte .cifra{font-size:calc(var(--u)*6.4)}
+.pendientes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:calc(var(--u)*1.2)}
+.pendientes div{display:grid;grid-template-columns:auto 1fr;gap:.6em;align-items:baseline;color:var(--texto-2)}
+.pendientes div::before{content:"";width:.8em;height:.8em;border-radius:3px;border:2px dashed var(--pv-b);transform:translateY(.1em)}
+
+@media (max-width:820px){
+  .brecha,.evid,.arq,.meta,.fichas,.horizonte,.pendientes,.videos{grid-template-columns:minmax(0,1fr)}
+  .puerta i{width:100%;height:calc(var(--u)*.6)}
+  .flujo{grid-template-columns:minmax(0,1fr);justify-items:center}
+  .flujo .conector{width:3px;height:28px;transform-origin:top}
+  .smart,.gqm{grid-template-columns:minmax(0,1fr)}
+  .smart .cab,.gqm .cab{display:none}
+  .smart .oe,.gqm .oe{margin-top:16px}
+  .rama{grid-template-columns:minmax(0,1fr)}
+  .rama .conector{display:none}
+  .tiempo{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:48px}
+  .videos video{height:auto;width:100%}
+  .portada .titulo-kino{font-size:clamp(72px,22vw,140px)}
+  .embudo .tramo{grid-template-columns:minmax(0,1fr)}
+  .embudo .tramo .cifra{text-align:left}
+}
 </style>
 
 <div class="progreso" id="progreso"></div>
 <header class="barra">
-  <span class="marca"><svg viewBox="0 0 100 101.824" width="26" height="26" aria-hidden="true"><path fill="#EFFCF7" fill-rule="evenodd" d="M3.483 0H96.517A3.483 3.483 0 0 1 100 3.483V101.824H0V3.483A3.483 3.483 0 0 1 3.483 0ZM18.242 86.567V46.766A31.675 31.675 0 0 1 81.592 46.766V86.567Z"/><path fill="#00BB83" d="M50 35.987A16.169 17.579 0 0 1 66.169 53.566L50 66.667 33.831 53.566A16.169 17.579 0 0 1 50 35.987Z"/></svg>Kino · Entrega 3</span>
+  <span class="marca"><svg viewBox="0 0 100 101.824" width="26" height="26" aria-hidden="true"><path fill="#EFFCF7" fill-rule="evenodd" d="M3.483 0H96.517A3.483 3.483 0 0 1 100 3.483V101.824H0V3.483A3.483 3.483 0 0 1 3.483 0ZM18.242 86.567V46.766A31.675 31.675 0 0 1 81.592 46.766V86.567Z"/><path fill="#00BB83" d="M50 35.987A16.169 17.579 0 0 1 66.169 53.566L50 66.667 33.831 53.566A16.169 17.579 0 0 1 50 35.987Z"/></svg>Kino</span>
   <nav aria-label="Partes">
-    <a href="#inicio" data-parte="inicio">La tarde</a>
+    <a href="#inicio" data-parte="inicio">Problema</a>
     <a href="#pase" data-parte="pase">El Pase</a>
-    <a href="#uso" data-parte="uso">En uso</a>
-    <a href="#plan" data-parte="plan">El plan</a>
+    <a href="#plan" data-parte="plan">Estrategia</a>
     <a href="#despues" data-parte="despues">Después</a>
   </nav>
   <span class="num mono" id="num">1 / 1</span>
@@ -156,515 +330,208 @@ body.con-guion section.actual .guion{display:block}
 
 <main id="deck">
 
-<!-- 1 · LA TARDE: problema, evidencia, diagnóstico, situación, tiempo -->
-<section id="inicio" data-parte="inicio" class="parte">
-  <div class="fila" style="align-items:center">
-    <div style="flex:2 1 0">
-      <p class="rot">Kino · Entrega 3 · Diseño para la interacción y Estrategia de servicio · EAFIT LE005</p>
-      <h1 style="margin-top:calc(var(--u)*1.2)">¿Quién decide quién entra?</h1>
-      <p class="sec" style="margin-top:calc(var(--u)*1.6)">El residente sabe a quién espera. El sistema del conjunto no tiene dónde guardarlo.</p>
-    </div>
-    <div style="flex:0 0 auto;display:grid;place-items:center">
-      <div class="portal respira" aria-hidden="true"><svg viewBox="0 0 29 29"><path fill="#00140C" d="M0 0h7v7H0zM1 1v5h5V1zM2 2h3v3H2zM22 0h7v7h-7zM23 1v5h5V1zM24 2h3v3h-3zM0 22h7v7H0zM1 23v5h5v-5zM2 24h3v3H2zM9 0h2v2H9zM12 1h3v2h-3zM16 0h2v3h-2zM9 4h4v2H9zM15 4h3v3h-3zM19 1h2v4h-2zM8 8h3v2H8zM12 8h2v3h-2zM15 9h4v2h-4zM20 8h3v3h-3zM24 9h5v2h-5zM0 9h3v2H0zM4 10h3v3H4zM9 12h3v3H9zM14 13h3v2h-3zM18 12h2v4h-2zM22 13h3v3h-3zM26 12h3v2h-3zM1 15h3v3H1zM5 16h3v2H5zM10 17h2v3h-2zM13 17h4v2h-4zM19 18h3v2h-3zM24 17h2v4h-2zM27 16h2v3h-2zM9 22h3v2H9zM13 21h2v3h-2zM16 22h3v3h-3zM21 22h2v2h-2zM24 23h5v2h-5zM9 26h4v3H9zM15 26h3v2h-3zM20 25h3v4h-3zM25 27h4v2h-4z"/></svg></div>
-    </div>
-  </div>
-  <div class="pie"><span>Nico Ramírez · Alejandro Monsalve</span><span>Monte Sereno, El Retiro · oct 2026</span></div>
-  <aside class="guion">Contamos la entrega con una tarde de Carolina, residente de la Casa 14 de Villas Campestres. El prototipo y la estrategia entran cuando la historia los necesita. N muestra estas notas; L oculta la barra.</aside>
+<!-- 1 · Portada -->
+<section id="inicio" data-parte="inicio" class="portada">
+  <span class="aurora" aria-hidden="true"></span>
+  <h1 class="titulo-kino">
+    <svg class="logo" viewBox="0 0 100 101.824" aria-hidden="true"><path class="arco" fill-rule="evenodd" d="M3.483 0H96.517A3.483 3.483 0 0 1 100 3.483V101.824H0V3.483A3.483 3.483 0 0 1 3.483 0ZM18.242 86.567V46.766A31.675 31.675 0 0 1 81.592 46.766V86.567Z"/><path class="gota" d="M50 35.987A16.169 17.579 0 0 1 66.169 53.566L50 66.667 33.831 53.566A16.169 17.579 0 0 1 50 35.987Z"/></svg>
+    Kino
+  </h1>
+  <div class="materias" data-r style="--r:4"><span>Diseño para la interacción</span><span>Estrategia de Servicio</span></div>
+  <p class="eafit" data-r style="--r:5">EAFIT</p>
+  <p class="autores" data-r style="--r:6">Nicolás Ramírez y Alejandro Monsalve</p>
+  <aside class="guion">Entrega 3. Una sola historia para las dos materias: el problema, el Pase en el prototipo y el plan para llevarlo a cuatro conjuntos. N muestra estas notas; L oculta la barra.</aside>
 </section>
 
+<!-- 2 · El problema -->
 <section data-parte="inicio">
-  <p class="rot">Escenario · arquetipos A1 y A3 · cada paso, observado en la inspección</p>
-  <p class="hora">Martes · 2:00 p. m.</p>
-  <h2>Carolina está en la oficina. Su hermano Andrés llega a las 3.</h2>
-  <div class="escena">
-    <div><b>Hoy puede</b><p>llamar a portería o mandar un WhatsApp que nadie registra.</p></div>
-    <div><b>O puede</b><p>registrar la placa de Andrés: la puerta abre y la pantalla le dice que eso lo controla la administración.</p></div>
-    <div><b>Andrés</b><p>necesita una cuenta permanente, con correo, para una visita de una tarde.</p></div>
+  <h2>¿Quién decide quién entra?</h2>
+  <div class="brecha">
+    <div class="nodo" data-r style="--r:1"><span class="ico">R</span><b>El residente</b><p>Sabe a quién espera</p></div>
+    <div class="puerta" data-r style="--r:2"><i></i><span class="mono">la puerta</span></div>
+    <div class="nodo aut" data-r style="--r:3"><span class="ico">A</span><b>La administración</b><p>Tiene la autoridad y no sabe a quién espera</p></div>
   </div>
-  <aside class="guion">La escena es construida; los hechos no. Las tres salidas están en el reporte de inspección por rol (14 al 16 de sep): placa «Permitido» sin constancia, visita como miembro permanente con rol «Visitante».</aside>
+  <p class="pregunta-guia" data-r style="--r:5">¿Cómo reunir conocimiento y autoridad para decidir quién entra?</p>
+  <aside class="guion">Núcleo del diagnóstico: el conocimiento y la autoridad viven en actores distintos. Observado en la inspección del 14 al 16 de septiembre en Monte Sereno.</aside>
 </section>
 
+<!-- 3 · Evidencia -->
 <section data-parte="inicio">
-  <p class="rot">Evidencia · observado en la inspección del 14 al 16 de sep 2026</p>
-  <h2>Detrás de esa tarde hay un sistema que solo crea personas permanentes</h2>
-  <div class="rejilla c3">
-    <div class="caja"><span class="cifra rech">0/312</span><p>usuarios sincronizados en Refugio Campestre, con el hardware instalado</p></div>
-    <div class="caja"><span class="cifra rech">711</span><p>errores de alta en HikCentral, todos por el campo correo</p></div>
-    <div class="caja"><span class="cifra">0</span><p>maneras de dar un ingreso temporal a una persona</p></div>
+  <h2>El sistema solo sabe crear personas permanentes</h2>
+  <div class="evid">
+    <div class="caja" data-r style="--r:1"><span class="cifra rech"><span data-contar="0">0</span>/312</span><p>usuarios de Refugio Campestre sincronizados con el lector</p><span class="barrita"><i style="--w:1%"></i></span></div>
+    <div class="caja" data-r style="--r:2"><span class="cifra rech" data-contar="711">711</span><p>errores de alta en HikCentral, todos por el campo correo</p></div>
+    <div class="caja" data-r style="--r:3"><span class="cifra pv">1</span><p>tipo de persona: permanente. La visita recibe cuenta y rol «Visitante» de por vida</p></div>
   </div>
-  <aside class="guion">El correo obligatorio es lo que más molesta al registrarse y es también lo que rompe la sincronización con el lector.</aside>
+  <p class="franja-dato" data-r style="--r:5"><b>47,88 %</b> de la vivienda urbana de Colombia está en propiedad horizontal <span class="fuente">Fedelonjas vía Portafolio, jun 2026</span></p>
+  <aside class="guion">Las tres cifras son observadas en la inspección (MAESTRO-KINO §3). El residente además ya abre la puerta sin saberlo: al registrar una placa queda «Permitido».</aside>
 </section>
 
+<!-- 4 · Arquetipos e insights -->
 <section data-parte="inicio">
-  <p class="rot">Diagnóstico · entregas 1 y 2</p>
-  <h2>Carolina tiene el conocimiento. La autoridad está en la administración, que no sabe a quién espera.</h2>
-  <p class="pregunta">¿Cómo reunir conocimiento y autoridad para decidir quién entra?</p>
-  <p class="sec">En los cuatro recorridos de la entrega 2 falta el mismo objeto: algo que diga quién entra, para cuándo y hasta cuándo.</p>
-  <aside class="guion">Entrega 1: el desajuste entre conocimiento y autoridad. Entrega 2: los cuatro journeys se rompen en la puerta. Hoy: el objeto que faltaba, funcionando.</aside>
-</section>
-
-<section data-parte="inicio">
-  <p class="rot">SOSTAC · S · Situación</p>
-  <h2>Casi la mitad de la vivienda urbana de Colombia vive en propiedad horizontal</h2>
-  <div class="rejilla c4">
-    <div class="caja"><span class="cifra vig" style="font-size:calc(var(--u)*5.4)">47,88 %</span><p>de la vivienda urbana del país</p></div>
-    <div class="caja"><span class="cifra vig" style="font-size:calc(var(--u)*5.4)">61,7 %</span><p>en Medellín</p></div>
-    <div class="caja"><span class="cifra pv" style="font-size:calc(var(--u)*5.4)">13,42 %</span><p>subieron los servicios de PH, contra 5,84 % de inflación</p></div>
-    <div class="caja"><span class="cifra" style="font-size:calc(var(--u)*5.4)">6,8 %</span><p>crecimiento anual del control de acceso global, 2024–2032</p></div>
+  <h2>En los cuatro recorridos, todo se rompe en la puerta</h2>
+  <div class="arq">
+    <div class="caja" data-r style="--r:1"><span class="id">A1</span><h3>Residente</h3><p class="insight">Ya decide quién entra, pero cree que no</p></div>
+    <div class="caja" data-r style="--r:2"><span class="id">A2</span><h3>Colaborador</h3><p class="insight">Es el ingreso más frecuente y el sistema no lo conoce</p></div>
+    <div class="caja" data-r style="--r:3"><span class="id">A3</span><h3>Visita</h3><p class="insight">Entrega datos de por vida para una tarde</p></div>
+    <div class="caja" data-r style="--r:4"><span class="id">A4</span><h3>Administración</h3><p class="insight">Cree tener un control que no ejerce</p></div>
   </div>
-  <p class="rot">Fedelonjas vía Portafolio, jun 2026 · IMARC</p>
-  <aside class="guion">El competidor más fuerte es el método manual: llamada, minuta y WhatsApp. Neivor y ComunidadFeliz nacen de la administración y las finanzas; ZKTeco vende hardware con su propio software. Nadie ofrece la autorización sobre el hardware ya instalado.</aside>
+  <p class="sec" data-r style="--r:6">Lo que falta en los cuatro mapas es el mismo objeto: el Pase.</p>
+  <aside class="guion">Arquetipos de la entrega 1 y conclusiones del journey de la entrega 2. El 51,3 % de los contratos de trabajo doméstico son por días (GEIH-DANE, 1S-2026).</aside>
 </section>
 
-<section data-parte="inicio">
-  <p class="rot">El tiempo</p>
-  <h2>Dos plazos: la sustentación y el producto</h2>
-  <div class="linea" style="grid-template-columns:repeat(3,minmax(0,1fr))">
-    <div class="caja a"><span class="etiqueta a">Académico</span><h3>9 nov 2026</h3><p>Prototipo medido y sustentación.</p></div>
-    <div class="caja"><span class="etiqueta p">Producto</span><h3>Ene–mar 2027</h3><p>Piloto pagado en Villas y Refugio.</p></div>
-    <div class="caja"><span class="etiqueta p">Producto</span><h3>Oct 2027</h3><p>4 conjuntos con pago. Fin de este plan.</p></div>
-  </div>
-  <aside class="guion">Azul: solo por la entrega. Verde: producto, que sigue después de noviembre y sostenemos nosotros.</aside>
-</section>
-
-<!-- 2 · EL PASE: solución, diferencia, objetivo y meta, implicaciones -->
+<!-- 5 · El Pase -->
 <section id="pase" data-parte="pase">
-  <p class="rot">La solución</p>
-  <div class="fila" style="align-items:center">
-    <div style="display:grid;gap:calc(var(--u)*1.4)">
-      <h2>Carolina le da a Andrés un Pase</h2>
-      <p class="sec">Con autor, motivo, vigencia y modo. Lo otorga el residente por el tiempo que decida, dentro de las franjas del conjunto. Andrés entra sin cuenta.</p>
-      <div class="marcas"><span class="etiqueta">QR</span><span class="etiqueta">Placa</span><span class="etiqueta">Código de un solo uso</span></div>
+  <h2>Carolina le da a Andrés un Pase</h2>
+  <div class="marco-adm">
+    <span class="rotulo-adm">Franjas que fija la administración</span>
+    <div class="flujo">
+      <div class="paso" data-r style="--r:1"><span class="ico"><svg viewBox="0 0 24 24" width="56%" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></span><b>Carolina</b><span>residente</span></div>
+      <span class="conector" style="--r:2"></span>
+      <div class="paso" data-r style="--r:3"><span class="mini-pase"><svg viewBox="0 0 29 29"><path fill="#00140C" d="M0 0h7v7H0zM1 1v5h5V1zM2 2h3v3H2zM22 0h7v7h-7zM23 1v5h5V1zM24 2h3v3h-3zM0 22h7v7H0zM1 23v5h5v-5zM2 24h3v3H2zM9 0h2v2H9zM12 1h3v2h-3zM16 0h2v3h-2zM9 4h4v2H9zM15 4h3v3h-3zM8 8h3v2H8zM12 8h2v3h-2zM15 9h4v2h-4zM20 8h3v3h-3zM0 9h3v2H0zM4 10h3v3H4zM9 12h3v3H9zM14 13h3v2h-3zM18 12h2v4h-2zM22 13h3v3h-3zM1 15h3v3H1zM10 17h2v3h-2zM13 17h4v2h-4zM19 18h3v2h-3zM9 22h3v2H9zM13 21h2v3h-2zM16 22h3v3h-3zM21 22h2v2h-2zM9 26h4v3H9zM15 26h3v2h-3zM20 25h3v4h-3z"/></svg></span><b>Pase</b><span>autor · motivo · vigencia · modo</span></div>
+      <span class="conector" style="--r:4"></span>
+      <div class="paso" data-r style="--r:5"><span class="ico"><svg viewBox="0 0 24 24" width="56%" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.3-3.8A8 8 0 1 1 8 19z"/></svg></span><b>WhatsApp</b><span>Andrés, sin cuenta</span></div>
+      <span class="conector" style="--r:6"></span>
+      <div class="paso" data-r style="--r:7"><span class="ico"><svg viewBox="0 0 24 24" width="56%" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="6" y="3" width="12" height="18" rx="2"/><circle cx="12" cy="9" r="2.5"/><path d="M9 16h6"/></svg></span><b>Lector</b><span>QR · placa · código</span></div>
+      <span class="conector" style="--r:8"></span>
+      <div class="paso" data-r style="--r:9"><span class="ico" style="color:var(--vig)"><svg viewBox="0 0 24 24" width="56%" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5 10-11"/></svg></span><b>Andrés entra</b><span>Carolina recibe el aviso</span></div>
     </div>
-    <div style="flex:0 0 auto;display:grid;place-items:center"><div class="portal respira" aria-hidden="true"><svg viewBox="0 0 29 29"><path fill="#00140C" d="M0 0h7v7H0zM1 1v5h5V1zM2 2h3v3H2zM22 0h7v7h-7zM23 1v5h5V1zM24 2h3v3h-3zM0 22h7v7H0zM1 23v5h5v-5zM2 24h3v3H2zM9 0h2v2H9zM12 1h3v2h-3zM16 0h2v3h-2zM9 4h4v2H9zM15 4h3v3h-3zM19 1h2v4h-2zM8 8h3v2H8zM12 8h2v3h-2zM15 9h4v2h-4zM20 8h3v3h-3zM24 9h5v2h-5zM0 9h3v2H0zM4 10h3v3H4zM9 12h3v3H9zM14 13h3v2h-3zM18 12h2v4h-2zM22 13h3v3h-3zM26 12h3v2h-3zM1 15h3v3H1zM5 16h3v2H5zM10 17h2v3h-2zM13 17h4v2h-4zM19 18h3v2h-3zM24 17h2v4h-2zM27 16h2v3h-2zM9 22h3v2H9zM13 21h2v3h-2zM16 22h3v3h-3zM21 22h2v2h-2zM24 23h5v2h-5zM9 26h4v3H9zM15 26h3v2h-3zM20 25h3v4h-3zM25 27h4v2h-4z"/></svg></div></div>
   </div>
-  <p class="sec">Lo que diferencia a Kino: integración probada con el hardware instalado, Pase sin cuenta y autoridad del residente dentro de las franjas.</p>
-  <aside class="guion">Neivor ya vende autogestión de visitas por QR, así que la autonomía del residente sola no basta.</aside>
+  <div class="marcas" data-r style="--r:10"><span class="chip sinconf">Sin confirmar</span><span class="chip vigente">Vigente cuando el lector confirma</span><span class="chip porvencer">Por vencer</span><span class="chip rechazado">Revocado</span></div>
+  <aside class="guion">El Pase no es una cuenta. Lo otorga el residente; la administración solo fija franjas y no aprueba caso a caso. Kino da de alta una persona temporal con «Válido desde / hasta» en HikCentral (Manuel confirmó vigencias hasta 2037 o 2099).</aside>
 </section>
 
+<!-- 6 · Prototipo en vivo -->
+<section data-parte="pase" id="vivo">
+  <div class="lado">
+    <div>
+      <h2>Pruébalo</h2>
+      <div class="caja" data-r style="--r:1"><span class="cifra vig">3</span><p>toques para volver a invitar a una visita</p></div>
+      <div class="caja" data-r style="--r:2"><span class="cifra vig">8 s</span><p>estimados con KLM (visita nueva: 19,4 s)</p></div>
+    </div>
+    <div class="marco" data-r style="--r:2"><iframe src="prototipo.html?actor=todos&amp;panel=0" title="Prototipo de Kino con los cuatro actores" loading="lazy"></iframe></div>
+  </div>
+  <aside class="guion">Recorrido: entrar con WhatsApp, tocar Andrés en «Volver a invitar», Crear Pase, ver Sin confirmar pasar a Vigente, enviar por WhatsApp, abrir el enlace en el teléfono de la visita y leer su QR en portería.</aside>
+</section>
+
+<!-- 7 · Motion -->
 <section data-parte="pase">
-  <p class="rot">Objetivo general · meta general</p>
-  <h2>Reunir conocimiento y autoridad para decidir quién entra</h2>
-  <p class="sec">Que el residente otorgue, acote y revoque el ingreso de sus visitas y colaboradores, sobre el hardware que el conjunto ya tiene y sin crear personas permanentes.</p>
-  <div class="caja" style="border-color:var(--vig-b)">
-    <span class="rot">Meta general · octubre de 2027</span>
-    <h3>4 conjuntos con pago, 95 % de los Pases confirmados por el lector en menos de 60 s, y ningún ingreso que exija dar de alta a una persona permanente</h3>
+  <h2>El Pase se mueve como un objeto vivo</h2>
+  <div class="videos">
+    <figure data-r style="--r:1"><video src="antes-despues/crear-despues.webm" poster="antes-despues/crear-despues.webp" muted loop playsinline preload="metadata"></video><figcaption>El botón se vuelve el Pase</figcaption></figure>
+    <figure data-r style="--r:2"><video src="antes-despues/estados-despues.webm" poster="antes-despues/estados-pase.webp" muted loop playsinline preload="metadata"></video><figcaption>Confirmar, revocar, deshacer</figcaption></figure>
+    <figure data-r style="--r:3"><video src="antes-despues/porteria-despues.webm" poster="antes-despues/porteria-despues.webp" muted loop playsinline preload="metadata"></video><figcaption>Portería: el veredicto en el primer cuadro</figcaption></figure>
   </div>
-  <aside class="guion">Los dos conjuntos nuevos son meta del equipo; se ajusta cuando sepamos cuántas copropiedades del Oriente tienen Hikvision.</aside>
+  <aside class="guion">Dirección biopunk aprobada (E3-1) y motion aprobado (E3-8). Cada movimiento sale de un proceso real: la sinapsis en el lector, la bioluminiscencia al confirmar, la cicatriz al revocar.</aside>
 </section>
 
+<!-- 8 · Validación -->
 <section data-parte="pase">
-  <p class="rot">Lo que implica la mejora</p>
-  <h2>Para que el Pase de Andrés exista cambian seis frentes</h2>
-  <div class="rejilla c3">
-    <div class="caja"><h3>Producto</h3><p>App del residente, Pase vivo, portería y administración.</p></div>
-    <div class="caja"><h3>Datos</h3><p>Teléfono obligatorio y único; el correo deja de serlo.</p></div>
-    <div class="caja"><h3>Integración</h3><p>Persona temporal con «Válido desde / hasta» en HikCentral.</p></div>
-    <div class="caja"><h3>Operación</h3><p>Carga por cédula, capacitación de portería, señalética.</p></div>
-    <div class="caja"><h3>Legal</h3><p>Ley 1581 y SIC 52185: la biometría nunca se exige.</p></div>
-    <div class="caja"><h3>Negocio</h3><p>Suscripción que paga la administración del conjunto.</p></div>
+  <h2>Cómo lo validamos</h2>
+  <div class="embudo">
+    <div class="tramo" data-r style="--r:1"><span class="cifra" data-contar="31">31</span><span class="barra-v" style="--w:100%;--r:1">hallazgos de QA en el Figma: nada cruzaba de un actor a otro</span></div>
+    <div class="tramo" data-r style="--r:2"><span class="cifra" data-contar="17">17</span><span class="barra-v" style="--w:78%;--r:2">interacciones construidas en código, entre los cuatro actores</span></div>
+    <div class="tramo" data-r style="--r:3"><span class="cifra" data-contar="18">18</span><span class="barra-v" style="--w:60%;--r:3">pruebas de recorrido que pasan, también con movimiento reducido</span></div>
+    <div class="tramo" data-r style="--r:4"><span class="cifra vig" data-contar="5">5</span><span class="barra-v" style="--w:42%;--r:4">perfiles en la evaluación por inspección: 11 hallazgos, 6 resueltos</span></div>
   </div>
-  <aside class="guion">Quitar el correo obligatorio resuelve la queja del registro y los 711 errores de sincronización. Manuel confirmó que HikCentral admite vigencia por persona o visitante, hasta 2037 o 2099.</aside>
+  <div class="biblia" data-r style="--r:6" aria-label="Avance de la Biblia"><span class="b1">Biblia · E1 y E2 completas</span><span class="b2">E3: 3.1–3.3 · 5.2 · 6.1</span><span class="b3">E4 y final: previsto</span></div>
+  <aside class="guion">QA por especialidad con la severidad de Nielsen. La evaluación por inspección usa los perfiles del estudio de iAgency para Monte Sereno (2024) y los arquetipos; no reemplaza la prueba con personas del piloto.</aside>
 </section>
 
-<!-- 3 · EN USO: QA, prototipo siguiendo la tarde, biopunk, inventario, validación, Biblia -->
-<section id="uso" data-parte="uso">
-  <p class="rot">QA del prototipo de Figma «Kino · App»</p>
-  <div class="fila" style="align-items:end">
-    <div class="caja"><span class="cifra">226</span><p>pantallas diseñadas, en oscuro y claro, con ficha cada una</p></div>
-    <div class="caja"><span class="cifra rech">22</span><p>reacciones en todo el archivo, todas «al clic, ir a»</p></div>
-    <div class="caja"><span class="cifra pv">0</span><p>interacciones que crucen de un actor a otro</p></div>
-  </div>
-  <p class="sec">En Figma, lo que hacía Carolina no le llegaba a Andrés ni a portería. Por eso el prototipo se construyó en código.</p>
-  <aside class="guion">Conteo con la API de Figma: 10 reacciones en residente, 4 en visita, 4 en portería y 4 en administración.</aside>
-</section>
-
-<section data-parte="uso">
-  <p class="rot">QA por especialidad · 31 hallazgos · severidad de Nielsen</p>
-  <h2>Los cuatro hallazgos que más cambiaron el prototipo</h2>
-  <div class="rejilla c2">
-    <div class="caja"><h3>Interacción · sev. 4</h3><p>Ningún estado depende del tiempo: Por vencer era una pantalla aparte.</p></div>
-    <div class="caja"><h3>Identidad · sev. 3</h3><p>El residente nunca ve su Pase como objeto: el arco solo existía para la visita.</p></div>
-    <div class="caja"><h3>Escritura · sev. 3</h3><p>«3 de {cupo} Pases activos» y «[PENDIENTE]» visibles en pantallas aprobadas.</p></div>
-    <div class="caja"><h3>Integración · sev. 3</h3><p>La pantalla de integración caída no nombraba la causa: 711 errores por el campo correo.</p></div>
-  </div>
-  <aside class="guion">QA completo en entrega-3/qa-prototipo.md: ocho especialidades, cada hallazgo con su nodo de Figma.</aside>
-</section>
-
-<section data-parte="uso" id="vivo">
-  <div class="lado">
-    <div>
-      <p class="rot">Prototipo en vivo · el mismo de Reto</p>
-      <h2>La tarde de Carolina, en las cuatro pantallas</h2>
-      <ul class="lista">
-        <li>Carolina crea y envía</li>
-        <li>Andrés abre el Pase sin cuenta</li>
-        <li>Portería lo lee</li>
-        <li>A Carolina le llega el aviso</li>
-      </ul>
-    </div>
-    <div class="marco"><iframe src="prototipo.html?actor=todos&amp;panel=0" title="Prototipo de Kino con los cuatro actores" loading="lazy"></iframe></div>
-  </div>
-  <aside class="guion">Recorrido: entrar con WhatsApp, tocar Laura o Andrés en «Volver a invitar», Crear Pase, ver Sin confirmar pasar a Vigente, Enviar por WhatsApp, abrir el enlace en el teléfono de la visita, leer su QR en portería.</aside>
-</section>
-
-<section data-parte="uso">
-  <div class="vivo">
-    <div style="display:grid;gap:calc(var(--u)*1.4)">
-      <p class="hora">2:01 p. m.</p>
-      <h2>Carolina crea el Pase en 3 toques</h2>
-      <div class="inter">
-        <div><b>I-01</b><p>Código por WhatsApp<span>Llega el código y se llena solo</span></p></div>
-        <div><b>I-03</b><p>Volver a invitar<span>Tocar a Andrés abre la hoja ya llena</span></p></div>
-        <div><b>I-05</b><p>Vigencia a tu medida<span>Unas horas, un día o una estadía de meses</span></p></div>
-        <div><b>I-06</b><p>Nacimiento del Pase<span>El botón se vuelve el arco del Pase</span></p></div>
-      </div>
-    </div>
-    <div class="marco tel"><iframe src="prototipo.html?actor=residente&amp;solo=1" title="App del residente" loading="lazy"></iframe></div>
-  </div>
-  <aside class="guion">Crear en 3 toques es OE1, y se mide en cada versión del prototipo: 3 toques y 8 s estimados con KLM.</aside>
-</section>
-
-<section data-parte="uso">
-  <div class="vivo">
-    <div style="display:grid;gap:calc(var(--u)*1.4)">
-      <p class="hora">2:01 p. m. · 3 s después</p>
-      <h2>El Pase queda vigente cuando el lector lo confirma</h2>
-      <div class="inter">
-        <div><b>I-07</b><p>Espera del lector<span>Borde punteado hasta que HikCentral responde</span></p></div>
-        <div><b>I-02</b><p>Pase vivo en la lista<span>La barra se consume con el tiempo</span></p></div>
-        <div><b>I-14</b><p>Extender<span>+1 h, +1 día o +1 semana, sin tope</span></p></div>
-        <div><b>I-13</b><p>Mantener para revocar<span>Anillo de 0,8 s y deshacer por 5 s</span></p></div>
-      </div>
-      <div class="marcas"><span class="chip sinconf">Sin confirmar</span><span class="chip vigente">Vigente</span><span class="chip porvencer">Por vencer</span><span class="chip rechazado">Rechazado</span></div>
-    </div>
-    <div class="marco tel"><iframe src="prototipo.html?actor=residente&amp;solo=1&amp;tema=marca" title="Estados del Pase" loading="lazy"></iframe></div>
-  </div>
-  <aside class="guion">Viene de Refugio Campestre: 0 de 312 usuarios sincronizados. Mostrar Vigente un Pase que la puerta no conoce repite el error de la app actual. Revocar con deshacer reemplaza al diálogo de confirmación (E3-3).</aside>
-</section>
-
-<section data-parte="uso">
-  <div class="vivo">
-    <div style="display:grid;gap:calc(var(--u)*1.4)">
-      <p class="hora">2:02 p. m.</p>
-      <h2>A Andrés le llega el Pase por WhatsApp</h2>
-      <div class="inter">
-        <div><b>I-08</b><p>Compartir por WhatsApp<span>Imagen con QR, código y enlace</span></p></div>
-        <div><b>I-09</b><p>Pase vivo en el navegador<span>QR, placa o código en el mismo arco; cambia solo si Carolina lo extiende o lo revoca</span></p></div>
-      </div>
-    </div>
-    <div class="marco tel"><iframe src="prototipo.html?actor=visita&amp;solo=1" title="Teléfono de la visita" loading="lazy"></iframe></div>
-  </div>
-  <aside class="guion">La imagen lleva el QR y el código: si Andrés llega sin señal, igual entra. Lo encontró la evaluación por inspección.</aside>
-</section>
-
-<section data-parte="uso">
-  <div class="lado">
-    <div>
-      <p class="hora">3:04 p. m.</p>
-      <h2>El lector lee la placa de Andrés</h2>
-      <div class="inter">
-        <div><b>I-10</b><p>Lectura<span>La talanquera sube y portería ve por qué entró</span></p></div>
-        <div><b>I-11</b><p>Aviso de llegada<span>«Andrés entró por Portería principal»</span></p></div>
-        <div><b>I-12</b><p>6:10 p. m. · Laura llega tarde<span>«Venció a las 6:00 p. m.» y «Llamar a Carolina»</span></p></div>
-      </div>
-    </div>
-    <div class="marco"><iframe src="prototipo.html?actor=porteria&amp;solo=1" title="Pantalla de portería" loading="lazy"></iframe></div>
-  </div>
-  <aside class="guion">La llamada queda en la constancia y no abre la entrada. Para dejar entrar a Laura, Carolina extiende el Pase y el lector vuelve a leer.</aside>
-</section>
-
-<section data-parte="uso">
-  <p class="rot">Los ingresos que más se repiten · arquetipos A2 y A1 · decisión E3-2</p>
-  <h2>Marta entra cada día. La mamá de Carolina se queda dos meses.</h2>
-  <div class="rejilla c2">
-    <div class="caja"><span class="rot">Colaborador recurrente</span><h3>Marta Ospina · aseo y cocina</h3><p>Lunes a viernes, 7 a. m. a 5 p. m., hasta que Carolina lo revoque. Se crea una vez.</p></div>
-    <div class="caja"><span class="rot">Estadía</span><h3>Rosa Ruiz · se queda</h3><p>«Se queda»: de 3 días a 3 meses o hasta una fecha. Entra y sale sin pedir nada.</p></div>
-  </div>
-  <p class="sec">Sin tope de visitas ni de duración. Los colaboradores son el ingreso más frecuente, y el 51,3 % del trabajo doméstico se contrata por días.</p>
-  <aside class="guion">Dato de GEIH-DANE y Symplifica vía Infobae, 1S-2026. Antes de E3-2 solo había Pases de horas; la evaluación por inspección lo marcó con severidad 3.</aside>
-</section>
-
-<section data-parte="uso">
-  <div class="lado">
-    <div>
-      <p class="rot">Administración · arquetipo A4</p>
-      <h2>La administración fija franjas</h2>
-      <div class="inter">
-        <div><b>I-15</b><p>Vista previa<span>Antes de guardar, ve qué Pase quedaría fuera</span></p></div>
-        <div><b>I-16</b><p>Integración y arreglo<span>Refugio: reintentar con teléfono</span></p></div>
-      </div>
-    </div>
-    <div class="marco"><iframe src="prototipo.html?actor=administracion&amp;solo=1" title="Administración" loading="lazy"></iframe></div>
-  </div>
-  <aside class="guion">Los Pases activos conservan su vigencia al mover una franja. La sincronización de Refugio es una simulación del arreglo propuesto.</aside>
-</section>
-
-<section data-parte="uso">
-  <div class="fila" style="align-items:center">
-    <div style="display:grid;gap:calc(var(--u)*1.4)">
-      <p class="rot">Identidad del Pase · dirección biopunk <span class="chip vigente">Aprobada · E3-1</span></p>
-      <h2>El Pase se ve vivo porque hoy el acceso temporal no existe</h2>
-      <div class="inter">
-        <div><b>Brilla</b><p>mientras está vigente<span>Quieto, como un hongo luminiscente; se apaga con el tiempo que queda</span></p></div>
-        <div><b>Se marchita</b><p>al vencer<span>Se agota a la vista</span></p></div>
-        <div><b>Cicatriza</b><p>al revocarse<span>Revocado tiene autor; queda la marca</span></p></div>
-      </div>
-      <p class="tenue" style="font-size:var(--t-min)">La tecla B la apaga para comparar con la marca base.</p>
-    </div>
-    <div class="marco tel" style="flex:0 0 auto"><iframe src="prototipo.html?actor=residente&amp;solo=1&amp;tema=bio" title="Dirección biopunk" loading="lazy"></iframe></div>
-  </div>
-  <aside class="guion">Aprobada por el equipo el 19 oct (decisiones.md E3-1). Cada rasgo nombra un estado del Pase.</aside>
-</section>
-
-<section data-parte="uso">
-  <p class="rot">Motion · seis momentos y el resto de la app <span class="chip vigente">Aprobado · E3-8</span></p>
-  <h2>El Pase viaja; la portería se lee en el primer cuadro</h2>
-  <div class="tabla"><table>
-    <thead><tr><th>Momento</th><th>En pantalla</th><th>Regla</th></tr></thead>
-    <tbody>
-      <tr><td>El lector confirma</td><td>Escena nocturna 3D: la luz del lector se enciende y la talanquera sube</td><td>Verde o rojo desde el primer cuadro</td></tr>
-      <tr><td>No entra</td><td>La escena se desatura; el panel se contrae y la luz roja late dos veces</td><td>Sin sacudida (<i>Mimosa pudica</i>)</td></tr>
-      <tr><td>Crear un Pase</td><td>El botón crece y toma la forma del arco del Pase</td><td>El objeto llega antes que el texto</td></tr>
-      <tr><td>Tarjeta → detalle</td><td>El Portal vuela de la lista al detalle y regresa</td><td>Elemento compartido</td></tr>
-      <tr><td>La visita abre su Pase</td><td>La imagen del chat crece hasta el Pase, que se inclina con el teléfono</td><td>Sin cuenta</td></tr>
-      <tr><td>Integración</td><td>La red Kino → HikCentral fluye mientras sincroniza</td><td>El grosor es el dato (<i>Physarum</i>)</td></tr>
-      <tr><td>Ciclo del Pase</td><td>El borde punteado se cierra al confirmarse; revocar deja cicatriz; deshacer la retrae</td><td>El estado final lo fija el dato</td></tr>
-    </tbody>
-  </table></div>
-  <aside class="guion">Segunda y tercera pasada del 19 oct, aprobadas por el equipo. En toda la app: lo que entra también sale, las listas se reacomodan, el texto se funde y las cifras se cuentan. Usa la escena 3D de portería aprobada (M3D) y solo deja brillar el Pase vigente. La aurora del inicio se mueve y se pausa a los 5 s (F7). Con movimiento reducido, pósters fijos y fundidos. Comparación en video: entrega-3/antes-despues.html. Detalle en entrega-3/motion-e-ilustracion.md.</aside>
-</section>
-
-<section data-parte="uso">
-  <p class="rot">Inventario de interacciones</p>
-  <div class="fila" style="align-items:end">
-    <div class="caja"><span class="cifra vig">17</span><p>implementadas y probadas de punta a punta en Chromium</p></div>
-    <div class="caja"><span class="cifra">3</span><p>planeadas: Pase en la billetera, háptica por estado, rostro como cuarto modo</p></div>
-    <div class="caja"><span class="cifra">17/17</span><p>pruebas del recorrido automático</p></div>
-  </div>
-  <p class="sec">Cada interacción tiene disparador, respuesta, regla y efecto en HikCentral, visibles en el panel derecho del prototipo.</p>
-  <aside class="guion">El rostro es opcional por la Resolución 52185 de 2025 de la SIC: la biometría no se puede exigir.</aside>
-</section>
-
-<section data-parte="uso">
-  <p class="rot">Validación · Biblia 6.1 · perfiles del estudio de mercado de Monte Sereno y arquetipos del diagnóstico</p>
-  <h2>Evaluación por inspección: dónde se traba cada perfil</h2>
-  <div class="tabla"><table>
-    <thead><tr><th>Perfil y contexto</th><th>Dónde se traba</th><th>Sev.</th><th>Qué cambia</th></tr></thead>
-    <tbody>
-      <tr><td>Empty nesters · hijos y nietos por un mes</td><td>Solo había Pases de horas</td><td class="m">3</td><td>«Se queda»: de 3 días a 3 meses</td></tr>
-      <tr><td>Familia con hijos · cumpleaños con 15 invitados</td><td>Quince Pases, uno por uno</td><td class="m">3</td><td>Planeado: Pase de evento</td></tr>
-      <tr><td>A1 · la visita sale a la tienda</td><td>El Pase quedaba usado en la primera entrada</td><td class="m">3</td><td>Entra y sale dentro de su vigencia</td></tr>
-      <tr><td>A3 · visita en la puerta sin señal</td><td>La imagen del WhatsApp no traía un QR real</td><td class="m">3</td><td>La imagen lleva QR y código</td></tr>
-      <tr><td>Pareja sin hijos · número extranjero</td><td>El cambio de número pasa por la administración</td><td class="m">2</td><td>Pendiente con la administración</td></tr>
-    </tbody>
-  </table></div>
-  <p class="sec">11 hallazgos en la Biblia: 6 resueltos en el prototipo, 3 planeados para la entrega 4.</p>
-  <aside class="guion">Recorrido cognitivo y heurísticas de Nielsen desde cada perfil. Los perfiles salen del estudio de mercado de iAgency para Monte Sereno (2024) y de los arquetipos del diagnóstico. El caso de la pareja que viaja no se traba: Extender y el aviso de llegada lo cubren.</aside>
-</section>
-
-<section data-parte="uso">
-  <p class="rot">Avances de la Biblia · documento integrador Diex</p>
-  <h2>Lo que la Biblia ya tiene</h2>
-  <div class="tabla"><table>
-    <thead><tr><th>Apartado</th><th>Clase</th><th>Entrega</th><th>Estado</th></tr></thead>
-    <tbody>
-      <tr><td>1.1–1.5 Contexto del reto</td><td>IxD · SD</td><td>E1</td><td><span class="chip vigente">Completo</span></td></tr>
-      <tr><td>2.1–2.4 Usuario y diseño emocional</td><td>SD · UX</td><td>E1–E2</td><td><span class="chip vigente">Completo</span></td></tr>
-      <tr><td>4.3 · 5.1 Requerimientos y modelo conceptual</td><td>UX · IxD</td><td>E2</td><td><span class="chip vigente">Completo</span></td></tr>
-      <tr><td>3.1–3.3 SMART, propuesta de valor, estrategia</td><td>SD</td><td>E3</td><td><span class="chip vigente">Nuevo hoy</span></td></tr>
-      <tr><td>5.2 Representación visual · 6.1 Validación</td><td>IxD · UX</td><td>E3</td><td><span class="chip vigente">Nuevo hoy</span></td></tr>
-      <tr><td>3.4–3.7 · 4.1–4.2 · 6.2–7.2</td><td>Todas</td><td>E4–Final</td><td><span class="chip previsto">Previsto</span></td></tr>
-    </tbody>
-  </table></div>
-  <aside class="guion">Lo de E3 está escrito; E4 y E5 tienen el encabezado.</aside>
-</section>
-
-<!-- 4 · EL PLAN: SMART, conexión, SOSTAC, estrategias, tácticas, acción, KPI -->
+<!-- 9 · Objetivo general -->
 <section id="plan" data-parte="plan">
-  <p class="rot">SOSTAC · O · Objetivos específicos SMART · cada uno mide una escena de la tarde</p>
-  <div class="tabla"><table>
-    <thead><tr><th>#</th><th>Escena</th><th>Objetivo</th><th>Meta</th><th>Cuándo</th></tr></thead>
-    <tbody>
-      <tr><td>OE1</td><td>Carolina crea el Pase</td><td>Crear y enviar un Pase en el prototipo, medido con KLM en el recorrido automático</td><td class="m">≤3 toques · &lt;30 s</td><td>9 nov 2026</td></tr>
-      <tr><td>OE2</td><td>Las casas lo usan</td><td>Casas de Villas Campestres crean al menos un Pase</td><td class="m">60 % de las casas</td><td>8 semanas de piloto</td></tr>
-      <tr><td>OE3</td><td>Marta entra sin llamada</td><td>Ingresos de colaboradores recurrentes con Pase</td><td class="m">80 %</td><td>Ene–mar 2027</td></tr>
-      <tr><td>OE4</td><td>El lector confirma</td><td>Pases confirmados por el lector; Refugio sincronizado</td><td class="m">98 % &lt;60 s · ≥95 %</td><td>31 mar 2027</td></tr>
-      <tr><td>OE5</td><td>La administración renueva</td><td>Monte Sereno renueva y 2 conjuntos nuevos firman piloto pagado</td><td class="m">4 conjuntos</td><td>31 oct 2027</td></tr>
-    </tbody>
-  </table></div>
-  <aside class="guion">Fórmula del curso: acción + métrica + usuario + contexto + tiempo. Donde no existe medición, la meta es un supuesto y el punto de partida se mide en la semana 1 del piloto. OE1 ya se cumple en el prototipo: 3 toques y 8 s con visita reciente; 19 s con visita nueva.</aside>
-</section>
-
-<section data-parte="plan">
-  <p class="rot">Conexión de los objetivos específicos con el plan general</p>
-  <h2>OE4 primero, OE5 al final</h2>
-  <div class="arbol">Objetivo general: reunir conocimiento y autoridad
- ├─ <b>OE1</b> crear un Pase en 30 s ...... Producto    → valida la propuesta
- ├─ <b>OE2</b> adopción del residente .......... Servicio    → el residente usa su autoridad
- ├─ <b>OE3</b> colaborador sin llamada ......... Producto    → el ingreso de mayor volumen
- ├─ <b>OE4</b> integración confirmada .......... Tecnología  → el Pase existe en la puerta
- └─ <b>OE5</b> renovación y conjuntos nuevos ... Negocio     → la meta general</div>
-  <p class="sec">OE4 es la condición técnica de todos. OE2 y OE3 son la evidencia que vende OE5.</p>
-</section>
-
-<section data-parte="plan">
-  <p class="rot">Plan estratégico SOSTAC</p>
-  <div class="sostac">
-    <div class="caja"><span class="letra">S</span><h3>Situación</h3><p>Mercado grande; el manual es el competidor.</p></div>
-    <div class="caja"><span class="letra">O</span><h3>Objetivos</h3><p>OE1 a OE5, SMART.</p></div>
-    <div class="caja"><span class="letra">S</span><h3>Estrategia</h3><p>9 estrategias en 4 ejes.</p></div>
-    <div class="caja"><span class="letra">T</span><h3>Tácticas</h3><p>Qué, cómo, quién, cuándo.</p></div>
-    <div class="caja"><span class="letra">A</span><h3>Acción</h3><p>Oct 2026 a oct 2027.</p></div>
-    <div class="caja"><span class="letra">C</span><h3>Control</h3><p>12 KPI con GQM.</p></div>
+  <p class="objetivo" data-r style="--r:0">Que el residente otorgue y revoque el ingreso de sus visitas y colaboradores, dentro de las franjas de la administración, sobre el hardware que el conjunto ya tiene.</p>
+  <div class="meta">
+    <div class="caja" data-r style="--r:2"><span class="cifra" data-contar="4">4</span><p>conjuntos con pago a octubre de 2027</p></div>
+    <div class="caja" data-r style="--r:3"><span class="cifra"><span data-contar="95">95</span> %</span><p>de los Pases confirmados por el lector en menos de 60 s</p></div>
+    <div class="caja" data-r style="--r:4"><span class="cifra" data-contar="0">0</span><p>personas permanentes creadas para dejar entrar a alguien</p></div>
   </div>
+  <aside class="guion">Objetivo general (el qué) y meta general a 12 meses. Los 4 conjuntos: Villas Campestres, Refugio Campestre y 2 nuevos del Oriente antioqueño; el 2 es meta del equipo y se recalibra con el piloto.</aside>
 </section>
 
+<!-- 10 · SMART -->
 <section data-parte="plan">
-  <p class="rot">SOSTAC · S · Estrategia · nombradas con sustantivo</p>
-  <div class="tabla"><table>
-    <thead><tr><th>Estrategia</th><th>Objetivo</th><th>Eje estratégico</th></tr></thead>
-    <tbody>
-      <tr><td>Simplificación del otorgamiento</td><td>OE1</td><td>Interactividad y personalización</td></tr>
-      <tr><td>Medición del prototipo</td><td>OE1</td><td>Soporte y acompañamiento</td></tr>
-      <tr><td>Acompañamiento de la adopción</td><td>OE2</td><td>Soporte y acompañamiento</td></tr>
-      <tr><td>Diversificación de los canales del Pase</td><td>OE2</td><td>Omnicanalidad y accesibilidad</td></tr>
-      <tr><td>Recurrencia del colaborador</td><td>OE3</td><td>Automatización y gestión</td></tr>
-      <tr><td>Integración confiable con HikCentral</td><td>OE4</td><td>Automatización y gestión</td></tr>
-      <tr><td>Transparencia del estado</td><td>OE4</td><td>Automatización y gestión</td></tr>
-      <tr><td>Penetración por los instaladores</td><td>OE5</td><td>Omnicanalidad y accesibilidad</td></tr>
-      <tr><td>Fidelización con evidencia</td><td>OE5</td><td>Automatización y gestión</td></tr>
-    </tbody>
-  </table></div>
+  <h2>Cinco objetivos SMART</h2>
+  <div class="smart" role="table" aria-label="Objetivos SMART">
+    <span></span><span class="cab acc">Acción</span><span class="cab met">Métrica</span><span class="cab usu">Usuario</span><span class="cab ctx">Contexto</span><span class="cab tie">Tiempo</span>
+    <span class="oe" data-r style="--r:1">OE1</span><span class="p acc" data-r style="--r:1">Crear y enviar un Pase</span><span class="p met" data-r style="--r:1">≤ 3 toques · &lt; 30 s</span><span class="p usu" data-r style="--r:1">Residente (A1)</span><span class="p ctx" data-r style="--r:1">En el prototipo</span><span class="p tie" data-r style="--r:1">Antes del 9 nov 2026</span>
+    <span class="oe" data-r style="--r:2">OE2</span><span class="p acc" data-r style="--r:2">Crear su primer Pase</span><span class="p met" data-r style="--r:2">60 % de las casas</span><span class="p usu" data-r style="--r:2">Residentes (A1)</span><span class="p ctx" data-r style="--r:2">Piloto en Villas Campestres</span><span class="p tie" data-r style="--r:2">8 semanas · ene–feb 2027</span>
+    <span class="oe" data-r style="--r:3">OE3</span><span class="p acc" data-r style="--r:3">Entrar con Pase, sin llamada</span><span class="p met" data-r style="--r:3">80 % de sus ingresos</span><span class="p usu" data-r style="--r:3">Colaboradores (A2)</span><span class="p ctx" data-r style="--r:3">Portería de Villas Campestres</span><span class="p tie" data-r style="--r:3">Ene–mar 2027</span>
+    <span class="oe" data-r style="--r:4">OE4</span><span class="p acc" data-r style="--r:4">Confirmar el Pase en el lector</span><span class="p met" data-r style="--r:4">98 % en &lt; 60 s · Refugio ≥ 95 %</span><span class="p usu" data-r style="--r:4">Administración (A4)</span><span class="p ctx" data-r style="--r:4">HikCentral de Monte Sereno</span><span class="p tie" data-r style="--r:4">Antes del 31 mar 2027</span>
+    <span class="oe" data-r style="--r:5">OE5</span><span class="p acc" data-r style="--r:5">Renovar y firmar pilotos</span><span class="p met" data-r style="--r:5">1 renovación + 2 conjuntos</span><span class="p usu" data-r style="--r:5">Administración que compra</span><span class="p ctx" data-r style="--r:5">Oriente antioqueño</span><span class="p tie" data-r style="--r:5">Antes del 31 oct 2027</span>
+  </div>
+  <aside class="guion">Fórmula del curso: acción + métrica + usuario + contexto + tiempo. OE1 ya se midió el 19 oct: 3 toques y 8 s; visita nueva, 19,4 s. Refugio parte de 0 de 312.</aside>
 </section>
 
+<!-- 11 · Estrategia → táctica -->
 <section data-parte="plan">
-  <p class="rot">SOSTAC · T · Tácticas</p>
-  <div class="tabla"><table>
-    <thead><tr><th>Qué</th><th>Cómo</th><th>Quién</th><th>Cuándo</th></tr></thead>
-    <tbody>
-      <tr><td>Volver a invitar</td><td>4 personas recientes a un toque</td><td>Equipo</td><td>Prototipo · hecho</td></tr>
-      <tr><td>Medición KLM</td><td>Toques y tiempo en el recorrido automático</td><td>Equipo</td><td>Prototipo · hecho</td></tr>
-      <tr><td>Alta con teléfono</td><td>Reintentar las 711 sin correo</td><td>Equipo y Manuel</td><td>Nov – dic 2026</td></tr>
-      <tr><td>Pase por WhatsApp</td><td>Plantilla de utilidad con imagen y enlace</td><td>Equipo</td><td>Dic 2026</td></tr>
-      <tr><td>Día de lanzamiento</td><td>Puesto en la entrada: primer Pase con cada residente</td><td>Equipo y admón.</td><td>Ene 2027</td></tr>
-      <tr><td>Reporte semanal</td><td>Entradas, rechazos con motivo, salud del lector</td><td>Equipo</td><td>Feb 2027</td></tr>
-      <tr><td>Aliados instaladores</td><td>Ficha comercial para instaladores Hikvision</td><td>Equipo</td><td>Abr – jun 2027</td></tr>
-    </tbody>
-  </table></div>
+  <h2>Cada objetivo, una estrategia y una táctica</h2>
+  <div class="ramas">
+    <div class="rama" data-r style="--r:1"><span class="oe">OE1</span><span class="conector" style="--r:1"></span><span class="est">Simplificación<small>interactividad</small></span><span class="conector" style="--r:2"></span><span class="tac">«Volver a invitar» <span>abre la hoja ya llena</span></span><span class="cuando"><b>Equipo</b>oct 2026 · hecho</span></div>
+    <div class="rama" data-r style="--r:2"><span class="oe">OE2</span><span class="conector" style="--r:2"></span><span class="est">Acompañamiento<small>soporte</small></span><span class="conector" style="--r:3"></span><span class="tac">Día de lanzamiento <span>en portería: primer Pase con cada residente</span></span><span class="cuando"><b>Equipo y adm.</b>semana 1 · ene 2027</span></div>
+    <div class="rama" data-r style="--r:3"><span class="oe">OE3</span><span class="conector" style="--r:3"></span><span class="est">Recurrencia<small>automatización</small></span><span class="conector" style="--r:4"></span><span class="tac">Pase de colaborador <span>con días y franja, se crea una vez</span></span><span class="cuando"><b>Equipo y Manuel</b>dic 2026</span></div>
+    <div class="rama" data-r style="--r:4"><span class="oe">OE4</span><span class="conector" style="--r:4"></span><span class="est">Integración<small>automatización</small></span><span class="conector" style="--r:5"></span><span class="tac">Alta con teléfono <span>en vez de correo: reintentar las 711</span></span><span class="cuando"><b>Equipo y Manuel</b>nov–dic 2026</span></div>
+    <div class="rama" data-r style="--r:5"><span class="oe">OE5</span><span class="conector" style="--r:5"></span><span class="est">Penetración<small>omnicanalidad</small></span><span class="conector" style="--r:6"></span><span class="tac">Alianza con instaladores <span>Hikvision del Valle de Aburrá y el Oriente</span></span><span class="cuando"><b>Equipo</b>abr–jun 2027</span></div>
+  </div>
+  <aside class="guion">Estrategia: un sustantivo que dice cómo; su eje estratégico del curso debajo. Táctica: qué se hará, quién y cuándo. Las demás tácticas están en estrategia.md §5.</aside>
 </section>
 
+<!-- 12 · Plan de acción -->
 <section data-parte="plan">
-  <p class="rot">SOSTAC · A · Plan de acción</p>
   <h2>De la sustentación al cuarto conjunto</h2>
-  <div class="linea">
-    <div class="caja a"><span class="rot">Oct–nov 26</span><h3>Sustentación</h3><p>Prototipo y medición</p></div>
-    <div class="caja"><span class="rot">Nov–dic 26</span><h3>Refugio</h3><p>≥95 % sincronizado</p></div>
-    <div class="caja"><span class="rot">Dic 26</span><h3>Beta</h3><p>Backend y WhatsApp</p></div>
-    <div class="caja"><span class="rot">Ene–mar 27</span><h3>Piloto</h3><p>Mide OE2 a OE4</p></div>
-    <div class="caja"><span class="rot">Abr–jun 27</span><h3>Aliados</h3><p>10 conjuntos contactados</p></div>
-    <div class="caja"><span class="rot">Jul–oct 27</span><h3>Meta</h3><p>4 conjuntos</p></div>
+  <div class="tiempo">
+    <div class="hito" data-r style="--r:1"><span class="cuando">9 nov 2026</span><b>Sustentación</b><span>Prototipo y medición de OE1</span></div>
+    <div class="hito" data-r style="--r:2"><span class="cuando">Nov–dic 2026</span><b>Refugio en línea</b><span>Alta por teléfono con Manuel</span></div>
+    <div class="hito" data-r style="--r:3"><span class="cuando">Dic 2026</span><b>Versión beta</b><span>Backend del Pase y WhatsApp Business</span></div>
+    <div class="hito" data-r style="--r:4"><span class="cuando">Ene–mar 2027</span><b>Piloto pagado</b><span>Medir OE2, OE3 y OE4</span></div>
+    <div class="hito" data-r style="--r:5"><span class="cuando">Abr–jun 2027</span><b>Instaladores</b><span>10 conjuntos contactados</span></div>
+    <div class="hito" data-r style="--r:6"><span class="cuando">Oct 2027</span><b>4 conjuntos</b><span>Renovación y 2 nuevos</span></div>
   </div>
-  <aside class="guion">El primer bloque es académico; desde noviembre, producto. Manuel ya confirmó la vigencia por persona en HikCentral; falta probar el alta por OpenAPI.</aside>
+  <aside class="guion">El primer hito es académico; los demás son de producto y siguen después de noviembre.</aside>
 </section>
 
+<!-- 13 · KPI -->
 <section data-parte="plan">
-  <p class="rot">SOSTAC · C · Control · KPI de uso y adopción · método GQM</p>
-  <div class="tabla"><table>
-    <thead><tr><th>Pregunta</th><th>KPI</th><th>Meta</th><th>Etapa</th></tr></thead>
-    <tbody>
-      <tr><td>¿Crear un Pase es más rápido que llamar?</td><td>Tiempo KLM para crear</td><td class="m">&lt; 30 s</td><td>Comportamiento</td></tr>
-      <tr><td>¿Cuánto cuesta volver a invitar?</td><td>Toques con visita reciente</td><td class="m">≤ 3</td><td>Comportamiento</td></tr>
-      <tr><td>¿Cómo lo perciben en el piloto?</td><td>SUS</td><td class="m">≥ 80</td><td>Satisfacción</td></tr>
-      <tr><td>¿Las casas usan su autoridad?</td><td>Casas con ≥1 Pase</td><td class="m">≥ 60 %</td><td>Conversión</td></tr>
-      <tr><td>¿Vuelven a usarlo?</td><td>Retención a 2 semanas</td><td class="m">≥ 50 %</td><td>Compromiso</td></tr>
-      <tr><td>¿El colaborador entra sin llamada?</td><td>Ingresos con Pase</td><td class="m">≥ 80 %</td><td>Comportamiento</td></tr>
-    </tbody>
-  </table></div>
-  <p class="rot">OE1 · OE2 · OE3</p>
+  <h2>Un KPI por objetivo</h2>
+  <div class="gqm">
+    <span></span><span class="cab">Pregunta</span><span class="cab">KPI</span><span class="cab">Fórmula</span><span class="cab">Meta</span><span class="cab">Etapa</span><span class="cab">Cada</span>
+    <span class="oe" data-r style="--r:1">OE1</span><span class="q" data-r style="--r:1">¿Crear un Pase es más rápido que llamar?</span><span class="k" data-r style="--r:1">Tiempo para crear</span><span class="f" data-r style="--r:1">KLM del recorrido</span><span class="meta-k" data-r style="--r:1">&lt; 30 s</span><span class="chip previsto" data-r style="--r:1">Comportamiento</span><span class="f" data-r style="--r:1">versión</span>
+    <span class="oe" data-r style="--r:2">OE2</span><span class="q" data-r style="--r:2">¿Las casas usan su autoridad?</span><span class="k" data-r style="--r:2">Activación de casas</span><span class="f" data-r style="--r:2">casas con ≥ 1 Pase ÷ casas registradas</span><span class="meta-k" data-r style="--r:2">≥ 60 %</span><span class="chip vigente" data-r style="--r:2">Conversión</span><span class="f" data-r style="--r:2">semana</span>
+    <span class="oe" data-r style="--r:3">OE3</span><span class="q" data-r style="--r:3">¿El colaborador entra sin llamada?</span><span class="k" data-r style="--r:3">Ingresos con Pase</span><span class="f" data-r style="--r:3">ingresos por lector ÷ ingresos en minuta</span><span class="meta-k" data-r style="--r:3">≥ 80 %</span><span class="chip previsto" data-r style="--r:3">Comportamiento</span><span class="f" data-r style="--r:3">semana</span>
+    <span class="oe" data-r style="--r:4">OE4</span><span class="q" data-r style="--r:4">¿El Pase existe en la puerta?</span><span class="k" data-r style="--r:4">Confirmación del lector</span><span class="f" data-r style="--r:4">confirmados en &lt; 60 s ÷ creados</span><span class="meta-k" data-r style="--r:4">≥ 98 %</span><span class="chip porvencer" data-r style="--r:4">Confianza</span><span class="f" data-r style="--r:4">día</span>
+    <span class="oe" data-r style="--r:5">OE5</span><span class="q" data-r style="--r:5">¿La administración ve valor?</span><span class="k" data-r style="--r:5">Conjuntos con pago</span><span class="f" data-r style="--r:5">contratos firmados</span><span class="meta-k" data-r style="--r:5">4</span><span class="chip vigente" data-r style="--r:5">Conversión</span><span class="f" data-r style="--r:5">mes</span>
+  </div>
+  <aside class="guion">Método GQM: objetivo, pregunta, métrica. Hay 12 KPI en total (estrategia.md §7); aquí va el principal de cada objetivo. Las metas de OE2, OE3 y OE5 se recalibran con la medición de la semana 1 del piloto.</aside>
 </section>
 
+<!-- 14 · Fichas de producto -->
 <section data-parte="plan">
-  <p class="rot">SOSTAC · C · Control · KPI de confianza y negocio</p>
-  <div class="tabla"><table>
-    <thead><tr><th>Pregunta</th><th>KPI</th><th>Meta</th><th>Etapa</th></tr></thead>
-    <tbody>
-      <tr><td>¿El Pase existe en la puerta?</td><td>Confirmados en &lt;60 s</td><td class="m">≥ 98 %</td><td>Confianza</td></tr>
-      <tr><td>¿Refugio volvió a operar?</td><td>Sincronización</td><td class="m">≥ 95 %</td><td>Confianza</td></tr>
-      <tr><td>¿Kino dice la verdad?</td><td>Vigente en Kino, rechazado en la puerta</td><td class="m">≤ 0,5 %</td><td>Confianza</td></tr>
-      <tr><td>¿Los rechazos se explican?</td><td>Rechazos con motivo</td><td class="m">100 %</td><td>Confianza</td></tr>
-      <tr><td>¿La administración ve valor?</td><td>NPS de la administración</td><td class="m">≥ 30</td><td>Satisfacción</td></tr>
-      <tr><td>¿Crece la base?</td><td>Conjuntos con pago</td><td class="m">4</td><td>Conversión</td></tr>
-    </tbody>
-  </table></div>
-  <p class="rot">OE4 · OE5 · revisión semanal, mensual y trimestral</p>
+  <h2>Seis productos</h2>
+  <div class="fichas">
+    <div class="caja" data-r style="--r:1"><span class="id">F1</span><h3>Kino Residente</h3><p>App para otorgar, extender y revocar Pases</p><span class="oes"><span class="etiqueta p">OE1</span><span class="etiqueta p">OE2</span><span class="etiqueta p">OE3</span></span></div>
+    <div class="caja" data-r style="--r:2"><span class="id">F2</span><h3>Pase vivo</h3><p>Página para la visita, sin cuenta ni app</p><span class="oes"><span class="etiqueta p">OE2</span></span></div>
+    <div class="caja" data-r style="--r:3"><span class="id">F3</span><h3>Kino Portería</h3><p>Dice por qué alguien entró o no entró</p><span class="oes"><span class="etiqueta p">OE3</span><span class="etiqueta p">OE4</span></span></div>
+    <div class="caja" data-r style="--r:4"><span class="id">F4</span><h3>Kino Administración</h3><p>Franjas y salud de la integración</p><span class="oes"><span class="etiqueta p">OE4</span><span class="etiqueta p">OE5</span></span></div>
+    <div class="caja" data-r style="--r:5"><span class="id">F5</span><h3>Conector HikCentral</h3><p>Da de alta el Pase en el lector</p><span class="oes"><span class="etiqueta p">OE4</span></span></div>
+    <div class="caja" data-r style="--r:6"><span class="id">F6</span><h3>Kit de implementación</h3><p>Un conjunto nuevo operando en menos de 10 días</p><span class="oes"><span class="etiqueta p">OE2</span></span></div>
+  </div>
+  <aside class="guion">Cada ficha completa (propósito, interacciones, componentes, tecnologías y escenario de uso) está en estrategia.md §10 y en la Biblia.</aside>
 </section>
 
-<!-- 5 · DESPUÉS: 1 año, horizonte, lista de mercado, fichas, cierre -->
+<!-- 15 · Después -->
 <section id="despues" data-parte="despues">
-  <p class="rot">Kino como empresa · a 1 año, octubre de 2027</p>
-  <h2>La tarde de Carolina, en cuatro conjuntos</h2>
-  <div class="rejilla c4">
-    <div class="caja"><span class="cifra vig">4</span><p>conjuntos con pago</p></div>
-    <div class="caja"><span class="cifra">4</span><p>productos en producción conectados a HikCentral</p></div>
-    <div class="caja"><span class="cifra">1</span><p>caso documentado con KPI reales</p></div>
-    <div class="caja"><span class="cifra">SAS</span><p>constituida, con facturación electrónica y bases de datos ante la SIC</p></div>
-  </div>
-</section>
-
-<section data-parte="despues">
-  <p class="rot">Horizonte de empresa · 3 a 5 años · ambición del equipo</p>
   <h2>La capa de autorización sobre cualquier lector</h2>
-  <div class="tabla"><table>
-    <thead><tr><th>Objetivo de empresa</th><th>Estrategia</th><th>KPI</th><th>Año</th></tr></thead>
-    <tbody>
-      <tr><td>40 conjuntos en Antioquia</td><td>Replicación con instaladores</td><td>Conjuntos con pago</td><td class="m">2028</td></tr>
-      <tr><td>Segundo y tercer fabricante</td><td>Independencia del fabricante</td><td>Conectores en producción</td><td class="m">2028–29</td></tr>
-      <tr><td>Punto de equilibrio</td><td>Eficiencia en la implementación</td><td>Días hasta el primer Pase</td><td class="m">2029</td></tr>
-      <tr><td>250 conjuntos con Bogotá</td><td>Expansión</td><td>Ingreso recurrente mensual</td><td class="m">2030</td></tr>
-    </tbody>
-  </table></div>
-  <aside class="guion">Bogotá: 69 % de los predios en propiedad horizontal (Catastro Distrital 2025). Las cifras de conjuntos son ambición del equipo hasta conocer el precio que acepta una administración.</aside>
-</section>
-
-<section data-parte="despues">
-  <p class="rot">Lista de mercado · lo que hay que comprar o contratar</p>
-  <div class="rejilla c3">
-    <div class="caja"><h3>WhatsApp Business</h3><p>Por un proveedor oficial. ≈ US$0,0008 por mensaje de utilidad en Colombia, por confirmar con Meta.</p></div>
-    <div class="caja"><h3>HikCentral OpenAPI</h3><p>Acceso y programa de socios de Hikvision. Por cotizar con Manuel.</p></div>
-    <div class="caja"><h3>Conector ZKTeco o Dahua</h3><p>Para no depender de un fabricante. Horizonte 2028.</p></div>
-    <div class="caja"><h3>Tableta de portería</h3><p>Android en modo kiosco, con soporte.</p></div>
-    <div class="caja"><h3>Facturación electrónica</h3><p>Proveedor habilitado ante la DIAN y pasarela B2B.</p></div>
-    <div class="caja"><h3>Legal de datos</h3><p>Registro de bases ante la SIC y política de la Ley 1581.</p></div>
+  <div class="horizonte">
+    <div class="caja" data-r style="--r:1"><span class="cuando">2027</span><span class="cifra" data-contar="4">4</span><p>conjuntos en Monte Sereno y el Oriente</p></div>
+    <div class="caja" data-r style="--r:2"><span class="cuando">2028</span><span class="cifra" data-contar="40">40</span><p>conjuntos en Antioquia, segundo fabricante</p></div>
+    <div class="caja" data-r style="--r:3"><span class="cuando">2030</span><span class="cifra" data-contar="250">250</span><p>conjuntos en Antioquia y Bogotá</p></div>
   </div>
-  <p class="tenue" style="font-size:var(--t-min)">También: nube con región en Latinoamérica, billetera de Apple y Google, póliza de responsabilidad civil, kit de implementación y CRM comercial.</p>
-</section>
-
-<section data-parte="despues">
-  <p class="rot">Fichas de producto</p>
-  <div class="rejilla c3">
-    <div class="caja"><span class="rot">F1 · OE1 OE2 OE3</span><h3>Kino Residente</h3><p>Otorga, acota y revoca. PWA con <span class="mono">@kino/motion</span>.</p></div>
-    <div class="caja"><span class="rot">F2 · OE2</span><h3>Pase vivo</h3><p>La visita entra sin cuenta, con QR, placa o código.</p></div>
-    <div class="caja"><span class="rot">F3 · OE3 OE4</span><h3>Kino Portería</h3><p>El porqué de cada lectura, legible desde 3 m.</p></div>
-    <div class="caja"><span class="rot">F4 · OE4 OE5</span><h3>Kino Administración</h3><p>Franjas con vista previa y salud de la integración.</p></div>
-    <div class="caja"><span class="rot">F5 · OE4</span><h3>Conector HikCentral</h3><p>Persona temporal con vigencia y cola de reintentos.</p></div>
-    <div class="caja"><span class="rot">F6 · OE2</span><h3>Kit de implementación</h3><p>Un conjunto nuevo opera en menos de 10 días.</p></div>
+  <div class="pendientes" data-r style="--r:5">
+    <div>Probar el alta por OpenAPI en el piloto</div>
+    <div>Contar las casas reales de Villas (888 son usuarios)</div>
+    <div>Fijar el precio con la administración</div>
   </div>
-  <aside class="guion">Fichas completas en entrega-3/estrategia.md §10 y en la Biblia.</aside>
-</section>
-
-<section data-parte="despues">
-  <p class="hora">Martes · 3:04 p. m.</p>
-  <h2>«Andrés entró por Portería principal»</h2>
-  <p class="rot">Lo que falta verificar antes del piloto · la vigencia en HikCentral ya la confirmó Manuel</p>
-  <ul class="lista">
-    <li>¿Cuántas casas tiene Villas Campestres? El sistema reporta 888 usuarios</li>
-    <li>¿Qué precio por casa acepta una administración?</li>
-    <li>¿Por qué el sistema dice 893 usuarios y las comunidades suman 1.200?</li>
-    <li>¿Cuántas copropiedades del Oriente tienen hardware Hikvision?</li>
-  </ul>
-  <p class="cierre">Prototipo, QA, estrategia y Biblia: carpeta <span class="mono">entrega-3/</span> del repositorio.</p>
-  <aside class="guion">Cerramos donde empezó: Carolina sigue en la oficina y sabe que su hermano entró. Fuentes: Fedelonjas vía Portafolio (28 jun 2026), Catastro Distrital vía Forbes, IMARC, SIC Resolución 52185 de 2025, GEIH-DANE y Symplifica vía Infobae, Meta y Leadsales para WhatsApp, Neivor. Todas enlazadas en estrategia.md.</aside>
+  <aside class="guion">40 y 250 son ambición del equipo; se calibran con cuántas copropiedades tienen hardware Hikvision y con el precio que acepte una administración.</aside>
 </section>
 
 </main>
@@ -675,10 +542,32 @@ body.con-guion section.actual .guion{display:block}
   const num = document.getElementById('num');
   const prog = document.getElementById('progreso');
   const enlaces = [...document.querySelectorAll('.barra nav a')];
+  const reducido = matchMedia('(prefers-reduced-motion: reduce)').matches;
   let actual = 0;
+  // Las cifras se cuentan la primera vez que su lámina entra en pantalla.
+  const contar = (s) => s.querySelectorAll('[data-contar]').forEach((n) => {
+    if (n.dataset.contado) return;
+    n.dataset.contado = '1';
+    const v = Number(n.dataset.contar);
+    if (reducido || !v) return void (n.textContent = String(v));
+    const t0 = performance.now();
+    const paso = (t) => {
+      const x = Math.min(1, (t - t0) / 1100);
+      n.textContent = String(Math.round(v * (1 - Math.pow(1 - x, 3))));
+      if (x < 1) requestAnimationFrame(paso);
+    };
+    n.textContent = '0';
+    requestAnimationFrame(paso);
+  });
+  // Los videos corren solo en su lámina.
+  const videos = (s, si) => s.querySelectorAll('video').forEach((v) => (si && !reducido ? v.play().catch(() => {}) : v.pause()));
   const marcar = (i) => {
     actual = i;
-    secs.forEach((s, k) => s.classList.toggle('actual', k === i));
+    secs.forEach((s, k) => {
+      s.classList.toggle('actual', k === i);
+      videos(s, k === i);
+    });
+    contar(secs[i]);
     num.textContent = `${i + 1} / ${secs.length}`;
     prog.style.width = `${((i + 1) / secs.length) * 100}%`;
     const parte = secs[i].dataset.parte;
@@ -689,7 +578,7 @@ body.con-guion section.actual .guion{display:block}
   }, {threshold: 0.55});
   secs.forEach((s) => io.observe(s));
   marcar(0);
-  const ir = (i) => secs[Math.max(0, Math.min(secs.length - 1, i))].scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'});
+  const ir = (i) => secs[Math.max(0, Math.min(secs.length - 1, i))].scrollIntoView({behavior: reducido ? 'auto' : 'smooth'});
   addEventListener('keydown', (e) => {
     if (e.target.closest && e.target.closest('input,textarea')) return;
     if (['ArrowDown', 'ArrowRight', 'PageDown', ' '].includes(e.key)) { e.preventDefault(); ir(actual + 1); }

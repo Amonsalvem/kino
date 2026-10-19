@@ -1,590 +1,244 @@
-Kino · Entrega 3
-La tarde
-El Pase
-En uso
-El plan
-Después
-1 / 35
+ Kino · Entrega 3 
+ 
+ 
+ 
+ 
+ 
+
+
+ 
+ 
+ Kino 
+ 
+ Problema 
+ El Pase 
+ Estrategia 
+ Después 
+ 
+ 1 / 1 
+ 
+
+ 
+
+ 
+ 
+ 
+ 
+ 
+ Kino
+ 
+ Diseño para la interacción Estrategia de Servicio 
+ EAFIT 
+ Nicolás Ramírez y Alejandro Monsalve 
+ 
+Entrega 3. Una sola historia para las dos materias: el problema, el Pase en el prototipo y el plan para llevarlo a cuatro conjuntos. N muestra estas notas; L oculta la barra. 
+ 
+
+ 
+ 
+ ¿Quién decide quién entra? 
+ 
+ R El residente Sabe a quién espera 
+ la puerta 
+ A La administración Tiene la autoridad y no sabe a quién espera 
+ 
+ ¿Cómo reunir conocimiento y autoridad para decidir quién entra? 
+ 
+Núcleo del diagnóstico: el conocimiento y la autoridad viven en actores distintos. Observado en la inspección del 14 al 16 de septiembre en Monte Sereno. 
+ 
+
+ 
+ 
+ El sistema solo sabe crear personas permanentes 
+ 
+ 0 /312 usuarios de Refugio Campestre sincronizados con el lector 
+ 711 errores de alta en HikCentral, todos por el campo correo 
+ 1 tipo de persona: permanente. La visita recibe cuenta y rol «Visitante» de por vida 
+ 
+ 47,88 % de la vivienda urbana de Colombia está en propiedad horizontal Fedelonjas vía Portafolio, jun 2026 
+ 
+Las tres cifras son observadas en la inspección (MAESTRO-KINO §3). El residente además ya abre la puerta sin saberlo: al registrar una placa queda «Permitido». 
+ 
+
+ 
+ 
+ En los cuatro recorridos, todo se rompe en la puerta 
+ 
+ A1 Residente Ya decide quién entra, pero cree que no 
+ A2 Colaborador Es el ingreso más frecuente y el sistema no lo conoce 
+ A3 Visita Entrega datos de por vida para una tarde 
+ A4 Administración Cree tener un control que no ejerce 
+ 
+ Lo que falta en los cuatro mapas es el mismo objeto: el Pase. 
+ 
+Arquetipos de la entrega 1 y conclusiones del journey de la entrega 2. El 51,3 % de los contratos de trabajo doméstico son por días (GEIH-DANE, 1S-2026). 
+ 
+
+ 
+ 
+ Carolina le da a Andrés un Pase 
+ 
+ Franjas que fija la administración 
+ 
+ Carolina residente 
+ 
+ Pase autor · motivo · vigencia · modo 
+ 
+ WhatsApp Andrés, sin cuenta 
+ 
+ Lector QR · placa · código 
+ 
+ Andrés entra Carolina recibe el aviso 
+ 
+ 
+ Sin confirmar Vigente cuando el lector confirma Por vencer Revocado 
+ 
+El Pase no es una cuenta. Lo otorga el residente; la administración solo fija franjas y no aprueba caso a caso. Kino da de alta una persona temporal con «Válido desde / hasta» en HikCentral (Manuel confirmó vigencias hasta 2037 o 2099). 
+ 
+
+ 
+ 
+ 
+ 
+ Pruébalo 
+ 3 toques para volver a invitar a una visita 
+ 8 s estimados con KLM (visita nueva: 19,4 s) 
+ 
+ 
+ 
+ 
+Recorrido: entrar con WhatsApp, tocar Andrés en «Volver a invitar», Crear Pase, ver Sin confirmar pasar a Vigente, enviar por WhatsApp, abrir el enlace en el teléfono de la visita y leer su QR en portería. 
+ 
+
+ 
+ 
+ El Pase se mueve como un objeto vivo 
+ 
+ El botón se vuelve el Pase 
+ Confirmar, revocar, deshacer 
+ Portería: el veredicto en el primer cuadro 
+ 
+ 
+Dirección biopunk aprobada (E3-1) y motion aprobado (E3-8). Cada movimiento sale de un proceso real: la sinapsis en el lector, la bioluminiscencia al confirmar, la cicatriz al revocar. 
+ 
+
+ 
+ 
+ Cómo lo validamos 
+ 
+ 31 hallazgos de QA en el Figma: nada cruzaba de un actor a otro 
+ 17 interacciones construidas en código, entre los cuatro actores 
+ 18 pruebas de recorrido que pasan, también con movimiento reducido 
+ 5 perfiles en la evaluación por inspección: 11 hallazgos, 6 resueltos 
+ 
+ Biblia · E1 y E2 completas E3: 3.1–3.3 · 5.2 · 6.1 E4 y final: previsto 
+ 
+QA por especialidad con la severidad de Nielsen. La evaluación por inspección usa los perfiles del estudio de iAgency para Monte Sereno (2024) y los arquetipos; no reemplaza la prueba con personas del piloto. 
+ 
+
+ 
+ 
+ Que el residente otorgue y revoque el ingreso de sus visitas y colaboradores, dentro de las franjas de la administración, sobre el hardware que el conjunto ya tiene. 
+ 
+ 4 conjuntos con pago a octubre de 2027 
+ 95 % de los Pases confirmados por el lector en menos de 60 s 
+ 0 personas permanentes creadas para dejar entrar a alguien 
+ 
+ 
+Objetivo general (el qué) y meta general a 12 meses. Los 4 conjuntos: Villas Campestres, Refugio Campestre y 2 nuevos del Oriente antioqueño; el 2 es meta del equipo y se recalibra con el piloto. 
+ 
+
+ 
+ 
+ Cinco objetivos SMART 
+ 
+ Acción Métrica Usuario Contexto Tiempo 
+ OE1 Crear y enviar un Pase ≤ 3 toques · < 30 s Residente (A1) En el prototipo Antes del 9 nov 2026 
+ OE2 Crear su primer Pase 60 % de las casas Residentes (A1) Piloto en Villas Campestres 8 semanas · ene–feb 2027 
+ OE3 Entrar con Pase, sin llamada 80 % de sus ingresos Colaboradores (A2) Portería de Villas Campestres Ene–mar 2027 
+ OE4 Confirmar el Pase en el lector 98 % en < 60 s · Refugio ≥ 95 % Administración (A4) HikCentral de Monte Sereno Antes del 31 mar 2027 
+ OE5 Renovar y firmar pilotos 1 renovación + 2 conjuntos Administración que compra Oriente antioqueño Antes del 31 oct 2027 
+ 
+ 
+Fórmula del curso: acción + métrica + usuario + contexto + tiempo. OE1 ya se midió el 19 oct: 3 toques y 8 s; visita nueva, 19,4 s. Refugio parte de 0 de 312. 
+ 
+
+ 
+ 
+ Cada objetivo, una estrategia y una táctica 
+ 
+ OE1 Simplificación interactividad «Volver a invitar» abre la hoja ya llena Equipo oct 2026 · hecho 
+ OE2 Acompañamiento soporte Día de lanzamiento en portería: primer Pase con cada residente Equipo y adm. semana 1 · ene 2027 
+ OE3 Recurrencia automatización Pase de colaborador con días y franja, se crea una vez Equipo y Manuel dic 2026 
+ OE4 Integración automatización Alta con teléfono en vez de correo: reintentar las 711 Equipo y Manuel nov–dic 2026 
+ OE5 Penetración omnicanalidad Alianza con instaladores Hikvision del Valle de Aburrá y el Oriente Equipo abr–jun 2027 
+ 
+ 
+Estrategia: un sustantivo que dice cómo; su eje estratégico del curso debajo. Táctica: qué se hará, quién y cuándo. Las demás tácticas están en estrategia.md §5. 
+ 
+
+ 
+ 
+ De la sustentación al cuarto conjunto 
+ 
+ 9 nov 2026 Sustentación Prototipo y medición de OE1 
+ Nov–dic 2026 Refugio en línea Alta por teléfono con Manuel 
+ Dic 2026 Versión beta Backend del Pase y WhatsApp Business 
+ Ene–mar 2027 Piloto pagado Medir OE2, OE3 y OE4 
+ Abr–jun 2027 Instaladores 10 conjuntos contactados 
+ Oct 2027 4 conjuntos Renovación y 2 nuevos 
+ 
+ 
+El primer hito es académico; los demás son de producto y siguen después de noviembre. 
+ 
+
+ 
+ 
+ Un KPI por objetivo 
+ 
+ Pregunta KPI Fórmula Meta Etapa Cada 
+ OE1 ¿Crear un Pase es más rápido que llamar? Tiempo para crear KLM del recorrido < 30 s Comportamiento versión 
+ OE2 ¿Las casas usan su autoridad? Activación de casas casas con ≥ 1 Pase ÷ casas registradas ≥ 60 % Conversión semana 
+ OE3 ¿El colaborador entra sin llamada? Ingresos con Pase ingresos por lector ÷ ingresos en minuta ≥ 80 % Comportamiento semana 
+ OE4 ¿El Pase existe en la puerta? Confirmación del lector confirmados en < 60 s ÷ creados ≥ 98 % Confianza día 
+ OE5 ¿La administración ve valor? Conjuntos con pago contratos firmados 4 Conversión mes 
+ 
+ 
+Método GQM: objetivo, pregunta, métrica. Hay 12 KPI en total (estrategia.md §7); aquí va el principal de cada objetivo. Las metas de OE2, OE3 y OE5 se recalibran con la medición de la semana 1 del piloto. 
+ 
+
+ 
+ 
+ Seis productos 
+ 
+ F1 Kino Residente App para otorgar, extender y revocar Pases OE1 OE2 OE3 
+ F2 Pase vivo Página para la visita, sin cuenta ni app OE2 
+ F3 Kino Portería Dice por qué alguien entró o no entró OE3 OE4 
+ F4 Kino Administración Franjas y salud de la integración OE4 OE5 
+ F5 Conector HikCentral Da de alta el Pase en el lector OE4 
+ F6 Kit de implementación Un conjunto nuevo operando en menos de 10 días OE2 
+ 
+ 
+Cada ficha completa (propósito, interacciones, componentes, tecnologías y escenario de uso) está en estrategia.md §10 y en la Biblia. 
+ 
+
+ 
+ 
+ La capa de autorización sobre cualquier lector 
+ 
+ 2027 4 conjuntos en Monte Sereno y el Oriente 
+ 2028 40 conjuntos en Antioquia, segundo fabricante 
+ 2030 250 conjuntos en Antioquia y Bogotá 
+ 
+ 
+ Probar el alta por OpenAPI en el piloto 
+ Contar las casas reales de Villas (888 son usuarios) 
+ Fijar el precio con la administración 
+ 
+ 
+40 y 250 son ambición del equipo; se calibran con cuántas copropiedades tienen hardware Hikvision y con el precio que acepte una administración. 
+ 
+
+ 
 
-Kino · Entrega 3 · Diseño para la interacción y Estrategia de servicio · EAFIT LE005
 
-¿Quién decide quién entra?
-
-El residente sabe a quién espera. El sistema del conjunto no tiene dónde guardarlo.
-
-Nico Ramírez · Alejandro Monsalve
-Monte Sereno, El Retiro · oct 2026
-
-Escenario · arquetipos A1 y A3 · cada paso, observado en la inspección
-
-Martes · 2:00 p. m.
-
-Carolina está en la oficina. Su hermano Andrés llega a las 3.
-Hoy puede
-
-llamar a portería o mandar un WhatsApp que nadie registra.
-
-O puede
-
-registrar la placa de Andrés: la puerta abre y la pantalla le dice que eso lo controla la administración.
-
-Andrés
-
-necesita una cuenta permanente, con correo, para una visita de una tarde.
-
-Evidencia · observado en la inspección del 14 al 16 de sep 2026
-
-Detrás de esa tarde hay un sistema que solo crea personas permanentes
-0/312
-
-usuarios sincronizados en Refugio Campestre, con el hardware instalado
-
-711
-
-errores de alta en HikCentral, todos por el campo correo
-
-0
-
-maneras de dar un ingreso temporal a una persona
-
-Diagnóstico · entregas 1 y 2
-
-Carolina tiene el conocimiento. La autoridad está en la administración, que no sabe a quién espera.
-
-¿Cómo reunir conocimiento y autoridad para decidir quién entra?
-
-En los cuatro recorridos de la entrega 2 falta el mismo objeto: algo que diga quién entra, para cuándo y hasta cuándo.
-
-SOSTAC · S · Situación
-
-Casi la mitad de la vivienda urbana de Colombia vive en propiedad horizontal
-47,88 %
-
-de la vivienda urbana del país
-
-61,7 %
-
-en Medellín
-
-13,42 %
-
-subieron los servicios de PH, contra 5,84 % de inflación
-
-6,8 %
-
-crecimiento anual del control de acceso global, 2024–2032
-
-Fedelonjas vía Portafolio, jun 2026 · IMARC
-
-El tiempo
-
-Dos plazos: la sustentación y el producto
-Académico
-9 nov 2026
-
-Prototipo probado con 5 residentes y sustentación.
-
-Producto
-Ene–mar 2027
-
-Piloto pagado en Villas y Refugio.
-
-Producto
-Oct 2027
-
-4 conjuntos con pago. Fin de este plan.
-
-La solución
-
-Carolina le da a Andrés un Pase
-
-Con autor, motivo, vigencia y modo. Lo otorga el residente por el tiempo que decida, dentro de las franjas del conjunto. Andrés entra sin cuenta.
-
-QR
-Placa
-Código de un solo uso
-
-Lo que diferencia a Kino: integración probada con el hardware instalado, Pase sin cuenta y autoridad del residente dentro de las franjas.
-
-Objetivo general · meta general
-
-Reunir conocimiento y autoridad para decidir quién entra
-
-Que el residente otorgue, acote y revoque el ingreso de sus visitas y colaboradores, sobre el hardware que el conjunto ya tiene y sin crear personas permanentes.
-
-Meta general · octubre de 2027
-4 conjuntos con pago, 95 % de los Pases confirmados por el lector en menos de 60 s, y ningún ingreso que exija dar de alta a una persona permanente
-
-Lo que implica la mejora
-
-Para que el Pase de Andrés exista cambian seis frentes
-Producto
-
-App del residente, Pase vivo, portería y administración.
-
-Datos
-
-Teléfono obligatorio y único; el correo deja de serlo.
-
-Integración
-
-Persona temporal con «Válido desde / hasta» en HikCentral.
-
-Operación
-
-Carga por cédula, capacitación de portería, señalética.
-
-Legal
-
-Ley 1581 y SIC 52185: la biometría nunca se exige.
-
-Negocio
-
-Suscripción que paga la administración del conjunto.
-
-QA del prototipo de Figma «Kino · App»
-
-226
-
-pantallas diseñadas, en oscuro y claro, con ficha cada una
-
-22
-
-reacciones en todo el archivo, todas «al clic, ir a»
-
-0
-
-interacciones que crucen de un actor a otro
-
-En Figma, lo que hacía Carolina no le llegaba a Andrés ni a portería. Por eso el prototipo se construyó en código.
-
-QA por especialidad · 31 hallazgos · severidad de Nielsen
-
-Los cuatro hallazgos que más cambiaron el prototipo
-Interacción · sev. 4
-
-Ningún estado depende del tiempo: Por vencer era una pantalla aparte.
-
-Identidad · sev. 3
-
-El residente nunca ve su Pase como objeto: el arco solo existía para la visita.
-
-Escritura · sev. 3
-
-«3 de {cupo} Pases activos» y «[PENDIENTE]» visibles en pantallas aprobadas.
-
-Integración · sev. 3
-
-La pantalla de integración caída no nombraba la causa: 711 errores por el campo correo.
-
-Prototipo en vivo · el mismo de Reto
-
-La tarde de Carolina, en las cuatro pantallas
-Carolina crea y envía
-Andrés abre el Pase sin cuenta
-Portería lo lee
-A Carolina le llega el aviso
-
-2:01 p. m.
-
-Carolina crea el Pase en 3 toques
-I-01
-
-Código por WhatsApp
-Llega el código y se llena solo
-
-I-03
-
-Volver a invitar
-Tocar a Andrés abre la hoja ya llena
-
-I-05
-
-Vigencia a tu medida
-Unas horas, un día o una estadía de meses
-
-I-06
-
-Nacimiento del Pase
-El botón se vuelve el arco del Pase
-
-2:01 p. m. · 3 s después
-
-El Pase queda vigente cuando el lector lo confirma
-I-07
-
-Espera del lector
-Borde punteado hasta que HikCentral responde
-
-I-02
-
-Pase vivo en la lista
-La barra se consume con el tiempo
-
-I-14
-
-Extender
-+1 h, +1 día o +1 semana, sin tope
-
-I-13
-
-Mantener para revocar
-Anillo de 0,8 s y deshacer por 5 s
-
-Sin confirmar
-Vigente
-Por vencer
-Rechazado
-
-2:02 p. m.
-
-A Andrés le llega el Pase por WhatsApp
-I-08
-
-Compartir por WhatsApp
-Imagen con QR, código y enlace
-
-I-09
-
-Pase vivo en el navegador
-QR, placa o código en el mismo arco; cambia solo si Carolina lo extiende o lo revoca
-
-3:04 p. m.
-
-El lector lee la placa de Andrés
-I-10
-
-Lectura
-La talanquera sube y portería ve por qué entró
-
-I-11
-
-Aviso de llegada
-«Andrés entró por Portería principal»
-
-I-12
-
-6:10 p. m. · Laura llega tarde
-«Venció a las 6:00 p. m.» y «Llamar a Carolina»
-
-Los ingresos que más se repiten · arquetipos A2 y A1 · decisión E3-2
-
-Marta entra cada día. La mamá de Carolina se queda dos meses.
-Colaborador recurrente
-Marta Ospina · aseo y cocina
-
-Lunes a viernes, 7 a. m. a 5 p. m., hasta que Carolina lo revoque. Se crea una vez.
-
-Estadía
-Rosa Ruiz · se queda
-
-«Se queda»: de 3 días a 3 meses o hasta una fecha. Entra y sale sin pedir nada.
-
-Sin tope de visitas ni de duración. Los colaboradores son el ingreso más frecuente, y el 51,3 % del trabajo doméstico se contrata por días.
-
-Administración · arquetipo A4
-
-La administración fija franjas
-I-15
-
-Vista previa
-Antes de guardar, ve qué Pase quedaría fuera
-
-I-16
-
-Integración y arreglo
-Refugio: reintentar con teléfono
-
-Identidad del Pase · dirección biopunk Aprobada · E3-1
-
-El Pase se ve vivo porque hoy el acceso temporal no existe
-Late
-
-mientras está vigente
-La vigencia se ve sin leerla
-
-Se marchita
-
-al vencer
-Se agota a la vista
-
-Cicatriza
-
-al revocarse
-Revocado tiene autor; queda la marca
-
-La tecla B la apaga para comparar con la marca base.
-
-Inventario de interacciones
-
-17
-
-implementadas y probadas de punta a punta en Chromium
-
-3
-
-planeadas: Pase en la billetera, háptica por estado, rostro como cuarto modo
-
-16/16
-
-pruebas del recorrido automático
-
-Cada interacción tiene disparador, respuesta, regla y efecto en HikCentral, visibles en el panel derecho del prototipo.
-
-Validación · Biblia 6.1 · perfiles del estudio de mercado de Monte Sereno y arquetipos del diagnóstico
-
-Evaluación por inspección: dónde se traba cada perfil
-Perfil y contexto	Dónde se traba	Sev.	Qué cambia
-Empty nesters · hijos y nietos por un mes	Solo había Pases de horas	3	«Se queda»: de 3 días a 3 meses
-Familia con hijos · cumpleaños con 15 invitados	Quince Pases, uno por uno	3	Planeado: Pase de evento
-A1 · la visita sale a la tienda	El Pase quedaba usado en la primera entrada	3	Entra y sale dentro de su vigencia
-A3 · visita en la puerta sin señal	La imagen del WhatsApp no traía un QR real	3	La imagen lleva QR y código
-Pareja sin hijos · número extranjero	El cambio de número pasa por la administración	2	Pendiente con la administración
-
-11 hallazgos en la Biblia: 6 resueltos en el prototipo, 3 planeados para la entrega 4.
-
-Avances de la Biblia · documento integrador Diex
-
-Lo que la Biblia ya tiene
-Apartado	Clase	Entrega	Estado
-1.1–1.5 Contexto del reto	IxD · SD	E1	Completo
-2.1–2.4 Usuario y diseño emocional	SD · UX	E1–E2	Completo
-4.3 · 5.1 Requerimientos y modelo conceptual	UX · IxD	E2	Completo
-3.1–3.3 SMART, propuesta de valor, estrategia	SD	E3	Nuevo hoy
-5.2 Representación visual · 6.1 Validación	IxD · UX	E3	Nuevo hoy
-3.4–3.7 · 4.1–4.2 · 6.2–7.2	Todas	E4–Final	Previsto
-
-SOSTAC · O · Objetivos específicos SMART · cada uno mide una escena de la tarde
-
-#	Escena	Objetivo	Meta	Cuándo
-OE1	Carolina crea el Pase	Residentes de Monte Sereno crean un Pase de visita en el prototipo	90 % · <30 s · ≤3 toques	9 nov 2026
-OE2	Las casas lo usan	Casas de Villas Campestres crean al menos un Pase	60 % de las casas	8 semanas de piloto
-OE3	Marta entra sin llamada	Ingresos de colaboradores recurrentes con Pase	80 %	Ene–mar 2027
-OE4	El lector confirma	Pases confirmados por el lector; Refugio sincronizado	98 % <60 s · ≥95 %	31 mar 2027
-OE5	La administración renueva	Monte Sereno renueva y 2 conjuntos nuevos firman piloto pagado	4 conjuntos	31 oct 2027
-
-Conexión de los objetivos específicos con el plan general
-
-OE4 primero, OE5 al final
-Objetivo general: reunir conocimiento y autoridad
- ├─ OE1 crear un Pase en 30 s ...... Producto    → valida la propuesta
- ├─ OE2 adopción del residente .......... Servicio    → el residente usa su autoridad
- ├─ OE3 colaborador sin llamada ......... Producto    → el ingreso de mayor volumen
- ├─ OE4 integración confirmada .......... Tecnología  → el Pase existe en la puerta
- └─ OE5 renovación y conjuntos nuevos ... Negocio     → la meta general
-
-OE4 es la condición técnica de todos. OE2 y OE3 son la evidencia que vende OE5.
-
-Plan estratégico SOSTAC
-
-S
-Situación
-
-Mercado grande; el manual es el competidor.
-
-O
-Objetivos
-
-OE1 a OE5, SMART.
-
-S
-Estrategia
-
-9 estrategias en 4 ejes.
-
-T
-Tácticas
-
-Qué, cómo, quién, cuándo.
-
-A
-Acción
-
-Oct 2026 a oct 2027.
-
-C
-Control
-
-12 KPI con GQM.
-
-SOSTAC · S · Estrategia · nombradas con sustantivo
-
-Estrategia	Objetivo	Eje estratégico
-Simplificación del otorgamiento	OE1	Interactividad y personalización
-Validación con residentes reales	OE1	Soporte y acompañamiento
-Acompañamiento de la adopción	OE2	Soporte y acompañamiento
-Diversificación de los canales del Pase	OE2	Omnicanalidad y accesibilidad
-Recurrencia del colaborador	OE3	Automatización y gestión
-Integración confiable con HikCentral	OE4	Automatización y gestión
-Transparencia del estado	OE4	Automatización y gestión
-Penetración por los instaladores	OE5	Omnicanalidad y accesibilidad
-Fidelización con evidencia	OE5	Automatización y gestión
-
-SOSTAC · T · Tácticas
-
-Qué	Cómo	Quién	Cuándo
-Volver a invitar	4 personas recientes a un toque	Equipo	Prototipo · hecho
-Prueba con 5 residentes	6 tareas, SEQ y SUS	Equipo y admón.	27 oct – 7 nov
-Alta con teléfono	Reintentar las 711 sin correo	Equipo y Manuel	Nov – dic 2026
-Pase por WhatsApp	Plantilla de utilidad con imagen y enlace	Equipo	Dic 2026
-Día de lanzamiento	Puesto en la entrada: primer Pase con cada residente	Equipo y admón.	Ene 2027
-Reporte semanal	Entradas, rechazos con motivo, salud del lector	Equipo	Feb 2027
-Aliados instaladores	Ficha comercial para instaladores Hikvision	Equipo	Abr – jun 2027
-
-SOSTAC · A · Plan de acción
-
-De la sustentación al cuarto conjunto
-Oct–nov 26
-Sustentación
-
-Prototipo y prueba
-
-Nov–dic 26
-Refugio
-
-≥95 % sincronizado
-
-Dic 26
-Beta
-
-Backend y WhatsApp
-
-Ene–mar 27
-Piloto
-
-Mide OE2 a OE4
-
-Abr–jun 27
-Aliados
-
-10 conjuntos contactados
-
-Jul–oct 27
-Meta
-
-4 conjuntos
-
-SOSTAC · C · Control · KPI de uso y adopción · método GQM
-
-Pregunta	KPI	Meta	Etapa
-¿Crear un Pase es más rápido que llamar?	Tiempo para crear	< 30 s	Comportamiento
-¿Se entiende sin ayuda?	Éxito de la tarea	≥ 90 %	Satisfacción
-¿Cómo lo perciben?	SUS	≥ 80	Satisfacción
-¿Las casas usan su autoridad?	Casas con ≥1 Pase	≥ 60 %	Conversión
-¿Vuelven a usarlo?	Retención a 2 semanas	≥ 50 %	Compromiso
-¿El colaborador entra sin llamada?	Ingresos con Pase	≥ 80 %	Comportamiento
-
-OE1 · OE2 · OE3
-
-SOSTAC · C · Control · KPI de confianza y negocio
-
-Pregunta	KPI	Meta	Etapa
-¿El Pase existe en la puerta?	Confirmados en <60 s	≥ 98 %	Confianza
-¿Refugio volvió a operar?	Sincronización	≥ 95 %	Confianza
-¿Kino dice la verdad?	Vigente en Kino, rechazado en la puerta	≤ 0,5 %	Confianza
-¿Los rechazos se explican?	Rechazos con motivo	100 %	Confianza
-¿La administración ve valor?	NPS de la administración	≥ 30	Satisfacción
-¿Crece la base?	Conjuntos con pago	4	Conversión
-
-OE4 · OE5 · revisión semanal, mensual y trimestral
-
-Kino como empresa · a 1 año, octubre de 2027
-
-La tarde de Carolina, en cuatro conjuntos
-4
-
-conjuntos con pago
-
-4
-
-productos en producción conectados a HikCentral
-
-1
-
-caso documentado con KPI reales
-
-SAS
-
-constituida, con facturación electrónica y bases de datos ante la SIC
-
-Horizonte de empresa · 3 a 5 años · ambición del equipo
-
-La capa de autorización sobre cualquier lector
-Objetivo de empresa	Estrategia	KPI	Año
-40 conjuntos en Antioquia	Replicación con instaladores	Conjuntos con pago	2028
-Segundo y tercer fabricante	Independencia del fabricante	Conectores en producción	2028–29
-Punto de equilibrio	Eficiencia en la implementación	Días hasta el primer Pase	2029
-250 conjuntos con Bogotá	Expansión	Ingreso recurrente mensual	2030
-
-Lista de mercado · lo que hay que comprar o contratar
-
-WhatsApp Business
-
-Por un proveedor oficial. ≈ US$0,0008 por mensaje de utilidad en Colombia, por confirmar con Meta.
-
-HikCentral OpenAPI
-
-Acceso y programa de socios de Hikvision. Por cotizar con Manuel.
-
-Conector ZKTeco o Dahua
-
-Para no depender de un fabricante. Horizonte 2028.
-
-Tableta de portería
-
-Android en modo kiosco, con soporte.
-
-Facturación electrónica
-
-Proveedor habilitado ante la DIAN y pasarela B2B.
-
-Legal de datos
-
-Registro de bases ante la SIC y política de la Ley 1581.
-
-También: nube con región en Latinoamérica, billetera de Apple y Google, póliza de responsabilidad civil, kit de implementación y CRM comercial.
-
-Fichas de producto
-
-F1 · OE1 OE2 OE3
-Kino Residente
-
-Otorga, acota y revoca. PWA con @kino/motion.
-
-F2 · OE2
-Pase vivo
-
-La visita entra sin cuenta, con QR, placa o código.
-
-F3 · OE3 OE4
-Kino Portería
-
-El porqué de cada lectura, legible desde 3 m.
-
-F4 · OE4 OE5
-Kino Administración
-
-Franjas con vista previa y salud de la integración.
-
-F5 · OE4
-Conector HikCentral
-
-Persona temporal con vigencia y cola de reintentos.
-
-F6 · OE2
-Kit de implementación
-
-Un conjunto nuevo opera en menos de 10 días.
-
-Martes · 3:04 p. m.
-
-«Andrés entró por Portería principal»
-
-Lo que falta verificar antes del piloto · la vigencia en HikCentral ya la confirmó Manuel
-
-¿Cuántas casas tiene Villas Campestres? El sistema reporta 888 usuarios
-¿Qué precio por casa acepta una administración?
-¿Por qué el sistema dice 893 usuarios y las comunidades suman 1.200?
-¿Cuántas copropiedades del Oriente tienen hardware Hikvision?
-
-Prototipo, QA, estrategia y Biblia: carpeta entrega-3/ del repositorio.
