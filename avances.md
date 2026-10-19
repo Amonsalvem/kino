@@ -369,3 +369,8 @@ En arquitectura faltaba:
 - Cada interacción muestra en el panel del escenario su lugar en el plan: SOSTAC · O (objetivo), S (estrategia y eje), T (táctica) y C (KPI). La lista de cobertura marca el objetivo de cada una. Fuente: `SOSTAC` en `prototipo/src/modelo.ts`, alineada con `estrategia.md`.
 - Las pantallas de la app no llevan rótulos académicos: son el producto.
 - e2e 18 de 18.
+
+## Figma «Kino · App»: SOSTAC en las fichas (19 oct)
+- Cada «Ficha · X» de las páginas 04 a 10 lleva debajo una tarjeta «SOSTAC · Estrategia de servicio» con cuatro líneas: O (objetivo), S (estrategia y eje), T (táctica) y C (KPI y etapa). Usa la misma fuente y el mismo color de la ficha, con borde punteado.
+- 62 tarjetas: 04 → 8, 05 → 13, 06 → 10, 07 → 7, 08 → 7, 09 → 10, 10 → 7. Las pantallas P2 (R-X-01, R-X-02, P-E-06, P-E-07, A-09) dicen «P2: fuera del plan actual». A-08 apunta al horizonte E5.
+- Mapa fuente: la misma tabla `SOSTAC` de `prototipo/src/modelo.ts` y `entrega-3/estrategia.md`. El script es idempotente: no duplica tarjetas si se vuelve a correr.
