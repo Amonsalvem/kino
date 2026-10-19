@@ -505,3 +505,9 @@ Pedido de Nico: subir las tres escenas de Blender a nivel profesional; libertad 
 - **Efecto en HikCentral:** A pide dar de baja la persona después del primer evento; B solo usa «Válido hasta».
 - **Decidido:** B. «No, le dura el tiempo establecido»: la visita entra y sale dentro de su vigencia, igual que la estadía. El estado Usado deja de aplicar a las visitas; la traza guarda cada entrada.
 - **Efecto en la trazabilidad:** cada lectura queda en la traza del Pase y en la bitácora de portería, con hora y modo. Antes la segunda lectura quedaba como rechazo; ahora queda como entrada.
+
+### E3-7 · OE1 se mide en el prototipo · APROBADA (B, Nico, 19 oct)
+- **Antes:** 90 % de 5 residentes crea un Pase en menos de 30 s y 3 toques, en una prueba con personas antes del 9 nov.
+- **Ahora:** en el prototipo, crear y enviar un Pase toma 3 toques o menos con una visita reciente y menos de 30 s estimados con KLM con una visita nueva, verificado por `prototipo/pruebas/oe1.mjs`.
+- **Medido el 19 oct:** 3 toques y 8 s; visita nueva, 5 toques y 19,4 s.
+- **Lo que no mide:** KLM predice a alguien que ya conoce la interfaz; no mide si un residente la entiende la primera vez. La satisfacción (SUS) pasa a OE2, con residentes, en el piloto.

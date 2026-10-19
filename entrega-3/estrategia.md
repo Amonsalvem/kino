@@ -101,7 +101,7 @@ Fórmula del curso: **acción + métrica + usuario + contexto + tiempo**.
 
 | # | Objetivo SMART | Usuario | Punto de partida | Por qué importa (R) |
 |---|---|---|---|---|
-| **OE1** | Lograr que el 90 % de 5 residentes de Monte Sereno cree un Pase de visita en **menos de 30 s y 3 toques o menos** en una prueba con el prototipo, **antes del 9 nov 2026** **[A+P]** | A1 | Hoy la tarea no existe: no hay cómo crear una visita con vigencia | Si crear un Pase es más lento que llamar a portería, nadie lo adopta (el manual es el competidor) |
+| **OE1** | Lograr que, en el prototipo, crear y enviar un Pase de visita tome **3 toques o menos** con una visita reciente y **menos de 30 s** estimados con el modelo KLM con una visita nueva, verificado en el recorrido automático, **antes del 9 nov 2026** **[A+P]** | A1 | Hoy la tarea no existe. **Medido el 19 oct:** visita reciente, 3 toques y 8 s; visita nueva, 5 toques y 19 s (`prototipo/pruebas/oe1.mjs`) | Si crear un Pase es más lento que llamar a portería, nadie lo adopta (el manual es el competidor) |
 | **OE2** | Lograr que el **60 % de las casas** de Villas Campestres cree al menos un Pase en las **primeras 8 semanas** del piloto (ene–feb 2027) **[P]** | A1 | 0 Pases; Villas tiene 888 usuarios (casas por confirmar) | Adopción del residente = valor para la administración |
 | **OE3** | Lograr que el **80 % de los ingresos de colaboradores recurrentes** de Villas ocurra con un Pase y sin llamada a portería durante el **primer trimestre** del piloto (ene–mar 2027) **[P]** | A2 | Por medir en la semana 1 del piloto con la minuta de portería | Es el ingreso más frecuente |
 | **OE4** | Lograr que el **98 % de los Pases** quede confirmado por el lector en **menos de 60 s**, y recuperar Refugio Campestre de 0/312 a **≥ 95 %** de usuarios sincronizados **antes del 31 mar 2027** **[P]** | A4 | Refugio: 0/312 usuarios, 1/44 vehículos, 711 errores | Sin integración, el lector no conoce el Pase |
@@ -128,7 +128,7 @@ Regla del curso: cada estrategia empieza por un **sustantivo** y responde al **c
 | Objetivo | Estrategia | Eje estratégico |
 |---|---|---|
 | OE1 | **Simplificación** del otorgamiento: el Pase se crea en una hoja, con la persona reciente a un toque y la franja visible antes de crear | 1 · Interactividad y personalización |
-| OE1 | **Validación** iterativa con residentes reales antes de construir | 4 · Soporte y acompañamiento |
+| OE1 | **Medición** del prototipo: toques y tiempo KLM en cada versión, y evaluación por inspección con los perfiles | 4 · Soporte y acompañamiento |
 | OE2 | **Acompañamiento** de la adopción en el conjunto: el día de lanzamiento se acompaña en sitio y por WhatsApp | 4 · Soporte y acompañamiento |
 | OE2 | **Diversificación** de los canales del Pase (QR, placa, código, imagen por WhatsApp): la visita usa el que tenga a mano | 2 · Omnicanalidad y accesibilidad |
 | OE3 | **Recurrencia** del colaborador: un Pase con días y franja que se crea una vez y no vuelve a pedir nada | 3 · Automatización y gestión |
@@ -147,7 +147,7 @@ Cada táctica responde qué se hará, cómo, quién y cuándo.
 |---|---|---|---|---|
 | Simplificación | «Volver a invitar» en la lista | Las 4 personas recientes, a un toque, abren la hoja ya llena | Equipo (diseño y front) | Prototipo, oct 2026 ✔ |
 | Simplificación | Vigencia a tu medida | Unas horas, un día o «Se queda» (3 días a 3 meses); la franja se ve antes de crear | Equipo | Prototipo ✔ |
-| Validación | Prueba de usabilidad con 5 residentes | Protocolo de la Biblia §6.1: 6 tareas, éxito, tiempo, SEQ y SUS | Equipo con la administración | 27 oct – 7 nov 2026 |
+| Medición | Toques y tiempo KLM de crear un Pase | Recorrido automático que hace las dos tareas y falla si pasan de la meta | Equipo | Prototipo, 19 oct ✔ |
 | Acompañamiento | Día de lanzamiento en portería | Un puesto en la entrada con QR al instructivo; se crea el primer Pase con cada residente que pase | Equipo y administración | Semana 1 del piloto, ene 2027 |
 | Acompañamiento | Línea de ayuda por WhatsApp | Número de Kino con respuestas guardadas y un responsable por turno | Equipo | Desde el piloto |
 | Diversificación | Pase por imagen y enlace | Plantilla de utilidad de WhatsApp Business con la imagen del Pase y el enlace al Pase vivo | Equipo (backend) | Dic 2026 |
@@ -164,7 +164,7 @@ Cada táctica responde qué se hará, cómo, quién y cuándo.
 
 | Periodo | Hito | Responsable | Entregable |
 |---|---|---|---|
-| 19 oct – 9 nov 2026 **[A]** | Prototipo navegable, pruebas con 5 residentes y sustentación | Nico y Alejandro | Deck, Biblia E3, prototipo |
+| 19 oct – 9 nov 2026 **[A]** | Prototipo navegable, medición de OE1 y sustentación | Nico y Alejandro | Deck, Biblia E3, prototipo |
 | Nov – dic 2026 **[P]** | Probar con Manuel el alta de una persona temporal por OpenAPI; arreglar Refugio | Equipo con Manuel | Refugio ≥ 95 % sincronizado |
 | Dic 2026 **[P]** | Backend del Pase y WhatsApp Business | Equipo | Versión beta |
 | Ene – mar 2027 **[P]** | Piloto pagado en Villas Campestres y Refugio | Equipo con la administración | Medición de OE2, OE3 y OE4 |
@@ -179,9 +179,9 @@ Paso a paso del curso: objetivo → variable → meta. Cada KPI está atado a un
 
 | Objetivo (G) | Pregunta (Q) | KPI (M) | Fórmula | Meta | Etapa | Fuente | Frecuencia |
 |---|---|---|---|---|---|---|---|
-| OE1 | ¿Crear un Pase es más rápido que llamar? | Tiempo para crear un Pase | Mediana de segundos desde «Crear Pase» hasta «Pase creado» | < 30 s | Comportamiento | Prueba de usabilidad; después, analítica | Por prueba; semanal |
-| OE1 | ¿Se entiende sin ayuda? | Éxito de la tarea | Tareas completas sin ayuda ÷ intentos | ≥ 90 % | Satisfacción | Prueba de usabilidad | Por prueba |
-| OE1 | ¿Cómo la perciben? | SUS | Escala de usabilidad de 10 ítems | ≥ 80 | Satisfacción | Cuestionario | Por prueba |
+| OE1 | ¿Crear un Pase es más rápido que llamar? | Tiempo para crear un Pase | KLM: 1,35 s por decisión, 1,1 s por desplazamiento, 0,2 s por toque, 0,28 s por carácter, más la espera medida | < 30 s | Comportamiento | Recorrido automático `oe1.mjs`; en el piloto, analítica | En cada versión; semanal en el piloto |
+| OE1 | ¿Cuánto cuesta volver a invitar? | Toques con una visita reciente | Toques desde la lista hasta «Enviar por WhatsApp» | ≤ 3 | Comportamiento | Recorrido automático `oe1.mjs` | En cada versión |
+| OE2 | ¿Cómo lo perciben los residentes? | SUS | Escala de usabilidad de 10 ítems | ≥ 80 | Satisfacción | Encuesta en el piloto | Semana 6 del piloto |
 | OE2 | ¿Las casas activan su autoridad? | Activación de casas | Casas con ≥ 1 Pase ÷ casas con residente registrado | ≥ 60 % a 8 semanas | Captación → conversión | Base de Kino | Semanal |
 | OE2 | ¿Vuelven a usarlo? | Retención de residentes | Residentes que crean Pase en 2 semanas distintas ÷ activados | ≥ 50 % | Compromiso | Base de Kino | Mensual |
 | OE3 | ¿El colaborador entra sin llamada? | Ingresos de colaborador con Pase | Ingresos de colaborador por lector ÷ ingresos de colaborador (minuta) | ≥ 80 % | Comportamiento | HikCentral y minuta | Semanal |

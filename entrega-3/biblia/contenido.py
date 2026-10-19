@@ -127,7 +127,7 @@ S.append(('3.1', [
     '**Meta general (oct 2027).** 4 conjuntos con pago; 95 % de los Pases confirmados por el lector en menos de 60 s; ningún ingreso que exija dar de alta a una persona permanente.',
     ('t', [
         ['#', 'Objetivo SMART (acción + métrica + usuario + contexto + tiempo)', 'Punto de partida'],
-        ['OE1', 'Lograr que el 90 % de 5 residentes de Monte Sereno cree un Pase de visita en menos de 30 s y 3 toques o menos en una prueba con el prototipo, antes del 9 nov 2026', 'La tarea no existe hoy'],
+        ['OE1', 'Lograr que, en el prototipo, crear y enviar un Pase de visita tome 3 toques o menos con una visita reciente y menos de 30 s estimados con el modelo KLM con una visita nueva, verificado en el recorrido automático, antes del 9 nov 2026', 'Medido el 19 oct: 3 toques y 8 s; visita nueva, 19 s'],
         ['OE2', 'Lograr que el 60 % de las casas de Villas Campestres cree al menos un Pase en las primeras 8 semanas del piloto (ene–feb 2027)', '0 Pases'],
         ['OE3', 'Lograr que el 80 % de los ingresos de colaboradores recurrentes de Villas ocurra con un Pase y sin llamada a portería en el primer trimestre del piloto', 'Se mide en la semana 1 con la minuta'],
         ['OE4', 'Lograr que el 98 % de los Pases quede confirmado por el lector en menos de 60 s y recuperar Refugio a ≥ 95 % de usuarios sincronizados antes del 31 mar 2027', 'Refugio: 0/312 y 711 errores'],
@@ -150,7 +150,7 @@ S.append(('3.3', [
     ('t', [
         ['Objetivo', 'Estrategia', 'Eje', 'Tácticas (qué · cómo · quién · cuándo)'],
         ['OE1', 'Simplificación del otorgamiento', 'Interactividad y personalización', 'Volver a invitar a un toque; franja visible antes de crear · equipo · prototipo, oct 2026'],
-        ['OE1', 'Validación con residentes reales', 'Soporte y acompañamiento', 'Prueba con 5 residentes, SEQ y SUS · equipo y administración · 27 oct – 7 nov 2026'],
+        ['OE1', 'Medición del prototipo', 'Soporte y acompañamiento', 'Toques y tiempo KLM en el recorrido automático; evaluación por inspección · equipo · hecho, 19 oct 2026'],
         ['OE2', 'Acompañamiento de la adopción', 'Soporte y acompañamiento', 'Día de lanzamiento en la entrada; línea por WhatsApp · equipo · ene 2027'],
         ['OE2', 'Diversificación de los canales del Pase', 'Omnicanalidad y accesibilidad', 'Imagen y enlace por WhatsApp; QR, placa y código · equipo · dic 2026'],
         ['OE3', 'Recurrencia del colaborador', 'Automatización y gestión', 'Pase con días y franja en HikCentral · equipo con Manuel · dic 2026 – ene 2027'],
@@ -254,14 +254,18 @@ S.append(('6.1', [
         ['A4 · administración', 'Mover una franja', 'No se veía el efecto en los Pases activos', '2', 'Vista previa del cambio'],
     ], [2400, 1800, 2400, 600, 2560]),
     ('n', 'Severidad de Nielsen: 0 no es un problema; 4 impide la tarea. Lo planeado entra al inventario de interacciones de la entrega 4.'),
-    ('h', 'Siguiente paso · prueba con residentes'),
-    ('-', '**Participantes.** 5 residentes de Monte Sereno, con al menos uno de Refugio y uno de Villas; uno mayor de 60 años; uno que tenga colaborador recurrente.'),
-    ('-', '**Tareas.** T1 entrar con el código de WhatsApp; T2 crear un Pase para una visita que llega ya; T3 enviarlo por WhatsApp; T4 crear el Pase recurrente de su empleada; T5 extender un Pase una hora; T6 revocar un Pase y deshacerlo.'),
-    ('-', '**Métricas.** Éxito sin ayuda, tiempo, errores y SEQ por tarea; SUS al cierre. OE1 se cumple si 4 de 5 crean un Pase en menos de 30 s y SUS ≥ 80.'),
+    ('h', 'Medición de OE1 en el prototipo'),
+    'El recorrido automático `prototipo/pruebas/oe1.mjs` hace las dos formas de crear y enviar un Pase de visita, cuenta los toques y estima el tiempo con el modelo KLM (Card, Moran y Newell, 1980): 1,35 s por decisión, 1,1 s por desplazamiento del dedo, 0,2 s por toque y 0,28 s por carácter, más la espera medida de la interfaz. KLM predice el tiempo de alguien que ya conoce la interfaz.',
+    ('t', [
+        ['Tarea', 'Toques', 'Caracteres', 'Tiempo KLM', 'Meta'],
+        ['Volver a invitar a una visita reciente', '3', '0', '8 s', '≤ 3 toques · cumple'],
+        ['Visita nueva (nombre y WhatsApp)', '5', '22', '19,4 s', '< 30 s · cumple'],
+    ], [3600, 1100, 1300, 1500, 2260]),
+    ('n', 'La satisfacción (SUS) se mide con residentes en la semana 6 del piloto, como KPI de OE2.'),
     ('n', 'Fuentes: docs/proyecto/arquetipos-e-insights.md; iAgency, Monte Sereno: investigación de mercado y benchmark (2024), perfil e insights del consumidor y mapas de empatía.'),
 ]))
 S.append(('6.2', [('n', 'Se entrega en la Entrega 5. Métricas ya definidas: activación de casas, retención, NPS de la administración (estrategia.md §7).')]))
-S.append(('6.3', [('n', 'Se entrega en la Entrega 5. Métricas de la interacción definidas: tiempo para crear un Pase, éxito de la tarea, SEQ, SUS y discrepancia app–puerta.')]))
+S.append(('6.3', [('n', 'Se entrega en la Entrega 5. Métricas de la interacción definidas: toques y tiempo KLM para crear un Pase, SUS en el piloto y discrepancia app–puerta.')]))
 
 # 7 · IMPLEMENTACIÓN Y TECNOLOGÍA ----------------------------------------------------------------------
 S.append(('7.1', [('n', 'Se entrega en la Entrega 4. Base disponible: prototipo en TypeScript con Preact, @kino/motion (tokens, núcleo del Pase, runtime web) y @kino/motion-nativo (React Native).')]))

@@ -1,0 +1,16 @@
+[
+ {
+  "nombre": "Volver a invitar (visita reciente)",
+  "toques": 3,
+  "caracteres": 0,
+  "espera": 0.01,
+  "segundos": 8
+ },
+ {
+  "nombre": "Visita nueva",
+  "toques": 5,
+  "caracteres": 22,
+  "espera": 0.01,
+  "segundos": 19.4
+ }
+]
