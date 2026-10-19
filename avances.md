@@ -439,3 +439,7 @@ En arquitectura faltaba:
 - Lámina 13 en cinco columnas: cada columna se lee de arriba abajo como objetivo → estrategia y su eje → táctica → quién y cuándo. El «cómo» de cada táctica pasó a las notas del presentador. Los ejes del curso quedan en una sola línea.
 - Barrido final: notas de la portada (meta en Antioquia), lámina 7 («proceso real» → «proceso biológico»), lámina 10 («la seguridad que se promete» → «que se puede medir»), lámina 16 («Así se sigue cada semana», que era impreciso porque cada KPI tiene su frecuencia → «Un panel por objetivo, contra su meta») y conteo de KPI corregido a 13 en la lámina 15 y en la Biblia.
 - `verificar.mjs` sin fallas; compuerta de voz: solo el nombre literal del eje 3 en las notas.
+
+## Biblia: barrido final antes de presentar (19 oct)
+- 2.2: A3 dice «Recibe cuenta y rol «Visitante» de por vida», el hecho observado, en lugar del contraste «aprueba su cuenta, no su ingreso». 2.4: la fila visceral con estados literales («pierde brillo», «se apaga»). 3.3: el eje 3 con el mismo nombre corto que el deck.
+- Compuerta de voz sobre el contenido propio de la Biblia: 0 errores. Los errores que quedan en el .docx son del texto fijo de la plantilla Diex.
