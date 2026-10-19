@@ -434,3 +434,8 @@ En arquitectura faltaba:
 ## Visión con portafolio y E3-10 aprobada (19 oct)
 - Visión nueva: «Kino empieza por quién entra y crece hacia los demás problemas de seguridad de la propiedad horizontal que descubra con sus clientes, sobre el hardware que cada conjunto ya tiene.» Está en la lámina 18 con su guion, en la Biblia 1.2 y en `estrategia.md` §9, junto con el objetivo de empresa nuevo E6 (segundo servicio de seguridad validado con clientes, 2028–2029) y la estrategia «Portafolio» en el SOSTAC de empresa.
 - El objetivo general queda como está: E3-10 APROBADA.
+
+## Lámina 13 simplificada y último barrido del deck (19 oct)
+- Lámina 13 en cinco columnas: cada columna se lee de arriba abajo como objetivo → estrategia y su eje → táctica → quién y cuándo. El «cómo» de cada táctica pasó a las notas del presentador. Los ejes del curso quedan en una sola línea.
+- Barrido final: notas de la portada (meta en Antioquia), lámina 7 («proceso real» → «proceso biológico»), lámina 10 («la seguridad que se promete» → «que se puede medir»), lámina 16 («Así se sigue cada semana», que era impreciso porque cada KPI tiene su frecuencia → «Un panel por objetivo, contra su meta») y conteo de KPI corregido a 13 en la lámina 15 y en la Biblia.
+- `verificar.mjs` sin fallas; compuerta de voz: solo el nombre literal del eje 3 en las notas.

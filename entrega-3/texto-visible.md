@@ -3,7 +3,7 @@ Diseño para la interacción
 Estrategia de Servicio
 EAFIT
 Nicolás Ramírez y Alejandro Monsalve
-Entrega 3. Una sola historia para las dos materias: el problema, el Pase en el prototipo y el plan para llevarlo a cuatro conjuntos. N muestra estas notas; L oculta la barra.
+Entrega 3. Una sola historia para las dos materias: el problema, el Pase en el prototipo y el plan para que Kino sea primero en Antioquia en un año. N muestra estas notas; L oculta la barra.
 SOSTAC · S · Situación · Descripción del problema y pregunta guía
 ¿Quién decide quién entra?
 El residente
@@ -68,7 +68,7 @@ Crear, confirmar y revocar un Pase
 El botón se vuelve el Pase
 Confirmar, revocar, deshacer
 Portería: el veredicto en el primer cuadro
-Dirección biopunk aprobada (E3-1) y motion aprobado (E3-8). Cada movimiento sale de un proceso real: la sinapsis en el lector, la bioluminiscencia al confirmar, la cicatriz al revocar.
+Dirección biopunk aprobada (E3-1) y motion aprobado (E3-8). Cada movimiento copia un proceso biológico: sinapsis en el lector, bioluminiscencia al confirmar, cicatriz al revocar.
 Cómo lo validamos
 31
 hallazgos de QA en el Figma: nada cruzaba de un actor a otro
@@ -120,7 +120,7 @@ conjuntos con pago, como piso
 de los Pases confirmados por el lector en menos de 60 s
 0
 personas permanentes creadas para dejar entrar a alguien
-Objetivo general (dirección de Nico, pulido con el test de calidad de investigacion-objetivo-general.md). Se lee en tres partes: qué es Kino (software de seguridad), dónde y con qué ambición (líder en Antioquia, a un año) y para qué (reunir a los cinco actores en la decisión de quién entra: la pregunta guía). La meta lo vuelve comprobable. 1.º: participación entre las copropiedades de Antioquia con lector compatible, que se mide con el censo del segundo trimestre de 2027 (hoy no hay cifra oficial). 4: piso de conjuntos con pago, Villas, Refugio y 2 nuevos; si el censo muestra que 4 no alcanza para liderar, la meta sube. 95 % y 0: la seguridad que se promete, el lector confirma cada Pase y nadie queda dado de alta de por vida para una visita.
+Objetivo general (dirección de Nico, pulido con el test de calidad de investigacion-objetivo-general.md). Se lee en tres partes: qué es Kino (software de seguridad), dónde y con qué ambición (líder en Antioquia, a un año) y para qué (reunir a los cinco actores en la decisión de quién entra: la pregunta guía). La meta lo vuelve comprobable. 1.º: participación entre las copropiedades de Antioquia con lector compatible, que se mide con el censo del segundo trimestre de 2027 (hoy no hay cifra oficial). 4: piso de conjuntos con pago, Villas, Refugio y 2 nuevos; si el censo muestra que 4 no alcanza para liderar, la meta sube. 95 % y 0: la seguridad que se puede medir; el lector confirma cada Pase y nadie queda dado de alta de por vida por una visita.
 SOSTAC · O · Objetivos específicos SMART · acción + métrica + usuario + contexto + tiempo
 Cinco objetivos SMART
 Acción
@@ -192,51 +192,48 @@ Equipo e instaladores
 Caso con KPI reales y ficha comercial
 Renovación y 2 contratos
 Preguntas orientadoras de la guía: específico (qué, por qué, quién, dónde, recursos), medible (cuánto, cómo sabré), alcanzable (cómo, con qué), relevante (es valioso, es el momento) y a tiempo (la columna Tiempo de la lámina anterior).
-SOSTAC · S y T · Estrategias (el cómo, con su eje estratégico) y tácticas (qué · cómo · quién · cuándo)
+SOSTAC · S y T · Estrategia (el cómo) y táctica (qué, quién y cuándo)
 Cada objetivo, una estrategia y una táctica
 Objetivo
-Estrategia · eje
-Táctica · qué se hace y cómo
+Estrategia
+Táctica
 Quién · cuándo
 OE1
-Simplificación eje 1 · interactividad
+Crear un Pase en menos de 30 s
+Simplificación eje 1
 Botón «Volver a invitar»
-Cómo Las 4 visitas recientes abren la hoja con nombre, WhatsApp y placa ya puestos: el Pase sale en 3 toques
 Equipo
 oct 2026 · hecho
 OE2
-Acompañamiento eje 4 · soporte
+60 % de las casas crea su primer Pase
+Acompañamiento eje 4
 Día de lanzamiento en portería
-Cómo Un puesto en la entrada la semana 1: cada residente que pasa crea su primer Pase con el equipo
-Equipo y adm.
+Equipo y administración
 ene 2027
 OE3
-Recurrencia eje 3 · automatización
-Pase de colaborador
-Cómo El residente elige días y franja una vez; el lector lo acepta cada semana sin renovarlo
+80 % de colaboradores entra sin llamar
+Recurrencia eje 3
+Pase de colaborador por días
 Equipo y Manuel
 dic 2026
 OE4
-Integración eje 3 · automatización
-Alta con teléfono
-Cómo Kino da de alta en HikCentral con el teléfono, no con el correo, y reintenta las 711 altas fallidas
+98 % de Pases confirmados en menos de 60 s
+Integración eje 3
+Alta con teléfono, no con correo
 Equipo y Manuel
 nov–dic 2026
 OE5
-Penetración eje 2 · omnicanalidad
+Renovación y 2 conjuntos nuevos
+Penetración eje 2
 Alianza con instaladores Hikvision
-Cómo Ficha comercial con los KPI del piloto para instaladores del Valle de Aburrá y el Oriente: 10 conjuntos contactados
 Equipo
 abr–jun 2027
-1
-Interactividad y personalización
-2
-Omnicanalidad y accesibilidad
-3
-Automatización y gestión de la experiencia
-4
+Ejes del curso · 1
+Interactividad y personalización · 2
+Omnicanalidad y accesibilidad · 3
+Automatización y gestión · 4
 Soporte y acompañamiento
-Estrategia: un sustantivo que dice cómo; su eje estratégico del curso debajo. Táctica: qué se hará, quién y cuándo. Las demás tácticas están en estrategia.md §5.
+Se lee de arriba abajo en cada columna: el objetivo se logra con una estrategia (un sustantivo que dice cómo, ubicado en un eje del curso), y la estrategia se baja a una táctica concreta con responsable y fecha. Cómo funciona cada táctica. OE1: las 4 visitas recientes abren la hoja con nombre, WhatsApp y placa ya puestos; el Pase sale en 3 toques. OE2: un puesto en la entrada la semana 1 del piloto; cada residente que pasa crea su primer Pase con el equipo. OE3: el residente elige días y franja una vez y el lector lo acepta cada semana sin renovarlo. OE4: Kino da de alta en HikCentral con el teléfono y reintenta las 711 altas que fallaron por el correo. OE5: ficha comercial con los KPI del piloto para instaladores del Valle de Aburrá y el Oriente; 10 conjuntos contactados. El eje 3 se llama completo «Automatización y gestión de la experiencia». Las demás tácticas están en estrategia.md §5.
 SOSTAC · A · Plan de acción · hitos, responsables y fechas
 De la sustentación al liderazgo en Antioquia
 9 nov 2026
@@ -321,9 +318,9 @@ Confianza
 OE4 · rechazos con motivo
 Compromiso
 retención de residentes
-Método GQM: objetivo, pregunta, métrica. Paso a paso de la guía: determinar el objetivo, definir una variable y relacionarla con la meta. Abajo, las seis etapas de la guía de indicadores con el KPI que cubre cada una. Hay 12 KPI en total (estrategia.md §7); aquí va el principal de cada objetivo. Las metas de OE2, OE3 y OE5 se recalibran con la medición de la semana 1 del piloto.
+Método GQM: objetivo, pregunta, métrica. Paso a paso de la guía: determinar el objetivo, definir una variable y relacionarla con la meta. Abajo, las seis etapas de la guía de indicadores con el KPI que cubre cada una. Hay 13 KPI en total (estrategia.md §7); aquí va el principal de cada objetivo y el de participación. Las metas de OE2, OE3 y OE5 se recalibran con la medición de la semana 1 del piloto.
 SOSTAC · C · Control · Tablero de seguimiento de los KPI, revisión periódica
-Así se sigue cada semana
+Un panel por objetivo, contra su meta
 Tiempo para crear un Pase
 OE1
 8 s

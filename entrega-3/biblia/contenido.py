@@ -215,7 +215,7 @@ S.append(('3.4', [
         ['Confianza', 'Confirmación del lector (OE4) · rechazos con motivo'],
         ['Compromiso', 'Retención de residentes'],
     ], [2400, 7360]),
-    ('n', '«Ingresos en minuta»: la minuta es el cuaderno donde portería anota a mano cada ingreso; el KPI de OE3 divide los ingresos de colaboradores que abrió el lector con un Pase entre todos los que anotó portería. Los 12 KPI del plan están en entrega-3/estrategia.md §7.'),
+    ('n', '«Ingresos en minuta»: la minuta es el cuaderno donde portería anota a mano cada ingreso; el KPI de OE3 divide los ingresos de colaboradores que abrió el lector con un Pase entre todos los que anotó portería. Los 13 KPI del plan están en entrega-3/estrategia.md §7.'),
     ('h', 'SOSTAC · C · Tablero de seguimiento'),
     ('img', 'tablero.png', 'Un panel por objetivo contra su meta. OE1 con datos medidos el 19 oct; OE2 a OE4 con datos de ejemplo; OE5 como plan.'),
 ]))

@@ -384,6 +384,24 @@ body.final .barra,body.final .progreso{opacity:0;pointer-events:none}
 section.densa{gap:calc(var(--u)*1.1);padding-block:calc(var(--u)*4.2) calc(var(--u)*1.6)}
 section.densa .ramas{gap:calc(var(--u)*.45)}
 section.densa .grafica{height:calc(var(--u)*4.6)}
+
+/* Lámina 13: una columna por objetivo, de arriba abajo objetivo → estrategia → táctica → quién y cuándo. */
+.cascada{display:grid;grid-template-columns:calc(var(--u)*10.5) repeat(5,minmax(0,1fr));grid-template-rows:repeat(4,auto);grid-auto-flow:column;gap:calc(var(--u)*.7) calc(var(--u)*1)}
+.cascada__fila{font-family:var(--dato);font-size:var(--t-min);letter-spacing:.06em;text-transform:uppercase;color:var(--tenue);align-self:center}
+.cascada__col{display:grid;grid-row:1/span 4;grid-template-rows:subgrid;gap:inherit}
+.cascada__col>div{border-radius:12px;padding:calc(var(--u)*.7) calc(var(--u)*.9);font-size:var(--t-min);line-height:1.25}
+.cascada__oe{background:var(--membrana);color:var(--texto-2)}
+.cascada__oe b{display:block;font-family:var(--dato);font-size:var(--t-cuerpo);color:var(--texto);margin-bottom:.2em}
+.cascada__est{font-family:var(--display);font-weight:800;font-size:var(--t-cuerpo);color:var(--vig);border:1px solid var(--borde);position:relative}
+.cascada__est span{display:block;font-family:var(--dato);font-weight:400;font-size:var(--t-min);color:var(--tenue)}
+.cascada__tac{background:var(--elevada);border:1px solid var(--borde-def);color:var(--texto);font-weight:600}
+.cascada__cuando{font-family:var(--dato);color:var(--texto-2);padding-top:0!important}
+.cascada__cuando b{display:block;color:var(--texto);font-weight:500}
+.cascada__est::before,.cascada__tac::before{content:"";position:absolute;left:50%;top:calc(var(--u)*-.7);width:2px;height:calc(var(--u)*.7);background:var(--vig);opacity:.6}
+.cascada__tac{position:relative}
+.ejes-linea{margin-top:calc(var(--u)*1.2);font-size:var(--t-min);color:var(--tenue)}
+.ejes-linea b{color:var(--vig);font-family:var(--dato)}
+@media (max-width:820px){.cascada{grid-template-columns:minmax(0,1fr);grid-auto-flow:row}.cascada__fila{display:none}.cascada__col{grid-row:auto;grid-template-rows:none}.cascada__est::before,.cascada__tac::before{display:none}}
 </style>
 
 <div class="progreso" id="progreso"></div>
@@ -410,7 +428,7 @@ section.densa .grafica{height:calc(var(--u)*4.6)}
   <div class="materias" data-r style="--r:4"><span>Diseño para la interacción</span><span>Estrategia de Servicio</span></div>
   <p class="eafit" data-r style="--r:5">EAFIT</p>
   <p class="autores" data-r style="--r:6">Nicolás Ramírez y Alejandro Monsalve</p>
-  <aside class="guion">Entrega 3. Una sola historia para las dos materias: el problema, el Pase en el prototipo y el plan para llevarlo a cuatro conjuntos. N muestra estas notas; L oculta la barra.</aside>
+  <aside class="guion">Entrega 3. Una sola historia para las dos materias: el problema, el Pase en el prototipo y el plan para que Kino sea primero en Antioquia en un año. N muestra estas notas; L oculta la barra.</aside>
 </section>
 
 <!-- 2 · El problema -->
@@ -495,7 +513,7 @@ section.densa .grafica{height:calc(var(--u)*4.6)}
     <figure data-r style="--r:2"><video src="antes-despues/estados-despues.webm" poster="antes-despues/estados-pase.webp" muted loop playsinline preload="metadata"></video><figcaption>Confirmar, revocar, deshacer</figcaption></figure>
     <figure data-r style="--r:3"><video src="antes-despues/porteria-despues.webm" poster="antes-despues/porteria-despues.webp" muted loop playsinline preload="metadata"></video><figcaption>Portería: el veredicto en el primer cuadro</figcaption></figure>
   </div>
-  <aside class="guion">Dirección biopunk aprobada (E3-1) y motion aprobado (E3-8). Cada movimiento sale de un proceso real: la sinapsis en el lector, la bioluminiscencia al confirmar, la cicatriz al revocar.</aside>
+  <aside class="guion">Dirección biopunk aprobada (E3-1) y motion aprobado (E3-8). Cada movimiento copia un proceso biológico: sinapsis en el lector, bioluminiscencia al confirmar, cicatriz al revocar.</aside>
 </section>
 
 <!-- 8 · Validación -->
@@ -537,7 +555,7 @@ section.densa .grafica{height:calc(var(--u)*4.6)}
     <div class="caja" data-r style="--r:3"><span class="cifra"><span data-contar="95">95</span> %</span><p>de los Pases confirmados por el lector en menos de 60 s</p></div>
     <div class="caja" data-r style="--r:4"><span class="cifra" data-contar="0">0</span><p>personas permanentes creadas para dejar entrar a alguien</p></div>
   </div>
-  <aside class="guion">Objetivo general (dirección de Nico, pulido con el test de calidad de investigacion-objetivo-general.md). Se lee en tres partes: qué es Kino (software de seguridad), dónde y con qué ambición (líder en Antioquia, a un año) y para qué (reunir a los cinco actores en la decisión de quién entra: la pregunta guía). La meta lo vuelve comprobable. 1.º: participación entre las copropiedades de Antioquia con lector compatible, que se mide con el censo del segundo trimestre de 2027 (hoy no hay cifra oficial). 4: piso de conjuntos con pago, Villas, Refugio y 2 nuevos; si el censo muestra que 4 no alcanza para liderar, la meta sube. 95 % y 0: la seguridad que se promete, el lector confirma cada Pase y nadie queda dado de alta de por vida para una visita.</aside>
+  <aside class="guion">Objetivo general (dirección de Nico, pulido con el test de calidad de investigacion-objetivo-general.md). Se lee en tres partes: qué es Kino (software de seguridad), dónde y con qué ambición (líder en Antioquia, a un año) y para qué (reunir a los cinco actores en la decisión de quién entra: la pregunta guía). La meta lo vuelve comprobable. 1.º: participación entre las copropiedades de Antioquia con lector compatible, que se mide con el censo del segundo trimestre de 2027 (hoy no hay cifra oficial). 4: piso de conjuntos con pago, Villas, Refugio y 2 nuevos; si el censo muestra que 4 no alcanza para liderar, la meta sube. 95 % y 0: la seguridad que se puede medir; el lector confirma cada Pase y nadie queda dado de alta de por vida por una visita.</aside>
 </section>
 
 <!-- 10 · SMART -->
@@ -574,19 +592,19 @@ section.densa .grafica{height:calc(var(--u)*4.6)}
 </section>
 
 <!-- 11 · Estrategia → táctica -->
-<section data-parte="plan" class="densa">
-  <p class="rot">SOSTAC · S y T · Estrategias (el cómo, con su eje estratégico) y tácticas (qué · cómo · quién · cuándo)</p>
+<section data-parte="plan">
+  <p class="rot">SOSTAC · S y T · Estrategia (el cómo) y táctica (qué, quién y cuándo)</p>
   <h2>Cada objetivo, una estrategia y una táctica</h2>
-  <div class="ramas">
-    <div class="rama cab-rama"><span>Objetivo</span><span></span><span>Estrategia · eje</span><span></span><span>Táctica · qué se hace y cómo</span><span>Quién · cuándo</span></div>
-    <div class="rama" data-r style="--r:1"><span class="oe">OE1</span><span class="conector" style="--r:1"></span><span class="est">Simplificación<small>eje 1 · interactividad</small></span><span class="conector" style="--r:2"></span><span class="tac"><b>Botón «Volver a invitar»</b><span><i>Cómo</i>Las 4 visitas recientes abren la hoja con nombre, WhatsApp y placa ya puestos: el Pase sale en 3 toques</span></span><span class="cuando"><b>Equipo</b>oct 2026 · hecho</span></div>
-    <div class="rama" data-r style="--r:2"><span class="oe">OE2</span><span class="conector" style="--r:2"></span><span class="est">Acompañamiento<small>eje 4 · soporte</small></span><span class="conector" style="--r:3"></span><span class="tac"><b>Día de lanzamiento en portería</b><span><i>Cómo</i>Un puesto en la entrada la semana 1: cada residente que pasa crea su primer Pase con el equipo</span></span><span class="cuando"><b>Equipo y adm.</b>ene 2027</span></div>
-    <div class="rama" data-r style="--r:3"><span class="oe">OE3</span><span class="conector" style="--r:3"></span><span class="est">Recurrencia<small>eje 3 · automatización</small></span><span class="conector" style="--r:4"></span><span class="tac"><b>Pase de colaborador</b><span><i>Cómo</i>El residente elige días y franja una vez; el lector lo acepta cada semana sin renovarlo</span></span><span class="cuando"><b>Equipo y Manuel</b>dic 2026</span></div>
-    <div class="rama" data-r style="--r:4"><span class="oe">OE4</span><span class="conector" style="--r:4"></span><span class="est">Integración<small>eje 3 · automatización</small></span><span class="conector" style="--r:5"></span><span class="tac"><b>Alta con teléfono</b><span><i>Cómo</i>Kino da de alta en HikCentral con el teléfono, no con el correo, y reintenta las 711 altas fallidas</span></span><span class="cuando"><b>Equipo y Manuel</b>nov–dic 2026</span></div>
-    <div class="rama" data-r style="--r:5"><span class="oe">OE5</span><span class="conector" style="--r:5"></span><span class="est">Penetración<small>eje 2 · omnicanalidad</small></span><span class="conector" style="--r:6"></span><span class="tac"><b>Alianza con instaladores Hikvision</b><span><i>Cómo</i>Ficha comercial con los KPI del piloto para instaladores del Valle de Aburrá y el Oriente: 10 conjuntos contactados</span></span><span class="cuando"><b>Equipo</b>abr–jun 2027</span></div>
+  <div class="cascada">
+    <span class="cascada__fila">Objetivo</span><span class="cascada__fila">Estrategia</span><span class="cascada__fila">Táctica</span><span class="cascada__fila">Quién · cuándo</span>
+    <div class="cascada__col" data-r style="--r:1"><div class="cascada__oe"><b>OE1</b>Crear un Pase en menos de 30 s</div><div class="cascada__est">Simplificación<span>eje 1</span></div><div class="cascada__tac">Botón «Volver a invitar»</div><div class="cascada__cuando"><b>Equipo</b>oct 2026 · hecho</div></div>
+    <div class="cascada__col" data-r style="--r:2"><div class="cascada__oe"><b>OE2</b>60 % de las casas crea su primer Pase</div><div class="cascada__est">Acompañamiento<span>eje 4</span></div><div class="cascada__tac">Día de lanzamiento en portería</div><div class="cascada__cuando"><b>Equipo y administración</b>ene 2027</div></div>
+    <div class="cascada__col" data-r style="--r:3"><div class="cascada__oe"><b>OE3</b>80 % de colaboradores entra sin llamar</div><div class="cascada__est">Recurrencia<span>eje 3</span></div><div class="cascada__tac">Pase de colaborador por días</div><div class="cascada__cuando"><b>Equipo y Manuel</b>dic 2026</div></div>
+    <div class="cascada__col" data-r style="--r:4"><div class="cascada__oe"><b>OE4</b>98 % de Pases confirmados en menos de 60 s</div><div class="cascada__est">Integración<span>eje 3</span></div><div class="cascada__tac">Alta con teléfono, no con correo</div><div class="cascada__cuando"><b>Equipo y Manuel</b>nov–dic 2026</div></div>
+    <div class="cascada__col" data-r style="--r:5"><div class="cascada__oe"><b>OE5</b>Renovación y 2 conjuntos nuevos</div><div class="cascada__est">Penetración<span>eje 2</span></div><div class="cascada__tac">Alianza con instaladores Hikvision</div><div class="cascada__cuando"><b>Equipo</b>abr–jun 2027</div></div>
   </div>
-  <div class="ejes" data-r style="--r:7"><span><b>1</b> Interactividad y personalización</span><span><b>2</b> Omnicanalidad y accesibilidad</span><span><b>3</b> Automatización y gestión de la experiencia</span><span><b>4</b> Soporte y acompañamiento</span></div>
-  <aside class="guion">Estrategia: un sustantivo que dice cómo; su eje estratégico del curso debajo. Táctica: qué se hará, quién y cuándo. Las demás tácticas están en estrategia.md §5.</aside>
+  <p class="ejes-linea" data-r style="--r:7">Ejes del curso · <b>1</b> Interactividad y personalización · <b>2</b> Omnicanalidad y accesibilidad · <b>3</b> Automatización y gestión · <b>4</b> Soporte y acompañamiento</p>
+  <aside class="guion">Se lee de arriba abajo en cada columna: el objetivo se logra con una estrategia (un sustantivo que dice cómo, ubicado en un eje del curso), y la estrategia se baja a una táctica concreta con responsable y fecha. Cómo funciona cada táctica. OE1: las 4 visitas recientes abren la hoja con nombre, WhatsApp y placa ya puestos; el Pase sale en 3 toques. OE2: un puesto en la entrada la semana 1 del piloto; cada residente que pasa crea su primer Pase con el equipo. OE3: el residente elige días y franja una vez y el lector lo acepta cada semana sin renovarlo. OE4: Kino da de alta en HikCentral con el teléfono y reintenta las 711 altas que fallaron por el correo. OE5: ficha comercial con los KPI del piloto para instaladores del Valle de Aburrá y el Oriente; 10 conjuntos contactados. El eje 3 se llama completo «Automatización y gestión de la experiencia». Las demás tácticas están en estrategia.md §5.</aside>
 </section>
 
 <!-- 12 · Plan de acción -->
@@ -620,14 +638,14 @@ section.densa .grafica{height:calc(var(--u)*4.6)}
   <div class="etapas" data-r style="--r:7">
     <span><b>Captación</b>costo de adquisición por conjunto</span><span><b>Comportamiento</b>OE1 · OE3</span><span><b>Conversión</b>OE2 · OE5 · participación en Antioquia</span><span><b>Satisfacción</b>SUS · NPS de la administración</span><span><b>Confianza</b>OE4 · rechazos con motivo</span><span><b>Compromiso</b>retención de residentes</span>
   </div>
-  <aside class="guion">Método GQM: objetivo, pregunta, métrica. Paso a paso de la guía: determinar el objetivo, definir una variable y relacionarla con la meta. Abajo, las seis etapas de la guía de indicadores con el KPI que cubre cada una. Hay 12 KPI en total (estrategia.md §7); aquí va el principal de cada objetivo. Las metas de OE2, OE3 y OE5 se recalibran con la medición de la semana 1 del piloto.</aside>
+  <aside class="guion">Método GQM: objetivo, pregunta, métrica. Paso a paso de la guía: determinar el objetivo, definir una variable y relacionarla con la meta. Abajo, las seis etapas de la guía de indicadores con el KPI que cubre cada una. Hay 13 KPI en total (estrategia.md §7); aquí va el principal de cada objetivo y el de participación. Las metas de OE2, OE3 y OE5 se recalibran con la medición de la semana 1 del piloto.</aside>
 </section>
 
 
 <!-- 13b · Tablero de seguimiento -->
 <section data-parte="plan" class="densa">
   <p class="rot">SOSTAC · C · Control · Tablero de seguimiento de los KPI, revisión periódica</p>
-  <h2>Así se sigue cada semana</h2>
+  <h2>Un panel por objetivo, contra su meta</h2>
   <div class="tablero">
     <div class="panel" data-r style="--r:1"><div class="panel__cab"><b>Tiempo para crear un Pase</b><span class="oe">OE1</span></div><div class="panel__valor"><span class="cifra">8 s</span><span>visita reciente · nueva 19,4 s</span></div>
       <div class="grafica"><span class="meta" style="--m:86%"><span>meta 30 s</span></span><div class="barras" aria-hidden="true"><i style="--h:23%;--k:0"></i><i style="--h:55%;--k:1"></i></div></div><div class="eje"><span>reciente</span><span>nueva</span></div><span class="chip vigente">Medido · 19 oct</span></div>
