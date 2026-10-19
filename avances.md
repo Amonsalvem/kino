@@ -456,3 +456,7 @@ En arquitectura faltaba:
   - las rayas «—» de los campos vacíos;
   - «Estado honesto», para que coincida con el prototipo y `estrategia.md`.
 - El archivo no tiene textos del objetivo general anterior.
+
+## Deck: botón de pantalla completa (19 oct)
+- Botón en la barra, junto al número de lámina, y tecla F. El ícono cambia a «salir» mientras está en pantalla completa. Si el navegador o el marco donde se abre no lo permiten, un aviso dice cómo hacerlo: abrir el deck en su propia pestaña, F11 en Windows o ⌃⌘F en Mac.
+- Probado en Chromium: entra y sale sin errores. `verificar.mjs` sin fallas.
