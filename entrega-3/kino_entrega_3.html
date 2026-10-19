@@ -315,27 +315,9 @@ section.actual .tiempo::before{transform:none}
   .embudo .tramo .cifra{text-align:left}
 }
 
-/* Personajes (PROPUESTA E3-9): 2D vectorial, cartoon plano con la paleta de Kino. Entran con la lámina:
-   el residente levanta su Pase, que se enciende; la administración fija sus franjas. Después, quietos. */
-.personaje{width:calc(var(--u)*14);height:auto;overflow:visible}
-.personaje__cuerpo{transform-box:fill-box;transform-origin:50% 100%}
-section.actual .personaje__cuerpo{animation:saluda 1.2s cubic-bezier(.2,0,0,1) .3s both}
-@keyframes saluda{0%{transform:translateY(10px) scaleY(.96)}45%{transform:translateY(-6px)}100%{transform:none}}
-.personaje__ojos{transform-box:fill-box;transform-origin:50% 50%}
-section.actual .personaje__ojos{animation:parpadea 3.4s 1.6s 2}
-@keyframes parpadea{0%,92%,100%{transform:none}96%{transform:scaleY(.1)}}
-.personaje__pase{transform-box:fill-box}
-section.actual .personaje__pase{animation:pase-sube 1s cubic-bezier(.3,1.4,.5,1) .9s both}
-@keyframes pase-sube{from{opacity:0;transform:translate(150px,90px) scale(.4)}}
-section.actual .personaje__pase circle{animation:enciende 1.8s ease-in-out 1.6s 3}
-@keyframes enciende{50%{opacity:.35}}
-.personaje__tablero .franja{transform-box:fill-box;transform-origin:0 50%}
-section.actual .personaje__tablero .franja{animation:franja .8s cubic-bezier(.2,0,0,1) both}
-section.actual .personaje__tablero .f1{animation-delay:.9s}
-section.actual .personaje__tablero .f2{animation-delay:1.05s}
-section.actual .personaje__tablero .f3{animation-delay:1.2s}
-@keyframes franja{from{transform:scaleX(0)}}
-@media (prefers-reduced-motion:reduce){.personaje *{animation:none!important}}
+/* Personajes 3D (E3-9, aprobada): video con transparencia, renderizado en Blender. Corren una vez al entrar a la
+   lámina y quedan en su último cuadro, que también es el póster. */
+.personaje{width:calc(var(--u)*15);height:auto;aspect-ratio:1/1;max-width:100%;display:block}
 
 /* Tablero de seguimiento: un panel por objetivo, el dato actual grande y su serie contra la meta. */
 .tablero{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:calc(var(--u)*1.2)}
@@ -386,7 +368,7 @@ section.actual .barras i{transform:none}
 .despedida .sonido:hover{opacity:1}
 body.final .barra,body.final .progreso{opacity:0;pointer-events:none}
 @media (prefers-reduced-motion:reduce){.despedida *{animation:none!important}.despedida .aurora-f{opacity:.5}.logo-f .bloque,.logo-f .gota{opacity:1}}
-@media (max-width:820px){.tablero{grid-template-columns:minmax(0,1fr)}.personaje{width:120px}}
+@media (max-width:820px){.tablero{grid-template-columns:minmax(0,1fr)}.personaje{width:160px}}
 </style>
 
 <div class="progreso" id="progreso"></div>
@@ -420,49 +402,9 @@ body.final .barra,body.final .progreso{opacity:0;pointer-events:none}
 <section data-parte="inicio">
   <h2>¿Quién decide quién entra?</h2>
   <div class="brecha">
-    <div class="nodo" data-r style="--r:1"><svg class="personaje personaje--residente" viewBox="0 0 220 230" role="img" aria-label="El residente, con un Pase en la mano">
-  <defs>
-    <radialGradient id="res-luz" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#2FF8B2" stop-opacity=".55"/><stop offset="1" stop-color="#2FF8B2" stop-opacity="0"/></radialGradient>
-    <linearGradient id="res-cuerpo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0B3A2A"/><stop offset="1" stop-color="#011F16"/></linearGradient>
-  </defs>
-  <ellipse cx="100" cy="218" rx="58" ry="8" fill="#000" opacity=".45"/>
-  <g class="personaje__cuerpo">
-    <rect x="48" y="104" width="104" height="112" rx="48" fill="url(#res-cuerpo)" stroke="#00BB83" stroke-width="3"/>
-    <path d="M140 140 C160 136 168 124 172 112" fill="none" stroke="#00BB83" stroke-width="12" stroke-linecap="round"/>
-    <circle cx="100" cy="66" r="40" fill="#EFFCF7"/>
-    <path d="M62 58 C66 30 92 22 112 26 C132 30 142 44 140 60 C128 48 104 44 84 50 C74 53 66 56 62 58Z" fill="#00BB83"/>
-    <g class="personaje__ojos"><circle cx="86" cy="70" r="4.5" fill="#00140C"/><circle cx="114" cy="70" r="4.5" fill="#00140C"/></g>
-    <path d="M90 86 Q100 94 110 86" fill="none" stroke="#00140C" stroke-width="3" stroke-linecap="round"/>
-  </g>
-  <g class="personaje__pase" transform="translate(162 66)">
-    <circle cx="16" cy="22" r="34" fill="url(#res-luz)"/>
-    <path d="M0 40V16A16 16 0 0 1 32 16V40Z" fill="#F4FFFA" stroke="#2FF8B2" stroke-width="2.5"/>
-    <path d="M9 18h5v5H9zM18 18h5v5h-5zM9 27h5v5H9zM18 28h2v2h-2zM21 31h2v2h-2z" fill="#00140C"/>
-  </g>
-</svg><b>El residente</b><p>Sabe a quién espera</p></div>
+    <div class="nodo" data-r style="--r:1"><video class="personaje personaje--residente" src="personajes/residente.webm" poster="personajes/residente.png" muted playsinline preload="auto" aria-label="El residente, con un Pase en la mano"></video><b>El residente</b><p>Sabe a quién espera</p></div>
     <div class="puerta" data-r style="--r:2"><i></i><span class="mono">la puerta</span></div>
-    <div class="nodo aut" data-r style="--r:3"><svg class="personaje personaje--administracion" viewBox="0 0 220 230" role="img" aria-label="La administración, con el tablero de franjas">
-  <defs>
-    <linearGradient id="adm-cuerpo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1B3A8A"/><stop offset="1" stop-color="#0B1B44"/></linearGradient>
-  </defs>
-  <ellipse cx="120" cy="218" rx="58" ry="8" fill="#000" opacity=".45"/>
-  <g class="personaje__cuerpo">
-    <rect x="68" y="104" width="104" height="112" rx="22" fill="url(#adm-cuerpo)" stroke="#77A3FF" stroke-width="3"/>
-    <circle cx="120" cy="66" r="40" fill="#EFFCF7"/>
-    <path d="M82 52 C88 30 110 24 128 27 C146 30 158 42 158 58 L150 50 C134 42 104 42 90 50Z" fill="#3E1C96"/>
-    <g fill="none" stroke="#00140C" stroke-width="3"><circle cx="106" cy="70" r="9"/><circle cx="134" cy="70" r="9"/><path d="M115 70h10"/></g>
-    <g class="personaje__ojos"><circle cx="106" cy="70" r="3.5" fill="#00140C"/><circle cx="134" cy="70" r="3.5" fill="#00140C"/></g>
-    <path d="M112 88 H128" fill="none" stroke="#00140C" stroke-width="3" stroke-linecap="round"/>
-  </g>
-  <g class="personaje__tablero" transform="translate(18 112)">
-    <rect width="78" height="84" rx="10" fill="#011F16" stroke="#B6CEFF" stroke-width="2.5"/>
-    <circle cx="62" cy="16" r="8" fill="none" stroke="#B6CEFF" stroke-width="2"/><path d="M62 11v5l3 2" stroke="#B6CEFF" stroke-width="2" fill="none" stroke-linecap="round"/>
-    <rect class="franja f1" x="10" y="34" width="56" height="8" rx="4" fill="#FFC36D"/>
-    <rect class="franja f2" x="10" y="50" width="40" height="8" rx="4" fill="#77A3FF"/>
-    <rect class="franja f3" x="10" y="66" width="48" height="8" rx="4" fill="#00BB83"/>
-  </g>
-  <path d="M84 150 C76 154 70 150 66 146" fill="none" stroke="#77A3FF" stroke-width="12" stroke-linecap="round"/>
-</svg><b>La administración</b><p>Tiene la autoridad y no sabe a quién espera</p></div>
+    <div class="nodo aut" data-r style="--r:3"><video class="personaje personaje--administracion" src="personajes/administracion.webm" poster="personajes/administracion.png" muted playsinline preload="auto" aria-label="La administración, con su lámina de franjas"></video><b>La administración</b><p>Tiene la autoridad y no sabe a quién espera</p></div>
   </div>
   <p class="pregunta-guia" data-r style="--r:5">¿Cómo reunir conocimiento y autoridad para decidir quién entra?</p>
   <aside class="guion">Núcleo del diagnóstico: el conocimiento y la autoridad viven en actores distintos. Observado en la inspección del 14 al 16 de septiembre en Monte Sereno.</aside>
@@ -706,7 +648,11 @@ body.final .barra,body.final .progreso{opacity:0;pointer-events:none}
     requestAnimationFrame(paso);
   });
   // Los videos corren solo en su lámina.
-  const videos = (s, si) => s.querySelectorAll('video').forEach((v) => (si && !reducido ? v.play().catch(() => {}) : v.pause()));
+  const videos = (s, si) => s.querySelectorAll('video').forEach((v) => {
+    if (!si || reducido) return v.pause();
+    if (v.classList.contains('personaje')) v.currentTime = 0;
+    v.play().catch(() => {});
+  });
 
   // Sonido de la despedida: síntesis en el navegador (sin archivos). Un acorde grave que abre, un soplo cuando
   // amanece la aurora, el golpe suave de la gota y el «confirmado» del lector: dos notas que suben.

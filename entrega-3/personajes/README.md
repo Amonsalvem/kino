@@ -1,18 +1,18 @@
-# Personajes de Kino · PROPUESTA (E3-9)
+# Personajes de Kino · E3-9 APROBADA (19 oct)
+
+Alcance aprobado por Nico: **solo presentaciones y onboarding**, nunca pantallas de operación (portería, rechazos, veredictos).
 
 | | Residente | Administración |
 |---|---|---|
-| Archivo | `residente.svg` | `administracion.svg` |
-| Qué lo dice | Cuerpo redondo en verde bioluminiscente; levanta su Pase, que se enciende: él sabe a quién espera | Cuerpo de esquinas firmes (radio 22) en índigo, con gafas y un tablero con tres franjas y un reloj: fija el marco, no aprueba caso a caso |
-| Color | Tinta #00140C, hueso #EFFCF7, marca #00BB83, vigente #2FF8B2 | Índigo #77A3FF y #B6CEFF, identidad #3E1C96, franjas en ámbar, índigo y verde |
+| Archivos | `residente.webm` (VP9 con transparencia) · `residente.png` (póster y último cuadro) | `administracion.webm` · `administracion.png` |
+| Lenguaje | Membrana viva verde, translúcida, con venas bioluminiscentes; brotes de micelio en la cabeza; esporas en la piel | Membrana índigo bajo placas de quitina lacada (hombros y corona); visor de luz en lugar de ojos |
+| Lo que sostiene | Su Pase (el arco, X8) con QR: él sabe a quién espera | Una lámina de cristal con tres franjas y un reloj: fija el marco, no aprueba caso a caso |
+| Animación (3 s, 30 fps) | Respira; el Pase sale de la mano y su borde se enciende tres veces; las venas laten con él | Respira; el visor se enciende; las tres franjas se fijan una tras otra |
 
-**Formato elegido: 2D vectorial, cartoon plano.**
-- Vive en SVG dentro del deck, el prototipo y Figma, sin pesar nada ni depender de un render.
-- Se anima con CSS: entra con la lámina, el Pase se enciende tres veces y las franjas se fijan; después queda quieto (WCAG 2.2.2).
-- Encaja con la interfaz plana. El 3D queda para la escena de portería (M3D), que es un lugar, no un personaje.
-- Un personaje 3D con rig pediría el flujo de Blender y semanas de trabajo, para una pieza que en pantalla se ve a 250 px.
+**Formato: 3D biopunk** (pedido de Nico).
+- Fuente: `branding/sistema/v3/motion/blender/personajes.py` (bpy 4.2, EEVEE).
+- Construido por código: metabolas para la membrana, tubos para brazos y micelio, Voronoi distorsionado para las venas. Los colores salen de `tokens.motion.json`.
+- Se reconstruye con `.venv/bin/python personajes.py residente|administracion --frames=1-90 --escala=67 --muestras=32` y después se codifica con ffmpeg (VP9 con alfa).
+- **Safari:** muestra el póster PNG con transparencia. Para que se anime, hace falta HEVC con alfa, que solo se codifica en macOS (`avconvert` o Compressor).
 
-**Reglas que respeta y que toca:**
-- X8: el arco solo aparece en lo que es un Pase; aquí, el que sostiene el residente.
-- X7: no son fotos de personas.
-- Choca con la familia de ilustraciones de E3-8 («sin personas»). Propuesta: los personajes van solo en presentaciones y onboarding, nunca en las pantallas de operación (portería, rechazos, veredictos).
+La versión 2D descartada quedó en `_obsoleto-2d/`.
