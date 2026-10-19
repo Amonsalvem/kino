@@ -473,3 +473,15 @@ En arquitectura faltaba:
   - Franjas: sin efecto visible → vista previa.
 - Imágenes en `entrega-3/usabilidad/`. Las tres correcciones restantes se hicieron sobre versiones anteriores del prototipo; las notas lo dicen.
 - El deck pasa a 21 láminas, con las referencias del mapa SOSTAC y de `estrategia.md` actualizadas. `verificar.mjs` sin fallas; compuerta de voz: 0 errores.
+
+## Deck: orden de la parte del prototipo (19 oct)
+- Pedido de Nico: mostrar primero la versión evaluada, después los resultados y al final cómo quedó. Orden nuevo:
+  - 5 · El Pase
+  - 6 · Así estaba (Figma evaluado: R-P-02, R-P-10, A-03)
+  - 7 · Cómo lo validamos
+  - 8 · Resultados (11 tropiezos)
+  - 9 · Así quedó (las mismas pantallas en el prototipo, con su antes y ahora en el pie)
+  - 10 · Pruébalo
+  - 11 · Movimiento
+- La lámina combinada de antes y después se dividió en «Así estaba» y «Así quedó». El deck pasa a 22 láminas, con las referencias del mapa SOSTAC y de `estrategia.md` actualizadas. `verificar.mjs` ya no depende de la posición del prototipo en vivo.
+- Barrido de muletillas: los textos nuevos y las notas, sin hallazgos; compuerta de voz: 0 errores.

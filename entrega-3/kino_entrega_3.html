@@ -431,10 +431,14 @@ body.en-pantalla .pantalla .cerrar{display:inline}
 .par__img{display:grid;grid-template-columns:1fr 1fr;gap:calc(var(--u)*.8)}
 .par--ancho .par__img{grid-template-columns:1fr}
 .par figure{margin:0;display:grid;gap:calc(var(--u)*.4);justify-items:start;align-content:start}
-.par img{display:block;width:100%;max-height:44vh;object-fit:contain;object-position:left top;border-radius:10px;border:1px solid var(--borde)}
+.par img{display:block;width:auto;max-width:100%;max-height:44vh;object-fit:contain;object-position:left top;border-radius:10px;border:1px solid var(--borde)}
 .par--ancho img{max-height:21vh}
 .par figcaption{font-size:var(--t-min);color:var(--texto-2);line-height:1.25}
 @media (max-width:820px){.pares{grid-template-columns:minmax(0,1fr)}.par img{max-height:60vh}}
+
+.par--uno figure{margin:0}
+.par--uno img{max-height:58vh}
+.par--uno.par--ancho img{max-height:40vh}
 </style>
 
 <div class="progreso" id="progreso"></div>
@@ -527,28 +531,16 @@ body.en-pantalla .pantalla .cerrar{display:inline}
   <aside class="guion">La visita no crea cuenta: recibe un Pase. Lo otorga el residente; la administración solo fija franjas y no aprueba caso a caso. Kino da de alta una persona temporal con «Válido desde / hasta» en HikCentral (Manuel confirmó vigencias hasta 2037 o 2099).</aside>
 </section>
 
-<!-- 6 · Prototipo en vivo -->
-<section data-parte="pase" id="vivo">
-  <div class="lado">
-    <div>
-      <h2>Pruébalo</h2>
-      <div class="caja" data-r style="--r:1"><span class="cifra vig">3</span><p>toques para volver a invitar a una visita</p></div>
-      <div class="caja" data-r style="--r:2"><span class="cifra vig">8 s</span><p>estimados con KLM (visita nueva: 19,4 s)</p></div>
-    </div>
-    <div class="marco" data-r style="--r:2"><iframe src="prototipo.html?actor=todos&amp;panel=0" title="Prototipo de Kino con los cuatro actores" loading="lazy"></iframe></div>
+<!-- 6 · La versión que se evaluó -->
+<section data-parte="pase" class="densa">
+  <p class="rot">Diseño de interacción · versión evaluada: Figma «Kino · App», 226 pantallas</p>
+  <h2>Así estaba la app cuando la evaluamos</h2>
+  <div class="pares">
+    <div class="caja par par--uno" data-r style="--r:1"><h3>Crear Pase</h3><figure><span class="chip rechazado">Antes</span><img src="usabilidad/vigencia-antes.webp" alt="Antes: Un día, con hora de inicio y de fin" loading="lazy"><figcaption>Un día, con hora de inicio y de fin</figcaption></figure></div>
+    <div class="caja par par--uno" data-r style="--r:2"><h3>Revocar</h3><figure><span class="chip rechazado">Antes</span><img src="usabilidad/revocar-antes.webp" alt="Antes: Un diálogo de confirmación" loading="lazy"><figcaption>Un diálogo de confirmación</figcaption></figure></div>
+    <div class="caja par par--uno par--ancho" data-r style="--r:3"><h3>Límites del conjunto</h3><figure><span class="chip rechazado">Antes</span><img src="usabilidad/franjas-antes.webp" alt="Antes: Cupo, duración y franjas, y un botón para guardar" loading="lazy"><figcaption>Cupo, duración y franjas, y un botón para guardar</figcaption></figure></div>
   </div>
-  <aside class="guion">Recorrido: entrar con WhatsApp, tocar Andrés en «Volver a invitar», Crear Pase, ver Sin confirmar pasar a Vigente, enviar por WhatsApp, abrir el enlace en el teléfono de la visita y leer su QR en portería.</aside>
-</section>
-
-<!-- 7 · Motion -->
-<section data-parte="pase">
-  <h2>Crear, confirmar y revocar un Pase</h2>
-  <div class="videos">
-    <figure data-r style="--r:1"><video src="antes-despues/crear-despues.webm" poster="antes-despues/crear-despues.webp" muted loop playsinline preload="metadata"></video><figcaption>El botón se vuelve el Pase</figcaption></figure>
-    <figure data-r style="--r:2"><video src="antes-despues/estados-despues.webm" poster="antes-despues/estados-pase.webp" muted loop playsinline preload="metadata"></video><figcaption>Confirmar, revocar, deshacer</figcaption></figure>
-    <figure data-r style="--r:3"><video src="antes-despues/porteria-despues.webm" poster="antes-despues/porteria-despues.webp" muted loop playsinline preload="metadata"></video><figcaption>Portería: el veredicto en el primer cuadro</figcaption></figure>
-  </div>
-  <aside class="guion">Dirección biopunk aprobada (E3-1) y motion aprobado (E3-8). Cada movimiento copia un proceso biológico: sinapsis en el lector, bioluminiscencia al confirmar, cicatriz al revocar.</aside>
+  <aside class="guion">Primero, la versión que se evaluó: el Figma «Kino · App» (226 pantallas). Tres pantallas que la evaluación va a cambiar: Crear Pase (R-P-02), Revocar (R-P-10) y Límites del conjunto (A-03). En las dos láminas siguientes, cómo se evaluó y qué encontró.</aside>
 </section>
 
 <!-- 8 · Validación -->
@@ -582,32 +574,55 @@ body.en-pantalla .pantalla .cerrar{display:inline}
   <aside class="guion">Resultados de la evaluación de usabilidad. Método: recorrido cognitivo de las tareas principales y las 10 heurísticas de Nielsen, desde 5 perfiles: los arquetipos del diagnóstico y los perfiles de residente del estudio de mercado de iAgency para Monte Sereno (2024): empty nesters, pareja sin hijos y familia con hijos pequeños. Severidad de Nielsen: 0 no es un problema, 4 impide la tarea. Es una evaluación por inspección del equipo, no una prueba con personas: no hubo participantes, por eso no hay citas ni tasas de éxito. La prueba con residentes llega en el piloto (SUS en la semana 6, KPI de OE2). Detalle completo en la Biblia 6.1.</aside>
 </section>
 
-<!-- 9 · Objetivo general -->
-<!-- 8c · Antes y después de la prueba -->
+<!-- 9 · Cómo quedó -->
 <section data-parte="pase" class="densa">
-  <p class="rot">Diseño de interacción · antes y después de la evaluación de usabilidad</p>
-  <h2>Cómo estaba y cómo quedó</h2>
+  <p class="rot">Diseño de interacción · versión corregida: prototipo en código, después de la evaluación</p>
+  <h2>Así quedó después de corregir</h2>
   <div class="pares">
-    <div class="caja par" data-r style="--r:1"><h3>Empty nesters · hijos por un mes</h3><div class="par__img"><figure><span class="chip rechazado">Antes</span><img src="usabilidad/vigencia-antes.webp" alt="Antes: Solo había Pases de horas" loading="lazy"><figcaption>Solo había Pases de horas</figcaption></figure><figure><span class="chip vigente">Después</span><img src="usabilidad/vigencia-despues.webp" alt="Después: «Se queda»: de 3 días a 3 meses" loading="lazy"><figcaption>«Se queda»: de 3 días a 3 meses</figcaption></figure></div></div>
-    <div class="caja par" data-r style="--r:2"><h3>A1 · revocar por error</h3><div class="par__img"><figure><span class="chip rechazado">Antes</span><img src="usabilidad/revocar-antes.webp" alt="Antes: Un diálogo que no deja deshacer" loading="lazy"><figcaption>Un diálogo que no deja deshacer</figcaption></figure><figure><span class="chip vigente">Después</span><img src="usabilidad/revocar-despues.webp" alt="Después: Mantener presionado y deshacer por 5 s" loading="lazy"><figcaption>Mantener presionado y deshacer por 5 s</figcaption></figure></div></div>
-    <div class="caja par par--ancho" data-r style="--r:3"><h3>A4 · mover una franja</h3><div class="par__img"><figure><span class="chip rechazado">Antes</span><img src="usabilidad/franjas-antes.webp" alt="Antes: Los límites se cambiaban sin ver el efecto" loading="lazy"><figcaption>Los límites se cambiaban sin ver el efecto</figcaption></figure><figure><span class="chip vigente">Después</span><img src="usabilidad/franjas-despues.webp" alt="Después: Vista previa: qué Pase quedaría fuera" loading="lazy"><figcaption>Vista previa: qué Pase quedaría fuera</figcaption></figure></div></div>
+    <div class="caja par par--uno" data-r style="--r:1"><h3>Crear Pase</h3><figure><span class="chip vigente">Después</span><img src="usabilidad/vigencia-despues.webp" alt="Después: Antes: solo horas. Ahora: «Se queda», de 3 días a 3 meses" loading="lazy"><figcaption>Antes: solo horas. Ahora: «Se queda», de 3 días a 3 meses</figcaption></figure></div>
+    <div class="caja par par--uno" data-r style="--r:2"><h3>Revocar</h3><figure><span class="chip vigente">Después</span><img src="usabilidad/revocar-despues.webp" alt="Después: Antes: un diálogo sin deshacer. Ahora: mantener presionado y deshacer por 5 s" loading="lazy"><figcaption>Antes: un diálogo sin deshacer. Ahora: mantener presionado y deshacer por 5 s</figcaption></figure></div>
+    <div class="caja par par--uno par--ancho" data-r style="--r:3"><h3>Franjas del conjunto</h3><figure><span class="chip vigente">Después</span><img src="usabilidad/franjas-despues.webp" alt="Después: Antes: sin ver el efecto. Ahora: la vista previa dice qué Pase quedaría fuera" loading="lazy"><figcaption>Antes: sin ver el efecto. Ahora: la vista previa dice qué Pase quedaría fuera</figcaption></figure></div>
   </div>
-  <aside class="guion">Antes: las pantallas del Figma «Kino · App» que se evaluaron (R-P-02, R-P-10 y A-03). Después: el prototipo actual en el mismo punto. Vigencia: el Figma solo dejaba elegir un día con hora de inicio y fin; ahora «Se queda» cubre de 3 días a 3 meses. Revocar: el Figma pedía confirmar en un diálogo sin forma de deshacer; ahora se mantiene presionado 0,8 s y queda Deshacer por 5 s. Franjas: el Figma cambiaba cupo, duración y franjas sin mostrar su efecto; ahora la vista previa dice qué Pase activo quedaría fuera, y por E3-2 ya no hay cupo ni duración máxima. Las otras tres correcciones (QR en la imagen de WhatsApp, entrar y salir con el mismo Pase, bitácora de portería) se hicieron sobre versiones anteriores del prototipo y se ven en la lámina anterior.</aside>
+  <aside class="guion">Las mismas tres pantallas en el prototipo actual. Vigencia: «Se queda» cubre de 3 días a 3 meses. Revocar: se mantiene presionado 0,8 s y queda Deshacer por 5 s. Franjas: la vista previa dice qué Pase activo quedaría fuera; por E3-2 ya no hay cupo ni duración máxima. Las otras tres correcciones de la tabla (QR en la imagen de WhatsApp, entrar y salir con el mismo Pase, bitácora de portería) se hicieron sobre versiones anteriores del prototipo, sin captura fiel del antes. En la lámina siguiente se puede probar.</aside>
+</section>
+
+<!-- 6 · Prototipo en vivo -->
+<section data-parte="pase" id="vivo">
+  <div class="lado">
+    <div>
+      <h2>Pruébalo</h2>
+      <div class="caja" data-r style="--r:1"><span class="cifra vig">3</span><p>toques para volver a invitar a una visita</p></div>
+      <div class="caja" data-r style="--r:2"><span class="cifra vig">8 s</span><p>estimados con KLM (visita nueva: 19,4 s)</p></div>
+    </div>
+    <div class="marco" data-r style="--r:2"><iframe src="prototipo.html?actor=todos&amp;panel=0" title="Prototipo de Kino con los cuatro actores" loading="lazy"></iframe></div>
+  </div>
+  <aside class="guion">Recorrido: entrar con WhatsApp, tocar Andrés en «Volver a invitar», Crear Pase, ver Sin confirmar pasar a Vigente, enviar por WhatsApp, abrir el enlace en el teléfono de la visita y leer su QR en portería.</aside>
+</section>
+
+<!-- 7 · Motion -->
+<section data-parte="pase">
+  <h2>Crear, confirmar y revocar un Pase</h2>
+  <div class="videos">
+    <figure data-r style="--r:1"><video src="antes-despues/crear-despues.webm" poster="antes-despues/crear-despues.webp" muted loop playsinline preload="metadata"></video><figcaption>El botón se vuelve el Pase</figcaption></figure>
+    <figure data-r style="--r:2"><video src="antes-despues/estados-despues.webm" poster="antes-despues/estados-pase.webp" muted loop playsinline preload="metadata"></video><figcaption>Confirmar, revocar, deshacer</figcaption></figure>
+    <figure data-r style="--r:3"><video src="antes-despues/porteria-despues.webm" poster="antes-despues/porteria-despues.webp" muted loop playsinline preload="metadata"></video><figcaption>Portería: el veredicto en el primer cuadro</figcaption></figure>
+  </div>
+  <aside class="guion">Dirección biopunk aprobada (E3-1) y motion aprobado (E3-8). Cada movimiento copia un proceso biológico: sinapsis en el lector, bioluminiscencia al confirmar, cicatriz al revocar.</aside>
 </section>
 
 <!-- SOSTAC: el mapa -->
 <section id="plan" data-parte="plan">
   <p class="rot">Plan estratégico SOSTAC · las seis partes y dónde está cada una</p>
-  <h2>Las seis partes del plan, láminas 2 a 18</h2>
+  <h2>Las seis partes del plan, láminas 2 a 19</h2>
   <div class="sostac">
     <div class="caja" data-r style="--r:1"><span class="letra">S</span><h3>Situación</h3><p>Problema, evidencia, arquetipos, journey e insights</p><span class="etiqueta">Láminas 2–4</span></div>
-    <div class="caja" data-r style="--r:2"><span class="letra">O</span><h3>Objetivos</h3><p>Objetivo general, meta y 5 objetivos SMART</p><span class="etiqueta">Láminas 12–14</span></div>
-    <div class="caja" data-r style="--r:3"><span class="letra">S</span><h3>Estrategia</h3><p>Una por objetivo, con sustantivo y eje estratégico</p><span class="etiqueta">Lámina 15</span></div>
-    <div class="caja" data-r style="--r:4"><span class="letra">T</span><h3>Tácticas</h3><p>Qué, cómo, quién y cuándo</p><span class="etiqueta">Lámina 15</span></div>
-    <div class="caja" data-r style="--r:5"><span class="letra">A</span><h3>Acción</h3><p>Seis hitos, nov 2026 a oct 2027</p><span class="etiqueta">Lámina 16</span></div>
-    <div class="caja" data-r style="--r:6"><span class="letra">C</span><h3>Control</h3><p>KPI con método GQM y su tablero</p><span class="etiqueta">Láminas 17–18</span></div>
+    <div class="caja" data-r style="--r:2"><span class="letra">O</span><h3>Objetivos</h3><p>Objetivo general, meta y 5 objetivos SMART</p><span class="etiqueta">Láminas 13–15</span></div>
+    <div class="caja" data-r style="--r:3"><span class="letra">S</span><h3>Estrategia</h3><p>Una por objetivo, con sustantivo y eje estratégico</p><span class="etiqueta">Lámina 16</span></div>
+    <div class="caja" data-r style="--r:4"><span class="letra">T</span><h3>Tácticas</h3><p>Qué, cómo, quién y cuándo</p><span class="etiqueta">Lámina 16</span></div>
+    <div class="caja" data-r style="--r:5"><span class="letra">A</span><h3>Acción</h3><p>Seis hitos, nov 2026 a oct 2027</p><span class="etiqueta">Lámina 17</span></div>
+    <div class="caja" data-r style="--r:6"><span class="letra">C</span><h3>Control</h3><p>KPI con método GQM y su tablero</p><span class="etiqueta">Láminas 18–19</span></div>
   </div>
-  <aside class="guion">Estructura de la guía del curso (Plan_estrategico.pdf). La situación ya se contó al inicio; desde aquí, el plan. Las fichas de producto (lámina 19) cierran como insumo para mapas y prototipos.</aside>
+  <aside class="guion">Estructura de la guía del curso (Plan_estrategico.pdf). La situación ya se contó al inicio; desde aquí, el plan. Las fichas de producto (lámina 20) cierran como insumo para mapas y prototipos.</aside>
 </section>
 
 <!-- 9 · Objetivo general -->

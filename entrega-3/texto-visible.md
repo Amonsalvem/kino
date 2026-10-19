@@ -58,17 +58,18 @@ Vigente cuando el lector confirma
 Por vencer
 Revocado
 La visita no crea cuenta: recibe un Pase. Lo otorga el residente; la administración solo fija franjas y no aprueba caso a caso. Kino da de alta una persona temporal con «Válido desde / hasta» en HikCentral (Manuel confirmó vigencias hasta 2037 o 2099).
-Pruébalo
-3
-toques para volver a invitar a una visita
-8 s
-estimados con KLM (visita nueva: 19,4 s)
-Recorrido: entrar con WhatsApp, tocar Andrés en «Volver a invitar», Crear Pase, ver Sin confirmar pasar a Vigente, enviar por WhatsApp, abrir el enlace en el teléfono de la visita y leer su QR en portería.
-Crear, confirmar y revocar un Pase
-El botón se vuelve el Pase
-Confirmar, revocar, deshacer
-Portería: el veredicto en el primer cuadro
-Dirección biopunk aprobada (E3-1) y motion aprobado (E3-8). Cada movimiento copia un proceso biológico: sinapsis en el lector, bioluminiscencia al confirmar, cicatriz al revocar.
+Diseño de interacción · versión evaluada: Figma «Kino · App», 226 pantallas
+Así estaba la app cuando la evaluamos
+Crear Pase
+Antes
+Un día, con hora de inicio y de fin
+Revocar
+Antes
+Un diálogo de confirmación
+Límites del conjunto
+Antes
+Cupo, duración y franjas, y un botón para guardar
+Primero, la versión que se evaluó: el Figma «Kino · App» (226 pantallas). Tres pantallas que la evaluación va a cambiar: Crear Pase (R-P-02), Revocar (R-P-10) y Límites del conjunto (A-03). En las dos láminas siguientes, cómo se evaluó y qué encontró.
 Cómo lo validamos
 31
 hallazgos de QA en el Figma: nada cruzaba de un actor a otro
@@ -122,26 +123,31 @@ No se veía el efecto de mover una franja
 Vista previa del cambio
 Medido en el prototipo: 3 toques y 8 s para volver a invitar; 19,4 s para una visita nueva (KLM). Falta la prueba con residentes: SUS en la semana 6 del piloto.
 Resultados de la evaluación de usabilidad. Método: recorrido cognitivo de las tareas principales y las 10 heurísticas de Nielsen, desde 5 perfiles: los arquetipos del diagnóstico y los perfiles de residente del estudio de mercado de iAgency para Monte Sereno (2024): empty nesters, pareja sin hijos y familia con hijos pequeños. Severidad de Nielsen: 0 no es un problema, 4 impide la tarea. Es una evaluación por inspección del equipo, no una prueba con personas: no hubo participantes, por eso no hay citas ni tasas de éxito. La prueba con residentes llega en el piloto (SUS en la semana 6, KPI de OE2). Detalle completo en la Biblia 6.1.
-Diseño de interacción · antes y después de la evaluación de usabilidad
-Cómo estaba y cómo quedó
-Empty nesters · hijos por un mes
-Antes
-Solo había Pases de horas
+Diseño de interacción · versión corregida: prototipo en código, después de la evaluación
+Así quedó después de corregir
+Crear Pase
 Después
-«Se queda»: de 3 días a 3 meses
-A1 · revocar por error
-Antes
-Un diálogo que no deja deshacer
+Antes: solo horas. Ahora: «Se queda», de 3 días a 3 meses
+Revocar
 Después
-Mantener presionado y deshacer por 5 s
-A4 · mover una franja
-Antes
-Los límites se cambiaban sin ver el efecto
+Antes: un diálogo sin deshacer. Ahora: mantener presionado y deshacer por 5 s
+Franjas del conjunto
 Después
-Vista previa: qué Pase quedaría fuera
-Antes: las pantallas del Figma «Kino · App» que se evaluaron (R-P-02, R-P-10 y A-03). Después: el prototipo actual en el mismo punto. Vigencia: el Figma solo dejaba elegir un día con hora de inicio y fin; ahora «Se queda» cubre de 3 días a 3 meses. Revocar: el Figma pedía confirmar en un diálogo sin forma de deshacer; ahora se mantiene presionado 0,8 s y queda Deshacer por 5 s. Franjas: el Figma cambiaba cupo, duración y franjas sin mostrar su efecto; ahora la vista previa dice qué Pase activo quedaría fuera, y por E3-2 ya no hay cupo ni duración máxima. Las otras tres correcciones (QR en la imagen de WhatsApp, entrar y salir con el mismo Pase, bitácora de portería) se hicieron sobre versiones anteriores del prototipo y se ven en la lámina anterior.
+Antes: sin ver el efecto. Ahora: la vista previa dice qué Pase quedaría fuera
+Las mismas tres pantallas en el prototipo actual. Vigencia: «Se queda» cubre de 3 días a 3 meses. Revocar: se mantiene presionado 0,8 s y queda Deshacer por 5 s. Franjas: la vista previa dice qué Pase activo quedaría fuera; por E3-2 ya no hay cupo ni duración máxima. Las otras tres correcciones de la tabla (QR en la imagen de WhatsApp, entrar y salir con el mismo Pase, bitácora de portería) se hicieron sobre versiones anteriores del prototipo, sin captura fiel del antes. En la lámina siguiente se puede probar.
+Pruébalo
+3
+toques para volver a invitar a una visita
+8 s
+estimados con KLM (visita nueva: 19,4 s)
+Recorrido: entrar con WhatsApp, tocar Andrés en «Volver a invitar», Crear Pase, ver Sin confirmar pasar a Vigente, enviar por WhatsApp, abrir el enlace en el teléfono de la visita y leer su QR en portería.
+Crear, confirmar y revocar un Pase
+El botón se vuelve el Pase
+Confirmar, revocar, deshacer
+Portería: el veredicto en el primer cuadro
+Dirección biopunk aprobada (E3-1) y motion aprobado (E3-8). Cada movimiento copia un proceso biológico: sinapsis en el lector, bioluminiscencia al confirmar, cicatriz al revocar.
 Plan estratégico SOSTAC · las seis partes y dónde está cada una
-Las seis partes del plan, láminas 2 a 18
+Las seis partes del plan, láminas 2 a 19
 S
 Situación
 Problema, evidencia, arquetipos, journey e insights
@@ -149,24 +155,24 @@ Láminas 2–4
 O
 Objetivos
 Objetivo general, meta y 5 objetivos SMART
-Láminas 12–14
+Láminas 13–15
 S
 Estrategia
 Una por objetivo, con sustantivo y eje estratégico
-Lámina 15
+Lámina 16
 T
 Tácticas
 Qué, cómo, quién y cuándo
-Lámina 15
+Lámina 16
 A
 Acción
 Seis hitos, nov 2026 a oct 2027
-Lámina 16
+Lámina 17
 C
 Control
 KPI con método GQM y su tablero
-Láminas 17–18
-Estructura de la guía del curso (Plan_estrategico.pdf). La situación ya se contó al inicio; desde aquí, el plan. Las fichas de producto (lámina 19) cierran como insumo para mapas y prototipos.
+Láminas 18–19
+Estructura de la guía del curso (Plan_estrategico.pdf). La situación ya se contó al inicio; desde aquí, el plan. Las fichas de producto (lámina 20) cierran como insumo para mapas y prototipos.
 SOSTAC · O · Objetivo general (el qué) y meta general a 12 meses
 Posicionar a Kino, a octubre de 2027, como el software de seguridad líder en Antioquia para la propiedad horizontal: el aliado que reúne a residentes, visitas, colaboradores, portería y administración en la decisión de quién entra.
 1
