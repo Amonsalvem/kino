@@ -104,7 +104,7 @@ function Ingreso({onListo}: {onListo: () => void}) {
 			{paso === 'numero' && (
 				<div class="ingreso__cuerpo entra">
 					<h1 class="titulo">Entra con tu WhatsApp</h1>
-					<p class="secundario">Te enviamos un código. Sin contraseña.</p>
+					<p class="secundario">Te enviamos un código de 6 cifras.</p>
 					<label class="campo">
 						<span class="rotulo">Tu número</span>
 						<span class="campo__fila">

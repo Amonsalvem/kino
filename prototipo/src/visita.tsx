@@ -1,7 +1,7 @@
 // La visita, sin cuenta: recibe el mensaje y abre el Pase vivo en el navegador (en claro, X1).
 import {useState} from 'preact/hooks';
 import {anotar, corto, cuentaRegresiva, E, estado, hora24, horaCorta, ventana, vigenciaTexto} from './modelo';
-import {ChipEstado, Icono, Marca, Portal, useKino, type ModoVista} from './componentes';
+import {ChipEstado, Icono, Marca, Portal, QR, useKino, type ModoVista} from './componentes';
 
 export function Visita() {
 	const est = useKino(1000);
@@ -40,9 +40,12 @@ function Chat({onAbrir}: {onAbrir: () => void}) {
 							<Marca tam={18} />
 							<span class="rotulo">Pase · {p.tipo === 'visita' ? 'Visita' : 'Colaborador'}</span>
 						</span>
-						<span class="imagen-pase__arco" />
+						<span class="imagen-pase__arco">
+							<QR texto={`https://kino.co/p/${corto(p)}`} tam={92} />
+						</span>
 						<b>{p.nombre}</b>
 						<span class="mono">{vigenciaTexto(p)}</span>
+						<span class="mono">Código {p.codigo}{p.placa ? ` · ${p.placa}` : ''}</span>
 					</span>
 					<span class="enlace-chat">
 						<Icono n="enlace" tam={16} />

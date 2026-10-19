@@ -37,7 +37,7 @@ const ACTORES: {k: Vista; t: string; d: string}[] = [
 function Escenario() {
 	const est = useKino(1000);
 	const [vista, setVista] = useState<Vista>((q.get('actor') as Vista) || (leerLocal('kino-proto-vista') as Vista) || 'todos');
-	const [bio, setBio] = useState(q.get('tema') ? q.get('tema') === 'bio' : leerLocal('kino-proto-bio') !== '0');
+	const [bio, setBio] = useState(q.get('tema') ? q.get('tema') === 'bio' : leerLocal('kino-proto-bio') === '1');
 	const [panel, setPanel] = useState(q.get('panel') !== '0');
 	const solo = q.get('solo') === '1';
 
@@ -71,7 +71,7 @@ function Escenario() {
 						<Marca tam={30} />
 						<span>
 							<b>Kino · Prototipo</b>
-							<span class="tenue">Entrega 3 · se usa, no solo se mira</span>
+							<span class="tenue">Entrega 3 · cuatro actores, un estado</span>
 						</span>
 					</div>
 					<nav class="actores" aria-label="Actor">
@@ -101,7 +101,7 @@ function Escenario() {
 				{(vista === 'todos' || vista === 'residente') && (
 					<div class="puesto puesto--telefono">
 						{vista === 'todos' && <span class="puesto__rotulo">Residente</span>}
-						<Escala ancho={390} alto={844}>
+						<Escala ancho={390} alto={844} max={solo ? 3 : 1}>
 							<Telefono etiqueta="App del residente">
 								<Residente />
 							</Telefono>
@@ -111,7 +111,7 @@ function Escenario() {
 				{(vista === 'todos' || vista === 'visita') && (
 					<div class="puesto puesto--telefono">
 						{vista === 'todos' && <span class="puesto__rotulo">Visita</span>}
-						<Escala ancho={390} alto={844}>
+						<Escala ancho={390} alto={844} max={solo ? 3 : 1}>
 							<Telefono etiqueta="Teléfono de la visita" claro>
 								<Visita />
 							</Telefono>
@@ -121,7 +121,7 @@ function Escenario() {
 				{(vista === 'todos' || vista === 'porteria') && (
 					<div class="puesto puesto--tableta">
 						{vista === 'todos' && <span class="puesto__rotulo">Portería</span>}
-						<Escala ancho={1080} alto={760}>
+						<Escala ancho={1080} alto={760} max={solo ? 3 : 1}>
 							<div class="tableta" role="region" aria-label="Pantalla de portería">
 								<Porteria />
 							</div>
@@ -130,7 +130,7 @@ function Escenario() {
 				)}
 				{vista === 'administracion' && (
 					<div class="puesto puesto--portatil">
-						<Escala ancho={1280} alto={800}>
+						<Escala ancho={1280} alto={800} max={solo ? 3 : 1}>
 							<div class="portatil" role="region" aria-label="Administración">
 								<Administracion />
 							</div>
