@@ -34,6 +34,20 @@
       "gravedad": "aviso",
       "fragmento": ", no el residente.",
       "porque": "Antítesis de cierre «X, no el Y.»."
+    },
+    {
+      "linea": 60,
+      "id": "raya",
+      "gravedad": "aviso",
+      "fragmento": " — ",
+      "porque": "Raya (em dash) en texto visible: usar coma, punto o paréntesis."
+    },
+    {
+      "linea": 64,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "KPI",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
     }
   ]
 }

@@ -89,7 +89,7 @@ Los cuatro recorridos fallan en la puerta: nadie puede fijar desde cuándo y has
 
 ## 2. SOSTAC · O · Objetivo general (el qué) y meta general
 
-**Objetivo general [P].** Posicionar a Kino, a octubre de 2027, como el control de acceso con el que el residente decide quién entra a su casa, dentro de los límites de la administración y sobre el lector que el conjunto ya tiene.
+**Objetivo general [P].** Posicionar a Kino, a octubre de 2027, como el aliado de la propiedad horizontal en control de acceso: el residente decide quién entra, la administración pone los límites y funciona con el lector que el conjunto ya tiene.
 
 **Cómo se construyó.** Verbo + Kino + fecha + categoría + beneficio tomado de la pregunta guía + diferencia, sin cifras (`investigacion-objetivo-general.md`). Neivor y ComunidadFeliz venden software de administración; ZKTeco, lector con su propio software. El segundo fabricante llega en 2028 (E2).
 
@@ -125,7 +125,7 @@ A tiempo: la columna **Tiempo** de la tabla anterior (¿qué puedo hacer hoy, en
 
 ```mermaid
 flowchart LR
-  G[Posicionar a Kino a oct 2027:<br/>el residente decide quién entra,<br/>con límites y sobre el lector instalado] --> OE1[OE1 · crear en 30 s<br/>producto]
+  G[Posicionar a Kino a oct 2027<br/>como aliado de la propiedad horizontal<br/>en control de acceso] --> OE1[OE1 · crear en 30 s<br/>producto]
   G --> OE2[OE2 · adopción<br/>servicio]
   G --> OE3[OE3 · colaborador sin llamada<br/>producto + servicio]
   G --> OE4[OE4 · integración confirmada<br/>tecnología]

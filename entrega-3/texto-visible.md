@@ -110,7 +110,7 @@ KPI con método GQM y su tablero
 Láminas 15–16
 Estructura de la guía del curso (Plan_estrategico.pdf). La situación ya se contó al inicio; desde aquí, el plan. Las fichas de producto (lámina 17) cierran como insumo para mapas y prototipos.
 SOSTAC · O · Objetivo general (el qué) y meta general a 12 meses
-Posicionar a Kino, a octubre de 2027, como el control de acceso con el que el residente decide quién entra a su casa, dentro de los límites de la administración y sobre el lector que el conjunto ya tiene.
+Posicionar a Kino, a octubre de 2027, como el aliado de la propiedad horizontal en control de acceso: el residente decide quién entra, la administración pone los límites y funciona con el lector que el conjunto ya tiene.
 4
 conjuntos con pago en el Oriente antioqueño
 95
@@ -118,7 +118,7 @@ conjuntos con pago en el Oriente antioqueño
 de los Pases confirmados por el lector en menos de 60 s
 0
 personas permanentes creadas para dejar entrar a alguien
-Objetivo general: verbo + Kino + fecha + categoría + beneficio + diferencia, sin cifras (investigacion-objetivo-general.md). El beneficio sale de la pregunta guía: quien sabe quién llega, el residente, decide. La diferencia: acotado por la administración y sobre el hardware instalado. Las tres cifras son la meta a 12 meses: 4 conjuntos pagando, el lector confirmando el 95 % de los Pases en menos de un minuto y ninguna persona dada de alta de por vida para dejar entrar a alguien. Los 4 conjuntos: Villas Campestres, Refugio Campestre y 2 nuevos del Oriente antioqueño; el 2 es meta del equipo y se recalibra con el piloto.
+Objetivo general: verbo + Kino + fecha + categoría + beneficio + diferencia, sin cifras (investigacion-objetivo-general.md). Parte del boceto de Nico («aliado estratégico líder en software de seguridad de las propiedades horizontales»). Aliado: de la administración, que es quien compra. Control de acceso y no seguridad: Kino no vigila, decide quién entra. Las tres cláusulas son la diferencia de Kino: el residente decide (pregunta guía), la administración pone los límites y no exige cambiar el lector. Las tres cifras son la meta a 12 meses: 4 conjuntos pagando, el lector confirmando el 95 % de los Pases en menos de un minuto y ninguna persona dada de alta de por vida para dejar entrar a alguien. Los 4 conjuntos: Villas Campestres, Refugio Campestre y 2 nuevos del Oriente antioqueño; el 2 es meta del equipo y se recalibra con el piloto.
 SOSTAC · O · Objetivos específicos SMART · acción + métrica + usuario + contexto + tiempo
 Cinco objetivos SMART
 Acción

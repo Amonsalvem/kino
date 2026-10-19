@@ -33,7 +33,7 @@ Se hizo antes de reescribir el objetivo general de Kino (deck lámina 10, Biblia
 
 ## 4. Resultado
 
-> **Posicionar a Kino, a octubre de 2027, como el control de acceso con el que el residente decide quién entra a su casa, dentro de los límites de la administración y sobre el lector que el conjunto ya tiene.**
+> **Posicionar a Kino, a octubre de 2027, como el aliado de la propiedad horizontal en control de acceso: el residente decide quién entra, la administración pone los límites y funciona con el lector que el conjunto ya tiene.**
 
 | Criterio | Dónde se cumple |
 |---|---|
@@ -45,3 +45,20 @@ Se hizo antes de reescribir el objetivo general de Kino (deck lámina 10, Biblia
 | Diferencia | dentro de los límites de la administración + sobre el lector que el conjunto ya tiene |
 | Espacio | el Oriente antioqueño, en la meta general («4 conjuntos con pago en el Oriente antioqueño») |
 | Comprobable | Sí, con la meta general: 4 conjuntos, 95 % de Pases confirmados, 0 personas permanentes |
+
+## 5. Ajuste con el boceto de Nico (19 oct)
+
+Boceto: «posicionar a Kino, a octubre 2027, como el aliado estratégico líder en software de seguridad de las propiedades horizontales».
+
+| Pieza del boceto | En la versión final | Por qué |
+|---|---|---|
+| posicionar a Kino, a octubre 2027 | Igual | Verbo, unidad y fecha: los tres primeros criterios |
+| aliado estratégico | **aliado** de la propiedad horizontal | La posición es frente a quien compra, la administración. «Estratégico» es jerga y no cambia la lectura (criterio 8) |
+| líder | Se quita | Con 4 conjuntos y sin una cifra oficial de copropiedades en Antioquia (`estrategia.md` §1.5) no se puede comprobar. Ver la nota de abajo |
+| software de seguridad | **control de acceso** | Kino decide quién entra; no vigila ni promete seguridad. La compuerta de voz bloquea promesas de seguridad |
+| las propiedades horizontales | **la propiedad horizontal** | Es el nombre del régimen (Ley 675 de 2001) y del sector |
+| — | **el residente decide quién entra, la administración pone los límites y funciona con el lector que el conjunto ya tiene** | Sin esta parte, la frase serviría para Neivor o ComunidadFeliz. Son las tres piezas de la diferencia (regla 5) y la primera responde la pregunta guía |
+
+> **Posicionar a Kino, a octubre de 2027, como el aliado de la propiedad horizontal en control de acceso: el residente decide quién entra, la administración pone los límites y funciona con el lector que el conjunto ya tiene.**
+
+**Si el equipo quiere mantener «líder».** Hay que acotarlo y medirlo, por ejemplo «líder en el Oriente antioqueño». Para eso primero hay que contar las copropiedades del Oriente con hardware Hikvision (pendiente 5 de `estrategia.md` §11) y agregar un KPI de participación: conjuntos con Kino ÷ conjuntos con lector compatible.

@@ -408,3 +408,8 @@ En arquitectura faltaba:
 - Investigación en `entrega-3/investigacion-objetivo-general.md`: guía del curso, metodología de objetivos (verbo + unidad + contexto), OKR (significativo, concreto, sin cifras), posicionamiento (Moore) y SOSTAC. De ahí salen 8 criterios.
 - Nuevo objetivo general: «Posicionar a Kino, a octubre de 2027, como el control de acceso con el que el residente decide quién entra a su casa, dentro de los límites de la administración y sobre el lector que el conjunto ya tiene.» El espacio (Oriente antioqueño) pasa a la meta. Se quita la línea «Posición» aparte: ya va dentro de la frase.
 - Aplicado en el deck (lámina 10 y guion), la Biblia (3.1) y `estrategia.md` (§2 y diagrama). `verificar.mjs` sin fallas. Pendiente de aprobación de Nico.
+
+## Objetivo general desde el boceto de Nico (19 oct)
+- Boceto: «posicionar a Kino, a octubre 2027, como el aliado estratégico líder en software de seguridad de las propiedades horizontales». Versión final: «Posicionar a Kino, a octubre de 2027, como el aliado de la propiedad horizontal en control de acceso: el residente decide quién entra, la administración pone los límites y funciona con el lector que el conjunto ya tiene.»
+- Cambios frente al boceto y su porqué en `entrega-3/investigacion-objetivo-general.md` §5: se quitan «estratégico» y «líder» (este último no se puede comprobar; queda la ruta para medirlo si el equipo lo quiere) y «seguridad» pasa a «control de acceso».
+- Deck (lámina 10 y guion), Biblia 3.1 y `estrategia.md` §2. `verificar.mjs` sin fallas. Pendiente de aprobación de Nico.
