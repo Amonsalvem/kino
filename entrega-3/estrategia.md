@@ -245,7 +245,7 @@ Objetivo → pregunta → métrica, con su etapa (captación, comportamiento, co
 **«Ingresos en minuta» (OE3).** La minuta es el cuaderno donde portería anota a mano cada ingreso. El KPI divide los ingresos de colaboradores que abrió el lector con un Pase entre todos los ingresos de colaboradores anotados. Ejemplo: 80 de 100 en la semana = 80 %, la meta.
 
 ### SOSTAC · C · Tablero de seguimiento
-Un panel por objetivo con el último dato, su serie y la meta como línea punteada (deck, lámina 16). OE1 se alimenta de `prototipo/pruebas/oe1.mjs`; en el piloto, OE2 y OE3 de la base de Kino y la minuta, OE4 de HikCentral y OE5 de los contratos.
+Un panel por objetivo con el último dato, su serie y la meta como línea punteada (deck, lámina 17). OE1 se alimenta de `prototipo/pruebas/oe1.mjs`; en el piloto, OE2 y OE3 de la base de Kino y la minuta, OE4 de HikCentral y OE5 de los contratos.
 
 *Fuentes de medición:* `oe1.mjs`, base de Kino, HikCentral, minuta de portería y encuestas. Las metas de OE2, OE3 y OE5 son supuestos y se recalibran en la semana 1 del piloto.
 

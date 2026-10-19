@@ -460,3 +460,8 @@ En arquitectura faltaba:
 ## Deck: botón de pantalla completa (19 oct)
 - Botón en la barra, junto al número de lámina, y tecla F. El ícono cambia a «salir» mientras está en pantalla completa. Si el navegador o el marco donde se abre no lo permiten, un aviso dice cómo hacerlo: abrir el deck en su propia pestaña, F11 en Windows o ⌃⌘F en Mac.
 - Probado en Chromium: entra y sale sin errores. `verificar.mjs` sin fallas.
+
+## Deck: lámina de resultados de usabilidad (19 oct)
+- Lámina 9 nueva, después de «Cómo lo validamos»: «11 tropiezos en 5 perfiles, 6 ya corregidos». Tiene una barra con el reparto (6 corregidos, 3 planeados, 1 pendiente, 1 sin problema), la tabla de los 6 corregidos con su severidad de Nielsen y la medición KLM de OE1. Al pie dice qué falta: la prueba con residentes, con SUS en la semana 6 del piloto.
+- Fuente: la evaluación por inspección de la Biblia 6.1 (versión completa en `_obsoleto/biblia-contenido-larga.py`). No se inventaron participantes: las notas dicen que fue una inspección del equipo.
+- El deck pasa a 20 láminas. Se actualizaron las referencias de lámina en el mapa SOSTAC, en sus notas y en `estrategia.md` §7. `verificar.mjs` sin fallas; compuerta de voz: 0 errores.

@@ -82,8 +82,48 @@ Biblia · E1 y E2 completas
 E3: 3.1–3.3 · 5.2 · 6.1
 E4 y final: previsto
 Se lee de arriba abajo: cada barra es un filtro más exigente. 31 problemas en el Figma (el peor: nada pasaba de un actor a otro), por eso construimos en código las 17 interacciones; 18 pruebas automáticas recorren la tarde completa; y 5 perfiles revisaron el prototipo tarea por tarea: 11 tropiezos, 6 ya corregidos. La franja de abajo es el avance de la Biblia. QA por especialidad con la severidad de Nielsen. La evaluación por inspección usa los perfiles del estudio de iAgency para Monte Sereno (2024) y los arquetipos; no reemplaza la prueba con personas del piloto.
+Diseño de interacción · resultados de usabilidad · inspección con recorrido cognitivo y Nielsen
+11 tropiezos en 5 perfiles, 6 ya corregidos
+6
+corregidos en el prototipo
+3
+planeados para la entrega 4: Pase de evento, Pase familiar, editar un recurrente
+1
+pendiente con la administración: cambiar a un número extranjero
+1
+sin problema: extender un Pase desde otro país
+Sev.
+Perfil y situación
+Dónde se trababa
+Qué cambió
+3
+A3 · visita sin datos móviles
+La imagen del WhatsApp no traía un QR legible
+La imagen lleva QR, código y placa
+3
+Empty nesters · hijos por un mes
+Solo había Pases de horas
+«Se queda»: de 3 días a 3 meses
+3
+A1 · revocar por error
+El diálogo no dejaba deshacer
+Mantener presionado y deshacer por 5 s
+3
+A1 · la visita sale a la tienda
+El Pase quedaba usado al entrar
+Entra y sale dentro de su vigencia
+2
+A4 · portería en hora pico
+Una lectura tapaba la anterior
+Bitácora con la última fila resaltada
+2
+A4 · administración
+No se veía el efecto de mover una franja
+Vista previa del cambio
+Medido en el prototipo: 3 toques y 8 s para volver a invitar; 19,4 s para una visita nueva (KLM). Falta la prueba con residentes: SUS en la semana 6 del piloto.
+Resultados de la evaluación de usabilidad. Método: recorrido cognitivo de las tareas principales y las 10 heurísticas de Nielsen, desde 5 perfiles: los arquetipos del diagnóstico y los perfiles de residente del estudio de mercado de iAgency para Monte Sereno (2024): empty nesters, pareja sin hijos y familia con hijos pequeños. Severidad de Nielsen: 0 no es un problema, 4 impide la tarea. Es una evaluación por inspección del equipo, no una prueba con personas: no hubo participantes, por eso no hay citas ni tasas de éxito. La prueba con residentes llega en el piloto (SUS en la semana 6, KPI de OE2). Detalle completo en la Biblia 6.1.
 Plan estratégico SOSTAC · las seis partes y dónde está cada una
-Las seis partes del plan, láminas 2 a 16
+Las seis partes del plan, láminas 2 a 17
 S
 Situación
 Problema, evidencia, arquetipos, journey e insights
@@ -91,24 +131,24 @@ Láminas 2–4
 O
 Objetivos
 Objetivo general, meta y 5 objetivos SMART
-Láminas 10–12
+Láminas 11–13
 S
 Estrategia
 Una por objetivo, con sustantivo y eje estratégico
-Lámina 13
+Lámina 14
 T
 Tácticas
 Qué, cómo, quién y cuándo
-Lámina 13
+Lámina 14
 A
 Acción
 Seis hitos, nov 2026 a oct 2027
-Lámina 14
+Lámina 15
 C
 Control
 KPI con método GQM y su tablero
-Láminas 15–16
-Estructura de la guía del curso (Plan_estrategico.pdf). La situación ya se contó al inicio; desde aquí, el plan. Las fichas de producto (lámina 17) cierran como insumo para mapas y prototipos.
+Láminas 16–17
+Estructura de la guía del curso (Plan_estrategico.pdf). La situación ya se contó al inicio; desde aquí, el plan. Las fichas de producto (lámina 18) cierran como insumo para mapas y prototipos.
 SOSTAC · O · Objetivo general (el qué) y meta general a 12 meses
 Posicionar a Kino, a octubre de 2027, como el software de seguridad líder en Antioquia para la propiedad horizontal: el aliado que reúne a residentes, visitas, colaboradores, portería y administración en la decisión de quién entra.
 1
