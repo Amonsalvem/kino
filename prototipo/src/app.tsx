@@ -83,7 +83,7 @@ function Escenario() {
 						<Marca tam={30} />
 						<span>
 							<b>Kino · Prototipo</b>
-							<span class="tenue">Entrega 3 · residente, visita, portería y administración</span>
+							<span class="tenue">Entrega 3</span>
 						</span>
 					</div>
 					<nav ref={actores} class="actores con-indicador" aria-label="Actor">
@@ -153,7 +153,6 @@ function Escenario() {
 			</main>
 			{notas && (
 				<aside class={`notas ${notasSale ? 'notas--sale' : ''}`} aria-live="polite">
-					<span class="rotulo">Interacción</span>
 					{ultima ? (
 						<div class="nota-interaccion" key={ultima.id + est.vistas.size}>
 							<span class="mono nota-interaccion__id">{ultima.id}</span>
@@ -166,7 +165,7 @@ function Escenario() {
 							</dl>
 						</div>
 					) : (
-						<p class="secundario">Toca cualquier cosa. Cada interacción aparece aquí con su regla y su efecto en el lector.</p>
+						<p class="secundario">Toca algo: aquí aparece la interacción, su regla y su efecto en el lector.</p>
 					)}
 					<div class="cobertura">
 						<span class="rotulo">

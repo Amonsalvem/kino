@@ -258,15 +258,14 @@ function Panel({estado: ep, leyendo, ultima, llamada, onLlamar}: {estado: string
 			<div class="lector__contenido">
 				{ep === 'reposo' && (
 					<div class="lector__texto lector__texto--entra" key="reposo">
-						<span class="rotulo">Lector en línea · Portería principal</span>
 						<span class="lector__titulo">Esperando llegada</span>
-						<span class="nota">El lector permite el ingreso. Aquí se ve por qué.</span>
+						<span class="nota">El lector decide quién entra. Aquí ves por qué.</span>
 					</div>
 				)}
 				{ep === 'leyendo' && leyendo && (
 					<div class="lector__texto lector__texto--entra" key="leyendo">
-						<span class="rotulo">Leyendo {MODO[leyendo.modo]}</span>
 						<span class="lector__titulo">{leyendo.etiqueta}</span>
+						<span class="nota">Leyendo {MODO[leyendo.modo]}…</span>
 						<span class="puntos" aria-hidden="true"><i /><i /><i /></span>
 					</div>
 				)}

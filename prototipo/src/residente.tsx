@@ -139,7 +139,7 @@ function Ingreso({onListo}: {onListo: () => void}) {
 							<button class="accion" disabled={!valido} onClick={enviar}>
 								Enviar código
 							</button>
-							<p class="nota">Si es tu primera vez, te reconocemos por la cédula que tiene la administración.</p>
+							<p class="nota">La primera vez te reconocemos por tu cédula.</p>
 						</div>
 					) : k === 'codigo' ? (
 				<div class="ingreso__cuerpo">
@@ -157,9 +157,10 @@ function Ingreso({onListo}: {onListo: () => void}) {
 						</div>
 					) : (
 				<div class="ingreso__cuerpo ingreso__bienvenida">
-							<span class="rotulo">{RESIDENTE.comunidad}</span>
 							<h1 class="titulo">Hola, Carolina</h1>
-							<p class="secundario">{RESIDENTE.casa}</p>
+							<p class="secundario">
+								{RESIDENTE.casa} · {RESIDENTE.comunidad}
+							</p>
 						</div>
 					)
 				}
@@ -341,7 +342,7 @@ function Avisos({onAbrir}: {onAbrir: (p: Pase, el?: HTMLElement) => void}) {
 			{lista.length === 0 && (
 				<div class="vacio vacio--ilustrado">
 					<Ilustracion tipo="llegada" />
-					<p class="secundario">Aquí aparece cada entrada con tu Pase y cada rechazo con su motivo.</p>
+					<p class="secundario">Aquí ves quién entró con tu Pase y a quién rechazó el lector, con el motivo.</p>
 					<p class="nota">Prueba: en Portería, lee el QR de Andrés.</p>
 				</div>
 			)}
@@ -377,7 +378,7 @@ function MiCasa() {
 			</div>
 			<section class="grupo">
 				<h2 class="rotulo">Lo que decides tú</h2>
-				<p class="nota">Cuántas visitas tienes y cuánto se queda cada una. Una estadía puede durar semanas o meses.</p>
+				<p class="nota">A quién recibes y por cuánto tiempo, de horas a meses.</p>
 			</section>
 			<section class="grupo">
 				<h2 class="rotulo">Lo que fija la administración</h2>
@@ -580,7 +581,7 @@ function HojaCrear({precarga, onCerrar, onVer}: {precarga?: (typeof RECIENTES)[n
 								<span class="rotulo">Su WhatsApp</span>
 								<input class="mono" inputMode="numeric" value={tel} placeholder="300 000 0000" onInput={(e) => setTel((e.target as HTMLInputElement).value)} />
 							</label>
-							<p class="nota">Ahí le llega el Pase. No instala nada ni crea cuenta.</p>
+							<p class="nota">Ahí le llega el Pase, sin app ni cuenta.</p>
 						</div>
 
 						<Relevo k={tipo} dir={tipo === 'visita' ? -1 : 1}>

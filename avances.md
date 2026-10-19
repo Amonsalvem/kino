@@ -344,3 +344,9 @@ En arquitectura faltaba:
 ## estrategia.md en versión corta (19 oct)
 - **Pedido de Nico:** el mismo barrido del deck y la Biblia sobre `entrega-3/estrategia.md`.
 - **Hecho:** de 30.400 a 21.100 caracteres (−31 %). Toda la prosa pasó a tablas; los SMART van en cinco columnas (acción, métrica, usuario, contexto, tiempo) con su punto de partida; las 6 fichas, en una tabla; dos diagramas Mermaid (conexión de los objetivos y gantt del plan de acción). Se conservan todas las piezas a las que remiten el deck y la Biblia (12 KPI con el principal marcado ★, 12 tácticas, horizonte, lista de mercado y fichas) y la numeración de los apartados. La versión larga quedó en `entrega-3/_obsoleto/estrategia-larga.md`.
+
+## Textos del prototipo, mismo barrido (19 oct)
+- Sin rótulos encima de los títulos: bienvenida («Hola, Carolina» con casa y comunidad debajo), portería en reposo y leyendo, panel de notas del escenario.
+- Textos más cortos y concretos en ingreso, Avisos, Mi casa, hoja de crear, portería, administración, escenario y en las respuestas del inventario de interacciones (`modelo.ts`).
+- Los rótulos de dato encima de su valor se mantienen: son regla aprobada de la marca (decisiones.md, Parada 3).
+- Verificación: e2e 18 de 18, OE1 sin cambios, barrido sin cortes y compuerta de voz sin hallazgos.

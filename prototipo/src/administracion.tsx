@@ -40,7 +40,7 @@ export function Administracion() {
 						</button>
 					))}
 				</nav>
-				<p class="nota admin__nota">La administración fija las franjas. Cada residente decide a quién otorga un Pase y por cuánto tiempo.</p>
+				<p class="nota admin__nota">Tú fijas las franjas. Cada residente decide a quién da un Pase y por cuánto tiempo.</p>
 			</aside>
 			<main ref={principal} class="admin__principal">
 				{s === 'resumen' && <Resumen ir={setS} />}
