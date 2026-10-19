@@ -316,3 +316,12 @@ En arquitectura faltaba:
 - **Revisión:** `prototipo/pruebas/video.mjs` graba cada momento; comparación en `entrega-3/antes-despues/` y la lámina https://claude.ai/artifact/RYzKtmq3ZTzgfK5LEhBFbC.
 - **Verificación:** e2e 17 de 17; OE1 3 toques y 8 s; barrido sin cortes.
 - **Falta:** visto bueno de Nico; aprobar la corrección de E3-8; llevar el nivel al resto de la app.
+
+## Motion · tercera pasada: el resto de la app (19 oct)
+- **Pedido de Nico:** «Aprobado, lleva el mismo nivel al resto de la app». Queda aprobada la corrección de E3-8.
+- **Criterio común:** toda entrada tiene salida; las listas tienen identidad y viajan con FLIP; el texto que cambia se funde; las cifras se cuentan; el contenido que cambia de forma releva al anterior sin saltar de alto.
+- **Piezas nuevas** (`prototipo/src/componentes.tsx`, `movimiento.ts`): `usePresencia`, `Fundir`, `Digitos`, `Cifra`, `useFlip`, `useIndicador` y `Relevo`.
+- **Errores corregidos:** la cicatriz del revocado quedaba pegada tras Deshacer; listas sin `key` animaban la fila equivocada; la instrucción del Pase vivo nunca entraba; «usado» no se tachaba en el detalle; la tarjeta vencida recuperaba la opacidad.
+- **Sexto momento, el ciclo del Pase:** el borde punteado se cierra al confirmarse; el brillo y el color se apagan con transición al acercarse el vencimiento; la vida se vacía al vencer; el revocado corta, deja cicatriz y el velo entra; Deshacer retrae la cicatriz; extender destella la cuenta.
+- **Por actor:** ingreso con relevo de pasos y salida de la notificación; pestañas con indicador, botón flotante que brota y se encoge, lista que se reacomoda al cambiar un Pase de grupo; hoja con indicadores y altura que se desliza; detalle con modos fundidos y cuenta por dígito; visita que vuelve al chat con el Pase encogiéndose hasta la imagen; portería con teclado como hoja, llegadas y bitácora con FLIP y latidos de llamada que se detienen a los 3; administración con menú indicador, cifras contadas y alerta que sale; escenario con indicador de actor, cascada de dispositivos y panel de notas que entra y sale.
+- **Verificación:** e2e 18 de 18, también con `KINO_REDUCIDO=1`; OE1 3 toques y 8 s; barrido sin cortes; videos nuevos `estados`, `ingreso`, `pestanas`, `portero`, `franjas` y `escenario`.

@@ -534,7 +534,7 @@ Pedido de Nico: subir las tres escenas de Blender a nivel profesional; libertad 
   - fondos en movimiento;
   - la nota de confirmación sin el movimiento que pide la partitura.
 - **Falta:** aprobarla; llevar `destello` y la curva de sístole a `@kino/motion`; pasar las ilustraciones a Figma.
-- **Corrección (19 oct, segunda pasada) · PROPUESTA.** Nico vio el resultado todavía amateur. Diagnóstico y cambios en `entrega-3/motion-e-ilustracion.md` § «Segunda pasada». Lo que cambia de E3-8:
+- **Corrección (19 oct, segunda pasada) · APROBADA por Nico el 19 oct** («Aprobado, lleva el mismo nivel al resto de la app»). Nico vio el resultado todavía amateur. Diagnóstico y cambios en `entrega-3/motion-e-ilustracion.md` § «Segunda pasada». Lo que cambia de E3-8:
   - **Regla 6 acotada.** «Nada se mueve si no cambia un dato» vale para portería y para los estados del Pase. La vida ambiental de la marca (aurora del inicio, decisiones.md X7) se mantiene y se pausa a los 5 s, como pide F7 («el motion no se sacrifica»).
   - **Portería con la escena 3D aprobada** (M3D, portería nocturna) en lugar de la talanquera dibujada. Reposa en un cuadro fijo y solo avanza con una lectura; el veredicto sigue en el primer cuadro.
   - **Continuidad espacial:** elemento compartido entre tarjeta, Pase creado y detalle; el botón de crear crece y toma la forma del arco; la burbuja de la visita crece hasta el Pase vivo.
@@ -543,3 +543,4 @@ Pedido de Nico: subir las tres escenas de Blender a nivel profesional; libertad 
   - **Revisión en video** de cada momento (`prototipo/pruebas/video.mjs`).
 - **Lámina de revisión:** https://claude.ai/artifact/RYzKtmq3ZTzgfK5LEhBFbC (`entrega-3/antes-despues.html`).
 - **Falta (además de lo anterior):** el visto bueno de Nico a los cinco momentos antes de llevar el mismo nivel al resto de la app; el momento de confirmar, vencer y revocar sobre el Pase.
+- **Tercera pasada (19 oct):** el mismo criterio llevado al resto de la app (ingreso, pestañas, hoja, detalle, ciclo del Pase, visita, portería, administración y escenario). Detalle en `entrega-3/motion-e-ilustracion.md` § «Tercera pasada». Nada de esto cambia tokens aprobados.

@@ -97,6 +97,42 @@ Familia única, construida con la geometría del logo (el arco y la gota):
 
 **Queda:** el visto bueno de Nico; confirmar, vencer y revocar sobre el Pase; llevar el mismo nivel al resto de la app.
 
+## Tercera pasada · el resto de la app (19 oct)
+
+Nico aprobó los cinco momentos y la corrección de E3-8, y pidió el mismo nivel en toda la app.
+
+### Criterio común
+| Regla | Pieza (prototipo/src) |
+|---|---|
+| Toda entrada tiene salida, por donde entró y al 60 % de su duración | `usePresencia` + clase `.sale` |
+| Las listas tienen identidad: lo que cambia de grupo viaja y los demás se acomodan | `useFlip` (mide en el render, anima en el efecto; interrumpible) |
+| El texto que cambia se funde en su sitio (M3D-5) | `Fundir`; `Digitos` para la cuenta regresiva |
+| Las cifras se cuentan | `Cifra` (desaceleración cúbica) |
+| El activo de un grupo lleva un indicador que viaja con el resorte «pase» | `useIndicador` |
+| El contenido que cambia de forma releva al anterior sin saltar de alto | `Relevo` y FLIP del borde de la hoja |
+| Movimiento reducido: fundidos; la barra de Mantener para revocar sigue, porque es información | CSS `prefers-reduced-motion` y `?reducido=1` |
+
+### Sexto momento: el ciclo del Pase
+| Evento | Coreografía |
+|---|---|
+| Sin confirmar → vigente | El borde punteado se cierra sobre el arco, destello de 120 ms, el QR pasa de 0,35 a 1, el chip se funde y late 3 veces |
+| → por vencer | `--brillo` y el color de la vida pasan a ámbar con transición (`@property`) |
+| → vencido | La vida se vacía y el arco queda desaturado con tinte cálido |
+| → revocado | Corte seco, cicatriz que queda y velo que entra |
+| Deshacer | La cicatriz se retrae por donde entró y la luz vuelve |
+| Extender | La cuenta destella una vez; la hora nueva se funde |
+
+### Por pantalla
+- **Ingreso:** los pasos se relevan de lado; la notificación sale hacia arriba; cada cifra del código late al llegar; la bienvenida se despide y el inicio llega en cascada.
+- **Inicio:** indicador en la barra; el botón Crear Pase brota y se encoge; un Pase que cambia de grupo viaja; las cifras de la cabecera se cuentan; los avisos solo entran la primera vez.
+- **Hoja de crear:** indicadores en Visita/Colaborador y en el plazo; la hoja se desliza a su nueva altura; los valores y el resumen se funden; el choque con la franja contrae la vista previa.
+- **Detalle:** modos fundidos dentro del arco con indicador; cuenta por dígito; Extender sale al revocar y lo de abajo sube; el banner y Deshacer salen por su borde.
+- **Visita:** las burbujas nacen de su cola; al volver, el Pase se encoge hasta la imagen del chat.
+- **Portería:** el teclado baja como hoja y sube al cerrarse; llegadas y bitácora con FLIP; los latidos de la llamada son 3.
+- **Administración:** indicador en el menú; cifras contadas; la alerta sale al recuperarse la integración; la vista previa y Guardar responden.
+- **Escenario:** indicador de actor, dispositivos en cascada, panel de notas que entra y sale.
+- **Ilustraciones:** un solo gesto al montar (la gota llega por el rastro; el arco vacío nace) y luego quietas. Portería no necesita estado vacío: la bitácora siempre trae el día. Los Lotties no se usan porque traen texto y personas quemadas.
+
 ## Fuentes
 - Apple, Human Interface Guidelines: Motion y Accessibility.
 - IBM Carbon: motion, coreografía, estados vacíos y pictogramas.
