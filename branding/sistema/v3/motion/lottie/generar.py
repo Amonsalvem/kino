@@ -8,6 +8,8 @@ Reglas que cumple el código:
   guiones: estado/vigente/borde → estado-vigente-borde. temas/oscuro.json y temas/claro.json traen los valores.
 - Los textos también son slots (tipo texto): el pipeline puede cambiar nombre, hora o casa sin tocar la animación.
 - Cambiar de estado es un fundido cruzado entre dos capas con colores fijos: así cada color sigue siendo un slot.
+  Fondo y textos van en capas separadas (M3D-5, aprobada el 27 sep): el fondo se funde cruzado y cada texto que
+  cambia se funde a través, con la regla de paquetes/kino-motion/src/nucleo/textos.ts (ver cambio_de_estado).
 - La tarjeta del Pase es superficie/membrana y la pista de la barra, superficie/elevada (M3D-4, aprobada el 27 sep).
 - La variante reducida cambia desplazamientos por fundidos con la misma duración y el mismo orden; el latido se detiene.
 - Lo que entra subiendo lleva distancia/subida de margen bajo la pieza para que el lienzo no lo recorte.
@@ -189,8 +191,9 @@ ESTADOS = {
 }
 
 
-def chip(lz, estado, x_der, y, op, prefijo='chip'):
-    """Chip de estado alineado a la derecha en x_der. Devuelve capas (texto arriba, forma abajo)."""
+def chip(lz, estado, x_der, y, op, prefijo='chip', partes='todo', o=None):
+    """Chip de estado alineado a la derecha en x_der. Devuelve capas (texto arriba, forma abajo).
+    partes: 'todo', 'fondo' (sin etiqueta) o 'textos' (solo la etiqueta, con opacidad o)."""
     etiqueta, tam = ESTADOS[estado], 13
     alto = ESP['l'] + ESP['3xs']
     punto = ESP['xs'] - ESP['3xs']
@@ -202,26 +205,37 @@ def chip(lz, estado, x_der, y, op, prefijo='chip'):
                       relleno=None if discontinuo else f'estado/{estado}/borde',
                       borde=f'estado/{estado}/borde' if discontinuo else None, discontinuo=discontinuo),
               rect(lz, x, y, w, alto, R_CHIP, relleno=fondo, borde=f'estado/{estado}/borde', discontinuo=discontinuo)]
-    return [texto(lz, f'{prefijo}-{estado}-texto', etiqueta, x + ESP['s'] + punto + ESP['2xs'] + ESP['3xs'], y + alto / 2 + tam * 0.36,
-                  'Archivo-Bold', tam, f'estado/{estado}/texto', op),
-            formas(lz, f'{prefijo}-{estado}', grupos, op)], (x + ESP['s'] + punto / 2, y + alto / 2)
+    capas = []
+    if partes != 'fondo':
+        capas.append(texto(lz, f'{prefijo}-{estado}-texto', etiqueta, x + ESP['s'] + punto + ESP['2xs'] + ESP['3xs'], y + alto / 2 + tam * 0.36,
+                           'Archivo-Bold', tam, f'estado/{estado}/texto', op, o=o))
+    if partes != 'textos':
+        capas.append(formas(lz, f'{prefijo}-{estado}', grupos, op))
+    return capas, (x + ESP['s'] + punto / 2, y + alto / 2)
 
 
 def tarjeta(lz, id_, estado, quien, dato, op, w=360, h=132, evidencia=None, barra=None, borde_estado=True,
-            relleno='superficie/membrana', con_chip=True, fuente_quien='Archivo-Bold'):
-    """Precomp de una tarjeta de Pase. dato y evidencia en JetBrains Mono."""
+            relleno='superficie/membrana', con_chip=True, fuente_quien='Archivo-Bold', partes='todo', opacidades=None):
+    """Precomp de una tarjeta de Pase. dato y evidencia en JetBrains Mono.
+    partes: 'todo', 'fondo' (formas sin textos) o 'textos' (solo textos; opacidades: {clave: propiedad o}, con
+    claves chip, quien, dato y evidencia). Las dos mitades comparten medidas: puestas una sobre otra, calzan."""
     capas = []
+    o = (opacidades or {}).get
     compacta = h < 100  # filas de tabla: menos aire, mismo orden
     pad = ESP['m'] if compacta else ESP['m'] + ESP['2xs']
     if con_chip:
-        cc, _ = chip(lz, estado, w - pad, pad - ESP['3xs'], op)
+        cc, _ = chip(lz, estado, w - pad, pad - ESP['3xs'], op, partes=partes, o=o('chip'))
         capas += cc
-    capas.append(texto(lz, 'quien', quien, pad, pad + 17, fuente_quien, 17, 'texto/primario', op))
-    if dato:
-        capas.append(texto(lz, 'dato', dato, pad, pad + 17 + (ESP['l'] if compacta else ESP['l'] + ESP['2xs']),
-                           'JetBrainsMono-Regular', 13, 'texto/secundario', op))
-    if evidencia:
-        capas.append(texto(lz, 'evidencia', evidencia, pad, pad + 17 + ESP['2xl'], 'JetBrainsMono-Regular', 12, f'estado/{estado}/texto', op))
+    if partes != 'fondo':
+        capas.append(texto(lz, 'quien', quien, pad, pad + 17, fuente_quien, 17, 'texto/primario', op, o=o('quien')))
+        if dato:
+            capas.append(texto(lz, 'dato', dato, pad, pad + 17 + (ESP['l'] if compacta else ESP['l'] + ESP['2xs']),
+                               'JetBrainsMono-Regular', 13, 'texto/secundario', op, o=o('dato')))
+        if evidencia:
+            capas.append(texto(lz, 'evidencia', evidencia, pad, pad + 17 + ESP['2xl'], 'JetBrainsMono-Regular', 12, f'estado/{estado}/texto', op,
+                               o=o('evidencia')))
+    if partes == 'textos':
+        return precomp(lz, id_, capas, w, h)
     if barra is not None:
         capas.append(formas(lz, 'vigencia', [rect(lz, pad, h - pad, (w - 2 * pad) * barra, ESP['2xs'], ESP['3xs'], relleno=f'estado/{estado}/borde'),
                                              rect(lz, pad, h - pad, w - 2 * pad, ESP['2xs'], ESP['3xs'], relleno='superficie/elevada')], op))
@@ -231,9 +245,13 @@ def tarjeta(lz, id_, estado, quien, dato, op, w=360, h=132, evidencia=None, barr
     return precomp(lz, id_, capas, w, h)
 
 
-def boton(lz, id_, etiqueta, token_fondo, op, w=320, h=56):
-    capas = [texto(lz, 'etiqueta', etiqueta, w / 2, h / 2 + 16 * 0.36, 'Archivo-Bold', 16, 'accion/texto', op, just=2),
-             formas(lz, 'boton', [rect(lz, 0, 0, w, h, R_CONTROL, relleno=token_fondo)], op)]
+def boton(lz, id_, etiqueta, token_fondo, op, w=320, h=56, partes='todo', o=None):
+    """partes: 'todo', 'fondo' (sin etiqueta) o 'textos' (solo la etiqueta, con opacidad o)."""
+    capas = []
+    if partes != 'fondo':
+        capas.append(texto(lz, 'etiqueta', etiqueta, w / 2, h / 2 + 16 * 0.36, 'Archivo-Bold', 16, 'accion/texto', op, just=2, o=o))
+    if partes != 'textos':
+        capas.append(formas(lz, 'boton', [rect(lz, 0, 0, w, h, R_CONTROL, relleno=token_fondo)], op))
     return precomp(lz, id_, capas, w, h)
 
 
@@ -316,20 +334,63 @@ def pase_caducar(r):
     return lz
 
 
-def cruce(lz, op, t0, verbo, a, b, w=360, h=132):
-    """Fundido cruzado entre dos precomps con el verbo dado."""
+def cambio_de_texto(antes, despues):
+    """Igual que cambioDeTexto en paquetes/kino-motion/src/nucleo/textos.ts. Un texto vacío es «no hay texto»."""
+    if antes == despues:
+        return 'igual'
+    if not antes:
+        return 'entra'
+    if not despues:
+        return 'sale'
+    return 'a-traves'
+
+
+def textos_de(t):
+    return {'chip': ESTADOS[t['estado']] if t.get('con_chip', True) else None, 'quien': t['quien'],
+            'dato': t.get('dato'), 'evidencia': t.get('evidencia')}
+
+
+def cambio_de_estado(lz, op, t0, verbo, antes, despues, w=360, h=132, p=(0, 0), nombre=''):
+    """Cambio de estado de una tarjeta (M3D-5). antes y despues: argumentos de tarjeta() con su 'id'.
+    El fondo (borde, relleno, chip, barra) se funde cruzado con el verbo. Cada texto sigue la regla del núcleo:
+    a través, el que sale se va en la primera mitad y el nuevo llega en la segunda; si solo sale o solo entra, toda
+    la duración. Un texto igual no se mueve: el nuevo llega encima en toda la duración y el viejo queda debajo, así
+    un cambio de color no deja hueco de opacidad. Devuelve las capas, la de arriba primero."""
     d, c = F(f'{verbo}/duracion'), C(f'{verbo}/curva')
-    ca = capa_precomp(lz, 'antes', a, w, h, op, o=kf(t0, t0 + d, [100], [0], c))
-    cb = capa_precomp(lz, 'despues', b, w, h, op, o=kf(t0, t0 + d, [0], [100], c))
-    return [cb, ca]
+    m = round(d / 2)
+    sale, entra = {}, {}
+    ta, tb = textos_de(antes), textos_de(despues)
+    for clave in ta:
+        cambio = cambio_de_texto(ta[clave] or '', tb[clave] or '')
+        if cambio == 'a-traves':
+            sale[clave], entra[clave] = kf(t0, t0 + m, [100], [0], c), kf(t0 + m, t0 + d, [0], [100], c)
+        elif cambio == 'sale':
+            sale[clave] = kf(t0, t0 + d, [100], [0], c)
+        elif cambio in ('entra', 'igual'):
+            entra[clave] = kf(t0, t0 + d, [0], [100], c)
+
+    def mitad(t, partes, opacidades=None):
+        kw = {k: v for k, v in t.items() if k not in ('id', 'estado', 'quien', 'dato')}
+        sufijo = '-textos' if partes == 'textos' else ''
+        return tarjeta(lz, t['id'] + sufijo, t['estado'], t['quien'], t.get('dato'), op, w=w, h=h, partes=partes,
+                       opacidades=opacidades, **kw)
+
+    pre = f'{nombre}-' if nombre else ''
+    # Primero antes y después: los slots de texto se numeran en el orden de creación y no deben cambiar de dueño.
+    fondo_a, textos_a = mitad(antes, 'fondo'), mitad(antes, 'textos', sale)
+    fondo_b, textos_b = mitad(despues, 'fondo'), mitad(despues, 'textos', entra)
+    return [capa_precomp(lz, f'{pre}textos-despues', textos_b, w, h, op, p=p),
+            capa_precomp(lz, f'{pre}textos-antes', textos_a, w, h, op, p=p),
+            capa_precomp(lz, f'{pre}despues', fondo_b, w, h, op, p=p, o=kf(t0, t0 + d, [0], [100], c)),
+            capa_precomp(lz, f'{pre}antes', fondo_a, w, h, op, p=p, o=kf(t0, t0 + d, [100], [0], c))]
 
 
 def pase_confirmar(r):
     op = F('aparecer/duracion')
     lz = Lienzo('pase-confirmar', 360, 132, op)
-    a = tarjeta(lz, 'tarjeta-sin-confirmar', 'sin-confirmar', 'Andrés Gómez', ENVIADO, op)
-    b = tarjeta(lz, 'tarjeta-vigente', 'vigente', 'Andrés Gómez', DATO, op, evidencia=EVIDENCIA)
-    capas = cruce(lz, op, 0, 'aparecer', a, b)
+    capas = cambio_de_estado(lz, op, 0, 'aparecer',
+                             {'id': 'tarjeta-sin-confirmar', 'estado': 'sin-confirmar', 'quien': 'Andrés Gómez', 'dato': ENVIADO},
+                             {'id': 'tarjeta-vigente', 'estado': 'vigente', 'quien': 'Andrés Gómez', 'dato': DATO, 'evidencia': EVIDENCIA})
     if not r:
         # El borde discontinuo se cierra: el hueco del trazo va a cero con la misma curva.
         for asset in lz.assets:
@@ -347,19 +408,20 @@ def pase_confirmar(r):
 def pase_por_vencer(r):
     op = F('responder/duracion')
     lz = Lienzo('pase-por-vencer', 360, 132, op)
-    a = tarjeta(lz, 'tarjeta-vigente', 'vigente', 'Andrés Gómez', 'Casa 14 · vence 6:00 p. m.', op)
-    b = tarjeta(lz, 'tarjeta-por-vencer', 'por-vencer', 'Andrés Gómez', 'Casa 14 · vence 6:00 p. m.', op)
-    lz.capas = cruce(lz, op, 0, 'responder', a, b)
+    vence = 'Casa 14 · vence 6:00 p. m.'
+    lz.capas = cambio_de_estado(lz, op, 0, 'responder',
+                                {'id': 'tarjeta-vigente', 'estado': 'vigente', 'quien': 'Andrés Gómez', 'dato': vence},
+                                {'id': 'tarjeta-por-vencer', 'estado': 'por-vencer', 'quien': 'Andrés Gómez', 'dato': vence})
     return lz
 
 
 def pase_revocar(r):
     op = F('revocar/duracion')
     lz = Lienzo('pase-revocar', 360, 132, op)
-    a = tarjeta(lz, 'tarjeta-vigente', 'vigente', 'Andrés Gómez', DATO, op)
-    b = tarjeta(lz, 'tarjeta-revocado', 'revocado', 'Andrés Gómez', DATO, op, relleno='superficie/base',
-                evidencia='Revocó Carolina Ruiz · 4:10 p. m.')
-    capas = cruce(lz, op, 0, 'revocar', a, b)
+    capas = cambio_de_estado(lz, op, 0, 'revocar',
+                             {'id': 'tarjeta-vigente', 'estado': 'vigente', 'quien': 'Andrés Gómez', 'dato': DATO},
+                             {'id': 'tarjeta-revocado', 'estado': 'revocado', 'quien': 'Andrés Gómez', 'dato': DATO,
+                              'relleno': 'superficie/base', 'evidencia': 'Revocó Carolina Ruiz · 4:10 p. m.'})
     if not r:
         corte = formas(lz, 'corte', [linea(lz, 0, 66, 360, 66, 'estado/revocado/texto', LINEA * 2,
                                            recorte=kf(0, op, [0], [100], C('revocar/curva')))], op)
@@ -372,9 +434,10 @@ def pase_usar(r):
     op = F('responder/duracion')
     lz = Lienzo('pase-usar', 360, 132, op)
     codigo = '4817'
-    a = tarjeta(lz, 'tarjeta-vigente', 'vigente', codigo, 'Código de un solo uso · Casa 14', op, fuente_quien='JetBrainsMono-Regular')
-    b = tarjeta(lz, 'tarjeta-usado', 'usado', codigo, 'Usado 4:22 p. m. · Casa 14', op, fuente_quien='JetBrainsMono-Regular')
-    capas = cruce(lz, op, 0, 'responder', a, b)
+    mono = 'JetBrainsMono-Regular'
+    capas = cambio_de_estado(lz, op, 0, 'responder',
+                             {'id': 'tarjeta-vigente', 'estado': 'vigente', 'quien': codigo, 'dato': 'Código de un solo uso · Casa 14', 'fuente_quien': mono},
+                             {'id': 'tarjeta-usado', 'estado': 'usado', 'quien': codigo, 'dato': 'Usado 4:22 p. m. · Casa 14', 'fuente_quien': mono})
     pad = ESP['m'] + ESP['2xs']
     x1 = pad + ancho_texto(codigo, 'JetBrainsMono-Regular', 17)
     y = pad + 17 * 0.64
@@ -455,9 +518,15 @@ def control_presionar(r):
     # El desplazamiento «baja levemente» no se genera: el sistema no tiene token para su magnitud (ver BLOQUEADOS).
     op = F('responder/duracion')
     lz = Lienzo('control-presionar', 320, 56, op)
-    a = boton(lz, 'boton-reposo', 'Crear Pase', 'accion/fondo', op)
-    b = boton(lz, 'boton-activo', 'Crear Pase', 'accion/fondo-activo', op)
-    lz.capas = cruce(lz, op, 0, 'responder', a, b, 320, 56)
+    # El fondo se funde cruzado. La etiqueta es la misma en los dos estados: la de reposo queda fija y la activa llega
+    # encima (regla de texto igual, ver cambio_de_estado), así la etiqueta no pierde opacidad a mitad del tramo.
+    c = C('responder/curva')
+    fondo_a, textos_a = boton(lz, 'boton-reposo', 'Crear Pase', 'accion/fondo', op, partes='fondo'), boton(lz, 'boton-reposo-etiqueta', 'Crear Pase', 'accion/fondo', op, partes='textos')
+    fondo_b = boton(lz, 'boton-activo', 'Crear Pase', 'accion/fondo-activo', op, partes='fondo')
+    textos_b = boton(lz, 'boton-activo-etiqueta', 'Crear Pase', 'accion/fondo-activo', op, partes='textos', o=kf(0, op, [0], [100], c))
+    lz.capas = [capa_precomp(lz, 'etiqueta-activo', textos_b, 320, 56, op), capa_precomp(lz, 'etiqueta-reposo', textos_a, 320, 56, op),
+                capa_precomp(lz, 'activo', fondo_b, 320, 56, op, o=kf(0, op, [0], [100], c)),
+                capa_precomp(lz, 'reposo', fondo_a, 320, 56, op, o=kf(0, op, [100], [0], c))]
     return lz
 
 
@@ -519,13 +588,10 @@ def loader_sincronizacion_lote(r):
     titulo = texto(lz, 'titulo', 'Envío al lector de Portería', ESP['l'], 32, 'Archivo-Bold', 20, 'texto/primario', op)
     capas = [titulo, contador]
     for i, (quien, casa) in enumerate(filas):
-        a = tarjeta(lz, f'fila-{i}-sin-confirmar', 'sin-confirmar', quien, f'{casa} · enviado 3:41 p. m.', op, w=w - 2 * ESP['l'], h=alto)
-        b = tarjeta(lz, f'fila-{i}-vigente', 'vigente', quien, f'{casa} · confirmado', op, w=w - 2 * ESP['l'], h=alto)
-        y = y0 + i * (alto + gap)
-        t0 = i * esc
-        ca = capa_precomp(lz, f'fila-{i + 1}-antes', a, w - 2 * ESP['l'], alto, op, p=(ESP['l'], y), o=kf(t0, t0 + d, [100], [0], C('aparecer/curva')))
-        cb = capa_precomp(lz, f'fila-{i + 1}-despues', b, w - 2 * ESP['l'], alto, op, p=(ESP['l'], y), o=kf(t0, t0 + d, [0], [100], C('aparecer/curva')))
-        capas += [cb, ca]
+        capas += cambio_de_estado(lz, op, i * esc, 'aparecer',
+                                  {'id': f'fila-{i}-sin-confirmar', 'estado': 'sin-confirmar', 'quien': quien, 'dato': f'{casa} · enviado 3:41 p. m.'},
+                                  {'id': f'fila-{i}-vigente', 'estado': 'vigente', 'quien': quien, 'dato': f'{casa} · confirmado'},
+                                  w=w - 2 * ESP['l'], h=alto, p=(ESP['l'], y0 + i * (alto + gap)), nombre=f'fila-{i + 1}')
     lz.capas = capas
     return lz
 
@@ -608,10 +674,12 @@ def onboarding_3_lector_confirma(r):
     op = dt + da
     lz = Lienzo('onboarding-3-lector-confirma', 360, 480, op)
     ca = C('aparecer/curva')
-    a = tarjeta(lz, 'tarjeta-sin-confirmar', 'sin-confirmar', 'Andrés Gómez', 'Casa 14 · enviado 3:41 p. m.', op)
-    b = tarjeta(lz, 'tarjeta-vigente', 'vigente', 'Andrés Gómez', DATO, op, evidencia=EVIDENCIA)
     y0, y = 110, 110 + 132 + ESP['2xl']
     xa, xb = ESP['l'], 360 - ESP['l']
+    pase = cambio_de_estado(lz, op, dt, 'aparecer',
+                            {'id': 'tarjeta-sin-confirmar', 'estado': 'sin-confirmar', 'quien': 'Andrés Gómez', 'dato': 'Casa 14 · enviado 3:41 p. m.'},
+                            {'id': 'tarjeta-vigente', 'estado': 'vigente', 'quien': 'Andrés Gómez', 'dato': DATO, 'evidencia': EVIDENCIA},
+                            p=(0, y0))
     capas = [
         texto(lz, 'origen', 'Kino', ESP['m'], y + ESP['l'] + ESP['2xs'], 'JetBrainsMono-Regular', 11, 'texto/tenue', op),
         texto(lz, 'destino', 'Lector Portería', 360 - ESP['m'], y + ESP['l'] + ESP['2xs'], 'JetBrainsMono-Regular', 11, 'texto/tenue', op, just=1),
@@ -620,9 +688,7 @@ def onboarding_3_lector_confirma(r):
         nodo(lz, xb, y, 'sin-confirmar', op, o=kf(dt, op, [100], [0], ca)),
         nodo(lz, xa, y, 'sin-confirmar', op),
         fila_flujo(lz, op, y, xa + ESP['xs'], xb - ESP['xs'], 0, r, 'estado/sin-confirmar/borde'),
-        capa_precomp(lz, 'despues', b, 360, 132, op, p=(0, y0), o=kf(dt, op, [0], [100], ca)),
-        capa_precomp(lz, 'antes', a, 360, 132, op, p=(0, y0), o=kf(dt, op, [100], [0], ca)),
-    ]
+    ] + pase
     lz.capas = capas
     return lz
 

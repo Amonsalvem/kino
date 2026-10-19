@@ -36,6 +36,7 @@ Remotion no puede descargar su navegador (remotion.media no está en la lista de
 | `lottie/manifiesto.json` | Por archivo: fps, `op`, tamaño, loop, slots de color y de texto. Recursos bloqueados |
 | `remotion/src/Hero.tsx` | `hero-ciclo-del-pase` (1920 × 1080) y `-movil` (1080 × 1350) |
 | `remotion/src/Composiciones.tsx` | `composicion-revocado`, `composicion-turno-porteria` |
+| `remotion/src/cambios.ts`, `piezas.tsx` · `TarjetaEnCambio` | Fundido a través de los textos (M3D-5) con la regla del núcleo |
 | `remotion/src/VistaLottie.tsx` | Wrapper `@remotion/lottie` de cada mp4_preview (`vista-<id>`) |
 | `remotion/render-*.mjs` | Render de previews y maestros. La salida va a `remotion/salida/` (ignorada por git) |
 
@@ -47,6 +48,11 @@ Remotion no puede descargar su navegador (remotion.media no está en la lista de
   no se dibuja: no hay relleno ni slot.
 - Los cambios de estado son un fundido cruzado entre dos capas con colores fijos, no una animación de color. Así
   cada color sigue siendo un slot que el tema puede cambiar.
+- Fondo y textos de la tarjeta van en capas separadas (M3D-5, 18 oct). El fondo (borde, relleno, chip, barra) se
+  funde cruzado; cada texto que cambia (chip, dato, evidencia) se funde a través: el que sale se va en la primera
+  mitad del verbo y el nuevo llega en la segunda. Si solo sale o solo entra, toda la duración. Un texto igual no se
+  mueve. La regla es la de `paquetes/kino-motion/src/nucleo/textos.ts`: Remotion la importa (`src/cambios.ts`) y
+  `generar.py` la repite en `cambio_de_estado`. Los slots de texto conservan su número y su texto.
 - Los textos son slots de texto (`texto-<id>-<n>`); su color va dentro del documento de texto. Para cambiar un
   nombre, una casa o una hora no se toca la animación.
 - **Pendiente de verificar en el pipeline:** el formato de las reglas de tema (`{"rules":[{"id","type":"Color","value"}]}`)
