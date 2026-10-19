@@ -430,3 +430,7 @@ En arquitectura faltaba:
   - `estrategia.md`: §2, §3, §6, §7, §8 y §11.
   - E3-10 actualizada en `decisiones.md`.
 - `verificar.mjs` sin fallas; compuerta de voz sin errores nuevos.
+
+## Visión con portafolio y E3-10 aprobada (19 oct)
+- Visión nueva: «Kino empieza por quién entra y crece hacia los demás problemas de seguridad de la propiedad horizontal que descubra con sus clientes, sobre el hardware que cada conjunto ya tiene.» Está en la lámina 18 con su guion, en la Biblia 1.2 y en `estrategia.md` §9, junto con el objetivo de empresa nuevo E6 (segundo servicio de seguridad validado con clientes, 2028–2029) y la estrategia «Portafolio» en el SOSTAC de empresa.
+- El objetivo general queda como está: E3-10 APROBADA.

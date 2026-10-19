@@ -401,6 +401,8 @@ OE2
 Cada ficha completa (propósito, interacciones, componentes, tecnologías y escenario de uso) está en estrategia.md §10 y en la Biblia.
 Horizonte de empresa · 1 a 5 años y lo que falta verificar antes del piloto
 De 4 conjuntos en 2027 a 250 en 2030
+Visión.
+Kino empieza por quién entra y crece hacia los demás problemas de seguridad de la propiedad horizontal que descubra con sus clientes, sobre el hardware que cada conjunto ya tiene.
 2027
 4
 conjuntos como piso; primero en Antioquia
@@ -413,5 +415,5 @@ conjuntos en Antioquia y Bogotá
 Probar el alta por OpenAPI en el piloto
 Contar las casas reales de Villas (888 son usuarios)
 Fijar el precio con la administración
-Arriba, el crecimiento: 4, 40 y 250 conjuntos. Abajo, las tres cosas que hay que comprobar antes de cobrar: que el alta temporal funcione por la API en el piloto, cuántas casas hay de verdad en Villas (el sistema cuenta 888 usuarios, no casas) y qué precio acepta la administración. 40 y 250 son ambición del equipo; se calibran con cuántas copropiedades tienen hardware Hikvision y con el precio que acepte una administración.
+La visión es el portafolio: el objetivo general cubre el primer año y el primer problema, el ingreso; el siguiente problema de seguridad se descubre con las administraciones clientes (E6, 2028–2029). Arriba, el crecimiento: 4, 40 y 250 conjuntos. Abajo, las tres cosas que hay que comprobar antes de cobrar: que el alta temporal funcione por la API en el piloto, cuántas casas hay de verdad en Villas (el sistema cuenta 888 usuarios, no casas) y qué precio acepta la administración. 40 y 250 son ambición del equipo; se calibran con cuántas copropiedades tienen hardware Hikvision y con el precio que acepte una administración.
 Despedida sin texto: la aurora amanece, el bloque del logo sube, la gota cae dentro del arco y el lector confirma con tres latidos y el sonido de entrada. Se repite tocando la lámina.

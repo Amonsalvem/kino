@@ -265,7 +265,7 @@ Un panel por objetivo con el último dato, su serie y la meta como línea puntea
 
 ## 9. Kino como empresa, 3 a 5 años [P]
 
-**Visión.** Que cualquier conjunto de Colombia con lector de placa, QR o rostro autorice sus ingresos desde Kino, sea cual sea la marca del lector.
+**Visión.** Kino empieza por quién entra y crece hacia los demás problemas de seguridad de la propiedad horizontal que descubra con sus clientes, sobre el hardware que cada conjunto ya tiene. El objetivo general del plan (§2) cubre el primer año y el primer problema; la visión cubre el portafolio.
 
 ### 9.1 Objetivos de empresa
 | # | Objetivo | Año |
@@ -275,6 +275,7 @@ Un panel por objetivo con el último dato, su serie y la meta como línea puntea
 | E3 | 250 conjuntos en Antioquia y Bogotá | 2030 |
 | E4 | Punto de equilibrio con ingresos recurrentes | 2029 |
 | E5 | Pase para personal del conjunto y contratistas (A-08) | 2029 |
+| E6 | Segundo servicio de seguridad, salido de un problema validado con las administraciones clientes (por descubrir; no está en el diagnóstico) | 2028–2029 |
 
 *Supuesto:* E1 y E3 son ambición del equipo; se calibran con cuántas copropiedades tienen hardware Hikvision y con el precio que acepte una administración.
 
@@ -292,8 +293,8 @@ Un panel por objetivo con el último dato, su serie y la meta como línea puntea
 | | |
 |---|---|
 | **S** | 47,88 % de la vivienda urbana en propiedad horizontal; servicios de propiedad horizontal +13,42 % anual (§1.5). Neivor y ComunidadFeliz venden software sin hardware; ZKTeco, hardware con software propio. Nadie autoriza ingresos sobre el lector que el conjunto ya tiene |
-| **O** | E1 a E5 |
-| **S** | **Replicación** con instaladores (E1) · **Independencia** del fabricante (E2) · **Expansión** a Bogotá (E3) · **Eficiencia**: implementación en < 10 días (E4) · **Ampliación** del Pase a quien entra por trabajo (E5) |
+| **O** | E1 a E6 |
+| **S** | **Replicación** con instaladores (E1) · **Independencia** del fabricante (E2) · **Expansión** a Bogotá (E3) · **Eficiencia**: implementación en < 10 días (E4) · **Ampliación** del Pase a quien entra por trabajo (E5) · **Portafolio**: descubrir y validar con los clientes el siguiente problema de seguridad (E6) |
 | **T** | Programa de instaladores con comisión; kit de implementación; conector ZKTeco con un cliente ancla; ficha para consejos; plantilla de reglamento con franjas |
 | **A** | 2027: Monte Sereno + 2 · 2028: 40 conjuntos y segundo conector · 2029: equilibrio · 2030: Bogotá |
 | **C** | KPI de 9.2 cada mes; NPS de la administración cada trimestre |

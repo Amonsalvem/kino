@@ -38,7 +38,7 @@ S.append(('1.2', [
     ('t', [
         ['Elemento', 'Contenido'],
         ['Cliente', 'Manuel (negocio). Compra únicamente la administración del conjunto'],
-        ['Visión', 'Que cualquier conjunto con lector de placa, QR o rostro autorice sus ingresos desde Kino, sea cual sea la marca del lector'],
+        ['Visión', 'Kino empieza por quién entra y crece hacia los demás problemas de seguridad de la propiedad horizontal que descubra con sus clientes, sobre el hardware que cada conjunto ya tiene'],
         ['Misión', 'Que quien sabe quién debe entrar pueda decidirlo, dentro de las franjas del conjunto y con constancia'],
         ['Competencia', 'El método manual (llamada, minuta, WhatsApp); Neivor y ComunidadFeliz (desde la administración); ZKTeco (hardware con software propio); Portea'],
         ['Diferencia', 'Integración probada con el hardware instalado + Pase sin cuenta + autoridad del residente acotada por la administración'],
