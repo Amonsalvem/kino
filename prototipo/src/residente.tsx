@@ -4,8 +4,9 @@ import {
 	ahora, anotar, compartir, crearPase, cuentaRegresiva, deshacerRevocar, diasTexto, duraMasDeUnDia, duracionTexto, E, emitir, esEstadia, estado, extender,
 	fechaCorta, hora24, horaBreve, horaCorta, horaTexto, min, RECIENTES, RESIDENTE, revocar, validar, ventana, vigenciaTexto, type Modo, type Pase, type Tipo,
 } from './modelo';
-import {BotonMantener, ChipEstado, Icono, Ilustracion, Iniciales, lineaVigencia, Marca, Micelio, Portal, TarjetaPase, useKino, type ModoVista} from './componentes';
-import {animar, C, D, R, vibrar} from './movimiento';
+import {BotonMantener, ChipEstado, Icono, Ilustracion, Iniciales, lineaVigencia, Marca, Portal, TarjetaPase, useKino, type ModoVista} from './componentes';
+import {animar, C, D, morfar, R, reducido, vibrar, volar} from './movimiento';
+import {animarResorte, arrastrar} from '../../paquetes/kino-motion/src/web/fisica';
 
 type Pantalla = {v: 'ingreso'} | {v: 'inicio'; tab: 'pases' | 'avisos' | 'casa'} | {v: 'detalle'; id: string};
 
@@ -15,6 +16,9 @@ export function Residente() {
 	const [hoja, setHoja] = useState<null | {precarga?: (typeof RECIENTES)[number]}>(null);
 	const [banner, setBanner] = useState<string | null>(null);
 	const vistosAvisos = useRef(0);
+	// Continuidad: desde dónde viaja el Pase al abrir el detalle y a dónde vuelve al cerrarlo.
+	const origen = useRef<DOMRect | null>(null);
+	const regreso = useRef<{id: string; r: DOMRect} | null>(null);
 
 	useEffect(() => {
 		if (!est.sesion && pant.v !== 'ingreso') setPant({v: 'ingreso'});
@@ -40,12 +44,12 @@ export function Residente() {
 		<div class="app app--residente">
 			{pant.v === 'ingreso' && <Ingreso onListo={() => setPant({v: 'inicio', tab: 'pases'})} />}
 			{pant.v === 'inicio' && (
-				<Inicio tab={pant.tab} onTab={(tab) => setPant({v: 'inicio', tab})} onAbrir={(p) => setPant({v: 'detalle', id: p.id})} onCrear={(precarga) => setHoja({precarga})} />
+				<Inicio tab={pant.tab} regreso={regreso} onTab={(tab) => setPant({v: 'inicio', tab})} onAbrir={(p, el) => ((origen.current = el?.getBoundingClientRect() ?? null), setPant({v: 'detalle', id: p.id}))} onCrear={(precarga) => setHoja({precarga})} />
 			)}
-			{pant.v === 'detalle' && <Detalle id={pant.id} onVolver={() => setPant({v: 'inicio', tab: 'pases'})} />}
-			{hoja && <HojaCrear precarga={hoja.precarga} onCerrar={() => setHoja(null)} onVer={(p) => (setHoja(null), setPant({v: 'detalle', id: p.id}))} />}
+			{pant.v === 'detalle' && <Detalle id={pant.id} origen={origen.current} onVolver={(r) => ((regreso.current = r ? {id: pant.id, r} : null), setPant({v: 'inicio', tab: 'pases'}))} />}
+			{hoja && <HojaCrear precarga={hoja.precarga} onCerrar={() => setHoja(null)} onVer={(p, r) => ((origen.current = r ?? null), setHoja(null), setPant({v: 'detalle', id: p.id}))} />}
 			{aviso && (
-				<button class={`banner banner--${aviso.tono}`} onClick={() => (setBanner(null), aviso.paseId && setPant({v: 'detalle', id: aviso.paseId}))}>
+				<button class={`banner banner--${aviso.tono}`} onClick={() => (setBanner(null), (origen.current = null), aviso.paseId && setPant({v: 'detalle', id: aviso.paseId}))}>
 					<Marca tam={22} />
 					<span>
 						<b>{aviso.titulo}</b>
@@ -96,6 +100,8 @@ function Ingreso({onListo}: {onListo: () => void}) {
 
 	return (
 		<div class="ingreso">
+			{/* La bienvenida amanece con la aurora oficial: el único momento ceremonial del ingreso. */}
+			{paso === 'bienvenida' && <span class="aurora aurora--ingreso" aria-hidden="true" />}
 			<div class="ingreso__marca">
 				<Marca tam={56} />
 				<span class="ingreso__logotipo">KINO</span>
@@ -134,7 +140,6 @@ function Ingreso({onListo}: {onListo: () => void}) {
 			)}
 			{paso === 'bienvenida' && (
 				<div class="ingreso__cuerpo ingreso__bienvenida entra">
-					<Ilustracion tipo="membrana" />
 					<span class="rotulo">{RESIDENTE.comunidad}</span>
 					<h1 class="titulo">Hola, Carolina</h1>
 					<p class="secundario">{RESIDENTE.casa}</p>
@@ -155,8 +160,21 @@ function Ingreso({onListo}: {onListo: () => void}) {
 // Inicio ---------------------------------------------------------------------------------------------
 type Tab = 'pases' | 'avisos' | 'casa';
 
-function Inicio({tab, onTab, onAbrir, onCrear}: {tab: Tab; onTab: (t: Tab) => void; onAbrir: (p: Pase) => void; onCrear: (pre?: (typeof RECIENTES)[number]) => void}) {
+const ORDEN_TAB: Tab[] = ['pases', 'avisos', 'casa'];
+function Inicio({tab, regreso, onTab, onAbrir, onCrear}: {tab: Tab; regreso: {current: {id: string; r: DOMRect} | null}; onTab: (t: Tab) => void; onAbrir: (p: Pase, el?: HTMLElement) => void; onCrear: (pre?: (typeof RECIENTES)[number]) => void}) {
 	const est = useKino(1000);
+	// Pestañas: el contenido entra desde el lado hacia el que se movió la barra.
+	const scroll = useRef<HTMLDivElement>(null);
+	const tabAntes = useRef(tab);
+	useLayoutEffect(() => {
+		const dir = Math.sign(ORDEN_TAB.indexOf(tab) - ORDEN_TAB.indexOf(tabAntes.current));
+		tabAntes.current = tab;
+		if (dir) animar(scroll.current, [{opacity: 0, transform: `translateX(${dir * 18}px)`}, {opacity: 1, transform: 'none'}], {duration: D.crecer, easing: C.crecer});
+	}, [tab]);
+	const vuelo = regreso.current;
+	useEffect(() => {
+		regreso.current = null;
+	});
 	const t = ahora();
 	const firma = est.pases.map((p) => estado(p, t)).join();
 	const grupos = useMemo(() => {
@@ -177,11 +195,10 @@ function Inicio({tab, onTab, onAbrir, onCrear}: {tab: Tab; onTab: (t: Tab) => vo
 
 	return (
 		<div class="inicio">
-			<div class="pantalla__scroll">
+			<div ref={scroll} class="pantalla__scroll">
 				{tab === 'pases' && (
 					<>
 						<header class="cabecera">
-							<Micelio clase="micelio--cabecera" densidad={26} />
 							<span class="aurora" aria-hidden="true" />
 							<div class="cabecera__fila">
 								<span class="chip-dato">{RESIDENTE.comunidad} · {RESIDENTE.casa}</span>
@@ -225,13 +242,13 @@ function Inicio({tab, onTab, onAbrir, onCrear}: {tab: Tab; onTab: (t: Tab) => vo
 						{grupos.ahora_.length > 0 && (
 							<section class="seccion">
 								<h2 class="rotulo">Ahora</h2>
-								<div class="lista">{grupos.ahora_.map((p, i) => <TarjetaPase key={p.id} p={p} retraso={i * 90} onAbrir={(p) => (anotar('I-02'), onAbrir(p))} />)}</div>
+								<div class="lista">{grupos.ahora_.map((p, i) => <TarjetaPase key={p.id} p={p} retraso={i * 90} vuelo={vuelo?.id === p.id ? vuelo.r : undefined} onAbrir={(p, el) => (anotar('I-02'), onAbrir(p, el))} />)}</div>
 							</section>
 						)}
 						{grupos.proximos.length > 0 && (
 							<section class="seccion">
 								<h2 class="rotulo">Próximos</h2>
-								<div class="lista">{grupos.proximos.map((p, i) => <TarjetaPase key={p.id} p={p} retraso={i * 90} onAbrir={onAbrir} />)}</div>
+								<div class="lista">{grupos.proximos.map((p, i) => <TarjetaPase key={p.id} p={p} retraso={i * 90} vuelo={vuelo?.id === p.id ? vuelo.r : undefined} onAbrir={onAbrir} />)}</div>
 							</section>
 						)}
 						{grupos.anteriores.length > 0 && (
@@ -239,7 +256,7 @@ function Inicio({tab, onTab, onAbrir, onCrear}: {tab: Tab; onTab: (t: Tab) => vo
 								<button class="enlace" onClick={() => setVerAnt(!verAnt)} aria-expanded={verAnt}>
 									{verAnt ? 'Ocultar' : 'Ver'} Pases anteriores · {grupos.anteriores.length}
 								</button>
-								{verAnt && <div class="lista">{grupos.anteriores.map((p, i) => <TarjetaPase key={p.id} p={p} retraso={i * 55} onAbrir={onAbrir} />)}</div>}
+								{verAnt && <div class="lista">{grupos.anteriores.map((p, i) => <TarjetaPase key={p.id} p={p} retraso={i * 55} vuelo={vuelo?.id === p.id ? vuelo.r : undefined} onAbrir={onAbrir} />)}</div>}
 							</section>
 						)}
 						<div class="relleno-pie" />
@@ -354,7 +371,7 @@ const PLAZOS: {k: string; dias: number; txt: string}[] = [
 	{k: '3m', dias: 90, txt: '3 meses'},
 ];
 
-function HojaCrear({precarga, onCerrar, onVer}: {precarga?: (typeof RECIENTES)[number]; onCerrar: () => void; onVer: (p: Pase) => void}) {
+function HojaCrear({precarga, onCerrar, onVer}: {precarga?: (typeof RECIENTES)[number]; onCerrar: () => void; onVer: (p: Pase, r?: DOMRect) => void}) {
 	useKino(1000);
 	const t0 = ahora();
 	const [tipo, setTipo] = useState<Tipo>(precarga?.tipo ?? 'visita');
@@ -370,9 +387,11 @@ function HojaCrear({precarga, onCerrar, onVer}: {precarga?: (typeof RECIENTES)[n
 	const [franja, setFranja] = useState<[number, number]>([7, 17]);
 	const [creado, setCreado] = useState<Pase | null>(null);
 	const [enviado, setEnviado] = useState(false);
+	const [boton, setBoton] = useState<DOMRect | null>(null);
 	const hojaRef = useRef<HTMLDivElement>(null);
 	const fondoRef = useRef<HTMLDivElement>(null);
-	const arrastre = useRef<{y0: number; dy: number; t0: number} | null>(null);
+	const asaRef = useRef<HTMLDivElement>(null);
+	const arribaAntes = useRef<number | null>(null);
 
 	useLayoutEffect(() => {
 		animar(hojaRef.current, [{transform: 'translateY(100%)'}, {transform: 'none'}], {duration: R.hoja.ms, easing: R.hoja.linear});
@@ -385,31 +404,38 @@ function HojaCrear({precarga, onCerrar, onVer}: {precarga?: (typeof RECIENTES)[n
 		a ? (a.onfinish = onCerrar) : onCerrar();
 	};
 
-	// Gesto: arrastrar la hoja hacia abajo para cerrarla.
-	const bajar = (e: PointerEvent) => {
-		if ((e.target as HTMLElement).closest('button')) return;
-		arrastre.current = {y0: e.clientY, dy: 0, t0: performance.now()};
-		(e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
-	};
-	const mover = (e: PointerEvent) => {
-		const a = arrastre.current;
-		if (!a) return;
-		const escala = hojaRef.current!.getBoundingClientRect().height / hojaRef.current!.offsetHeight || 1;
-		a.dy = Math.max(-20, (e.clientY - a.y0) / escala);
-		hojaRef.current!.style.transform = `translateY(${a.dy < 0 ? a.dy * 0.3 : a.dy}px)`;
-	};
-	const soltar = () => {
-		const a = arrastre.current;
-		arrastre.current = null;
-		if (!a) return;
-		const v = a.dy / Math.max(1, performance.now() - a.t0);
-		anotar('I-04');
-		if (a.dy > 140 || v > 0.6) cerrar();
-		else {
-			animar(hojaRef.current, [{transform: `translateY(${a.dy}px)`}, {transform: 'none'}], {duration: R.hoja.ms, easing: R.hoja.linear});
-			hojaRef.current!.style.transform = '';
-		}
-	};
+	// Gesto con física (@kino/motion/web): la hoja sigue al dedo, se resiste hacia arriba y, al soltar,
+	// decide por la posición proyectada con la velocidad de los últimos 80 ms; vuelve con el resorte desde esa velocidad.
+	useEffect(() => {
+		const asa = asaRef.current;
+		const hoja = hojaRef.current;
+		if (!asa || !hoja) return;
+		let y = 0;
+		const k = () => hoja.getBoundingClientRect().height / (hoja.offsetHeight || 1) || 1;
+		const poner = (v: number) => ((y = v), (hoja.style.transform = v ? `translateY(${v}px)` : ''));
+		const g = arrastrar(asa, {
+			eje: 'y', min: 0, max: hoja.offsetHeight, inicial: () => y * k(),
+			alEmpezar: () => hoja.getAnimations().forEach((a) => a.cancel()),
+			alMover: (p) => poner(p / k()),
+			alSoltar: (p, v) => {
+				anotar('I-04');
+				const pos = p / k();
+				if (pos + (v / k()) * 0.2 > hoja.offsetHeight * 0.3) return cerrar();
+				animarResorte({de: pos, a: 0, velocidad: v / k(), resorte: 'hoja', alCambiar: poner, elemento: hoja});
+			},
+		});
+		return () => g.soltar();
+	}, []);
+
+	// La hoja cambia de alto al crear: el borde de arriba se desliza a su lugar en vez de saltar (FLIP).
+	useLayoutEffect(() => {
+		const h = hojaRef.current;
+		if (!h || arribaAntes.current == null) return;
+		const k = h.getBoundingClientRect().height / (h.offsetHeight || 1) || 1;
+		const d = (arribaAntes.current - h.getBoundingClientRect().top) / k;
+		arribaAntes.current = null;
+		if (Math.abs(d) > 1) animar(h, [{transform: `translateY(${d}px)`}, {transform: 'none'}], {duration: R.hoja.ms, easing: R.hoja.linear});
+	}, [creado]);
 
 	const rango = (): {desde: Date; hasta: Date} => {
 		const d = new Date(t0);
@@ -451,8 +477,10 @@ function HojaCrear({precarga, onCerrar, onVer}: {precarga?: (typeof RECIENTES)[n
 	const crear = (ev: MouseEvent) => {
 		if (motivoBoton) return;
 		const modos: Modo[] = ['qr', 'codigo', ...(placa.trim() ? (['placa'] as Modo[]) : [])];
-		animar(ev.currentTarget as HTMLElement, [{transform: 'scale(1)'}, {transform: 'scale(.94)'}, {transform: 'scale(1)'}], {duration: R.tacto.ms, easing: R.tacto.linear});
 		vibrar(15);
+		// I-06: el botón se convierte en el Pase. Se guarda su forma para la transformación de contenedor.
+		setBoton((ev.currentTarget as HTMLElement).getBoundingClientRect());
+		arribaAntes.current = hojaRef.current?.getBoundingClientRect().top ?? null;
 		setCreado(crearPase({tipo, nombre, telefono: tel, motivo, placa, modos, desde: r.desde, hasta: r.hasta, recurrencia}));
 		anotar('I-06');
 	};
@@ -468,7 +496,7 @@ function HojaCrear({precarga, onCerrar, onVer}: {precarga?: (typeof RECIENTES)[n
 		<div class="capa">
 			<div ref={fondoRef} class="capa__fondo" onClick={cerrar} />
 			<div ref={hojaRef} class="hoja" role="dialog" aria-label="Crear Pase">
-				<div class="hoja__asa" onPointerDown={bajar} onPointerMove={mover} onPointerUp={soltar} onPointerCancel={soltar}>
+				<div ref={asaRef} class="hoja__asa">
 					<i />
 					<div class="hoja__titulo">
 						<span class="titulo titulo--m">{creado ? 'Pase creado' : 'Nuevo Pase'}</span>
@@ -566,7 +594,7 @@ function HojaCrear({precarga, onCerrar, onVer}: {precarga?: (typeof RECIENTES)[n
 						</div>
 					</div>
 				) : (
-					<Creado p={creado} enviado={enviado} onEnviar={() => (setEnviado(true), compartir(creado))} onVer={() => onVer(creado)} />
+					<Creado p={creado} desde={boton} capa={hojaRef.current} enviado={enviado} onEnviar={() => (setEnviado(true), compartir(creado))} onVer={(r) => onVer(creado, r)} />
 				)}
 				{!creado && (
 					<div class="hoja__pie">
@@ -591,30 +619,39 @@ const Paso = ({rotulo, valor, menos, mas}: {rotulo: string; valor: string; menos
 	</div>
 );
 
-function Creado({p, enviado, onEnviar, onVer}: {p: Pase; enviado: boolean; onEnviar: () => void; onVer: () => void}) {
+function Creado({p, desde, capa, enviado, onEnviar, onVer}: {p: Pase; desde: DOMRect | null; capa: HTMLElement | null; enviado: boolean; onEnviar: () => void; onVer: (r?: DOMRect) => void}) {
 	useKino(500);
 	const e = estado(p);
 	const ref = useRef<HTMLDivElement>(null);
+	const texto = useRef<HTMLDivElement>(null);
+	const acciones = useRef<HTMLDivElement>(null);
 	useLayoutEffect(() => {
-		animar(ref.current, [{opacity: 0, transform: 'scale(.6) translateY(40px)', filter: 'blur(8px)'}, {opacity: 1, transform: 'none', filter: 'blur(0)'}], {duration: D.tarjeta, easing: C.crecer});
+		const arco = ref.current?.querySelector<HTMLElement>('.portal__arco');
+		// Transformación de contenedor: el botón verde crece, se curva en arco y se vuelve papel; después aparece el QR.
+		if (desde && capa && arco)
+			morfar(desde, arco, {fondoDesde: '#00D595', fondoHacia: '#F4FFFA', radioDesde: '16px', radioHacia: '50% 50% 14px 14px / 46% 46% 14px 14px', capa});
+		// Lo demás llega cuando el Pase ya tomó forma: superpuesto, no en fila.
+		[texto.current, acciones.current].forEach((n, i) =>
+			animar(n, [{opacity: 0, transform: 'translateY(12px)'}, {opacity: 1, transform: 'none'}], {duration: D.crecer, easing: C.crecer, delay: R.pase.ms * 0.55 + i * 60, fill: 'backwards'}),
+		);
 	}, []);
 	return (
 		<div class="hoja__cuerpo creado">
 			<div ref={ref} class="creado__portal">
-				<Portal p={p} tam={220} />
+				<Portal p={p} tam={220} inclinable />
 			</div>
-			<div class="creado__texto">
+			<div ref={texto} class="creado__texto">
 				<ChipEstado e={e} grande />
 				<h2 class="titulo titulo--l">{p.nombre}</h2>
 				<p class="dato dato--vigente">{vigenciaTexto(p)}</p>
 				<p class="nota">{e === 'sin-confirmar' ? 'Kino lo envió al lector. Queda vigente cuando el lector confirme.' : 'El lector lo confirmó. Ya puede entrar.'}</p>
 			</div>
-			<div class="creado__acciones">
+			<div ref={acciones} class="creado__acciones">
 				<button class={`accion ${enviado ? 'accion--hecho' : ''}`} onClick={onEnviar} disabled={enviado}>
 					<Icono n={enviado ? 'check' : 'compartir'} />
 					{enviado ? `Enviado a ${p.nombre.split(' ')[0]}` : 'Enviar por WhatsApp'}
 				</button>
-				<button class="secundario-btn" onClick={onVer}>
+				<button class="secundario-btn" onClick={() => onVer(ref.current?.querySelector('.portal__arco')?.getBoundingClientRect())}>
 					Ver el Pase
 				</button>
 			</div>
@@ -623,15 +660,28 @@ function Creado({p, enviado, onEnviar, onVer}: {p: Pase; enviado: boolean; onEnv
 }
 
 // Detalle --------------------------------------------------------------------------------------------
-function Detalle({id, onVolver}: {id: string; onVolver: () => void}) {
+function Detalle({id, origen, onVolver}: {id: string; origen: DOMRect | null; onVolver: (r?: DOMRect) => void}) {
 	useKino(1000);
 	const p = E.pases.find((x) => x.id === id);
 	const [modo, setModo] = useState<ModoVista>('qr');
 	const [error, setError] = useState<string | null>(null);
 	const ref = useRef<HTMLDivElement>(null);
+	const portal = useRef<HTMLDivElement>(null);
+	const resto = () => [...(ref.current?.querySelectorAll<HTMLElement>('.barra-sup, .modos, .detalle__cuerpo, .pie-accion') ?? [])];
 	useLayoutEffect(() => {
-		animar(ref.current, [{opacity: 0, transform: 'translateX(28px)'}, {opacity: 1, transform: 'none'}], {duration: D.crecer, easing: C.crecer});
+		if (!origen) return void animar(ref.current, [{opacity: 0, transform: 'translateX(28px)'}, {opacity: 1, transform: 'none'}], {duration: D.crecer, easing: C.crecer});
+		// Elemento compartido: la tarjeta se vuelve el Portal. Lo demás llega cuando el Pase va a medio camino.
+		volar(portal.current?.querySelector<HTMLElement>('.portal'), origen);
+		resto().forEach((n, i) => animar(n, [{opacity: 0, transform: 'translateY(14px)'}, {opacity: 1, transform: 'none'}], {duration: D.crecer, easing: C.crecer, delay: R.pase.ms * 0.35 + i * 40, fill: 'backwards'}));
 	}, []);
+	// Volver: lo demás se va primero y más rápido (salida al 60 %); el Pase se queda y aterriza en su tarjeta.
+	const volver = () => {
+		const r = portal.current?.querySelector('.portal__arco')?.getBoundingClientRect();
+		const a = resto().map((n) => animar(n, [{opacity: 1}, {opacity: 0}], {duration: D.corto * 0.6, easing: C.salir, fill: 'forwards'}));
+		const fin = a.find(Boolean);
+		if (fin && !reducido()) fin.finished.then(() => onVolver(r)).catch(() => onVolver(r));
+		else onVolver(r);
+	};
 	if (!p) return null;
 	const e = estado(p);
 	const v = ventana(p);
@@ -640,15 +690,15 @@ function Detalle({id, onVolver}: {id: string; onVolver: () => void}) {
 	return (
 		<div ref={ref} class="detalle">
 			<div class="barra-sup">
-				<button class="icono-btn" onClick={onVolver} aria-label="Volver">
+				<button class="icono-btn" onClick={volver} aria-label="Volver">
 					<Icono n="atras" />
 				</button>
 				<span class="titulo titulo--s">{p.tipo === 'colaborador' ? 'Pase · colaborador' : esEstadia(p) ? 'Pase · estadía' : 'Pase · visita'}</span>
 				<span class="barra-sup__hueco" />
 			</div>
 			<div class="pantalla__scroll">
-				<div class="detalle__portal">
-					<Portal p={p} modo={modo} tam={232} />
+				<div ref={portal} class="detalle__portal">
+					<Portal p={p} modo={modo} tam={232} inclinable />
 					<div class="modos" role="tablist">
 						{p.modos.map((m) => (
 							<button role="tab" aria-selected={modo === m} class={modo === m ? 'activo' : ''} onClick={() => setModo(m)}>

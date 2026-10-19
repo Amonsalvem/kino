@@ -1,11 +1,14 @@
 // La visita, sin cuenta: recibe el mensaje y abre el Pase vivo en el navegador (en claro, X1).
-import {useState} from 'preact/hooks';
+import {useLayoutEffect, useRef, useState} from 'preact/hooks';
 import {anotar, corto, cuentaRegresiva, E, estado, hora24, horaCorta, ventana, vigenciaTexto} from './modelo';
 import {ChipEstado, Icono, Ilustracion, Marca, Portal, QR, useKino, type ModoVista} from './componentes';
+import {animar, C, D, R, volar} from './movimiento';
 
 export function Visita() {
 	const est = useKino(1000);
 	const [vista, setVista] = useState<'chat' | 'pase'>('chat');
+	// Continuidad: el QR de la imagen del WhatsApp crece hasta volverse el Pase vivo.
+	const origen = useRef<DOMRect | null>(null);
 	const p = est.pases.find((x) => x.id === est.visitaPaseId && x.compartido) ?? est.pases.find((x) => x.compartido);
 	if (!p)
 		return (
@@ -18,12 +21,12 @@ export function Visita() {
 		);
 	return (
 		<div class="app app--visita">
-			{vista === 'chat' ? <Chat onAbrir={() => (setVista('pase'), anotar('I-09'))} /> : <PaseVivo id={p.id} onVolver={() => setVista('chat')} />}
+			{vista === 'chat' ? <Chat onAbrir={(r) => ((origen.current = r ?? null), setVista('pase'), anotar('I-09'))} /> : <PaseVivo id={p.id} origen={origen.current} onVolver={() => setVista('chat')} />}
 		</div>
 	);
 }
 
-function Chat({onAbrir}: {onAbrir: () => void}) {
+function Chat({onAbrir}: {onAbrir: (r?: DOMRect) => void}) {
 	const est = useKino(1000);
 	const p = est.pases.find((x) => x.id === est.visitaPaseId && x.compartido) ?? est.pases.find((x) => x.compartido)!;
 	const revocado = est.avisos.find((a) => a.para === 'visita' && a.paseId === p.id);
@@ -42,7 +45,7 @@ function Chat({onAbrir}: {onAbrir: () => void}) {
 					<span>Hola {p.nombre.split(' ')[0]}, te espero. Te mando el Pase para entrar.</span>
 					<span class="burbuja__hora">{hora24(p.compartido!)}</span>
 				</div>
-				<button class="burbuja burbuja--suya burbuja--pase" onClick={onAbrir}>
+				<button class="burbuja burbuja--suya burbuja--pase" onClick={(ev) => onAbrir((ev.currentTarget as HTMLElement).querySelector('.imagen-pase__arco')?.getBoundingClientRect())}>
 					<span class="imagen-pase">
 						<span class="imagen-pase__cabeza">
 							<Marca tam={18} />
@@ -74,7 +77,18 @@ function Chat({onAbrir}: {onAbrir: () => void}) {
 	);
 }
 
-function PaseVivo({id, onVolver}: {id: string; onVolver: () => void}) {
+function PaseVivo({id, origen, onVolver}: {id: string; origen: DOMRect | null; onVolver: () => void}) {
+	const raiz = useRef<HTMLDivElement>(null);
+	useLayoutEffect(() => {
+		const el = raiz.current;
+		if (!el) return;
+		// La página del navegador funde; el Pase viaja desde la imagen del chat y lo demás llega a medio camino.
+		animar(el, [{opacity: 0}, {opacity: 1}], {duration: D.corto, easing: C.crecer});
+		volar(el.querySelector<HTMLElement>('.portal'), origen);
+		el.querySelectorAll<HTMLElement>('.pase-vivo__fila, .pase-vivo__cuerpo > h1, .pase-vivo__cuerpo > p, .modos, .pase-vivo__instruccion').forEach((n, i) =>
+			animar(n, [{opacity: 0, transform: 'translateY(10px)'}, {opacity: 1, transform: 'none'}], {duration: D.crecer, easing: C.crecer, delay: R.pase.ms * 0.35 + i * 40, fill: 'backwards'}),
+		);
+	}, []);
 	useKino(1000);
 	const p = E.pases.find((x) => x.id === id)!;
 	const [modo, setModo] = useState<ModoVista>('qr');
@@ -91,7 +105,7 @@ function PaseVivo({id, onVolver}: {id: string; onVolver: () => void}) {
 		: modo === 'placa' ? 'Llega con el carro: el lector lee la placa solo.'
 		: 'Dile este código a portería.';
 	return (
-		<div class="pase-vivo" data-tema="claro">
+		<div ref={raiz} class="pase-vivo" data-tema="claro">
 			<div class="navegador">
 				<button class="icono-btn" onClick={onVolver} aria-label="Volver al chat">
 					<Icono n="atras" tam={18} />
@@ -107,7 +121,7 @@ function PaseVivo({id, onVolver}: {id: string; onVolver: () => void}) {
 				<p class="secundario">{vigenciaTexto(p)} · otorgó {p.autor.nombre}</p>
 				{(e === 'vigente' || e === 'por-vencer') && <p class={`dato dato--${e}`}>Vence en {cuentaRegresiva(v.hasta)}</p>}
 				<div class="pase-vivo__portal">
-					<Portal p={p} modo={modo} claro tam={270} />
+					<Portal p={p} modo={modo} claro tam={270} inclinable />
 				</div>
 				<div class="modos" role="tablist">
 					{p.modos.map((m) => (

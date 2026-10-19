@@ -4,7 +4,7 @@ import type {ComponentChildren, JSX} from 'preact';
 import qrcode from 'qrcode-generator';
 import type {Estado} from '../../paquetes/kino-motion/src/nucleo/pase';
 import {ahora, brillo, E, esEstadia, ESTADO_TEXTO, estado, hora24, restante, suscribir, vigenciaTexto, type Pase} from './modelo';
-import {animar, C, D, reducido, resorte, vibrar} from './movimiento';
+import {animar, C, D, reducido, resorte, vibrar, volar} from './movimiento';
 
 // Estado vivo -------------------------------------------------------------------------------------------
 export function useKino(intervalo = 1000) {
@@ -91,12 +91,18 @@ export const Iniciales = ({nombre, tono}: {nombre: string; tono?: string}) => (
 );
 
 // Tarjeta del Pase en la lista -------------------------------------------------------------------------
-export function TarjetaPase({p, onAbrir, retraso = 0}: {p: Pase; onAbrir: (p: Pase, el: HTMLElement) => void; retraso?: number}) {
+// Las tarjetas entran en cascada una sola vez por sesión: al volver a la lista no reaparecen como nuevas.
+const montadas = new Set<string>();
+export function TarjetaPase({p, onAbrir, retraso = 0, vuelo}: {p: Pase; onAbrir: (p: Pase, el: HTMLElement) => void; retraso?: number; vuelo?: DOMRect}) {
 	const e = estado(p);
 	const antes = useAnterior(e);
 	const ref = useRef<HTMLButtonElement>(null);
 	useLayoutEffect(() => {
 		if (!ref.current) return;
+		// Vuelve del detalle: aterriza desde donde estaba el Portal.
+		if (vuelo) return void (montadas.add(p.id), volar(ref.current, vuelo));
+		if (montadas.has(p.id)) return;
+		montadas.add(p.id);
 		animar(ref.current, [{opacity: 0, transform: 'translateY(14px) scale(.98)'}, {opacity: 1, transform: 'none'}], {duration: D.tarjeta, easing: C.crecer, delay: retraso, fill: 'backwards'});
 	}, []);
 	useEffect(() => {
@@ -153,6 +159,56 @@ export function transicion(el: HTMLElement, de: Estado, a: Estado) {
 	}
 }
 
+// Inclinación del Pase ---------------------------------------------------------------------------------
+/** El Pase responde a la mano o al giroscopio, como una tarjeta de Wallet: se inclina hasta 7°, el reflejo se mueve
+ *  al lado contrario y la sombra se desplaza. No se mueve solo; un resorte por cuadro lo lleva al ángulo y se detiene. */
+function useInclinacion(ref: {current: HTMLElement | null}, activo: boolean) {
+	useEffect(() => {
+		const el = ref.current;
+		if (!el || !activo || reducido()) return;
+		const lim = (v: number) => Math.max(-1, Math.min(1, v));
+		let tx = 0, ty = 0, x = 0, y = 0, id = 0;
+		const sombra = el.parentElement?.querySelector<HTMLElement>('.portal__sombra');
+		const paso = () => {
+			x += (tx - x) * 0.14;
+			y += (ty - y) * 0.14;
+			el.style.setProperty('--rx', `${(-y * 6).toFixed(2)}deg`);
+			el.style.setProperty('--ry', `${(x * 7).toFixed(2)}deg`);
+			el.style.setProperty('--lx', `${(50 - x * 45).toFixed(1)}%`);
+			el.style.setProperty('--ly', `${(32 - y * 40).toFixed(1)}%`);
+			el.style.setProperty('--giro', `${(x * 70 + y * 30).toFixed(1)}deg`);
+			sombra?.style.setProperty('transform', `translateX(${(-x * 12).toFixed(1)}px) scaleX(${(1 - Math.abs(y) * 0.08).toFixed(3)})`);
+			id = Math.abs(tx - x) + Math.abs(ty - y) > 0.002 ? requestAnimationFrame(paso) : 0;
+		};
+		const pedir = () => {
+			if (!id) id = requestAnimationFrame(paso);
+		};
+		const mover = (ev: PointerEvent) => {
+			const r = el.getBoundingClientRect();
+			tx = lim((ev.clientX - (r.left + r.width / 2)) / r.width);
+			ty = lim((ev.clientY - (r.top + r.height / 2)) / r.height);
+			pedir();
+		};
+		const soltar = () => ((tx = 0), (ty = 0), pedir());
+		const orientar = (ev: DeviceOrientationEvent) => {
+			if (ev.gamma == null || ev.beta == null) return;
+			tx = lim(ev.gamma / 25);
+			ty = lim((ev.beta - 45) / 25);
+			pedir();
+		};
+		const zona = el.closest('.telefono__pantalla') ?? el.closest('.app') ?? el;
+		zona.addEventListener('pointermove', mover as EventListener);
+		zona.addEventListener('pointerleave', soltar);
+		window.addEventListener('deviceorientation', orientar);
+		return () => {
+			zona.removeEventListener('pointermove', mover as EventListener);
+			zona.removeEventListener('pointerleave', soltar);
+			window.removeEventListener('deviceorientation', orientar);
+			cancelAnimationFrame(id);
+		};
+	}, [activo]);
+}
+
 // QR y Portal ------------------------------------------------------------------------------------------
 export function QR({texto, tam = 220}: {texto: string; tam?: number}) {
 	const q = qrcode(0, 'M');
@@ -171,10 +227,12 @@ export function QR({texto, tam = 220}: {texto: string; tam?: number}) {
 export type ModoVista = 'qr' | 'placa' | 'codigo';
 
 /** El Portal: el arco del logo con el QR adentro. Solo lo que es un Pase lleva arco (X8). */
-export function Portal({p, modo = 'qr', claro, tam = 260}: {p: Pase; modo?: ModoVista; claro?: boolean; tam?: number}) {
+export function Portal({p, modo = 'qr', claro, tam = 260, inclinable}: {p: Pase; modo?: ModoVista; claro?: boolean; tam?: number; inclinable?: boolean}) {
 	const e = estado(p);
 	const antes = useAnterior(e);
 	const ref = useRef<HTMLDivElement>(null);
+	const arco = useRef<HTMLDivElement>(null);
+	useInclinacion(arco, !!inclinable);
 	useEffect(() => {
 		if (antes !== e && ref.current) transicion(ref.current, antes, e);
 	}, [e]);
@@ -182,7 +240,8 @@ export function Portal({p, modo = 'qr', claro, tam = 260}: {p: Pase; modo?: Modo
 	return (
 		<div ref={ref} class={`portal portal--${e} ${claro ? 'portal--claro' : ''}`} data-estado={e} style={{'--tam': `${tam}px`, '--brillo': brillo(p, e)}}>
 			<span class="portal__halo" aria-hidden="true" />
-			<div class="portal__arco">
+			<span class="portal__sombra" aria-hidden="true" />
+			<div ref={arco} class="portal__arco">
 				{modo === 'qr' && <QR texto={`https://kino.co/p/${p.id}`} tam={tam * 0.62} />}
 				{modo === 'placa' && (
 					<div class="portal__dato">
@@ -198,6 +257,7 @@ export function Portal({p, modo = 'qr', claro, tam = 260}: {p: Pase; modo?: Modo
 				)}
 				{muerto && <span class="portal__velo">{ESTADO_TEXTO[e]}</span>}
 				<span class="corte" aria-hidden="true" />
+				<span class="portal__reflejo" aria-hidden="true" />
 			</div>
 		</div>
 	);
@@ -337,31 +397,45 @@ const GOTA = 'M0 -15.6A16.2 17.6 0 0 1 16.2 2L0 15.1L-16.2 2A16.2 17.6 0 0 1 0 -
 const ARCO = 'M44 112V58a36 36 0 0 1 72 0v54';
 export type TipoIlustracion = 'membrana' | 'pase-vacio' | 'llegada';
 export function Ilustracion({tipo, titulo}: {tipo: TipoIlustracion; titulo?: string}) {
+	// Mismo material que el Portal: superficie con luz de arriba, gota con brillo propio y sombra de contacto.
+	const u = `il-${tipo}`;
 	return (
 		<svg class={`ilustracion ilustracion--${tipo}`} viewBox="0 0 160 124" role={titulo ? 'img' : undefined} aria-label={titulo} aria-hidden={titulo ? undefined : 'true'}>
-			{tipo === 'membrana' && (
+			<defs>
+				<linearGradient id={`${u}-sup`} x1="0" y1="0" x2="0" y2="1">
+					<stop offset="0" stop-color="var(--kino-superficie-membrana)" />
+					<stop offset="1" stop-color="var(--kino-superficie-base)" />
+				</linearGradient>
+				<radialGradient id={`${u}-gota`} cx="40%" cy="30%" r="80%">
+					<stop offset="0" stop-color="#7dffd0" />
+					<stop offset=".55" stop-color="var(--kino-marca-gota)" />
+					<stop offset="1" stop-color="var(--kino-biolum-d45)" />
+				</radialGradient>
+				<radialGradient id={`${u}-halo`} cx="50%" cy="50%" r="50%">
+					<stop offset="0" stop-color="var(--kino-biolum-d110)" stop-opacity=".45" />
+					<stop offset="1" stop-color="var(--kino-biolum-d110)" stop-opacity="0" />
+				</radialGradient>
+				<radialGradient id={`${u}-sombra`} cx="50%" cy="50%" r="50%">
+					<stop offset="0" stop-color="#000" stop-opacity=".55" />
+					<stop offset="1" stop-color="#000" stop-opacity="0" />
+				</radialGradient>
+			</defs>
+			<ellipse cx="80" cy="113" rx="48" ry="6" fill={`url(#${u}-sombra)`} />
+			{tipo === 'pase-vacio' ? (
 				<>
-					{/* Kino es una membrana: un borde vivo con una abertura por donde pasa quien tiene Pase. */}
-					<path class="ilustracion__trazo" d="M118 34C104 16 74 12 52 22 28 33 18 58 26 82c8 24 34 36 60 32 18-3 30-12 36-24" />
-					<path class="ilustracion__trazo ilustracion__trazo--tenue" d="M108 44C97 31 76 28 60 35 43 43 37 60 42 77c6 17 24 26 42 23 12-2 21-8 26-17" />
-					<g transform="translate(130 60) scale(.62)"><path class="ilustracion__gota" d={GOTA} /></g>
-				</>
-			)}
-			{tipo === 'pase-vacio' && (
-				<>
-					{/* El Pase que todavía no existe: el arco con el borde punteado de Sin confirmar. */}
-					<path class="ilustracion__trazo ilustracion__trazo--punteado" d={ARCO} />
-					<path class="ilustracion__trazo ilustracion__trazo--tenue" d="M34 112h92" />
+					{/* El Pase que todavía no existe: el arco con el borde punteado de Sin confirmar y la gota apagada. */}
+					<path class="ilustracion__trazo ilustracion__trazo--punteado" d={`${ARCO}`} />
 					<g transform="translate(80 84) scale(.5)"><path class="ilustracion__gota ilustracion__gota--tenue" d={GOTA} /></g>
 				</>
-			)}
-			{tipo === 'llegada' && (
+			) : (
 				<>
-					{/* Alguien llega con su Pase: el rastro punteado termina en el umbral del arco. */}
-					<path class="ilustracion__trazo" d={ARCO} />
-					<path class="ilustracion__trazo ilustracion__trazo--tenue" d="M18 112h124" />
-					<path class="ilustracion__trazo ilustracion__trazo--punteado" d="M80 124v-12" />
-					<g transform="translate(80 98) scale(.5)"><path class="ilustracion__gota" d={GOTA} /></g>
+					{/* Alguien llega con su Pase: la gota en el umbral, con su luz, y el arco que la recibe. */}
+					<path d={`${ARCO}Z`} fill={`url(#${u}-sup)`} />
+					<path class="ilustracion__trazo ilustracion__trazo--borde" d={ARCO} />
+					<path class="ilustracion__brillo" d="M50 66a30 30 0 0 1 30-30" />
+					<circle cx="80" cy="96" r="26" fill={`url(#${u}-halo)`} />
+					<g transform="translate(80 96) scale(.55)"><path d={GOTA} fill={`url(#${u}-gota)`} /></g>
+					{tipo === 'llegada' && <path class="ilustracion__trazo ilustracion__trazo--punteado" d="M80 124v-10" />}
 				</>
 			)}
 		</svg>

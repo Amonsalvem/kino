@@ -15,3 +15,8 @@ gorr-brand-system/vendor/w3c-design-tokens-agent-skill/
 # Capturas de prueba
 capturas/
 __pycache__/
+
+# Prototipo: se regeneran con el build y con pruebas/video.mjs
+prototipo/build/assets/
+prototipo/build/videos/
+entrega-3/assets/

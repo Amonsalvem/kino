@@ -1,12 +1,8 @@
 // Portería: el lector decide y portería ve el porqué. Se lee desde 3 m.
-// Coreografía de la lectura (entrega-3/motion-e-ilustracion.md):
-//   leyendo  → una línea barre la ventana del lector y la luz ámbar parpadea
-//   veredicto → el color, el ícono y la palabra están en el primer cuadro; lo demás entra en cascada de 20 ms
-//   entra    → el barrido se detiene; un destello de 120 ms sale del lector y deja un brillo quieto; tres anillos convergen
-//              en la ventana como en la sinapsis inmunológica; la talanquera sube con resorte firme y baja sola a los 4 s
-//   no entra → sin destello ni diana; el panel se contrae en 120 ms y se recupera en 900 ms (Mimosa pudica);
-//              la luz roja late dos veces y se detiene; la talanquera no se mueve
-// Con movimiento reducido todo se vuelve fundido (movimiento.ts).
+// Coreografía de la lectura (entrega-3/motion-e-ilustracion.md): la escena 3D aprobada de la portería de noche
+// es el fondo del panel. Leyendo, la cámara llega; el veredicto aparece en el mismo cuadro en que la luz del lector
+// se enciende; si entra, la talanquera sube en el video y tres anillos convergen sobre la luz; si no entra, la escena
+// se congela con la luz en rojo y el panel se contrae. Con movimiento reducido: pósters fijos y fundidos.
 import {useEffect, useLayoutEffect, useRef, useState} from 'preact/hooks';
 import {ahora, E, estado, hora24, leer, llamar, vigenciaTexto, type Lectura, type Modo} from './modelo';
 import {ChipEstado, Icono, Marca, useKino} from './componentes';
@@ -133,68 +129,127 @@ export function Porteria() {
 	);
 }
 
-function Panel({estado: ep, leyendo, ultima, pulso, llamada, onLlamar}: {estado: string; leyendo: Llegada | null; ultima: Lectura | null; pulso: number; llamada: string; onLlamar: (id: string) => void}) {
+// Escena 3D aprobada (M3D-2, M3D-3, M3D-6): portería de noche, el lector confirma y la talanquera sube.
+// Tiempos del video (60 fps, 4,33 s): la cámara llega hasta 1,85 s; la luz del lector se enciende en 1,85 s;
+// la talanquera sube entre 2,5 y 3,0 s. La lectura del prototipo dura 1,1 s, así que arranca en 0,75 s y el
+// veredicto coincide con el cuadro en que la luz se enciende. Espejada: el lector queda a la derecha del texto.
+const CINE = {reposo: 0.75, espera: 1.8, confirma: 1.85, rechazo: 1.7};
+const LUZ = {x: 100 - 30.3, y: 51.1}; // posición de la luz del lector en el cuadro espejado, en %
+
+function Panel({estado: ep, leyendo, ultima, llamada, onLlamar}: {estado: string; leyendo: Llegada | null; ultima: Lectura | null; pulso: number; llamada: string; onLlamar: (id: string) => void}) {
 	const panel = useRef<HTMLDivElement>(null);
-	const ola = useRef<HTMLSpanElement>(null);
-	const brazo = useRef<SVGGElement>(null);
-	const luz = useRef<SVGCircleElement>(null);
+	const video = useRef<HTMLVideoElement>(null);
+	const cine = useRef<HTMLDivElement>(null);
 	const cuenta = useRef<HTMLSpanElement>(null);
-	const diana = useRef<SVGGElement>(null);
+	const diana = useRef<HTMLDivElement>(null);
 	const pase = ultima?.paseId ? E.pases.find((p) => p.id === ultima.paseId) : undefined;
 	const entra = ultima?.resultado === 'entra';
+	const red = reducido();
+	const [cuadro, setCuadro] = useState<'reposo' | 'abierta' | 'rechazo'>('reposo');
+
+	// El video solo acepta una posición cuando ya cargó sus metadatos; antes de eso, espera.
+	const ir = (t: number, reproducir: boolean) => {
+		const v = video.current;
+		if (!v) return;
+		const aplicar = () => {
+			if (Math.abs(v.currentTime - t) > 0.12) v.currentTime = t;
+			if (reproducir) v.play().catch(() => {});
+			else v.pause();
+		};
+		if (v.readyState >= 1) aplicar();
+		else v.addEventListener('loadedmetadata', aplicar, {once: true});
+	};
+	useEffect(() => {
+		if (!red) ir(CINE.reposo, false);
+	}, []);
+
+	// leyendo: la cámara avanza hacia el lector, como el carro que llega, y se detiene frente a él (1,80 s)
+	//          hasta que el lector decide: la luz nunca se enciende antes del veredicto.
+	useEffect(() => {
+		if (ep !== 'leyendo') return;
+		setCuadro('reposo');
+		if (red) return;
+		ir(CINE.reposo, true);
+		let id = 0;
+		const vigilar = () => {
+			const v = video.current;
+			if (v && v.currentTime >= CINE.espera) return v.pause();
+			id = requestAnimationFrame(vigilar);
+		};
+		id = requestAnimationFrame(vigilar);
+		return () => cancelAnimationFrame(id);
+	}, [ep, leyendo?.etiqueta]);
 
 	useLayoutEffect(() => {
 		if (!ultima || !panel.current) return;
 		const el = panel.current;
-		// 0 · una lectura nueva corta la anterior: la talanquera parte de donde esté, no de un estado viejo
-		const giro = brazo.current ? getComputedStyle(brazo.current).transform : 'none';
-		brazo.current?.getAnimations().forEach((a) => a.cancel());
-		cuenta.current?.getAnimations().forEach((a) => a.cancel());
-		const abierta = giro !== 'none' && giro !== 'matrix(1, 0, 0, 1, 0, 0)';
 		const anillos = [...(diana.current?.children ?? [])];
-		[ola.current, el, ...anillos].forEach((n) => n?.getAnimations().forEach((a) => a.cancel()));
-		// 1 · el color, el ícono y la palabra ya están en el primer cuadro (la clase del panel). El ícono se traza sin espera.
+		[el, cine.current, cuenta.current, ...anillos].forEach((n) => n?.getAnimations().forEach((a) => a.cancel()));
+		// 1 · el veredicto (color, ícono y palabra) ya está en el primer cuadro; el ícono se traza sin espera
 		el.querySelectorAll<SVGPathElement>('.veredicto__trazo').forEach((p, i) =>
 			animar(p, [{strokeDashoffset: 1}, {strokeDashoffset: 0}], {duration: D.corto, easing: C.crecer, delay: i * 40, fill: 'both'}),
 		);
-		// 2 · lo secundario (nombre, motivo, datos, llamar) entra en cascada de 20 ms; el veredicto no espera
+		// 2 · lo secundario entra en cascada de 20 ms
 		el.querySelectorAll<HTMLElement>('[data-cascada]').forEach((n) => {
 			const i = Number(n.dataset.cascada);
 			if (i === 0) return;
 			animar(n, [{opacity: 0, transform: 'translateY(8px)'}, {opacity: 1, transform: 'none'}], {duration: D.corto, easing: C.crecer, delay: i * 20, fill: 'both'});
 		});
 		if (entra) {
-			// 3a · destello de reconocimiento (Noctiluca: sube un tercio, cae el resto) que deja un brillo quieto
-			animar(ola.current, [{opacity: 0}, {opacity: 1, offset: 0.36}, {opacity: 0.45}], {duration: D.instante, easing: 'linear', fill: 'forwards'});
-			// 3b · sinapsis: tres anillos convergen en la ventana del lector y forman la diana mientras la entrada está abierta
-			anillos.forEach((a, i) => {
-				animar(a, [{transform: 'scale(2.8)', opacity: 0}, {transform: 'scale(1)', opacity: 1}], {duration: D.tarjeta, easing: C.crecer, delay: i * 90, fill: 'forwards'})?.finished.then(() =>
-					animar(a, [{opacity: 1}, {opacity: 0}], {duration: D.decaer, easing: C.decaer, delay: ABIERTA_MS - D.tarjeta - i * 90, fill: 'forwards'}),
-				).catch(() => {});
-			});
-			// 3c · la talanquera sube después de la confirmación (M3D-2), espera y baja con decaer.
-			//      Con movimiento reducido no gira: queda arriba mientras la entrada está abierta y vuelve de golpe.
-			if (reducido()) brazo.current?.animate([{transform: 'rotate(-84deg)'}, {transform: 'rotate(-84deg)'}], {duration: ABIERTA_MS});
-			else animar(brazo.current, [{transform: 'rotate(0deg)'}, {transform: 'rotate(-84deg)'}], {duration: R.firme.ms, easing: R.firme.linear, delay: D.instante, fill: 'forwards'})?.finished.then(() =>
-				animar(brazo.current, [{transform: 'rotate(-84deg)'}, {transform: 'rotate(0deg)'}], {duration: D.decaer, easing: C.decaer, delay: ABIERTA_MS - R.firme.ms, fill: 'forwards'}),
-			).catch(() => {});
-			animar(cuenta.current, [{transform: 'scaleX(1)'}, {transform: 'scaleX(0)'}], {duration: ABIERTA_MS, easing: 'linear', delay: D.instante, fill: 'both'});
-		} else {
-			// 3d · si quedó abierta por el ingreso anterior, baja; el panel se contrae rápido y se recupera lento
-			if (abierta) animar(brazo.current, [{transform: giro}, {transform: 'rotate(0deg)'}], {duration: D.decaer, easing: C.decaer, fill: 'forwards'});
-			if (!reducido()) animar(el, [{transform: 'scale(1)'}, {transform: 'scale(.985)', offset: D.instante / (D.instante + D.decaer)}, {transform: 'scale(1)'}], {duration: D.instante + D.decaer, easing: C.decaer});
-			// la luz roja late dos veces y se detiene
-			animar(luz.current, [{opacity: 1}, {opacity: 0.25}, {opacity: 1}, {opacity: 0.25}, {opacity: 1}], {duration: D.latir, easing: C.latir});
+			// 3a · la luz del lector se enciende en el video en este mismo cuadro; la talanquera sube 650 ms después
+			setCuadro('abierta');
+			if (!red) ir(CINE.confirma, true);
+			// sinapsis: tres anillos convergen sobre la luz real del lector
+			anillos.forEach((a, i) =>
+				animar(a, [{transform: 'translate(-50%,-50%) scale(3)', opacity: 0}, {transform: 'translate(-50%,-50%) scale(1)', opacity: 1, offset: 0.7}, {transform: 'translate(-50%,-50%) scale(1)', opacity: 0}], {duration: D.tarjeta * 2, easing: C.crecer, delay: i * 90, fill: 'both'}),
+			);
+			animar(cuenta.current, [{transform: 'scaleX(1)'}, {transform: 'scaleX(0)'}], {duration: ABIERTA_MS, easing: 'linear', fill: 'both'});
+			// 3b · se cierra sola: la escena vuelve a reposo con un fundido, sin saltar
+			const t = setTimeout(() => {
+				const c = cine.current;
+				const volver = () => (setCuadro('reposo'), red ? undefined : ir(CINE.reposo, false));
+				if (!c) return volver();
+				animar(c, [{opacity: 1}, {opacity: 0.25}], {duration: D.corto, easing: C.salir, fill: 'forwards'})?.finished.then(() => {
+					volver();
+					animar(c, [{opacity: 0.25}, {opacity: 1}], {duration: D.crecer, easing: C.crecer, fill: 'forwards'});
+				}).catch(() => {});
+			}, ABIERTA_MS);
+			return () => clearTimeout(t);
 		}
+		// 3c · no entra: la escena se congela antes de que la luz se encienda; la luz roja late dos veces;
+		//      el panel se contrae rápido y se recupera lento (Mimosa pudica)
+		setCuadro('rechazo');
+		if (!red) ir(CINE.rechazo, false);
+		if (!red) animar(el, [{transform: 'scale(1)'}, {transform: 'scale(.985)', offset: D.instante / (D.instante + D.decaer)}, {transform: 'scale(1)'}], {duration: D.instante + D.decaer, easing: C.decaer});
+		animar(el.querySelector('.lector__luz'), [{opacity: 0}, {opacity: 1}, {opacity: 0.35}, {opacity: 1}, {opacity: 0.35}, {opacity: 1}], {duration: D.latir, easing: C.latir, fill: 'forwards'});
 	}, [ultima?.id]);
 
+	const poster = `assets/porteria-${cuadro === 'reposo' ? 'reposo' : cuadro === 'abierta' ? 'abierta' : 'rechazo'}.webp`;
 	return (
 		<section ref={panel} class={`lector lector--${ep}`} aria-live="polite">
-			<span ref={ola} class="lector__ola" aria-hidden="true" />
+			<div ref={cine} class="lector__cine" aria-hidden="true">
+				<div class="lector__cuadro">
+					{red ? (
+						<img class="lector__video" src={poster} alt="" />
+					) : (
+						<video ref={video} class="lector__video" muted playsInline preload="auto" poster="assets/porteria-reposo.webp">
+							<source src="assets/porteria.mp4" type='video/mp4; codecs="hvc1"' />
+							<source src="assets/porteria.webm" type="video/webm" />
+						</video>
+					)}
+					<span class="lector__luz" style={{left: `${LUZ.x}%`, top: `${LUZ.y}%`}} />
+					<div ref={diana} class="diana" style={{left: `${LUZ.x}%`, top: `${LUZ.y}%`}}>
+						<i class="diana__anillo" />
+						<i class="diana__anillo" />
+						<i class="diana__anillo" />
+					</div>
+				</div>
+				<span class="lector__velo" />
+			</div>
 			<div class="lector__contenido">
 				{ep === 'reposo' && (
 					<div class="lector__texto">
-						<span class="rotulo">Lector en línea</span>
+						<span class="rotulo">Lector en línea · Portería principal</span>
 						<span class="lector__titulo">Esperando llegada</span>
 						<span class="nota">El lector permite el ingreso. Aquí se ve por qué.</span>
 					</div>
@@ -229,41 +284,31 @@ function Panel({estado: ep, leyendo, ultima, pulso, llamada, onLlamar}: {estado:
 								<span class="nota">La llamada no abre la entrada.</span>
 							</div>
 						)}
+						{entra && (
+							<div class="lector__cuenta" data-cascada="4">
+								<span class="rotulo">Se cierra sola</span>
+								<span class="lector__cuenta-pista"><span ref={cuenta} /></span>
+							</div>
+						)}
 					</div>
 				)}
 			</div>
-			{ultima && pase && (
+			{/* La franja de datos siempre ocupa su lugar: el panel no cambia de alto entre reposo y veredicto. */}
+			{ultima && pase ? (
 				<dl class="lector__datos" key={`d${ultima.id}`} data-cascada="3">
 					<div><dt>Casa</dt><dd>{pase.autor.casa}</dd></div>
 					<div><dt>Otorgó</dt><dd>{pase.autor.nombre}</dd></div>
 					<div><dt>Con</dt><dd class="mono">{ultima.modo === 'qr' ? 'QR' : ultima.modo === 'placa' ? ultima.valor : 'código'}</dd></div>
 					<div><dt>Vigencia</dt><dd class="mono">{vigenciaTexto(pase)}</dd></div>
 				</dl>
+			) : (
+				<dl class="lector__datos lector__datos--dia">
+					<div><dt>Entradas hoy</dt><dd class="mono">{E.lecturas.filter((l) => l.resultado === 'entra').length}</dd></div>
+					<div><dt>Rechazos hoy</dt><dd class="mono">{E.lecturas.filter((l) => l.resultado === 'rechazado').length}</dd></div>
+					<div><dt>Lector</dt><dd>En línea</dd></div>
+					<div><dt>{ultima ? 'Última lectura' : 'Integración'}</dt><dd>{ultima ? ultima.nombre : 'HikCentral confirmó hace 1 min'}</dd></div>
+				</dl>
 			)}
-			<div class="lector__escena">
-				<svg class="puerta" viewBox="0 0 240 200" aria-hidden="true">
-					<rect class="puerta__piso" x="0" y="168" width="240" height="2" />
-					<rect class="puerta__poste" x="22" y="78" width="40" height="92" rx="8" />
-					<rect class="puerta__ventana" x="30" y="88" width="24" height="18" rx="4" />
-					{ep === 'leyendo' && <rect class="puerta__barrido" x="30" y="88" width="24" height="2" />}
-					<circle ref={luz} class="puerta__luz" cx="42" cy="122" r="6" />
-					<g ref={diana} class="diana" aria-hidden="true">
-						{[12, 21, 30].map((r) => (
-							<circle class="diana__anillo" cx="42" cy="97" r={r} />
-						))}
-					</g>
-					<g ref={brazo} class="puerta__brazo" style={{transformOrigin: '62px 142px', transformBox: 'view-box'}}>
-						<rect x="56" y="136" width="180" height="12" rx="6" />
-						{[0, 1, 2, 3, 4].map((i) => (
-							<rect class="puerta__franja" x={84 + i * 30} y="136" width="14" height="12" />
-						))}
-					</g>
-				</svg>
-				<div class="lector__cuenta" hidden={!entra}>
-					<span class="rotulo">Se cierra sola</span>
-					<span class="lector__cuenta-pista"><span ref={cuenta} /></span>
-				</div>
-			</div>
 		</section>
 	);
 }

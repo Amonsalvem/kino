@@ -1,13 +1,21 @@
 // Administración: fija las franjas del conjunto y cuida la integración. No aprueba ingresos, no pone tope de visitas
 // ni de duración (decisiones.md E3-2): eso lo decide cada residente.
-import {useState} from 'preact/hooks';
+import {useLayoutEffect, useRef, useState} from 'preact/hooks';
 import {ahora, anotar, E, emitir, esEstadia, estado, hora24, horaBreve, repararSync, vigenciaTexto, type Limites} from './modelo';
 import {ChipEstado, Icono, Marca, useKino} from './componentes';
+import {animar, C, D, reducido} from './movimiento';
 
 type Seccion = 'resumen' | 'limites' | 'lector';
 
 export function Administracion() {
 	const [s, setS] = useState<Seccion>('resumen');
+	// Cambio de sección: el contenido nuevo sube y funde, sin corte seco; el menú no se mueve.
+	const principal = useRef<HTMLElement>(null);
+	const primera = useRef(true);
+	useLayoutEffect(() => {
+		if (primera.current) return void (primera.current = false);
+		animar(principal.current?.firstElementChild, [{opacity: 0, transform: 'translateY(10px)'}, {opacity: 1, transform: 'none'}], {duration: D.crecer, easing: C.crecer});
+	}, [s]);
 	return (
 		<div class="app app--admin">
 			<aside class="admin__menu">
@@ -31,7 +39,7 @@ export function Administracion() {
 				</nav>
 				<p class="nota admin__nota">La administración fija las franjas. Cada residente decide a quién otorga un Pase y por cuánto tiempo.</p>
 			</aside>
-			<main class="admin__principal">
+			<main ref={principal} class="admin__principal">
 				{s === 'resumen' && <Resumen ir={setS} />}
 				{s === 'limites' && <Franjas />}
 				{s === 'lector' && <Lector />}
@@ -193,27 +201,45 @@ const Control = ({rotulo, valor, menos, mas}: {rotulo: string; valor: string; me
 	</div>
 );
 
-/** Red de Physarum (Tero y otros, 2010): el tubo se engrosa con el flujo y se seca sin él.
- *  Cada tubo es una proporción sincronizada real; nada se mueve si los contadores no cambian. */
-function Red({usuarios, vehiculos}: {usuarios: [number, number]; vehiculos: [number, number]}) {
-	const tubo = ([n, de]: [number, number], y: number, rotulo: string) => {
+/** Red de Physarum (Tero y otros, 2010): el tubo se engrosa con el flujo y se seca sin él. Cada tubo es una
+ *  proporción sincronizada real. Mientras se sincroniza, las altas viajan por el tubo hacia HikCentral; cuando el
+ *  contador deja de subir, el flujo se detiene. */
+function Red({usuarios, vehiculos, flujo}: {usuarios: [number, number]; vehiculos: [number, number]; flujo: boolean}) {
+	const quieto = reducido();
+	const tubo = ([n, de]: [number, number], y: number, rotulo: string, id: string) => {
 		const f = de ? n / de : 0;
 		const seco = f < 0.05;
+		const d = `M52 60C112 60 120 ${y} 180 ${y}S248 60 304 60`;
 		return (
 			<g class={`red__tubo ${seco ? 'red__tubo--seco' : f < 0.95 ? 'red__tubo--parcial' : ''}`}>
-				<path d={`M48 48C100 48 108 ${y} 162 ${y}S226 48 276 48`} style={{strokeWidth: seco ? 1.6 : 2 + f * 9}} />
-				<text x="162" y={y + (y < 48 ? -12 : 24)} text-anchor="middle">{`${rotulo} · ${n} de ${de}`}</text>
+				<path class="red__cauce" d={d} />
+				<path id={id} d={d} style={{strokeWidth: seco ? 1.6 : 2 + f * 9}} />
+				<text x="180" y={y + (y < 60 ? -14 : 26)} text-anchor="middle">{`${rotulo} · ${n} de ${de}`}</text>
+				{flujo && !quieto &&
+					[0, 1, 2, 3, 4].map((i) => (
+						<circle class="red__alta" r="2.6">
+							<animateMotion dur="1.4s" begin={`${i * 0.28}s`} repeatCount="indefinite" calcMode="spline" keyTimes="0;1" keySplines=".45 0 .55 1">
+								<mpath href={`#${id}`} />
+							</animateMotion>
+						</circle>
+					))}
 			</g>
 		);
 	};
 	return (
-		<svg class="red" viewBox="0 0 332 104" role="img" aria-label={`Kino a HikCentral: ${usuarios[0]} de ${usuarios[1]} personas y ${vehiculos[0]} de ${vehiculos[1]} vehículos sincronizados`}>
-			{tubo(usuarios, 26, 'Personas')}
-			{tubo(vehiculos, 70, 'Vehículos')}
-			<circle class="red__nodo" cx="26" cy="48" r="22" />
-			<text class="red__rotulo" x="26" y="52" text-anchor="middle">Kino</text>
-			<rect class="red__nodo" x="276" y="30" width="52" height="36" rx="8" />
-			<text class="red__rotulo red__rotulo--tenue" x="302" y="84" text-anchor="middle">HikCentral</text>
+		<svg class={`red ${flujo ? 'red--flujo' : ''}`} viewBox="0 0 360 128" role="img" aria-label={`Kino a HikCentral: ${usuarios[0]} de ${usuarios[1]} personas y ${vehiculos[0]} de ${vehiculos[1]} vehículos sincronizados`}>
+			<defs>
+				<radialGradient id="red-nodo" cx="50%" cy="40%" r="60%">
+					<stop offset="0" stop-color="var(--kino-superficie-membrana)" />
+					<stop offset="1" stop-color="var(--kino-superficie-base)" />
+				</radialGradient>
+			</defs>
+			{tubo(usuarios, 30, 'Personas', 'tubo-personas')}
+			{tubo(vehiculos, 90, 'Vehículos', 'tubo-vehiculos')}
+			<circle class="red__nodo" cx="28" cy="60" r="24" />
+			<text class="red__rotulo" x="28" y="64" text-anchor="middle">Kino</text>
+			<rect class="red__nodo" x="304" y="42" width="52" height="36" rx="8" />
+			<text class="red__rotulo red__rotulo--tenue" x="330" y="98" text-anchor="middle">HikCentral</text>
 		</svg>
 	);
 }
@@ -235,7 +261,7 @@ function Lector() {
 						</div>
 						{s.usuarios[1] > 0 ? (
 							<>
-								<Red usuarios={s.usuarios} vehiculos={s.vehiculos} />
+								<Red usuarios={s.usuarios} vehiculos={s.vehiculos} flujo={s.estado === 'reparando'} />
 								<dl class="datos">
 									<div><dt>Usuarios en el lector</dt><dd class="mono">{s.usuarios[0]} de {s.usuarios[1]}</dd></div>
 									<div><dt>Vehículos en el lector</dt><dd class="mono">{s.vehiculos[0]} de {s.vehiculos[1]}</dd></div>

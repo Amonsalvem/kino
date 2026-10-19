@@ -1,4 +1,5 @@
-// Construye el prototipo en un solo HTML (build/kino-prototipo.html), con tokens, estilos y JS adentro.
+// Construye el prototipo: build/kino-prototipo.html (tokens, estilos y JS adentro) y build/assets/ con los videos
+// 3D aprobados (M3D) y sus pósters, que se publican como archivos de apoyo del artefacto.
 // Uso: node construir.mjs
 import {build} from 'esbuild';
 import fs from 'node:fs';
@@ -47,6 +48,20 @@ const html = `<!doctype html>
 </body>
 </html>
 `;
+// Assets: pósters propios (prototipo/assets) y los videos 3D aprobados, sin copiarlos al repositorio dos veces.
+const assets = path.join(salida, 'assets');
+fs.mkdirSync(assets, {recursive: true});
+for (const f of fs.readdirSync(path.join(aqui, 'assets'))) fs.copyFileSync(path.join(aqui, 'assets', f), path.join(assets, f));
+const m3d = path.resolve(aqui, '../branding/sistema/v3/motion/entregables/conjunto-noche-lector-confirma');
+for (const [de, a] of [
+	['conjunto-noche-lector-confirma.vp9.webm', 'porteria.webm'],
+	['conjunto-noche-lector-confirma.hevc_app.mp4', 'porteria.mp4'],
+	['conjunto-noche-lector-confirma.reducido.vp9.webm', 'porteria-reducido.webm'],
+	['conjunto-noche-lector-confirma.reducido.hevc_app.mp4', 'porteria-reducido.mp4'],
+])
+	fs.copyFileSync(path.join(m3d, de), path.join(assets, a));
+const peso = fs.readdirSync(assets).reduce((t, f) => t + fs.statSync(path.join(assets, f)).size, 0);
+
 const destino = path.join(salida, 'kino-prototipo.html');
 fs.writeFileSync(destino, html);
-console.log(`ok ${path.relative(process.cwd(), destino)} · ${(html.length / 1024).toFixed(0)} KB`);
+console.log(`ok ${path.relative(process.cwd(), destino)} · ${(html.length / 1024).toFixed(0)} KB · assets ${(peso / 1024).toFixed(0)} KB`);

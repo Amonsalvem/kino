@@ -162,12 +162,13 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--kino-borde-foco
 
 /* Pase: tarjeta ------------------------------------------------------------------------------------- */
 .lista{display:grid;gap:12px}
-.tarjeta{position:relative;display:grid;gap:8px;text-align:left;padding:18px;border-radius:var(--kino-forma-radio-tarjeta);background:var(--kino-superficie-membrana);border:1px solid var(--kino-estado-vigente-borde);box-shadow:var(--kino-relieve-membrana);overflow:hidden;isolation:isolate;transition:transform var(--r-tacto-ms) var(--r-tacto),border-color var(--d-corto)}
+.tarjeta{position:relative;display:grid;gap:8px;text-align:left;padding:18px;border-radius:var(--kino-forma-radio-tarjeta);background:var(--kino-superficie-membrana);border:1px solid var(--kino-borde-tenue);box-shadow:var(--kino-relieve-membrana);overflow:hidden;isolation:isolate;transition:transform var(--r-tacto-ms) var(--r-tacto),border-color var(--d-corto)}
 .tarjeta:active{transform:scale(.98)}
 .tarjeta--previsto{border-color:var(--kino-estado-previsto-borde)}
 .tarjeta--sin-confirmar{border-style:dashed;border-color:var(--kino-estado-sin-confirmar-borde);background:var(--kino-superficie-elevada)}
-.tarjeta--por-vencer{border-color:var(--kino-estado-por-vencer-borde)}
-.tarjeta--vigente{box-shadow:var(--kino-resplandor-vigente),var(--kino-relieve-membrana)}
+.tarjeta--por-vencer{border-color:color-mix(in oklab,var(--kino-estado-por-vencer-borde) 45%,var(--kino-borde-tenue));box-shadow:inset 3px 0 0 color-mix(in oklab,var(--kino-estado-por-vencer-texto) calc(var(--brillo,1) * 100%),transparent),var(--kino-relieve-membrana)}
+/* Jerarquía de brillo: solo lo vigente emite luz, y desde su borde, no con un halo que lo envuelve todo. */
+.tarjeta--vigente{border-color:color-mix(in oklab,var(--kino-estado-vigente-borde) 45%,var(--kino-borde-tenue));box-shadow:inset 3px 0 0 var(--kino-estado-vigente-texto),-10px 0 28px -18px var(--kino-biolum-d110),var(--kino-relieve-membrana)}
 .tarjeta--vencido,.tarjeta--usado,.tarjeta--revocado{border-color:var(--kino-borde-tenue);opacity:.72;background:var(--kino-superficie-elevada);box-shadow:none}
 .tarjeta__cabeza{display:flex;justify-content:space-between;align-items:center;gap:12px;min-width:0}
 .tarjeta__cabeza .rotulo{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -195,6 +196,14 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--kino-borde-foco
 /* Portal: el arco del logo con el QR --------------------------------------------------------------- */
 .portal{position:relative;width:var(--tam);display:grid;place-items:center;isolation:isolate}
 .portal__arco{position:relative;width:100%;aspect-ratio:1/1.08;border-radius:50% 50% 14px 14px / 46% 46% 14px 14px;background:#F4FFFA;color:#00140C;display:grid;place-items:center;padding-top:10%;box-shadow:0 0 0 2px var(--kino-estado-vigente-borde),var(--kino-resplandor-vigente);overflow:hidden;transition:box-shadow var(--d-tarjeta) var(--c-crecer),filter var(--d-decaer) var(--c-decaer)}
+/* Material del Pase: papel con luz de arriba, sombra de contacto y un reflejo que sigue la inclinación (Wallet). */
+.portal__arco{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transform-style:preserve-3d;background:linear-gradient(165deg,#FCFFFE 0%,#F1FBF6 55%,#E6F5EE 100%)}
+.portal__arco::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;box-shadow:inset 0 1px 0 #fff,inset 0 -22px 34px -26px #00140c40}
+.portal__reflejo{position:absolute;inset:0;border-radius:inherit;pointer-events:none;mix-blend-mode:soft-light;background:radial-gradient(55% 45% at var(--lx,50%) var(--ly,32%),#ffffffb0,transparent 70%),linear-gradient(115deg,transparent 35%,#ffffff40 50%,transparent 62%)}
+.portal__sombra{position:absolute;left:14%;right:14%;bottom:-5%;height:12%;border-radius:50%;background:radial-gradient(closest-side,#000c,transparent);filter:blur(8px);z-index:-1;opacity:.55}
+[data-tema="claro"] .portal__sombra,.portal--claro .portal__sombra{opacity:.28}
+/* Forma de la transformación de contenedor (morfar): vive sobre la hoja mientras el botón se vuelve Pase. */
+.morfo{position:absolute;z-index:5;pointer-events:none;box-shadow:0 18px 40px -18px #000c}
 .portal__halo{position:absolute;inset:-12%;border-radius:50%;background:radial-gradient(closest-side,color-mix(in oklab,var(--kino-biolum-d110) 40%,transparent),transparent);z-index:-1;opacity:0;transition:opacity var(--d-tarjeta)}
 .portal--vigente .portal__halo,.portal--por-vencer .portal__halo{opacity:var(--brillo,1)}
 .portal--por-vencer .portal__arco{box-shadow:0 0 0 2px var(--kino-estado-por-vencer-borde)}
@@ -212,6 +221,8 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--kino-borde-foco
 /* Residente ----------------------------------------------------------------------------------------- */
 .ingreso{position:absolute;inset:0;display:flex;flex-direction:column;padding:24px;gap:28px;overflow:hidden;background:radial-gradient(120% 70% at 30% 0%,var(--kino-sustrato-400),var(--kino-superficie-abismo))}
 .micelio--ingreso{opacity:.9}
+.ingreso{isolation:isolate}
+.aurora--ingreso{inset:-10% -30% 10%;-webkit-mask-image:none;mask-image:none}
 .ingreso__marca{display:flex;align-items:center;gap:14px;margin-top:60px;position:relative}
 .ingreso__logotipo{font-family:var(--kino-fuente-display);font-weight:900;font-size:40px;letter-spacing:.02em;font-stretch:125%}
 .ingreso__cuerpo{position:relative;display:grid;gap:16px;margin-top:auto;margin-bottom:24px}
@@ -226,8 +237,10 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--kino-borde-foco
 .notificacion__accion{font-size:13px;font-weight:700;color:#007a55;margin-top:4px}
 @keyframes cae{from{transform:translateY(-130%)}}
 .inicio,.detalle{position:absolute;inset:0;display:flex;flex-direction:column}
-.cabecera{position:relative;padding:12px 20px 22px;display:grid;gap:14px;overflow:hidden}
-.aurora{position:absolute;inset:-40% -20% 0;background:radial-gradient(60% 50% at 20% 30%,color-mix(in oklab,var(--kino-violeta-d45) 55%,transparent),transparent),radial-gradient(50% 60% at 80% 10%,color-mix(in oklab,var(--kino-biolum-d45) 60%,transparent),transparent);z-index:-1;filter:blur(10px)}
+.cabecera{position:relative;isolation:isolate;padding:12px 20px 22px;display:grid;gap:14px;overflow:hidden}
+.aurora{position:absolute;inset:-12% -12% -6%;z-index:-1;pointer-events:none;background:radial-gradient(120% 80% at 85% 0%,var(--kino-biolum-d23),transparent 62%),radial-gradient(90% 70% at 0% 100%,color-mix(in oklch,var(--kino-violeta-d15) 90%,transparent),transparent 66%),radial-gradient(60% 50% at 40% 60%,color-mix(in oklch,var(--kino-indigo-d15) 60%,transparent),transparent 70%);-webkit-mask-image:linear-gradient(#000 72%,transparent);mask-image:linear-gradient(#000 72%,transparent);animation:amanecer var(--d-cortina) var(--c-cortina) both}
+/* La aurora oficial (sitio de marca, d07_imagen.py) amanece una vez al abrir el inicio y queda quieta. */
+@keyframes amanecer{from{opacity:0;transform:translateY(-8%) scale(1.06)}}
 .micelio--cabecera{opacity:0}
 .cabecera__fila{display:flex;justify-content:space-between;align-items:center}
 .resumen-casa{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:0}
@@ -329,50 +342,50 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--kino-borde-foco
 .porteria__hora{margin-left:auto;font-size:24px}
 .porteria__cuerpo{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) 312px;gap:24px;padding:24px}
 .porteria__principal{display:grid;grid-template-rows:minmax(0,1fr) auto;gap:24px;min-width:0;min-height:0}
-.lector{position:relative;isolation:isolate;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) 200px;grid-template-rows:minmax(0,1fr) auto;border-radius:24px;border:2px solid var(--kino-borde-tenue);background:var(--kino-superficie-elevada);transition:border-color var(--d-crecer) var(--c-crecer)}
+/* Panel del lector: la escena 3D aprobada (M3D) a sangre, espejada; el texto vive sobre un velo que lleva el color
+   del veredicto desde el primer cuadro. El cuadro de 16:9 cubre el panel sin deformarse (container queries). */
+.lector{position:relative;isolation:isolate;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto;border-radius:24px;border:2px solid var(--kino-borde-tenue);background:#04100c;container-type:size;transition:border-color var(--d-crecer) var(--c-crecer)}
 .lector--leyendo{border-color:var(--kino-estado-por-vencer-borde)}
-/* El color del veredicto está en el primer cuadro; el destello solo explica de dónde vino. */
-.lector--entra{border-color:var(--kino-estado-vigente-borde);background:var(--kino-estado-vigente-fondo)}
-.lector--rechazado{border-color:var(--kino-estado-rechazado-borde);background:var(--kino-estado-rechazado-fondo)}
-.lector__ola{position:absolute;inset:0;z-index:-1;opacity:0;pointer-events:none}
-.lector--entra .lector__ola{background:radial-gradient(70% 90% at 86% 52%,color-mix(in oklab,var(--kino-biolum-d45) 60%,transparent),transparent 70%)}
-.lector__contenido{grid-area:1/1;display:flex;align-items:center;padding:24px 32px;min-width:0;min-height:0}
+.lector--entra{border-color:var(--kino-estado-vigente-borde)}
+.lector--rechazado{border-color:var(--kino-estado-rechazado-borde)}
+.lector__cine{position:absolute;inset:0;z-index:-1;overflow:hidden}
+.lector__cuadro{position:absolute;left:50%;top:50%;width:max(100cqw,177.78cqh);aspect-ratio:16/9;translate:-50% -50%}
+.lector__video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scaleX(-1);transition:filter var(--d-crecer) var(--c-crecer)}
+.lector--rechazado .lector__video{filter:saturate(.35) brightness(.72)}
+/* Velo: neutro en reposo y lectura; verde o carmín con el veredicto. Deja ver la escena a la derecha, donde está el lector. */
+.lector__velo{position:absolute;inset:0;background:linear-gradient(90deg,color-mix(in oklab,#020a07 92%,transparent) 0%,color-mix(in oklab,#020a07 70%,transparent) 42%,transparent 72%);transition:background var(--d-corto)}
+.lector--entra .lector__velo{background:linear-gradient(90deg,color-mix(in oklab,var(--kino-estado-vigente-fondo) 94%,transparent) 0%,color-mix(in oklab,var(--kino-estado-vigente-fondo) 78%,transparent) 42%,color-mix(in oklab,var(--kino-estado-vigente-fondo) 12%,transparent) 74%)}
+.lector--rechazado .lector__velo{background:linear-gradient(90deg,color-mix(in oklab,var(--kino-estado-rechazado-fondo) 95%,transparent) 0%,color-mix(in oklab,var(--kino-estado-rechazado-fondo) 82%,transparent) 46%,color-mix(in oklab,var(--kino-estado-rechazado-fondo) 30%,transparent) 80%)}
+.lector__luz{position:absolute;width:2.2%;aspect-ratio:1;border-radius:50%;translate:-50% -50%;opacity:0;background:radial-gradient(circle,#ffd9d4 0 18%,var(--kino-estado-rechazado-texto) 30%,color-mix(in oklab,var(--kino-carmin-d110) 60%,transparent) 55%,transparent 72%);filter:blur(.3px)}
+.lector--rechazado .lector__luz{opacity:1}
+/* Sinapsis inmunológica: tres anillos convergen sobre la luz real del lector cuando confirma. */
+.diana{position:absolute;width:0;height:0}
+.diana__anillo{position:absolute;left:0;top:0;width:3.4cqh;aspect-ratio:1;border-radius:50%;border:2px solid var(--kino-estado-vigente-texto);opacity:0;box-shadow:0 0 12px -2px var(--kino-biolum-d110)}
+.diana__anillo:nth-child(2){width:6.4cqh;border-color:color-mix(in oklab,var(--kino-estado-vigente-texto) 70%,transparent)}
+.diana__anillo:nth-child(3){width:9.6cqh;border-color:color-mix(in oklab,var(--kino-estado-vigente-texto) 45%,transparent)}
+.lector__contenido{grid-area:1/1;display:flex;align-items:center;padding:28px 36px;min-width:0;min-height:0;max-width:72%}
 .lector__texto{display:grid;gap:12px;width:100%;align-content:center}
-.lector__titulo{font-family:var(--kino-fuente-display);font-weight:800;font-stretch:112%;font-size:36px;line-height:1.05}
-.veredicto{display:flex;align-items:center;gap:16px;font-family:var(--kino-fuente-display);font-weight:900;font-stretch:112%;font-size:48px;line-height:1;white-space:nowrap}
-.veredicto__icono{width:52px;height:52px;flex:none;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.lector__titulo{font-family:var(--kino-fuente-display);font-weight:800;font-stretch:112%;font-size:36px;line-height:1.05;text-shadow:0 1px 16px #0008}
+.veredicto{display:flex;align-items:center;gap:16px;font-family:var(--kino-fuente-display);font-weight:900;font-stretch:112%;font-size:52px;line-height:1;white-space:nowrap}
+.veredicto__icono{width:56px;height:56px;flex:none;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
 .veredicto__trazo{stroke-dasharray:1;stroke-dashoffset:0}
 .lector--entra .veredicto{color:var(--kino-estado-vigente-texto)}
 .lector--rechazado .veredicto{color:var(--kino-estado-rechazado-texto)}
 .lector__motivo{font-size:20px;line-height:1.3;color:var(--kino-estado-rechazado-texto)}
-.lector__datos{grid-area:2/1/3/3;display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1fr) minmax(0,.5fr) minmax(0,1.8fr);gap:16px;margin:0;padding:16px 32px;border-top:1px solid color-mix(in oklab,var(--kino-texto-primario) 14%,transparent);background:color-mix(in oklab,var(--kino-superficie-abismo) 28%,transparent)}
+.lector__datos{grid-area:2/1;display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1fr) minmax(0,.5fr) minmax(0,1.8fr);gap:16px;margin:0;padding:16px 36px;border-top:1px solid color-mix(in oklab,var(--kino-texto-primario) 14%,transparent);background:color-mix(in oklab,#020a07 62%,transparent);backdrop-filter:blur(14px) saturate(1.2)}
 .lector__datos div{display:grid;gap:4px;min-width:0}
+.lector__datos--dia dd{color:var(--kino-texto-secundario)}
 .lector__datos dt{font-family:var(--kino-fuente-dato);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--kino-texto-secundario)}
 .lector__datos dd{margin:0;font-size:18px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .lector__llamar{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:8px}
-.lector__llamar .secundario-btn{width:auto}
+.lector__llamar .secundario-btn{width:auto;background:color-mix(in oklab,#020a07 40%,transparent)}
 .llamando{font-weight:700;animation:latir 1.4s infinite}
 .puntos{display:flex;gap:8px}
 .puntos i{width:10px;height:10px;border-radius:50%;background:var(--kino-estado-por-vencer-texto);animation:latir 1.2s var(--c-latir) infinite}
 .puntos i:nth-child(2){animation-delay:.15s}.puntos i:nth-child(3){animation-delay:.3s}
-.lector__escena{grid-area:1/2;position:relative;display:grid;grid-template-rows:1fr auto;align-items:end;padding:24px 24px 16px 0;min-height:0}
-.puerta{width:100%;height:auto;overflow:visible}
-.puerta__piso{fill:var(--kino-borde-tenue)}
-.puerta__poste{fill:var(--kino-superficie-membrana);stroke:var(--kino-borde-definido);stroke-width:1.5}
-.puerta__ventana{fill:var(--kino-superficie-abismo);stroke:var(--kino-borde-tenue)}
-.puerta__barrido{fill:var(--kino-estado-por-vencer-texto);animation:barrer-ventana .8s var(--c-crecer) infinite alternate}
-@keyframes barrer-ventana{to{transform:translateY(16px)}}
-.puerta__luz{fill:var(--kino-estado-rechazado-texto);transition:fill var(--d-corto)}
-.lector--leyendo .puerta__luz{fill:var(--kino-estado-por-vencer-texto);animation:latir .6s infinite}
-.lector--entra .puerta__luz{fill:var(--kino-estado-vigente-texto);filter:drop-shadow(0 0 6px var(--kino-biolum-d110))}
-.puerta__brazo rect{fill:var(--kino-hueso-200)}
-.puerta__brazo .puerta__franja{fill:var(--kino-carmin-a78)}
-.lector__cuenta{display:grid;gap:8px;margin-top:12px}
+.lector__cuenta{display:grid;gap:8px;margin-top:12px;max-width:280px}
 .lector__cuenta-pista{display:block;height:4px;border-radius:2px;background:color-mix(in oklab,var(--kino-estado-vigente-texto) 20%,transparent);overflow:hidden}
 .lector__cuenta-pista span{display:block;height:100%;background:var(--kino-estado-vigente-texto);transform-origin:left}
-/* Sinapsis inmunológica: los anillos convergen en la ventana del lector y forman la diana. */
-.diana__anillo{fill:none;stroke:var(--kino-estado-vigente-texto);stroke-width:1.6;opacity:0;transform-box:fill-box;transform-origin:center}
-.diana__anillo:nth-child(2){stroke-opacity:.7}.diana__anillo:nth-child(3){stroke-opacity:.45}
 .porteria__lateral{display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:12px;min-width:0;min-height:0}
 .llegadas{display:grid;gap:8px;align-content:start;overflow-y:auto;padding-bottom:24px;scrollbar-width:none;-webkit-mask-image:linear-gradient(#000 calc(100% - 32px),transparent);mask-image:linear-gradient(#000 calc(100% - 32px),transparent)}
 .llegada{display:flex;gap:12px;align-items:center;min-height:56px;text-align:left;padding:8px 12px;border-radius:12px;border:1px solid var(--kino-borde-tenue);background:var(--kino-superficie-elevada);transition:transform var(--r-tacto-ms) var(--r-tacto),border-color var(--d-corto)}
@@ -431,11 +444,14 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--kino-borde-foco
 .sync__barra i{display:block;height:100%;background:var(--kino-estado-vigente-texto);transform-origin:left;transition:transform .1s linear}
 .causa{margin:0;font-size:15px;color:var(--kino-texto-secundario)}
 .red{width:100%;height:auto;overflow:visible}
+.red__cauce{stroke:var(--kino-borde-tenue)!important;stroke-width:12!important;stroke-dasharray:none!important;opacity:.35}
+.red__alta{fill:#d8fff0;filter:drop-shadow(0 0 4px var(--kino-biolum-d110))}
+.red--flujo .red__nodo{stroke:var(--kino-estado-vigente-borde)}
 .red__tubo path{fill:none;stroke:var(--kino-estado-vigente-texto);stroke-linecap:round;transition:stroke-width var(--d-crecer) var(--c-crecer),stroke var(--d-corto)}
 .red__tubo--parcial path{stroke:var(--kino-estado-por-vencer-texto)}
 .red__tubo--seco path{stroke:var(--kino-estado-rechazado-texto);stroke-dasharray:2 6}
 .red__tubo text{font-family:var(--kino-fuente-dato);font-size:12px;fill:var(--kino-texto-secundario)}
-.red__nodo{fill:var(--kino-superficie-membrana);stroke:var(--kino-borde-definido);stroke-width:1.5}
+.red__nodo{fill:url(#red-nodo);stroke:var(--kino-borde-definido);stroke-width:1.5}
 .red__rotulo{font-family:var(--kino-fuente-dato);font-size:12px;fill:var(--kino-texto-primario)}
 .red__rotulo--tenue{fill:var(--kino-texto-secundario)}
 
@@ -446,9 +462,9 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--kino-borde-foco
 [data-bio="1"] .micelio--cabecera{opacity:.7}
 [data-bio="1"] .tarjeta{border-radius:24px 18px 26px 16px}
 [data-bio="1"] .tarjeta .membrana{display:block;position:absolute;inset:-30%;z-index:-1;background:radial-gradient(40% 50% at 30% 40%,color-mix(in oklab,var(--kino-biolum-d45) 50%,transparent),transparent 70%);opacity:calc(.55 * var(--brillo,1))}
-[data-bio="1"] .tarjeta--vigente{box-shadow:0 0 0 1px var(--kino-biolum-d70),0 0 32px -8px var(--kino-biolum-d110),var(--kino-relieve-membrana)}
+[data-bio="1"] .tarjeta--vigente{box-shadow:inset 3px 0 0 var(--kino-estado-vigente-texto),-12px 0 32px -18px var(--kino-biolum-d110),var(--kino-relieve-membrana)}
 /* Por vencer: la bioluminiscencia se fatiga; el brillo baja con el tiempo que queda. */
-[data-bio="1"] .tarjeta--por-vencer{box-shadow:0 0 0 1px color-mix(in oklab,var(--kino-ambar-d110) calc(var(--brillo,1) * 100%),transparent),0 0 30px -8px color-mix(in oklab,var(--kino-ambar-d110) calc(var(--brillo,1) * 100%),transparent),var(--kino-relieve-membrana)}
+[data-bio="1"] .tarjeta--por-vencer{box-shadow:inset 3px 0 0 color-mix(in oklab,var(--kino-estado-por-vencer-texto) calc(var(--brillo,1) * 100%),transparent),-12px 0 30px -18px color-mix(in oklab,var(--kino-ambar-d110) calc(var(--brillo,1) * 100%),transparent),var(--kino-relieve-membrana)}
 [data-bio="1"] .tarjeta--vencido{border-radius:30px 12px 34px 10px;filter:saturate(.25) sepia(.3) brightness(.9);transform:scale(.985)}
 [data-bio="1"] .tarjeta--vencido .membrana,[data-bio="1"] .tarjeta--usado .membrana,[data-bio="1"] .tarjeta--revocado .membrana{display:none}
 [data-bio="1"] .corte{height:4px;background:repeating-linear-gradient(90deg,var(--kino-estado-revocado-texto) 0 10px,transparent 10px 14px);filter:drop-shadow(0 0 4px var(--kino-carmin-d110))}
@@ -469,11 +485,11 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--kino-borde-foco
 @keyframes fundido{from{opacity:0}}
 @media (prefers-reduced-motion:reduce){
 	.entra,.nota-interaccion,.traza__item,.burbuja,.fila-aviso,.notificacion,.banner,.deshacer,.tabla tr.nueva td,.tarjeta--nueva{animation:fundido var(--d-corto) linear both!important}
-	.tarjeta--nueva .vida,.puntos i,.llamando,.puerta__barrido,.lector--leyendo .puerta__luz{animation:none!important}
+	.tarjeta--nueva .vida,.puntos i,.llamando{animation:none!important}
 	*,*::before,*::after{transition-property:color,background-color,border-color,opacity,box-shadow!important}
 }
 [data-reducido="1"] :is(.entra,.nota-interaccion,.traza__item,.burbuja,.fila-aviso,.notificacion,.banner,.deshacer,.tabla tr.nueva td,.tarjeta--nueva){animation:fundido var(--d-corto) linear both!important}
-[data-reducido="1"] :is(.tarjeta--nueva .vida,.puntos i,.llamando,.puerta__barrido,.lector--leyendo .puerta__luz){animation:none!important}
+[data-reducido="1"] :is(.tarjeta--nueva .vida,.puntos i,.llamando){animation:none!important}
 [data-reducido="1"] *,[data-reducido="1"] *::before,[data-reducido="1"] *::after{transition-property:color,background-color,border-color,opacity,box-shadow!important}
 
 /* Ilustraciones: una familia con el arco y la gota del logo; trazo 1,7 de puntas redondas, dos colores apagados. */
@@ -481,6 +497,8 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--kino-borde-foco
 .ilustracion__trazo{fill:none;stroke:var(--kino-texto-secundario);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .ilustracion__trazo--tenue{stroke:var(--kino-borde-definido)}
 .ilustracion__trazo--punteado{stroke-dasharray:2 6}
+.ilustracion__trazo--borde{stroke:color-mix(in oklab,var(--kino-estado-vigente-borde) 55%,var(--kino-borde-definido))}
+.ilustracion__brillo{fill:none;stroke:#ffffff30;stroke-width:2.4;stroke-linecap:round}
 .ilustracion__gota{fill:color-mix(in oklab,var(--kino-marca-gota) 70%,var(--kino-superficie-base))}
 .ilustracion__gota--tenue{fill:none;stroke:var(--kino-borde-definido);stroke-width:3.4;stroke-dasharray:4 8}
 

@@ -46,7 +46,7 @@ const medir = () => {
 		if (tieneTexto && cs.whiteSpace === 'nowrap' && cs.textOverflow !== 'ellipsis' && el.scrollWidth > el.clientWidth + 1) h.push(['corte', nombre(el), `texto de ${el.scrollWidth} en ${el.clientWidth}`]);
 		if (tieneTexto && parseFloat(cs.fontSize) < 12) h.push(['letra', nombre(el), `${cs.fontSize}`]);
 		// fuera del dispositivo en horizontal
-		if (r.right > marco.right + 1 || r.left < marco.left - 1) if (!el.closest('.recientes,.chips,.capa,.hoja,.sinapsis,.micelio,.escaner,.aurora,.membrana') && !el.matches('.aurora,.membrana')) h.push(['fuera', nombre(el), `x ${Math.round(r.left - marco.left)}..${Math.round(r.right - marco.left)} de ${Math.round(marco.width)}`]);
+		if (r.right > marco.right + 1 || r.left < marco.left - 1) if (!el.closest('.recientes,.chips,.capa,.hoja,.micelio,.escaner,.aurora,.membrana,.lector__cine') && !el.matches('.aurora,.membrana')) h.push(['fuera', nombre(el), `x ${Math.round(r.left - marco.left)}..${Math.round(r.right - marco.left)} de ${Math.round(marco.width)}`]);
 		// hijo que se sale de su padre con overflow visible y borde o fondo
 		const p = el.parentElement;
 		if (p && p !== raizApp && vis(p)) {
