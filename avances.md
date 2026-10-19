@@ -350,3 +350,10 @@ En arquitectura faltaba:
 - Textos más cortos y concretos en ingreso, Avisos, Mi casa, hoja de crear, portería, administración, escenario y en las respuestas del inventario de interacciones (`modelo.ts`).
 - Los rótulos de dato encima de su valor se mantienen: son regla aprobada de la marca (decisiones.md, Parada 3).
 - Verificación: e2e 18 de 18, OE1 sin cambios, barrido sin cortes y compuerta de voz sin hallazgos.
+
+## Deck: personajes, tablero de KPI y despedida (19 oct)
+- **Personajes (PROPUESTA E3-9):** residente y administración en 2D vectorial, cartoon plano, animados con CSS en la lámina 2. Archivos en `entrega-3/personajes/`.
+- **Tablero de seguimiento:** lámina nueva (14) con un panel por objetivo contra su meta. OE1 con datos medidos; OE2 a OE4 con datos de ejemplo marcados como tales; OE5 como plan.
+- **Despedida:** última lámina sin texto. La aurora amanece, sube el bloque del logo, cae la gota, hay ondas y tres latidos. El sonido se sintetiza en el navegador: acorde grave, soplo, golpe de la gota y dos notas de «confirmado». Se repite tocando la lámina.
+- **Notas del presentador** con el guion de las láminas 8, 9 y 17 (antes 15).
+- **Verificación:** `verificar.mjs` sin desborde ni errores en 17 láminas; compuerta de voz sin errores.

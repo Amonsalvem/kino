@@ -314,6 +314,79 @@ section.actual .tiempo::before{transform:none}
   .embudo .tramo{grid-template-columns:minmax(0,1fr)}
   .embudo .tramo .cifra{text-align:left}
 }
+
+/* Personajes (PROPUESTA E3-9): 2D vectorial, cartoon plano con la paleta de Kino. Entran con la lámina:
+   el residente levanta su Pase, que se enciende; la administración fija sus franjas. Después, quietos. */
+.personaje{width:calc(var(--u)*14);height:auto;overflow:visible}
+.personaje__cuerpo{transform-box:fill-box;transform-origin:50% 100%}
+section.actual .personaje__cuerpo{animation:saluda 1.2s cubic-bezier(.2,0,0,1) .3s both}
+@keyframes saluda{0%{transform:translateY(10px) scaleY(.96)}45%{transform:translateY(-6px)}100%{transform:none}}
+.personaje__ojos{transform-box:fill-box;transform-origin:50% 50%}
+section.actual .personaje__ojos{animation:parpadea 3.4s 1.6s 2}
+@keyframes parpadea{0%,92%,100%{transform:none}96%{transform:scaleY(.1)}}
+.personaje__pase{transform-box:fill-box}
+section.actual .personaje__pase{animation:pase-sube 1s cubic-bezier(.3,1.4,.5,1) .9s both}
+@keyframes pase-sube{from{opacity:0;transform:translate(150px,90px) scale(.4)}}
+section.actual .personaje__pase circle{animation:enciende 1.8s ease-in-out 1.6s 3}
+@keyframes enciende{50%{opacity:.35}}
+.personaje__tablero .franja{transform-box:fill-box;transform-origin:0 50%}
+section.actual .personaje__tablero .franja{animation:franja .8s cubic-bezier(.2,0,0,1) both}
+section.actual .personaje__tablero .f1{animation-delay:.9s}
+section.actual .personaje__tablero .f2{animation-delay:1.05s}
+section.actual .personaje__tablero .f3{animation-delay:1.2s}
+@keyframes franja{from{transform:scaleX(0)}}
+@media (prefers-reduced-motion:reduce){.personaje *{animation:none!important}}
+
+/* Tablero de seguimiento: un panel por objetivo, el dato actual grande y su serie contra la meta. */
+.tablero{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:calc(var(--u)*1.2)}
+.panel{background:var(--elevada);border:1px solid var(--borde);border-radius:14px;padding:calc(var(--u)*.8) calc(var(--u)*1.1);display:grid;gap:calc(var(--u)*.3);min-width:0}
+.panel__cab{display:flex;justify-content:space-between;align-items:baseline;gap:.6em}
+.panel__cab b{font-size:var(--t-cuerpo)}
+.panel__cab .oe{font-family:var(--dato);color:var(--tenue);font-size:var(--t-min)}
+.panel__valor{display:flex;align-items:baseline;gap:.6em;flex-wrap:wrap}
+.panel__valor .cifra{font-size:calc(var(--u)*3.4);color:var(--vig)}
+.panel__valor span{color:var(--texto-2);font-size:var(--t-min)}
+.grafica{position:relative;height:calc(var(--u)*5.6);margin-top:calc(var(--u)*1.2);border-left:1px solid var(--borde-def);border-bottom:1px solid var(--borde-def)}
+.grafica svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.grafica .serie{fill:none;stroke:var(--vig);stroke-width:3;vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-linecap:round}
+.grafica svg{clip-path:inset(0 100% 0 0);transition:clip-path 1.4s cubic-bezier(.2,0,0,1) .3s}
+section.actual .grafica svg{clip-path:inset(-10% -2% -10% 0)}
+.grafica .area{fill:color-mix(in oklab,var(--vig) 16%,transparent);opacity:0;transition:opacity .8s 1s}
+section.actual .grafica .area{opacity:1}
+.grafica .meta{position:absolute;left:0;right:0;bottom:var(--m);border-top:2px dashed var(--pv-b)}
+.grafica .meta span{position:absolute;right:0;top:-1.5em;font-family:var(--dato);font-size:var(--t-min);color:var(--pv)}
+.barras{position:absolute;inset:0;display:flex;align-items:flex-end;gap:4px;padding:0 4px}
+.barras i{flex:1;height:var(--h);background:var(--vig);border-radius:4px 4px 0 0;transform:scaleY(0);transform-origin:bottom;transition:transform .7s cubic-bezier(.2,0,0,1);transition-delay:calc(var(--k) * 50ms + 200ms)}
+.barras i.bajo{background:color-mix(in oklab,var(--vig) 45%,var(--membrana))}
+section.actual .barras i{transform:none}
+.eje{display:flex;justify-content:space-between;font-family:var(--dato);font-size:var(--t-min);color:var(--tenue)}
+.panel .ejemplo{justify-self:start}
+@media (prefers-reduced-motion:reduce){.grafica svg{clip-path:none;transition:none}.grafica .area{opacity:1;transition:none}.barras i{transform:none;transition:none}}
+
+/* Despedida: sin texto. La aurora amanece, el bloque del logo sube, la gota cae y el lector confirma. */
+.despedida{background:#000;justify-content:center;align-items:center;cursor:pointer}
+.despedida .aurora-f{position:absolute;inset:-10%;background:radial-gradient(40% 35% at 50% 55%,#006142,transparent 70%),radial-gradient(30% 25% at 35% 40%,#092D93,transparent 70%),radial-gradient(28% 24% at 66% 38%,#3E1C96,transparent 72%);filter:blur(40px);opacity:0}
+.despedida.actual .aurora-f{animation:f-aurora 7s cubic-bezier(.2,0,0,1) forwards}
+@keyframes f-aurora{0%{opacity:0;transform:scale(1.15)}30%{opacity:.9}80%{opacity:.75;transform:none}100%{opacity:.18;transform:scale(.96)}}
+.despedida .logo-f{width:calc(var(--u)*22);height:auto;position:relative;overflow:visible}
+.logo-f .bloque{fill:#EFFCF7;transform-box:fill-box;transform-origin:50% 100%;opacity:0}
+.despedida.actual .logo-f .bloque{animation:f-bloque 1.4s cubic-bezier(.2,0,0,1) 1.2s forwards,f-apaga 1.6s ease 5.4s forwards}
+@keyframes f-bloque{from{opacity:0;transform:translateY(8%) scaleY(.7)}to{opacity:1;transform:none}}
+@keyframes f-apaga{to{opacity:.06}}
+.logo-f .gota{fill:#00BB83;transform-box:fill-box;transform-origin:50% 100%;opacity:0}
+.despedida.actual .logo-f .gota{animation:f-gota 1s cubic-bezier(.5,0,.75,0) 2.6s forwards,f-late 1.8s ease-in-out 3.7s 3}
+@keyframes f-gota{0%{opacity:0;transform:translateY(-260%) scale(.8)}70%{opacity:1}85%{transform:translateY(4%) scaleY(.88)}100%{opacity:1;transform:none}}
+@keyframes f-late{50%{filter:drop-shadow(0 0 30px #2FF8B2) brightness(1.3)}}
+.logo-f .onda{fill:none;stroke:#2FF8B2;stroke-width:2;opacity:0;transform-box:fill-box;transform-origin:50% 50%}
+.despedida.actual .logo-f .onda{animation:f-onda 1.6s cubic-bezier(.2,0,0,1) 3.55s forwards}
+.despedida.actual .logo-f .onda.o2{animation-delay:3.75s}
+.despedida.actual .logo-f .onda.o3{animation-delay:3.95s}
+@keyframes f-onda{0%{opacity:.9;transform:scale(.3)}100%{opacity:0;transform:scale(2.6)}}
+.despedida .sonido{position:absolute;right:max(16px,calc(var(--u)*2));bottom:calc(var(--u)*2 + env(safe-area-inset-bottom,0px));width:52px;height:52px;border-radius:50%;border:1px solid #ffffff30;background:#ffffff10;color:#EFFCF7;display:grid;place-items:center;cursor:pointer;opacity:.5}
+.despedida .sonido:hover{opacity:1}
+body.final .barra,body.final .progreso{opacity:0;pointer-events:none}
+@media (prefers-reduced-motion:reduce){.despedida *{animation:none!important}.despedida .aurora-f{opacity:.5}.logo-f .bloque,.logo-f .gota{opacity:1}}
+@media (max-width:820px){.tablero{grid-template-columns:minmax(0,1fr)}.personaje{width:120px}}
 </style>
 
 <div class="progreso" id="progreso"></div>
@@ -347,9 +420,49 @@ section.actual .tiempo::before{transform:none}
 <section data-parte="inicio">
   <h2>¿Quién decide quién entra?</h2>
   <div class="brecha">
-    <div class="nodo" data-r style="--r:1"><span class="ico">R</span><b>El residente</b><p>Sabe a quién espera</p></div>
+    <div class="nodo" data-r style="--r:1"><svg class="personaje personaje--residente" viewBox="0 0 220 230" role="img" aria-label="El residente, con un Pase en la mano">
+  <defs>
+    <radialGradient id="res-luz" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#2FF8B2" stop-opacity=".55"/><stop offset="1" stop-color="#2FF8B2" stop-opacity="0"/></radialGradient>
+    <linearGradient id="res-cuerpo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0B3A2A"/><stop offset="1" stop-color="#011F16"/></linearGradient>
+  </defs>
+  <ellipse cx="100" cy="218" rx="58" ry="8" fill="#000" opacity=".45"/>
+  <g class="personaje__cuerpo">
+    <rect x="48" y="104" width="104" height="112" rx="48" fill="url(#res-cuerpo)" stroke="#00BB83" stroke-width="3"/>
+    <path d="M140 140 C160 136 168 124 172 112" fill="none" stroke="#00BB83" stroke-width="12" stroke-linecap="round"/>
+    <circle cx="100" cy="66" r="40" fill="#EFFCF7"/>
+    <path d="M62 58 C66 30 92 22 112 26 C132 30 142 44 140 60 C128 48 104 44 84 50 C74 53 66 56 62 58Z" fill="#00BB83"/>
+    <g class="personaje__ojos"><circle cx="86" cy="70" r="4.5" fill="#00140C"/><circle cx="114" cy="70" r="4.5" fill="#00140C"/></g>
+    <path d="M90 86 Q100 94 110 86" fill="none" stroke="#00140C" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <g class="personaje__pase" transform="translate(162 66)">
+    <circle cx="16" cy="22" r="34" fill="url(#res-luz)"/>
+    <path d="M0 40V16A16 16 0 0 1 32 16V40Z" fill="#F4FFFA" stroke="#2FF8B2" stroke-width="2.5"/>
+    <path d="M9 18h5v5H9zM18 18h5v5h-5zM9 27h5v5H9zM18 28h2v2h-2zM21 31h2v2h-2z" fill="#00140C"/>
+  </g>
+</svg><b>El residente</b><p>Sabe a quién espera</p></div>
     <div class="puerta" data-r style="--r:2"><i></i><span class="mono">la puerta</span></div>
-    <div class="nodo aut" data-r style="--r:3"><span class="ico">A</span><b>La administración</b><p>Tiene la autoridad y no sabe a quién espera</p></div>
+    <div class="nodo aut" data-r style="--r:3"><svg class="personaje personaje--administracion" viewBox="0 0 220 230" role="img" aria-label="La administración, con el tablero de franjas">
+  <defs>
+    <linearGradient id="adm-cuerpo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1B3A8A"/><stop offset="1" stop-color="#0B1B44"/></linearGradient>
+  </defs>
+  <ellipse cx="120" cy="218" rx="58" ry="8" fill="#000" opacity=".45"/>
+  <g class="personaje__cuerpo">
+    <rect x="68" y="104" width="104" height="112" rx="22" fill="url(#adm-cuerpo)" stroke="#77A3FF" stroke-width="3"/>
+    <circle cx="120" cy="66" r="40" fill="#EFFCF7"/>
+    <path d="M82 52 C88 30 110 24 128 27 C146 30 158 42 158 58 L150 50 C134 42 104 42 90 50Z" fill="#3E1C96"/>
+    <g fill="none" stroke="#00140C" stroke-width="3"><circle cx="106" cy="70" r="9"/><circle cx="134" cy="70" r="9"/><path d="M115 70h10"/></g>
+    <g class="personaje__ojos"><circle cx="106" cy="70" r="3.5" fill="#00140C"/><circle cx="134" cy="70" r="3.5" fill="#00140C"/></g>
+    <path d="M112 88 H128" fill="none" stroke="#00140C" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <g class="personaje__tablero" transform="translate(18 112)">
+    <rect width="78" height="84" rx="10" fill="#011F16" stroke="#B6CEFF" stroke-width="2.5"/>
+    <circle cx="62" cy="16" r="8" fill="none" stroke="#B6CEFF" stroke-width="2"/><path d="M62 11v5l3 2" stroke="#B6CEFF" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <rect class="franja f1" x="10" y="34" width="56" height="8" rx="4" fill="#FFC36D"/>
+    <rect class="franja f2" x="10" y="50" width="40" height="8" rx="4" fill="#77A3FF"/>
+    <rect class="franja f3" x="10" y="66" width="48" height="8" rx="4" fill="#00BB83"/>
+  </g>
+  <path d="M84 150 C76 154 70 150 66 146" fill="none" stroke="#77A3FF" stroke-width="12" stroke-linecap="round"/>
+</svg><b>La administración</b><p>Tiene la autoridad y no sabe a quién espera</p></div>
   </div>
   <p class="pregunta-guia" data-r style="--r:5">¿Cómo reunir conocimiento y autoridad para decidir quién entra?</p>
   <aside class="guion">Núcleo del diagnóstico: el conocimiento y la autoridad viven en actores distintos. Observado en la inspección del 14 al 16 de septiembre en Monte Sereno.</aside>
@@ -435,7 +548,7 @@ section.actual .tiempo::before{transform:none}
     <div class="tramo" data-r style="--r:4"><span class="cifra vig" data-contar="5">5</span><span class="barra-v" style="--w:42%;--r:4">perfiles en la evaluación por inspección: 11 hallazgos, 6 resueltos</span></div>
   </div>
   <div class="biblia" data-r style="--r:6" aria-label="Avance de la Biblia"><span class="b1">Biblia · E1 y E2 completas</span><span class="b2">E3: 3.1–3.3 · 5.2 · 6.1</span><span class="b3">E4 y final: previsto</span></div>
-  <aside class="guion">QA por especialidad con la severidad de Nielsen. La evaluación por inspección usa los perfiles del estudio de iAgency para Monte Sereno (2024) y los arquetipos; no reemplaza la prueba con personas del piloto.</aside>
+  <aside class="guion">Se lee de arriba abajo: cada barra es un filtro más exigente. 31 problemas en el Figma (el peor: nada pasaba de un actor a otro), por eso construimos en código las 17 interacciones; 18 pruebas automáticas recorren la tarde completa; y 5 perfiles revisaron el prototipo tarea por tarea: 11 tropiezos, 6 ya corregidos. La franja de abajo es el avance de la Biblia. QA por especialidad con la severidad de Nielsen. La evaluación por inspección usa los perfiles del estudio de iAgency para Monte Sereno (2024) y los arquetipos; no reemplaza la prueba con personas del piloto.</aside>
 </section>
 
 <!-- 9 · Objetivo general -->
@@ -446,7 +559,7 @@ section.actual .tiempo::before{transform:none}
     <div class="caja" data-r style="--r:3"><span class="cifra"><span data-contar="95">95</span> %</span><p>de los Pases confirmados por el lector en menos de 60 s</p></div>
     <div class="caja" data-r style="--r:4"><span class="cifra" data-contar="0">0</span><p>personas permanentes creadas para dejar entrar a alguien</p></div>
   </div>
-  <aside class="guion">Objetivo general (el qué) y meta general a 12 meses. Los 4 conjuntos: Villas Campestres, Refugio Campestre y 2 nuevos del Oriente antioqueño; el 2 es meta del equipo y se recalibra con el piloto.</aside>
+  <aside class="guion">La frase es el qué de toda la estrategia. Las tres cifras son la meta a 12 meses y se leen como una sola promesa: 4 conjuntos pagando, el lector confirmando el 95 % de los Pases en menos de un minuto y ninguna persona dada de alta de por vida para dejar entrar a alguien. Objetivo general (el qué) y meta general a 12 meses. Los 4 conjuntos: Villas Campestres, Refugio Campestre y 2 nuevos del Oriente antioqueño; el 2 es meta del equipo y se recalibra con el piloto.</aside>
 </section>
 
 <!-- 10 · SMART -->
@@ -504,6 +617,27 @@ section.actual .tiempo::before{transform:none}
   <aside class="guion">Método GQM: objetivo, pregunta, métrica. Hay 12 KPI en total (estrategia.md §7); aquí va el principal de cada objetivo. Las metas de OE2, OE3 y OE5 se recalibran con la medición de la semana 1 del piloto.</aside>
 </section>
 
+
+<!-- 13b · Tablero de seguimiento -->
+<section data-parte="plan">
+  <h2>Así se sigue cada semana</h2>
+  <div class="tablero">
+    <div class="panel" data-r style="--r:1"><div class="panel__cab"><b>Tiempo para crear un Pase</b><span class="oe">OE1</span></div><div class="panel__valor"><span class="cifra">8 s</span><span>visita reciente · nueva 19,4 s</span></div>
+      <div class="grafica"><span class="meta" style="--m:86%"><span>meta 30 s</span></span><div class="barras" aria-hidden="true"><i style="--h:23%;--k:0"></i><i style="--h:55%;--k:1"></i></div></div><div class="eje"><span>reciente</span><span>nueva</span></div><span class="chip vigente">Medido · 19 oct</span></div>
+    <div class="panel" data-r style="--r:2"><div class="panel__cab"><b>Casas activas</b><span class="oe">OE2</span></div><div class="panel__valor"><span class="cifra">61 %</span><span>semana 8</span></div>
+      <div class="grafica"><span class="meta" style="--m:86%"><span>60 %</span></span><svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polygon class="area" points="0,100 0.0,87.1 14.3,74.3 28.6,61.4 42.9,50.0 57.1,40.0 71.4,30.0 85.7,21.4 100.0,12.9 100,100"/><polyline class="serie" points="0.0,87.1 14.3,74.3 28.6,61.4 42.9,50.0 57.1,40.0 71.4,30.0 85.7,21.4 100.0,12.9"/></svg></div><div class="eje"><span>sem 1</span><span>sem 8</span></div><span class="chip sinconf ejemplo">Datos de ejemplo</span></div>
+    <div class="panel" data-r style="--r:3"><div class="panel__cab"><b>Colaboradores con Pase</b><span class="oe">OE3</span></div><div class="panel__valor"><span class="cifra">83 %</span><span>semana 12</span></div>
+      <div class="grafica"><span class="meta" style="--m:80%"><span>80 %</span></span><div class="barras" aria-hidden="true"><i class="bajo" style="--h:38%;--k:0"></i><i class="bajo" style="--h:47%;--k:1"></i><i class="bajo" style="--h:55%;--k:2"></i><i class="bajo" style="--h:61%;--k:3"></i><i class="bajo" style="--h:66%;--k:4"></i><i class="bajo" style="--h:70%;--k:5"></i><i class="bajo" style="--h:73%;--k:6"></i><i class="bajo" style="--h:76%;--k:7"></i><i class="bajo" style="--h:78%;--k:8"></i><i class="" style="--h:80%;--k:9"></i><i class="" style="--h:81%;--k:10"></i><i class="" style="--h:83%;--k:11"></i></div></div><div class="eje"><span>ene</span><span>mar</span></div><span class="chip sinconf ejemplo">Datos de ejemplo</span></div>
+    <div class="panel" data-r style="--r:4"><div class="panel__cab"><b>Pases confirmados en &lt; 60 s</b><span class="oe">OE4</span></div><div class="panel__valor"><span class="cifra">99,2 %</span><span>hoy</span></div>
+      <div class="grafica"><span class="meta" style="--m:60%"><span style="right:auto;left:0">98 %</span></span><svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polygon class="area" points="0,100 0.0,78.0 7.7,64.0 15.4,52.0 23.1,60.0 30.8,42.0 38.5,34.0 46.2,38.0 53.8,28.0 61.5,32.0 69.2,22.0 76.9,20.0 84.6,26.0 92.3,18.0 100.0,16.0 100,100"/><polyline class="serie" points="0.0,78.0 7.7,64.0 15.4,52.0 23.1,60.0 30.8,42.0 38.5,34.0 46.2,38.0 53.8,28.0 61.5,32.0 69.2,22.0 76.9,20.0 84.6,26.0 92.3,18.0 100.0,16.0"/></svg></div><div class="eje"><span>14 días</span><span>hoy</span></div><span class="chip sinconf ejemplo">Datos de ejemplo</span></div>
+    <div class="panel" data-r style="--r:5"><div class="panel__cab"><b>Conjuntos con pago</b><span class="oe">OE5</span></div><div class="panel__valor"><span class="cifra">4</span><span>de 4</span></div>
+      <div class="grafica"><span class="meta" style="--m:87%"><span>4</span></span><div class="barras" aria-hidden="true"><i class="bajo" style="--h:22%;--k:0"></i><i class="bajo" style="--h:22%;--k:1"></i><i class="bajo" style="--h:22%;--k:2"></i><i class="bajo" style="--h:22%;--k:3"></i><i class="bajo" style="--h:22%;--k:4"></i><i class="bajo" style="--h:22%;--k:5"></i><i class="bajo" style="--h:22%;--k:6"></i><i class="bajo" style="--h:22%;--k:7"></i><i class="bajo" style="--h:43%;--k:8"></i><i class="bajo" style="--h:43%;--k:9"></i><i class="bajo" style="--h:65%;--k:10"></i><i class="" style="--h:87%;--k:11"></i></div></div><div class="eje"><span>nov 2026</span><span>oct 2027</span></div><span class="chip sinconf ejemplo">Plan, no medido</span></div>
+    <div class="panel" data-r style="--r:6"><div class="panel__cab"><b>Cómo se lee</b><span class="oe">GQM</span></div>
+      <p class="tenue">La línea punteada es la meta y el número grande, el último dato. Barra oscura: todavía bajo la meta. En OE1, más bajo es mejor.</p></div>
+  </div>
+  <aside class="guion">Tablero ilustrativo: OE1 tiene datos reales del recorrido automático; OE2 a OE5 son datos de ejemplo para mostrar cómo se verá el seguimiento en el piloto. Se alimenta de la base de Kino, los eventos de HikCentral y la minuta de portería.</aside>
+</section>
+
 <!-- 14 · Fichas de producto -->
 <section data-parte="plan">
   <h2>Seis productos</h2>
@@ -531,7 +665,19 @@ section.actual .tiempo::before{transform:none}
     <div>Contar las casas reales de Villas (888 son usuarios)</div>
     <div>Fijar el precio con la administración</div>
   </div>
-  <aside class="guion">40 y 250 son ambición del equipo; se calibran con cuántas copropiedades tienen hardware Hikvision y con el precio que acepte una administración.</aside>
+  <aside class="guion">Arriba, el crecimiento: 4, 40 y 250 conjuntos. Abajo, las tres cosas que hay que comprobar antes de cobrar: que el alta temporal funcione por la API en el piloto, cuántas casas hay de verdad en Villas (el sistema cuenta 888 usuarios, no casas) y qué precio acepta la administración. 40 y 250 son ambición del equipo; se calibran con cuántas copropiedades tienen hardware Hikvision y con el precio que acepte una administración.</aside>
+</section>
+
+<!-- Despedida: sin texto -->
+<section class="despedida" data-parte="despedida" aria-label="Despedida">
+  <span class="aurora-f" aria-hidden="true"></span>
+  <svg class="logo-f" viewBox="0 0 100 101.824" aria-hidden="true">
+    <path class="bloque" fill-rule="evenodd" d="M3.483 0H96.517A3.483 3.483 0 0 1 100 3.483V101.824H0V3.483A3.483 3.483 0 0 1 3.483 0ZM18.242 86.567V46.766A31.675 31.675 0 0 1 81.592 46.766V86.567Z"/>
+    <circle class="onda" cx="50" cy="55" r="18"/><circle class="onda o2" cx="50" cy="55" r="18"/><circle class="onda o3" cx="50" cy="55" r="18"/>
+    <path class="gota" d="M50 35.987A16.169 17.579 0 0 1 66.169 53.566L50 66.667 33.831 53.566A16.169 17.579 0 0 1 50 35.987Z"/>
+  </svg>
+  <button class="sonido" type="button" aria-label="Repetir con sonido"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h4l5 4V6L8 10z"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/></svg></button>
+  <aside class="guion">Despedida sin texto: la aurora amanece, el bloque del logo sube, la gota cae dentro del arco y el lector confirma con tres latidos y el sonido de entrada. Se repite tocando la lámina.</aside>
 </section>
 
 </main>
@@ -561,6 +707,44 @@ section.actual .tiempo::before{transform:none}
   });
   // Los videos corren solo en su lámina.
   const videos = (s, si) => s.querySelectorAll('video').forEach((v) => (si && !reducido ? v.play().catch(() => {}) : v.pause()));
+
+  // Sonido de la despedida: síntesis en el navegador (sin archivos). Un acorde grave que abre, un soplo cuando
+  // amanece la aurora, el golpe suave de la gota y el «confirmado» del lector: dos notas que suben.
+  let audio = null;
+  const sonar = () => {
+    try {
+      audio = audio || new (window.AudioContext || window.webkitAudioContext)();
+      const a = audio, t0 = a.currentTime + 0.05, salida = a.createGain();
+      salida.gain.value = 0.55;
+      salida.connect(a.destination);
+      const tono = (f, ini, dur, vol, tipo = 'sine') => {
+        const o = a.createOscillator(), g = a.createGain();
+        o.type = tipo; o.frequency.value = f;
+        g.gain.setValueAtTime(0, t0 + ini);
+        g.gain.linearRampToValueAtTime(vol, t0 + ini + Math.min(0.9, dur * 0.3));
+        g.gain.exponentialRampToValueAtTime(0.0001, t0 + ini + dur);
+        o.connect(g).connect(salida); o.start(t0 + ini); o.stop(t0 + ini + dur + 0.05);
+      };
+      [110, 164.81, 220].forEach((f) => tono(f, 0, 6.5, 0.12));
+      const ruido = a.createBuffer(1, a.sampleRate * 2, a.sampleRate), d = ruido.getChannelData(0);
+      for (let i = 0; i < d.length; i++) d[i] = (Math.random() * 2 - 1) * 0.4;
+      const n = a.createBufferSource(), fl = a.createBiquadFilter(), gn = a.createGain();
+      n.buffer = ruido; fl.type = 'bandpass'; fl.frequency.setValueAtTime(400, t0 + 0.4); fl.frequency.linearRampToValueAtTime(1800, t0 + 2.2);
+      gn.gain.setValueAtTime(0, t0 + 0.4); gn.gain.linearRampToValueAtTime(0.18, t0 + 1.4); gn.gain.linearRampToValueAtTime(0, t0 + 2.4);
+      n.connect(fl).connect(gn).connect(salida); n.start(t0 + 0.4); n.stop(t0 + 2.5);
+      tono(82.41, 3.5, 0.6, 0.5);
+      tono(659.25, 3.62, 0.9, 0.16, 'triangle');
+      tono(880, 3.82, 1.6, 0.16, 'triangle');
+      tono(1318.5, 3.82, 1.2, 0.04);
+      [1, 2, 3].forEach((k) => tono(220, 3.7 + k * 1.8, 0.5, 0.05));
+    } catch (_) { /* sin audio */ }
+  };
+  const fin = document.querySelector('.despedida');
+  const repetir = () => {
+    fin.classList.remove('actual'); void fin.offsetWidth; fin.classList.add('actual'); sonar();
+  };
+  fin.addEventListener('click', repetir);
+  let sonoFin = false;
   const marcar = (i) => {
     actual = i;
     secs.forEach((s, k) => {
@@ -568,6 +752,9 @@ section.actual .tiempo::before{transform:none}
       videos(s, k === i);
     });
     contar(secs[i]);
+    document.body.classList.toggle('final', secs[i] === fin);
+    if (secs[i] === fin && !sonoFin) { sonoFin = true; sonar(); }
+    if (secs[i] !== fin) sonoFin = false;
     num.textContent = `${i + 1} / ${secs.length}`;
     prog.style.width = `${((i + 1) / secs.length) * 100}%`;
     const parte = secs[i].dataset.parte;

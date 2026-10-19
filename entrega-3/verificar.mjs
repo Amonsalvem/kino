@@ -49,7 +49,7 @@ for (const [w, h] of [[1920, 1080], [1280, 720], [390, 844]]) {
 		const secs = await p.$$('#deck > section');
 		for (let i = 0; i < secs.length; i++) {
 			await secs[i].scrollIntoViewIfNeeded();
-			await p.waitForTimeout(i === 5 ? 2500 : 1400);
+			await p.waitForTimeout(i === 5 ? 2500 : i === secs.length - 1 ? 7600 : 1600);
 			await p.screenshot({path: path.join(salida, `lamina-${String(i + 1).padStart(2, '0')}.png`)});
 		}
 	}

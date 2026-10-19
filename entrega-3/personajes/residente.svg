@@ -1,0 +1,20 @@
+<svg class="personaje personaje--residente" viewBox="0 0 220 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="El residente, con un Pase en la mano">
+  <defs>
+    <radialGradient id="res-luz" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#2FF8B2" stop-opacity=".55"/><stop offset="1" stop-color="#2FF8B2" stop-opacity="0"/></radialGradient>
+    <linearGradient id="res-cuerpo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0B3A2A"/><stop offset="1" stop-color="#011F16"/></linearGradient>
+  </defs>
+  <ellipse cx="100" cy="218" rx="58" ry="8" fill="#000" opacity=".45"/>
+  <g class="personaje__cuerpo">
+    <rect x="48" y="104" width="104" height="112" rx="48" fill="url(#res-cuerpo)" stroke="#00BB83" stroke-width="3"/>
+    <path d="M140 140 C160 136 168 124 172 112" fill="none" stroke="#00BB83" stroke-width="12" stroke-linecap="round"/>
+    <circle cx="100" cy="66" r="40" fill="#EFFCF7"/>
+    <path d="M62 58 C66 30 92 22 112 26 C132 30 142 44 140 60 C128 48 104 44 84 50 C74 53 66 56 62 58Z" fill="#00BB83"/>
+    <g class="personaje__ojos"><circle cx="86" cy="70" r="4.5" fill="#00140C"/><circle cx="114" cy="70" r="4.5" fill="#00140C"/></g>
+    <path d="M90 86 Q100 94 110 86" fill="none" stroke="#00140C" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <g class="personaje__pase" transform="translate(162 66)">
+    <circle cx="16" cy="22" r="34" fill="url(#res-luz)"/>
+    <path d="M0 40V16A16 16 0 0 1 32 16V40Z" fill="#F4FFFA" stroke="#2FF8B2" stroke-width="2.5"/>
+    <path d="M9 18h5v5H9zM18 18h5v5h-5zM9 27h5v5H9zM18 28h2v2h-2zM21 31h2v2h-2z" fill="#00140C"/>
+  </g>
+</svg>

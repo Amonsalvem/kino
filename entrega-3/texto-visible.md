@@ -38,9 +38,49 @@ Entrega 3. Una sola historia para las dos materias: el problema, el Pase en el p
  
  ¿Quién decide quién entra? 
  
- R El residente Sabe a quién espera 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ El residente Sabe a quién espera 
  la puerta 
- A La administración Tiene la autoridad y no sabe a quién espera 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ La administración Tiene la autoridad y no sabe a quién espera 
  
  ¿Cómo reunir conocimiento y autoridad para decidir quién entra? 
  
@@ -133,7 +173,7 @@ Dirección biopunk aprobada (E3-1) y motion aprobado (E3-8). Cada movimiento sal
  
  Biblia · E1 y E2 completas E3: 3.1–3.3 · 5.2 · 6.1 E4 y final: previsto 
  
-QA por especialidad con la severidad de Nielsen. La evaluación por inspección usa los perfiles del estudio de iAgency para Monte Sereno (2024) y los arquetipos; no reemplaza la prueba con personas del piloto. 
+Se lee de arriba abajo: cada barra es un filtro más exigente. 31 problemas en el Figma (el peor: nada pasaba de un actor a otro), por eso construimos en código las 17 interacciones; 18 pruebas automáticas recorren la tarde completa; y 5 perfiles revisaron el prototipo tarea por tarea: 11 tropiezos, 6 ya corregidos. La franja de abajo es el avance de la Biblia. QA por especialidad con la severidad de Nielsen. La evaluación por inspección usa los perfiles del estudio de iAgency para Monte Sereno (2024) y los arquetipos; no reemplaza la prueba con personas del piloto. 
  
 
  
@@ -145,7 +185,7 @@ QA por especialidad con la severidad de Nielsen. La evaluación por inspección 
  0 personas permanentes creadas para dejar entrar a alguien 
  
  
-Objetivo general (el qué) y meta general a 12 meses. Los 4 conjuntos: Villas Campestres, Refugio Campestre y 2 nuevos del Oriente antioqueño; el 2 es meta del equipo y se recalibra con el piloto. 
+La frase es el qué de toda la estrategia. Las tres cifras son la meta a 12 meses y se leen como una sola promesa: 4 conjuntos pagando, el lector confirmando el 95 % de los Pases en menos de un minuto y ninguna persona dada de alta de por vida para dejar entrar a alguien. Objetivo general (el qué) y meta general a 12 meses. Los 4 conjuntos: Villas Campestres, Refugio Campestre y 2 nuevos del Oriente antioqueño; el 2 es meta del equipo y se recalibra con el piloto. 
  
 
  
@@ -207,6 +247,28 @@ El primer hito es académico; los demás son de producto y siguen después de no
 Método GQM: objetivo, pregunta, métrica. Hay 12 KPI en total (estrategia.md §7); aquí va el principal de cada objetivo. Las metas de OE2, OE3 y OE5 se recalibran con la medición de la semana 1 del piloto. 
  
 
+
+ 
+ 
+ Así se sigue cada semana 
+ 
+ Tiempo para crear un Pase OE1 8 s visita reciente · nueva 19,4 s 
+ meta 30 s reciente nueva Medido · 19 oct 
+ Casas activas OE2 61 % semana 8 
+ 60 % sem 1 sem 8 Datos de ejemplo 
+ Colaboradores con Pase OE3 83 % semana 12 
+ 80 % ene mar Datos de ejemplo 
+ Pases confirmados en < 60 s OE4 99,2 % hoy 
+ 98 % 14 días hoy Datos de ejemplo 
+ Conjuntos con pago OE5 4 de 4 
+ 4 nov 2026 oct 2027 Plan, no medido 
+ Cómo se lee GQM 
+ La línea punteada es la meta y el número grande, el último dato. Barra oscura: todavía bajo la meta. En OE1, más bajo es mejor. 
+ 
+ 
+Tablero ilustrativo: OE1 tiene datos reales del recorrido automático; OE2 a OE5 son datos de ejemplo para mostrar cómo se verá el seguimiento en el piloto. Se alimenta de la base de Kino, los eventos de HikCentral y la minuta de portería. 
+ 
+
  
  
  Seis productos 
@@ -236,7 +298,20 @@ Cada ficha completa (propósito, interacciones, componentes, tecnologías y esce
  Fijar el precio con la administración 
  
  
-40 y 250 son ambición del equipo; se calibran con cuántas copropiedades tienen hardware Hikvision y con el precio que acepte una administración. 
+Arriba, el crecimiento: 4, 40 y 250 conjuntos. Abajo, las tres cosas que hay que comprobar antes de cobrar: que el alta temporal funcione por la API en el piloto, cuántas casas hay de verdad en Villas (el sistema cuenta 888 usuarios, no casas) y qué precio acepta la administración. 40 y 250 son ambición del equipo; se calibran con cuántas copropiedades tienen hardware Hikvision y con el precio que acepte una administración. 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Despedida sin texto: la aurora amanece, el bloque del logo sube, la gota cae dentro del arco y el lector confirma con tres latidos y el sonido de entrada. Se repite tocando la lámina. 
  
 
  

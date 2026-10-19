@@ -544,3 +544,9 @@ Pedido de Nico: subir las tres escenas de Blender a nivel profesional; libertad 
 - **Lámina de revisión:** https://claude.ai/artifact/RYzKtmq3ZTzgfK5LEhBFbC (`entrega-3/antes-despues.html`).
 - **Falta (además de lo anterior):** el visto bueno de Nico a los cinco momentos antes de llevar el mismo nivel al resto de la app; el momento de confirmar, vencer y revocar sobre el Pase.
 - **Tercera pasada (19 oct):** el mismo criterio llevado al resto de la app (ingreso, pestañas, hoja, detalle, ciclo del Pase, visita, portería, administración y escenario). Detalle en `entrega-3/motion-e-ilustracion.md` § «Tercera pasada». Nada de esto cambia tokens aprobados.
+
+### E3-9 · Personajes del residente y la administración · PROPUESTA
+- **Pedido de Nico (19 oct):** un personaje con la estética de Kino para cada usuario.
+- **Qué propone:** `entrega-3/personajes/` (README y dos SVG). 2D vectorial, cartoon plano, animado con CSS; ya están en la lámina 2 del deck.
+- **Choque que hay que decidir:** la familia de ilustraciones de E3-8 dice «sin personas». Propuesta: personajes solo en presentaciones y onboarding, nunca en pantallas de operación.
+- **Falta:** aprobarla; decidir si se suman la visita, el colaborador y portería.
