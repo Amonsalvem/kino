@@ -14,7 +14,7 @@ Entrega 3 · 19 oct 2026 · Nicolás Ramírez y Alejandro Monsalve. Orden de las
 | **Solución** | El **Pase**: autor, motivo, vigencia (horas, un día o meses) y modo (QR, placa o código). Lo otorga el residente dentro de las franjas de la administración; la visita no crea cuenta; Kino lo da de alta en HikCentral y solo lo muestra vigente si el lector confirma. |
 | **Diferencia** | Neivor ya vende la autonomía del residente ([Neivor](https://landing.neivor.com/control-de-acceso-visitantes)). Kino se diferencia por tres cosas juntas: integración probada con el hardware instalado, Pase sin cuenta para la visita y autoridad del residente acotada por las franjas de la administración. |
 
-### Todo lo que implica la mejora
+### Qué cambia con Kino, frente por frente
 
 | Frente | Qué cambia | Efecto en trazabilidad y HikCentral |
 |---|---|---|
@@ -24,7 +24,7 @@ Entrega 3 · 19 oct 2026 · Nicolás Ramírez y Alejandro Monsalve. Orden de las
 | Administración | Franjas, constancia y estado de la sincronización con HikCentral | Ve quién autorizó a quién |
 | Datos | Teléfono obligatorio y único; correo opcional | Quita la causa de los 711 errores |
 | Integración | Persona temporal con «Válido desde / hasta»; Manuel confirmó vigencias hasta 2037 o 2099 (19 oct) | Una estadía de meses cabe en una sola alta (E3-6) |
-| Operación | Carga de casas por cédula, capacitación de portería, señalética con QR | El registro se valida contra la cédula, no lo aprueba la administración |
+| Operación | Carga de casas por cédula, capacitación de portería, señalética con QR | El registro se valida contra la cédula, sin aprobación de la administración |
 | Legal | Ley 1581 de 2012 y SIC, Resolución 52185 de 2025 | La biometría nunca se exige |
 | Negocio | Suscripción que paga la administración, único comprador | Sin dato de precio |
 
@@ -158,8 +158,8 @@ flowchart LR
 |---|---|---|
 | 1 · Interactividad y personalización | Lo que se ve se adapta a los intereses de quien lo usa, con opciones interactivas | Simplificación |
 | 2 · Omnicanalidad y accesibilidad | Canales físicos y digitales, sin limitaciones de acceso | Diversificación · Penetración |
-| 3 · Automatización y gestión de la experiencia | Sistemas digitales que organizan el recorrido y agilizan el acceso | Recurrencia · Integración · Transparencia · Fidelización |
-| 4 · Soporte y acompañamiento | Orientación y asistencia en puntos clave | Medición · Acompañamiento |
+| 3 · Automatización y gestión | Sistemas digitales que organizan el recorrido y agilizan el acceso | Recurrencia · Integración · Transparencia · Fidelización |
+| 4 · Soporte y acompañamiento | Orientación y ayuda cuando alguien se traba | Medición · Acompañamiento |
 
 ---
 

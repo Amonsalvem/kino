@@ -443,3 +443,8 @@ En arquitectura faltaba:
 ## Biblia: barrido final antes de presentar (19 oct)
 - 2.2: A3 dice «Recibe cuenta y rol «Visitante» de por vida», el hecho observado, en lugar del contraste «aprueba su cuenta, no su ingreso». 2.4: la fila visceral con estados literales («pierde brillo», «se apaga»). 3.3: el eje 3 con el mismo nombre corto que el deck.
 - Compuerta de voz sobre el contenido propio de la Biblia: 0 errores. Los errores que quedan en el .docx son del texto fijo de la plantilla Diex.
+
+## estrategia.md: barrido final antes de presentar (19 oct)
+- §0: «Todo lo que implica la mejora» → «Qué cambia con Kino, frente por frente»; el registro «sin aprobación de la administración» en lugar del contraste armado. §4: el eje 3 con el nombre corto del deck; el eje 4 dice «cuando alguien se traba» en lugar de «en puntos clave».
+- «Estado honesto» se deja: es el nombre de la táctica también en el prototipo y en Figma, y cambiarlo ahora rompe la coherencia antes de presentar.
+- Compuerta de voz: 0 errores.
