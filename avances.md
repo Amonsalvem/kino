@@ -364,3 +364,8 @@ En arquitectura faltaba:
 ## estrategia.md: SOSTAC explícito (19 oct)
 - Mapa SOSTAC al inicio con la sección de cada letra; cada encabezado dice qué pieza de la guía es (SOSTAC · S/O/S/T/A/C · …).
 - Agregados: preguntas orientadoras SMART por objetivo, tabla de los cuatro ejes estratégicos, paso a paso GQM y función del KPI según la guía, etapas con el KPI que cubre cada una, explicación de «ingresos en minuta» y tablero de seguimiento. Fichas como «Descripción de productos». Numeración §0–§11 conservada.
+
+## Prototipo: SOSTAC en el panel de notas (19 oct)
+- Cada interacción muestra en el panel del escenario su lugar en el plan: SOSTAC · O (objetivo), S (estrategia y eje), T (táctica) y C (KPI). La lista de cobertura marca el objetivo de cada una. Fuente: `SOSTAC` en `prototipo/src/modelo.ts`, alineada con `estrategia.md`.
+- Las pantallas de la app no llevan rótulos académicos: son el producto.
+- e2e 18 de 18.

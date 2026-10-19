@@ -1,7 +1,7 @@
 // Escenario del prototipo: elige actor (o todos a la vez), controla el reloj y muestra cada interacción con su regla.
 import {render} from 'preact';
 import {useEffect, useLayoutEffect, useRef, useState} from 'preact/hooks';
-import {adelantar, ahora, cambiarVelocidad, E, hora24, INTERACCIONES, reiniciar, velocidadActual, type Actor} from './modelo';
+import {adelantar, ahora, cambiarVelocidad, E, hora24, INTERACCIONES, reiniciar, SOSTAC, velocidadActual, type Actor} from './modelo';
 import {Escala, Marca, Micelio, Telefono, useIndicador, useKino, usePresencia} from './componentes';
 import {Residente} from './residente';
 import {Visita} from './visita';
@@ -163,9 +163,17 @@ function Escenario() {
 								<div><dt>Regla</dt><dd>{ultima.regla}</dd></div>
 								<div><dt>HikCentral</dt><dd>{ultima.hik}</dd></div>
 							</dl>
+							{SOSTAC[ultima.id] && (
+								<dl class="nota-interaccion__plan">
+									<div><dt>SOSTAC · O · Objetivo</dt><dd>{SOSTAC[ultima.id].oe}</dd></div>
+									<div><dt>SOSTAC · S · Estrategia y eje</dt><dd>{SOSTAC[ultima.id].estrategia} · eje {SOSTAC[ultima.id].eje}</dd></div>
+									<div><dt>SOSTAC · T · Táctica</dt><dd>{SOSTAC[ultima.id].tactica}</dd></div>
+									<div><dt>SOSTAC · C · KPI</dt><dd>{SOSTAC[ultima.id].kpi}</dd></div>
+								</dl>
+							)}
 						</div>
 					) : (
-						<p class="secundario">Toca algo: aquí aparece la interacción, su regla y su efecto en el lector.</p>
+						<p class="secundario">Toca algo: aquí aparece la interacción, su regla, su efecto en el lector y su lugar en el plan SOSTAC.</p>
 					)}
 					<div class="cobertura">
 						<span class="rotulo">
@@ -175,6 +183,7 @@ function Escenario() {
 							{INTERACCIONES.map((i) => (
 								<li class={`${est.vistas.has(i.id) ? 'vista' : ''} ${i.estado === 'planeada' ? 'planeada' : ''}`} title={i.disparador}>
 									<span class="mono">{i.id}</span> {i.nombre}
+									{SOSTAC[i.id] && <span class="mono cobertura__oe">{SOSTAC[i.id].oe.split(' ')[0]}</span>}
 									{i.estado === 'planeada' && <em> · planeada</em>}
 								</li>
 							))}

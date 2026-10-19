@@ -193,6 +193,33 @@ export const INTERACCIONES: Interaccion[] = [
 	{id: 'I-20', nombre: 'Rostro como cuarto modo', disparador: 'El colaborador se enrola una vez', respuesta: 'Entra sin sacar el teléfono', regla: 'Solo colaboradores recurrentes, con autorización', hik: 'Reconocimiento facial de HikCentral', estado: 'planeada'},
 ];
 
+/** Cada interacción, en el plan SOSTAC (entrega-3/estrategia.md): a qué objetivo sirve (O), con qué estrategia y eje
+ *  (S), qué táctica la produce (T) y con qué KPI se controla (C). */
+export type Sostac = {oe: string; estrategia: string; eje: string; tactica: string; kpi: string};
+const EJE = {1: '1 · Interactividad y personalización', 2: '2 · Omnicanalidad y accesibilidad', 3: '3 · Automatización y gestión', 4: '4 · Soporte y acompañamiento'} as const;
+export const SOSTAC: Record<string, Sostac> = {
+	'I-01': {oe: 'OE2 · 60 % de las casas crea su primer Pase', estrategia: 'Simplificación', eje: EJE[1], tactica: 'Ingreso con código por WhatsApp, validado contra la cédula', kpi: 'Activación de casas ≥ 60 %'},
+	'I-02': {oe: 'OE4 · 98 % de Pases confirmados en < 60 s', estrategia: 'Transparencia', eje: EJE[3], tactica: 'Estado honesto: vigente solo con el lector', kpi: 'Discrepancia app–puerta ≤ 0,5 %'},
+	'I-03': {oe: 'OE1 · crear un Pase en ≤ 3 toques', estrategia: 'Simplificación', eje: EJE[1], tactica: 'Volver a invitar: la hoja ya llena', kpi: 'Toques con visita reciente ≤ 3'},
+	'I-04': {oe: 'OE1 · crear un Pase en < 30 s', estrategia: 'Simplificación', eje: EJE[1], tactica: 'El Pase se crea en una hoja', kpi: 'Tiempo para crear < 30 s'},
+	'I-05': {oe: 'OE1 · crear un Pase en < 30 s', estrategia: 'Simplificación', eje: EJE[1], tactica: 'Vigencia a tu medida: horas, un día o «Se queda»', kpi: 'Tiempo para crear < 30 s'},
+	'I-06': {oe: 'OE4 · 98 % de Pases confirmados en < 60 s', estrategia: 'Transparencia', eje: EJE[3], tactica: 'Estado honesto: nace Sin confirmar', kpi: 'Confirmación del lector ≥ 98 %'},
+	'I-07': {oe: 'OE4 · 98 % de Pases confirmados en < 60 s', estrategia: 'Integración', eje: EJE[3], tactica: 'Alta en HikCentral y confirmación del lector', kpi: 'Confirmación del lector ≥ 98 %'},
+	'I-08': {oe: 'OE2 · 60 % de las casas crea su primer Pase', estrategia: 'Diversificación', eje: EJE[2], tactica: 'Pase por imagen y enlace de WhatsApp', kpi: 'Activación de casas ≥ 60 %'},
+	'I-09': {oe: 'OE2 · 60 % de las casas crea su primer Pase', estrategia: 'Diversificación', eje: EJE[2], tactica: 'QR, placa o código en el mismo Pase, sin cuenta', kpi: 'Activación de casas ≥ 60 %'},
+	'I-10': {oe: 'OE3 · 80 % de colaboradores entra sin llamada', estrategia: 'Recurrencia', eje: EJE[3], tactica: 'Pase de colaborador con días y franja', kpi: 'Ingresos con Pase ÷ ingresos en minuta ≥ 80 %'},
+	'I-11': {oe: 'OE2 · los residentes vuelven a usarlo', estrategia: 'Acompañamiento', eje: EJE[4], tactica: 'Aviso de cada llegada confirmada', kpi: 'Retención de residentes ≥ 50 %'},
+	'I-12': {oe: 'OE5 · la administración renueva', estrategia: 'Fidelización', eje: EJE[3], tactica: 'Cada rechazo con su motivo, en el reporte semanal', kpi: 'Rechazos con motivo = 100 %'},
+	'I-13': {oe: 'OE4 · Kino dice la verdad en la puerta', estrategia: 'Transparencia', eje: EJE[3], tactica: 'Revocar con deshacer y baja en el lector', kpi: 'Discrepancia app–puerta ≤ 0,5 %'},
+	'I-14': {oe: 'OE1 · crear un Pase en < 30 s', estrategia: 'Simplificación', eje: EJE[1], tactica: 'Extender en un toque, sin crear otro Pase', kpi: 'Tiempo para crear < 30 s'},
+	'I-15': {oe: 'OE5 · la administración renueva', estrategia: 'Fidelización', eje: EJE[3], tactica: 'Franjas con vista previa y constancia', kpi: 'NPS de la administración ≥ 30'},
+	'I-16': {oe: 'OE4 · Refugio ≥ 95 % sincronizado', estrategia: 'Integración', eje: EJE[3], tactica: 'Alta con teléfono y monitor de sincronización', kpi: 'Usuarios sincronizados ≥ 95 %'},
+	'I-17': {oe: 'OE2 · cómo lo perciben los residentes', estrategia: 'Diversificación', eje: EJE[2], tactica: 'Movimiento reducido: la misma app para todos', kpi: 'SUS ≥ 80'},
+	'I-18': {oe: 'OE2 · 60 % de las casas crea su primer Pase', estrategia: 'Diversificación', eje: EJE[2], tactica: 'Pase en la billetera (planeada)', kpi: 'Activación de casas ≥ 60 %'},
+	'I-19': {oe: 'OE4 · Kino dice la verdad en la puerta', estrategia: 'Transparencia', eje: EJE[3], tactica: 'Háptica por estado (planeada)', kpi: 'Discrepancia app–puerta ≤ 0,5 %'},
+	'I-20': {oe: 'OE3 · 80 % de colaboradores entra sin llamada', estrategia: 'Recurrencia', eje: EJE[3], tactica: 'Rostro como cuarto modo opcional (planeada)', kpi: 'Ingresos con Pase ÷ ingresos en minuta ≥ 80 %'},
+};
+
 type Estado_ = {
 	pases: Pase[];
 	lecturas: Lectura[];

@@ -641,3 +641,7 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--kino-borde-foco
 .ilustracion__gota-asienta{transform-box:fill-box;transform-origin:50% 100%;animation:gota-llega var(--r-pase-ms) var(--r-pase) calc(var(--d-corto) * .6) both}
 @media (prefers-reduced-motion:reduce){.ilustracion *{animation-name:fundido!important;transform:none}}
 [data-reducido="1"] .ilustracion *{animation-name:fundido!important}
+/* Panel de notas: el lugar de cada interacción en el plan SOSTAC (Estrategia de Servicio). */
+.nota-interaccion__plan{margin-top:16px!important;padding-top:14px;border-top:1px dashed var(--kino-borde-definido)}
+.nota-interaccion__plan dt{color:var(--kino-estado-vigente-texto)!important}
+.cobertura__oe{margin-left:6px;font-size:12px;color:var(--kino-texto-tenue)}
