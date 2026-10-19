@@ -387,3 +387,7 @@ En arquitectura faltaba:
 ## estrategia.md: barrido de muletillas y generalidades (19 oct)
 - 22 frases cambiadas por el dato concreto, alineadas con el deck y la Biblia: diferencia sin la fórmula «no es X, es Y» (§0), insights de A1 a A4 con el hecho observado (§1.2), conclusión del journey (§1.3), objetivo académico verificable (§2), relevancia de OE2 y OE5 (§3), las 8 preguntas GQM vagas de §7 vueltas medibles, visión sin «capa de autorización» (§9), S de empresa con cifras en lugar de «mercado grande y en crecimiento» (§9.3), F4 y F5 (§10), «salud» por «estado» de la sincronización.
 - Numeración §0–§11 sin cambios. Compuerta de voz: un error que se deja a propósito, el nombre literal del eje 3.
+
+## Personajes 3D terminados (19 oct)
+- Render completo de residente y administración (45 cuadros cada uno, 15 fps). Videos VP9 con transparencia y póster en `entrega-3/personajes/`; `codificar.sh` en `branding/sistema/v3/motion/blender/` los rearma.
+- Lámina 2 revisada; `verificar.mjs` sin desborde ni errores en 19 láminas. Deck republicado con los dos personajes.
