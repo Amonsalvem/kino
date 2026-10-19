@@ -127,13 +127,6 @@
       "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
     },
     {
-      "linea": 236,
-      "id": "lexico-vacio",
-      "gravedad": "error",
-      "fragmento": "experiencia",
-      "porque": "Regla 10: léxico vacío. Nombrar el objeto o la acción concreta."
-    },
-    {
       "linea": 237,
       "id": "mayusculas-enfasis",
       "gravedad": "aviso",

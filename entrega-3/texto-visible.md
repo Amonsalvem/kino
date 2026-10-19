@@ -57,7 +57,7 @@ Sin confirmar
 Vigente cuando el lector confirma
 Por vencer
 Revocado
-El Pase no es una cuenta. Lo otorga el residente; la administración solo fija franjas y no aprueba caso a caso. Kino da de alta una persona temporal con «Válido desde / hasta» en HikCentral (Manuel confirmó vigencias hasta 2037 o 2099).
+La visita no crea cuenta: recibe un Pase. Lo otorga el residente; la administración solo fija franjas y no aprueba caso a caso. Kino da de alta una persona temporal con «Válido desde / hasta» en HikCentral (Manuel confirmó vigencias hasta 2037 o 2099).
 Pruébalo
 3
 toques para volver a invitar a una visita
@@ -233,7 +233,7 @@ Interactividad y personalización · 2
 Omnicanalidad y accesibilidad · 3
 Automatización y gestión · 4
 Soporte y acompañamiento
-Se lee de arriba abajo en cada columna: el objetivo se logra con una estrategia (un sustantivo que dice cómo, ubicado en un eje del curso), y la estrategia se baja a una táctica concreta con responsable y fecha. Cómo funciona cada táctica. OE1: las 4 visitas recientes abren la hoja con nombre, WhatsApp y placa ya puestos; el Pase sale en 3 toques. OE2: un puesto en la entrada la semana 1 del piloto; cada residente que pasa crea su primer Pase con el equipo. OE3: el residente elige días y franja una vez y el lector lo acepta cada semana sin renovarlo. OE4: Kino da de alta en HikCentral con el teléfono y reintenta las 711 altas que fallaron por el correo. OE5: ficha comercial con los KPI del piloto para instaladores del Valle de Aburrá y el Oriente; 10 conjuntos contactados. El eje 3 se llama completo «Automatización y gestión de la experiencia». Las demás tácticas están en estrategia.md §5.
+Se lee de arriba abajo en cada columna: el objetivo se logra con una estrategia (un sustantivo que dice cómo, ubicado en un eje del curso), y la estrategia se baja a una táctica concreta con responsable y fecha. Cómo funciona cada táctica. OE1: las 4 visitas recientes abren la hoja con nombre, WhatsApp y placa ya puestos; el Pase sale en 3 toques. OE2: un puesto en la entrada la semana 1 del piloto; cada residente que pasa crea su primer Pase con el equipo. OE3: el residente elige días y franja una vez y el lector lo acepta cada semana sin renovarlo. OE4: Kino da de alta en HikCentral con el teléfono y reintenta las 711 altas que fallaron por el correo. OE5: ficha comercial con los KPI del piloto para instaladores del Valle de Aburrá y el Oriente; 10 conjuntos contactados. Las demás tácticas están en estrategia.md §5.
 SOSTAC · A · Plan de acción · hitos, responsables y fechas
 De la sustentación al liderazgo en Antioquia
 9 nov 2026
