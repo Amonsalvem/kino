@@ -448,3 +448,11 @@ En arquitectura faltaba:
 - §0: «Todo lo que implica la mejora» → «Qué cambia con Kino, frente por frente»; el registro «sin aprobación de la administración» en lugar del contraste armado. §4: el eje 3 con el nombre corto del deck; el eje 4 dice «cuando alguien se traba» en lugar de «en puntos clave».
 - «Estado honesto» se deja: es el nombre de la táctica también en el prototipo y en Figma, y cambiarlo ahora rompe la coherencia antes de presentar.
 - Compuerta de voz: 0 errores.
+
+## Figma «Kino · App»: barrido final antes de presentar (19 oct)
+- Revisados los 7.355 textos del archivo. Cambiaron dos tarjetas SOSTAC de 09 Administración: A-01 («La administración entra a ver evidencia» → «abre el resumen del día: entradas, rechazos y su motivo») y A-02 («salud del lector» → «estado del lector»).
+- Se dejan como están:
+  - las reglas «X no es Y» de las fichas y componentes, porque son reglas de diseño para quien construye (p. ej. «enviado no es confirmar», «Kino no es marca blanca»);
+  - las rayas «—» de los campos vacíos;
+  - «Estado honesto», para que coincida con el prototipo y `estrategia.md`.
+- El archivo no tiene textos del objetivo general anterior.
