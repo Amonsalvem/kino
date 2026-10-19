@@ -340,3 +340,7 @@ En arquitectura faltaba:
 - **Estrategia de Servicio:** 3.1 con los 5 SMART en columnas (acción, métrica, usuario, contexto, tiempo); 3.3 con una estrategia y una táctica por objetivo (quién y cuándo), el plan de acción y las 6 fichas; 3.4 con un KPI GQM por objetivo.
 - **Figuras:** 5 diagramas del deck insertados (`construir_biblia.py` admite `('img', archivo, pie)`): brecha conocimiento–autoridad (1.1), insights (2.3), plan de acción (3.3), flujo del Pase (5.1) y validación (6.1).
 - **Verificación:** la Biblia abre en LibreOffice (21 páginas con la plantilla); compuerta de voz sin errores.
+
+## estrategia.md en versión corta (19 oct)
+- **Pedido de Nico:** el mismo barrido del deck y la Biblia sobre `entrega-3/estrategia.md`.
+- **Hecho:** de 30.400 a 21.100 caracteres (−31 %). Toda la prosa pasó a tablas; los SMART van en cinco columnas (acción, métrica, usuario, contexto, tiempo) con su punto de partida; las 6 fichas, en una tabla; dos diagramas Mermaid (conexión de los objetivos y gantt del plan de acción). Se conservan todas las piezas a las que remiten el deck y la Biblia (12 KPI con el principal marcado ★, 12 tácticas, horizonte, lista de mercado y fichas) y la numeración de los apartados. La versión larga quedó en `entrega-3/_obsoleto/estrategia-larga.md`.
