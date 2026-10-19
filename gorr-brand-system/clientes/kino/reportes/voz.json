@@ -1,235 +1,746 @@
 {
-  "../../../entrega-3/texto-visible.md": [
+  "../../../../../../tmp/claude-0/-home-user-kino/34b1231e-cd1d-50c8-a2c8-bb25af9c15da/scratchpad/biblia.txt": [
+    {
+      "linea": 3,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "NFASIS",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 3,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "DISEÑO",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 3,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "SERVICIOS",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 3,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "EXPERIENCIAS",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 3,
+      "id": "lexico-vacio",
+      "gravedad": "error",
+      "fragmento": "EXPERIENCIAS",
+      "porque": "Regla 10: léxico vacío. Nombrar el objeto o la acción concreta."
+    },
+    {
+      "linea": 5,
+      "id": "lexico-vacio",
+      "gravedad": "error",
+      "fragmento": "Experiencias",
+      "porque": "Regla 10: léxico vacío. Nombrar el objeto o la acción concreta."
+    },
     {
       "linea": 7,
       "id": "mayusculas-enfasis",
       "gravedad": "aviso",
-      "fragmento": "SOSTAC",
+      "fragmento": "TRABAJO",
       "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
     },
     {
-      "linea": 16,
+      "linea": 7,
       "id": "mayusculas-enfasis",
       "gravedad": "aviso",
-      "fragmento": "SOSTAC",
+      "fragmento": "INTEGRADOR",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 7,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "DEL",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 7,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "NFASIS",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 23,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "CÓMO",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 23,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "USAR",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 23,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "ESTE",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 23,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "DOCUMENTO",
       "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
     },
     {
       "linea": 27,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "MAESTRO",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+      "id": "lexico-vacio",
+      "gravedad": "error",
+      "fragmento": "Experiencias",
+      "porque": "Regla 10: léxico vacío. Nombrar el objeto o la acción concreta."
     },
     {
       "linea": 28,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "SOSTAC",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+      "id": "lexico-vacio",
+      "gravedad": "error",
+      "fragmento": "integrales",
+      "porque": "Regla 10: léxico vacío. Nombrar el objeto o la acción concreta."
     },
     {
-      "linea": 65,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "KLM",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 85,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "SOSTAC",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 93,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "SMART",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 109,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "KPI",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 109,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "GQM",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 112,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "SOSTAC",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 122,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "SOSTAC",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 122,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "SMART",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 123,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "SMART",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 160,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "SOSTAC",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 160,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "SMART",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 190,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "KPI",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 193,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "SOSTAC",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 229,
+      "linea": 28,
       "id": "lexico-vacio",
       "gravedad": "error",
       "fragmento": "experiencia",
       "porque": "Regla 10: léxico vacío. Nombrar el objeto o la acción concreta."
     },
     {
-      "linea": 233,
+      "linea": 30,
+      "id": "lexico-vacio",
+      "gravedad": "error",
+      "fragmento": "Experiencia",
+      "porque": "Regla 10: léxico vacío. Nombrar el objeto o la acción concreta."
+    },
+    {
+      "linea": 31,
+      "id": "lexico-vacio",
+      "gravedad": "error",
+      "fragmento": "experiencia",
+      "porque": "Regla 10: léxico vacío. Nombrar el objeto o la acción concreta."
+    },
+    {
+      "linea": 34,
+      "id": "lexico-vacio",
+      "gravedad": "error",
+      "fragmento": "experiencias",
+      "porque": "Regla 10: léxico vacío. Nombrar el objeto o la acción concreta."
+    },
+    {
+      "linea": 40,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "MAPA",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 40,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "APORTES",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 40,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "POR",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 40,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "CLASE",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 49,
+      "id": "lexico-vacio",
+      "gravedad": "error",
+      "fragmento": "experiencia",
+      "porque": "Regla 10: léxico vacío. Nombrar el objeto o la acción concreta."
+    },
+    {
+      "linea": 59,
+      "id": "lexico-vacio",
+      "gravedad": "error",
+      "fragmento": "experiencia",
+      "porque": "Regla 10: léxico vacío. Nombrar el objeto o la acción concreta."
+    },
+    {
+      "linea": 68,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "RUTA",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 68,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "ENTREGAS",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 70,
+      "id": "lexico-vacio",
+      "gravedad": "error",
+      "fragmento": "Experiencias",
+      "porque": "Regla 10: léxico vacío. Nombrar el objeto o la acción concreta."
+    },
+    {
+      "linea": 90,
+      "id": "lexico-vacio",
+      "gravedad": "error",
+      "fragmento": "Experiencia",
+      "porque": "Regla 10: léxico vacío. Nombrar el objeto o la acción concreta."
+    },
+    {
+      "linea": 133,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "PRESÉNTENSE",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 133,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "EQUIPO",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 171,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "RESUMEN",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 171,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "DEL",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 171,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "PROYECTO",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 177,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "CONTEXTO",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 177,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "DEL",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 177,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "RETO",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 236,
       "id": "mayusculas-enfasis",
       "gravedad": "aviso",
       "fragmento": "SOSTAC",
       "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
     },
     {
-      "linea": 254,
+      "linea": 257,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "USUARIO",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 258,
+      "id": "lexico-vacio",
+      "gravedad": "error",
+      "fragmento": "experiencia",
+      "porque": "Regla 10: léxico vacío. Nombrar el objeto o la acción concreta."
+    },
+    {
+      "linea": 334,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "ESPECIFICACIONES",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 334,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "PARA",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 334,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "ESTRATEGIA",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 334,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "SERVICIO",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 335,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "SMART",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 335,
+      "id": "lexico-vacio",
+      "gravedad": "error",
+      "fragmento": "experiencia",
+      "porque": "Regla 10: léxico vacío. Nombrar el objeto o la acción concreta."
+    },
+    {
+      "linea": 336,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "SMART",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 338,
       "id": "mayusculas-enfasis",
       "gravedad": "aviso",
       "fragmento": "SOSTAC",
       "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
     },
     {
-      "linea": 254,
+      "linea": 349,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "SMART",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 365,
       "id": "mayusculas-enfasis",
       "gravedad": "aviso",
       "fragmento": "KPI",
       "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
     },
     {
-      "linea": 254,
+      "linea": 365,
       "id": "mayusculas-enfasis",
       "gravedad": "aviso",
       "fragmento": "GQM",
       "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
     },
     {
-      "linea": 255,
+      "linea": 368,
       "id": "mayusculas-enfasis",
       "gravedad": "aviso",
-      "fragmento": "KPI",
+      "fragmento": "SOSTAC",
       "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
     },
     {
-      "linea": 258,
+      "linea": 371,
       "id": "mayusculas-enfasis",
       "gravedad": "aviso",
-      "fragmento": "KPI",
+      "fragmento": "SOSTAC",
       "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
     },
     {
-      "linea": 266,
+      "linea": 371,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "SMART",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 380,
       "id": "mayusculas-enfasis",
       "gravedad": "aviso",
       "fragmento": "KLM",
       "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
     },
     {
-      "linea": 305,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "SUS",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 305,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "NPS",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 310,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "GQM",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 310,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "KPI",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 310,
-      "id": "mayusculas-enfasis",
-      "gravedad": "aviso",
-      "fragmento": "KPI",
-      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
-    },
-    {
-      "linea": 311,
+      "linea": 409,
       "id": "mayusculas-enfasis",
       "gravedad": "aviso",
       "fragmento": "SOSTAC",
       "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
     },
     {
-      "linea": 311,
+      "linea": 409,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "SMART",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 438,
       "id": "mayusculas-enfasis",
       "gravedad": "aviso",
       "fragmento": "KPI",
       "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
     },
     {
-      "linea": 354,
+      "linea": 465,
+      "id": "lexico-vacio",
+      "gravedad": "error",
+      "fragmento": "experiencia",
+      "porque": "Regla 10: léxico vacío. Nombrar el objeto o la acción concreta."
+    },
+    {
+      "linea": 466,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "SOSTAC",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 466,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "SOSTAC",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 508,
+      "id": "lexico-vacio",
+      "gravedad": "error",
+      "fragmento": "experiencia",
+      "porque": "Regla 10: léxico vacío. Nombrar el objeto o la acción concreta."
+    },
+    {
+      "linea": 515,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "SOSTAC",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 545,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "SMART",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 546,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "SOSTAC",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 546,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "KPI",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 546,
       "id": "mayusculas-enfasis",
       "gravedad": "aviso",
       "fragmento": "GQM",
       "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 547,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "KPI",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 550,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "KPI",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 556,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "KLM",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 585,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "SOSTAC",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 585,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "KPI",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 587,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "KPI",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 595,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "SUS",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 595,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "NPS",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 601,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "KPI",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 601,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "KPI",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 602,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "SOSTAC",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 622,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "ESPECIFICACIONES",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 622,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "FUNCIONALES",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 622,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "DEL",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 622,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "SERVICIO",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 636,
+      "id": "lexico-vacio",
+      "gravedad": "error",
+      "fragmento": "experiencia",
+      "porque": "Regla 10: léxico vacío. Nombrar el objeto o la acción concreta."
+    },
+    {
+      "linea": 661,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "ESPECIFICACIONES",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 661,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "DEL",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 661,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "DISEÑO",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 661,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "INTERACCIÓN",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 744,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "DISEÑO",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 744,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "EVALUACIÓN",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 744,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "EXPERIENCIA",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 744,
+      "id": "lexico-vacio",
+      "gravedad": "error",
+      "fragmento": "EXPERIENCIA",
+      "porque": "Regla 10: léxico vacío. Nombrar el objeto o la acción concreta."
+    },
+    {
+      "linea": 748,
+      "id": "lexico-vacio",
+      "gravedad": "error",
+      "fragmento": "experiencias",
+      "porque": "Regla 10: léxico vacío. Nombrar el objeto o la acción concreta."
+    },
+    {
+      "linea": 789,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "KLM",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 803,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "KLM",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 803,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "SUS",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 805,
+      "id": "lexico-vacio",
+      "gravedad": "error",
+      "fragmento": "experiencia",
+      "porque": "Regla 10: léxico vacío. Nombrar el objeto o la acción concreta."
+    },
+    {
+      "linea": 811,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "KLM",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 811,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "SUS",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 814,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "IMPLEMENTACIÓN",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 814,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "TECNOLOGÍA",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 827,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "LISTA",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 827,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "VERIFICACIÓN",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 827,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "ENTREGA",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 870,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "SMART",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 926,
+      "id": "lexico-vacio",
+      "gravedad": "error",
+      "fragmento": "experiencia",
+      "porque": "Regla 10: léxico vacío. Nombrar el objeto o la acción concreta."
     }
   ]
 }

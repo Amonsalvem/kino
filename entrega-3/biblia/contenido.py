@@ -30,7 +30,7 @@ S = []  # (código, items)
 
 # 1 · CONTEXTO DEL RETO -------------------------------------------------------------------------------
 S.append(('1.1', [
-    'El ingreso a un conjunto ocurre entre cuatro actores que nunca están juntos, y ninguno tiene la información completa cuando se decide si alguien entra. El servicio falla en el traspaso: es un problema de interacción.',
+    'El ingreso a un conjunto pasa por cuatro actores: residente, visita o colaborador, portería y administración. Ninguno tiene la información completa cuando se decide si alguien entra, y no hay un objeto que la lleve de uno a otro.',
     ('img', 'brecha.png', 'El conocimiento y la autoridad están separados por la puerta. Pregunta guía del proyecto.'),
     ('n', 'Fuentes: diagnóstico consolidado v1; reporte de inspección por rol (14–16 sep 2026, 59 observaciones).'),
 ]))
@@ -38,7 +38,7 @@ S.append(('1.2', [
     ('t', [
         ['Elemento', 'Contenido'],
         ['Cliente', 'Manuel (negocio). Compra únicamente la administración del conjunto'],
-        ['Visión', 'Ser la capa de autorización entre las personas y el lector de acceso, sin importar la marca del lector'],
+        ['Visión', 'Que cualquier conjunto con lector de placa, QR o rostro autorice sus ingresos desde Kino, sea cual sea la marca del lector'],
         ['Misión', 'Que quien sabe quién debe entrar pueda decidirlo, dentro de las franjas del conjunto y con constancia'],
         ['Competencia', 'El método manual (llamada, minuta, WhatsApp); Neivor y ComunidadFeliz (desde la administración); ZKTeco (hardware con software propio); Portea'],
         ['Diferencia', 'Integración probada con el hardware instalado + Pase sin cuenta + autoridad del residente acotada por la administración'],
@@ -48,10 +48,10 @@ S.append(('1.2', [
 S.append(('1.3', [
     ('t', [
         ['Beneficiario', 'Reto', 'Oportunidad'],
-        ['A1 · Residente', 'Sabe a quién espera y no puede decirlo', 'Nombrar y acotar la autoridad que ya ejerce'],
-        ['A2 · Colaborador', 'Es el ingreso más frecuente y no existe en el producto', 'Pase recurrente por días y franja'],
-        ['A3 · Visita', 'Entrega datos de por vida para una tarde', 'Pase sin cuenta por WhatsApp'],
-        ['A4 · Administración y portería', 'Responde por ingresos que no puede rastrear', 'Franjas y constancia de cada ingreso'],
+        ['A1 · Residente', 'Sabe a quién espera y no puede decirlo', 'Pase con vigencia en lugar de una placa permanente'],
+        ['A2 · Colaborador', 'Entra varias veces por semana y no existe un acceso por días', 'Pase recurrente por días y franja'],
+        ['A3 · Visita', 'Recibe una cuenta permanente por una visita de una tarde', 'Pase sin cuenta por WhatsApp'],
+        ['A4 · Administración y portería', 'No sabe quién autorizó cada ingreso', 'Franjas y constancia de cada ingreso'],
     ], [2600, 3760, 3400]),
 ]))
 S.append(('1.4', [
@@ -76,12 +76,12 @@ S.append(('1.5', [
 
 # 2 · USUARIO -----------------------------------------------------------------------------------------
 S.append(('2.1', [
-    'Cuatro arquetipos definidos por su posición frente al sistema, no por una biografía inventada.',
+    'Cuatro arquetipos definidos por lo que cada uno sabe y puede hacer en el ingreso.',
     ('t', [
         ['Arquetipo', 'Qué lo define', 'Evidencia'],
         ['A1 · Residente que recibe', 'El único que sabe a quién espera y por cuánto tiempo', 'Inspección, sujetos 1 y 2; entrevistas del 2 sep'],
-        ['A2 · Colaborador recurrente', 'Viene a menudo; el sistema solo sabe de permanencia', '0 contratistas registrados; GEIH-DANE 2026'],
-        ['A3 · Visita ocasional', 'Entrega datos de por vida para una tarde', '2 «Visitante» permanentes en la propiedad 346'],
+        ['A2 · Colaborador recurrente', 'Viene varias veces por semana; el sistema solo crea personas permanentes', '0 contratistas registrados; GEIH-DANE 2026'],
+        ['A3 · Visita ocasional', 'Recibe una cuenta permanente por una visita de una tarde', '2 «Visitante» permanentes en la propiedad 346'],
         ['A4 · Administración y portería', 'Compra y opera; el portero ve todo y no puede cambiar nada', 'Sujetos 3 a 5; 1 super admin para 893 usuarios'],
     ], [2600, 3960, 3200]),
     ('n', 'Fuente: docs/proyecto/arquetipos-e-insights.md.'),
@@ -94,20 +94,20 @@ S.append(('2.2', [
         ['A3 Visita', 'La única aprobación del sistema aprueba su cuenta, no su ingreso', 'Cuenta sin fin'],
         ['A4 Administración', 'No hay bandeja de aprobación', 'Nada que auditar'],
     ], [2300, 4960, 2500]),
-    '**Conclusión.** Los cuatro recorridos se rompen en la puerta: nadie puede decir desde cuándo y hasta cuándo. Lo que falta en los cuatro es el Pase.',
+    '**Conclusión.** Los cuatro recorridos fallan en la puerta: nadie puede fijar desde cuándo y hasta cuándo entra alguien. A los cuatro les falta un acceso con autor, motivo y vigencia: el Pase.',
 ]))
 S.append(('2.3', [
     ('img', 'arquetipos.png', 'Un insight por arquetipo.'),
     ('t', [
         ['Insight', 'Qué hace la estrategia'],
-        ['A1 ya decide quién entra, pero cree que no', 'Nombrar y acotar su autoridad'],
+        ['A1 registra una placa y la deja «Permitido» sin saberlo', 'Pase con vigencia en lugar de una placa permanente'],
         ['A2: el correo que más cuesta pedir es el que rompe la puerta (711 errores)', 'Teléfono en lugar de correo'],
         ['A3: la placa es la vía que menos datos pide', 'La placa es el primer canal del Pase'],
-        ['A4 cree tener un control que no ejerce', 'Franjas y constancia como argumento de venta'],
+        ['A4 da de alta personas permanentes y no aprueba ningún ingreso', 'Franjas y constancia como argumento de venta'],
     ], [5600, 4160]),
 ]))
 S.append(('2.4', [
-    'Emoción buscada: **certeza tranquila**, saber sin preguntar que la persona puede entrar.',
+    'Emoción buscada: **certeza**. El residente sabe que la persona puede entrar sin llamar a portería.',
     ('t', [
         ['Nivel (Norman)', 'Decisión'],
         ['Visceral', 'El Pase vigente brilla quieto, se apaga al acercarse el fin, se marchita al vencer y queda cortado al revocarse'],
@@ -144,10 +144,10 @@ S.append(('3.1', [
     ('t', [
         ['#', 'Relevante · por qué importa', 'Quién lo logra', 'Alcanzable · con qué recursos', 'Medible · se logró cuando'],
         ['OE1', 'Si crear un Pase es más lento que llamar a portería, nadie lo usa', 'Equipo', 'Prototipo y recorrido automático', '≤ 3 toques y < 30 s · ya cumple'],
-        ['OE2', 'Que el residente lo use es el valor que compra la administración', 'Equipo y administración', 'Día de lanzamiento y línea por WhatsApp', '60 % de casas con un Pase'],
+        ['OE2', 'La administración paga si los residentes crean Pases', 'Equipo y administración', 'Día de lanzamiento y línea por WhatsApp', '60 % de casas con un Pase'],
         ['OE3', 'El colaborador es el ingreso más frecuente', 'Equipo, Manuel y portería', 'Pase recurrente y la minuta para medir', '80 % de sus ingresos con Pase'],
         ['OE4', 'Sin integración, el lector no conoce el Pase', 'Equipo con Manuel', 'OpenAPI de HikCentral y alta con teléfono', '98 % en < 60 s; Refugio ≥ 95 %'],
-        ['OE5', 'Que Kino siga después de la universidad', 'Equipo e instaladores', 'Caso con KPI reales y ficha comercial', 'Renovación y 2 contratos'],
+        ['OE5', 'Sin contratos, Kino se acaba con la entrega de noviembre', 'Equipo e instaladores', 'Caso con KPI reales y ficha comercial', 'Renovación y 2 contratos'],
     ], [600, 3100, 1900, 2260, 1900]),
     ('n', 'OE1 ya se midió el 19 oct: 3 toques y 8 s; visita nueva, 19,4 s. Las metas de OE2, OE3 y OE5 se recalibran con la semana 1 del piloto.'),
 ]))
@@ -157,7 +157,7 @@ S.append(('3.2', [
         ['Residente', 'Otorgar, extender y revocar Pases, y saber cuándo entró la persona', 'Llamar a portería'],
         ['Visita y colaborador', 'Entrar con QR, placa o código, sin cuenta', 'Dar sus datos de por vida'],
         ['Portería', 'Ver por qué el lector dejó o no dejó entrar', 'Supervisar sin poder actuar'],
-        ['Administración (compra)', 'Fijar franjas y ver quién autorizó a quién', 'Una autoridad que no ejerce'],
+        ['Administración (compra)', 'Fijar franjas y ver quién autorizó a quién', 'Altas permanentes sin saber quién autorizó a quién'],
     ], [2400, 4560, 2800]),
     '**Enunciado.** Para la administración de un conjunto que ya tiene lectores, Kino deja a cada residente otorgar Pases con vigencia dentro de las franjas del conjunto, con constancia de cada ingreso y sin cuentas para las visitas.',
 ]))
@@ -187,7 +187,7 @@ S.append(('3.3', [
         ['F1 · Kino Residente', 'App para otorgar, extender y revocar Pases', 'OE1, OE2, OE3'],
         ['F2 · Pase vivo', 'Página para la visita, sin cuenta ni app', 'OE2'],
         ['F3 · Kino Portería', 'Dice por qué alguien entró o no entró', 'OE3, OE4'],
-        ['F4 · Kino Administración', 'Franjas y salud de la integración', 'OE4, OE5'],
+        ['F4 · Kino Administración', 'Franjas y estado de la sincronización con HikCentral', 'OE4, OE5'],
         ['F5 · Conector HikCentral', 'Da de alta el Pase en el lector', 'OE4'],
         ['F6 · Kit de implementación', 'Un conjunto nuevo operando en menos de 10 días', 'OE2'],
     ], [2800, 5160, 1800]),
@@ -199,10 +199,10 @@ S.append(('3.4', [
     ('t', [
         ['G', 'Q · Pregunta', 'M · KPI: variable y fórmula', 'Meta', 'Etapa', 'Cada'],
         ['OE1', '¿Crear un Pase es más rápido que llamar?', 'Tiempo para crear (KLM del recorrido)', '< 30 s', 'Comportamiento', 'Versión'],
-        ['OE2', '¿Las casas usan su autoridad?', 'Casas con ≥ 1 Pase ÷ casas registradas', '≥ 60 %', 'Conversión', 'Semana'],
+        ['OE2', '¿Cuántas casas crean Pases?', 'Casas con ≥ 1 Pase ÷ casas registradas', '≥ 60 %', 'Conversión', 'Semana'],
         ['OE3', '¿El colaborador entra sin llamada?', 'Ingresos por lector ÷ ingresos en minuta', '≥ 80 %', 'Comportamiento', 'Semana'],
-        ['OE4', '¿El Pase existe en la puerta?', 'Confirmados en < 60 s ÷ creados', '≥ 98 %', 'Confianza', 'Día'],
-        ['OE5', '¿La administración ve valor?', 'Contratos firmados', '4', 'Conversión', 'Mes'],
+        ['OE4', '¿El lector recibe el Pase en menos de un minuto?', 'Confirmados en < 60 s ÷ creados', '≥ 98 %', 'Confianza', 'Día'],
+        ['OE5', '¿La administración renueva y otros conjuntos firman?', 'Contratos firmados', '4', 'Conversión', 'Mes'],
     ], [600, 2700, 2900, 900, 1560, 1100]),
     ('h', 'SOSTAC · C · Etapas del plan y el KPI que cubre cada una'),
     ('t', [
@@ -240,7 +240,7 @@ S.append(('4.4', [('n', 'Se entrega en la entrega final.')]))
 
 # 5 · DISEÑO DE INTERACCIÓN ---------------------------------------------------------------------------
 S.append(('5.1', [
-    'El residente piensa «yo decido quién entra a mi casa»; el sistema actual piensa «todos son usuarios que un tercero aprueba». Kino adopta el modelo del residente y lo vuelve un objeto: el Pase.',
+    'Modelo del residente: «yo decido quién entra a mi casa». Modelo del sistema actual: cada persona es un usuario permanente que la administración da de alta. Kino sigue el modelo del residente con un objeto: el Pase.',
     ('img', 'flujo-pase.png', 'El recorrido del Pase dentro de las franjas de la administración, y sus estados.'),
     ('t', [
         ['Atributo', 'Qué es'],

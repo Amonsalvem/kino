@@ -378,3 +378,8 @@ En arquitectura faltaba:
 ## Deck: barrido de muletillas y generalidades (19 oct)
 - 16 frases genéricas cambiadas por el dato concreto. Insights de los arquetipos con el hecho observado (placa «Permitido», cuenta permanente por una tarde, sin acceso por días, alta sin aprobación); títulos de las láminas 4, 7, 9 y 18 sin metáforas («objeto vivo», «capa de autorización», «seis letras»); preguntas GQM de OE2, OE4 y OE5 medibles; F4 nombra la sincronización con HikCentral.
 - `verificar.mjs` sin desborde ni errores en 19 láminas. Compuerta de voz: un error que se deja a propósito, «experiencia» en el nombre literal del eje 3 de la guía del curso.
+
+## Biblia: barrido de muletillas y generalidades (19 oct)
+- 22 frases cambiadas por el dato concreto, alineadas con el deck: insights de A1 a A4 con el hecho observado (1.3, 2.1, 2.3), conclusión de 2.2, visión sin «capa de autorización» (1.2), 1.1 sin la fórmula «es un problema de…», emoción buscada concreta (2.4), modelo mental del sistema con «da de alta» en lugar de «aprueba» (5.1, hecho vigente), relevancia de OE2 y OE5, «en lugar de» de la administración (3.2), F4 y las preguntas GQM de OE2, OE4 y OE5.
+- Figura `arquetipos.png` capturada de nuevo desde la lámina 4.
+- Compuerta de voz: los errores restantes son texto fijo de la plantilla Diex y el nombre literal del eje 3.
