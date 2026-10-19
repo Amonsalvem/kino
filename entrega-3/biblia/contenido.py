@@ -174,10 +174,10 @@ S.append(('3.3', [
     ('h', 'Ejes estratégicos del curso'),
     ('t', [
         ['Eje', 'Qué es', 'Estrategias de Kino'],
-        ['1 · Interactividad y personalización', 'La experiencia se adapta a quien la usa', 'Simplificación'],
+        ['1 · Interactividad y personalización', 'Lo que se ve se adapta a quien lo usa', 'Simplificación'],
         ['2 · Omnicanalidad y accesibilidad', 'Canales físicos y digitales, sin limitaciones', 'Penetración · Diversificación (QR, placa, código, WhatsApp)'],
         ['3 · Automatización y gestión de la experiencia', 'Sistemas que organizan el recorrido y agilizan el acceso', 'Recurrencia · Integración · Transparencia · Fidelización'],
-        ['4 · Soporte y acompañamiento', 'Asistencia en puntos clave, sin fricciones', 'Acompañamiento · Medición'],
+        ['4 · Soporte y acompañamiento', 'Ayuda en el momento en que alguien se traba', 'Acompañamiento · Medición'],
     ], [3200, 3600, 2960]),
     ('h', 'SOSTAC · A · Plan de acción'),
     ('img', 'plan-accion.png', 'Seis hitos, de la sustentación al cuarto conjunto. El primero es académico; los demás, de producto.'),
