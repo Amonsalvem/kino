@@ -476,14 +476,14 @@ Pedido de Nico: subir las tres escenas de Blender a nivel profesional; libertad 
   1. Sin cupo por casa ni duración máxima.
   2. Tres vigencias al crear: Unas horas, Un día y Se queda (3 días, 1 semana, 1 mes, 3 meses o una fecha).
   3. «Estadía» es todo Pase de visita de más de 20 h: entra y sale las veces que quiera hasta su fecha de salida.
-  4. La visita de unas horas o de un día queda Usada al entrar (una sola entrada).
+  4. ~~La visita de unas horas o de un día queda Usada al entrar~~. Reemplazado por E3-6: toda visita entra y sale mientras su Pase esté vigente.
   5. Extender no tiene tope: +1 h, +1 día o +1 semana; en estadía, +1 semana o +1 mes. Un Pase de un día ya usado no se extiende: se crea otro.
   6. La administración fija dos franjas (visitas de un día y colaboradores) y ve qué Pases activos quedarían fuera; los activos conservan su vigencia.
-  7. Portería digita el código en su pantalla; no se asume teclado en el lector.
-  8. La vigencia del código es la del Pase.
-  9. La administración no revoca en esta versión.
-  10. El Pase de colaborador se repite sin fecha de fin hasta que el residente lo revoque.
-- **Efecto en HikCentral:** cada Pase es una persona temporal con «Válido desde / hasta»; una estadía de meses es la misma persona con una ventana larga. Hay que confirmar con Manuel el máximo que acepta HikCentral en esa ventana. La visita de una sola entrada pide dar de baja la persona después del primer evento de acceso.
+  7. Portería digita el código en su pantalla; no se asume teclado en el lector. **Confirmado por Nico, 19 oct.**
+  8. La vigencia del código es la del Pase. **Confirmado.**
+  9. La administración no revoca Pases. **Confirmado.**
+  10. El Pase de colaborador se repite sin fecha de fin hasta que el residente lo revoque. **Confirmado.**
+- **Efecto en HikCentral:** cada Pase es una persona temporal con «Válido desde / hasta»; una estadía de meses es la misma persona con una ventana larga. **Manuel (19 oct, vía Nico):** al configurar el acceso de una persona o visitante, HikCentral acepta una vigencia de varias décadas, por lo general hasta 2037 o 2099. Ninguna estadía choca con ese tope. Con E3-6 ya no hace falta dar de baja la persona después del primer evento.
 - **Efecto en la trazabilidad:** no cambia. Cada Pase guarda autor, casa, motivo y vigencia; sin tope, la constancia es lo que le responde al consejo.
 - **Variantes de Figma:** las de cupo agotado (R-P-01, R-P-05) se movieron a «99 Descartes», sin borrarlas.
 
@@ -491,15 +491,17 @@ Pedido de Nico: subir las tres escenas de Blender a nivel profesional; libertad 
 - Reemplaza el diálogo de confirmación de R-P-10. Mantener 0,8 s revoca al instante; «Deshacer» dura 5 s; la baja en HikCentral sale cuando vence el deshacer.
 - **Por qué:** el diálogo protege de un toque accidental que el gesto ya evita y deja sin arreglo el arrepentimiento, que es el error común.
 
-### E3-4 · ¿Las franjas aplican a las estadías? · PROPUESTA
+### E3-4 · ¿Las franjas aplican a las estadías? · APROBADA (A, Nico, 19 oct)
 - **Supuesto del prototipo:** no. Un familiar que se queda un mes entra y sale a cualquier hora.
 - **Opciones:** A, no aplican (supuesto actual); B, aplican también a las estadías; C, la administración decide por conjunto.
 
-### E3-5 · Desde cuándo un Pase es estadía · PROPUESTA
-- **Supuesto del prototipo:** más de 20 h. Por debajo es una visita de una sola entrada.
+### E3-5 · Desde cuándo un Pase es estadía · APROBADA (A, Nico, 19 oct)
+- **Supuesto del prototipo:** más de 20 h. Por debajo es una visita de unas horas o de un día, que sí respeta la franja (E3-4).
 - **Opciones:** A, más de 20 h; B, desde 2 días; C, lo marca el residente con «Se queda», sin umbral de horas.
 
-### E3-6 · La visita de unas horas o de un día entra una sola vez · PROPUESTA
+### E3-6 · La visita de unas horas o de un día entra una sola vez · APROBADA (B, Nico, 19 oct)
 - **Supuesto del prototipo:** sí; queda Usada al entrar. Si sale a la tienda, el residente crea otro Pase.
 - **Opciones:** A, una sola entrada; B, entra y sale dentro de su vigencia, como la estadía.
 - **Efecto en HikCentral:** A pide dar de baja la persona después del primer evento; B solo usa «Válido hasta».
+- **Decidido:** B. «No, le dura el tiempo establecido»: la visita entra y sale dentro de su vigencia, igual que la estadía. El estado Usado deja de aplicar a las visitas; la traza guarda cada entrada.
+- **Efecto en la trazabilidad:** cada lectura queda en la traza del Pase y en la bitácora de portería, con hora y modo. Antes la segunda lectura quedaba como rechazo; ahora queda como entrada.

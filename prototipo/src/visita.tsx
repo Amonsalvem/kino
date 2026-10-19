@@ -78,6 +78,7 @@ function PaseVivo({id, onVolver}: {id: string; onVolver: () => void}) {
 		: e === 'vencido' ? `${p.autor.nombre} puede extenderlo: venció a las ${horaCorta(v.hasta)}`
 		: e === 'sin-confirmar' ? 'El lector está recibiendo tu Pase. Tarda unos segundos.'
 		: e === 'previsto' ? `Antes de las ${horaCorta(v.desde)} el lector no lo acepta`
+		: p.entradas.length ? `Entraste a las ${horaCorta(p.entradas[p.entradas.length - 1])}. Puedes salir y volver hasta las ${horaCorta(v.hasta)}.`
 		: modo === 'qr' ? 'Acerca el QR al lector y espera la luz verde.'
 		: modo === 'placa' ? 'Llega con el carro: el lector lee la placa solo.'
 		: 'Dile este código a portería.';

@@ -154,7 +154,7 @@ const registrar = async (p, id) => {
 	await registrar(p, 'P-02-leyendo');
 	await T.getByText(/Puede entrar|No entra/).first().waitFor({timeout: 3000});
 	await registrar(p, 'P-03-resultado');
-	await T.locator('.llegada', {hasText: 'Andrés'}).first().click();
+	await T.locator('.llegada', {hasText: 'Juan Pablo'}).first().click();
 	await T.getByText(/No entra|Puede entrar/).first().waitFor({timeout: 3000});
 	await p.waitForTimeout(400);
 	await registrar(p, 'P-04-rechazo');

@@ -274,3 +274,10 @@ En arquitectura faltaba:
 - **Cinco actos:** La tarde (problema, evidencia, diagnóstico, situación, tiempo) · El Pase (solución, objetivo y meta, implicaciones) · En uso (QA, prototipo por escena, biopunk, inventario, validación, Biblia) · El plan (SMART atados a una escena, conexión, SOSTAC, estrategias, tácticas, acción, KPI) · Después (1 año, horizonte, lista de mercado, fichas, preguntas abiertas).
 - La escena es construida y se marca así; cada hecho que la sostiene es observado (reporte de inspección por rol).
 - **Verificación:** 35 láminas sin desborde ni texto bajo 24 px; voz sin errores en láminas ni notas.
+
+## Respuestas de Nico a las decisiones pendientes (19 oct)
+- E3-4 A, E3-5 A, E3-6 B y los cuatro supuestos de E3-2 confirmados (`decisiones.md`).
+- **E3-6 en el prototipo:** la visita entra y sale dentro de su vigencia; la segunda lectura entra; la visita ve «Puedes salir y volver hasta las…». El rechazo de prueba pasa a Juan Pablo, que llega antes de su hora. e2e 17 de 17.
+- **HikCentral (Manuel vía Nico):** la vigencia por persona o visitante llega hasta 2037 o 2099. Cierra la pregunta 1 de `estrategia.md` §11; queda probar el alta por OpenAPI.
+- **Biblia:** grupo «Diseño para la interacción», 2026-2. 6.1 rehecha como evaluación por inspección con los perfiles del estudio de mercado de iAgency (2024) y los arquetipos: 11 hallazgos, 6 resueltos, 3 planeados (Pase de evento, Pase familiar, editar recurrente), 1 pendiente (número extranjero).
+- No se registraron participantes ni resultados de una prueba que no ocurrió.

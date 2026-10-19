@@ -1,8 +1,7 @@
 // Modelo del prototipo: un solo estado compartido por los cuatro actores.
 // Decisiones (decisiones.md E3-2, Nico 19 oct): sin tope de visitas ni de duración; el residente decide la vigencia.
-// Una visita de un día es de una sola entrada; una estadía (más de un día) entra y sale mientras esté vigente.
-// Supuestos aún abiertos: las franjas de la administración no aplican a las estadías,
-// portería digita el código, la vigencia del código es la del Pase, la administración no revoca.
+// Toda visita entra y sale mientras su Pase esté vigente (E3-6). Estadía = más de 20 h (E3-5); las franjas no la limitan (E3-4).
+// Portería digita el código, el código dura lo mismo que el Pase y la administración no revoca (E3-2, confirmados el 19 oct).
 import {estadoDelPase, vigenciaRestante, type Estado, type Hechos} from '../../paquetes/kino-motion/src/nucleo/pase';
 
 export type Tipo = 'visita' | 'colaborador';
@@ -358,9 +357,7 @@ export function deshacerRevocar() {
 export function extender(p: Pase, horas: number): string | null {
 	const base_ = Math.max(p.hechos.hasta.getTime(), ahora().getTime());
 	const nueva = new Date(base_ + horas * 3_600_000);
-	if (p.hechos.usadoEn && !duraMasDeUnDia({desde: p.hechos.desde, hasta: nueva})) return 'Ya entró: para otra visita, crea un Pase nuevo';
 	p.hechos.hasta = nueva;
-	if (duraMasDeUnDia(p.hechos)) delete p.hechos.usadoEn;
 	p.traza.push({hora: ahora(), tipo: 'extendido', texto: `Carolina lo extendió hasta ${fechaHora(nueva)}`});
 	anotar('I-14');
 	return null;
@@ -383,14 +380,12 @@ export function leer(modo: Modo, valor: string): Lectura {
 		if (!p.modos.includes(modo)) l = {...base_, resultado: 'rechazado', motivo: `Este Pase no entra con ${MODO_TEXTO[modo]}`};
 		else if (st === 'vigente' || st === 'por-vencer') l = {...base_, resultado: 'entra'};
 		else if (st === 'revocado') l = {...base_, resultado: 'rechazado', motivo: `Revocado por ${p.hechos.revocacion!.nombre} a las ${horaCorta(p.hechos.revocacion!.hora)}`};
-		else if (st === 'usado') l = {...base_, resultado: 'rechazado', motivo: `Es de una sola entrada: ya entró a las ${horaCorta(p.hechos.usadoEn!)}`};
 		else if (st === 'vencido') l = {...base_, resultado: 'rechazado', motivo: `Venció a las ${horaCorta(v.hasta)}`};
 		else if (st === 'sin-confirmar') l = {...base_, resultado: 'rechazado', motivo: 'El lector todavía no recibe este Pase'};
 		else l = {...base_, resultado: 'rechazado', motivo: p.recurrencia ? `Fuera de su franja: entra desde ${fechaHora(v.desde)}` : `Empieza a las ${horaCorta(v.desde)}`};
 
 		if (l.resultado === 'entra') {
 			p.entradas.push(t);
-			if (p.tipo === 'visita' && !esEstadia(p)) p.hechos.usadoEn = t;
 			p.traza.push({hora: t, tipo: 'entro', texto: `Entró por Portería principal con ${MODO_TEXTO[modo]}`});
 			E.avisos.push({id: id('a'), para: 'residente', titulo: `${p.nombre.split(' ')[0]} entró`, texto: `Portería principal · ${MODO_TEXTO[modo]} · ${horaCorta(t)}`, tono: 'vigente', paseId: p.id, hora: t});
 		} else {
@@ -497,12 +492,19 @@ export function fechaHora(d: Date) {
 	man.setDate(man.getDate() + 1);
 	return `${fechaCorta(d, t)} ${horaCorta(d)}`;
 }
+/** «3:30 a 5:30 p. m.» cuando las dos horas caen en la misma mitad del día; si no, cada una con la suya. */
+export function franjaTexto(desde: Date, hasta: Date) {
+	const a = horaBreve(desde);
+	const b = horaBreve(hasta);
+	const sufijo = / [ap]\. m\.$/;
+	return a.match(sufijo)?.[0] === b.match(sufijo)?.[0] ? `${a.replace(sufijo, '')} a ${b}` : `${a} a ${b}`;
+}
 export function vigenciaTexto(p: Pase, t = ahora()) {
 	const v = ventana(p, t);
-	if (p.recurrencia) return `${diasTexto(p.recurrencia.dias)} · ${horaBreve(v.desde)} a ${horaBreve(v.hasta)}`;
+	if (p.recurrencia) return `${diasTexto(p.recurrencia.dias)} · ${franjaTexto(v.desde, v.hasta)}`;
 	if (esEstadia(p)) return `Hasta el ${fechaCorta(v.hasta, t)} · ${duracionTexto(v.desde, v.hasta)}`;
 	const dia = fechaCorta(v.desde, t);
-	return `${dia[0].toUpperCase()}${dia.slice(1)} · ${horaBreve(v.desde)} a ${horaBreve(v.hasta)}`;
+	return `${dia[0].toUpperCase()}${dia.slice(1)} · ${franjaTexto(v.desde, v.hasta)}`;
 }
 export function cuentaRegresiva(hasta: Date, t = ahora()) {
 	const ms = hasta.getTime() - t.getTime();

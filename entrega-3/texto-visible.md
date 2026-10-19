@@ -331,16 +331,17 @@ pruebas del recorrido automático
 
 Cada interacción tiene disparador, respuesta, regla y efecto en HikCentral, visibles en el panel derecho del prototipo.
 
-Validación · Biblia 6.1
+Validación · Biblia 6.1 · perfiles del estudio de mercado de Monte Sereno y arquetipos del diagnóstico
 
-Evaluación por inspección con los cuatro arquetipos
-Arquetipo y contexto	Dónde se traba	Sev.	Qué cambió
+Evaluación por inspección: dónde se traba cada perfil
+Perfil y contexto	Dónde se traba	Sev.	Qué cambia
+Empty nesters · hijos y nietos por un mes	Solo había Pases de horas	3	«Se queda»: de 3 días a 3 meses
+Familia con hijos · cumpleaños con 15 invitados	Quince Pases, uno por uno	3	Planeado: Pase de evento
+A1 · la visita sale a la tienda	El Pase quedaba usado en la primera entrada	3	Entra y sale dentro de su vigencia
 A3 · visita en la puerta sin señal	La imagen del WhatsApp no traía un QR real	3	La imagen lleva QR y código
-A1 · residente con una mano	Elegir una hora lejana exige muchos toques	2	«Unas horas», «Un día», «Se queda»
-A4 · portería en hora pico	Una lectura tapa la anterior	2	Bitácora con la última resaltada
-A1 · familiar que se queda un mes	Solo había Pases de horas	3	«Se queda»: de 3 días a 3 meses, entra y sale
+Pareja sin hijos · número extranjero	El cambio de número pasa por la administración	2	Pendiente con la administración
 
-Prueba con cinco residentes de Monte Sereno: 27 oct al 7 nov, con protocolo, SEQ y SUS.
+11 hallazgos en la Biblia: 6 resueltos en el prototipo, 3 planeados para la entrega 4.
 
 Avances de la Biblia · documento integrador Diex
 
@@ -579,9 +580,8 @@ Martes · 3:04 p. m.
 
 «Andrés entró por Portería principal»
 
-Lo que falta verificar antes del piloto
+Lo que falta verificar antes del piloto · la vigencia en HikCentral ya la confirmó Manuel
 
-¿HikCentral admite una persona temporal con vigencia? Manuel
 ¿Cuántas casas tiene Villas Campestres? El sistema reporta 888 usuarios
 ¿Qué precio por casa acepta una administración?
 ¿Por qué el sistema dice 893 usuarios y las comunidades suman 1.200?

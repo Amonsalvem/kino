@@ -27,7 +27,7 @@ Estructura de las guías del curso: `entrega-3/fuentes/Plan_estrategico.pdf` (di
 | Producto · portería | Pantalla que dice por qué el lector dejó o no dejó entrar, y botón para llamar al residente | La llamada queda en la constancia. La llamada no abre la entrada |
 | Producto · administración | Franjas, constancia y salud de la integración | La administración ve quién autorizó a quién; hoy no puede |
 | Datos | El teléfono pasa a ser obligatorio y único; el correo deja de serlo | Quita la causa de los 711 errores `add_person` |
-| Integración | Alta de persona temporal con «Válido desde / hasta» en HikCentral (por confirmar con Manuel, pendiente 1 del maestro) | Si HikCentral no admite credencial temporal, la placa por LPR es la vía que no crea persona |
+| Integración | Alta de persona temporal con «Válido desde / hasta» en HikCentral. Manuel confirmó (19 oct) que la vigencia por persona o visitante llega hasta 2037 o 2099 | Una estadía de meses cabe en la misma alta; la visita entra y sale sin bajas intermedias (E3-6) |
 | Operación | Implementación en sitio: carga de casas por cédula, capacitación de portería, señalética del QR | El registro se valida contra la cédula que ya está en la base, no lo aprueba la administración |
 | Legal | Ley 1581 de 2012 y Resolución SIC 52185 de 2025: la biometría no se exige y siempre hay una vía no biométrica | El rostro queda como cuarto modo opcional y con autorización expresa |
 | Negocio | Suscripción que paga la administración del conjunto (único comprador) | Sin dato |
@@ -165,7 +165,7 @@ Cada táctica responde qué se hará, cómo, quién y cuándo.
 | Periodo | Hito | Responsable | Entregable |
 |---|---|---|---|
 | 19 oct – 9 nov 2026 **[A]** | Prototipo navegable, pruebas con 5 residentes y sustentación | Nico y Alejandro | Deck, Biblia E3, prototipo |
-| Nov – dic 2026 **[P]** | Confirmar con Manuel la credencial temporal (pendiente 1); arreglar Refugio | Equipo con Manuel | Refugio ≥ 95 % sincronizado |
+| Nov – dic 2026 **[P]** | Probar con Manuel el alta de una persona temporal por OpenAPI; arreglar Refugio | Equipo con Manuel | Refugio ≥ 95 % sincronizado |
 | Dic 2026 **[P]** | Backend del Pase y WhatsApp Business | Equipo | Versión beta |
 | Ene – mar 2027 **[P]** | Piloto pagado en Villas Campestres y Refugio | Equipo con la administración | Medición de OE2, OE3 y OE4 |
 | Abr – jun 2027 **[P]** | Ficha comercial e integradores | Equipo | 10 conjuntos contactados |
@@ -294,7 +294,7 @@ Plantilla del curso: nombre · propósito dentro de la estrategia · elementos c
 ### F5 · Conector Kino–HikCentral (servicio)
 - **Propósito:** que el Pase exista en la puerta. Apunta a OE4.
 - **Interacciones:** ninguna directa. Su efecto es el estado honesto (I-07).
-- **Tecnologías:** HikCentral Professional OpenAPI; persona temporal con «Válido desde / hasta» (por confirmar); cola de reintentos.
+- **Tecnologías:** HikCentral Professional OpenAPI; persona temporal con «Válido desde / hasta», hasta 2037 o 2099 según Manuel; cola de reintentos.
 - **Escenario:** se crea un Pase, el conector da el alta y el lector responde en 3 segundos. Si falla, el Pase sigue en Sin confirmar y la administración ve la causa.
 
 ### F6 · Kit de implementación (servicio)
@@ -306,7 +306,7 @@ Plantilla del curso: nombre · propósito dentro de la estrategia · elementos c
 
 ## 11. Supuestos y lo que falta verificar
 
-1. Que HikCentral admite una persona temporal con vigencia (pendiente 1 del maestro). Si no la admite, el Pase de visita depende de la placa por LPR.
+1. ~~Que HikCentral admite una persona temporal con vigencia~~. Respondido por Manuel el 19 oct: la vigencia de una persona o visitante llega hasta 2037 o 2099. Falta probar el alta por OpenAPI en el piloto.
 2. Cuántas casas hay en Villas Campestres. El sistema reporta 888 usuarios, no casas.
 3. El precio de la suscripción. No hay dato del cliente. Se propone validar con la administración un precio por casa al mes.
 4. La discrepancia de 893 contra 1.200 usuarios (maestro §7).

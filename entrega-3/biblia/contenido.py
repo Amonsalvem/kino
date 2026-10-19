@@ -7,11 +7,11 @@ El orden de SECCIONES sigue el de la plantilla: 1.1 a 7.2.
 
 PORTADA = {
     'Nombre del proyecto': 'Kino · El Pase: quién decide quién entra',
-    'Grupo': 'Por confirmar',
+    'Grupo': 'Diseño para la interacción',
     'Organización': 'Kino, con piloto en Monte Sereno (El Retiro, Antioquia): Refugio Campestre y Villas Campestres',
     'Integrantes': 'Nicolás Ramírez · Alejandro Monsalve',
     'Semestre y año': '2026-2',
-    'Fecha de entrega': 'Por confirmar · entrega 3, octubre de 2026',
+    'Fecha de entrega': 'Entrega 3 · octubre de 2026',
 }
 
 EQUIPO = [
@@ -193,7 +193,7 @@ S.append(('5.1', [
         ['Prohibición', 'No crea una persona permanente en la puerta', 'Los 711 errores y la cuenta de la visita'],
     ], [2200, 5160, 2400]),
     ('h', 'Estados'),
-    'Previsto → Sin confirmar → Vigente → Por vencer → Usado, Vencido o Revocado. En la entrada puede ocurrir el evento Rechazado, con su motivo. Cada transición tiene su verbo de movimiento: aparecer (820 ms), responder (240 ms), caducar (900 ms) y revocar.',
+    'Previsto → Sin confirmar → Vigente → Por vencer → Vencido o Revocado. Mientras está vigente, la persona entra y sale; cada entrada queda en la traza (E3-6). En la entrada puede ocurrir el evento Rechazado, con su motivo. Cada transición tiene su verbo de movimiento: aparecer (820 ms), responder (240 ms), caducar (900 ms) y revocar.',
 ]))
 S.append(('5.2', [
     'El diseño conceptual se representa en dos piezas que conviven: el archivo de Figma «Kino · App» (226 pantallas en oscuro y claro, cada una con su ficha) y un prototipo navegable en código donde los cuatro actores comparten un solo estado. Lo que hace uno le cambia la pantalla a otro: el residente crea el Pase, la visita lo abre, portería lo lee y al residente le llega el aviso.',
@@ -229,33 +229,36 @@ S.append(('5.2', [
 
 # 6 · DISEÑO Y EVALUACIÓN DE LA EXPERIENCIA ------------------------------------------------------------
 S.append(('6.1', [
-    'La validación de esta entrega tiene dos partes: una evaluación por inspección ya hecha sobre el prototipo y un experimento con residentes reales que se corre entre el 27 de octubre y el 7 de noviembre de 2026.',
-    ('h', 'Parte 1 · Evaluación por inspección con los arquetipos (hecha)'),
-    'Recorrido cognitivo de las tareas principales del prototipo, poniéndose en el contexto de cada arquetipo del diagnóstico, más la revisión de las 10 heurísticas de Nielsen. Es una evaluación de expertos; no reemplaza la prueba con usuarios.',
+    'La validación de esta entrega es una evaluación por inspección del prototipo: recorrido cognitivo de las tareas principales y revisión de las 10 heurísticas de Nielsen, desde el contexto de cada perfil. Los perfiles salen de dos fuentes: los arquetipos del diagnóstico (inspección del 14 al 16 de septiembre y entrevistas del 2 de septiembre) y los perfiles de residente del estudio de mercado de Monte Sereno (iAgency, 2024).',
+    ('h', 'Perfiles'),
     ('t', [
-        ['Arquetipo y contexto', 'Tarea', 'Dónde se traba', 'Sev.', 'Qué cambió'],
+        ['Perfil', 'De dónde sale', 'Qué le pide a Kino'],
+        ['Empty nesters, 45 a 75 años', 'Estudio de mercado: usan smartphone y automatización del hogar; extrañan la casa llena', 'Recibir a hijos y nietos que se quedan semanas'],
+        ['Pareja sin hijos, 30 a 45 años', 'Estudio de mercado: cargos digitales, viajan con frecuencia', 'Dejar entrar a alguien estando fuera del país'],
+        ['Familia con hijos pequeños', 'Estudio de mercado: horarios planificados; buscan un entorno seguro', 'Niñera recurrente y cumpleaños con muchos invitados'],
+        ['A1 a A4', 'Diagnóstico: residente, colaborador, visita, administración y portería', 'Las tareas base del Pase'],
+    ], [2600, 4160, 3000]),
+    ('h', 'Hallazgos'),
+    ('t', [
+        ['Perfil y contexto', 'Tarea', 'Dónde se traba', 'Sev.', 'Qué cambió'],
         ['A3 · visita que llega sin datos móviles', 'Entrar con el Pase', 'La imagen del WhatsApp no traía un QR legible', '3', 'La imagen lleva QR real, código y placa'],
-        ['A1 · residente con una mano, fuera de casa', 'Crear un Pase para dentro de varias horas', 'Elegir una hora lejana exige muchos toques', '2', '«Unas horas», «Un día», «Se queda»'],
-        ['A1 · familiar que se queda un mes', 'Crear un Pase largo', 'Solo había Pases de horas', '3', '«Se queda»: de 3 días a 3 meses, entra y sale'],
-        ['A4 · portería en hora pico', 'Leer varias llegadas seguidas', 'Una lectura tapa la anterior', '2', 'Bitácora con la última fila resaltada'],
+        ['Empty nesters · hijos y nietos por un mes', 'Crear un Pase largo', 'Solo había Pases de horas', '3', '«Se queda»: de 3 días a 3 meses o una fecha; entra y sale'],
+        ['Empty nesters · cinco familiares que llegan juntos', 'Crear un Pase por persona', 'Cinco hojas iguales, una por persona', '2', 'Planeado: un Pase con varias personas de la misma familia'],
+        ['Familia con hijos · cumpleaños con 15 invitados', 'Crear Pases para un evento', 'Quince Pases uno por uno; nadie lo hace', '3', 'Planeado: Pase de evento con un enlace y una franja, sin tope de invitados'],
+        ['Familia con hijos · niñera de lunes a viernes', 'Cambiar su horario en vacaciones', 'Hay que revocar y crear de nuevo', '2', 'Planeado: editar días y franja de un Pase recurrente'],
+        ['Pareja sin hijos · de viaje', 'Extender el Pase del jardinero desde otro país', 'Funciona; el aviso de llegada confirma que entró', '0', 'Nada: Extender y el aviso cubren el caso'],
+        ['Pareja sin hijos · número extranjero', 'Entrar a la app con código por WhatsApp', 'El cambio de número pasa por la administración', '2', 'Pendiente con la administración: cómo se pide desde fuera'],
         ['A1 · revocar por error', 'Revocar un Pase', 'El diálogo no deja arreglar el error común', '3', 'Mantener presionado y deshacer por 5 s'],
+        ['A1 · visita que sale a la tienda', 'Volver a entrar el mismo día', 'El Pase quedaba usado en la primera entrada', '3', 'Entra y sale dentro de su vigencia (E3-6)'],
+        ['A4 · portería en hora pico', 'Leer varias llegadas seguidas', 'Una lectura tapa la anterior', '2', 'Bitácora con la última fila resaltada'],
         ['A4 · administración', 'Mover una franja', 'No se veía el efecto en los Pases activos', '2', 'Vista previa del cambio'],
-    ], [2200, 1700, 2600, 600, 2660]),
-    ('h', 'Parte 2 · Experimento con residentes (protocolo)'),
+    ], [2400, 1800, 2400, 600, 2560]),
+    ('n', 'Severidad de Nielsen: 0 no es un problema; 4 impide la tarea. Lo planeado entra al inventario de interacciones de la entrega 4.'),
+    ('h', 'Siguiente paso · prueba con residentes'),
     ('-', '**Participantes.** 5 residentes de Monte Sereno, con al menos uno de Refugio y uno de Villas; uno mayor de 60 años; uno que tenga colaborador recurrente.'),
     ('-', '**Tareas.** T1 entrar con el código de WhatsApp; T2 crear un Pase para una visita que llega ya; T3 enviarlo por WhatsApp; T4 crear el Pase recurrente de su empleada; T5 extender un Pase una hora; T6 revocar un Pase y deshacerlo.'),
-    ('-', '**Métricas por tarea.** Éxito sin ayuda (sí / con ayuda / no), tiempo en segundos, errores y SEQ (1 a 7). Al cierre, SUS (10 ítems).'),
-    ('-', '**Guion.** Consentimiento verbal; «piensa en voz alta»; no se ayuda salvo bloqueo de 60 s; tres preguntas de cierre: qué te dio confianza, qué te dio duda, a quién se lo darías primero.'),
-    ('-', '**Criterio.** OE1 se cumple si 4 de 5 crean un Pase en menos de 30 s y SUS ≥ 80.'),
-    ('t', [
-        ['Participante', 'T1', 'T2 (s)', 'T3', 'T4', 'T5', 'T6', 'SUS'],
-        ['P1', '', '', '', '', '', '', ''],
-        ['P2', '', '', '', '', '', '', ''],
-        ['P3', '', '', '', '', '', '', ''],
-        ['P4', '', '', '', '', '', '', ''],
-        ['P5', '', '', '', '', '', '', ''],
-    ], [2160, 1100, 1100, 1100, 1100, 1100, 1100, 1000]),
-    ('n', 'La hoja se llena en la sesión. Los resultados entran a la Biblia (6.1 y 3.6) y al deck antes de la sustentación.'),
+    ('-', '**Métricas.** Éxito sin ayuda, tiempo, errores y SEQ por tarea; SUS al cierre. OE1 se cumple si 4 de 5 crean un Pase en menos de 30 s y SUS ≥ 80.'),
+    ('n', 'Fuentes: docs/proyecto/arquetipos-e-insights.md; iAgency, Monte Sereno: investigación de mercado y benchmark (2024), perfil e insights del consumidor y mapas de empatía.'),
 ]))
 S.append(('6.2', [('n', 'Se entrega en la Entrega 5. Métricas ya definidas: activación de casas, retención, NPS de la administración (estrategia.md §7).')]))
 S.append(('6.3', [('n', 'Se entrega en la Entrega 5. Métricas de la interacción definidas: tiempo para crear un Pase, éxito de la tarea, SEQ, SUS y discrepancia app–puerta.')]))

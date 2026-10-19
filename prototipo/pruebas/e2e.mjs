@@ -75,15 +75,21 @@ await ok('Portería: el QR de Laura entra y la talanquera sube', async () => {
 await ok('El residente recibe el aviso de llegada', async () => {
 	await R.locator('.banner', {hasText: 'Laura entró'}).waitFor({timeout: 3000});
 });
-await ok('El Pase de la visita pasa a Usado', async () => {
-	await V.locator('.pase-vivo .chip--usado').waitFor({timeout: 3000});
+await ok('El Pase de la visita sigue vigente después de entrar', async () => {
+	await V.locator('.pase-vivo .chip--vigente').waitFor({timeout: 3000});
+	await V.getByText(/Puedes salir y volver/).waitFor({timeout: 3000});
 });
 await foto('05-entra');
 
-await ok('Segunda lectura: rechazada con motivo', async () => {
+await ok('Segunda lectura: vuelve a entrar dentro de su vigencia', async () => {
 	await p.waitForTimeout(400);
 	await T.locator('.llegada', {hasText: 'Laura Mejía'}).first().click();
-	await T.getByText('Es de una sola entrada').first().waitFor({timeout: 3000});
+	await T.getByText('Puede entrar').first().waitFor({timeout: 3000});
+});
+await ok('Lectura antes de su hora: rechazada con motivo', async () => {
+	await p.waitForTimeout(400);
+	await T.locator('.llegada', {hasText: 'Juan Pablo'}).first().click();
+	await T.getByText(/Empieza a las/).first().waitFor({timeout: 3000});
 });
 await ok('Llamar al residente no abre la entrada', async () => {
 	await T.getByRole('button', {name: /Llamar a Carolina/}).click();

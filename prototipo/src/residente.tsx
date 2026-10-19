@@ -455,7 +455,7 @@ function HojaCrear({precarga, onCerrar, onVer}: {precarga?: (typeof RECIENTES)[n
 			? `${diasTexto(diasColab) || 'Sin días'} · ${horaBreve(r.desde)} a ${horaBreve(r.hasta)} · hasta que lo revoques`
 			: estadia
 				? `Estadía · hoy al ${fechaCorta(r.hasta, t0)} · ${duracionTexto(r.desde, r.hasta)} · entra y sale`
-				: `${fechaCorta(r.desde, t0) === 'hoy' ? 'Hoy' : 'Mañana'} · ${horaBreve(r.desde)} a ${horaBreve(r.hasta)} · una entrada`;
+				: `${fechaCorta(r.desde, t0) === 'hoy' ? 'Hoy' : 'Mañana'} · ${horaBreve(r.desde)} a ${horaBreve(r.hasta)} · entra y sale`;
 
 	return (
 		<div class="capa">
