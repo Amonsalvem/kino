@@ -62,3 +62,13 @@ Boceto: «posicionar a Kino, a octubre 2027, como el aliado estratégico líder 
 > **Posicionar a Kino, a octubre de 2027, como el aliado de la propiedad horizontal en control de acceso: el residente decide quién entra, la administración pone los límites y funciona con el lector que el conjunto ya tiene.**
 
 **Si el equipo quiere mantener «líder».** Hay que acotarlo y medirlo, por ejemplo «líder en el Oriente antioqueño». Para eso primero hay que contar las copropiedades del Oriente con hardware Hikvision (pendiente 5 de `estrategia.md` §11) y agregar un KPI de participación: conjuntos con Kino ÷ conjuntos con lector compatible.
+
+## 6. Redacción final del equipo (Nico, 19 oct)
+
+Nico pidió «líder en Antioquia», quitar la cláusula de residente, administración y lector, y abrir el alcance a la seguridad por software de la propiedad horizontal y todos sus involucrados.
+
+> **Posicionar a Kino, a octubre de 2027, como el aliado líder en Antioquia en software de seguridad para la propiedad horizontal y todos sus involucrados: residentes, visitas, colaboradores, portería y administración.**
+
+- «Sus involucrados» se nombra con los cinco actores del sistema para que la frase sea concreta (criterio de la metodología).
+- «Líder» queda comprobable con un KPI de participación (`estrategia.md` §7): conjuntos con Kino ÷ copropiedades de Antioquia con lector compatible. Falta el denominador; conseguirlo es el pendiente 5 de §11.
+- Costo: la meta a un año sigue siendo de 4 conjuntos. Con ese número, el liderazgo en Antioquia solo se sostiene si el mercado con lector compatible resulta pequeño o la competencia tiene menos conjuntos. Hay que revisar la meta cuando se conozca el denominador.

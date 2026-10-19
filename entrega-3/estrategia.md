@@ -89,9 +89,9 @@ Los cuatro recorridos fallan en la puerta: nadie puede fijar desde cuándo y has
 
 ## 2. SOSTAC · O · Objetivo general (el qué) y meta general
 
-**Objetivo general [P].** Posicionar a Kino, a octubre de 2027, como el aliado de la propiedad horizontal en control de acceso: el residente decide quién entra, la administración pone los límites y funciona con el lector que el conjunto ya tiene.
+**Objetivo general [P].** Posicionar a Kino, a octubre de 2027, como el aliado líder en Antioquia en software de seguridad para la propiedad horizontal y todos sus involucrados: residentes, visitas, colaboradores, portería y administración.
 
-**Cómo se construyó.** Verbo + Kino + fecha + categoría + beneficio tomado de la pregunta guía + diferencia, sin cifras (`investigacion-objetivo-general.md`). Neivor y ComunidadFeliz venden software de administración; ZKTeco, lector con su propio software. El segundo fabricante llega en 2028 (E2).
+**Cómo se construyó.** Redacción del equipo (Nico, 19 oct) sobre los criterios de `investigacion-objetivo-general.md`: verbo, Kino, fecha, categoría y público. **«Líder en Antioquia»** se mide con la participación (§7): conjuntos con Kino ÷ copropiedades de Antioquia con lector compatible. Hoy falta el denominador (§1.5, vacío). Competencia: Neivor y ComunidadFeliz venden software de administración; ZKTeco, lector con su propio software.
 
 **[A]** Demostrarlo en un prototipo donde los cuatro actores completan el recorrido del Pase.
 
@@ -125,7 +125,7 @@ A tiempo: la columna **Tiempo** de la tabla anterior (¿qué puedo hacer hoy, en
 
 ```mermaid
 flowchart LR
-  G[Posicionar a Kino a oct 2027<br/>como aliado de la propiedad horizontal<br/>en control de acceso] --> OE1[OE1 · crear en 30 s<br/>producto]
+  G[Posicionar a Kino a oct 2027<br/>como aliado líder en Antioquia<br/>en software de seguridad para la PH] --> OE1[OE1 · crear en 30 s<br/>producto]
   G --> OE2[OE2 · adopción<br/>servicio]
   G --> OE3[OE3 · colaborador sin llamada<br/>producto + servicio]
   G --> OE4[OE4 · integración confirmada<br/>tecnología]
@@ -229,6 +229,7 @@ Objetivo → pregunta → métrica, con su etapa (captación, comportamiento, co
 | OE5 | ¿La administración recomendaría Kino a otro conjunto? | NPS de la administración | Promotores − detractores | ≥ 30 | Satisfacción | Trimestre |
 | OE5 ★ | ¿Cuántos conjuntos pagan? | Conjuntos con pago | Contratos | 4 a oct 2027 | Conversión | Mes |
 | OE5 | ¿Los rechazos tienen explicación? | Rechazos con motivo | Con motivo ÷ rechazos | 100 % | Confianza | Semana |
+| General | ¿Kino lidera en Antioquia? | Participación | Conjuntos con Kino ÷ copropiedades de Antioquia con lector compatible | Mayor que la de cualquier competidor (por fijar al conocer el denominador) | Conversión | Semestre |
 
 ### SOSTAC · C · Etapas del plan y el KPI que cubre cada una
 
@@ -334,4 +335,4 @@ Un panel por objetivo con el último dato, su serie y la meta como línea puntea
 2. Contar las casas de Villas Campestres: 888 son usuarios, no casas.
 3. Fijar el precio de la suscripción con la administración.
 4. Resolver la diferencia de 893 contra 1.200 usuarios (maestro §7).
-5. Contar las copropiedades del Oriente antioqueño con hardware Hikvision.
+5. Contar las copropiedades de Antioquia con lector compatible y su proveedor actual: es el denominador de «líder» en el objetivo general.

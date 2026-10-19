@@ -551,3 +551,9 @@ Pedido de Nico: subir las tres escenas de Blender a nivel profesional; libertad 
 - **Choque que hay que decidir:** la familia de ilustraciones de E3-8 dice «sin personas». Propuesta: personajes solo en presentaciones y onboarding, nunca en pantallas de operación.
 - **Falta:** aprobarla; decidir si se suman la visita, el colaborador y portería.
 - **Respuesta de Nico (19 oct):** «Aprobado E3-9, personajes solo en presentaciones y onboarding; pero rehace los personajes, están nefastos. hazlos en 3d con estética biopunk». Se rehicieron en 3D (Blender, `branding/sistema/v3/motion/blender/personajes.py`); la versión 2D quedó en `entrega-3/personajes/_obsoleto-2d/`.
+
+### E3-10 · Objetivo general del plan estratégico · DIRECCIÓN DE NICO, REDACCIÓN POR CONFIRMAR (19 oct)
+- **Pedido de Nico (19 oct):** boceto «posicionar a Kino, a octubre 2027, como el aliado estratégico lider en software de seguridad de las propiedades horizontales»; después: «Líder en Antioquia, deja de lado esto: "el residente decide quién entra, la administración pone los límites y funciona con el lector que el conjunto ya tiene"; extrapolar la seguridad de software de las propiedades horizontales y sus involucrados».
+- **Redacción aplicada:** «Posicionar a Kino, a octubre de 2027, como el aliado líder en Antioquia en software de seguridad para la propiedad horizontal y todos sus involucrados: residentes, visitas, colaboradores, portería y administración.» Está en el deck (lámina 10), en la Biblia 3.1 y en `estrategia.md` §2.
+- **Costo puesto sobre la mesa:** «líder» se mide con un KPI de participación nuevo (`estrategia.md` §7). Ese KPI necesita el número de copropiedades de Antioquia con lector compatible, y ese número aún no existe. La meta a un año sigue en 4 conjuntos; se revisa cuando se conozca el denominador.
+- **Falta:** confirmar la redacción final.
