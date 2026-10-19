@@ -39,6 +39,7 @@ h3{font-size:var(--t-l)}
 p{margin:0}
 .rot{font-size:var(--t-min);letter-spacing:.08em;text-transform:uppercase;color:var(--tenue)}
 .sec{font-size:var(--t-l);color:var(--texto-2);max-width:42ch}
+.posicion{max-width:60ch;margin-top:calc(var(--u)*-1)}
 .tenue{color:var(--tenue)}
 a{color:var(--prev)}
 :focus-visible{outline:3px solid var(--marca);outline-offset:3px}
@@ -232,7 +233,7 @@ section.actual .embudo .barra-v{transform:none}
 /* Meta general */
 .meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:calc(var(--u)*2)}
 .meta .cifra{font-size:calc(var(--u)*10);color:var(--vig)}
-.objetivo{font-family:var(--display);font-weight:800;font-stretch:112%;font-size:var(--t-h2);line-height:1.08;max-width:30ch}
+.objetivo{font-family:var(--display);font-weight:800;font-stretch:112%;font-size:var(--t-h2);line-height:1.08;max-width:36ch}
 
 /* SMART: cinco piezas por objetivo, alineadas en columnas */
 .smart{display:grid;grid-template-columns:calc(var(--u)*4.4) repeat(5,minmax(0,1fr));gap:calc(var(--u)*.5);font-size:var(--t-min);line-height:1.25}
@@ -527,13 +528,14 @@ section.densa .grafica{height:calc(var(--u)*4.6)}
 <!-- 9 · Objetivo general -->
 <section data-parte="plan">
   <p class="rot">SOSTAC · O · Objetivo general (el qué) y meta general a 12 meses</p>
-  <p class="objetivo" data-r style="--r:0">Que el residente otorgue y revoque el ingreso de sus visitas y colaboradores, dentro de las franjas de la administración, sobre el hardware que el conjunto ya tiene.</p>
+  <p class="objetivo" data-r style="--r:0">Kino, en octubre de 2027, es el control de acceso de los conjuntos del Oriente antioqueño que ya tienen lector Hikvision: el residente da y revoca los Pases y la administración fija las franjas.</p>
+  <p class="sec posicion" data-r style="--r:1">Posición: Kino autoriza sobre el lector que el conjunto ya pagó, sin cambiarlo, y la visita entra sin crear cuenta.</p>
   <div class="meta">
     <div class="caja" data-r style="--r:2"><span class="cifra" data-contar="4">4</span><p>conjuntos con pago a octubre de 2027</p></div>
     <div class="caja" data-r style="--r:3"><span class="cifra"><span data-contar="95">95</span> %</span><p>de los Pases confirmados por el lector en menos de 60 s</p></div>
     <div class="caja" data-r style="--r:4"><span class="cifra" data-contar="0">0</span><p>personas permanentes creadas para dejar entrar a alguien</p></div>
   </div>
-  <aside class="guion">La frase es el qué de toda la estrategia. Las tres cifras son la meta a 12 meses: 4 conjuntos pagando, el lector confirmando el 95 % de los Pases en menos de un minuto y ninguna persona dada de alta de por vida para dejar entrar a alguien. Objetivo general (el qué) y meta general a 12 meses. Los 4 conjuntos: Villas Campestres, Refugio Campestre y 2 nuevos del Oriente antioqueño; el 2 es meta del equipo y se recalibra con el piloto.</aside>
+  <aside class="guion">La frase es el qué de toda la estrategia: dónde quiere estar Kino en un año y con qué posición. Frente a Neivor y ComunidadFeliz (software de administración) y ZKTeco (lector con su propio software), Kino se queda con el hardware Hikvision que el conjunto ya instaló; el segundo fabricante llega en 2028 (E2). Las tres cifras son la meta a 12 meses: 4 conjuntos pagando, el lector confirmando el 95 % de los Pases en menos de un minuto y ninguna persona dada de alta de por vida para dejar entrar a alguien. Los 4 conjuntos: Villas Campestres, Refugio Campestre y 2 nuevos del Oriente antioqueño; el 2 es meta del equipo y se recalibra con el piloto.</aside>
 </section>
 
 <!-- 10 · SMART -->

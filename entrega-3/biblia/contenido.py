@@ -129,7 +129,8 @@ S.append(('3.1', [
         ['C', 'Control', 'KPI con método GQM, etapas y tablero de seguimiento', '3.4'],
     ], [800, 2200, 4960, 1800]),
     ('h', 'SOSTAC · O · Objetivo general (el qué) y meta general'),
-    '**Objetivo general.** Que el residente otorgue y revoque el ingreso de sus visitas y colaboradores, dentro de las franjas de la administración, sobre el hardware que el conjunto ya tiene.',
+    '**Objetivo general.** Kino, en octubre de 2027, es el control de acceso de los conjuntos del Oriente antioqueño que ya tienen lector Hikvision: el residente da y revoca los Pases y la administración fija las franjas.',
+    '**Posición.** Kino autoriza sobre el lector que el conjunto ya pagó, sin cambiarlo, y la visita entra sin crear cuenta.',
     '**Meta general a oct 2027.** 4 conjuntos con pago · 95 % de los Pases confirmados por el lector en menos de 60 s · 0 personas permanentes creadas para dejar entrar a alguien.',
     ('h', 'SOSTAC · O · Objetivos específicos SMART · acción + métrica + usuario + contexto + tiempo'),
     ('t', [

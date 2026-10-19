@@ -89,7 +89,11 @@ Los cuatro recorridos fallan en la puerta: nadie puede fijar desde cuándo y has
 
 ## 2. SOSTAC · O · Objetivo general (el qué) y meta general
 
-**Objetivo general [P].** Que el residente otorgue, acote y revoque el ingreso de sus visitas y colaboradores, dentro de las franjas de la administración, sobre el hardware que el conjunto ya tiene y sin crear personas permanentes. **[A]** Demostrarlo en un prototipo donde los cuatro actores completan el recorrido del Pase.
+**Objetivo general [P].** Kino, en octubre de 2027, es el control de acceso de los conjuntos del Oriente antioqueño que ya tienen lector Hikvision: el residente da y revoca los Pases y la administración fija las franjas.
+
+**Posición [P].** Kino autoriza sobre el lector que el conjunto ya pagó, sin cambiarlo, y la visita entra sin crear cuenta. Neivor y ComunidadFeliz venden software de administración; ZKTeco, lector con su propio software. El segundo fabricante llega en 2028 (E2).
+
+**[A]** Demostrarlo en un prototipo donde los cuatro actores completan el recorrido del Pase.
 
 **Meta a oct 2027 [P].** **4** conjuntos con pago (Villas, Refugio y 2 del Oriente antioqueño) · **95 %** de los Pases confirmados por el lector en menos de 60 s · **0** ingresos que exijan una persona permanente. *Supuesto:* los 2 conjuntos nuevos son meta del equipo.
 
@@ -121,7 +125,7 @@ A tiempo: la columna **Tiempo** de la tabla anterior (¿qué puedo hacer hoy, en
 
 ```mermaid
 flowchart LR
-  G[Objetivo general:<br/>reunir conocimiento y autoridad] --> OE1[OE1 · crear en 30 s<br/>producto]
+  G[Kino a oct 2027:<br/>control de acceso sobre<br/>el lector Hikvision del conjunto] --> OE1[OE1 · crear en 30 s<br/>producto]
   G --> OE2[OE2 · adopción<br/>servicio]
   G --> OE3[OE3 · colaborador sin llamada<br/>producto + servicio]
   G --> OE4[OE4 · integración confirmada<br/>tecnología]

@@ -110,7 +110,8 @@ KPI con método GQM y su tablero
 Láminas 15–16
 Estructura de la guía del curso (Plan_estrategico.pdf). La situación ya se contó al inicio; desde aquí, el plan. Las fichas de producto (lámina 17) cierran como insumo para mapas y prototipos.
 SOSTAC · O · Objetivo general (el qué) y meta general a 12 meses
-Que el residente otorgue y revoque el ingreso de sus visitas y colaboradores, dentro de las franjas de la administración, sobre el hardware que el conjunto ya tiene.
+Kino, en octubre de 2027, es el control de acceso de los conjuntos del Oriente antioqueño que ya tienen lector Hikvision: el residente da y revoca los Pases y la administración fija las franjas.
+Posición: Kino autoriza sobre el lector que el conjunto ya pagó, sin cambiarlo, y la visita entra sin crear cuenta.
 4
 conjuntos con pago a octubre de 2027
 95
@@ -118,7 +119,7 @@ conjuntos con pago a octubre de 2027
 de los Pases confirmados por el lector en menos de 60 s
 0
 personas permanentes creadas para dejar entrar a alguien
-La frase es el qué de toda la estrategia. Las tres cifras son la meta a 12 meses: 4 conjuntos pagando, el lector confirmando el 95 % de los Pases en menos de un minuto y ninguna persona dada de alta de por vida para dejar entrar a alguien. Objetivo general (el qué) y meta general a 12 meses. Los 4 conjuntos: Villas Campestres, Refugio Campestre y 2 nuevos del Oriente antioqueño; el 2 es meta del equipo y se recalibra con el piloto.
+La frase es el qué de toda la estrategia: dónde quiere estar Kino en un año y con qué posición. Frente a Neivor y ComunidadFeliz (software de administración) y ZKTeco (lector con su propio software), Kino se queda con el hardware Hikvision que el conjunto ya instaló; el segundo fabricante llega en 2028 (E2). Las tres cifras son la meta a 12 meses: 4 conjuntos pagando, el lector confirmando el 95 % de los Pases en menos de un minuto y ninguna persona dada de alta de por vida para dejar entrar a alguien. Los 4 conjuntos: Villas Campestres, Refugio Campestre y 2 nuevos del Oriente antioqueño; el 2 es meta del equipo y se recalibra con el piloto.
 SOSTAC · O · Objetivos específicos SMART · acción + métrica + usuario + contexto + tiempo
 Cinco objetivos SMART
 Acción

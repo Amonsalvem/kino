@@ -395,3 +395,7 @@ En arquitectura faltaba:
 ## Prototipo: barrido de muletillas y generalidades (19 oct)
 - Revisados ~560 textos. Las pantallas ya estaban en lenguaje concreto; cambiaron 5: el objetivo de I-13 e I-19 («Kino dice la verdad en la puerta» → «98 % de Pases confirmados en < 60 s»), el de I-17 («cómo lo perciben» → OE2 con su meta), I-18 («vive en la pantalla bloqueada» → «aparece») y la nota de Administración («se confirma en segundos» → «queda vigente cuando el lector lo confirma», sin prometer un tiempo).
 - Tipos, build y e2e completos sin fallas. Prototipo y deck republicados.
+
+## Objetivo general reescrito desde Kino (19 oct)
+- Pedido de Nico: que parta de «Kino», proyecte el año y diga la posición. Nuevo: «Kino, en octubre de 2027, es el control de acceso de los conjuntos del Oriente antioqueño que ya tienen lector Hikvision: el residente da y revoca los Pases y la administración fija las franjas.» Más una línea de posición: autoriza sobre el lector que el conjunto ya pagó, sin cambiarlo, y la visita entra sin crear cuenta.
+- Aplicado en el deck (lámina 10 y su guion), la Biblia (3.1) y `estrategia.md` (§2 y diagrama). `verificar.mjs` sin fallas.
