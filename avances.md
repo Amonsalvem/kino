@@ -383,3 +383,7 @@ En arquitectura faltaba:
 - 22 frases cambiadas por el dato concreto, alineadas con el deck: insights de A1 a A4 con el hecho observado (1.3, 2.1, 2.3), conclusión de 2.2, visión sin «capa de autorización» (1.2), 1.1 sin la fórmula «es un problema de…», emoción buscada concreta (2.4), modelo mental del sistema con «da de alta» en lugar de «aprueba» (5.1, hecho vigente), relevancia de OE2 y OE5, «en lugar de» de la administración (3.2), F4 y las preguntas GQM de OE2, OE4 y OE5.
 - Figura `arquetipos.png` capturada de nuevo desde la lámina 4.
 - Compuerta de voz: los errores restantes son texto fijo de la plantilla Diex y el nombre literal del eje 3.
+
+## estrategia.md: barrido de muletillas y generalidades (19 oct)
+- 22 frases cambiadas por el dato concreto, alineadas con el deck y la Biblia: diferencia sin la fórmula «no es X, es Y» (§0), insights de A1 a A4 con el hecho observado (§1.2), conclusión del journey (§1.3), objetivo académico verificable (§2), relevancia de OE2 y OE5 (§3), las 8 preguntas GQM vagas de §7 vueltas medibles, visión sin «capa de autorización» (§9), S de empresa con cifras en lugar de «mercado grande y en crecimiento» (§9.3), F4 y F5 (§10), «salud» por «estado» de la sincronización.
+- Numeración §0–§11 sin cambios. Compuerta de voz: un error que se deja a propósito, el nombre literal del eje 3.

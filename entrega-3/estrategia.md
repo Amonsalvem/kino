@@ -12,7 +12,7 @@ Entrega 3 · 19 oct 2026 · Nicolás Ramírez y Alejandro Monsalve. Orden de las
 | **Evidencia** | Refugio Campestre: 0 de 312 usuarios y 1 de 44 vehículos sincronizados; 711 errores `add_person` por el campo correo. *Observado (`MAESTRO-KINO.md` §3).* |
 | **Tiempo** | **[A]** Sustentación: 9 nov 2026. **[P]** Piloto pagado: ene–mar 2027. **[P]** Horizonte del plan: oct 2027. |
 | **Solución** | El **Pase**: autor, motivo, vigencia (horas, un día o meses) y modo (QR, placa o código). Lo otorga el residente dentro de las franjas de la administración; la visita no crea cuenta; Kino lo da de alta en HikCentral y solo lo muestra vigente si el lector confirma. |
-| **Diferencia** | No es la autonomía del residente: Neivor ya la vende ([Neivor](https://landing.neivor.com/control-de-acceso-visitantes)). Es la integración con el hardware instalado, más el Pase sin cuenta, más la autoridad del residente acotada por la administración. |
+| **Diferencia** | Neivor ya vende la autonomía del residente ([Neivor](https://landing.neivor.com/control-de-acceso-visitantes)). Kino se diferencia por tres cosas juntas: integración probada con el hardware instalado, Pase sin cuenta para la visita y autoridad del residente acotada por las franjas de la administración. |
 
 ### Todo lo que implica la mejora
 
@@ -21,7 +21,7 @@ Entrega 3 · 19 oct 2026 · Nicolás Ramírez y Alejandro Monsalve. Orden de las
 | Residente | App: código por WhatsApp, crear en 3 toques, extender y revocar con deshacer | Cada Pase tiene autor y hora |
 | Visita | Pase vivo en el navegador, sin cuenta | No se crea un «Visitante» permanente |
 | Portería | Pantalla con el porqué de cada lectura y botón para llamar | La llamada queda en la constancia y no abre la entrada |
-| Administración | Franjas, constancia y salud de la integración | Ve quién autorizó a quién |
+| Administración | Franjas, constancia y estado de la sincronización con HikCentral | Ve quién autorizó a quién |
 | Datos | Teléfono obligatorio y único; correo opcional | Quita la causa de los 711 errores |
 | Integración | Persona temporal con «Válido desde / hasta»; Manuel confirmó vigencias hasta 2037 o 2099 (19 oct) | Una estadía de meses cabe en una sola alta (E3-6) |
 | Operación | Carga de casas por cédula, capacitación de portería, señalética con QR | El registro se valida contra la cédula, no lo aprueba la administración |
@@ -56,13 +56,13 @@ Fuera de SOSTAC, la guía pide **descripción de productos** (fichas, §10). El 
 ### 1.2 SOSTAC · S · Público objetivo (arquetipos) e insights
 | Arquetipo | Quién es frente al sistema | Insight → qué hace la estrategia |
 |---|---|---|
-| A1 · Residente | El único que sabe a quién espera | Ya decide quién entra y cree que no → nombrar y acotar su autoridad |
-| A2 · Colaborador | El ingreso más frecuente; 51,3 % de los contratos domésticos son por días ([Infobae, GEIH-DANE](https://www.infobae.com/colombia/2026/09/09/el-trabajo-domestico-cambia-de-ritmo-en-colombia-crecen-los-contratos-por-dias-y-la-informalidad-supera-el-87/)) | El correo que más cuesta pedir rompe la puerta → teléfono en lugar de correo |
-| A3 · Visita | Entrega datos de por vida para una tarde | La placa es la vía que menos datos pide → primer canal del Pase |
-| A4 · Administración | Compra y opera; responde ante el consejo | Cree tener un control que no ejerce → franjas y constancia como argumento de venta |
+| A1 · Residente | El único que sabe a quién espera | Registra una placa y la deja «Permitido» sin saberlo → Pase con vigencia en lugar de una placa permanente |
+| A2 · Colaborador | El ingreso más frecuente; 51,3 % de los contratos domésticos son por días ([Infobae, GEIH-DANE](https://www.infobae.com/colombia/2026/09/09/el-trabajo-domestico-cambia-de-ritmo-en-colombia-crecen-los-contratos-por-dias-y-la-informalidad-supera-el-87/)) | El correo obligatorio es el dato que más cuesta pedir y causa los 711 errores → teléfono en lugar de correo |
+| A3 · Visita | Recibe una cuenta permanente por una visita de una tarde | La placa es la vía que menos datos pide → primer canal del Pase |
+| A4 · Administración | Compra y opera; responde ante el consejo | Da de alta personas permanentes y no aprueba ningún ingreso → franjas y constancia como argumento de venta |
 
 ### 1.3 SOSTAC · S · Conclusiones del journey map (entrega 2)
-Los cuatro recorridos se rompen en la puerta, nadie puede decir desde cuándo y hasta cuándo, y el objeto que falta en los cuatro es el Pase. Simetría invertida: el portero ve de los residentes lo que ellos no ven de sí mismos.
+Los cuatro recorridos fallan en la puerta: nadie puede fijar desde cuándo y hasta cuándo entra alguien. A los cuatro les falta un acceso con autor, motivo y vigencia: el Pase. Simetría invertida: el portero ve de los residentes lo que ellos no ven de sí mismos.
 
 ### 1.5 SOSTAC · S · Situación externa: mercado y competencia
 | Dato | Fuente |
@@ -89,7 +89,7 @@ Los cuatro recorridos se rompen en la puerta, nadie puede decir desde cuándo y 
 
 ## 2. SOSTAC · O · Objetivo general (el qué) y meta general
 
-**Objetivo general [P].** Que el residente otorgue, acote y revoque el ingreso de sus visitas y colaboradores, dentro de las franjas de la administración, sobre el hardware que el conjunto ya tiene y sin crear personas permanentes. **[A]** Demostrarlo en un prototipo usable de punta a punta.
+**Objetivo general [P].** Que el residente otorgue, acote y revoque el ingreso de sus visitas y colaboradores, dentro de las franjas de la administración, sobre el hardware que el conjunto ya tiene y sin crear personas permanentes. **[A]** Demostrarlo en un prototipo donde los cuatro actores completan el recorrido del Pase.
 
 **Meta a oct 2027 [P].** **4** conjuntos con pago (Villas, Refugio y 2 del Oriente antioqueño) · **95 %** de los Pases confirmados por el lector en menos de 60 s · **0** ingresos que exijan una persona permanente. *Supuesto:* los 2 conjuntos nuevos son meta del equipo.
 
@@ -110,10 +110,10 @@ Los cuatro recorridos se rompen en la puerta, nadie puede decir desde cuándo y 
 | # | Específico · ¿por qué es importante? | ¿Quién está involucrado? | Alcanzable · ¿con qué recursos? | Medible · ¿cómo sabré que se logró? | Relevante · ¿es el momento? |
 |---|---|---|---|---|---|
 | OE1 | Si crear un Pase es más lento que llamar a portería, nadie lo usa | Equipo | Prototipo y recorrido automático `oe1.mjs` | ≤ 3 toques y < 30 s · **ya cumple** | Es la condición de OE2: se valida antes de construir |
-| OE2 | Que el residente lo use es el valor que compra la administración | Equipo y administración | Día de lanzamiento y línea por WhatsApp | 60 % de casas con ≥ 1 Pase | El piloto empieza en enero |
+| OE2 | La administración paga si los residentes crean Pases | Equipo y administración | Día de lanzamiento y línea por WhatsApp | 60 % de casas con ≥ 1 Pase | El piloto empieza en enero |
 | OE3 | El colaborador es el ingreso más frecuente | Equipo, Manuel y portería | Pase recurrente; la minuta para medir | 80 % de sus ingresos con Pase | 51,3 % del trabajo doméstico ya es por días |
 | OE4 | Sin integración, el lector no conoce el Pase | Equipo con Manuel | OpenAPI de HikCentral; alta con teléfono | 98 % en < 60 s; Refugio ≥ 95 % | Refugio tiene hardware pagado y 0/312 sincronizados |
-| OE5 | Que Kino siga después de la universidad | Equipo e instaladores | Caso con KPI reales; ficha comercial | Renovación y 2 contratos | La entrega académica termina en noviembre |
+| OE5 | Sin contratos, Kino se acaba con la entrega de noviembre | Equipo e instaladores | Caso con KPI reales; ficha comercial | Renovación y 2 contratos | La entrega académica termina en noviembre |
 
 A tiempo: la columna **Tiempo** de la tabla anterior (¿qué puedo hacer hoy, en seis semanas, en seis meses?).
 
@@ -174,7 +174,7 @@ flowchart LR
 | Integración | Monitor de sincronización | Alerta si baja de 95 % | Equipo | Ene 2027 |
 | Transparencia | Estado honesto | Vigente solo con respuesta del lector | Equipo | Prototipo ✔ · producción ene 2027 |
 | Penetración | Alianza con instaladores | Ficha comercial para el Valle de Aburrá y el Oriente | Equipo | Abr – jun 2027 |
-| Fidelización | Reporte semanal | Lunes: entradas, rechazos con motivo, salud del lector | Equipo | Feb 2027 |
+| Fidelización | Reporte semanal | Lunes: entradas, rechazos con motivo y estado del lector | Equipo | Feb 2027 |
 
 ---
 
@@ -215,15 +215,15 @@ Objetivo → pregunta → métrica, con su etapa (captación, comportamiento, co
 |---|---|---|---|---|---|---|
 | OE1 ★ | ¿Crear un Pase es más rápido que llamar? | Tiempo para crear | KLM: 1,35 s decisión, 1,1 s desplazamiento, 0,2 s toque, 0,28 s carácter + espera | < 30 s | Comportamiento | Versión; semana en piloto |
 | OE1 | ¿Cuánto cuesta volver a invitar? | Toques con visita reciente | Toques hasta «Enviar por WhatsApp» | ≤ 3 | Comportamiento | Versión |
-| OE2 | ¿Cómo lo perciben? | SUS | 10 ítems | ≥ 80 | Satisfacción | Semana 6 |
-| OE2 ★ | ¿Las casas usan su autoridad? | Activación de casas | Casas con ≥ 1 Pase ÷ casas registradas | ≥ 60 % a 8 semanas | Conversión | Semana |
+| OE2 | ¿Qué tan fácil de usar lo encuentran los residentes? | SUS | 10 ítems | ≥ 80 | Satisfacción | Semana 6 |
+| OE2 ★ | ¿Cuántas casas crean Pases? | Activación de casas | Casas con ≥ 1 Pase ÷ casas registradas | ≥ 60 % a 8 semanas | Conversión | Semana |
 | OE2 | ¿Vuelven a usarlo? | Retención | Crean Pase en 2 semanas distintas ÷ activados | ≥ 50 % | Compromiso | Mes |
 | OE3 ★ | ¿El colaborador entra sin llamada? | Ingresos con Pase | Ingresos por lector ÷ ingresos en minuta | ≥ 80 % | Comportamiento | Semana |
-| OE4 ★ | ¿El Pase existe en la puerta? | Confirmación del lector | Confirmados en < 60 s ÷ creados | ≥ 98 % | Confianza | Día |
-| OE4 | ¿Refugio volvió a operar? | Sincronización | Usuarios sincronizados ÷ usuarios | ≥ 95 % | Confianza | Día |
-| OE4 | ¿Kino dice la verdad? | Discrepancia app–puerta | Vigentes que el lector rechaza ÷ lecturas | ≤ 0,5 % | Confianza | Semana |
-| OE5 | ¿La administración ve valor? | NPS de la administración | Promotores − detractores | ≥ 30 | Satisfacción | Trimestre |
-| OE5 ★ | ¿Crece la base? | Conjuntos con pago | Contratos | 4 a oct 2027 | Conversión | Mes |
+| OE4 ★ | ¿El lector recibe el Pase en menos de un minuto? | Confirmación del lector | Confirmados en < 60 s ÷ creados | ≥ 98 % | Confianza | Día |
+| OE4 | ¿Cuántos usuarios de Refugio están sincronizados? | Sincronización | Usuarios sincronizados ÷ usuarios | ≥ 95 % | Confianza | Día |
+| OE4 | ¿La app muestra vigente un Pase que el lector rechaza? | Discrepancia app–puerta | Vigentes que el lector rechaza ÷ lecturas | ≤ 0,5 % | Confianza | Semana |
+| OE5 | ¿La administración recomendaría Kino a otro conjunto? | NPS de la administración | Promotores − detractores | ≥ 30 | Satisfacción | Trimestre |
+| OE5 ★ | ¿Cuántos conjuntos pagan? | Conjuntos con pago | Contratos | 4 a oct 2027 | Conversión | Mes |
 | OE5 | ¿Los rechazos tienen explicación? | Rechazos con motivo | Con motivo ÷ rechazos | 100 % | Confianza | Semana |
 
 ### SOSTAC · C · Etapas del plan y el KPI que cubre cada una
@@ -260,7 +260,7 @@ Un panel por objetivo con el último dato, su serie y la meta como línea puntea
 
 ## 9. Kino como empresa, 3 a 5 años [P]
 
-**Visión.** La capa de autorización entre las personas y el hardware de acceso de los conjuntos en Colombia, sin importar la marca del lector.
+**Visión.** Que cualquier conjunto de Colombia con lector de placa, QR o rostro autorice sus ingresos desde Kino, sea cual sea la marca del lector.
 
 ### 9.1 Objetivos de empresa
 | # | Objetivo | Año |
@@ -286,7 +286,7 @@ Un panel por objetivo con el último dato, su serie y la meta como línea puntea
 ### 9.3 SOSTAC de empresa
 | | |
 |---|---|
-| **S** | Mercado grande y en crecimiento (§1.5). Software sin hardware (Neivor, ComunidadFeliz) y hardware con software propio (ZKTeco): el hueco es la autorización sobre lo ya instalado |
+| **S** | 47,88 % de la vivienda urbana en propiedad horizontal; servicios de propiedad horizontal +13,42 % anual (§1.5). Neivor y ComunidadFeliz venden software sin hardware; ZKTeco, hardware con software propio. Nadie autoriza ingresos sobre el lector que el conjunto ya tiene |
 | **O** | E1 a E5 |
 | **S** | **Replicación** con instaladores (E1) · **Independencia** del fabricante (E2) · **Expansión** a Bogotá (E3) · **Eficiencia**: implementación en < 10 días (E4) · **Ampliación** del Pase a quien entra por trabajo (E5) |
 | **T** | Programa de instaladores con comisión; kit de implementación; conector ZKTeco con un cliente ancla; ficha para consejos; plantilla de reglamento con franjas |
@@ -318,8 +318,8 @@ Un panel por objetivo con el último dato, su serie y la meta como línea puntea
 | **F1 · Kino Residente** | Otorgar, acotar y revocar Pases | Código por WhatsApp (I-01), Pase vivo (I-02), volver a invitar (I-03), hoja (I-04), vigencia (I-05), revocar con deshacer (I-13), extender (I-14), aviso (I-11) | PWA en TypeScript, `@kino/motion`, push | A las 2 p. m. Carolina toca «Andrés» y «Crear Pase»; a las 3:04 le llega «Andrés entró» | OE1, OE2, OE3 |
 | **F2 · Pase vivo** | Que la visita entre sin cuenta | Enlace (I-09); QR, placa o código; cuenta regresiva | Web estática con datos en vivo; imagen generada en el servidor | Andrés llega en carro y el lector lee su placa; si no, acerca el QR | OE2 |
 | **F3 · Kino Portería** | Ver por qué entró o no cada persona | Lectura legible a 3 m (I-10), rechazo con motivo (I-12), llamar sin abrir, bitácora | Tableta Android en kiosco; eventos de HikCentral | Laura llega 10 min tarde; el portero llama, Carolina extiende y entra | OE3, OE4 |
-| **F4 · Kino Administración** | Fijar el marco y cuidar la integración | Franjas con vista previa (I-15), reintento de sincronización (I-16), resumen | Web, API de Kino, correo semanal | El consejo pide cerrar a las 9 p. m.; mueve la franja y ve qué Pase quedaría fuera | OE4, OE5 |
-| **F5 · Conector HikCentral** | Que el Pase exista en la puerta | Estado honesto (I-07); cola de reintentos | HikCentral Professional OpenAPI, persona temporal hasta 2037 o 2099 | Se crea un Pase y el lector responde en 3 s; si falla, queda Sin confirmar con la causa | OE4 |
+| **F4 · Kino Administración** | Fijar las franjas y revisar la sincronización con HikCentral | Franjas con vista previa (I-15), reintento de sincronización (I-16), resumen | Web, API de Kino, correo semanal | El consejo pide cerrar a las 9 p. m.; mueve la franja y ve qué Pase quedaría fuera | OE4, OE5 |
+| **F5 · Conector HikCentral** | Dar de alta el Pase en el lector | Estado honesto (I-07); cola de reintentos | HikCentral Professional OpenAPI, persona temporal hasta 2037 o 2099 | Se crea un Pase y el lector responde en 3 s; si falla, queda Sin confirmar con la causa | OE4 |
 | **F6 · Kit de implementación** | Un conjunto nuevo operando en < 10 días | Carga por cédula, capacitación de 45 min, señalética con QR, lanzamiento | Servicio | Lunes firma, martes carga, jueves capacitación de tres turnos, sábado lanzamiento | OE2, E4 |
 
 ---
