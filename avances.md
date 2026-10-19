@@ -403,3 +403,8 @@ En arquitectura faltaba:
 ## Lámina 13: tácticas explícitas (19 oct)
 - Cada táctica separa el **qué** (nombre en negrita) del **cómo** (rótulo «Cómo» y el paso concreto con su cifra: 3 toques, semana 1, 711 altas, 10 conjuntos). Columnas reajustadas para que el eje quepa en una línea. Misma redacción en la Biblia 3.3.
 - `verificar.mjs` sin fallas; compuerta de voz igual que antes (solo el nombre literal del eje 3).
+
+## Objetivo general: investigación y reescritura (19 oct)
+- Investigación en `entrega-3/investigacion-objetivo-general.md`: guía del curso, metodología de objetivos (verbo + unidad + contexto), OKR (significativo, concreto, sin cifras), posicionamiento (Moore) y SOSTAC. De ahí salen 8 criterios.
+- Nuevo objetivo general: «Posicionar a Kino, a octubre de 2027, como el control de acceso con el que el residente decide quién entra a su casa, dentro de los límites de la administración y sobre el lector que el conjunto ya tiene.» El espacio (Oriente antioqueño) pasa a la meta. Se quita la línea «Posición» aparte: ya va dentro de la frase.
+- Aplicado en el deck (lámina 10 y guion), la Biblia (3.1) y `estrategia.md` (§2 y diagrama). `verificar.mjs` sin fallas. Pendiente de aprobación de Nico.
