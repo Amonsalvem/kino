@@ -19,22 +19,11 @@
  },
  {
   "id": "R-04-inicio-abajo",
-  "hallazgos": [
-   [
-    "toque",
-    ".enlace «Ver Pases anteriores · 1»",
-    "330×44"
-   ]
-  ]
+  "hallazgos": []
  },
  {
   "id": "R-05-crear-vacio",
   "hallazgos": [
-   [
-    "toque",
-    ".enlace «Ver Pases anteriores · 1»",
-    "330×44"
-   ],
    [
     "toque",
     ".icono-btn «Cerrar»",

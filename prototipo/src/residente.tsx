@@ -4,7 +4,7 @@ import {
 	ahora, anotar, compartir, crearPase, cuentaRegresiva, deshacerRevocar, diasTexto, duraMasDeUnDia, duracionTexto, E, emitir, esEstadia, estado, extender,
 	fechaCorta, hora24, horaBreve, horaCorta, horaTexto, min, RECIENTES, RESIDENTE, revocar, validar, ventana, vigenciaTexto, type Modo, type Pase, type Tipo,
 } from './modelo';
-import {BotonMantener, ChipEstado, Icono, Ilustracion, Iniciales, lineaVigencia, Marca, Portal, TarjetaPase, useKino, type ModoVista} from './componentes';
+import {BotonMantener, ChipEstado, Cifra, useAnterior, Digitos, Fundir, Icono, Ilustracion, Iniciales, lineaVigencia, Marca, Portal, Relevo, TarjetaPase, useFlip, useIndicador, useKino, usePresencia, type ModoVista} from './componentes';
 import {animar, C, D, morfar, R, reducido, vibrar, volar} from './movimiento';
 import {animarResorte, arrastrar} from '../../paquetes/kino-motion/src/web/fisica';
 
@@ -15,6 +15,8 @@ export function Residente() {
 	const [pant, setPant] = useState<Pantalla>(est.sesion ? {v: 'inicio', tab: 'pases'} : {v: 'ingreso'});
 	const [hoja, setHoja] = useState<null | {precarga?: (typeof RECIENTES)[number]}>(null);
 	const [banner, setBanner] = useState<string | null>(null);
+	// Al entrar desde la bienvenida, el inicio llega en cascada.
+	const [llegada, setLlegada] = useState(false);
 	const vistosAvisos = useRef(0);
 	// Continuidad: desde dónde viaja el Pase al abrir el detalle y a dónde vuelve al cerrarlo.
 	const origen = useRef<DOMRect | null>(null);
@@ -38,18 +40,26 @@ export function Residente() {
 		}
 		vistosAvisos.current = propios.length;
 	}, [propios.length]);
-	const aviso = propios.find((a) => a.id === banner);
+	const [aviso, avisoSale] = usePresencia(propios.find((a) => a.id === banner));
 
 	return (
 		<div class="app app--residente">
-			{pant.v === 'ingreso' && <Ingreso onListo={() => setPant({v: 'inicio', tab: 'pases'})} />}
+			{pant.v === 'ingreso' && <Ingreso onListo={() => (setLlegada(true), setPant({v: 'inicio', tab: 'pases'}))} />}
 			{pant.v === 'inicio' && (
-				<Inicio tab={pant.tab} regreso={regreso} onTab={(tab) => setPant({v: 'inicio', tab})} onAbrir={(p, el) => ((origen.current = el?.getBoundingClientRect() ?? null), setPant({v: 'detalle', id: p.id}))} onCrear={(precarga) => setHoja({precarga})} />
+				<Inicio tab={pant.tab} regreso={regreso} llegada={llegada} onLlego={() => setLlegada(false)} onTab={(tab) => setPant({v: 'inicio', tab})} onAbrir={(p, el) => ((origen.current = el?.getBoundingClientRect() ?? null), setPant({v: 'detalle', id: p.id}))} onCrear={(precarga) => setHoja({precarga})} />
 			)}
 			{pant.v === 'detalle' && <Detalle id={pant.id} origen={origen.current} onVolver={(r) => ((regreso.current = r ? {id: pant.id, r} : null), setPant({v: 'inicio', tab: 'pases'}))} />}
 			{hoja && <HojaCrear precarga={hoja.precarga} onCerrar={() => setHoja(null)} onVer={(p, r) => ((origen.current = r ?? null), setHoja(null), setPant({v: 'detalle', id: p.id}))} />}
 			{aviso && (
-				<button class={`banner banner--${aviso.tono}`} onClick={() => (setBanner(null), (origen.current = null), aviso.paseId && setPant({v: 'detalle', id: aviso.paseId}))}>
+				<button
+					class={`banner banner--${aviso.tono} ${avisoSale ? 'sale' : ''}`}
+					onClick={(ev) => {
+						// El Pase sale del aviso: el banner es el origen del vuelo al detalle.
+						origen.current = (ev.currentTarget as HTMLElement).getBoundingClientRect();
+						setBanner(null);
+						if (aviso.paseId) setPant({v: 'detalle', id: aviso.paseId});
+					}}
+				>
 					<Marca tam={22} />
 					<span>
 						<b>{aviso.titulo}</b>
@@ -67,7 +77,9 @@ function Ingreso({onListo}: {onListo: () => void}) {
 	const [paso, setPaso] = useState<'numero' | 'codigo' | 'bienvenida'>('numero');
 	const [tel, setTel] = useState(RESIDENTE.telefono);
 	const [cod, setCod] = useState('');
-	const [noti, setNoti] = useState(false);
+	const [notiActiva, setNoti] = useState(false);
+	const [noti, notiSale] = usePresencia(notiActiva);
+	const raiz = useRef<HTMLDivElement>(null);
 	const CODIGO = '482913';
 	const valido = tel.replace(/\D/g, '').length === 10;
 
@@ -90,63 +102,70 @@ function Ingreso({onListo}: {onListo: () => void}) {
 	}, [cod]);
 	useEffect(() => {
 		if (paso !== 'bienvenida') return;
+		// La bienvenida se despide antes de dar paso al inicio: sube un poco y se funde.
 		const t = setTimeout(() => {
-			E.sesion = true;
-			emitir();
-			onListo();
-		}, 1700);
+			const a = [...(raiz.current?.querySelectorAll('.ingreso__marca, .ingreso__pasos') ?? [])].map((n, i) => animar(n, [{opacity: 1}, {opacity: 0, transform: 'translateY(-12px)'}], {duration: D.corto * 0.6, easing: C.salir, delay: i * 40, fill: 'forwards'}))[1];
+			const listo = () => {
+				E.sesion = true;
+				emitir();
+				onListo();
+			};
+			a && !reducido() ? a.finished.then(listo, listo) : listo();
+		}, 1500);
 		return () => clearTimeout(t);
 	}, [paso]);
 
 	return (
-		<div class="ingreso">
+		<div ref={raiz} class="ingreso">
 			{/* La bienvenida amanece con la aurora oficial: el único momento ceremonial del ingreso. */}
 			{paso === 'bienvenida' && <span class="aurora aurora--ingreso" aria-hidden="true" />}
 			<div class="ingreso__marca">
 				<Marca tam={56} />
 				<span class="ingreso__logotipo">KINO</span>
 			</div>
-			{paso === 'numero' && (
-				<div class="ingreso__cuerpo entra">
-					<h1 class="titulo">Entra con tu WhatsApp</h1>
-					<p class="secundario">Te enviamos un código de 6 cifras.</p>
-					<label class="campo">
-						<span class="rotulo">Tu número</span>
-						<span class="campo__fila">
-							<span class="mono tenue">+57</span>
-							<input inputMode="numeric" value={tel} onInput={(e) => setTel((e.target as HTMLInputElement).value)} aria-label="Número de WhatsApp" />
-						</span>
-					</label>
-					<button class="accion" disabled={!valido} onClick={enviar}>
-						Enviar código
-					</button>
-					<p class="nota">Si es tu primera vez, te reconocemos por la cédula que tiene la administración.</p>
-				</div>
-			)}
-			{paso === 'codigo' && (
-				<div class="ingreso__cuerpo entra">
-					<h1 class="titulo">Escribe el código</h1>
-					<p class="secundario">Llegó al WhatsApp de {tel}</p>
-					<div class="otp" onClick={autollenar}>
-						{Array.from({length: 6}, (_, i) => (
-							<span class={`otp__celda ${cod[i] ? 'otp__celda--llena' : ''} ${i === cod.length ? 'otp__celda--foco' : ''}`}>{cod[i] ?? ''}</span>
-						))}
-					</div>
-					<input class="otp__entrada" inputMode="numeric" maxLength={6} value={cod} onInput={(e) => setCod((e.target as HTMLInputElement).value.replace(/\D/g, ''))} aria-label="Código de 6 cifras" />
-					<button class="enlace" onClick={() => setPaso('numero')}>
-						Cambiar número
-					</button>
-				</div>
-			)}
-			{paso === 'bienvenida' && (
-				<div class="ingreso__cuerpo ingreso__bienvenida entra">
-					<span class="rotulo">{RESIDENTE.comunidad}</span>
-					<h1 class="titulo">Hola, Carolina</h1>
-					<p class="secundario">{RESIDENTE.casa}</p>
-				</div>
-			)}
+			<Relevo k={paso} dir={paso === 'numero' ? -1 : 1} clase="ingreso__pasos">
+				{(k) =>
+					k === 'numero' ? (
+				<div class="ingreso__cuerpo">
+							<h1 class="titulo">Entra con tu WhatsApp</h1>
+							<p class="secundario">Te enviamos un código de 6 cifras.</p>
+							<label class="campo">
+								<span class="rotulo">Tu número</span>
+								<span class="campo__fila">
+									<span class="mono tenue">+57</span>
+									<input inputMode="numeric" value={tel} onInput={(e) => setTel((e.target as HTMLInputElement).value)} aria-label="Número de WhatsApp" />
+								</span>
+							</label>
+							<button class="accion" disabled={!valido} onClick={enviar}>
+								Enviar código
+							</button>
+							<p class="nota">Si es tu primera vez, te reconocemos por la cédula que tiene la administración.</p>
+						</div>
+					) : k === 'codigo' ? (
+				<div class="ingreso__cuerpo">
+							<h1 class="titulo">Escribe el código</h1>
+							<p class="secundario">Llegó al WhatsApp de {tel}</p>
+							<div class="otp" onClick={autollenar}>
+								{Array.from({length: 6}, (_, i) => (
+									<span class={`otp__celda ${cod[i] ? 'otp__celda--llena' : ''} ${i === cod.length ? 'otp__celda--foco' : ''}`}>{cod[i] ?? ''}</span>
+								))}
+							</div>
+							<input class="otp__entrada" inputMode="numeric" maxLength={6} value={cod} onInput={(e) => setCod((e.target as HTMLInputElement).value.replace(/\D/g, ''))} aria-label="Código de 6 cifras" />
+							<button class="enlace" onClick={() => setPaso('numero')}>
+								Cambiar número
+							</button>
+						</div>
+					) : (
+				<div class="ingreso__cuerpo ingreso__bienvenida">
+							<span class="rotulo">{RESIDENTE.comunidad}</span>
+							<h1 class="titulo">Hola, Carolina</h1>
+							<p class="secundario">{RESIDENTE.casa}</p>
+						</div>
+					)
+				}
+			</Relevo>
 			{noti && (
-				<button class="notificacion" onClick={autollenar}>
+				<button class={`notificacion ${notiSale ? 'sale' : ''}`} onClick={autollenar}>
 					<span class="notificacion__app">Mensajes · ahora</span>
 					<b>Kino</b>
 					<span>Tu código es {CODIGO.slice(0, 3)} {CODIGO.slice(3)}. Vence en 10 minutos.</span>
@@ -161,7 +180,7 @@ function Ingreso({onListo}: {onListo: () => void}) {
 type Tab = 'pases' | 'avisos' | 'casa';
 
 const ORDEN_TAB: Tab[] = ['pases', 'avisos', 'casa'];
-function Inicio({tab, regreso, onTab, onAbrir, onCrear}: {tab: Tab; regreso: {current: {id: string; r: DOMRect} | null}; onTab: (t: Tab) => void; onAbrir: (p: Pase, el?: HTMLElement) => void; onCrear: (pre?: (typeof RECIENTES)[number]) => void}) {
+function Inicio({tab, regreso, llegada, onLlego, onTab, onAbrir, onCrear}: {tab: Tab; regreso: {current: {id: string; r: DOMRect} | null}; llegada?: boolean; onLlego?: () => void; onTab: (t: Tab) => void; onAbrir: (p: Pase, el?: HTMLElement) => void; onCrear: (pre?: (typeof RECIENTES)[number]) => void}) {
 	const est = useKino(1000);
 	// Pestañas: el contenido entra desde el lado hacia el que se movió la barra.
 	const scroll = useRef<HTMLDivElement>(null);
@@ -169,8 +188,19 @@ function Inicio({tab, regreso, onTab, onAbrir, onCrear}: {tab: Tab; regreso: {cu
 	useLayoutEffect(() => {
 		const dir = Math.sign(ORDEN_TAB.indexOf(tab) - ORDEN_TAB.indexOf(tabAntes.current));
 		tabAntes.current = tab;
-		if (dir) animar(scroll.current, [{opacity: 0, transform: `translateX(${dir * 18}px)`}, {opacity: 1, transform: 'none'}], {duration: D.crecer, easing: C.crecer});
+		if (dir) animar(scroll.current, [{opacity: 0, transform: `translateX(${dir * 18}px)`}, {opacity: 1, offset: 0.45}, {opacity: 1, transform: 'none'}], {duration: D.crecer, easing: C.crecer});
 	}, [tab]);
+	// Desde la bienvenida: la cabecera, los recientes, las listas y la barra llegan en cascada.
+	const raiz = useRef<HTMLDivElement>(null);
+	useLayoutEffect(() => {
+		if (!llegada) return;
+		onLlego?.();
+		const piezas = raiz.current?.querySelectorAll('.cabecera, .seccion, .barra-inferior') ?? [];
+		piezas.forEach((n, i) => animar(n, [{opacity: 0, transform: 'translateY(18px)'}, {opacity: 1, transform: 'none'}], {duration: D.tarjeta, easing: C.crecer, delay: i * 60, fill: 'backwards'}));
+	}, []);
+	const barra = useRef<HTMLElement>(null);
+	useIndicador(barra, tab);
+	const [pie, pieSale] = usePresencia(tab === 'pases');
 	const vuelo = regreso.current;
 	useEffect(() => {
 		regreso.current = null;
@@ -190,11 +220,13 @@ function Inicio({tab, regreso, onTab, onAbrir, onCrear}: {tab: Tab; regreso: {cu
 		return {ahora_, proximos, anteriores};
 	}, [est.pases.length, firma]);
 	const [verAnt, setVerAnt] = useState(false);
+	// Un Pase que cambia de grupo (Ahora → Anteriores) o uno nuevo: los demás se acomodan y él viaja (FLIP).
+	useFlip(scroll, `${tab}|${verAnt}|${[...grupos.ahora_, ...grupos.proximos, ...grupos.anteriores].map((p) => p.id).join()}`);
 	const estadias = grupos.ahora_.filter(esEstadia).length;
 	const colab = grupos.ahora_.filter((p) => p.tipo === 'colaborador').length;
 
 	return (
-		<div class="inicio">
+		<div ref={raiz} class="inicio">
 			<div ref={scroll} class="pantalla__scroll">
 				{tab === 'pases' && (
 					<>
@@ -207,15 +239,21 @@ function Inicio({tab, regreso, onTab, onAbrir, onCrear}: {tab: Tab; regreso: {cu
 							<h1 class="titulo titulo--xl">Tus Pases</h1>
 							<dl class="resumen-casa">
 								<div>
-									<dd class="mono">{grupos.ahora_.length}</dd>
+									<dd class="mono">
+										<Cifra v={grupos.ahora_.length} />
+									</dd>
 									<dt>vivos ahora</dt>
 								</div>
 								<div>
-									<dd class="mono">{estadias}</dd>
+									<dd class="mono">
+										<Cifra v={estadias} />
+									</dd>
 									<dt>{estadias === 1 ? 'estadía' : 'estadías'}</dt>
 								</div>
 								<div>
-									<dd class="mono">{colab}</dd>
+									<dd class="mono">
+										<Cifra v={colab} />
+									</dd>
 									<dt>{colab === 1 ? 'colaborador' : 'colaboradores'}</dt>
 								</div>
 							</dl>
@@ -241,20 +279,20 @@ function Inicio({tab, regreso, onTab, onAbrir, onCrear}: {tab: Tab; regreso: {cu
 						)}
 						{grupos.ahora_.length > 0 && (
 							<section class="seccion">
-								<h2 class="rotulo">Ahora</h2>
+								<h2 class="rotulo" data-k="g-ahora">Ahora</h2>
 								<div class="lista">{grupos.ahora_.map((p, i) => <TarjetaPase key={p.id} p={p} retraso={i * 90} vuelo={vuelo?.id === p.id ? vuelo.r : undefined} onAbrir={(p, el) => (anotar('I-02'), onAbrir(p, el))} />)}</div>
 							</section>
 						)}
 						{grupos.proximos.length > 0 && (
 							<section class="seccion">
-								<h2 class="rotulo">Próximos</h2>
+								<h2 class="rotulo" data-k="g-proximos">Próximos</h2>
 								<div class="lista">{grupos.proximos.map((p, i) => <TarjetaPase key={p.id} p={p} retraso={i * 90} vuelo={vuelo?.id === p.id ? vuelo.r : undefined} onAbrir={onAbrir} />)}</div>
 							</section>
 						)}
 						{grupos.anteriores.length > 0 && (
 							<section class="seccion">
-								<button class="enlace" onClick={() => setVerAnt(!verAnt)} aria-expanded={verAnt}>
-									{verAnt ? 'Ocultar' : 'Ver'} Pases anteriores · {grupos.anteriores.length}
+								<button class="enlace" data-k="g-anteriores" onClick={() => setVerAnt(!verAnt)} aria-expanded={verAnt}>
+									<Fundir t={`${verAnt ? 'Ocultar' : 'Ver'} Pases anteriores · ${grupos.anteriores.length}`} />
 								</button>
 								{verAnt && <div class="lista">{grupos.anteriores.map((p, i) => <TarjetaPase key={p.id} p={p} retraso={i * 55} vuelo={vuelo?.id === p.id ? vuelo.r : undefined} onAbrir={onAbrir} />)}</div>}
 							</section>
@@ -265,15 +303,16 @@ function Inicio({tab, regreso, onTab, onAbrir, onCrear}: {tab: Tab; regreso: {cu
 				{tab === 'avisos' && <Avisos onAbrir={onAbrir} />}
 				{tab === 'casa' && <MiCasa />}
 			</div>
-			{tab === 'pases' && (
-				<div class="pie-accion pie-accion--sobre-barra">
+			{pie && (
+				<div class={`pie-accion pie-accion--sobre-barra ${pieSale ? 'sale' : ''}`}>
 					<button class="accion accion--crear" onClick={() => onCrear()}>
 						<Icono n="mas" />
 						Crear Pase
 					</button>
 				</div>
 			)}
-			<nav class="barra-inferior" aria-label="Secciones">
+			<nav ref={barra} class="barra-inferior con-indicador" aria-label="Secciones">
+				<span class="indicador" aria-hidden="true" />
 				{(
 					[
 						['pases', 'Pases', 'pases'],
@@ -292,7 +331,8 @@ function Inicio({tab, regreso, onTab, onAbrir, onCrear}: {tab: Tab; regreso: {cu
 	);
 }
 
-function Avisos({onAbrir}: {onAbrir: (p: Pase) => void}) {
+const avisosVistos = new Set<string>();
+function Avisos({onAbrir}: {onAbrir: (p: Pase, el?: HTMLElement) => void}) {
 	const est = useKino(2000);
 	const lista = [...est.avisos.filter((a) => a.para === 'residente')].reverse();
 	return (
@@ -308,8 +348,11 @@ function Avisos({onAbrir}: {onAbrir: (p: Pase) => void}) {
 			<div class="lista">
 				{lista.map((a) => {
 					const p = est.pases.find((x) => x.id === a.paseId);
+					// Solo entra el aviso que no se había visto; los demás ya estaban ahí.
+					const nuevo = !avisosVistos.has(a.id);
+					avisosVistos.add(a.id);
 					return (
-						<button class={`fila-aviso fila-aviso--${a.tono}`} onClick={() => p && onAbrir(p)}>
+						<button key={a.id} class={`fila-aviso fila-aviso--${a.tono} ${nuevo ? 'fila-aviso--nueva' : ''}`} onClick={(ev) => p && onAbrir(p, ev.currentTarget as HTMLElement)}>
 							<span class="mono tenue">{hora24(a.hora)}</span>
 							<span class="fila-aviso__texto">
 								<b>{a.titulo}</b>
@@ -392,6 +435,8 @@ function HojaCrear({precarga, onCerrar, onVer}: {precarga?: (typeof RECIENTES)[n
 	const fondoRef = useRef<HTMLDivElement>(null);
 	const asaRef = useRef<HTMLDivElement>(null);
 	const arribaAntes = useRef<number | null>(null);
+	const segmentado = useRef<HTMLDivElement>(null);
+	const opcionesCuando = useRef<HTMLDivElement>(null);
 
 	useLayoutEffect(() => {
 		animar(hojaRef.current, [{transform: 'translateY(100%)'}, {transform: 'none'}], {duration: R.hoja.ms, easing: R.hoja.linear});
@@ -427,7 +472,14 @@ function HojaCrear({precarga, onCerrar, onVer}: {precarga?: (typeof RECIENTES)[n
 		return () => g.soltar();
 	}, []);
 
-	// La hoja cambia de alto al crear: el borde de arriba se desliza a su lugar en vez de saltar (FLIP).
+	// La hoja cambia de alto (al crear, al cambiar de Visita a Colaborador o de plazo): el borde de arriba se
+	// desliza a su lugar en vez de saltar (FLIP). Se mide en el render, antes de que cambie el DOM.
+	const forma = `${tipo}|${cuando}|${!!creado}`;
+	const formaAntes = useRef(forma);
+	if (formaAntes.current !== forma) {
+		formaAntes.current = forma;
+		if (arribaAntes.current == null) arribaAntes.current = hojaRef.current?.getBoundingClientRect().top ?? null;
+	}
 	useLayoutEffect(() => {
 		const h = hojaRef.current;
 		if (!h || arribaAntes.current == null) return;
@@ -435,7 +487,9 @@ function HojaCrear({precarga, onCerrar, onVer}: {precarga?: (typeof RECIENTES)[n
 		const d = (arribaAntes.current - h.getBoundingClientRect().top) / k;
 		arribaAntes.current = null;
 		if (Math.abs(d) > 1) animar(h, [{transform: `translateY(${d}px)`}, {transform: 'none'}], {duration: R.hoja.ms, easing: R.hoja.linear});
-	}, [creado]);
+	});
+	useIndicador(segmentado, tipo);
+	useIndicador(opcionesCuando, `${tipo}|${cuando}`);
 
 	const rango = (): {desde: Date; hasta: Date} => {
 		const d = new Date(t0);
@@ -499,7 +553,9 @@ function HojaCrear({precarga, onCerrar, onVer}: {precarga?: (typeof RECIENTES)[n
 				<div ref={asaRef} class="hoja__asa">
 					<i />
 					<div class="hoja__titulo">
-						<span class="titulo titulo--m">{creado ? 'Pase creado' : 'Nuevo Pase'}</span>
+						<span class="titulo titulo--m">
+							<Fundir t={creado ? 'Pase creado' : 'Nuevo Pase'} />
+						</span>
 						<button class="icono-btn" onClick={cerrar} aria-label="Cerrar">
 							<Icono n="x" />
 						</button>
@@ -507,7 +563,8 @@ function HojaCrear({precarga, onCerrar, onVer}: {precarga?: (typeof RECIENTES)[n
 				</div>
 				{!creado ? (
 					<div class="hoja__cuerpo">
-						<div class="segmentado" role="tablist">
+						<div ref={segmentado} class="segmentado con-indicador" role="tablist">
+							<span class="indicador" aria-hidden="true" />
 							{(['visita', 'colaborador'] as Tipo[]).map((k) => (
 								<button role="tab" aria-selected={tipo === k} class={tipo === k ? 'activo' : ''} onClick={() => setTipo(k)}>
 									{k === 'visita' ? 'Visita' : 'Colaborador'}
@@ -526,10 +583,13 @@ function HojaCrear({precarga, onCerrar, onVer}: {precarga?: (typeof RECIENTES)[n
 							<p class="nota">Ahí le llega el Pase. No instala nada ni crea cuenta.</p>
 						</div>
 
-						{tipo === 'visita' ? (
+						<Relevo k={tipo} dir={tipo === 'visita' ? -1 : 1}>
+							{(k) =>
+								k === 'visita' ? (
 							<div class="grupo">
 								<span class="rotulo">¿Por cuánto tiempo?</span>
-								<div class="opciones" role="radiogroup">
+								<div ref={opcionesCuando} class="opciones con-indicador" role="radiogroup">
+									<span class="indicador" aria-hidden="true" />
 									{(
 										[
 											['horas', 'Unas horas'],
@@ -566,7 +626,7 @@ function HojaCrear({precarga, onCerrar, onVer}: {precarga?: (typeof RECIENTES)[n
 									<input class="mono mayus" value={placa} placeholder="ABC 123" onInput={(e) => setPlaca((e.target as HTMLInputElement).value)} />
 								</label>
 							</div>
-						) : (
+					) : (
 							<div class="grupo">
 								<span class="rotulo">Días que viene</span>
 								<div class="dias">
@@ -581,11 +641,16 @@ function HojaCrear({precarga, onCerrar, onVer}: {precarga?: (typeof RECIENTES)[n
 									<Paso rotulo="Sale" valor={horaBreve(dia(franja[1] * 60))} menos={() => setFranja([franja[0], Math.max(franja[0] + 1, franja[1] - 1)])} mas={() => setFranja([franja[0], Math.min(23, franja[1] + 1)])} />
 								</div>
 							</div>
-						)}
-
+								)
+							}
+						</Relevo>
 						<div class={`previa-pase ${errorFranja ? 'previa-pase--choca' : ''}`}>
-							<span class="rotulo">{errorFranja ? 'Fuera de la franja del conjunto' : 'Así queda'}</span>
-							<span class="dato">{resumen}</span>
+							<span class="rotulo">
+								<Fundir t={errorFranja ? 'Fuera de la franja del conjunto' : 'Así queda'} />
+							</span>
+							<span class="dato">
+								<Fundir t={resumen} />
+							</span>
 							{(errorFranja || (tipo === 'visita' && !estadia)) && (
 								<span class="nota">
 									{tipo === 'visita' ? `Las visitas de un día entran de ${horaTexto(L.visitaDesde)} a ${horaTexto(L.visitaHasta)}` : `Los colaboradores entran de ${horaTexto(L.colabDesde)} a ${horaTexto(L.colabHasta)}`}
@@ -613,7 +678,9 @@ const Paso = ({rotulo, valor, menos, mas}: {rotulo: string; valor: string; menos
 		<span class="rotulo">{rotulo}</span>
 		<div class="paso__fila">
 			<button onClick={menos} aria-label={`Menos: ${rotulo}`}>−</button>
-			<span class="mono paso__valor">{valor}</span>
+			<span class="mono paso__valor">
+				<Fundir t={valor} />
+			</span>
 			<button onClick={mas} aria-label={`Más: ${rotulo}`}>+</button>
 		</div>
 	</div>
@@ -648,8 +715,10 @@ function Creado({p, desde, capa, enviado, onEnviar, onVer}: {p: Pase; desde: DOM
 			</div>
 			<div ref={acciones} class="creado__acciones">
 				<button class={`accion ${enviado ? 'accion--hecho' : ''}`} onClick={onEnviar} disabled={enviado}>
-					<Icono n={enviado ? 'check' : 'compartir'} />
-					{enviado ? `Enviado a ${p.nombre.split(' ')[0]}` : 'Enviar por WhatsApp'}
+					<span key={enviado ? 'si' : 'no'} class={enviado ? 'icono-brota' : undefined}>
+						<Icono n={enviado ? 'check' : 'compartir'} />
+					</span>
+					<Fundir t={enviado ? `Enviado a ${p.nombre.split(' ')[0]}` : 'Enviar por WhatsApp'} />
 				</button>
 				<button class="secundario-btn" onClick={() => onVer(ref.current?.querySelector('.portal__arco')?.getBoundingClientRect())}>
 					Ver el Pase
@@ -667,6 +736,9 @@ function Detalle({id, origen, onVolver}: {id: string; origen: DOMRect | null; on
 	const [error, setError] = useState<string | null>(null);
 	const ref = useRef<HTMLDivElement>(null);
 	const portal = useRef<HTMLDivElement>(null);
+	const modos = useRef<HTMLDivElement>(null);
+	const cuenta = useRef<HTMLSpanElement>(null);
+	useIndicador(modos, modo);
 	const resto = () => [...(ref.current?.querySelectorAll<HTMLElement>('.barra-sup, .modos, .detalle__cuerpo, .pie-accion') ?? [])];
 	useLayoutEffect(() => {
 		if (!origen) return void animar(ref.current, [{opacity: 0, transform: 'translateX(28px)'}, {opacity: 1, transform: 'none'}], {duration: D.crecer, easing: C.crecer});
@@ -682,13 +754,35 @@ function Detalle({id, origen, onVolver}: {id: string; origen: DOMRect | null; on
 		if (fin && !reducido()) fin.finished.then(() => onVolver(r)).catch(() => onVolver(r));
 		else onVolver(r);
 	};
-	if (!p) return null;
-	const e = estado(p);
-	const v = ventana(p);
+	const e = p ? estado(p) : 'vencido';
+	const antes = useAnterior(e);
 	const vivo = e === 'vigente' || e === 'por-vencer' || e === 'previsto' || e === 'sin-confirmar';
+	const [pie, pieSale] = usePresencia(vivo);
+	const [errorVisible, errorSale] = usePresencia(error);
+	// Al revocar o vencer, Extender sale y lo de abajo sube a su lugar (FLIP); al deshacer, vuelve.
+	const [ext, extSale] = usePresencia(vivo && p?.tipo === 'visita');
+	const conCuenta = e === 'vigente' || e === 'por-vencer';
+	useFlip(ref, `${!!ext}|${conCuenta}`);
+	// Usado: el nombre se tacha también aquí, no solo en el Portal.
+	useEffect(() => {
+		if (antes !== e && e === 'usado') animar(ref.current?.querySelector('.detalle__cabeza .tachado'), [{transform: 'scaleX(0)'}, {transform: 'scaleX(1)'}], {duration: D.corto, easing: C.crecer});
+	}, [e]);
+	const extenderCon = (h: number) => {
+		const err = extender(p!, h);
+		setError(err);
+		if (err) return;
+		// La vigencia crece: la cifra destella una vez y la hora nueva se funde.
+		const n = cuenta.current;
+		n?.classList.remove('cuenta__num--destello');
+		void n?.offsetWidth;
+		n?.classList.add('cuenta__num--destello');
+		vibrar(10);
+	};
+	if (!p) return null;
+	const v = ventana(p);
 	const extensiones: [string, number][] = esEstadia(p) ? [['+1 semana', 168], ['+1 mes', 720]] : [['+1 h', 1], ['+1 día', 24], ['+1 semana', 168]];
 	return (
-		<div ref={ref} class="detalle">
+		<div ref={ref} class={`detalle detalle--${e}`}>
 			<div class="barra-sup">
 				<button class="icono-btn" onClick={volver} aria-label="Volver">
 					<Icono n="atras" />
@@ -699,7 +793,8 @@ function Detalle({id, origen, onVolver}: {id: string; origen: DOMRect | null; on
 			<div class="pantalla__scroll">
 				<div ref={portal} class="detalle__portal">
 					<Portal p={p} modo={modo} tam={232} inclinable />
-					<div class="modos" role="tablist">
+					<div ref={modos} class="modos con-indicador" role="tablist">
+						<span class="indicador" aria-hidden="true" />
 						{p.modos.map((m) => (
 							<button role="tab" aria-selected={modo === m} class={modo === m ? 'activo' : ''} onClick={() => setModo(m)}>
 								<Icono n={m} tam={18} />
@@ -715,32 +810,36 @@ function Detalle({id, origen, onVolver}: {id: string; origen: DOMRect | null; on
 							{p.nombre}
 							<span class="tachado" />
 						</h1>
-						<p class={`dato dato--${e}`}>{lineaVigencia(p, e)}</p>
-						{(e === 'vigente' || e === 'por-vencer') && (
-							<p class="cuenta">
+						<p class={`dato dato--${e}`}>
+							<Fundir t={lineaVigencia(p, e)} />
+						</p>
+						{conCuenta && (
+							<p class="cuenta entra">
 								<span class="rotulo">Vence en</span>
-								<span class="mono cuenta__num">{cuentaRegresiva(v.hasta)}</span>
+								<span ref={cuenta} class="mono cuenta__num">
+									<Digitos t={cuentaRegresiva(v.hasta)} />
+								</span>
 							</p>
 						)}
 					</div>
-					{vivo && p.tipo === 'visita' && (
-						<section class="grupo">
+					{ext && (
+						<section class={`grupo entra ${extSale ? 'sale' : ''}`}>
 							<h2 class="rotulo">Extender</h2>
 							<div class={`opciones opciones--${extensiones.length}`}>
 								{extensiones.map(([txt, h]) => (
-									<button class="opcion" onClick={() => setError(extender(p, h))}>
+									<button class="opcion" onClick={() => extenderCon(h)}>
 										{txt}
 									</button>
 								))}
 							</div>
-							{error && <p class="nota nota--error">{error}</p>}
+							{errorVisible && <p class={`nota nota--error entra ${errorSale ? 'sale' : ''}`}>{errorVisible}</p>}
 						</section>
 					)}
-					<section class="grupo">
+					<section class="grupo" data-k="traza">
 						<h2 class="rotulo">Lo que pasó</h2>
 						<ol class="traza">
 							{[...p.traza].reverse().map((t) => (
-								<li class={`traza__item traza__item--${t.tipo}`}>
+								<li key={`${t.hora.getTime()}-${t.texto}`} class={`traza__item traza__item--${t.tipo}`}>
 									<span class="mono">{fechaCorta(t.hora) === 'hoy' ? hora24(t.hora) : fechaCorta(t.hora)}</span>
 									<span>{t.texto}</span>
 								</li>
@@ -749,8 +848,8 @@ function Detalle({id, origen, onVolver}: {id: string; origen: DOMRect | null; on
 					</section>
 				</div>
 			</div>
-			{vivo && (
-				<div class="pie-accion pie-accion--fijo">
+			{pie && (
+				<div class={`pie-accion pie-accion--fijo ${pieSale ? 'sale' : ''}`}>
 					<BotonMantener onCompleto={() => revocar(p)} clase="mantener--revocar">
 						Mantén presionado para revocar
 					</BotonMantener>
@@ -763,18 +862,17 @@ function Detalle({id, origen, onVolver}: {id: string; origen: DOMRect | null; on
 function Deshacer() {
 	const est = useKino(250);
 	const d = est.deshacer;
-	if (!d) return null;
-	const queda = Math.max(0, d.hasta - Date.now());
-	if (queda <= 0) {
-		E.deshacer = undefined;
-		return null;
-	}
+	const queda = d ? Math.max(0, d.hasta - Date.now()) : 0;
+	if (d && queda <= 0) E.deshacer = undefined;
+	const [vis, sale] = usePresencia(d && queda > 0 ? d : null);
+	if (!vis) return null;
 	return (
-		<div class="deshacer" role="status">
+		<div class={`deshacer ${sale ? 'sale' : ''}`} role="status">
 			<span>Pase revocado. El lector ya no lo acepta.</span>
-			<button onClick={deshacerRevocar}>
+			<button onClick={deshacerRevocar} disabled={sale}>
 				<Icono n="deshacer" tam={18} />
-				Deshacer · {Math.ceil(queda / 1000)}
+				Deshacer ·{' '}
+				<Digitos t={String(Math.max(1, Math.ceil(queda / 1000)))} />
 			</button>
 		</div>
 	);

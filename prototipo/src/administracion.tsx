@@ -2,7 +2,7 @@
 // ni de duración (decisiones.md E3-2): eso lo decide cada residente.
 import {useLayoutEffect, useRef, useState} from 'preact/hooks';
 import {ahora, anotar, E, emitir, esEstadia, estado, hora24, horaBreve, repararSync, vigenciaTexto, type Limites} from './modelo';
-import {ChipEstado, Icono, Marca, useKino} from './componentes';
+import {ChipEstado, Cifra, Fundir, Icono, Marca, useFlip, useIndicador, useKino, usePresencia} from './componentes';
 import {animar, C, D, reducido} from './movimiento';
 
 type Seccion = 'resumen' | 'limites' | 'lector';
@@ -12,6 +12,8 @@ export function Administracion() {
 	// Cambio de sección: el contenido nuevo sube y funde, sin corte seco; el menú no se mueve.
 	const principal = useRef<HTMLElement>(null);
 	const primera = useRef(true);
+	const nav = useRef<HTMLElement>(null);
+	useIndicador(nav, s);
 	useLayoutEffect(() => {
 		if (primera.current) return void (primera.current = false);
 		animar(principal.current?.firstElementChild, [{opacity: 0, transform: 'translateY(10px)'}, {opacity: 1, transform: 'none'}], {duration: D.crecer, easing: C.crecer});
@@ -23,7 +25,8 @@ export function Administracion() {
 					<Marca tam={30} />
 					<b>Kino Administración</b>
 				</div>
-				<nav class="admin__nav">
+				<nav ref={nav} class="admin__nav con-indicador">
+					<span class="indicador" aria-hidden="true" />
 					{(
 						[
 							['resumen', 'Resumen', 'resumen'],
@@ -54,15 +57,18 @@ function Resumen({ir}: {ir: (s: Seccion) => void}) {
 	const vivos = est.pases.filter((p) => ['vigente', 'por-vencer'].includes(estado(p)));
 	const entradas = est.lecturas.filter((l) => l.resultado === 'entra' && l.hora.toDateString() === hoy).length;
 	const rechazos = est.lecturas.filter((l) => l.resultado === 'rechazado' && l.hora.toDateString() === hoy);
-	const caida = est.sync.find((x) => x.estado !== 'en-linea');
+	const [caida, caidaSale] = usePresencia(est.sync.find((x) => x.estado !== 'en-linea'));
+	// Cuando la integración se recupera, la alerta sale y lo de abajo sube a su lugar (FLIP).
+	const pagina = useRef<HTMLDivElement>(null);
+	useFlip(pagina, String(!!caida));
 	return (
-		<div class="admin__pagina">
+		<div ref={pagina} class="admin__pagina">
 			<header class="admin__cabeza">
 				<h1 class="titulo titulo--xl">Resumen de hoy</h1>
 				<p class="secundario">Villas Campestres y Refugio Campestre · {hora24(ahora())}</p>
 			</header>
 			{caida && (
-				<button class="alerta-sync" onClick={() => ir('lector')}>
+				<button class={`alerta-sync ${caidaSale ? 'sale' : ''}`} onClick={() => ir('lector')}>
 					<Icono n="alerta" tam={28} />
 					<span class="alerta-sync__texto">
 						<b>{caida.comunidad}: la integración con el lector está caída</b>
@@ -71,13 +77,13 @@ function Resumen({ir}: {ir: (s: Seccion) => void}) {
 					<span class="enlace">Ver la causa</span>
 				</button>
 			)}
-			<div class="cifras">
-				<div class="cifra"><span class="cifra__num">{vivos.length}</span><span class="rotulo">Pases vigentes</span></div>
-				<div class="cifra"><span class="cifra__num">{vivos.filter(esEstadia).length}</span><span class="rotulo">Estadías</span></div>
-				<div class="cifra"><span class="cifra__num">{entradas}</span><span class="rotulo">Entradas hoy</span></div>
-				<div class="cifra"><span class="cifra__num">{rechazos.length}</span><span class="rotulo">Rechazos hoy</span></div>
+			<div class="cifras" data-k="cifras">
+				<div class="cifra"><span class="cifra__num"><Cifra v={vivos.length} /></span><span class="rotulo">Pases vigentes</span></div>
+				<div class="cifra"><span class="cifra__num"><Cifra v={vivos.filter(esEstadia).length} /></span><span class="rotulo">Estadías</span></div>
+				<div class="cifra"><span class="cifra__num"><Cifra v={entradas} /></span><span class="rotulo">Entradas hoy</span></div>
+				<div class="cifra"><span class="cifra__num"><Cifra v={rechazos.length} /></span><span class="rotulo">Rechazos hoy</span></div>
 			</div>
-			<div class="admin__columnas">
+			<div class="admin__columnas" data-k="columnas">
 				<section class="grupo">
 					<h2 class="rotulo">Pases vigentes ahora</h2>
 					<table class="tabla tabla--admin">
@@ -85,7 +91,7 @@ function Resumen({ir}: {ir: (s: Seccion) => void}) {
 						<thead><tr><th>Quién</th><th>Casa</th><th>Vigencia</th></tr></thead>
 						<tbody>
 							{vivos.map((p) => (
-								<tr>
+								<tr key={p.id}>
 									<td>{p.nombre}</td>
 									<td>{p.autor.casa}</td>
 									<td class="mono">{vigenciaTexto(p)}</td>
@@ -101,7 +107,7 @@ function Resumen({ir}: {ir: (s: Seccion) => void}) {
 						<thead><tr><th>Hora</th><th>Quién</th><th>Motivo</th></tr></thead>
 						<tbody>
 							{rechazos.map((l) => (
-								<tr>
+								<tr key={l.id}>
 									<td class="mono">{hora24(l.hora)}</td>
 									<td>{l.nombre}</td>
 									<td>{l.motivo}</td>
@@ -160,11 +166,13 @@ function Franjas() {
 			<div class="admin__guardar">
 				<div class={`previa ${fuera.length ? 'previa--choca' : ''}`}>
 					<b>Qué pasaría con este cambio</b>
-					<span>
-						{fuera.length
-							? `${fuera.map((p) => p.nombre).join(', ')} ${fuera.length === 1 ? 'queda' : 'quedan'} fuera de la franja nueva. No se cortan: conservan su vigencia.`
-							: 'Ningún Pase activo queda fuera de la franja nueva.'}
-					</span>
+					<Fundir
+						t={
+							fuera.length
+								? `${fuera.map((p) => p.nombre).join(', ')} ${fuera.length === 1 ? 'queda' : 'quedan'} fuera de la franja nueva. No se cortan: conservan su vigencia.`
+								: 'Ningún Pase activo queda fuera de la franja nueva.'
+						}
+					/>
 				</div>
 				<button
 					class="accion accion--secundaria-fuerte"
@@ -176,7 +184,12 @@ function Franjas() {
 						anotar('I-15');
 					}}
 				>
-					{guardado && !sucio ? 'Guardado' : 'Guardar franjas'}
+					{guardado && !sucio && (
+						<span class="icono-brota">
+							<Icono n="check" />
+						</span>
+					)}
+					<Fundir t={guardado && !sucio ? 'Guardado' : 'Guardar franjas'} />
 				</button>
 			</div>
 			<p class="nota">Sin tope de visitas por casa ni de duración: lo decide el residente.</p>
@@ -195,7 +208,9 @@ const Control = ({rotulo, valor, menos, mas}: {rotulo: string; valor: string; me
 		<span class="rotulo">{rotulo}</span>
 		<div class="paso__fila">
 			<button onClick={menos} aria-label={`Menos: ${rotulo}`}>−</button>
-			<span class="mono paso__valor">{valor}</span>
+			<span class="mono paso__valor">
+				<Fundir t={valor} />
+			</span>
 			<button onClick={mas} aria-label={`Más: ${rotulo}`}>+</button>
 		</div>
 	</div>
@@ -254,7 +269,7 @@ function Lector() {
 			</header>
 			<div class="sync-grid">
 				{est.sync.map((s) => (
-					<div class={`sync sync--${s.estado}`}>
+					<div key={s.comunidad} class={`sync sync--${s.estado}`}>
 						<div class="sync__cabeza">
 							<b>{s.comunidad}</b>
 							{s.estado === 'en-linea' ? <ChipEstado e="vigente" /> : s.estado === 'reparando' ? <span class="chip chip--sin-confirmar"><span class="chip__punto" />Sincronizando</span> : <ChipEstado e="rechazado" />}
@@ -263,9 +278,9 @@ function Lector() {
 							<>
 								<Red usuarios={s.usuarios} vehiculos={s.vehiculos} flujo={s.estado === 'reparando'} />
 								<dl class="datos">
-									<div><dt>Usuarios en el lector</dt><dd class="mono">{s.usuarios[0]} de {s.usuarios[1]}</dd></div>
-									<div><dt>Vehículos en el lector</dt><dd class="mono">{s.vehiculos[0]} de {s.vehiculos[1]}</dd></div>
-									<div><dt>Errores de alta</dt><dd class="mono">{s.errores}</dd></div>
+									<div><dt>Usuarios en el lector</dt><dd class="mono"><Cifra v={s.usuarios[0]} ms={400} /> de {s.usuarios[1]}</dd></div>
+									<div><dt>Vehículos en el lector</dt><dd class="mono"><Cifra v={s.vehiculos[0]} ms={400} /> de {s.vehiculos[1]}</dd></div>
+									<div><dt>Errores de alta</dt><dd class="mono"><Cifra v={s.errores} ms={400} /></dd></div>
 								</dl>
 							</>
 						) : (
@@ -276,7 +291,7 @@ function Lector() {
 								<p class="causa"><b>Causa:</b> {s.causa}. El correo es obligatorio en el alta y la mayoría de residentes no lo tiene.</p>
 								<button class="accion" disabled={s.estado === 'reparando'} onClick={() => repararSync(s.comunidad)}>
 									<Icono n="sincronizar" />
-									{s.estado === 'reparando' ? 'Sincronizando…' : 'Reintentar con teléfono en lugar de correo'}
+									<Fundir t={s.estado === 'reparando' ? 'Sincronizando…' : 'Reintentar con teléfono en lugar de correo'} />
 								</button>
 							</>
 						)}

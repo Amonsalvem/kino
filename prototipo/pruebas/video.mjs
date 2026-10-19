@@ -1,6 +1,7 @@
 // Video de revisión de motion: graba cada momento héroe a velocidad real (Playwright recordVideo) y arma una
 // tira de fotogramas con ffmpeg para revisarlo cuadro a cuadro.
-// Uso: node pruebas/video.mjs [momento…]   momentos: porteria, crear, detalle, visita, estados, admin
+// Uso: node pruebas/video.mjs [momento…]
+// Momentos héroe: porteria, crear, detalle, visita, admin. Resto de la app: estados, ingreso, pestanas, portero, franjas, escenario.
 import {createRequire} from 'node:module';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -72,6 +73,92 @@ const MOMENTOS = {
 		await A.getByRole('button', {name: /Reintentar/}).click();
 		await p.waitForTimeout(6000);
 	}},
+	// El ciclo del Pase sobre el detalle: sin confirmar → vigente, extender, revocar y deshacer.
+	estados: {actor: 'residente', ...telefono, async correr(p) {
+		const R = await entrar(p);
+		await R.locator('.reciente', {hasText: 'Laura'}).click();
+		await p.waitForTimeout(700);
+		await R.locator('.hoja__pie .accion').click();
+		await p.waitForTimeout(900);
+		await R.getByRole('button', {name: 'Ver el Pase'}).click();
+		await p.waitForTimeout(3200);
+		await R.getByRole('button', {name: '+1 h'}).click();
+		await p.waitForTimeout(1200);
+		const b = await R.locator('.mantener').boundingBox();
+		await p.mouse.move(b.x + b.width / 2, b.y + b.height / 2);
+		await p.mouse.down();
+		await p.waitForTimeout(1000);
+		await p.mouse.up();
+		await p.waitForTimeout(1600);
+		await R.getByRole('button', {name: /Deshacer/}).click();
+		await p.waitForTimeout(1600);
+	}},
+	ingreso: {actor: 'residente', ...telefono, async correr(p) {
+		const R = p.locator('.app--residente');
+		await p.waitForTimeout(700);
+		await R.getByRole('button', {name: 'Enviar código'}).click();
+		await p.waitForTimeout(1500);
+		await R.locator('.notificacion').click();
+		await R.getByText('Tus Pases').waitFor({timeout: 6000});
+		await p.waitForTimeout(1600);
+	}},
+	pestanas: {actor: 'residente', ...telefono, async correr(p) {
+		const R = await entrar(p);
+		await R.getByRole('button', {name: /Avisos/}).click();
+		await p.waitForTimeout(900);
+		await R.getByRole('button', {name: /Mi casa/}).click();
+		await p.waitForTimeout(900);
+		await R.getByRole('button', {name: /Pases/}).first().click();
+		await p.waitForTimeout(900);
+		await R.getByRole('button', {name: /Crear Pase/}).first().click();
+		await p.waitForTimeout(700);
+		await R.getByRole('tab', {name: 'Colaborador'}).click();
+		await p.waitForTimeout(900);
+		await R.getByRole('tab', {name: 'Visita'}).click();
+		await p.waitForTimeout(500);
+		await R.getByRole('radio', {name: 'Se queda'}).click();
+		await p.waitForTimeout(1200);
+	}},
+	portero: {actor: 'porteria', w: 1080, h: 760, async correr(p) {
+		const T = p.locator('.app--porteria');
+		await p.waitForTimeout(600);
+		await T.getByRole('button', {name: 'Digitar código'}).click();
+		await p.waitForTimeout(800);
+		await T.getByRole('button', {name: 'Digitar placa'}).click();
+		await p.waitForTimeout(800);
+		await T.getByRole('button', {name: 'Digitar placa'}).click();
+		await p.waitForTimeout(600);
+		await T.locator('.llegada', {hasText: 'Juan Pablo'}).first().click();
+		await p.waitForTimeout(2200);
+		await T.getByRole('button', {name: /Llamar a/}).click();
+		await p.waitForTimeout(3600);
+	}},
+	franjas: {actor: 'administracion', w: 1280, h: 800, async correr(p) {
+		const A = p.locator('.app--admin');
+		await p.waitForTimeout(500);
+		await A.getByRole('button', {name: 'Franjas'}).click();
+		await p.waitForTimeout(800);
+		for (let i = 0; i < 3; i++) {
+			await A.getByRole('button', {name: 'Más: Desde'}).first().click();
+			await p.waitForTimeout(350);
+		}
+		await p.waitForTimeout(600);
+		await A.getByRole('button', {name: 'Guardar franjas'}).click();
+		await p.waitForTimeout(1200);
+		await A.getByRole('button', {name: 'Resumen'}).click();
+		await p.waitForTimeout(1200);
+	}},
+	escenario: {actor: 'todos', w: 1600, h: 900, async correr(p) {
+		await p.waitForTimeout(900);
+		await p.getByRole('button', {name: 'Residente', exact: true}).click();
+		await p.waitForTimeout(1200);
+		await p.getByRole('button', {name: 'Portería', exact: true}).click();
+		await p.waitForTimeout(1200);
+		await p.getByRole('button', {name: 'Notas'}).click();
+		await p.waitForTimeout(900);
+		await p.getByRole('button', {name: 'Notas'}).click();
+		await p.waitForTimeout(900);
+	}, url: '?actor=todos'},
 };
 
 const pedidos = process.argv.slice(2).length ? process.argv.slice(2) : Object.keys(MOMENTOS);
@@ -79,7 +166,7 @@ for (const nombre of pedidos) {
 	const m = MOMENTOS[nombre];
 	const ctx = await nav.newContext({viewport: {width: m.w, height: m.h}, recordVideo: {dir: salida, size: {width: m.w, height: m.h}}});
 	const p = await ctx.newPage();
-	await p.goto(`file://${archivo}?actor=${m.actor}&solo=1`);
+	await p.goto(`file://${archivo}${m.url ?? `?actor=${m.actor}&solo=1`}`);
 	await m.correr(p);
 	const v = p.video();
 	await ctx.close();

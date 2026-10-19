@@ -1,14 +1,16 @@
 // La visita, sin cuenta: recibe el mensaje y abre el Pase vivo en el navegador (en claro, X1).
 import {useLayoutEffect, useRef, useState} from 'preact/hooks';
 import {anotar, corto, cuentaRegresiva, E, estado, hora24, horaCorta, ventana, vigenciaTexto} from './modelo';
-import {ChipEstado, Icono, Ilustracion, Marca, Portal, QR, useKino, type ModoVista} from './componentes';
-import {animar, C, D, R, volar} from './movimiento';
+import {ChipEstado, Digitos, Fundir, Icono, Ilustracion, Marca, Portal, QR, useIndicador, useKino, type ModoVista} from './componentes';
+import {animar, C, D, R, reducido, volar} from './movimiento';
 
 export function Visita() {
 	const est = useKino(1000);
 	const [vista, setVista] = useState<'chat' | 'pase'>('chat');
 	// Continuidad: el QR de la imagen del WhatsApp crece hasta volverse el Pase vivo.
 	const origen = useRef<DOMRect | null>(null);
+	// Y al volver, el Pase se encoge hasta la imagen del chat.
+	const regreso = useRef<DOMRect | null>(null);
 	const p = est.pases.find((x) => x.id === est.visitaPaseId && x.compartido) ?? est.pases.find((x) => x.compartido);
 	if (!p)
 		return (
@@ -21,17 +23,31 @@ export function Visita() {
 		);
 	return (
 		<div class="app app--visita">
-			{vista === 'chat' ? <Chat onAbrir={(r) => ((origen.current = r ?? null), setVista('pase'), anotar('I-09'))} /> : <PaseVivo id={p.id} origen={origen.current} onVolver={() => setVista('chat')} />}
+			{vista === 'chat' ? (
+				<Chat regreso={regreso} onAbrir={(r) => ((origen.current = r ?? null), setVista('pase'), anotar('I-09'))} />
+			) : (
+				<PaseVivo id={p.id} origen={origen.current} onVolver={(r) => ((regreso.current = r ?? null), setVista('chat'))} />
+			)}
 		</div>
 	);
 }
 
-function Chat({onAbrir}: {onAbrir: (r?: DOMRect) => void}) {
+function Chat({regreso, onAbrir}: {regreso: {current: DOMRect | null}; onAbrir: (r?: DOMRect) => void}) {
 	const est = useKino(1000);
+	const raiz = useRef<HTMLDivElement>(null);
+	// Al volver del Pase vivo, las burbujas ya estaban: no se repiten. Solo la imagen recibe al Pase que regresa.
+	const vuelta = useRef(!!regreso.current);
+	useLayoutEffect(() => {
+		const r = regreso.current;
+		regreso.current = null;
+		if (!r || !raiz.current) return;
+		animar(raiz.current, [{opacity: 0}, {opacity: 1}], {duration: D.corto, easing: C.crecer});
+		volar(raiz.current.querySelector<HTMLElement>('.imagen-pase__arco'), r);
+	}, []);
 	const p = est.pases.find((x) => x.id === est.visitaPaseId && x.compartido) ?? est.pases.find((x) => x.compartido)!;
 	const revocado = est.avisos.find((a) => a.para === 'visita' && a.paseId === p.id);
 	return (
-		<div class="chat">
+		<div ref={raiz} class={`chat ${vuelta.current ? 'chat--vuelta' : ''}`}>
 			<div class="chat__cabeza">
 				<Icono n="atras" />
 				<span class="chat__avatar">CR</span>
@@ -77,7 +93,7 @@ function Chat({onAbrir}: {onAbrir: (r?: DOMRect) => void}) {
 	);
 }
 
-function PaseVivo({id, origen, onVolver}: {id: string; origen: DOMRect | null; onVolver: () => void}) {
+function PaseVivo({id, origen, onVolver}: {id: string; origen: DOMRect | null; onVolver: (r?: DOMRect) => void}) {
 	const raiz = useRef<HTMLDivElement>(null);
 	useLayoutEffect(() => {
 		const el = raiz.current;
@@ -85,13 +101,21 @@ function PaseVivo({id, origen, onVolver}: {id: string; origen: DOMRect | null; o
 		// La página del navegador funde; el Pase viaja desde la imagen del chat y lo demás llega a medio camino.
 		animar(el, [{opacity: 0}, {opacity: 1}], {duration: D.corto, easing: C.crecer});
 		volar(el.querySelector<HTMLElement>('.portal'), origen);
-		el.querySelectorAll<HTMLElement>('.pase-vivo__fila, .pase-vivo__cuerpo > h1, .pase-vivo__cuerpo > p, .modos, .pase-vivo__instruccion').forEach((n, i) =>
+		el.querySelectorAll<HTMLElement>('.pase-vivo__fila, .pase-vivo__cuerpo > h1, .pase-vivo__cuerpo > p, .modos, .instruccion').forEach((n, i) =>
 			animar(n, [{opacity: 0, transform: 'translateY(10px)'}, {opacity: 1, transform: 'none'}], {duration: D.crecer, easing: C.crecer, delay: R.pase.ms * 0.35 + i * 40, fill: 'backwards'}),
 		);
 	}, []);
 	useKino(1000);
 	const p = E.pases.find((x) => x.id === id)!;
 	const [modo, setModo] = useState<ModoVista>('qr');
+	const modos = useRef<HTMLDivElement>(null);
+	useIndicador(modos, modo);
+	// Volver: la página se va primero y el Pase vuelve a la imagen del chat.
+	const volver = () => {
+		const r = raiz.current?.querySelector('.portal__arco')?.getBoundingClientRect();
+		const a = animar(raiz.current, [{opacity: 1}, {opacity: 0}], {duration: D.corto * 0.6, easing: C.salir, fill: 'forwards'});
+		a && !reducido() ? a.finished.then(() => onVolver(r), () => onVolver(r)) : onVolver(r);
+	};
 	const e = estado(p);
 	const v = ventana(p);
 	const instruccion =
@@ -107,7 +131,7 @@ function PaseVivo({id, origen, onVolver}: {id: string; origen: DOMRect | null; o
 	return (
 		<div ref={raiz} class="pase-vivo" data-tema="claro">
 			<div class="navegador">
-				<button class="icono-btn" onClick={onVolver} aria-label="Volver al chat">
+				<button class="icono-btn" onClick={volver} aria-label="Volver al chat">
 					<Icono n="atras" tam={18} />
 				</button>
 				<span class="navegador__url">kino.co/p/{corto(p)}</span>
@@ -118,12 +142,19 @@ function PaseVivo({id, origen, onVolver}: {id: string; origen: DOMRect | null; o
 					<span class="chip-dato">Villas Campestres</span>
 				</div>
 				<h1 class="titulo titulo--l">{p.nombre}</h1>
-				<p class="secundario">{vigenciaTexto(p)} · otorgó {p.autor.nombre}</p>
-				{(e === 'vigente' || e === 'por-vencer') && <p class={`dato dato--${e}`}>Vence en {cuentaRegresiva(v.hasta)}</p>}
+				<p class="secundario">
+					<Fundir t={`${vigenciaTexto(p)} · otorgó ${p.autor.nombre}`} />
+				</p>
+				{(e === 'vigente' || e === 'por-vencer') && (
+					<p class={`dato dato--${e}`}>
+						Vence en <Digitos t={cuentaRegresiva(v.hasta)} />
+					</p>
+				)}
 				<div class="pase-vivo__portal">
 					<Portal p={p} modo={modo} claro tam={270} inclinable />
 				</div>
-				<div class="modos" role="tablist">
+				<div ref={modos} class="modos con-indicador" role="tablist">
+					<span class="indicador" aria-hidden="true" />
 					{p.modos.map((m) => (
 						<button role="tab" aria-selected={modo === m} class={modo === m ? 'activo' : ''} onClick={() => setModo(m)}>
 							<Icono n={m} tam={18} />
@@ -131,7 +162,9 @@ function PaseVivo({id, origen, onVolver}: {id: string; origen: DOMRect | null; o
 						</button>
 					))}
 				</div>
-				<p class="instruccion">{instruccion}</p>
+				<p class="instruccion">
+					<Fundir t={instruccion} />
+				</p>
 				<div class="pase-vivo__pie">
 					<Marca tam={18} />
 					<span>Pase de Kino. Sin cuenta ni app.</span>

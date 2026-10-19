@@ -1,13 +1,13 @@
 // Escenario del prototipo: elige actor (o todos a la vez), controla el reloj y muestra cada interacción con su regla.
 import {render} from 'preact';
-import {useEffect, useState} from 'preact/hooks';
+import {useEffect, useLayoutEffect, useRef, useState} from 'preact/hooks';
 import {adelantar, ahora, cambiarVelocidad, E, hora24, INTERACCIONES, reiniciar, velocidadActual, type Actor} from './modelo';
-import {Escala, Marca, Micelio, Telefono, useKino} from './componentes';
+import {Escala, Marca, Micelio, Telefono, useIndicador, useKino, usePresencia} from './componentes';
 import {Residente} from './residente';
 import {Visita} from './visita';
 import {Porteria} from './porteria';
 import {Administracion} from './administracion';
-import {variablesCss} from './movimiento';
+import {animar, C, D, variablesCss} from './movimiento';
 
 type Vista = Actor | 'todos';
 const q = new URLSearchParams(location.search);
@@ -58,12 +58,24 @@ function Escenario() {
 		return () => removeEventListener('keydown', k);
 	}, []);
 
+	// Cambio de actor: los dispositivos se acomodan y llegan en cascada; el estado de cada uno no se pierde.
+	const lienzo = useRef<HTMLElement>(null);
+	const actores = useRef<HTMLElement>(null);
+	const vistaAntes = useRef(vista);
+	useIndicador(actores, vista);
+	useLayoutEffect(() => {
+		if (vistaAntes.current === vista) return;
+		vistaAntes.current = vista;
+		lienzo.current?.querySelectorAll('.puesto').forEach((n, i) => animar(n, [{opacity: 0, transform: 'translateY(14px) scale(.97)'}, {opacity: 1, transform: 'none'}], {duration: D.tarjeta, easing: C.crecer, delay: i * 70, fill: 'backwards'}));
+	}, [vista]);
+	const [notas, notasSale] = usePresencia(panel && !solo);
+
 	const ultima = INTERACCIONES.find((i) => i.id === est.ultima);
 	const hechas = INTERACCIONES.filter((i) => i.estado === 'implementada');
 	const v = velocidadActual();
 
 	return (
-		<div class={`escenario ${solo ? 'escenario--solo' : ''} ${panel && !solo ? '' : 'escenario--sin-panel'}`}>
+		<div class={`escenario ${solo ? 'escenario--solo' : ''} ${notas ? '' : 'escenario--sin-panel'}`}>
 			{bio && <Micelio clase="micelio--escenario" densidad={60} />}
 			{!solo && (
 				<header class="escenario__cabeza">
@@ -74,7 +86,8 @@ function Escenario() {
 							<span class="tenue">Entrega 3 · residente, visita, portería y administración</span>
 						</span>
 					</div>
-					<nav class="actores" aria-label="Actor">
+					<nav ref={actores} class="actores con-indicador" aria-label="Actor">
+						<span class="indicador" aria-hidden="true" />
 						{ACTORES.map((a, i) => (
 							<button class={vista === a.k ? 'activo' : ''} onClick={() => setVista(a.k)} title={`${a.d} · tecla ${i + 1}`}>
 								{a.t}
@@ -97,7 +110,7 @@ function Escenario() {
 					</div>
 				</header>
 			)}
-			<main class={`escenario__lienzo escenario__lienzo--${vista}`}>
+			<main ref={lienzo} class={`escenario__lienzo escenario__lienzo--${vista}`}>
 				{(vista === 'todos' || vista === 'residente') && (
 					<div class="puesto puesto--telefono">
 						{vista === 'todos' && <span class="puesto__rotulo">Residente</span>}
@@ -138,8 +151,8 @@ function Escenario() {
 					</div>
 				)}
 			</main>
-			{panel && !solo && (
-				<aside class="notas" aria-live="polite">
+			{notas && (
+				<aside class={`notas ${notasSale ? 'notas--sale' : ''}`} aria-live="polite">
 					<span class="rotulo">Interacción</span>
 					{ultima ? (
 						<div class="nota-interaccion" key={ultima.id + est.vistas.size}>

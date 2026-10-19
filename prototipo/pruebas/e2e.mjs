@@ -30,7 +30,8 @@ const ok = async (nombre, f) => {
 };
 const foto = (n) => p.screenshot({path: path.join(capturas, `${n}.png`)});
 
-await p.goto(`file://${archivo}?actor=todos`);
+// KINO_REDUCIDO=1 corre el mismo recorrido con movimiento reducido.
+await p.goto(`file://${archivo}?actor=todos${process.env.KINO_REDUCIDO ? "&reducido=1" : ""}`);
 const R = p.getByRole('region', {name: 'App del residente'});
 const V = p.getByRole('region', {name: 'Teléfono de la visita'});
 const T = p.getByRole('region', {name: 'Pantalla de portería'});
@@ -113,6 +114,24 @@ await ok('Revocar con mantener presionado y deshacer', async () => {
 	await foto('07-revocado');
 	await R.getByRole('button', {name: /Deshacer/}).click();
 	await R.locator('.detalle .chip--vigente').first().waitFor();
+	// La cicatriz no se queda pegada al deshacer (antes la dejaba el relleno de la animación).
+	await p.waitForTimeout(600);
+	const corte = await R.locator('.detalle .portal .corte').evaluate((n) => new DOMMatrix(getComputedStyle(n).transform).a);
+	if (corte > 0.01) throw new Error(`el corte sigue visible tras Deshacer (scaleX ${corte})`);
+});
+
+await ok('Avisos: al volver a la pestaña no se repiten como nuevos', async () => {
+	await R.getByRole('button', {name: 'Volver'}).click();
+	await R.getByRole('button', {name: /Avisos/}).click();
+	await R.locator('.fila-aviso').first().waitFor();
+	await R.getByRole('button', {name: /Pases/}).first().click();
+	await R.getByRole('button', {name: /Avisos/}).click();
+	await R.locator('.fila-aviso').first().waitFor();
+	const nuevas = await R.locator('.fila-aviso--nueva').count();
+	if (nuevas) throw new Error(`${nuevas} avisos se animan otra vez como nuevos`);
+	await R.getByRole('button', {name: /Pases/}).first().click();
+	await R.locator('.tarjeta', {hasText: 'Andrés Gómez'}).click();
+	await R.locator('.mantener').waitFor();
 });
 
 await ok('Revocar de verdad: el lector lo rechaza con quién y cuándo', async () => {

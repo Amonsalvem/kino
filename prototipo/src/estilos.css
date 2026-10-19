@@ -265,7 +265,7 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--kino-borde-foco
 .pagina__cabeza{display:grid;gap:8px}
 .vacio{display:grid;gap:10px;padding:20px;border-radius:var(--kino-forma-radio-tarjeta);border:1px dashed var(--kino-borde-definido)}
 .vacio--ilustrado{border:0;padding:24px 16px;text-align:center;justify-items:center;gap:16px}
-.fila-aviso{display:flex;gap:12px;align-items:flex-start;text-align:left;padding:14px;border-radius:14px;background:var(--kino-superficie-elevada);border-left:3px solid var(--kino-estado-vigente-borde);animation:entra var(--d-crecer) var(--c-crecer) both}
+.fila-aviso{display:flex;gap:12px;align-items:flex-start;text-align:left;padding:14px;border-radius:14px;background:var(--kino-superficie-elevada);border-left:3px solid var(--kino-estado-vigente-borde)}
 .fila-aviso__texto{display:grid;gap:4px;min-width:0}
 .fila-aviso--rechazado{border-left-color:var(--kino-estado-rechazado-borde)}
 .banner{position:absolute;top:6px;left:10px;right:10px;z-index:30;display:flex;gap:12px;align-items:center;text-align:left;padding:14px 16px;border-radius:22px;background:var(--kino-superficie-membrana);border:1px solid var(--kino-estado-vigente-borde);box-shadow:var(--kino-resplandor-vigente),0 24px 50px -16px #000;animation:cae var(--r-hoja-ms) var(--r-hoja) both}
@@ -484,11 +484,11 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--kino-borde-foco
    las transiciones de color siguen, las de forma no. Las animaciones WAAPI se adaptan en movimiento.ts. */
 @keyframes fundido{from{opacity:0}}
 @media (prefers-reduced-motion:reduce){
-	.entra,.nota-interaccion,.traza__item,.burbuja,.fila-aviso,.notificacion,.banner,.deshacer,.tabla tr.nueva td,.tarjeta--nueva{animation:fundido var(--d-corto) linear both!important}
+	.entra,.nota-interaccion,.traza__item,.burbuja,.fila-aviso--nueva,.notificacion,.banner,.deshacer,.tabla tr.nueva td,.tarjeta--nueva{animation:fundido var(--d-corto) linear both!important}
 	.tarjeta--nueva .vida,.puntos i,.llamando{animation:none!important}
 	*,*::before,*::after{transition-property:color,background-color,border-color,opacity,box-shadow!important}
 }
-[data-reducido="1"] :is(.entra,.nota-interaccion,.traza__item,.burbuja,.fila-aviso,.notificacion,.banner,.deshacer,.tabla tr.nueva td,.tarjeta--nueva){animation:fundido var(--d-corto) linear both!important}
+[data-reducido="1"] :is(.entra,.nota-interaccion,.traza__item,.burbuja,.fila-aviso--nueva,.notificacion,.banner,.deshacer,.tabla tr.nueva td,.tarjeta--nueva){animation:fundido var(--d-corto) linear both!important}
 [data-reducido="1"] :is(.tarjeta--nueva .vida,.puntos i,.llamando){animation:none!important}
 [data-reducido="1"] *,[data-reducido="1"] *::before,[data-reducido="1"] *::after{transition-property:color,background-color,border-color,opacity,box-shadow!important}
 
@@ -516,3 +516,128 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--kino-borde-foco
 	.puesto--telefono,.puesto--tableta,.puesto--portatil{flex:none;height:min(844px,calc(100vh - 140px))}
 	.puesto--tableta,.puesto--portatil{height:auto;aspect-ratio:1080/760}
 }
+
+/* Continuidad en toda la app (tercera pasada) --------------------------------------------------------- */
+/* Texto que cambia: el anterior se va y el nuevo llega en el mismo lugar. */
+.fundir{display:inline-grid;vertical-align:baseline}
+.fundir>span{grid-area:1/1}
+.fundir__sale::before{content:attr(data-t)}
+.fundir__sale{animation:fundir-sale calc(var(--d-corto) * .5) var(--c-salir) forwards}
+.fundir__entra{animation:fundir-entra calc(var(--d-corto) * .65) var(--c-crecer) calc(var(--d-corto) * .3) both}
+@keyframes fundir-sale{to{opacity:0;transform:translateY(-.25em)}}
+@keyframes fundir-entra{from{opacity:0;transform:translateY(.3em)}}
+.digitos{display:inline-flex;font-variant-numeric:tabular-nums}
+.cifra-viva{font-variant-numeric:tabular-nums}
+
+/* Relevo: el contenido nuevo entra de un lado y el anterior sale al otro, fuera del flujo. */
+.pila{position:relative;display:grid;min-width:0}
+.pila>*{min-width:0}
+.relevo__entra{animation:relevo-entra var(--d-crecer) var(--c-crecer) calc(var(--d-corto) * .35) both}
+.relevo__sale{position:absolute;left:0;right:0;top:0;pointer-events:none;animation:relevo-sale calc(var(--d-corto) * .5) var(--c-salir) forwards}
+@keyframes relevo-entra{from{opacity:0;transform:translateX(calc(var(--dir,1) * 22px))}}
+@keyframes relevo-sale{to{opacity:0;transform:translateX(calc(var(--dir,1) * -22px))}}
+
+/* Lo que sale: la misma dirección por la que entró, al 60 % de su duración. */
+.sale{pointer-events:none;animation:sale calc(var(--d-crecer) * .6) var(--c-salir) forwards!important}
+@keyframes sale{to{opacity:0;transform:translateY(8px) scale(.98)}}
+.notificacion.sale,.banner.sale{animation-name:sale-arriba!important}
+@keyframes sale-arriba{to{opacity:.4;transform:translateY(-130%)}}
+.deshacer.sale{animation-name:sale-abajo!important}
+@keyframes sale-abajo{to{opacity:.4;transform:translateY(140%)}}
+
+/* Indicador que se desliza al activo, con el resorte «pase». */
+.con-indicador{position:relative;isolation:isolate}
+.indicador{position:absolute;left:0;top:0;z-index:-1;width:var(--iw,0);height:var(--ih,0);transform:translate(var(--ix,0),var(--iy,0));border-radius:var(--kino-forma-radio-control);background:var(--kino-texto-primario);pointer-events:none}
+[data-indicador="listo"]>.indicador{transition:transform var(--r-pase-ms) var(--r-pase),width var(--r-pase-ms) var(--r-pase),height var(--r-pase-ms) var(--r-pase)}
+[data-sin-activo]>.indicador{opacity:0}
+.con-indicador>.activo,.con-indicador>[aria-selected="true"],.con-indicador>[aria-checked="true"]{background:transparent!important;border-color:transparent!important}
+.opciones.con-indicador>.indicador{border-radius:12px}
+.modos.con-indicador>.indicador{background:none;border:1px solid var(--kino-texto-primario);border-radius:12px}
+.barra-inferior.con-indicador>.indicador{top:-1px;height:2px;width:28px;border-radius:0 0 2px 2px;background:var(--kino-estado-vigente-texto);box-shadow:0 0 10px var(--kino-estado-vigente-texto);transform:translateX(calc(var(--ix,0) + var(--iw,0) / 2 - 14px))}
+
+/* Botón flotante: brota con resorte al volver a Pases y se encoge al salir. */
+.pie-accion--sobre-barra .accion{animation:brota var(--r-pase-ms) var(--r-pase) both}
+.pie-accion--sobre-barra.sale{animation:none!important}
+.pie-accion--sobre-barra.sale .accion{animation:encoge calc(var(--d-corto) * .6) var(--c-salir) forwards}
+@keyframes brota{from{opacity:0;transform:scale(.6) translateY(16px)}}
+@keyframes encoge{to{opacity:0;transform:scale(.6) translateY(16px)}}
+
+/* Estados del Pase: el final lo fija la clase; las animaciones solo cuentan el cambio. */
+@property --brillo{syntax:'<number>';inherits:true;initial-value:0}
+.tarjeta,.portal{transition:--brillo var(--d-decaer) var(--c-decaer)}
+.vida__fluido{transition:transform 1s linear,background-color var(--d-decaer) var(--c-decaer)}
+.portal--vencido .portal__arco{filter:saturate(.35) sepia(.2)}
+.portal .qr{transition:opacity var(--d-crecer) var(--c-crecer)}
+.detalle--usado .detalle__cabeza .tachado{transform:scaleX(1)}
+.detalle--revocado .detalle__cabeza .titulo,.detalle--vencido .detalle__cabeza .titulo,.detalle--usado .detalle__cabeza .titulo{color:var(--kino-texto-secundario);transition:color var(--d-decaer)}
+.detalle__cabeza .titulo{position:relative}
+
+/* Mantener para revocar: al completar, el botón se contrae como al cerrarse (Mimosa). */
+.mantener--hecho{animation:contrae var(--d-decaer) var(--c-decaer)}
+@keyframes contrae{12%{transform:scale(.97)}}
+
+/* Lista de avisos: solo los nuevos entran. */
+.fila-aviso{animation:none}
+.fila-aviso--nueva{animation:entra var(--d-tarjeta) var(--c-crecer) both}
+
+@media (prefers-reduced-motion:reduce){
+	.fundir__sale,.fundir__entra,.relevo__entra,.relevo__sale,.pie-accion--sobre-barra .accion,.fila-aviso--nueva{animation-name:fundido!important;animation-duration:var(--d-corto)!important;transform:none!important}
+	.fundir__sale,.relevo__sale,.sale,.pie-accion--sobre-barra.sale .accion{animation:sale-fundido var(--d-corto) linear forwards!important}
+	.mantener--cargando .mantener__relleno{transition-property:transform!important}
+}
+[data-reducido="1"] :is(.fundir__sale,.fundir__entra,.relevo__entra,.relevo__sale,.pie-accion--sobre-barra .accion,.fila-aviso--nueva){animation-name:fundido!important;animation-duration:var(--d-corto)!important;transform:none!important}
+[data-reducido="1"] :is(.fundir__sale,.relevo__sale,.sale,.pie-accion--sobre-barra.sale .accion){animation:sale-fundido var(--d-corto) linear forwards!important}
+[data-reducido="1"] .mantener--cargando .mantener__relleno{transition-property:transform!important}
+@keyframes sale-fundido{to{opacity:0}}
+.ingreso__pasos{margin-top:auto}
+.ingreso__pasos .ingreso__cuerpo{margin-top:0}
+.otp__celda--llena{animation:celda var(--r-tacto-ms) var(--r-tacto)}
+@keyframes celda{from{transform:scale(.86);border-color:var(--kino-estado-vigente-texto)}}
+.icono-brota{display:inline-flex;animation:brota var(--r-pase-ms) var(--r-pase) both}
+.previa-pase{transition:background-color var(--d-corto),border-color var(--d-corto)}
+.previa-pase--choca{animation:contrae var(--d-decaer) var(--c-decaer)}
+.portal__contenido{display:grid;place-items:center;grid-area:1/1}
+.portal__contenido--cambia{animation:modo-entra var(--d-crecer) var(--c-crecer) both}
+@keyframes modo-entra{from{opacity:0;transform:scale(.94)}}
+.cuenta__num--destello{animation:destello calc(var(--d-crecer) * 1.5) var(--c-crecer)}
+@keyframes destello{20%{filter:brightness(1.8);text-shadow:0 0 14px currentColor}}
+/* Chat: cada burbuja nace de su cola, en cascada; al volver del Pase vivo ya estaban. */
+.burbuja{animation-name:burbuja;transform-origin:0 100%}
+.chat__cuerpo .burbuja:nth-child(2){animation-delay:90ms}
+.chat__cuerpo .burbuja:nth-child(3){animation-delay:180ms}
+@keyframes burbuja{from{opacity:0;transform:scale(.86) translateY(8px)}}
+.burbuja--sistema{transform-origin:50% 100%;animation:burbuja var(--d-crecer) var(--c-crecer) both,aviso-carmin var(--d-decaer) var(--c-decaer) var(--d-crecer) both}
+@keyframes aviso-carmin{from{background:#FED6D2}}
+.chat--vuelta .burbuja:not(.burbuja--sistema){animation:none}
+/* Portería: el texto del panel se releva; los latidos de la llamada son 3 y se detienen (WCAG 2.2.2). */
+.lector__texto--entra{animation:fundir-entra var(--d-corto) var(--c-crecer) both}
+.llamando{animation:latir 1.4s var(--c-latir) 3}
+.llamando.entra{animation:entra var(--d-crecer) var(--c-crecer) both,latir 1.4s var(--c-latir) var(--d-crecer) 3}
+.teclado{animation:teclado var(--r-hoja-ms) var(--r-hoja) both;transform-origin:50% 0}
+@keyframes teclado{from{opacity:0;transform:translateY(-10px) scaleY(.9)}}
+.llegada:disabled{opacity:.55}
+.tabla tr.nueva td{animation:resalta 2s var(--c-decaer),fundido var(--d-crecer) var(--c-crecer)}
+/* Administración: el indicador del menú viaja; la alerta y la vista previa responden al cambio. */
+.admin__nav.con-indicador>.indicador{background:var(--kino-superficie-membrana);border-radius:12px}
+.admin__nav.con-indicador>.activo{background:transparent!important}
+.previa{transition:background-color var(--d-corto),border-color var(--d-corto)}
+.previa--choca{animation:contrae var(--d-decaer) var(--c-decaer)}
+.sync .chip{animation:fundido var(--d-corto) var(--c-crecer)}
+.accion .fundir,.secundario-btn .fundir{justify-items:center}
+/* Escenario: el actor activo lleva un indicador que viaja; el panel de notas entra y sale por su borde. */
+.actores.con-indicador>.indicador{border-radius:999px}
+.notas{animation:notas-entra var(--d-tarjeta) var(--c-crecer) both}
+.notas--sale{animation:notas-sale calc(var(--d-tarjeta) * .6) var(--c-salir) forwards;pointer-events:none}
+@keyframes notas-entra{from{opacity:0;transform:translateX(40px)}}
+@keyframes notas-sale{to{opacity:0;transform:translateX(40px)}}
+/* Ilustraciones: un solo gesto al montar, con el mismo resorte del Pase; después quedan quietas. */
+.ilustracion__gota-llega{transform-box:fill-box;transform-origin:50% 100%;animation:gota-llega var(--r-pase-ms) var(--r-pase) var(--d-corto) both}
+@keyframes gota-llega{from{opacity:0;transform:translateY(46px) scale(.8)}}
+.ilustracion__halo{animation:fundido var(--d-decaer) var(--c-decaer) calc(var(--d-corto) + var(--r-pase-ms) * .5) both}
+.ilustracion--llegada .ilustracion__trazo--punteado{animation:rastro var(--d-tarjeta) var(--c-crecer) both}
+@keyframes rastro{from{stroke-dashoffset:-24;opacity:0}}
+.ilustracion__arco-nace{transform-box:fill-box;transform-origin:50% 100%;animation:arco-nace var(--d-tarjeta) var(--c-crecer) both}
+@keyframes arco-nace{from{opacity:0;transform:scaleY(.86)}}
+.ilustracion__gota-asienta{transform-box:fill-box;transform-origin:50% 100%;animation:gota-llega var(--r-pase-ms) var(--r-pase) calc(var(--d-corto) * .6) both}
+@media (prefers-reduced-motion:reduce){.ilustracion *{animation-name:fundido!important;transform:none}}
+[data-reducido="1"] .ilustracion *{animation-name:fundido!important}

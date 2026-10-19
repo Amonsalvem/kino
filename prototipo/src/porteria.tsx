@@ -5,7 +5,7 @@
 // se congela con la luz en rojo y el panel se contrae. Con movimiento reducido: pósters fijos y fundidos.
 import {useEffect, useLayoutEffect, useRef, useState} from 'preact/hooks';
 import {ahora, E, estado, hora24, leer, llamar, vigenciaTexto, type Lectura, type Modo} from './modelo';
-import {ChipEstado, Icono, Marca, useKino} from './componentes';
+import {ChipEstado, Icono, Marca, useFlip, useIndicador, useKino, usePresencia} from './componentes';
 import {animar, C, D, R, reducido, vibrar} from './movimiento';
 
 type Llegada = {etiqueta: string; modo: Modo; valor: string; quien: string};
@@ -57,6 +57,14 @@ export function Porteria() {
 	};
 
 	const estadoPanel = leyendo ? 'leyendo' : ultima ? ultima.resultado : 'reposo';
+	// Llegadas y bitácora con identidad: la fila que cambia de lugar viaja (FLIP); la nueva entra.
+	const lateral = useRef<HTMLElement>(null);
+	const bitacora = useRef<HTMLElement>(null);
+	const digitar = useRef<HTMLDivElement>(null);
+	useFlip(lateral, llegadas.slice(0, 10).map((l) => `${l.modo}${l.valor}`).join());
+	useFlip(bitacora, est.lecturas.slice(0, 3).map((l) => l.id).join());
+	useIndicador(digitar, teclado);
+	const [tecladoVisible, tecladoSale] = usePresencia(teclado);
 
 	return (
 		<div class="app app--porteria">
@@ -69,7 +77,7 @@ export function Porteria() {
 			<div class="porteria__cuerpo">
 				<div class="porteria__principal">
 					<Panel estado={estadoPanel} leyendo={leyendo} ultima={ultima} pulso={pulso} llamada={llamada} onLlamar={(id) => (setLlamada('llamando'), llamar(E.pases.find((p) => p.id === id)!))} />
-					<section class="bitacora">
+					<section ref={bitacora} class="bitacora">
 						<h2 class="rotulo">Hoy en la entrada</h2>
 						<div class="bitacora__tabla">
 							<table class="tabla">
@@ -85,7 +93,7 @@ export function Porteria() {
 								</thead>
 								<tbody>
 									{est.lecturas.slice(0, 3).map((l) => (
-										<tr class={l.id === ultima?.id ? 'nueva' : ''}>
+										<tr key={l.id} data-k={l.id} class={l.id === ultima?.id ? 'nueva' : ''}>
 											<td class="mono">{hora24(l.hora)}</td>
 											<td>{l.nombre}</td>
 											<td class="mono">{l.modo === 'qr' ? 'QR' : l.modo === 'placa' ? l.valor : 'código'}</td>
@@ -98,11 +106,11 @@ export function Porteria() {
 						</div>
 					</section>
 				</div>
-				<aside class="porteria__lateral">
+				<aside ref={lateral} class="porteria__lateral">
 					<h2 class="rotulo">Simular una llegada</h2>
 					<div class="llegadas">
 						{llegadas.slice(0, 10).map((l) => (
-							<button class="llegada" onClick={() => simular(l)} disabled={!!leyendo}>
+							<button key={`${l.modo}${l.valor}`} data-k={`${l.modo}${l.valor}`} class="llegada" onClick={() => simular(l)} disabled={!!leyendo}>
 								<Icono n={l.modo} tam={20} />
 								<span class="llegada__texto">
 									<b>{l.quien}</b>
@@ -112,13 +120,14 @@ export function Porteria() {
 						))}
 					</div>
 					<div class="porteria__digitar">
-						<div class="opciones opciones--2">
+						<div ref={digitar} class="opciones opciones--2 con-indicador">
+							<span class="indicador" aria-hidden="true" />
 							<button class={`opcion ${teclado === 'codigo' ? 'activo' : ''}`} onClick={() => setTeclado(teclado === 'codigo' ? '' : 'codigo')}>Digitar código</button>
 							<button class={`opcion ${teclado === 'placa' ? 'activo' : ''}`} onClick={() => setTeclado(teclado === 'placa' ? '' : 'placa')}>Digitar placa</button>
 						</div>
-						{teclado && (
-							<form class="teclado" onSubmit={(e) => (e.preventDefault(), enviarTeclado())}>
-								<input class="mono mayus" autoFocus value={entrada} placeholder={teclado === 'codigo' ? '4817' : 'KMN 305'} onInput={(e) => setEntrada((e.target as HTMLInputElement).value)} aria-label={teclado === 'codigo' ? 'Código' : 'Placa'} />
+						{tecladoVisible && (
+							<form class={`teclado ${tecladoSale ? 'sale' : ''}`} onSubmit={(e) => (e.preventDefault(), enviarTeclado())}>
+								<input class="mono mayus" autoFocus value={entrada} placeholder={tecladoVisible === 'codigo' ? '4817' : 'KMN 305'} onInput={(e) => setEntrada((e.target as HTMLInputElement).value)} aria-label={tecladoVisible === 'codigo' ? 'Código' : 'Placa'} />
 								<button class="accion">Leer</button>
 							</form>
 						)}
@@ -248,14 +257,14 @@ function Panel({estado: ep, leyendo, ultima, llamada, onLlamar}: {estado: string
 			</div>
 			<div class="lector__contenido">
 				{ep === 'reposo' && (
-					<div class="lector__texto">
+					<div class="lector__texto lector__texto--entra" key="reposo">
 						<span class="rotulo">Lector en línea · Portería principal</span>
 						<span class="lector__titulo">Esperando llegada</span>
 						<span class="nota">El lector permite el ingreso. Aquí se ve por qué.</span>
 					</div>
 				)}
 				{ep === 'leyendo' && leyendo && (
-					<div class="lector__texto">
+					<div class="lector__texto lector__texto--entra" key="leyendo">
 						<span class="rotulo">Leyendo {MODO[leyendo.modo]}</span>
 						<span class="lector__titulo">{leyendo.etiqueta}</span>
 						<span class="puntos" aria-hidden="true"><i /><i /><i /></span>
@@ -279,8 +288,8 @@ function Panel({estado: ep, leyendo, ultima, llamada, onLlamar}: {estado: string
 										Llamar a {pase.autor.nombre.split(' ')[0]}
 									</button>
 								)}
-								{llamada === 'llamando' && <span class="llamando">Llamando a {pase.autor.nombre}…</span>}
-								{llamada === 'contesto' && <span class="nota">{pase.autor.nombre.split(' ')[0]} contestó. Si quiere que entre, extiende el Pase y se vuelve a leer.</span>}
+								{llamada === 'llamando' && <span class="llamando entra">Llamando a {pase.autor.nombre}…</span>}
+								{llamada === 'contesto' && <span class="nota entra">{pase.autor.nombre.split(' ')[0]} contestó. Si quiere que entre, extiende el Pase y se vuelve a leer.</span>}
 								<span class="nota">La llamada no abre la entrada.</span>
 							</div>
 						)}

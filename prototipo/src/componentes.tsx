@@ -4,7 +4,7 @@ import type {ComponentChildren, JSX} from 'preact';
 import qrcode from 'qrcode-generator';
 import type {Estado} from '../../paquetes/kino-motion/src/nucleo/pase';
 import {ahora, brillo, E, esEstadia, ESTADO_TEXTO, estado, hora24, restante, suscribir, vigenciaTexto, type Pase} from './modelo';
-import {animar, C, D, reducido, resorte, vibrar, volar} from './movimiento';
+import {animar, C, D, flipDesde, medirClaves, reducido, resorte, vibrar, volar} from './movimiento';
 
 // Estado vivo -------------------------------------------------------------------------------------------
 export function useKino(intervalo = 1000) {
@@ -27,6 +27,144 @@ export function useAnterior<T>(v: T) {
 		r.current = v;
 	});
 	return antes;
+}
+
+// Primitivas de continuidad ----------------------------------------------------------------------------
+// Las mismas reglas de los momentos héroe para toda la app: lo que entra también sale, el texto que cambia se
+// funde, las cifras se cuentan y lo que cambia de lugar viaja (FLIP).
+
+/** Presencia: lo que deja de existir se queda montado mientras sale. Devuelve el último valor y si está saliendo. */
+export function usePresencia<T>(valor: T | null | undefined | false, ms: number = D.corto): [T | null, boolean] {
+	const ultimo = useRef<T | null>(null);
+	const [, re] = useState(0);
+	if (valor) ultimo.current = valor;
+	useEffect(() => {
+		if (valor || !ultimo.current) return;
+		const t = setTimeout(() => ((ultimo.current = null), re((n) => n + 1)), ms);
+		return () => clearTimeout(t);
+	}, [!!valor]);
+	return [valor || ultimo.current, !valor && !!ultimo.current];
+}
+
+/** Texto que cambia: el anterior se va y el nuevo llega encima, en el mismo lugar (regla M3D-5). */
+let capaN = 0;
+export function Fundir({t, clase = ''}: {t: string; clase?: string}) {
+	const capas = useRef<{t: string; k: number; sale?: boolean}[]>([{t, k: 0}]);
+	const [, re] = useState(0);
+	if (capas.current[capas.current.length - 1].t !== t) capas.current = [...capas.current.filter((c) => !c.sale).map((c) => ({...c, sale: true})), {t, k: ++capaN}];
+	useEffect(() => {
+		if (capas.current.length < 2) return;
+		const id = setTimeout(() => ((capas.current = capas.current.filter((c) => !c.sale)), re((n) => n + 1)), D.corto + 40);
+		return () => clearTimeout(id);
+	}, [t]);
+	const varias = capas.current.length > 1;
+	return (
+		<span class={`fundir ${clase}`}>
+			{capas.current.map((c) => (
+				// El texto que sale se pinta con CSS (data-t): no existe dos veces para lectores de pantalla ni para búsquedas.
+				c.sale ? <span key={c.k} class="fundir__sale" data-t={c.t} aria-hidden="true" /> : <span key={c.k} class={varias ? 'fundir__entra' : undefined}>{c.t}</span>
+			))}
+		</span>
+	);
+}
+
+/** Cuenta regresiva y horas: solo cambian los dígitos que cambian. */
+export const Digitos = ({t}: {t: string}) => (
+	<span class="digitos" aria-label={t}>
+		{t.split('').map((c, i) => (
+			<Fundir key={i} t={c} />
+		))}
+	</span>
+);
+
+/** Cifra que sube o baja: se cuenta en vez de saltar (desaceleración cúbica). */
+export function Cifra({v, ms = D.tarjeta}: {v: number; ms?: number}) {
+	const ref = useRef<HTMLSpanElement>(null);
+	const visto = useRef(v);
+	useEffect(() => {
+		const nodo = ref.current?.firstChild as Text | null;
+		const de = visto.current;
+		if (!nodo || de === v) return;
+		if (reducido()) return void ((visto.current = v), (nodo.data = String(v)));
+		const t0 = performance.now();
+		let id = 0;
+		const paso = (t: number) => {
+			const x = Math.min(1, (t - t0) / ms);
+			visto.current = Math.round(de + (v - de) * (1 - Math.pow(1 - x, 3)));
+			nodo.data = String(visto.current);
+			if (x < 1) id = requestAnimationFrame(paso);
+		};
+		id = requestAnimationFrame(paso);
+		return () => cancelAnimationFrame(id);
+	}, [v]);
+	return <span ref={ref} class="cifra-viva">{String(visto.current)}</span>;
+}
+
+/**
+ * FLIP de los elementos con `data-k` dentro de `raiz`, aunque cambien de grupo (y se vuelvan a montar).
+ * Mide en el render, antes de que el DOM cambie, y anima en el efecto de disposición desde donde se veían.
+ */
+export function useFlip(raiz: {current: HTMLElement | null}, firma: string) {
+	const st = useRef<{firma: string; pos: Map<string, DOMRect> | null}>({firma, pos: null});
+	if (st.current.firma !== firma) {
+		st.current.firma = firma;
+		st.current.pos = raiz.current ? medirClaves(raiz.current) : null;
+	}
+	useLayoutEffect(() => {
+		const pos = st.current.pos;
+		st.current.pos = null;
+		if (pos && raiz.current) flipDesde(raiz.current, pos);
+	});
+}
+
+/** Indicador que se desliza al elemento activo de un grupo (segmentado, opciones, modos, pestañas). */
+export function useIndicador(ref: {current: HTMLElement | null}, activo: unknown) {
+	useLayoutEffect(() => {
+		const c = ref.current;
+		if (!c) return;
+		const a = c.querySelector<HTMLElement>(':scope > .activo, :scope > [aria-selected="true"], :scope > [aria-checked="true"]');
+		c.toggleAttribute('data-sin-activo', !a);
+		if (!a) return;
+		c.style.setProperty('--ix', `${a.offsetLeft}px`);
+		c.style.setProperty('--iy', `${a.offsetTop}px`);
+		c.style.setProperty('--iw', `${a.offsetWidth}px`);
+		c.style.setProperty('--ih', `${a.offsetHeight}px`);
+		// La primera posición se pone sin transición; desde ahí, el indicador viaja con el resorte.
+		if (!c.dataset.indicador) requestAnimationFrame(() => (c.dataset.indicador = 'listo'));
+	}, [activo]);
+}
+
+/**
+ * Relevo: cambia de contenido con el anterior saliendo hacia un lado y el nuevo entrando del otro. El que sale
+ * queda fuera del flujo, así el contenedor toma de una vez la altura nueva. `dir` 0 es fundido en el sitio.
+ */
+export function Relevo<K extends string>({k, dir = 1, clase = '', children}: {k: K; dir?: number; clase?: string; children: (k: K) => ComponentChildren}) {
+	const previo = useRef<K | null>(null);
+	const actual = useRef(k);
+	const cambio = useRef(0);
+	const [, re] = useState(0);
+	if (actual.current !== k) {
+		previo.current = actual.current;
+		actual.current = k;
+		cambio.current++;
+	}
+	useEffect(() => {
+		if (previo.current == null) return;
+		const t = setTimeout(() => ((previo.current = null), re((n) => n + 1)), D.corto);
+		return () => clearTimeout(t);
+	}, [k]);
+	return (
+		<div class={`pila ${clase}`} style={{'--dir': dir}}>
+			<div key={`a${cambio.current}`} class={cambio.current ? 'relevo__entra' : undefined}>
+				{children(k)}
+			</div>
+			{previo.current != null && (
+				<div key={`s${cambio.current}`} class="relevo__sale" aria-hidden="true" inert>
+					{children(previo.current)}
+				</div>
+			)}
+		</div>
+	);
 }
 
 // Marca ------------------------------------------------------------------------------------------------
@@ -70,7 +208,7 @@ export const Icono = ({n, tam = 22, ...r}: {n: keyof typeof P; tam?: number} & J
 export const ChipEstado = ({e, grande}: {e: Estado | 'rechazado'; grande?: boolean}) => (
 	<span class={`chip chip--${e} ${grande ? 'chip--grande' : ''}`}>
 		<span class="chip__punto" aria-hidden="true" />
-		{e === 'rechazado' ? 'Rechazado' : ESTADO_TEXTO[e]}
+		<Fundir t={e === 'rechazado' ? 'Rechazado' : ESTADO_TEXTO[e]} />
 	</span>
 );
 
@@ -110,7 +248,7 @@ export function TarjetaPase({p, onAbrir, retraso = 0, vuelo}: {p: Pase; onAbrir:
 		transicion(ref.current, antes, e);
 	}, [e]);
 	return (
-		<button ref={ref} class={`tarjeta tarjeta--${e} ${p.nuevo ? 'tarjeta--nueva' : ''}`} data-estado={e} style={{'--brillo': brillo(p, e)}} onClick={() => onAbrir(p, ref.current!)} aria-label={`${p.nombre}, ${ESTADO_TEXTO[e]}`}>
+		<button ref={ref} class={`tarjeta tarjeta--${e} ${p.nuevo ? 'tarjeta--nueva' : ''}`} data-estado={e} data-k={p.id} style={{'--brillo': brillo(p, e)}} onClick={() => onAbrir(p, ref.current!)} aria-label={`${p.nombre}, ${ESTADO_TEXTO[e]}`}>
 			<span class="membrana" aria-hidden="true" />
 			<span class="tarjeta__cabeza">
 				<span class="rotulo">{p.tipo === 'colaborador' ? 'Colaborador' : esEstadia(p) ? 'Estadía' : 'Visita'}</span>
@@ -121,7 +259,9 @@ export function TarjetaPase({p, onAbrir, retraso = 0, vuelo}: {p: Pase; onAbrir:
 				<span class="tachado" aria-hidden="true" />
 			</span>
 			{p.motivo && <span class="tarjeta__motivo">{p.motivo}</span>}
-			<span class={`tarjeta__vigencia dato dato--${e}`}>{lineaVigencia(p, e)}</span>
+			<span class={`tarjeta__vigencia dato dato--${e}`}>
+				<Fundir t={lineaVigencia(p, e)} />
+			</span>
 			<Vida p={p} e={e} />
 			<span class="corte" aria-hidden="true" />
 		</button>
@@ -135,27 +275,51 @@ export function lineaVigencia(p: Pase, e: Estado) {
 	return vigenciaTexto(p);
 }
 
-/** Interpreta la partitura de cada evento del Pase (núcleo/pase.ts) sobre una tarjeta o un Portal. */
+/**
+ * Interpreta la partitura de cada evento del Pase (núcleo/pase.ts) sobre una tarjeta o un Portal. El estado final
+ * lo fija la clase CSS; aquí solo se cuenta el cambio, sin `fill`, para que Deshacer no deje marcas pegadas.
+ */
 export function transicion(el: HTMLElement, de: Estado, a: Estado) {
-	const op = {fill: 'none' as const};
+	const arco = el.querySelector<HTMLElement>('.portal__arco');
+	const q = (s: string) => el.querySelector<HTMLElement>(s);
+	el.getAnimations({subtree: true}).forEach((x) => x.id === 'estado' && x.cancel());
+	const anim = (n: Element | null, f: Keyframe[], o: KeyframeAnimationOptions) => {
+		const x = animar(n, f, o);
+		if (x) x.id = 'estado';
+		return x;
+	};
 	if (a === 'vigente' && de === 'sin-confirmar') {
-		// Quorum: la señal se acumuló sin efecto visible y la luz se enciende de golpe (destello de 120 ms: sube un tercio, cae el resto).
-		animar(el.querySelector('.portal__arco') ?? el, [{filter: 'brightness(1)'}, {filter: 'brightness(1.7)', offset: 0.36}, {filter: 'brightness(1)'}], {duration: D.instante, easing: 'linear', ...op});
+		// Quorum: la señal se acumuló sin efecto visible; el borde punteado se cierra sobre el arco y la luz se enciende de golpe.
+		if (arco) anim(arco, [{outlineStyle: 'dashed', outlineOffset: '6px', outlineColor: 'var(--kino-estado-sin-confirmar-borde)'}, {outlineStyle: 'dashed', outlineOffset: '-2px', outlineColor: 'transparent'}], {duration: D.crecer, easing: C.crecer});
+		else anim(el, [{borderStyle: 'dashed'}, {borderStyle: 'solid'}], {duration: D.instante, easing: 'steps(1)'});
+		anim(arco ?? el, [{filter: 'brightness(1)'}, {filter: 'brightness(1.7)', offset: 0.36}, {filter: 'brightness(1)'}], {duration: D.instante, easing: 'linear', delay: arco ? D.crecer * 0.6 : 0});
+		anim(q('.qr'), [{opacity: 0.35}, {opacity: 1}], {duration: D.crecer, easing: C.crecer, delay: D.crecer * 0.6});
 		// Tres latidos con sístole corta (un tercio del ciclo) y después brillo quieto, como los hongos luminiscentes.
-		animar(el.querySelector('.chip__punto'), [{transform: 'scale(1)'}, {transform: 'scale(1.7)', offset: 0.12}, {transform: 'scale(1)', offset: 0.33}, {transform: 'scale(1)'}], {duration: D.latir, iterations: 3, easing: C.latir});
-		animar(el.querySelector('.vida'), [{opacity: 0, transform: 'scaleX(.4)'}, {opacity: 1, transform: 'none'}], {duration: D.tarjeta, easing: C.crecer});
-		// La nota de lo que pasó sube (partitura: confirmar).
-		animar(el.querySelector('.tarjeta__vigencia'), [{opacity: 0, transform: 'translateY(8px)'}, {opacity: 1, transform: 'none'}], {duration: D.crecer, easing: C.crecer});
+		anim(q('.chip__punto'), [{transform: 'scale(1)'}, {transform: 'scale(1.7)', offset: 0.12}, {transform: 'scale(1)', offset: 0.33}, {transform: 'scale(1)'}], {duration: D.latir, iterations: 3, easing: C.latir});
+		anim(q('.vida'), [{opacity: 0, transform: 'scaleX(.4)'}, {opacity: 1, transform: 'none'}], {duration: D.tarjeta, easing: C.crecer});
 		vibrar(20);
 	} else if (a === 'revocado') {
-		animar(el.querySelector('.corte'), [{transform: 'scaleX(0)'}, {transform: 'scaleX(1)'}], {duration: D.corto, easing: C.revocar, fill: 'forwards'});
+		// Hemostasia: corte seco; la cicatriz queda (la deja la clase).
+		anim(q('.corte'), [{transform: 'scaleX(0)'}, {transform: 'scaleX(1)'}], {duration: D.corto, easing: C.revocar});
+		anim(q('.portal__velo'), [{opacity: 0, letterSpacing: '.3em'}, {opacity: 1, letterSpacing: '.1em'}], {duration: D.crecer, easing: C.crecer, delay: D.corto});
+		if (!arco) anim(el, [{opacity: 1}, {opacity: 0.72}], {duration: D.decaer, easing: C.decaer, delay: D.corto});
 		vibrar([12, 40, 12]);
+	} else if (de === 'revocado') {
+		// Deshacer: la cicatriz se retrae por donde entró y la luz vuelve.
+		anim(q('.corte'), [{transform: 'scaleX(1)', transformOrigin: 'right center'}, {transform: 'scaleX(0)', transformOrigin: 'right center'}], {duration: D.corto, easing: C.salir});
+		anim(arco ?? el, [{opacity: 0.72, filter: 'brightness(1)'}, {opacity: 1, filter: 'brightness(1.4)', offset: 0.5}, {opacity: 1, filter: 'brightness(1)'}], {duration: D.crecer, easing: C.crecer});
 	} else if (a === 'usado') {
-		animar(el.querySelector('.tachado'), [{transform: 'scaleX(0)'}, {transform: 'scaleX(1)'}], {duration: D.corto, easing: C.crecer, fill: 'forwards'});
+		anim(q('.tachado'), [{transform: 'scaleX(0)'}, {transform: 'scaleX(1)'}], {duration: D.corto, easing: C.crecer});
+		anim(q('.portal__velo'), [{opacity: 0}, {opacity: 1}], {duration: D.crecer, easing: C.crecer, delay: D.corto});
+		if (!arco) anim(el, [{opacity: 1}, {opacity: 0.72}], {duration: D.decaer, easing: C.decaer});
 	} else if (a === 'vencido') {
-		animar(el.querySelector('.portal__arco') ?? el, [{filter: 'saturate(1)', opacity: 1}, {filter: 'saturate(.35)', opacity: 0.72}], {duration: D.decaer, easing: C.decaer});
+		// Senescencia: la vida se vacía, el verde cae y queda el tono cálido de debajo.
+		anim(q('.vida__fluido'), [{transform: 'scaleX(.08)'}, {transform: 'scaleX(0)'}], {duration: D.decaer, easing: C.decaer});
+		anim(arco ?? el, [{filter: 'saturate(1) sepia(0)', opacity: 1}, {filter: arco ? 'saturate(.35) sepia(.2)' : 'saturate(1) sepia(0)', opacity: arco ? 1 : 0.72}], {duration: D.decaer, easing: C.decaer});
+		anim(q('.portal__velo'), [{opacity: 0}, {opacity: 1}], {duration: D.decaer, easing: C.decaer});
 	} else if (a === 'por-vencer') {
-		animar(el.querySelector('.chip'), [{transform: 'scale(1.12)'}, {transform: 'none'}], {duration: D.crecer, easing: C.crecer});
+		// Fatiga: misma forma, menos luz. El color y el brillo transitan en CSS; el chip lo marca una vez.
+		anim(q('.chip'), [{transform: 'scale(1.12)'}, {transform: 'none'}], {duration: D.crecer, easing: C.crecer});
 	}
 }
 
@@ -233,6 +397,8 @@ export function Portal({p, modo = 'qr', claro, tam = 260, inclinable}: {p: Pase;
 	const ref = useRef<HTMLDivElement>(null);
 	const arco = useRef<HTMLDivElement>(null);
 	useInclinacion(arco, !!inclinable);
+	// Cambiar de modo (QR, placa, código) funde el contenido dentro del arco; el primero no se anima.
+	const modoInicial = useRef(modo);
 	useEffect(() => {
 		if (antes !== e && ref.current) transicion(ref.current, antes, e);
 	}, [e]);
@@ -242,6 +408,7 @@ export function Portal({p, modo = 'qr', claro, tam = 260, inclinable}: {p: Pase;
 			<span class="portal__halo" aria-hidden="true" />
 			<span class="portal__sombra" aria-hidden="true" />
 			<div ref={arco} class="portal__arco">
+				<div key={modo} class={`portal__contenido ${modo !== modoInicial.current ? 'portal__contenido--cambia' : ''}`}>
 				{modo === 'qr' && <QR texto={`https://kino.co/p/${p.id}`} tam={tam * 0.62} />}
 				{modo === 'placa' && (
 					<div class="portal__dato">
@@ -255,6 +422,7 @@ export function Portal({p, modo = 'qr', claro, tam = 260, inclinable}: {p: Pase;
 						<span class="portal__grande">{p.codigo.split('').join(' ')}</span>
 					</div>
 				)}
+				</div>
 				{muerto && <span class="portal__velo">{ESTADO_TEXTO[e]}</span>}
 				<span class="corte" aria-hidden="true" />
 				<span class="portal__reflejo" aria-hidden="true" />
@@ -266,6 +434,7 @@ export function Portal({p, modo = 'qr', claro, tam = 260, inclinable}: {p: Pase;
 // Mantener presionado ----------------------------------------------------------------------------------
 export function BotonMantener({onCompleto, children, ms = 800, clase = ''}: {onCompleto: () => void; children: ComponentChildren; ms?: number; clase?: string}) {
 	const [carga, setCarga] = useState(false);
+	const [hecho, setHecho] = useState(false);
 	const t = useRef<number>();
 	const empezar = (ev: PointerEvent) => {
 		(ev.currentTarget as HTMLElement).setPointerCapture?.(ev.pointerId);
@@ -273,6 +442,8 @@ export function BotonMantener({onCompleto, children, ms = 800, clase = ''}: {onC
 		vibrar(8);
 		t.current = window.setTimeout(() => {
 			setCarga(false);
+			setHecho(true);
+			vibrar([10, 30, 10]);
 			onCompleto();
 		}, ms);
 	};
@@ -282,7 +453,8 @@ export function BotonMantener({onCompleto, children, ms = 800, clase = ''}: {onC
 	};
 	return (
 		<button
-			class={`mantener ${carga ? 'mantener--cargando' : ''} ${clase}`}
+			class={`mantener ${carga ? 'mantener--cargando' : ''} ${hecho ? 'mantener--hecho' : ''} ${clase}`}
+			onAnimationEnd={() => setHecho(false)}
 			style={{'--ms': `${ms}ms`}}
 			onPointerDown={empezar}
 			onPointerUp={soltar}
@@ -395,6 +567,7 @@ export function Micelio({densidad = 46, clase = ''}: {densidad?: number; clase?:
 // dos colores apagados, sin sombras ni personas. El arco aparece solo cuando la ilustración muestra un Pase (X8).
 const GOTA = 'M0 -15.6A16.2 17.6 0 0 1 16.2 2L0 15.1L-16.2 2A16.2 17.6 0 0 1 0 -15.6Z';
 const ARCO = 'M44 112V58a36 36 0 0 1 72 0v54';
+// `membrana` no tiene uso hoy en el prototipo (la bienvenida usa la aurora); se conserva para la librería.
 export type TipoIlustracion = 'membrana' | 'pase-vacio' | 'llegada';
 export function Ilustracion({tipo, titulo}: {tipo: TipoIlustracion; titulo?: string}) {
 	// Mismo material que el Portal: superficie con luz de arriba, gota con brillo propio y sombra de contacto.
@@ -424,8 +597,8 @@ export function Ilustracion({tipo, titulo}: {tipo: TipoIlustracion; titulo?: str
 			{tipo === 'pase-vacio' ? (
 				<>
 					{/* El Pase que todavía no existe: el arco con el borde punteado de Sin confirmar y la gota apagada. */}
-					<path class="ilustracion__trazo ilustracion__trazo--punteado" d={`${ARCO}`} />
-					<g transform="translate(80 84) scale(.5)"><path class="ilustracion__gota ilustracion__gota--tenue" d={GOTA} /></g>
+					<path class="ilustracion__trazo ilustracion__trazo--punteado ilustracion__arco-nace" d={`${ARCO}`} />
+					<g transform="translate(80 84) scale(.5)"><path class="ilustracion__gota ilustracion__gota--tenue ilustracion__gota-asienta" d={GOTA} /></g>
 				</>
 			) : (
 				<>
@@ -433,8 +606,8 @@ export function Ilustracion({tipo, titulo}: {tipo: TipoIlustracion; titulo?: str
 					<path d={`${ARCO}Z`} fill={`url(#${u}-sup)`} />
 					<path class="ilustracion__trazo ilustracion__trazo--borde" d={ARCO} />
 					<path class="ilustracion__brillo" d="M50 66a30 30 0 0 1 30-30" />
-					<circle cx="80" cy="96" r="26" fill={`url(#${u}-halo)`} />
-					<g transform="translate(80 96) scale(.55)"><path d={GOTA} fill={`url(#${u}-gota)`} /></g>
+					<circle class="ilustracion__halo" cx="80" cy="96" r="26" fill={`url(#${u}-halo)`} />
+					<g transform="translate(80 96) scale(.55)"><path class="ilustracion__gota-llega" d={GOTA} fill={`url(#${u}-gota)`} /></g>
 					{tipo === 'llegada' && <path class="ilustracion__trazo ilustracion__trazo--punteado" d="M80 124v-10" />}
 				</>
 			)}

@@ -87,3 +87,29 @@ export function morfar(desde: DOMRect, hacia: HTMLElement, o: {fondoDesde: strin
 		f.animate([{opacity: 1}, {opacity: 0}], {duration: D.instante, fill: 'forwards'}).finished.then(() => f.remove());
 	});
 }
+
+// FLIP por clave -----------------------------------------------------------------------------------------
+/** Posición en pantalla de cada elemento con `data-k`. */
+export function medirClaves(raiz: HTMLElement) {
+	const m = new Map<string, DOMRect>();
+	raiz.querySelectorAll<HTMLElement>('[data-k]').forEach((el) => m.set(el.dataset.k!, el.getBoundingClientRect()));
+	return m;
+}
+
+/** Cada elemento con `data-k` viaja desde donde se veía antes del cambio, con el resorte «pase». Interrumpible:
+ *  si ya estaba viajando, la medida previa incluye su posición a mitad de camino. */
+export function flipDesde(raiz: HTMLElement, antes: Map<string, DOMRect>) {
+	if (reducido()) return;
+	raiz.querySelectorAll<HTMLElement>('[data-k]').forEach((el) => {
+		const r0 = antes.get(el.dataset.k!);
+		if (!r0) return;
+		el.getAnimations().forEach((a) => a.id === 'flip' && a.cancel());
+		const r1 = el.getBoundingClientRect();
+		const k = escalaDe(el);
+		const dx = (r0.left - r1.left) / k;
+		const dy = (r0.top - r1.top) / k;
+		if (Math.abs(dx) < 0.5 && Math.abs(dy) < 0.5) return;
+		const a = el.animate([{transform: `translate(${dx}px, ${dy}px)`}, {transform: 'none'}], {duration: R.pase.ms, easing: R.pase.linear});
+		a.id = 'flip';
+	});
+}
