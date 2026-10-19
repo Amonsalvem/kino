@@ -55,6 +55,69 @@
       "gravedad": "aviso",
       "fragmento": "KPI",
       "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 89,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "OKR",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 90,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "KPI",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 91,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "OKR",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 92,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "SMART",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 92,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "KPI",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 92,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "SOSTAC",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 92,
+      "id": "mayusculas-enfasis",
+      "gravedad": "aviso",
+      "fragmento": "KPI",
+      "porque": "Mayúsculas de énfasis. Exceptuadas las siglas conocidas y las placas (ABC-123, HTK 481)."
+    },
+    {
+      "linea": 93,
+      "id": "raya",
+      "gravedad": "aviso",
+      "fragmento": " — ",
+      "porque": "Raya (em dash) en texto visible: usar coma, punto o paréntesis."
+    },
+    {
+      "linea": 93,
+      "id": "raya",
+      "gravedad": "aviso",
+      "fragmento": " — ",
+      "porque": "Raya (em dash) en texto visible: usar coma, punto o paréntesis."
     }
   ]
 }

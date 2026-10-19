@@ -129,8 +129,8 @@ S.append(('3.1', [
         ['C', 'Control', 'KPI con método GQM, etapas y tablero de seguimiento', '3.4'],
     ], [800, 2200, 4960, 1800]),
     ('h', 'SOSTAC · O · Objetivo general (el qué) y meta general'),
-    '**Objetivo general.** Posicionar a Kino, a octubre de 2027, como el aliado líder en Antioquia en software de seguridad para la propiedad horizontal y todos sus involucrados: residentes, visitas, colaboradores, portería y administración.',
-    '**Meta general a oct 2027.** 4 conjuntos con pago en el Oriente antioqueño · 95 % de los Pases confirmados por el lector en menos de 60 s · 0 personas permanentes creadas para dejar entrar a alguien.',
+    '**Objetivo general.** Posicionar a Kino, a octubre de 2027, como el software de seguridad líder en Antioquia para la propiedad horizontal: el aliado que reúne a residentes, visitas, colaboradores, portería y administración en la decisión de quién entra.',
+    '**Meta general a oct 2027.** 1.º en participación entre las copropiedades de Antioquia con lector compatible · 4 conjuntos con pago, como piso · 95 % de los Pases confirmados por el lector en menos de 60 s · 0 personas permanentes creadas para dejar entrar a alguien.',
     ('h', 'SOSTAC · O · Objetivos específicos SMART · acción + métrica + usuario + contexto + tiempo'),
     ('t', [
         ['#', 'Acción', 'Métrica', 'Usuario', 'Contexto', 'Tiempo'],
@@ -138,7 +138,7 @@ S.append(('3.1', [
         ['OE2', 'Crear su primer Pase', '60 % de las casas', 'Residentes (A1)', 'Piloto en Villas Campestres', '8 semanas, ene–feb 2027'],
         ['OE3', 'Entrar con Pase, sin llamada', '80 % de sus ingresos', 'Colaboradores (A2)', 'Portería de Villas Campestres', 'Ene–mar 2027'],
         ['OE4', 'Confirmar el Pase en el lector', '98 % en < 60 s; Refugio ≥ 95 %', 'Administración (A4)', 'HikCentral de Monte Sereno', 'Antes del 31 mar 2027'],
-        ['OE5', 'Renovar y firmar pilotos', '1 renovación + 2 conjuntos', 'Administración que compra', 'Oriente antioqueño', 'Antes del 31 oct 2027'],
+        ['OE5', 'Renovar y firmar pilotos', '1 renovación + 2 conjuntos', 'Administración que compra', 'Antioquia, desde el Oriente', 'Antes del 31 oct 2027'],
     ], [600, 1900, 1900, 1700, 1960, 1700]),
     ('h', 'SOSTAC · O · SMART · preguntas orientadoras: relevante, quién, alcanzable y medible'),
     ('t', [
@@ -180,7 +180,7 @@ S.append(('3.3', [
         ['4 · Soporte y acompañamiento', 'Ayuda en el momento en que alguien se traba', 'Acompañamiento · Medición'],
     ], [3200, 3600, 2960]),
     ('h', 'SOSTAC · A · Plan de acción'),
-    ('img', 'plan-accion.png', 'Seis hitos, de la sustentación al cuarto conjunto. El primero es académico; los demás, de producto.'),
+    ('img', 'plan-accion.png', 'Seis hitos, de la sustentación al liderazgo en Antioquia. El primero es académico; los demás, de producto.'),
     ('h', 'Descripción de productos · fichas de producto'),
     ('t', [
         ['Ficha', 'Qué es', 'Sirve a'],
@@ -195,7 +195,7 @@ S.append(('3.3', [
 ]))
 S.append(('3.4', [
     ('h', 'SOSTAC · C · Control · KPI con método GQM: objetivo (G) → pregunta (Q) → métrica (M) y su meta'),
-    'Paso a paso de la guía: determinar el objetivo, definir una variable y relacionarla con la meta. Un KPI principal por objetivo; los resultados se reportan en la entrega 5.',
+    'Paso a paso de la guía: determinar el objetivo, definir una variable y relacionarla con la meta. Un KPI principal por objetivo, más el de participación para el objetivo general; los resultados se reportan en la entrega 5.',
     ('t', [
         ['G', 'Q · Pregunta', 'M · KPI: variable y fórmula', 'Meta', 'Etapa', 'Cada'],
         ['OE1', '¿Crear un Pase es más rápido que llamar?', 'Tiempo para crear (KLM del recorrido)', '< 30 s', 'Comportamiento', 'Versión'],
@@ -203,13 +203,14 @@ S.append(('3.4', [
         ['OE3', '¿El colaborador entra sin llamada?', 'Ingresos por lector ÷ ingresos en minuta', '≥ 80 %', 'Comportamiento', 'Semana'],
         ['OE4', '¿El lector recibe el Pase en menos de un minuto?', 'Confirmados en < 60 s ÷ creados', '≥ 98 %', 'Confianza', 'Día'],
         ['OE5', '¿La administración renueva y otros conjuntos firman?', 'Contratos firmados', '4', 'Conversión', 'Mes'],
+        ['General', '¿Kino lidera en Antioquia?', 'Conjuntos con Kino ÷ copropiedades de Antioquia con lector compatible', '1.º', 'Conversión', 'Semestre'],
     ], [600, 2700, 2900, 900, 1560, 1100]),
     ('h', 'SOSTAC · C · Etapas del plan y el KPI que cubre cada una'),
     ('t', [
         ['Etapa', 'KPI'],
         ['Captación', 'Costo de adquisición por conjunto'],
         ['Comportamiento', 'Tiempo para crear (OE1) · ingresos de colaboradores con Pase (OE3)'],
-        ['Conversión', 'Activación de casas (OE2) · conjuntos con pago (OE5)'],
+        ['Conversión', 'Activación de casas (OE2) · conjuntos con pago (OE5) · participación en Antioquia (objetivo general)'],
         ['Satisfacción', 'SUS de los residentes · NPS de la administración'],
         ['Confianza', 'Confirmación del lector (OE4) · rechazos con motivo'],
         ['Compromiso', 'Retención de residentes'],

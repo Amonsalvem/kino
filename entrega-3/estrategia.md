@@ -89,13 +89,13 @@ Los cuatro recorridos fallan en la puerta: nadie puede fijar desde cuándo y has
 
 ## 2. SOSTAC · O · Objetivo general (el qué) y meta general
 
-**Objetivo general [P].** Posicionar a Kino, a octubre de 2027, como el aliado líder en Antioquia en software de seguridad para la propiedad horizontal y todos sus involucrados: residentes, visitas, colaboradores, portería y administración.
+**Objetivo general [P].** Posicionar a Kino, a octubre de 2027, como el software de seguridad líder en Antioquia para la propiedad horizontal: el aliado que reúne a residentes, visitas, colaboradores, portería y administración en la decisión de quién entra.
 
-**Cómo se construyó.** Redacción del equipo (Nico, 19 oct) sobre los criterios de `investigacion-objetivo-general.md`: verbo, Kino, fecha, categoría y público. **«Líder en Antioquia»** se mide con la participación (§7): conjuntos con Kino ÷ copropiedades de Antioquia con lector compatible. Hoy falta el denominador (§1.5, vacío). Competencia: Neivor y ComunidadFeliz venden software de administración; ZKTeco, lector con su propio software.
+**Cómo se lee.** Qué es Kino (software de seguridad), dónde y con qué ambición (líder en Antioquia, a un año) y para qué (reunir a los cinco actores en la decisión de quién entra, que es la pregunta guía). Dirección de Nico (E3-10), pulida con el test de calidad de `investigacion-objetivo-general.md` §7. La diferencia frente a Neivor, ComunidadFeliz y ZKTeco va en las estrategias (§4).
 
 **[A]** Demostrarlo en un prototipo donde los cuatro actores completan el recorrido del Pase.
 
-**Meta a oct 2027 [P].** **4** conjuntos con pago (Villas, Refugio y 2 del Oriente antioqueño) · **95 %** de los Pases confirmados por el lector en menos de 60 s · **0** ingresos que exijan una persona permanente. *Supuesto:* los 2 conjuntos nuevos son meta del equipo.
+**Meta a oct 2027 [P].** **1.º** en participación entre las copropiedades de Antioquia con lector compatible (KPI de §7; el denominador sale del censo del segundo trimestre de 2027) · **4** conjuntos con pago como piso (Villas, Refugio y 2 del Oriente antioqueño; sube si el censo muestra que no alcanza para liderar) · **95 %** de los Pases confirmados por el lector en menos de 60 s · **0** ingresos que exijan una persona permanente. *Supuesto:* los 2 conjuntos nuevos son meta del equipo.
 
 ---
 
@@ -107,7 +107,7 @@ Los cuatro recorridos fallan en la puerta: nadie puede fijar desde cuándo y has
 | **OE2** [P] | Crear al menos un Pase | 60 % de las casas | Residentes (A1) | Piloto en Villas Campestres | 8 semanas, ene–feb 2027 | 0 Pases; 888 usuarios (casas por confirmar) |
 | **OE3** [P] | Entrar con Pase y sin llamada | 80 % de sus ingresos | Colaboradores (A2) | Portería de Villas | Ene–mar 2027 | Se mide en la semana 1 con la minuta |
 | **OE4** [P] | Confirmar el Pase en el lector y recuperar Refugio | 98 % en < 60 s; Refugio ≥ 95 % | Administración (A4) | HikCentral de Monte Sereno | Antes del 31 mar 2027 | Refugio 0/312 · 1/44 · 711 errores |
-| **OE5** [P] | Renovar y firmar pilotos | Monte Sereno renueva + 2 conjuntos | Administración (compra) | Oriente antioqueño | Antes del 31 oct 2027 | 1 cliente |
+| **OE5** [P] | Renovar y firmar pilotos | Monte Sereno renueva + 2 conjuntos | Administración (compra) | Antioquia, desde el Oriente | Antes del 31 oct 2027 | 1 cliente |
 
 ### SOSTAC · O · SMART · preguntas orientadoras de la guía
 
@@ -125,7 +125,7 @@ A tiempo: la columna **Tiempo** de la tabla anterior (¿qué puedo hacer hoy, en
 
 ```mermaid
 flowchart LR
-  G[Posicionar a Kino a oct 2027<br/>como aliado líder en Antioquia<br/>en software de seguridad para la PH] --> OE1[OE1 · crear en 30 s<br/>producto]
+  G[Posicionar a Kino a oct 2027:<br/>software de seguridad líder en Antioquia<br/>para la propiedad horizontal] --> OE1[OE1 · crear en 30 s<br/>producto]
   G --> OE2[OE2 · adopción<br/>servicio]
   G --> OE3[OE3 · colaborador sin llamada<br/>producto + servicio]
   G --> OE4[OE4 · integración confirmada<br/>tecnología]
@@ -194,7 +194,7 @@ gantt
   Refugio ≥ 95 % (alta por teléfono)  :p1, 2026-11-01, 2026-12-31
   Backend del Pase y WhatsApp        :p2, 2026-12-01, 2026-12-31
   Piloto pagado (OE2, OE3, OE4)      :p3, 2027-01-01, 2027-03-31
-  Instaladores (10 contactados)      :p4, 2027-04-01, 2027-06-30
+  Instaladores y censo de Antioquia  :p4, 2027-04-01, 2027-06-30
   2 conjuntos nuevos y renovación    :p5, 2027-07-01, 2027-10-31
 ```
 
@@ -204,8 +204,8 @@ gantt
 | Nov – dic 2026 | Alta temporal por OpenAPI; arreglar Refugio | Equipo con Manuel | Refugio ≥ 95 % |
 | Dic 2026 | Backend del Pase y WhatsApp Business | Equipo | Beta |
 | Ene – mar 2027 | Piloto pagado en Villas y Refugio | Equipo con la administración | OE2, OE3, OE4 medidos |
-| Abr – jun 2027 | Ficha comercial e instaladores | Equipo | 10 conjuntos contactados |
-| Jul – oct 2027 | 2 conjuntos nuevos; renovación | Equipo | Meta general |
+| Abr – jun 2027 | Ficha comercial, instaladores y censo de copropiedades de Antioquia con lector | Equipo | 10 conjuntos contactados; denominador de la participación |
+| Jul – oct 2027 | 2 conjuntos nuevos; renovación; participación medida | Equipo | Meta general |
 
 ---
 
@@ -229,7 +229,7 @@ Objetivo → pregunta → métrica, con su etapa (captación, comportamiento, co
 | OE5 | ¿La administración recomendaría Kino a otro conjunto? | NPS de la administración | Promotores − detractores | ≥ 30 | Satisfacción | Trimestre |
 | OE5 ★ | ¿Cuántos conjuntos pagan? | Conjuntos con pago | Contratos | 4 a oct 2027 | Conversión | Mes |
 | OE5 | ¿Los rechazos tienen explicación? | Rechazos con motivo | Con motivo ÷ rechazos | 100 % | Confianza | Semana |
-| General | ¿Kino lidera en Antioquia? | Participación | Conjuntos con Kino ÷ copropiedades de Antioquia con lector compatible | Mayor que la de cualquier competidor (por fijar al conocer el denominador) | Conversión | Semestre |
+| General | ¿Kino lidera en Antioquia? | Participación | Conjuntos con Kino ÷ copropiedades de Antioquia con lector compatible | 1.º: mayor que la de cualquier competidor | Conversión | Semestre |
 
 ### SOSTAC · C · Etapas del plan y el KPI que cubre cada una
 
@@ -237,7 +237,7 @@ Objetivo → pregunta → métrica, con su etapa (captación, comportamiento, co
 |---|---|
 | Captación | Costo de adquisición por conjunto (§9.2) |
 | Comportamiento | Tiempo para crear (OE1) · toques con visita reciente (OE1) · ingresos con Pase (OE3) |
-| Conversión | Activación de casas (OE2) · conjuntos con pago (OE5) |
+| Conversión | Activación de casas (OE2) · conjuntos con pago (OE5) · participación en Antioquia (objetivo general) |
 | Satisfacción | SUS (OE2) · NPS de la administración (OE5) |
 | Confianza | Confirmación del lector · sincronización · discrepancia app–puerta (OE4) · rechazos con motivo (OE5) |
 | Compromiso | Retención de residentes (OE2) |
@@ -256,7 +256,7 @@ Un panel por objetivo con el último dato, su serie y la meta como línea puntea
 | Frente | Estado |
 |---|---|
 | Producto | Residente, Pase vivo, Portería y Administración en producción, conectados a HikCentral |
-| Clientes | 4 conjuntos con pago |
+| Clientes | 4 conjuntos con pago como piso; primero en participación en Antioquia |
 | Prueba | Un caso con KPI reales (OE2 a OE4) para vender |
 | Empresa | SAS con facturación electrónica y bases registradas ante la SIC |
 | Equipo | Nicolás y Alejandro, más un integrador aliado |

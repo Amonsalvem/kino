@@ -72,3 +72,30 @@ Nico pidió «líder en Antioquia», quitar la cláusula de residente, administr
 - «Sus involucrados» se nombra con los cinco actores del sistema para que la frase sea concreta (criterio de la metodología).
 - «Líder» queda comprobable con un KPI de participación (`estrategia.md` §7): conjuntos con Kino ÷ copropiedades de Antioquia con lector compatible. Falta el denominador; conseguirlo es el pendiente 5 de §11.
 - Costo: la meta a un año sigue siendo de 4 conjuntos. Con ese número, el liderazgo en Antioquia solo se sostiene si el mercado con lector compatible resulta pequeño o la competencia tiene menos conjuntos. Hay que revisar la meta cuando se conozca el denominador.
+
+## 7. Test de calidad y pulido (19 oct)
+
+Doce pruebas tomadas de las fuentes de §1. Columna A: redacción de §6. Columna B: versión pulida.
+
+| # | Prueba | Fuente | A | B |
+|---|---|---|---|---|
+| 1 | Empieza con un verbo en infinitivo de acción amplia | Metodología | ✔ Posicionar | ✔ |
+| 2 | La unidad es Kino | Pedido del equipo | ✔ | ✔ |
+| 3 | Tiene fecha | Metodología, Fight Club | ✔ oct 2027 | ✔ |
+| 4 | Tiene lugar | Metodología | ✔ Antioquia | ✔ |
+| 5 | Nombra la categoría en la que compite | Moore | ✔ software de seguridad | ✔ |
+| 6 | Nombra a quién sirve, de forma concreta | Moore, Stripe | ~ «todos sus involucrados» es jerga; la lista lo salva | ✔ los cinco actores, sin «involucrados» |
+| 7 | Responde a la necesidad del diagnóstico | Guía del curso | ✘ no aparece la pregunta guía | ✔ «reúne… en la decisión de quién entra» = reunir conocimiento y autoridad para decidir quién entra |
+| 8 | No lleva cifras | OKR | ✔ | ✔ |
+| 9 | Se puede comprobar si se logró | Metodología | ✘ «líder» sin medida | ✔ KPI de participación con meta «primero» (§7 de `estrategia.md`), denominador del censo del segundo trimestre de 2027 |
+| 10 | Una frase limpia, sin jerga ni tropiezos | OKR, Fight Club | ~ «aliado líder en Antioquia en software»: dos «en» seguidos | ✔ «software de seguridad líder en Antioquia» y «el aliado que…» en una segunda parte |
+| 11 | Cuadra con la meta, los SMART, el plan y los KPI | SOSTAC | ✘ meta solo en el Oriente; 4 conjuntos sin relación con liderar | ✔ meta con «primero en participación» y 4 conjuntos como piso; OE5 en Antioquia; censo en el plan; KPI en la etapa de conversión |
+| 12 | Dice en qué se diferencia | Moore | — por decisión del equipo va en las estrategias (lámina 13, §4) | — igual |
+
+**Resultado:** A pasa 7 de 11 pruebas aplicables; B pasa 11 de 11. La prueba 12 se deja fuera a propósito: Nico pidió quitar la cláusula de diferencia.
+
+> **Posicionar a Kino, a octubre de 2027, como el software de seguridad líder en Antioquia para la propiedad horizontal: el aliado que reúne a residentes, visitas, colaboradores, portería y administración en la decisión de quién entra.**
+
+**Cómo se lee en voz alta:** qué es (software de seguridad), dónde y con qué ambición (líder en Antioquia, en un año), para quién (la propiedad horizontal) y para qué (que los cinco actores decidan juntos quién entra).
+
+**Riesgo que sigue abierto:** si el censo muestra que 4 conjuntos no bastan para ser primeros, hay que subir la meta o acotar el liderazgo a una región. La decisión es del equipo.

@@ -417,3 +417,16 @@ En arquitectura faltaba:
 ## Objetivo general con la redacción de Nico (19 oct)
 - «Posicionar a Kino, a octubre de 2027, como el aliado líder en Antioquia en software de seguridad para la propiedad horizontal y todos sus involucrados: residentes, visitas, colaboradores, portería y administración.» Va en el deck (lámina 10 y guion), en la Biblia 3.1 y en `estrategia.md` (§2, diagrama, KPI de participación en §7 y pendiente 5 en §11). Queda registrado como E3-10 en `decisiones.md`.
 - `verificar.mjs` sin fallas; compuerta de voz sin errores nuevos.
+
+## Objetivo general: test de calidad, pulido y coherencia (19 oct)
+- El test de 12 pruebas está en `entrega-3/investigacion-objetivo-general.md` §7. La redacción anterior pasaba 7 de 11; la pulida pasa 11 de 11: «Posicionar a Kino, a octubre de 2027, como el software de seguridad líder en Antioquia para la propiedad horizontal: el aliado que reúne a residentes, visitas, colaboradores, portería y administración en la decisión de quién entra.»
+- Coherencia:
+  - Meta: «primero en participación en Antioquia» y 4 conjuntos como piso.
+  - OE5: en Antioquia, empezando por el Oriente.
+  - Plan: censo de copropiedades de abril a junio de 2027; el último hito es «Líder en Antioquia».
+  - KPI de participación en GQM (lámina 15) y en la etapa de conversión.
+  - Horizonte 2027.
+  - Biblia: 3.1, 3.3 (figura del plan recapturada) y 3.4.
+  - `estrategia.md`: §2, §3, §6, §7, §8 y §11.
+  - E3-10 actualizada en `decisiones.md`.
+- `verificar.mjs` sin fallas; compuerta de voz sin errores nuevos.

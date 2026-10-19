@@ -230,8 +230,8 @@ section.actual .embudo .barra-v{transform:none}
 @media (prefers-reduced-motion:reduce){.embudo .barra-v{transform:none;transition:none}}
 
 /* Meta general */
-.meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:calc(var(--u)*2)}
-.meta .cifra{font-size:calc(var(--u)*10);color:var(--vig)}
+.meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:calc(var(--u)*2)}
+.meta .cifra{font-size:calc(var(--u)*6.5);color:var(--vig)}
 .objetivo{font-family:var(--display);font-weight:800;font-stretch:112%;font-size:var(--t-h2);line-height:1.08;max-width:36ch}
 
 /* SMART: cinco piezas por objetivo, alineadas en columnas */
@@ -529,13 +529,14 @@ section.densa .grafica{height:calc(var(--u)*4.6)}
 <!-- 9 · Objetivo general -->
 <section data-parte="plan">
   <p class="rot">SOSTAC · O · Objetivo general (el qué) y meta general a 12 meses</p>
-  <p class="objetivo" data-r style="--r:0">Posicionar a Kino, a octubre de 2027, como el aliado líder en Antioquia en software de seguridad para la propiedad horizontal y todos sus involucrados: residentes, visitas, colaboradores, portería y administración.</p>
+  <p class="objetivo" data-r style="--r:0">Posicionar a Kino, a octubre de 2027, como el software de seguridad líder en Antioquia para la propiedad horizontal: el aliado que reúne a residentes, visitas, colaboradores, portería y administración en la decisión de quién entra.</p>
   <div class="meta">
-    <div class="caja" data-r style="--r:2"><span class="cifra" data-contar="4">4</span><p>conjuntos con pago en el Oriente antioqueño</p></div>
+    <div class="caja" data-r style="--r:1"><span class="cifra">1</span><p>primero en participación entre las copropiedades de Antioquia con lector compatible</p></div>
+    <div class="caja" data-r style="--r:2"><span class="cifra" data-contar="4">4</span><p>conjuntos con pago, como piso</p></div>
     <div class="caja" data-r style="--r:3"><span class="cifra"><span data-contar="95">95</span> %</span><p>de los Pases confirmados por el lector en menos de 60 s</p></div>
     <div class="caja" data-r style="--r:4"><span class="cifra" data-contar="0">0</span><p>personas permanentes creadas para dejar entrar a alguien</p></div>
   </div>
-  <aside class="guion">Objetivo general: verbo + Kino + fecha + categoría + beneficio + diferencia, sin cifras (investigacion-objetivo-general.md). Redacción de Nico: Kino como aliado líder en Antioquia en software de seguridad para la propiedad horizontal y todos sus involucrados. «Líder» se mide con la participación: conjuntos con Kino ÷ copropiedades de Antioquia con lector compatible; el denominador aún no existe (no hay cifra oficial de copropiedades en Antioquia). Las tres cifras son la meta a 12 meses: 4 conjuntos pagando, el lector confirmando el 95 % de los Pases en menos de un minuto y ninguna persona dada de alta de por vida para dejar entrar a alguien. Los 4 conjuntos: Villas Campestres, Refugio Campestre y 2 nuevos del Oriente antioqueño; el 2 es meta del equipo y se recalibra con el piloto.</aside>
+  <aside class="guion">Objetivo general (dirección de Nico, pulido con el test de calidad de investigacion-objetivo-general.md). Se lee en tres partes: qué es Kino (software de seguridad), dónde y con qué ambición (líder en Antioquia, a un año) y para qué (reunir a los cinco actores en la decisión de quién entra: la pregunta guía). La meta lo vuelve comprobable. 1.º: participación entre las copropiedades de Antioquia con lector compatible, que se mide con el censo del segundo trimestre de 2027 (hoy no hay cifra oficial). 4: piso de conjuntos con pago, Villas, Refugio y 2 nuevos; si el censo muestra que 4 no alcanza para liderar, la meta sube. 95 % y 0: la seguridad que se promete, el lector confirma cada Pase y nadie queda dado de alta de por vida para una visita.</aside>
 </section>
 
 <!-- 10 · SMART -->
@@ -548,7 +549,7 @@ section.densa .grafica{height:calc(var(--u)*4.6)}
     <span class="oe" data-r style="--r:2">OE2</span><span class="p acc" data-r style="--r:2">Crear su primer Pase</span><span class="p met" data-r style="--r:2">60 % de las casas</span><span class="p usu" data-r style="--r:2">Residentes (A1)</span><span class="p ctx" data-r style="--r:2">Piloto en Villas Campestres</span><span class="p tie" data-r style="--r:2">8 semanas · ene–feb 2027</span>
     <span class="oe" data-r style="--r:3">OE3</span><span class="p acc" data-r style="--r:3">Entrar con Pase, sin llamada</span><span class="p met" data-r style="--r:3">80 % de sus ingresos</span><span class="p usu" data-r style="--r:3">Colaboradores (A2)</span><span class="p ctx" data-r style="--r:3">Portería de Villas Campestres</span><span class="p tie" data-r style="--r:3">Ene–mar 2027</span>
     <span class="oe" data-r style="--r:4">OE4</span><span class="p acc" data-r style="--r:4">Confirmar el Pase en el lector</span><span class="p met" data-r style="--r:4">98 % en &lt; 60 s · Refugio ≥ 95 %</span><span class="p usu" data-r style="--r:4">Administración (A4)</span><span class="p ctx" data-r style="--r:4">HikCentral de Monte Sereno</span><span class="p tie" data-r style="--r:4">Antes del 31 mar 2027</span>
-    <span class="oe" data-r style="--r:5">OE5</span><span class="p acc" data-r style="--r:5">Renovar y firmar pilotos</span><span class="p met" data-r style="--r:5">1 renovación + 2 conjuntos</span><span class="p usu" data-r style="--r:5">Administración que compra</span><span class="p ctx" data-r style="--r:5">Oriente antioqueño</span><span class="p tie" data-r style="--r:5">Antes del 31 oct 2027</span>
+    <span class="oe" data-r style="--r:5">OE5</span><span class="p acc" data-r style="--r:5">Renovar y firmar pilotos</span><span class="p met" data-r style="--r:5">1 renovación + 2 conjuntos</span><span class="p usu" data-r style="--r:5">Administración que compra</span><span class="p ctx" data-r style="--r:5">Antioquia, desde el Oriente</span><span class="p tie" data-r style="--r:5">Antes del 31 oct 2027</span>
   </div>
   <aside class="guion">Fórmula del curso: acción + métrica + usuario + contexto + tiempo. OE1 ya se midió el 19 oct: 3 toques y 8 s; visita nueva, 19,4 s. Refugio parte de 0 de 312.</aside>
 </section>
@@ -590,14 +591,14 @@ section.densa .grafica{height:calc(var(--u)*4.6)}
 <!-- 12 · Plan de acción -->
 <section data-parte="plan">
   <p class="rot">SOSTAC · A · Plan de acción · hitos, responsables y fechas</p>
-  <h2>De la sustentación al cuarto conjunto</h2>
+  <h2>De la sustentación al liderazgo en Antioquia</h2>
   <div class="tiempo">
     <div class="hito" data-r style="--r:1"><span class="cuando">9 nov 2026</span><b>Sustentación</b><span>Prototipo y medición de OE1</span></div>
     <div class="hito" data-r style="--r:2"><span class="cuando">Nov–dic 2026</span><b>Refugio en línea</b><span>Alta por teléfono con Manuel</span></div>
     <div class="hito" data-r style="--r:3"><span class="cuando">Dic 2026</span><b>Versión beta</b><span>Backend del Pase y WhatsApp Business</span></div>
     <div class="hito" data-r style="--r:4"><span class="cuando">Ene–mar 2027</span><b>Piloto pagado</b><span>Medir OE2, OE3 y OE4</span></div>
-    <div class="hito" data-r style="--r:5"><span class="cuando">Abr–jun 2027</span><b>Instaladores</b><span>10 conjuntos contactados</span></div>
-    <div class="hito" data-r style="--r:6"><span class="cuando">Oct 2027</span><b>4 conjuntos</b><span>Renovación y 2 nuevos</span></div>
+    <div class="hito" data-r style="--r:5"><span class="cuando">Abr–jun 2027</span><b>Instaladores y censo</b><span>10 conjuntos contactados y censo de Antioquia</span></div>
+    <div class="hito" data-r style="--r:6"><span class="cuando">Oct 2027</span><b>Líder en Antioquia</b><span>4 conjuntos y participación medida</span></div>
   </div>
   <aside class="guion">El primer hito es académico; los demás son de producto y siguen después de noviembre.</aside>
 </section>
@@ -605,7 +606,7 @@ section.densa .grafica{height:calc(var(--u)*4.6)}
 <!-- 13 · KPI -->
 <section data-parte="plan">
   <p class="rot">SOSTAC · C · Control · KPI con método GQM: objetivo (G) → pregunta (Q) → métrica (M) y su meta</p>
-  <h2>Un KPI por objetivo</h2>
+  <h2>Un KPI por objetivo, y el del objetivo general</h2>
   <div class="gqm">
     <span class="cab">G</span><span class="cab">Q · Pregunta</span><span class="cab">M · KPI</span><span class="cab">Variable · fórmula</span><span class="cab">Meta</span><span class="cab">Etapa</span><span class="cab">Cada</span>
     <span class="oe" data-r style="--r:1">OE1</span><span class="q" data-r style="--r:1">¿Crear un Pase es más rápido que llamar?</span><span class="k" data-r style="--r:1">Tiempo para crear</span><span class="f" data-r style="--r:1">KLM del recorrido</span><span class="meta-k" data-r style="--r:1">&lt; 30 s</span><span class="chip previsto" data-r style="--r:1">Comportamiento</span><span class="f" data-r style="--r:1">versión</span>
@@ -613,9 +614,10 @@ section.densa .grafica{height:calc(var(--u)*4.6)}
     <span class="oe" data-r style="--r:3">OE3</span><span class="q" data-r style="--r:3">¿El colaborador entra sin llamada?</span><span class="k" data-r style="--r:3">Ingresos con Pase</span><span class="f" data-r style="--r:3">ingresos por lector ÷ ingresos en minuta</span><span class="meta-k" data-r style="--r:3">≥ 80 %</span><span class="chip previsto" data-r style="--r:3">Comportamiento</span><span class="f" data-r style="--r:3">semana</span>
     <span class="oe" data-r style="--r:4">OE4</span><span class="q" data-r style="--r:4">¿El lector recibe el Pase en menos de un minuto?</span><span class="k" data-r style="--r:4">Confirmación del lector</span><span class="f" data-r style="--r:4">confirmados en &lt; 60 s ÷ creados</span><span class="meta-k" data-r style="--r:4">≥ 98 %</span><span class="chip porvencer" data-r style="--r:4">Confianza</span><span class="f" data-r style="--r:4">día</span>
     <span class="oe" data-r style="--r:5">OE5</span><span class="q" data-r style="--r:5">¿La administración renueva y otros conjuntos firman?</span><span class="k" data-r style="--r:5">Conjuntos con pago</span><span class="f" data-r style="--r:5">contratos firmados</span><span class="meta-k" data-r style="--r:5">4</span><span class="chip vigente" data-r style="--r:5">Conversión</span><span class="f" data-r style="--r:5">mes</span>
+    <span class="oe" data-r style="--r:6">Gen.</span><span class="q" data-r style="--r:6">¿Kino lidera en Antioquia?</span><span class="k" data-r style="--r:6">Participación</span><span class="f" data-r style="--r:6">conjuntos con Kino ÷ copropiedades con lector compatible</span><span class="meta-k" data-r style="--r:6">primero</span><span class="chip vigente" data-r style="--r:6">Conversión</span><span class="f" data-r style="--r:6">semestre</span>
   </div>
   <div class="etapas" data-r style="--r:7">
-    <span><b>Captación</b>costo de adquisición por conjunto</span><span><b>Comportamiento</b>OE1 · OE3</span><span><b>Conversión</b>OE2 · OE5</span><span><b>Satisfacción</b>SUS · NPS de la administración</span><span><b>Confianza</b>OE4 · rechazos con motivo</span><span><b>Compromiso</b>retención de residentes</span>
+    <span><b>Captación</b>costo de adquisición por conjunto</span><span><b>Comportamiento</b>OE1 · OE3</span><span><b>Conversión</b>OE2 · OE5 · participación en Antioquia</span><span><b>Satisfacción</b>SUS · NPS de la administración</span><span><b>Confianza</b>OE4 · rechazos con motivo</span><span><b>Compromiso</b>retención de residentes</span>
   </div>
   <aside class="guion">Método GQM: objetivo, pregunta, métrica. Paso a paso de la guía: determinar el objetivo, definir una variable y relacionarla con la meta. Abajo, las seis etapas de la guía de indicadores con el KPI que cubre cada una. Hay 12 KPI en total (estrategia.md §7); aquí va el principal de cada objetivo. Las metas de OE2, OE3 y OE5 se recalibran con la medición de la semana 1 del piloto.</aside>
 </section>
@@ -662,7 +664,7 @@ section.densa .grafica{height:calc(var(--u)*4.6)}
   <p class="rot">Horizonte de empresa · 1 a 5 años y lo que falta verificar antes del piloto</p>
   <h2>De 4 conjuntos en 2027 a 250 en 2030</h2>
   <div class="horizonte">
-    <div class="caja" data-r style="--r:1"><span class="cuando">2027</span><span class="cifra" data-contar="4">4</span><p>conjuntos en Monte Sereno y el Oriente</p></div>
+    <div class="caja" data-r style="--r:1"><span class="cuando">2027</span><span class="cifra" data-contar="4">4</span><p>conjuntos como piso; primero en Antioquia</p></div>
     <div class="caja" data-r style="--r:2"><span class="cuando">2028</span><span class="cifra" data-contar="40">40</span><p>conjuntos en Antioquia, segundo fabricante</p></div>
     <div class="caja" data-r style="--r:3"><span class="cuando">2030</span><span class="cifra" data-contar="250">250</span><p>conjuntos en Antioquia y Bogotá</p></div>
   </div>

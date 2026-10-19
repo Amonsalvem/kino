@@ -110,15 +110,17 @@ KPI con método GQM y su tablero
 Láminas 15–16
 Estructura de la guía del curso (Plan_estrategico.pdf). La situación ya se contó al inicio; desde aquí, el plan. Las fichas de producto (lámina 17) cierran como insumo para mapas y prototipos.
 SOSTAC · O · Objetivo general (el qué) y meta general a 12 meses
-Posicionar a Kino, a octubre de 2027, como el aliado líder en Antioquia en software de seguridad para la propiedad horizontal y todos sus involucrados: residentes, visitas, colaboradores, portería y administración.
+Posicionar a Kino, a octubre de 2027, como el software de seguridad líder en Antioquia para la propiedad horizontal: el aliado que reúne a residentes, visitas, colaboradores, portería y administración en la decisión de quién entra.
+1
+primero en participación entre las copropiedades de Antioquia con lector compatible
 4
-conjuntos con pago en el Oriente antioqueño
+conjuntos con pago, como piso
 95
 %
 de los Pases confirmados por el lector en menos de 60 s
 0
 personas permanentes creadas para dejar entrar a alguien
-Objetivo general: verbo + Kino + fecha + categoría + beneficio + diferencia, sin cifras (investigacion-objetivo-general.md). Redacción de Nico: Kino como aliado líder en Antioquia en software de seguridad para la propiedad horizontal y todos sus involucrados. «Líder» se mide con la participación: conjuntos con Kino ÷ copropiedades de Antioquia con lector compatible; el denominador aún no existe (no hay cifra oficial de copropiedades en Antioquia). Las tres cifras son la meta a 12 meses: 4 conjuntos pagando, el lector confirmando el 95 % de los Pases en menos de un minuto y ninguna persona dada de alta de por vida para dejar entrar a alguien. Los 4 conjuntos: Villas Campestres, Refugio Campestre y 2 nuevos del Oriente antioqueño; el 2 es meta del equipo y se recalibra con el piloto.
+Objetivo general (dirección de Nico, pulido con el test de calidad de investigacion-objetivo-general.md). Se lee en tres partes: qué es Kino (software de seguridad), dónde y con qué ambición (líder en Antioquia, a un año) y para qué (reunir a los cinco actores en la decisión de quién entra: la pregunta guía). La meta lo vuelve comprobable. 1.º: participación entre las copropiedades de Antioquia con lector compatible, que se mide con el censo del segundo trimestre de 2027 (hoy no hay cifra oficial). 4: piso de conjuntos con pago, Villas, Refugio y 2 nuevos; si el censo muestra que 4 no alcanza para liderar, la meta sube. 95 % y 0: la seguridad que se promete, el lector confirma cada Pase y nadie queda dado de alta de por vida para una visita.
 SOSTAC · O · Objetivos específicos SMART · acción + métrica + usuario + contexto + tiempo
 Cinco objetivos SMART
 Acción
@@ -154,7 +156,7 @@ OE5
 Renovar y firmar pilotos
 1 renovación + 2 conjuntos
 Administración que compra
-Oriente antioqueño
+Antioquia, desde el Oriente
 Antes del 31 oct 2027
 Fórmula del curso: acción + métrica + usuario + contexto + tiempo. OE1 ya se midió el 19 oct: 3 toques y 8 s; visita nueva, 19,4 s. Refugio parte de 0 de 312.
 SOSTAC · O · SMART · preguntas orientadoras: ¿por qué es importante?, ¿quién?, ¿con qué recursos?, ¿cómo sabré que se logró?
@@ -236,7 +238,7 @@ Automatización y gestión de la experiencia
 Soporte y acompañamiento
 Estrategia: un sustantivo que dice cómo; su eje estratégico del curso debajo. Táctica: qué se hará, quién y cuándo. Las demás tácticas están en estrategia.md §5.
 SOSTAC · A · Plan de acción · hitos, responsables y fechas
-De la sustentación al cuarto conjunto
+De la sustentación al liderazgo en Antioquia
 9 nov 2026
 Sustentación
 Prototipo y medición de OE1
@@ -250,14 +252,14 @@ Ene–mar 2027
 Piloto pagado
 Medir OE2, OE3 y OE4
 Abr–jun 2027
-Instaladores
-10 conjuntos contactados
+Instaladores y censo
+10 conjuntos contactados y censo de Antioquia
 Oct 2027
-4 conjuntos
-Renovación y 2 nuevos
+Líder en Antioquia
+4 conjuntos y participación medida
 El primer hito es académico; los demás son de producto y siguen después de noviembre.
 SOSTAC · C · Control · KPI con método GQM: objetivo (G) → pregunta (Q) → métrica (M) y su meta
-Un KPI por objetivo
+Un KPI por objetivo, y el del objetivo general
 G
 Q · Pregunta
 M · KPI
@@ -300,12 +302,19 @@ contratos firmados
 4
 Conversión
 mes
+Gen.
+¿Kino lidera en Antioquia?
+Participación
+conjuntos con Kino ÷ copropiedades con lector compatible
+primero
+Conversión
+semestre
 Captación
 costo de adquisición por conjunto
 Comportamiento
 OE1 · OE3
 Conversión
-OE2 · OE5
+OE2 · OE5 · participación en Antioquia
 Satisfacción
 SUS · NPS de la administración
 Confianza
@@ -394,7 +403,7 @@ Horizonte de empresa · 1 a 5 años y lo que falta verificar antes del piloto
 De 4 conjuntos en 2027 a 250 en 2030
 2027
 4
-conjuntos en Monte Sereno y el Oriente
+conjuntos como piso; primero en Antioquia
 2028
 40
 conjuntos en Antioquia, segundo fabricante
