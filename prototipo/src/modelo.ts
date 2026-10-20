@@ -220,6 +220,20 @@ export const SOSTAC: Record<string, Sostac> = {
 	'I-20': {oe: 'OE3 · 80 % de colaboradores entra sin llamada', estrategia: 'Recurrencia', eje: EJE[3], tactica: 'Rostro como cuarto modo opcional (planeada)', kpi: 'Ingresos con Pase ÷ ingresos en minuta ≥ 80 %'},
 };
 
+/** Interacciones que cambiaron por la evaluación de usabilidad por inspección (Biblia 6.1, deck láminas 6 a 9):
+ *  qué perfil se trababa, cómo estaba en la versión evaluada y cómo quedó. */
+export type Correccion = {perfil: string; antes: string; ahora: string};
+export const EVALUACION: Record<string, Correccion[]> = {
+	'I-05': [{perfil: 'Empty nesters · hijos por un mes', antes: 'solo había Pases de horas', ahora: '«Se queda», de 3 días a 3 meses'}],
+	'I-08': [{perfil: 'A3 · visita sin datos móviles', antes: 'la imagen no traía un QR legible', ahora: 'QR, código y placa en la imagen'}],
+	'I-10': [
+		{perfil: 'A1 · la visita sale a la tienda', antes: 'el Pase quedaba usado al entrar', ahora: 'entra y sale dentro de su vigencia'},
+		{perfil: 'A4 · portería en hora pico', antes: 'una lectura tapaba la anterior', ahora: 'bitácora con la última fila resaltada'},
+	],
+	'I-13': [{perfil: 'A1 · revocar por error', antes: 'un diálogo que no dejaba deshacer', ahora: 'mantener presionado y deshacer por 5 s'}],
+	'I-15': [{perfil: 'A4 · mover una franja', antes: 'no se veía el efecto', ahora: 'vista previa de qué Pase quedaría fuera'}],
+};
+
 type Estado_ = {
 	pases: Pase[];
 	lecturas: Lectura[];

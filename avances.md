@@ -500,3 +500,8 @@ En arquitectura faltaba:
 - Nueva subsección al final de §7, «SOSTAC · C · Primera medición: evaluación de usabilidad del prototipo», en el orden del deck: versión evaluada, cómo se evaluó, resultados (11 tropiezos con su estado: 6, 3, 1 y 1) y así quedó y qué sigue (KLM de OE1, entrega 4 y SUS en el piloto). Las cifras coinciden con la lámina 8 y con la Biblia 6.1.
 - §5: la táctica Medición incluye la inspección con perfiles y remite a §7. Numeración §0–§11 sin cambios.
 - Barrido: «Elementos clave» → «Qué incluye» en §10. Compuerta de voz: 0 errores.
+
+## Prototipo: la evaluación en el panel de notas (20 oct)
+- Registro `EVALUACION` en `prototipo/src/modelo.ts` con los textos de la Biblia 6.1. Las interacciones que cambiaron por la evaluación (I-05, I-08, I-10 con dos correcciones, I-13 e I-15) muestran en el panel el perfil, cómo estaban y cómo quedaron. En la lista de cobertura llevan la marca «corregida en la evaluación».
+- Barrido de muletillas de las pantallas y del panel: sin hallazgos («Revoca al instante» describe la regla y se deja).
+- Tipos, build y e2e completos; revisión del panel tras revocar; `verificar.mjs` sin fallas. Prototipo y deck republicados.
