@@ -169,7 +169,7 @@ flowchart LR
 |---|---|---|---|---|
 | Simplificación | Volver a invitar | 4 personas recientes abren la hoja ya llena | Equipo | Oct 2026 ✔ |
 | Simplificación | Vigencia a tu medida | Unas horas, un día o «Se queda» (3 días a 3 meses) | Equipo | Oct 2026 ✔ |
-| Medición | Toques y KLM | `prototipo/pruebas/oe1.mjs` falla si pasa la meta | Equipo | 19 oct 2026 ✔ |
+| Medición | Toques, KLM e inspección con perfiles | `prototipo/pruebas/oe1.mjs` falla si pasa la meta; resultados de la inspección en §7 | Equipo | 19 oct 2026 ✔ |
 | Acompañamiento | Día de lanzamiento | Puesto en la entrada; primer Pase con cada residente | Equipo y administración | Semana 1, ene 2027 |
 | Acompañamiento | Línea de ayuda | WhatsApp de Kino con un responsable por turno | Equipo | Desde el piloto |
 | Diversificación | Pase por imagen y enlace | Plantilla de utilidad de WhatsApp Business | Equipo | Dic 2026 |
@@ -249,6 +249,30 @@ Un panel por objetivo con el último dato, su serie y la meta como línea puntea
 
 *Fuentes de medición:* `oe1.mjs`, base de Kino, HikCentral, minuta de portería y encuestas. Las metas de OE2, OE3 y OE5 son supuestos y se recalibran en la semana 1 del piloto.
 
+### SOSTAC · C · Primera medición: evaluación de usabilidad del prototipo
+
+**Versión evaluada.** El Figma «Kino · App» (226 pantallas). Las capturas de cómo estaba y cómo quedó están en el deck (láminas 6 y 9) y en la Biblia 6.1.
+
+**Cómo se evaluó.** Inspección del equipo con recorrido cognitivo y las 10 heurísticas de Nielsen, desde 5 perfiles: los arquetipos del diagnóstico y los de residente del estudio de iAgency para Monte Sereno (2024). No hubo participantes.
+
+**Resultados: 11 tropiezos.** 6 corregidos · 3 planeados para la entrega 4 · 1 pendiente con la administración · 1 sin problema.
+
+| Perfil y situación | Sev. | Estado y qué cambió |
+|---|---|---|
+| A3 · visita sin datos móviles: la imagen no traía un QR legible | 3 | Corregido: QR, código y placa en la imagen |
+| Empty nesters · hijos por un mes: solo había Pases de horas | 3 | Corregido: «Se queda», de 3 días a 3 meses |
+| A1 · revocar por error: el diálogo no dejaba deshacer | 3 | Corregido: mantener presionado y deshacer por 5 s |
+| A1 · la visita sale a la tienda: el Pase quedaba usado al entrar | 3 | Corregido: entra y sale dentro de su vigencia |
+| A4 · portería en hora pico: una lectura tapaba la anterior | 2 | Corregido: bitácora con la última fila resaltada |
+| A4 · mover una franja: no se veía el efecto | 2 | Corregido: vista previa del cambio |
+| Familia · cumpleaños con 15 invitados: quince Pases, uno por uno | 3 | Planeado: Pase de evento |
+| Empty nesters · cinco familiares juntos: una hoja por persona | 2 | Planeado: un Pase para varias personas |
+| Familia · niñera en vacaciones: revocar y crear de nuevo | 2 | Planeado: editar días y franja de un recurrente |
+| Pareja sin hijos · número extranjero: el cambio pasa por la administración | 2 | Pendiente con la administración |
+| Pareja sin hijos · de viaje: extender el Pase del jardinero | 0 | Sin problema |
+
+**Así quedó y qué sigue.** OE1 medido con KLM: 3 toques y 8 s para volver a invitar; 19,4 s para una visita nueva. Lo planeado entra al inventario de la entrega 4. La prueba con residentes es el SUS de la semana 6 del piloto (KPI de OE2).
+
 ---
 
 ## 8. A 1 año (oct 2027) [P]
@@ -319,7 +343,7 @@ Un panel por objetivo con el último dato, su serie y la meta como línea puntea
 
 ## 10. Descripción de productos · fichas de producto (insumo para mapas y prototipos)
 
-| Ficha | Propósito | Elementos clave | Tecnología | Escenario | Sirve a |
+| Ficha | Propósito | Qué incluye | Tecnología | Escenario | Sirve a |
 |---|---|---|---|---|---|
 | **F1 · Kino Residente** | Otorgar, acotar y revocar Pases | Código por WhatsApp (I-01), Pase vivo (I-02), volver a invitar (I-03), hoja (I-04), vigencia (I-05), revocar con deshacer (I-13), extender (I-14), aviso (I-11) | PWA en TypeScript, `@kino/motion`, push | A las 2 p. m. Carolina toca «Andrés» y «Crear Pase»; a las 3:04 le llega «Andrés entró» | OE1, OE2, OE3 |
 | **F2 · Pase vivo** | Que la visita entre sin cuenta | Enlace (I-09); QR, placa o código; cuenta regresiva | Web estática con datos en vivo; imagen generada en el servidor | Andrés llega en carro y el lector lee su placa; si no, acerca el QR | OE2 |

@@ -495,3 +495,8 @@ En arquitectura faltaba:
 - 6.1 en el orden del deck: versión evaluada (figura nueva `version-evaluada.png`), cómo se evaluó, resultados y así quedó (figura nueva `version-corregida.png`). Al final va la medición KLM de OE1.
 - La tabla pasa de 8 a 11 filas, igual que la lámina 8: se agregan cinco familiares juntos (planeado), número extranjero (pendiente) y extender desde otro país (sin problema). Cada fila dice su estado. El reparto queda en 6, 3, 1 y 1.
 - Barrido de muletillas sobre el texto propio de la Biblia: sin hallazgos; compuerta de voz: 0 errores. La Biblia queda con 8 figuras.
+
+## estrategia.md: primera medición y barrido (20 oct)
+- Nueva subsección al final de §7, «SOSTAC · C · Primera medición: evaluación de usabilidad del prototipo», en el orden del deck: versión evaluada, cómo se evaluó, resultados (11 tropiezos con su estado: 6, 3, 1 y 1) y así quedó y qué sigue (KLM de OE1, entrega 4 y SUS en el piloto). Las cifras coinciden con la lámina 8 y con la Biblia 6.1.
+- §5: la táctica Medición incluye la inspección con perfiles y remite a §7. Numeración §0–§11 sin cambios.
+- Barrido: «Elementos clave» → «Qué incluye» en §10. Compuerta de voz: 0 errores.
