@@ -490,3 +490,8 @@ En arquitectura faltaba:
 - Botón con ícono al final de la cabecera del escenario, junto a «Reiniciar», y tecla F. El ícono cambia a «salir» mientras está activo. Si el navegador o el marco no lo permiten, un aviso dice cómo hacerlo: abrir el prototipo en su propia pestaña, F11 en Windows o ⌃⌘F en Mac. No aparece en las vistas sueltas (`solo=1`).
 - El iframe de la lámina 10 del deck lleva `allow="fullscreen"` para que el botón funcione también ahí.
 - Tipos, build y e2e completos; la prueba con Playwright entra y sale sin errores; `verificar.mjs` sin fallas. Prototipo y deck republicados.
+
+## Biblia 6.1: mismo orden y barrido que el deck (20 oct)
+- 6.1 en el orden del deck: versión evaluada (figura nueva `version-evaluada.png`), cómo se evaluó, resultados y así quedó (figura nueva `version-corregida.png`). Al final va la medición KLM de OE1.
+- La tabla pasa de 8 a 11 filas, igual que la lámina 8: se agregan cinco familiares juntos (planeado), número extranjero (pendiente) y extender desde otro país (sin problema). Cada fila dice su estado. El reparto queda en 6, 3, 1 y 1.
+- Barrido de muletillas sobre el texto propio de la Biblia: sin hallazgos; compuerta de voz: 0 errores. La Biblia queda con 8 figuras.
