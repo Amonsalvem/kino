@@ -34,6 +34,22 @@ const ACTORES: {k: Vista; t: string; d: string}[] = [
 	{k: 'administracion', t: 'Administración', d: 'Fija las franjas'},
 ];
 
+type ConWebkit = Document & {webkitFullscreenElement?: Element; webkitExitFullscreen?: () => void};
+const enPantalla = () => document.fullscreenElement || (document as ConWebkit).webkitFullscreenElement;
+let pantallaAviso = () => {};
+function pantalla() {
+	const d = document as ConWebkit;
+	const raiz = document.documentElement as HTMLElement & {webkitRequestFullscreen?: () => void};
+	try {
+		if (enPantalla()) return void (d.exitFullscreen ? d.exitFullscreen() : d.webkitExitFullscreen?.());
+		if (document.fullscreenEnabled === false || (!raiz.requestFullscreen && !raiz.webkitRequestFullscreen)) return pantallaAviso();
+		if (raiz.requestFullscreen) raiz.requestFullscreen().catch(() => pantallaAviso());
+		else raiz.webkitRequestFullscreen?.();
+	} catch {
+		pantallaAviso();
+	}
+}
+
 function Escenario() {
 	const est = useKino(1000);
 	const [vista, setVista] = useState<Vista>((q.get('actor') as Vista) || (leerLocal('kino-proto-vista') as Vista) || 'todos');
@@ -53,10 +69,27 @@ function Escenario() {
 			if (n >= 1 && n <= 5) setVista(ACTORES[n - 1].k);
 			if (e.key === 'b') setBio((x) => !x);
 			if (e.key === 'i') setPanel((x) => !x);
+			if (e.key === 'f' || e.key === 'F') pantalla();
 		};
 		addEventListener('keydown', k);
 		return () => removeEventListener('keydown', k);
 	}, []);
+
+	// Pantalla completa: botón de la cabecera o tecla F. Si el navegador o el marco donde se abre no la permiten, se dice cómo hacerlo a mano.
+	const [completa, setCompleta] = useState(false);
+	const [avisoPantalla, setAvisoPantalla] = useState('');
+	useEffect(() => {
+		const marcar = () => setCompleta(!!enPantalla());
+		document.addEventListener('fullscreenchange', marcar);
+		document.addEventListener('webkitfullscreenchange', marcar);
+		return () => (document.removeEventListener('fullscreenchange', marcar), document.removeEventListener('webkitfullscreenchange', marcar));
+	}, []);
+	useEffect(() => {
+		if (!avisoPantalla) return;
+		const t = setTimeout(() => setAvisoPantalla(''), 5000);
+		return () => clearTimeout(t);
+	}, [avisoPantalla]);
+	pantallaAviso = () => setAvisoPantalla(`Esta vista no permite pantalla completa. Abre el prototipo en su propia pestaña o usa ${/Mac/.test(navigator.platform) ? '⌃⌘F' : 'F11'}.`);
 
 	// Cambio de actor: los dispositivos se acomodan y llegan en cascada; el estado de cada uno no se pierde.
 	const lienzo = useRef<HTMLElement>(null);
@@ -107,7 +140,17 @@ function Escenario() {
 						</button>
 						<button onClick={() => setPanel(!panel)} title="Tecla I">Notas</button>
 						<button onClick={reiniciar} title="Volver al inicio de la demo">Reiniciar</button>
+						<button class={`pantalla-completa ${completa ? 'activo' : ''}`} onClick={pantalla} title={`${completa ? 'Salir de pantalla completa' : 'Pantalla completa'} · tecla F`} aria-label={completa ? 'Salir de pantalla completa' : 'Pantalla completa'} aria-pressed={completa}>
+							<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+								<path d={completa ? 'M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5' : 'M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5'} />
+							</svg>
+						</button>
 					</div>
+					{avisoPantalla && (
+						<p class="aviso-pantalla" role="status">
+							{avisoPantalla}
+						</p>
+					)}
 				</header>
 			)}
 			<main ref={lienzo} class={`escenario__lienzo escenario__lienzo--${vista}`}>

@@ -645,3 +645,7 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--kino-borde-foco
 .nota-interaccion__plan{margin-top:16px!important;padding-top:14px;border-top:1px dashed var(--kino-borde-definido)}
 .nota-interaccion__plan dt{color:var(--kino-estado-vigente-texto)!important}
 .cobertura__oe{margin-left:6px;font-size:12px;color:var(--kino-texto-tenue)}
+
+/* Aviso cuando la vista no permite pantalla completa. */
+.aviso-pantalla{position:absolute;right:24px;top:calc(100% + 8px);max-width:min(420px,calc(100vw - 32px));margin:0;padding:10px 14px;border-radius:10px;background:var(--kino-superficie-membrana);border:1px solid var(--kino-borde-definido);color:var(--kino-texto-primario);font-size:14px;z-index:5}
+.reloj .pantalla-completa{display:inline-grid;place-items:center;min-width:44px}

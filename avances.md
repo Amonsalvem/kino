@@ -485,3 +485,8 @@ En arquitectura faltaba:
   - 11 · Movimiento
 - La lámina combinada de antes y después se dividió en «Así estaba» y «Así quedó». El deck pasa a 22 láminas, con las referencias del mapa SOSTAC y de `estrategia.md` actualizadas. `verificar.mjs` ya no depende de la posición del prototipo en vivo.
 - Barrido de muletillas: los textos nuevos y las notas, sin hallazgos; compuerta de voz: 0 errores.
+
+## Prototipo: botón de pantalla completa (20 oct)
+- Botón con ícono al final de la cabecera del escenario, junto a «Reiniciar», y tecla F. El ícono cambia a «salir» mientras está activo. Si el navegador o el marco no lo permiten, un aviso dice cómo hacerlo: abrir el prototipo en su propia pestaña, F11 en Windows o ⌃⌘F en Mac. No aparece en las vistas sueltas (`solo=1`).
+- El iframe de la lámina 10 del deck lleva `allow="fullscreen"` para que el botón funcione también ahí.
+- Tipos, build y e2e completos; la prueba con Playwright entra y sale sin errores; `verificar.mjs` sin fallas. Prototipo y deck republicados.
