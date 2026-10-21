@@ -12,7 +12,7 @@ la puerta
 La administración
 Tiene la autoridad y no sabe a quién espera
 ¿Cómo reunir conocimiento y autoridad para decidir quién entra?
-Núcleo del diagnóstico: el conocimiento y la autoridad viven en actores distintos. Observado en la inspección del 14 al 16 de septiembre en Monte Sereno.
+Núcleo del diagnóstico: el conocimiento y la autoridad están en actores distintos. Observado en la inspección del 14 al 16 de septiembre en Monte Sereno.
 SOSTAC · S · Situación · Evidencia del diagnóstico y contexto del mercado
 El sistema solo sabe crear personas permanentes
 0
@@ -78,9 +78,9 @@ interacciones construidas en código, entre los cuatro actores
 18
 pruebas de recorrido que pasan, también con movimiento reducido
 5
-perfiles en la evaluación por inspección: 11 hallazgos, 6 resueltos
+perfiles en la evaluación por inspección: 11 tropiezos, 6 corregidos
 Biblia · E1 y E2 completas
-E3: 3.1–3.3 · 5.2 · 6.1
+E3: 3.1–3.4 · 5.2 · 6.1
 E4 y final: previsto
 Se lee de arriba abajo: cada barra es un filtro más exigente. 31 problemas en el Figma (el peor: nada pasaba de un actor a otro), por eso construimos en código las 17 interacciones; 18 pruebas automáticas recorren la tarde completa; y 5 perfiles revisaron el prototipo tarea por tarea: 11 tropiezos, 6 ya corregidos. La franja de abajo es el avance de la Biblia. QA por especialidad con la severidad de Nielsen. La evaluación por inspección usa los perfiles del estudio de iAgency para Monte Sereno (2024) y los arquetipos; no reemplaza la prueba con personas del piloto.
 Diseño de interacción · resultados de usabilidad · inspección con recorrido cognitivo y Nielsen
@@ -118,8 +118,8 @@ A4 · portería en hora pico
 Una lectura tapaba la anterior
 Bitácora con la última fila resaltada
 2
-A4 · administración
-No se veía el efecto de mover una franja
+A4 · mover una franja
+No se veía el efecto en los Pases activos
 Vista previa del cambio
 Medido en el prototipo: 3 toques y 8 s para volver a invitar; 19,4 s para una visita nueva (KLM). Falta la prueba con residentes: SUS en la semana 6 del piloto.
 Resultados de la evaluación de usabilidad. Método: recorrido cognitivo de las tareas principales y las 10 heurísticas de Nielsen, desde 5 perfiles: los arquetipos del diagnóstico y los perfiles de residente del estudio de mercado de iAgency para Monte Sereno (2024): empty nesters, pareja sin hijos y familia con hijos pequeños. Severidad de Nielsen: 0 no es un problema, 4 impide la tarea. Es una evaluación por inspección del equipo, no una prueba con personas: no hubo participantes, por eso no hay citas ni tasas de éxito. La prueba con residentes llega en el piloto (SUS en la semana 6, KPI de OE2). Detalle completo en la Biblia 6.1.
@@ -476,5 +476,5 @@ conjuntos en Antioquia y Bogotá
 Probar el alta por OpenAPI en el piloto
 Contar las casas reales de Villas (888 son usuarios)
 Fijar el precio con la administración
-La visión es el portafolio: el objetivo general cubre el primer año y el primer problema, el ingreso; el siguiente problema de seguridad se descubre con las administraciones clientes (E6, 2028–2029). Arriba, el crecimiento: 4, 40 y 250 conjuntos. Abajo, las tres cosas que hay que comprobar antes de cobrar: que el alta temporal funcione por la API en el piloto, cuántas casas hay de verdad en Villas (el sistema cuenta 888 usuarios, no casas) y qué precio acepta la administración. 40 y 250 son ambición del equipo; se calibran con cuántas copropiedades tienen hardware Hikvision y con el precio que acepte una administración.
+La visión cubre el portafolio: el objetivo general cubre el primer año y el primer problema, el ingreso; el siguiente problema de seguridad se descubre con las administraciones clientes (E6, 2028–2029). Arriba, el crecimiento: 4, 40 y 250 conjuntos. Abajo, las tres cosas que hay que comprobar antes de cobrar: que el alta temporal funcione por la API en el piloto, cuántas casas hay de verdad en Villas (el sistema cuenta 888 usuarios, no casas) y qué precio acepta la administración. 40 y 250 son ambición del equipo; se calibran con cuántas copropiedades tienen hardware Hikvision y con el precio que acepte una administración.
 Despedida sin texto: la aurora amanece, el bloque del logo sube, la gota cae dentro del arco y el lector confirma con tres latidos y el sonido de entrada. Se repite tocando la lámina.

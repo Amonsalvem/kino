@@ -514,3 +514,12 @@ En arquitectura faltaba:
 - 5 tarjetas creadas, 0 duplicadas. El script no vuelve a crear una tarjeta si ya existe.
 - 00 Léeme: un bloque nuevo con el resumen. Dice que el archivo es la versión evaluada, cómo se evaluó, el reparto 6, 3, 1 y 1, y remite a la Biblia 6.1, a `estrategia.md` §7 y a las láminas 6 a 9 del deck.
 - Barrido de muletillas en los 7.371 textos: solo queda «Kino no vende seguridad total (X7)», que es una regla de diseño y se deja.
+
+## Deck: último barrido de muletillas (21 oct)
+- Cambios:
+  - Lámina 7: «11 hallazgos, 6 resueltos» → «11 tropiezos, 6 corregidos», las mismas palabras de la lámina 8.
+  - Lámina 7: el avance de la Biblia dice E3 3.1–3.4.
+  - Lámina 8: la fila «A4 · administración» → «A4 · mover una franja», como en la lámina 9 y la Biblia.
+  - Notas de la lámina 2: «viven en» → «están en».
+  - Notas de la lámina 21: «La visión es el portafolio» → «cubre el portafolio».
+- `verificar.mjs` sin fallas en 22 láminas; compuerta de voz: 0 errores.
