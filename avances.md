@@ -505,3 +505,12 @@ En arquitectura faltaba:
 - Registro `EVALUACION` en `prototipo/src/modelo.ts` con los textos de la Biblia 6.1. Las interacciones que cambiaron por la evaluación (I-05, I-08, I-10 con dos correcciones, I-13 e I-15) muestran en el panel el perfil, cómo estaban y cómo quedaron. En la lista de cobertura llevan la marca «corregida en la evaluación».
 - Barrido de muletillas de las pantallas y del panel: sin hallazgos («Revoca al instante» describe la regla y se deja).
 - Tipos, build y e2e completos; revisión del panel tras revocar; `verificar.mjs` sin fallas. Prototipo y deck republicados.
+
+## Figma «Kino · App»: evaluación de usabilidad en las fichas (21 oct)
+- El Figma es la versión evaluada; las pantallas no se tocan.
+- Tarjeta «Evaluación de usabilidad · versión evaluada» debajo de la tarjeta SOSTAC en 5 fichas:
+  - R-P-02, R-P-10 y A-03 dicen cómo está esta pantalla y cómo quedó en el prototipo;
+  - V-I-01 y P-E-01 dicen «corregido en el prototipo», porque su antes estaba en versiones anteriores del prototipo.
+- 5 tarjetas creadas, 0 duplicadas. El script no vuelve a crear una tarjeta si ya existe.
+- 00 Léeme: un bloque nuevo con el resumen. Dice que el archivo es la versión evaluada, cómo se evaluó, el reparto 6, 3, 1 y 1, y remite a la Biblia 6.1, a `estrategia.md` §7 y a las láminas 6 a 9 del deck.
+- Barrido de muletillas en los 7.371 textos: solo queda «Kino no vende seguridad total (X7)», que es una regla de diseño y se deja.
