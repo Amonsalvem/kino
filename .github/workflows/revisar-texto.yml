@@ -27,3 +27,14 @@ jobs:
         run: |
           printf '%s\n\n%s\n' "$TITULO" "$CUERPO" | grep -v '^<!--' > pr.txt
           python3 herramientas/revisar-texto.py --texto pr.txt
+      - name: Sección «Uso de IA»
+        run: |
+          python3 - <<'PY'
+          import re, sys
+          texto = open("pr.txt", encoding="utf-8").read()
+          m = re.search(r"^## Uso de IA\s*\n(.*?)(?=^## |\Z)", texto, re.S | re.M)
+          if not m or not re.sub(r"<!--.*?-->", "", m.group(1), flags=re.S).strip():
+              print("::error::Falta la sección «Uso de IA» del PR, o está vacía. Ver .claude/skills/registro-ia/SKILL.md")
+              sys.exit(1)
+          print("Sección «Uso de IA»: ok")
+          PY

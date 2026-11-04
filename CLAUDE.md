@@ -21,6 +21,7 @@ Una sesión en la nube ve este repositorio, no el Mac ni los documentos o la mem
 ## Hooks
 
 - `SessionStart` corre `herramientas/preparar-entorno.sh`.
+- `UserPromptSubmit` corre `herramientas/registrar-prompt.py`: guarda el prompt en `registro-ia/` si se sabe quién escribe (`KINO_PERSONA` o `git config kino.persona`) y esa persona dio consentimiento. Súbelo en el PR de la sesión.
 
 ## Paradas
 
