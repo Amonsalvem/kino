@@ -9,8 +9,8 @@ Icon?
 *.icloud
 
 # Clones de referencia con su propio historial
-gorr-brand-system/vendor/anthropic-skills/
-gorr-brand-system/vendor/w3c-design-tokens-agent-skill/
+pre-kino/gorr-brand-system/vendor/anthropic-skills/
+pre-kino/gorr-brand-system/vendor/w3c-design-tokens-agent-skill/
 
 # Capturas de prueba
 capturas/

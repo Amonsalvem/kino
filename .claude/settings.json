@@ -3,7 +3,7 @@
     "SessionStart": [
       {
         "hooks": [
-          { "type": "command", "command": "bash \"$CLAUDE_PROJECT_DIR/scripts/preparar-entorno.sh\"", "timeout": 300 }
+          { "type": "command", "command": "bash \"$CLAUDE_PROJECT_DIR/herramientas/preparar-entorno.sh\"", "timeout": 60 }
         ]
       }
     ]
