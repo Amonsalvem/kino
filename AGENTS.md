@@ -63,5 +63,6 @@ Viven en `.claude/skills/`. Si tu herramienta no las carga sola, abre el `SKILL.
 |---|---|
 | `corrector-muletillas` | Antes de subir cualquier texto |
 | `registro-ia` | Al abrir o actualizar un PR o un issue |
+| `mentor` | En toda sesión con Alejandro |
 
 Las skills de pre-kino (`pre-kino/skills/`) y el plugin arcana son registro histórico. No se usan.
