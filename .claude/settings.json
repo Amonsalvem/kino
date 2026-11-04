@@ -3,7 +3,22 @@
     "SessionStart": [
       {
         "hooks": [
-          { "type": "command", "command": "bash \"$CLAUDE_PROJECT_DIR/herramientas/preparar-entorno.sh\"", "timeout": 60 }
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/herramientas/preparar-entorno.sh\"",
+            "timeout": 60
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/herramientas/registrar-prompt.py\"",
+            "timeout": 10
+          }
         ]
       }
     ]

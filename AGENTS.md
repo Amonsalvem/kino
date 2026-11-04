@@ -15,7 +15,8 @@ Reglas comunes para toda IA que trabaje en Kino: Claude (Code, claude.ai, Cowork
 ## 2. Antes de trabajar
 
 1. Lee [`kino/canon/proyecto.md`](kino/canon/proyecto.md) y [`kino/canon/decisiones.md`](kino/canon/decisiones.md).
-2. Revisa los PR en borrador abiertos. Si alguno toca las mismas carpetas que vas a tocar, avisa antes de empezar.
+2. Lee el perfil de quien te pide el trabajo en [`personas/`](personas/) y aplícalo.
+3. Revisa los PR en borrador abiertos. Si alguno toca las mismas carpetas que vas a tocar, avisa antes de empezar.
 
 ## 3. Qué manda sobre qué
 
@@ -36,6 +37,8 @@ Reglas comunes para toda IA que trabaje en Kino: Claude (Code, claude.ai, Cowork
 | Apps y paquetes | `kino/codigo/` |
 | Entregas académicas | `eafit/` |
 | Scripts sin marca | `herramientas/` |
+| Perfiles de trabajo de cada persona | `personas/` |
+| Registro de prompts y consentimiento | `registro-ia/` |
 
 Si lo que vas a crear no encaja en ninguna, pregunta antes de inventar una carpeta.
 
@@ -47,9 +50,10 @@ Si lo que vas a crear no encaja en ninguna, pregunta antes de inventar una carpe
 4. **Cada afirmación lleva fuente.** Cita el archivo. Si el dato no está en el repositorio, dilo. Las cifras de mercado van con fuente web y fecha.
 5. **Nada de generalidades ni relleno.** Conclusión primero. No repitas lo que ya está escrito en otro archivo: enlázalo.
 6. **Muletillas.** Todo texto pasa por la skill `corrector-muletillas` antes de subirse. GitHub corre `herramientas/revisar-texto.py` en cada PR, sobre los archivos que cambian y el cuerpo del PR, y bloquea lo que tenga errores.
-7. **Vocabulario.** «Pase» (de la visita o el colaborador) no se mezcla con «cuenta» (del residente). Nunca «permiso». «Visita», no «invitado».
-8. **Español** en archivos, commits, PR y texto visible.
-9. **Secretos fuera.** Nada de llaves, contraseñas, cédulas, teléfonos ni placas reales.
+7. **Uso de IA declarado.** Todo PR llena la sección «Uso de IA» de la plantilla (skill `registro-ia`). GitHub bloquea el PR si falta.
+8. **Vocabulario.** «Pase» (de la visita o el colaborador) no se mezcla con «cuenta» (del residente). Nunca «permiso». «Visita», no «invitado».
+9. **Español** en archivos, commits, PR y texto visible.
+10. **Secretos fuera.** Nada de llaves, contraseñas, cédulas, teléfonos ni placas reales.
 
 ## 6. Skills
 
@@ -58,5 +62,7 @@ Viven en `.claude/skills/`. Si tu herramienta no las carga sola, abre el `SKILL.
 | Skill | Cuándo |
 |---|---|
 | `corrector-muletillas` | Antes de subir cualquier texto |
+| `registro-ia` | Al abrir o actualizar un PR o un issue |
+| `mentor` | En toda sesión con Alejandro |
 
 Las skills de pre-kino (`pre-kino/skills/`) y el plugin arcana son registro histórico. No se usan.
