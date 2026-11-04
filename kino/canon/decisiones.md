@@ -6,7 +6,7 @@ Registro único de decisiones del Kino nuevo: producto, marca, arquitectura y op
 
 - Identificador `D-###`, consecutivo, nunca se reutiliza.
 - Estado: PROPUESTA, APROBADA, DESCARTADA o REEMPLAZADA (ver `CONVENCIONES.md`).
-- Una PROPUESTA trae al menos dos alternativas, una recomendada y su efecto en trazabilidad y en la sincronización con HikCentral si toca aprobación o identidad.
+- Una PROPUESTA trae al menos dos alternativas y una recomendada. Si toca aprobación o identidad, dice su efecto en la trazabilidad y en la sincronización con HikCentral.
 - Una APROBADA cita quién aprobó, cuándo y con qué palabras.
 - Lo que se hereda de pre-kino se aprueba aquí, con la ruta del archivo de origen.
 - Las decisiones de producto que ya venían tomadas están en `proyecto.md`, bloque `<decisiones_tomadas>`, y siguen vigentes.
@@ -24,8 +24,6 @@ Registro único de decisiones del Kino nuevo: producto, marca, arquitectura y op
 - La evidencia de pre-kino (`pre-kino/inspeccion/`, `pre-kino/docs/proyecto/`) sigue siendo la base del diagnóstico y conserva su jerarquía.
 - Las decisiones de producto de `proyecto.md` no cambian.
 
-**Pendiente.** Confirmación de Nico al revisar el PR de la reorganización.
-
 ---
 
 ## D-002 · Qué se hereda de la marca de pre-kino · PROPUESTA (4 nov 2026)
@@ -40,4 +38,20 @@ La identidad nueva puede partir de cero o heredar piezas que ya probaron su valo
 
 **Fuentes.** `pre-kino/decisiones.md` (V1 a V7, X1 a X11), `pre-kino/TRASPASO-SISTEMA-DE-MARCA.md` §7.
 
-**Espera respuesta de** Nico y Alejandro.
+**Espera respuesta de** Alejandro.
+
+---
+
+## D-003 · Gobierno del repositorio · APROBADA (Alejandro, 4 nov 2026)
+
+**Qué se decidió.**
+- Alejandro aprueba todo, comentando o revisando el PR en GitHub. Nico propone.
+- La IA puede hacer sin aprobación previa los cambios menores: orden, correcciones de texto, enlaces y código que no cambia comportamiento.
+- Agentes del proyecto: Claude (Code, claude.ai, Cowork) y Grok. Viven en el repositorio (`AGENTS.md`, `.claude/skills/`), no en la cuenta de cada persona. Las skills de pre-kino y el plugin arcana se retiran.
+- Las tareas van en GitHub Issues. Se retiran el tablero, la bitácora y los traspasos.
+- La marca se trabaja en Figma, que manda sobre el repositorio.
+- Las entregas académicas van en `eafit/` y se congelan al terminar la fase EAFIT.
+
+**Palabras de origen.** «Yo apruebo todo, nico propone»; «Comentando el PR en Github»; «No hay nada imprescindible en esto».
+
+**Pendiente.** Dónde vive el código del MVP en producción (lo desarrolló Manuel) y de quién es.

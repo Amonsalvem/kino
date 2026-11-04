@@ -17,8 +17,9 @@ if [ -n "$CHROME" ]; then ok "Chromium para herramientas/capturar.mjs"; else
   command -v chromium >/dev/null && ok "Chromium: $(command -v chromium)" || falta "Chromium (herramientas/capturar.mjs no va a correr)"
 fi
 
-echo "Trabajo en curso (coordinacion/tablero.md):"
-grep -E '^\| ' "$RAIZ/coordinacion/tablero.md" 2>/dev/null | tail -n +2 | sed 's/^/  /' || echo "  (sin tablero)"
+if command -v gh >/dev/null && gh pr list --draft --limit 10 >/dev/null 2>&1; then
+  echo "PR en borrador abiertos:"; gh pr list --draft --limit 10 | sed 's/^/  /'
+else echo "  [FALTA] gh: revisa a mano los PR en borrador en GitHub"; fi
 
 echo "Recuerda: lee AGENTS.md y kino/canon/ antes de trabajar. pre-kino/ es de solo lectura."
 exit 0

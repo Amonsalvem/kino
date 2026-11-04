@@ -1,6 +1,6 @@
 # Marca
 
-La identidad nueva de Kino. Más concisa y contundente que la anterior.
+La identidad nueva de Kino. **La fuente es Figma**: aquí solo llega lo que se exporta de allá (tokens, SVG, láminas de revisión).
 
 ## Estado
 
@@ -13,7 +13,7 @@ Por definir. El punto de partida (qué se hereda de pre-kino) es la propuesta D-
 | `estrategia/` | Posicionamiento, promesa, personalidad |
 | `verbal/` | Voz, tono, vocabulario, UX writing |
 | `visual/` | Logo, color, tipografía, iconografía, imagen, motion |
-| `tokens/` | Tokens en formato DTCG (fuente única para web, app y Figma) |
+| `tokens/` | Tokens en formato DTCG, exportados de las variables de Figma |
 | `revision/` | Láminas de cada parada de revisión, con fecha |
 
 Se crean cuando el trabajo empiece.
@@ -23,7 +23,7 @@ Se crean cuando el trabajo empiece.
 - Toda propuesta visual o de marca responde a un problema del diagnóstico. El proyecto no es estético.
 - Kino es la marca. Un conjunto aparece solo como dato en texto o chip, nunca con su logo ni sus colores.
 - Cada parada se presenta con lámina, alternativas, una recomendada y como máximo cinco preguntas ordenadas por impacto.
-- Nada se da por aprobado sin respuesta explícita del equipo.
+- Nada se da por aprobado sin respuesta explícita de Alejandro.
 
 ## Referencia de pre-kino
 

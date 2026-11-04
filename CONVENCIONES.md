@@ -6,51 +6,34 @@
 |---|---|---|
 | Carpetas y archivos | Minúsculas, español, palabras con guion, sin espacios ni tildes | `flujo-pase-visita.md` |
 | Documentos de un día | Fecha ISO al inicio | `2026-11-04-entrevista-portero.md` |
-| Versiones reemplazadas | A `_obsoleto/` con la fecha en que se reemplazaron | `_obsoleto/paleta-2026-11-04.json` |
 | Índice de cada carpeta | `README.md` | |
-| Archivos de agentes | Los nombres que cada herramienta espera | `AGENTS.md`, `CLAUDE.md` |
 
 ## Ramas
 
-`area/tema`, en minúsculas y con guiones. Las áreas son las carpetas de primer nivel de `kino/` más dos propias del repositorio:
-
-| Área | Para |
-|---|---|
-| `canon/` | Cambios a hechos, decisiones o vocabulario |
-| `investigacion/` | Evidencia nueva |
-| `marca/` | Identidad nueva |
-| `producto/` | Flujos, reglas, pantallas |
-| `codigo/` | Apps y paquetes |
-| `entregas/` | Entregables académicos |
-| `orden/` | Estructura del repositorio, convenciones, herramientas |
-| `coordinacion/` | Solo si el cambio es al protocolo, no al tablero del día |
-
-Las sesiones de Claude en la nube pueden recibir una rama asignada (`claude/...`). En ese caso se usa esa y el área va en el título del PR.
+`area/tema`, en minúsculas y con guiones. Áreas: `canon`, `investigacion`, `marca`, `producto`, `codigo`, `eafit`, `orden`. Si una sesión en la nube recibe una rama asignada (`claude/...`), se usa esa y el área va en el título del PR.
 
 ## Commits
 
-- En español, en presente y con el área al inicio: `Marca: paleta base en OKLCH`.
-- Uno por paso con sentido. Un movimiento de archivos va en su propio commit, sin cambios de contenido, para que `git log --follow` siga la historia.
-- Mover siempre con `git mv`.
+- En español, en presente y con el área al inicio: `Marca: paleta base desde Figma`.
+- Un commit por paso con sentido. Los archivos se mueven con `git mv`, en un commit sin cambios de contenido.
 
-## Pull requests
+## Issues y PR
 
-- En borrador hasta que esté listo para revisar.
-- Usan la plantilla de `.github/pull_request_template.md`.
-- Nico o Alejandro integran a `main`. Una IA nunca integra.
+- Toda tarea empieza como issue. El PR que la resuelve lo enlaza con `Cierra #N`.
+- El PR va en borrador hasta que esté listo para revisar.
+- Etiqueta `menor`: cambios que la IA puede hacer sin pedir permiso (ver `AGENTS.md` §1).
+- Solo Alejandro integra a `main`.
 
 ## Estados de una decisión
 
 | Estado | Significa |
 |---|---|
-| PROPUESTA | Escrita con alternativas y una recomendada. No se aplica como vigente |
-| APROBADA | Respuesta explícita del equipo, citada con quién y cuándo |
+| PROPUESTA | Escrita con alternativas y una recomendada. No se aplica |
+| APROBADA | Alejandro la aprobó; se cita cuándo y dónde |
 | DESCARTADA | Se dejó de lado; se dice por qué |
-| REEMPLAZADA | La sustituye otra; se enlaza |
 
 ## Formatos
 
 - Documentos en Markdown. Tablas y listas antes que párrafos largos.
-- Código en TypeScript por defecto, con los supuestos declarados arriba del bloque.
-- Datos en JSON o CSV; registros de observación en JSONL.
+- Código en TypeScript por defecto.
 - Lo que se genera (`build/`, `node_modules/`, capturas) no se versiona.
