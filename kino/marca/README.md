@@ -18,6 +18,8 @@ Por definir. El punto de partida (qué se hereda de pre-kino) es la propuesta D-
 
 Se crean cuando el trabajo empiece.
 
+**Trabajo hecho en Grok.** Para traerlo al repositorio, Nico pega en Grok el prompt de [`prompt-grok.md`](prompt-grok.md) (issue #15).
+
 ## Reglas
 
 - Toda propuesta visual o de marca responde a un problema del diagnóstico. El proyecto no es estético.
