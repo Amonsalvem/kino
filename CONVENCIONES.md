@@ -24,6 +24,17 @@
 - Etiqueta `menor`: cambios que la IA puede hacer sin pedir permiso (ver `AGENTS.md` §1).
 - Solo Alejandro integra a `main`.
 
+## Cómo se revisa un PR
+
+Un PR grande casi nunca es grande de verdad: la mayoría de los archivos suelen estar solo movidos. Se revisa así:
+
+1. **Lee la sección «Qué revisar» del PR.** El agente que lo abre pega ahí la salida de `bash herramientas/revisar-pr.sh`. Lo que el script cuenta como «movidos sin cambios» git ya comprobó que es idéntico: no se lee.
+2. **Revisa commit por commit**, no la pestaña completa de archivos. Por regla, los movimientos van en su propio commit, sin cambios de contenido, y ese commit se aprueba con mirar la cuenta.
+3. **Lee solo la lista «Para revisar»**, de arriba abajo. Si un archivo no se entiende sin abrir otro, el PR está mal partido: se pide que lo dividan.
+4. **Aprueba o comenta en GitHub.** Una pregunta concreta en la línea es mejor que un comentario general.
+
+Quien abre el PR lo hace revisable: un tema por PR, los movimientos separados del contenido y la salida del script en la descripción.
+
 ## Estados de una decisión
 
 | Estado | Significa |
