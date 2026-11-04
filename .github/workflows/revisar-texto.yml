@@ -1,0 +1,29 @@
+# Chequeo de muletillas en cada PR: revisa los archivos que cambian y el cuerpo del PR.
+# Un ERROR bloquea la integración. Los AVISOS aparecen como anotaciones.
+name: Revisar texto
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened, ready_for_review]
+permissions:
+  contents: read
+jobs:
+  muletillas:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Archivos que cambian
+        run: |
+          git diff --name-only --diff-filter=ACMR "origin/${{ github.base_ref }}...HEAD" > cambios.txt
+          cat cambios.txt
+      - name: Revisar archivos
+        run: |
+          if [ -s cambios.txt ]; then xargs -a cambios.txt -d '\n' python3 herramientas/revisar-texto.py; fi
+      - name: Revisar título y cuerpo del PR
+        env:
+          TITULO: ${{ github.event.pull_request.title }}
+          CUERPO: ${{ github.event.pull_request.body }}
+        run: |
+          printf '%s\n\n%s\n' "$TITULO" "$CUERPO" | grep -v '^<!--' > pr.txt
+          python3 herramientas/revisar-texto.py --texto pr.txt

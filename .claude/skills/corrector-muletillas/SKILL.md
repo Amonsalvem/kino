@@ -1,46 +1,39 @@
 ---
 name: corrector-muletillas
-description: >-
-  Detecta y elimina las muletillas tipicas de Claude y de los LLM en un texto: lexicas
-  (delve/profundizar, robust, seamless, crucial, showcase, tapestry, landscape...),
-  conversacionales o de complacencia ('You're absolutely right!', 'Great question!', 'Let
-  me...', 'It's worth noting') y estructurales/tipograficas (em-dash, antitesis 'no es X, es
-  Y', regla de tres, frases de longitud uniforme). Usalo cuando pidas 'quita las
-  muletillas', 'que no suene a IA', 'revisa el estilo de este texto', 'humaniza esta
-  redaccion' o al pulir cualquier texto para que no delate su origen en un LLM.
+description: Revisa y corrige el texto antes de subirlo al repositorio de Kino. Quita las muletillas de IA que de verdad aparecen en este repositorio, los datos sin fuente, las generalidades y la información de más. Úsala antes de cada commit con texto, al escribir un PR o un issue, o cuando pidan «quita las muletillas», «que no suene a IA» o «revisa este texto».
 ---
 
-# Corrector de muletillas de Claude
+# Corrector de muletillas
 
-Revisa un texto y elimina las muletillas que delatan que fue escrito por un LLM. Trabajas sobre texto en espanol o ingles. Tu objetivo no es "sonar bien", sino que el texto lea como escrito por una persona con criterio: directo, con ritmo variado y sin relleno.
+Revisas texto en español antes de que entre al repositorio. El objetivo es que cada frase diga algo verificable y nada sobre. Gasta tokens solo donde haya un problema: no reescribas lo que ya está bien.
 
-## Como operas
+## Paso 1. Corre el chequeo
 
-1. **Lee el texto completo** y detecta las muletillas de las tres familias de la seccion siguiente.
-2. **Reescribe** eliminando o sustituyendo cada muletilla, conservando el significado, la voz y la informacion. No agregues contenido nuevo ni cambies el tono deliberado del autor.
-3. Si el usuario lo pide, **marca** los cambios (que quitaste y por que) ademas de entregar la version limpia.
-4. No sobre-corrijas hasta dejar el texto seco o telegrafico: el objetivo es naturalidad, no amputacion. Una muletilla usada con intencion puede quedarse; nombralo si dudas.
+```bash
+python3 herramientas/revisar-texto.py <archivos>          # archivos
+python3 herramientas/revisar-texto.py --texto cuerpo.md   # cuerpo de un PR o issue
+```
 
-## Las tres familias de muletillas
+Es el mismo chequeo que corre GitHub en cada PR. Los ERROR bloquean la integración; los AVISO no.
 
-**1. Lexicas** — palabras sobre-representadas por el entrenamiento por preferencias (RLHF). Sustituyelas por la palabra llana que un humano usaria:
-- ES: *profundizar/ahondar, subrayar, robusto, sin fisuras/fluido, matizado, crucial, fundamental, integral, aprovechar, panorama, ambito, tapiz, testimonio de, piedra angular*.
-- EN: *delve, underscore, showcase, robust, seamless, nuanced, crucial, pivotal, comprehensive, leverage, tapestry, landscape, realm, testament to, cornerstone*.
+## Paso 2. Corrige solo las líneas marcadas
 
-**2. Conversacionales / de complacencia** — validacion y relleno. Elimina de raiz:
-- *"Tienes toda la razon" / "You're absolutely right!", "Gran pregunta" / "Great question!", "Por supuesto" / "Certainly!", "Con gusto te ayudo" / "I'd be happy to help", "Vale la pena senalar que" / "It's worth noting that", "Dejame..." / "Let me...".*
-- No abras nunca con adulacion del tipo "que interesante/profunda pregunta". Ve directo a la respuesta.
+- **ERROR**: corrígelo siempre. Edita la línea; no reescribas el párrafo.
+- **AVISO**: decide. Si la palabra o la antítesis es la más precisa (por ejemplo, «clave» como contraseña, «estado honesto» como concepto de marca), déjala.
+- Una cita textual de otra persona va en una línea con `>`. Si un patrón es legítimo y no es cita, agrega `<!-- muletillas: ok -->` al final de la línea y di por qué en el PR.
 
-**3. Estructurales / tipograficas** — patrones de forma:
-- **Em-dash** (—) como conector reflejo: alterna con comas, parentesis o punto.
-- **Antitesis "no es X, es Y"** repetida como formula. Usala como mucho una vez si de verdad aporta.
-- **Regla de tres (tricolon)** automatica: tres adjetivos o tres clausulas por inercia.
-- **Frases de longitud uniforme** (baja "burstiness"): mezcla frases cortas y largas para dar ritmo humano.
+## Paso 3. Revisa lo que el script no ve
 
-## Regla de oro
+Lee el texto una vez buscando solo estas tres cosas:
 
-La marca mas "de Claude" no es una palabra: es el **acto de validar**. Prioriza cazar la complacencia y el relleno antes que las palabras sueltas.
+| Problema | Señal | Corrección |
+|---|---|---|
+| Dato sin respaldo | Una afirmación sobre Kino, el mercado o un usuario sin archivo ni enlace | Cita la ruta o el enlace. Si no existe, escribe «sin fuente» o quítala |
+| Generalidad | La frase serviría igual para cualquier producto («mejora la experiencia», «solución integral») | Cámbiala por el dato concreto de Kino o bórrala |
+| Información de más | Repite lo que ya está en otro archivo, o explica algo que nadie pidió | Enlaza el archivo y borra la repetición |
 
-## Referencia
+## Lo que no hace falta revisar
 
-El fundamento con evidencia (estudios, system cards de Anthropic, mecanismo RLHF y contraevidencia sobre falsos positivos) esta en `references/muletillas-investigacion.md`. Consultalo si necesitas justificar por que una expresion es o no una muletilla, o distinguir un tic real de un falso positivo (p. ej. el em-dash o "delve" tambien existen en prosa humana).
+Las listas largas de palabras de IA en inglés y los tics que no aparecen en este repositorio. La medición del 4 nov 2026 sobre 115 documentos mostró que «tapiz», «piedra angular» o «panorama» salen una vez o ninguna. Las muletillas reales fueron la raya (166 veces), «no solo… sino» y la antítesis «no es X, es Y».
+
+Si cambia el estilo de lo que se escribe, la lista se actualiza midiendo de nuevo. La investigación de fondo está en `references/muletillas-investigacion.md`; ábrela solo si necesitas justificar un caso dudoso.

@@ -46,7 +46,7 @@ Si lo que vas a crear no encaja en ninguna, pregunta antes de inventar una carpe
 3. **Pre-kino es de solo lectura.** Se lee y se cita con su ruta completa.
 4. **Cada afirmación lleva fuente.** Cita el archivo. Si el dato no está en el repositorio, dilo. Las cifras de mercado van con fuente web y fecha.
 5. **Nada de generalidades ni relleno.** Conclusión primero. No repitas lo que ya está escrito en otro archivo: enlázalo.
-6. **Muletillas.** Todo texto pasa por la skill `corrector-muletillas` antes de subirse.
+6. **Muletillas.** Todo texto pasa por la skill `corrector-muletillas` antes de subirse. GitHub corre `herramientas/revisar-texto.py` en cada PR, sobre los archivos que cambian y el cuerpo del PR, y bloquea lo que tenga errores.
 7. **Vocabulario.** «Pase» (de la visita o el colaborador) no se mezcla con «cuenta» (del residente). Nunca «permiso». «Visita», no «invitado».
 8. **Español** en archivos, commits, PR y texto visible.
 9. **Secretos fuera.** Nada de llaves, contraseñas, cédulas, teléfonos ni placas reales.
