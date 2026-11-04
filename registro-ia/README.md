@@ -16,7 +16,7 @@ El hook necesita saber quién escribe:
 git config kino.persona alejandro
 ```
 
-En una sesión en la nube, define la variable de entorno `KINO_PERSONA=alejandro` en la configuración del entorno. Sin eso, el hook no guarda nada.
+En el proyecto «Kino» de Claude Code (sesiones en la nube), define la variable `KINO_PERSONA=alejandro` en *Project settings → Environment*. El comando de `git config` solo sirve si trabajas con una copia del repositorio en tu computador. Sin eso, el hook no guarda nada.
 
 ## Qué se tapa antes de guardar
 

@@ -10,7 +10,7 @@
 | Tono | Directo, preciso, sin halagos | Sesión del 4 nov 2026 |
 | Antes de construir | Contexto acordado con él y referencias claras | Sesión del 4 nov 2026 |
 | Aprobación | Comentando o revisando el PR en GitHub | D-003 |
-| GitHub | Empieza desde cero: explícale cada paso y deja un ejercicio (skill `mentor`) | Sesión del 4 nov 2026 |
+| Aprendizaje | GitHub desde cero y su rol en Kino: explícale mientras trabajan y deja un ejercicio (skill `mentor`). Su progreso va en su memoria personal de Claude | Sesión del 4 nov 2026 |
 
 ## Lo que no quiere
 

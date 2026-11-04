@@ -15,7 +15,8 @@ Una sesión en la nube ve este repositorio, no el Mac ni los documentos o la mem
 - **Hook de inicio.** `.claude/settings.json` corre `herramientas/preparar-entorno.sh` y su informe entra al contexto. Si algo sale en `[FALTA]`, dilo antes de depender de eso.
 - **Artefactos de claude.ai.** Las láminas de revisión se publican como artefactos nuevos. Los artefactos de pre-kino (entre ellos el oficial «Kino · Sistema de marca», `K8R2PRduS6SHBKYU31Bo6L`) son de la identidad anterior: no se republican con la marca nueva sin una decisión en `kino/canon/decisiones.md`.
 - **Figma.** El archivo `BO7UnDO9iE0aG6yUpNj0bc` es el de la marca de pre-kino. Si la marca nueva usa otro archivo, su clave se anota en `kino/marca/README.md`. Carga la skill `figma-use` antes de `use_figma`. Si el conector no responde, detente y pide que lo conecten en claude.ai.
-- **Proyecto de claude.ai.** Sus instrucciones solo remiten a `kino/canon/proyecto.md`. Si ves una diferencia, gana el repositorio.
+- **Proyecto «Kino» de Claude Code.** No tiene instrucciones propias: el contexto llega por este archivo. Su pestaña *Environment* es donde se define `KINO_PERSONA` para el registro de prompts.
+- **Memoria personal.** El progreso de aprendizaje de Alejandro vive en su memoria personal de Claude, no en el repositorio (skill `mentor`).
 - Si necesitas algo que no está aquí, dilo y no lo supongas.
 
 ## Hooks
