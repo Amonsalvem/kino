@@ -5,6 +5,7 @@ Scripts compartidos que no dependen de ninguna marca. Si una herramienta solo si
 | Script | Qué hace | Uso |
 |---|---|---|
 | `preparar-entorno.sh` | Comprueba node, python, git y Chromium. Lo corre el hook de inicio de Claude Code | `bash herramientas/preparar-entorno.sh` |
+| `revisar-texto.py` | Chequeo de muletillas, cifras sin fuente y textos largos. Lo corre GitHub en cada PR | `python3 herramientas/revisar-texto.py <archivos>` o `--todo` |
 | `capturar.mjs` | Capturas de un HTML a 360, 768 y 1440 px, en oscuro y claro, con chequeo de desborde horizontal y errores de consola | `node herramientas/capturar.mjs <archivo.html> [carpeta-salida]` |
 
 **Requisitos.** Node 20 o más. `capturar.mjs` usa Playwright (local o global) y el Chromium de `/opt/pw-browsers` si existe. Las capturas salen en `capturas/`, que no se versiona.
