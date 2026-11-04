@@ -15,3 +15,7 @@ Cierra #
 ## Cómo se verificó
 
 <!-- Comandos corridos y su resultado -->
+
+## Uso de IA
+
+<!-- Obligatorio. Formato en .claude/skills/registro-ia/SKILL.md. Si no se usó IA, escribe «Sin IA». -->

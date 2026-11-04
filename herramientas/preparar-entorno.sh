@@ -21,5 +21,7 @@ if command -v gh >/dev/null && gh pr list --draft --limit 10 >/dev/null 2>&1; th
   echo "PR en borrador abiertos:"; gh pr list --draft --limit 10 | sed 's/^/  /'
 else echo "  [FALTA] gh: revisa a mano los PR en borrador en GitHub"; fi
 
+P="${KINO_PERSONA:-$(git -C "$RAIZ" config kino.persona 2>/dev/null)}"
+[ -n "$P" ] && ok "persona: $P (registro de prompts según registro-ia/consentimiento.md)" || falta "persona: sin KINO_PERSONA ni git config kino.persona, los prompts no se registran"
 echo "Recuerda: lee AGENTS.md y kino/canon/ antes de trabajar. pre-kino/ es de solo lectura."
 exit 0
