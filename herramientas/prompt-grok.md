@@ -1,12 +1,23 @@
-# Prompt para traer a Kino el trabajo hecho en Grok
+# Prompt para conectar Grok al repositorio de Kino
 
-Nico pega el bloque de abajo, completo, en **cada** conversación de Grok donde trabajó algo de Kino (marca, producto, investigación, entregas, código u otro tema). Grok hace el inventario de lo que hay en esa conversación, lo reparte en las carpetas del repositorio y entrega un PR por área. Lo abre el issue [#15](https://github.com/Amonsalvem/kino/issues/15).
+Nico lo pega una vez en cada conversación de Grok donde trabaja Kino. Grok sube lo que ya se hizo y, desde ese momento, sube cada avance a GitHub en cuanto ocurre, en una rama y un PR en borrador por área. Lo abre el issue [#15](https://github.com/Amonsalvem/kino/issues/15).
 
-**Por qué así.** El repositorio es público, así que Grok lee las reglas desde `raw.githubusercontent.com`. Grok en grok.com no escribe en GitHub: entrega archivos y Nico los sube. Si se usa Grok Build con acceso al repositorio, Grok mismo abre las ramas y los PR en borrador, nunca integra a `main` (`AGENTS.md` §1). Grok no ve otras conversaciones, por eso el prompt va en cada una.
+## Antes de pegarlo (una sola vez)
+
+| Quién | Qué | Dónde |
+|---|---|---|
+| Alejandro | Agregar a Nico como colaborador con rol *Write* | GitHub, repositorio, Settings > Collaborators > Add people |
+| Alejandro | Proteger `main`: nadie escribe directo, todo entra por PR | Settings > Rules > Rulesets > New branch ruleset, objetivo `main`, activar «Restrict deletions», «Require a pull request before merging» y «Block force pushes» |
+| Nico | Aceptar la invitación al repositorio | Correo de GitHub o github.com/notifications |
+| Nico | Conectar GitHub en Grok y dar acceso a `Amonsalvem/kino` | grok.com, Connectors, GitHub |
+
+**Lo que no está verificado.** La documentación de xAI lista GitHub como conector de Grok (repositorios, issues, PR y código), sin decir si escribe. Hay un PR público de prueba creado por Grok con ese conector (https://github.com/ageoffron/projectX/pull/19, 17 sep 2026), pero es una prueba de un usuario. Si al pegar el prompt Grok dice que no puede escribir, el prompt cae al modo manual: entrega los archivos con su ruta.
+
+Si Grok tiene Proyectos con instrucciones propias, pegar el bloque ahí hace que valga en todas las conversaciones del proyecto (sin verificar).
 
 ```text
 Vas a trabajar como agente del repositorio de Kino: https://github.com/Amonsalvem/kino
-En esta conversación trabajé (Nico) cosas de Kino. Tu tarea es encontrar todo lo que hicimos aquí, sea del tema que sea, y entregarlo en la forma que exige el repositorio para que yo o Alejandro lo subamos a GitHub.
+En esta conversación trabajé (Nico) cosas de Kino. Tu tarea es encontrar todo lo que hicimos aquí, sea del tema que sea, subirlo a GitHub en la forma que exige el repositorio y, desde ahora, subir cada avance nuevo en cuanto ocurra. Tienes el conector de GitHub con acceso a Amonsalvem/kino.
 
 PASO 1. LEE LAS REGLAS ANTES DE ESCRIBIR NADA
 Abre estos archivos (el repositorio es público):
@@ -50,8 +61,8 @@ PASO 3. ESTILO (GitHub bloquea el PR si no se cumple)
 - Nombres de archivo: minúsculas, español, palabras con guion, sin tildes ni espacios. Documentos de un día empiezan con la fecha ISO (2026-11-04-...).
 - Código en TypeScript por defecto, con los supuestos arriba del bloque.
 
-PASO 4. QUÉ ME ENTREGAS
-Repasa toda esta conversación, de principio a fin, y entrégame en este orden:
+PASO 4. PRIMERA ENTREGA: LO QUE YA HICIMOS
+Repasa toda esta conversación, de principio a fin, y prepara:
 
 A. Inventario. Una tabla con todo lo que trabajamos, sin filtrar por tema: pieza, estado (explorada, elegida, descartada), área y carpeta de destino, y problema o hallazgo al que responde. Áreas y carpetas, según AGENTS.md §4:
    canon          kino/canon/ (solo como PROPUESTA en decisiones.md o cambio propuesto a proyecto.md)
@@ -64,31 +75,37 @@ A. Inventario. Una tabla con todo lo que trabajamos, sin filtrar por tema: pieza
    Si algo no encaja en ninguna, márcalo «sin carpeta» y pregúntame; no inventes carpetas.
    Lo descartado no se sube: va solo en el inventario, con una línea de por qué.
 
-B. Archivos. Uno por bloque de código, con su ruta completa en la línea anterior al bloque, por ejemplo:
-   Ruta: kino/producto/flujos/pase-visita.md
-   y el contenido completo dentro del bloque. Markdown para documentos, JSON para tokens, SVG como texto si tienes el vector, TypeScript para código. Si una pieza es una imagen o un archivo que no puedes entregar como texto, lista la ruta y el nombre para que yo lo exporte y lo suba.
+B. Archivos, cada uno con su ruta completa, por ejemplo kino/producto/flujos/pase-visita.md, y su contenido completo. Markdown para documentos, JSON para tokens, SVG como texto si tienes el vector, TypeScript para código. Si una pieza es una imagen o un archivo que no puedes entregar como texto, lista la ruta y el nombre para que yo lo exporte y lo suba.
    Si creas una subcarpeta prevista en el README de su carpeta, entrega también ese README.md actualizado.
 
 C. Decisiones. Las entradas nuevas para kino/canon/decisiones.md, con el formato de ese archivo: D-### consecutivo desde el siguiente libre, estado PROPUESTA, al menos dos alternativas en tabla con su costo, una recomendada y sus fuentes. Si hubo trabajo de marca, agrega la lista de herencia para D-002: qué se tomó de pre-kino, pieza por pieza, con la ruta de origen, o «nada». No cambies el estado de ninguna decisión: eso lo hace Alejandro.
 
-D. Un pull request por área (regla «una rama y un PR por tarea»), cada uno listo para pegar:
-   - Rama: area/tema, por ejemplo marca/identidad-grok o producto/flujo-pase-visita
+D. Un pull request en borrador por área (regla «una rama y un PR por tarea»):
+   - Rama: area/tema, por ejemplo marca/identidad-grok o producto/flujo-pase-visita. Sale de main.
    - Título que empiece con el área: «Marca: ...», «Producto: ...»
-   - Cuerpo con las secciones de la plantilla: «Qué cambia», «Por qué», «Decisiones», «Cómo se verificó» y «Uso de IA». En «Qué cambia» escribe «Parte de #15» y, en el último PR que te pida, «Cierra #15».
+   - Cuerpo con las secciones de la plantilla: «Qué cambia» (con «Parte de #15»), «Por qué», «Decisiones», «Cómo se verificó» y «Uso de IA».
    - «Uso de IA» con la tabla de registro-ia: herramienta Grok (y el modelo, si lo sabes), pidió nico, prompts «resumen» (Nico todavía no aceptó el registro de prompts: no copies sus mensajes, solo una línea por pedido en tus palabras), qué hizo la IA, qué hizo la persona, y una nota de práctica.
    - Las entradas de decisiones.md van en el PR del área a la que pertenecen.
 
-E. Lo que falta por verificar: datos sin fuente, contradicciones con el canon, piezas que dependen de Figma u otra herramienta, y preguntas para Alejandro (máximo cinco, ordenadas por impacto).
+E. Lo que falta por verificar: datos sin fuente, contradicciones con el canon, piezas que dependen de Figma u otra herramienta, y preguntas para Alejandro (máximo cinco, ordenadas por impacto). Va en el cuerpo del PR de su área.
 
-Antes de entregar, revisa todo tu texto contra el paso 3 y corrige lo que no cumpla.
+Antes de subir, revisa todo tu texto contra el paso 3 y corrige lo que no cumpla.
+Muéstrame el inventario (A) y súbelo todo con el conector de GitHub: crea cada rama, haz commit de sus archivos y abre su PR en borrador. Mensajes de commit en español, en presente y con el área al inicio: «Marca: paleta base».
 
-PASO 5. CÓMO SE SUBE (explícamelo al final, en pasos cortos)
-Si no tienes acceso de escritura al repositorio, dame los pasos para subir cada PR desde github.com: crear la rama, «Add file» > «Create new file» o «Upload files» en cada carpeta, y abrir el PR en borrador con su cuerpo del punto D. Si GitHub no me deja crear ramas, le paso los archivos a Alejandro.
-Si sí tienes acceso de escritura (Grok Build u otra integración con GitHub), crea tú las ramas y los PR en borrador. Nunca escribas en main ni integres un PR: eso lo hace Alejandro.
+PASO 5. DE AQUÍ EN ADELANTE: CADA AVANCE SE SUBE
+Esta regla vale para el resto de la conversación, sin que yo te lo recuerde:
+- Cada vez que produzcamos algo que va al repositorio (un archivo nuevo, una versión nueva de uno que ya subiste, una decisión), haz commit en ese mismo momento en la rama de su área y deja que el PR abierto se actualice. Si el área todavía no tiene rama, créala con su PR en borrador como en el punto D.
+- Un commit por avance con sentido. No esperes a que termine la sesión.
+- Antes de escribir en un archivo, lee su versión actual en la rama. Si Alejandro o alguien más lo cambió, parte de esa versión y no la pises.
+- Si el avance cambia lo que dice el PR (decisiones, preguntas, uso de IA), actualiza también su cuerpo.
+- Al terminar cada subida, dime en una línea: rama, archivo y enlace al commit.
+- Lo que solo sea conversación o exploración descartada no se sube.
+- Nunca escribas en main, nunca integres un PR, nunca borres ramas ni archivos de otros. Eso lo hace Alejandro.
+- Si el conector falla o no tiene permiso de escritura, dímelo de inmediato, no sigas como si hubiera subido, y entrégame los archivos con su ruta para que los suba a mano.
 ```
 
 ## Después de pegarlo
 
-- Revisa el inventario (punto A) antes de subir: si Grok olvidó algo de la conversación, pídeselo antes de crear los PR.
-- Si trabajaste en varias conversaciones, repite el prompt en cada una y sube sus PR por separado.
-- Cada PR corre el chequeo de texto de GitHub. Si falla, el error dice la línea; corrígela en GitHub y vuelve a guardar.
+- La primera respuesta de Grok es el inventario. Si olvidó algo de la conversación, pídeselo antes de que suba.
+- Cada PR corre el chequeo de texto de GitHub. Si falla, el error dice la línea; pídele a Grok que la corrija en la misma rama.
+- Alejandro revisa e integra cada PR cuando el área esté lista.
