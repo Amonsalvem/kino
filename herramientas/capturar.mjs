@@ -1,5 +1,5 @@
 // Capturas del sitio o de una lámina en 360, 768 y 1440 px, con chequeo de desbordamiento horizontal.
-// Uso: node scripts/capturar.mjs <archivo.html> [carpeta-salida]
+// Uso: node herramientas/capturar.mjs <archivo.html> [carpeta-salida]
 // Supuestos: playwright instalado (local o global) y Chromium en /opt/pw-browsers o descargado por playwright.
 import { createRequire } from 'node:module';
 import { execSync } from 'node:child_process';
@@ -8,10 +8,11 @@ import path from 'node:path';
 const req = createRequire(import.meta.url);
 let pw;
 try { pw = req('playwright'); } catch { pw = req(path.join(execSync('npm root -g').toString().trim(), 'playwright')); }
-const archivo = path.resolve(process.argv[2] || 'branding/sistema/v3/sitio/build/kino-sistema-de-marca.html');
+if (!process.argv[2]) { console.error('Uso: node herramientas/capturar.mjs <archivo.html> [carpeta-salida]'); process.exit(2); }
+const archivo = path.resolve(process.argv[2]);
 const salida = path.resolve(process.argv[3] || 'capturas');
 fs.mkdirSync(salida, { recursive: true });
-const cands = fs.existsSync('/opt/pw-browsers') ? fs.readdirSync('/opt/pw-browsers').filter(d => /^chromium-\d+$/.test(d)).map(d => `/opt/pw-browsers/${d}/chrome-linux/chrome`) : [];
+const cands = fs.existsSync('/opt/pw-browsers') ? ['/opt/pw-browsers/chromium', ...fs.readdirSync('/opt/pw-browsers').filter(d => /^chromium-\d+$/.test(d)).flatMap(d => [`/opt/pw-browsers/${d}/chrome-linux64/chrome`, `/opt/pw-browsers/${d}/chrome-linux/chrome`])] : [];
 const executablePath = cands.find(fs.existsSync);
 const nav = await pw.chromium.launch(executablePath ? { executablePath } : {});
 let fallas = 0;
