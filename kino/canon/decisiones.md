@@ -55,3 +55,33 @@ La identidad nueva puede partir de cero o heredar piezas que ya probaron su valo
 **Palabras de origen.** «Yo apruebo todo, nico propone»; «Comentando el PR en Github»; «No hay nada imprescindible en esto».
 
 **Pendiente.** Dónde vive el código del MVP en producción (lo desarrolló Manuel) y de quién es.
+
+---
+
+## D-005 · Qué se cuenta en documentos comerciales sobre colaboradores y precios · PROPUESTA
+
+Se recomienda mantener el canon y tratar la omisión comercial como recorte de un documento de venta hasta que Alejandro decida. Nico pidió mencionar solo la alianza con HikCentral, decir el Pase de Kino y omitir contratistas o empleados, multi-conjunto, modelo y precios. Fuente: conversación del 3 nov 2026 resumida en el inventario de Kino Ops, fuera del repositorio, sin transcripción.
+
+| Opción | Alcance | Costo |
+|---|---|---|
+| A (recomendada) | Conservar colaboradores y visita con la misma prioridad; limitar la omisión al documento comercial | Exige comprobar que el recorte no se lea como reducción del producto |
+| B | Aplicar la omisión al producto | Contradice el canon y obliga a revisar reglas y recorridos; sin autorización |
+| C | Mostrar todo el alcance del canon en documentos comerciales | No sigue el recorte comercial pedido por Nico |
+
+La contradicción afecta la prioridad de colaboradores, explícita en `kino/canon/proyecto.md`. La omisión de precios no fija ni elimina un modelo comercial. No se cambia `proyecto.md` ni se aplica ninguna alternativa.
+
+**Trazabilidad y HikCentral.** A conserva autor, motivo, vigencia y límites; el recorte narrativo no cambia quién autoriza ni la sincronización. B requeriría una evaluación de producto que no existe aquí. La mención comercial de la alianza no demuestra integración temporal del Pase; sin fuente de implementación. Fuentes: `kino/canon/proyecto.md` y `kino/producto/flujos/pase-visita.md`.
+
+## D-006 · Cómo se describe el piloto · PROPUESTA
+
+Se recomienda distinguir uso actual de instalación con integración caída, sin presentar ambas comunidades como piloto activo. Nico indicó que la beta corre solo en Monte Sereno Villas Campestres, no en Refugio Campestre. Fuente: Nico, 20 oct 2026, según inventario de Kino Ops, sin transcripción y fuera del repositorio.
+
+| Opción | Relato | Costo |
+|---|---|---|
+| A (recomendada) | Monte Sereno Villas Campestres como comunidad de uso actual declarado por Nico; Refugio Campestre como instalación con integración caída | Exige conservar la fecha y procedencia distinta de cada dato |
+| B | Hablar solo de Monte Sereno Villas Campestres | Omite la instalación de Refugio y la contradicción con el contexto del canon |
+| C | Hablar de ambas como piloto activo | Confunde hardware instalado con uso y sincronización comprobados |
+
+El contexto de `kino/canon/proyecto.md` describe un MVP en las dos comunidades. Sus hechos vigentes registran en Refugio Campestre hardware instalado, 0 de 312 usuarios y 1 de 44 vehículos sincronizados; fuente: `kino/canon/proyecto.md`, inspección de sep 2026. Son datos históricos del canon, sin nueva comprobación operativa. La declaración posterior de Nico no basta para borrar ese registro.
+
+**Trazabilidad y HikCentral.** Cambia solo el relato; no cambia la lógica de aprobación. A conserva visible el fallo de sincronización en Refugio; no convierte instalación en confirmación de ingresos ni acredita sincronización del Pase temporal. Se mantiene `proyecto.md` sin cambios.
