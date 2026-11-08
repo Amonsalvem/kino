@@ -58,7 +58,9 @@ La identidad nueva puede partir de cero o heredar piezas que ya probaron su valo
 
 ---
 
-## D-005 · Qué se cuenta en documentos comerciales sobre colaboradores y precios · PROPUESTA
+## D-005 · Qué se cuenta en documentos comerciales sobre colaboradores y precios · APROBADA (Alejandro, 8 nov 2026) · opción A
+
+**Aprobación.** [Comentario de Alejandro en el PR #19](https://github.com/Amonsalvem/kino/pull/19#discussion_r4507878973).
 
 Se recomienda mantener el canon y tratar la omisión comercial como recorte de un documento de venta hasta que Alejandro decida. Nico pidió mencionar solo la alianza con HikCentral, decir el Pase de Kino y omitir contratistas o empleados, multi-conjunto, modelo y precios. Fuente: conversación del 3 nov 2026 resumida en el inventario de Kino Ops, fuera del repositorio, sin transcripción.
 
@@ -72,7 +74,9 @@ La contradicción afecta la prioridad de colaboradores, explícita en `kino/cano
 
 **Trazabilidad y HikCentral.** A conserva autor, motivo, vigencia y límites; el recorte narrativo no cambia quién autoriza ni la sincronización. B requeriría una evaluación de producto que no existe aquí. La mención comercial de la alianza no demuestra integración temporal del Pase; sin fuente de implementación. Fuentes: `kino/canon/proyecto.md` y `kino/producto/flujos/pase-visita.md`.
 
-## D-006 · Cómo se describe el piloto · PROPUESTA
+## D-006 · Cómo se describe el piloto · APROBADA (Alejandro, 8 nov 2026) · opción A
+
+**Aprobación.** [Comentario de Alejandro en el PR #19](https://github.com/Amonsalvem/kino/pull/19#discussion_r4507881834).
 
 Se recomienda distinguir uso actual de instalación con integración caída, sin presentar ambas comunidades como piloto activo. Nico indicó que la beta corre solo en Monte Sereno Villas Campestres, no en Refugio Campestre. Fuente: Nico, 20 oct 2026, según inventario de Kino Ops, sin transcripción y fuera del repositorio.
 
