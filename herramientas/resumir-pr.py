@@ -30,7 +30,7 @@ MAX_PANEL = 60000  # el cuerpo de un issue admite 65 536 caracteres
 # Qué toca cada ruta y por qué importa al aprobar. El orden manda: gana la primera que calce.
 ZONAS = [
     ("pre-kino/", "pre-kino", "bloquea", "Toca `pre-kino/`, que es de solo lectura (AGENTS.md §5.3)"),
-    ("kino/canon/decisiones.md", "canon", "decide", "Cambia `decisiones.md`: confirma cada PROPUESTA o APROBADA"),
+    ("kino/canon/decisiones.md", "canon", "decide", "Cambia `decisiones.md`: decide comentando «Apruebo D-00X, opción Y» en la línea del título"),
     ("kino/canon/", "canon", "decide", "Cambia el canon, que manda sobre el resto (AGENTS.md §3)"),
     ("AGENTS.md", "orden", "decide", "Cambia las reglas de todas las IA"),
     ("CLAUDE.md", "orden", "decide", "Cambia las reglas de Claude"),
