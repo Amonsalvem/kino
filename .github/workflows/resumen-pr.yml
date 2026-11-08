@@ -1,0 +1,49 @@
+# Resumen de cada PR y panel de PR abiertos, para aprobar rápido.
+# Comenta en el PR (un solo comentario que se actualiza) y reescribe el issue «Panel de PR».
+# No usa IA ni secretos: solo el GITHUB_TOKEN de la Action. Script: herramientas/resumir-pr.py
+name: Resumen de PR
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened, ready_for_review, converted_to_draft, closed]
+  workflow_run:
+    workflows: ["Revisar texto"]
+    types: [completed]
+  schedule:
+    - cron: "0 12 * * *"  # 7 a. m. en Colombia: refresca días abiertos y chequeos
+  workflow_dispatch:
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+  checks: read
+concurrency:
+  group: resumen-pr
+  cancel-in-progress: false
+jobs:
+  resumen:
+    runs-on: ubuntu-latest
+    steps:
+      # Siempre el script de main: un PR no puede cambiar lo que se corre con permiso de escritura.
+      # Hasta que este archivo llegue a main, los pasos se saltan.
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+      - name: Resumen en el PR
+        if: hashFiles('herramientas/resumir-pr.py') != '' && github.event_name == 'pull_request' && github.event.action != 'closed'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 herramientas/resumir-pr.py --comentar ${{ github.event.pull_request.number }}
+      - name: Resumen tras los chequeos
+        if: hashFiles('herramientas/resumir-pr.py') != '' && github.event_name == 'workflow_run'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PRS: ${{ toJSON(github.event.workflow_run.pull_requests.*.number) }}
+        run: |
+          echo "$PRS" | python3 -c 'import json,sys; [print(n) for n in json.load(sys.stdin)]' | while read -r n; do
+            python3 herramientas/resumir-pr.py --comentar "$n"
+          done
+      - name: Panel de PR
+        if: hashFiles('herramientas/resumir-pr.py') != ''
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 herramientas/resumir-pr.py --panel
