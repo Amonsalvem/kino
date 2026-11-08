@@ -7,6 +7,7 @@ Scripts compartidos que no dependen de ninguna marca. Si una herramienta solo si
 | `preparar-entorno.sh` | Comprueba node, python, git y Chromium. Lo corre el hook de inicio de Claude Code | `bash herramientas/preparar-entorno.sh` |
 | `revisar-texto.py` | Chequeo de muletillas, cifras sin fuente y textos largos. Lo corre GitHub en cada PR | `python3 herramientas/revisar-texto.py <archivos>` o `--todo` |
 | `registrar-prompt.py` | Hook de Claude Code que guarda cada prompt en `registro-ia/`, con datos sensibles tapados y solo con consentimiento | Lo corre el hook; no se usa a mano |
+| `resumir-pr.py` | Resume cada PR (de qué trata, qué se hizo, qué observar) y mantiene el issue «Panel de PR». Lo corre GitHub con la Action «Resumen de PR» | `python3 herramientas/resumir-pr.py --ver N` o `--ver-panel` para verlo sin publicar |
 | `capturar.mjs` | Capturas de un HTML a 360, 768 y 1440 px, en oscuro y claro, con chequeo de desborde horizontal y errores de consola | `node herramientas/capturar.mjs <archivo.html> [carpeta-salida]` |
 
 **Requisitos.** Node 20 o más. `capturar.mjs` usa Playwright (local o global) y el Chromium de `/opt/pw-browsers` si existe. Las capturas salen en `capturas/`, que no se versiona.
