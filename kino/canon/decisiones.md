@@ -155,3 +155,19 @@ D-003 sigue vigente: Alejandro aprueba y Nico propone. D-003 registra que Manuel
 **Palabras de origen.** «Prefiero que todo este flujo se realizado en mi claude, que sea meterme al project de kino y estén abiertos los PRs que debo revisar, las decisiones que tomar y realizar todo por medio de este chat». En la tarjeta de decisión del hilo «Revisar y aprobar PR desde el chat» eligió «Sí, solo con mi orden por PR».
 
 **Trazabilidad.** Cada integración queda en GitHub con la cuenta de Alejandro, y el hilo del chat guarda la orden. No toca la lógica de ingresos ni la sincronización con HikCentral.
+
+---
+
+## D-009 · Marca blanca fuera del roadmap · PROPUESTA (8 nov 2026)
+
+El documento de roadmap de Nico con Grok (8 nov 2026) traía la fase 6 «KINO marca blanca» y el hito H4, «app de marca blanca de Monte Sereno», para jun 2027. El canon sostiene marca propia: `kino/canon/proyecto.md`, `<decisiones_tomadas>` y regla 6. D-004 dejó la pregunta abierta.
+
+| Opción | Alcance | Costo |
+|---|---|---|
+| A (recomendada) | Marca propia, sin marca blanca. Salen la fase 6 y el H4. El conjunto aparece solo como dato en texto o chip | Se pierde una línea comercial que ofrecían los decks, el PDF y soykino.com; hay que retirarla de esos textos |
+| B | Marca blanca como línea comercial aparte | Exige cambiar `proyecto.md` y mantener dos marcas |
+| C | Decidir después del informe del piloto (H3) | El roadmap no la promete en la entrega; la pregunta sigue abierta |
+
+**Respuesta de Alejandro.** En la tarjeta de decisión del hilo «Co-crear roadmap, estrategia y presupuesto de Kino» eligió «Marca propia, sin marca blanca» (8 nov 2026). Pasa a APROBADA con su comentario en el PR, según D-008.
+
+**Trazabilidad y HikCentral.** No cambia autor, motivo, vigencia ni autoridad del Pase. No cambia la sincronización.
