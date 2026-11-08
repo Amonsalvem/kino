@@ -40,3 +40,12 @@ Las herramientas de `gorr-brand-system` (tokens DTCG, contraste APCA, compuerta 
 ## Figma de la marca nueva
 
 Clave del archivo: por definir.
+
+## Revisión de trabajo de Kino Ops
+
+Las notas son candidatas pendientes de Alejandro; no definen la identidad nueva ni reemplazan a Figma. Fuente: D-001, D-002 y D-003 en `kino/canon/decisiones.md`.
+
+| Nota | Alcance |
+|---|---|
+| [Identidad trabajada en Grok](revision/2026-11-identidad-trabajada-en-grok.md) | Comparación de herencia, aplicaciones exploradas y alternativas |
+| [Spots de cine del Pase](revision/2026-11-06-spots-cine-pase.md) | Guiones registrados, calidad reportada y archivos por exportar |

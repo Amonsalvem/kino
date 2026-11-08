@@ -40,6 +40,8 @@ La identidad nueva puede partir de cero o heredar piezas que ya probaron su valo
 
 **Cuándo se decide.** Cuando la identidad nueva esté cargada en Figma (Alejandro, 4 nov 2026). Entonces un agente compara la marca nueva con `pre-kino/` y lista qué se heredó, pieza por pieza y con su ruta de origen. Alejandro aprueba esa lista y la entrada pasa a APROBADA.
 
+**Lista de herencia.** Herencia nueva demostrada: nada. Paleta: no demostrada; `pre-kino/decisiones.md`, X2 a X4, documenta otra. Poppins: nada; H5 y X5 documentan Archivo y JetBrains Mono. Arco y gota: similitud con F1, no transferencia probada; F1 conserva el cuadrado. Nombre KINO: coincidencia con F1 y P08, sin procedencia probada. Pase y visita: coincidencia con F3, V2 y V4; aquí rige `kino/canon/proyecto.md`. Estados, tratamiento y horas: adopción completa no demostrada frente a V1, V3 y V5. Señalética, tarjetas, motion, video y decks: no demostrado frente a `pre-kino/TRASPASO-SISTEMA-DE-MARCA.md`, apartados de enlaces y construcción. Comparación detallada: `kino/marca/revision/2026-11-identidad-trabajada-en-grok.md`.
+
 ---
 
 ## D-003 · Gobierno del repositorio · APROBADA (Alejandro, 4 nov 2026)
@@ -58,6 +60,26 @@ La identidad nueva puede partir de cero o heredar piezas que ya probaron su valo
 
 ---
 
+## D-004 · Identidad visual trabajada en Grok como candidata · APROBADA (Alejandro, 8 nov 2026) · opción B
+
+**Aprobación.** [Comentario de Alejandro en el PR #20](https://github.com/Amonsalvem/kino/pull/20#issuecomment-6727546024).
+
+Se propone conservar esta identidad como referencia hasta que Alejandro compare la marca nueva en Figma. No se da por vigente. Fuentes: conversación oct-nov 2026 resumida en el inventario externo de Kino Ops; D-001, D-002 y `kino/marca/README.md`.
+
+| Opción | Alcance | Costo |
+|---|---|---|
+| A | Adoptar la paleta, Poppins y el candado de arco trabajados en Grok | Requiere validar las piezas y su respuesta al diagnóstico en Figma |
+| B (recomendada) | Partir de cero en Figma; mantener el trabajo de Grok como referencia | Requiere nueva construcción y comparación antes de aplicar una identidad |
+| C | Heredar solo lo verbal, opción A de D-002, sin esta estética | Requiere aprobar D-002 y diseñar lo visual |
+
+La recomendación espera la comparación y aprobación de Alejandro; no autoriza empezar cambios visuales. Lista de piezas, herencia no demostrada y referencias: `kino/marca/revision/2026-11-identidad-trabajada-en-grok.md`. Clave de Figma de marca nueva: por definir, según `kino/marca/README.md`.
+
+**Trazabilidad y HikCentral.** Esta propuesta trata identidad visual; no cambia autor, motivo, vigencia ni autoridad del Pase. No incorpora una integración ni prueba la sincronización del Pase temporal; sin fuente de implementación nueva. D-002 permanece en PROPUESTA.
+
+**Pregunta aparte.** El canon mantiene identidad propia sin marca blanca en `kino/canon/proyecto.md`. El inventario externo registra un pedido de Nico sobre versiones marca blanca del 21 oct 2026. Se consulta a Alejandro; no se modifica esa decisión de producto.
+
+---
+
 ## D-005 · Qué se cuenta en documentos comerciales sobre colaboradores y precios · APROBADA (Alejandro, 8 nov 2026) · opción A
 
 **Aprobación.** [Comentario de Alejandro en el PR #19](https://github.com/Amonsalvem/kino/pull/19#discussion_r4507878973).
@@ -73,6 +95,8 @@ Se recomienda mantener el canon y tratar la omisión comercial como recorte de u
 La contradicción afecta la prioridad de colaboradores, explícita en `kino/canon/proyecto.md`. La omisión de precios no fija ni elimina un modelo comercial. No se cambia `proyecto.md` ni se aplica ninguna alternativa.
 
 **Trazabilidad y HikCentral.** A conserva autor, motivo, vigencia y límites; el recorte narrativo no cambia quién autoriza ni la sincronización. B requeriría una evaluación de producto que no existe aquí. La mención comercial de la alianza no demuestra integración temporal del Pase; sin fuente de implementación. Fuentes: `kino/canon/proyecto.md` y `kino/producto/flujos/pase-visita.md`.
+
+---
 
 ## D-006 · Cómo se describe el piloto · APROBADA (Alejandro, 8 nov 2026) · opción A
 
