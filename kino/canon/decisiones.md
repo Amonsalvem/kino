@@ -60,7 +60,9 @@ La identidad nueva puede partir de cero o heredar piezas que ya probaron su valo
 
 ---
 
-## D-004 · Identidad visual trabajada en Grok como candidata · PROPUESTA
+## D-004 · Identidad visual trabajada en Grok como candidata · APROBADA (Alejandro, 8 nov 2026) · opción B
+
+**Aprobación.** [Comentario de Alejandro en el PR #20](https://github.com/Amonsalvem/kino/pull/20#issuecomment-6727546024).
 
 Se propone conservar esta identidad como referencia hasta que Alejandro compare la marca nueva en Figma. No se da por vigente. Fuentes: conversación oct-nov 2026 resumida en el inventario externo de Kino Ops; D-001, D-002 y `kino/marca/README.md`.
 
