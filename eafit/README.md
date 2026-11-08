@@ -11,3 +11,12 @@ Una carpeta por entrega, con fecha: `2026-11-12-sustentacion-final/`. Dentro van
 - Lo académico puede citar el producto. El producto nunca depende de lo académico.
 - Lo que es solo exigencia del entregable (formato, extensión, rúbrica) se dice como tal y no se vuelve decisión de producto.
 - Las entregas anteriores (decks del 19, 21 y 22 sep, entrega 2) están en `../pre-kino/`.
+
+## Entregas registradas desde Kino Ops
+
+| Entrega | Registro |
+|---|---|
+| [Estrategia de servicio](2026-11-05-estrategia-servicio/README.md) | Enlace a Figma, estructura y feedback pendiente |
+| [Presentación final](2026-11-presentacion-final/README.md) | Cambios declarados y datos por confirmar |
+
+Fuente: inventario externo de Kino Ops. Las notas no convierten requisitos académicos en decisiones de producto.
