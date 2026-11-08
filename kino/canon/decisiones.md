@@ -116,6 +116,32 @@ El contexto de `kino/canon/proyecto.md` describe un MVP en las dos comunidades. 
 
 ---
 
+## D-007 · Roles del equipo · APROBADA (Alejandro, 8 nov 2026) · opción A
+
+**Aprobación.** [Comentario de Alejandro en el PR #22](https://github.com/Amonsalvem/kino/pull/22#issuecomment-6727546229).
+
+Se recomienda registrar los roles como propuesta operativa, sin cambiar quién aprueba. Fuente: Nico, 4 nov 2026, según inventario de Kino Ops, fuera del repositorio y sin transcripción.
+
+| Persona | Rol propuesto |
+|---|---|
+| Nico Ramírez | Responsable principal de marca y estrategia |
+| Alejandro Monsalve | Responsable principal de parte técnica y lógica |
+| Juan Esteban | Comercial |
+| Manuel | Tech |
+| Daniel | IoT |
+| Henry | Marca |
+
+| Opción | Alcance | Costo |
+|---|---|---|
+| A (recomendada) | Registrar estos roles como propuesta operativa | Hay que confirmarlos con Alejandro; no habilitan aprobaciones |
+| B | Esperar la confirmación antes de registrarlos como equipo operativo | Las piezas siguen sin una atribución operativa confirmada |
+
+D-003 sigue vigente: Alejandro aprueba y Nico propone. D-003 registra que Manuel desarrolló el código del MVP en producción y deja pendiente dónde vive y de quién es. Los roles no resuelven ese pendiente ni sustituyen el gobierno del repositorio. Fuente: `kino/canon/decisiones.md`, D-003. No se crea perfil de Nico.
+
+**Trazabilidad y HikCentral.** La atribución de trabajo no cambia quién autoriza ingresos, el registro del Pase ni la sincronización con HikCentral. No se propone una función nueva.
+
+---
+
 ## D-008 · Alejandro revisa e integra desde el chat del proyecto · APROBADA (Alejandro, 8 nov 2026)
 
 **Qué se decidió.**
