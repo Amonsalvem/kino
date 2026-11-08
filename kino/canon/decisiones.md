@@ -158,7 +158,9 @@ D-003 sigue vigente: Alejandro aprueba y Nico propone. D-003 registra que Manuel
 
 ---
 
-## D-009 · Marca blanca fuera del roadmap · PROPUESTA (8 nov 2026)
+## D-009 · Marca blanca fuera del roadmap · APROBADA (Alejandro, 8 nov 2026) · opción A
+
+**Aprobación.** [Comentario de Alejandro en el PR #28](https://github.com/Amonsalvem/kino/pull/28#issuecomment-6728910017).
 
 El documento de roadmap de Nico con Grok (8 nov 2026) traía la fase 6 «KINO marca blanca» y el hito H4, «app de marca blanca de Monte Sereno», para jun 2027. El canon sostiene marca propia: `kino/canon/proyecto.md`, `<decisiones_tomadas>` y regla 6. D-004 dejó la pregunta abierta.
 
