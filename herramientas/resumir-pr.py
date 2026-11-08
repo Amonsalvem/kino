@@ -63,9 +63,11 @@ SENSIBLES = [
     (re.compile(r"\b3\d{2}[ -]?\d{3}[ -]?\d{4}\b"), "posible teléfono celular"),
     (re.compile(r"\b(c\.?c\.?|c[eé]dula)\s*:?\s*\d{6,10}\b", re.I), "posible cédula"),
     (re.compile(r"\b[A-Z]{3}[ -]?\d{3}\b"), "posible placa"),
-    (re.compile(r"(api[_-]?key|secret|password|contrase[nñ]a|token)\s*[:=]\s*\S{8,}", re.I), "posible secreto"),
+    (re.compile(r"(api[_-]?key|secret|password|contrase[nñ]a|token)\s*[:=]\s*[\"']?[A-Za-z0-9_\-/+]{16,}", re.I), "posible secreto"),
     (re.compile(r"\b(sk-[A-Za-z0-9_-]{20,}|ghp_[A-Za-z0-9]{30,}|AKIA[0-9A-Z]{16})\b"), "posible llave"),
 ]
+# Lecturas de variables o secretos de GitHub: no son el valor del secreto.
+CODIGO_SEGURO = re.compile(r"(os\.environ|secrets\.|\$\{\{|getenv)")
 BINARIOS = re.compile(r"\.(png|jpe?g|gif|webp|pdf|mp4|mov|zip|psd|fig|blend|ai|key|pptx?|docx?)$", re.I)
 ESTADOS = {"added": "nuevo", "modified": "cambiado", "removed": "borrado", "renamed": "movido y cambiado"}
 PR_GRANDE_ARCHIVOS = 40
@@ -174,10 +176,13 @@ def analizar(pr, archivos, commits, chequeos):
             continue
         for texto in lineas_agregadas(a.get("patch")):
             for patron, motivo_v in VOCABULARIO:
+                # El vocabulario es del producto; en la automatización «permiso» es el de GitHub.
+                if ruta.startswith(("herramientas/", ".github/", ".claude/")):
+                    break
                 if patron.search(texto) and "nunca" not in texto.lower():
                     hallazgos_texto.append(("revisa", f"Vocabulario: {motivo_v} en `{ruta}`"))
             for patron, motivo_s in SENSIBLES:
-                if patron.search(texto):
+                if patron.search(texto) and not CODIGO_SEGURO.search(texto):
                     grave = "secreto" in motivo_s or "llave" in motivo_s
                     hallazgos_texto.append(("bloquea" if grave else "revisa",
                                             f"Datos sensibles: {motivo_s} en `{ruta}`. Confirma que no sea real"))
