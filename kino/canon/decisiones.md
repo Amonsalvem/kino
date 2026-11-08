@@ -58,7 +58,9 @@ La identidad nueva puede partir de cero o heredar piezas que ya probaron su valo
 
 ---
 
-## D-007 · Roles del equipo · PROPUESTA
+## D-007 · Roles del equipo · APROBADA (Alejandro, 8 nov 2026) · opción A
+
+**Aprobación.** [Comentario de Alejandro en el PR #22](https://github.com/Amonsalvem/kino/pull/22#issuecomment-6727546229).
 
 Se recomienda registrar los roles como propuesta operativa, sin cambiar quién aprueba. Fuente: Nico, 4 nov 2026, según inventario de Kino Ops, fuera del repositorio y sin transcripción.
 
