@@ -1,0 +1,64 @@
+# Cuando Alejandro comenta «Apruebo D-005, opción A» o «Descarto D-005: motivo» en un PR,
+# pasa esa decisión de PROPUESTA a APROBADA o DESCARTADA en kino/canon/decisiones.md,
+# con el enlace a su comentario, y hace el commit en la rama del PR. Nunca integra.
+# Script: herramientas/aplicar-decisiones.py
+name: Aprobar decisiones
+on:
+  pull_request_review:
+    types: [submitted]
+  issue_comment:
+    types: [created]
+  workflow_dispatch:
+    inputs:
+      pr:
+        description: "Número del PR"
+        required: true
+permissions:
+  contents: write
+  pull-requests: read
+concurrency:
+  group: aprobar-decisiones-${{ github.event.pull_request.number || github.event.issue.number || inputs.pr }}
+jobs:
+  aplicar:
+    # Solo comentarios de Alejandro (D-003), o la corrida a mano.
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'pull_request_review' && github.event.review.user.login == 'Amonsalvem') ||
+      (github.event_name == 'issue_comment' && github.event.issue.pull_request && github.event.comment.user.login == 'Amonsalvem')
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      PR: ${{ github.event.pull_request.number || github.event.issue.number || inputs.pr }}
+    steps:
+      # El script siempre sale de main: un PR no puede cambiar lo que se corre con permiso de escritura.
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          path: main
+      - name: Rama del PR
+        id: rama
+        run: |
+          datos=$(gh api "repos/${{ github.repository }}/pulls/$PR")
+          echo "nombre=$(echo "$datos" | jq -r .head.ref)" >> "$GITHUB_OUTPUT"
+          echo "repo=$(echo "$datos" | jq -r .head.repo.full_name)" >> "$GITHUB_OUTPUT"
+      - uses: actions/checkout@v4
+        if: steps.rama.outputs.repo == github.repository
+        with:
+          ref: ${{ steps.rama.outputs.nombre }}
+          path: pr
+      - name: Aplicar decisiones
+        id: aplicar
+        if: steps.rama.outputs.repo == github.repository
+        run: python3 main/herramientas/aplicar-decisiones.py "$PR" pr
+      - name: Commit en la rama del PR
+        if: steps.aplicar.outputs.cambios != ''
+        working-directory: pr
+        env:
+          CAMBIOS: ${{ steps.aplicar.outputs.cambios }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add kino/canon/decisiones.md
+          git commit -m "Canon: decisiones aprobadas por Alejandro en el PR #$PR" -m "$CAMBIOS"
+          git push origin "HEAD:${{ steps.rama.outputs.nombre }}"

@@ -6,9 +6,9 @@ Reglas comunes para toda IA que trabaje en Kino: Claude (Code, claude.ai, Cowork
 
 | Persona | Papel |
 |---|---|
-| Alejandro | Aprueba todo. Aprueba comentando o revisando el PR en GitHub |
+| Alejandro | Aprueba todo, desde el chat del proyecto Kino de Claude (D-008) o comentando el PR en GitHub |
 | Nico | Propone, con un issue o un PR |
-| IA | Propone y ejecuta. Nunca aprueba ni integra a `main` |
+| IA | Propone y ejecuta. Nunca aprueba. Integra a `main` solo con la orden «integra #N» de Alejandro en el chat (D-008) |
 
 **Lo que la IA hace sin pedir permiso**, siempre en un PR con la etiqueta `menor`: orden de archivos, correcciones de texto, enlaces rotos y cambios de código que no alteran el comportamiento. Todo lo demás espera la aprobación de Alejandro.
 
