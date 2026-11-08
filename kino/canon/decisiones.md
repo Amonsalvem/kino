@@ -26,7 +26,9 @@ Registro único de decisiones del Kino nuevo: producto, marca, arquitectura y op
 
 ---
 
-## D-002 · Qué se hereda de la marca de pre-kino · PROPUESTA (4 nov 2026)
+## D-002 · Qué se hereda de la marca de pre-kino · APROBADA (Alejandro, 8 nov 2026) · opción A
+
+**Aprobación.** Alejandro en el chat del proyecto Kino (D-008), 8 nov 2026: «Opción A». Decidió antes de cargar la marca nueva en Figma.
 
 La identidad nueva puede partir de cero o heredar piezas que ya probaron su valor. Esto no decide la estética, solo el punto de partida.
 
