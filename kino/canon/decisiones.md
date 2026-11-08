@@ -89,3 +89,19 @@ Se recomienda distinguir uso actual de instalación con integración caída, sin
 El contexto de `kino/canon/proyecto.md` describe un MVP en las dos comunidades. Sus hechos vigentes registran en Refugio Campestre hardware instalado, 0 de 312 usuarios y 1 de 44 vehículos sincronizados; fuente: `kino/canon/proyecto.md`, inspección de sep 2026. Son datos históricos del canon, sin nueva comprobación operativa. La declaración posterior de Nico no basta para borrar ese registro.
 
 **Trazabilidad y HikCentral.** Cambia solo el relato; no cambia la lógica de aprobación. A conserva visible el fallo de sincronización en Refugio; no convierte instalación en confirmación de ingresos ni acredita sincronización del Pase temporal. Se mantiene `proyecto.md` sin cambios.
+
+---
+
+## D-008 · Alejandro revisa e integra desde el chat del proyecto · APROBADA (Alejandro, 8 nov 2026)
+
+**Qué se decidió.**
+- Alejandro revisa los PR y toma las decisiones en el chat del proyecto Kino de Claude, sin entrar a GitHub.
+- Claude le presenta la cola: cada PR resumido, la decisión que pide con sus opciones y una recomendada.
+- Cuando Alejandro decide, Claude comenta en el PR con su cuenta «Apruebo D-00X, opción Y», y la Action «Aprobar decisiones» pasa la entrada a APROBADA.
+- Claude integra un PR a `main` solo cuando Alejandro escribe en el chat «integra #N», un PR a la vez. Sin esa orden, nunca. Ajusta D-003, que sigue vigente en lo demás.
+
+**Alternativa descartada.** Que Claude comente y Alejandro pulse *Merge* en GitHub: deja un paso fuera del chat.
+
+**Palabras de origen.** «Prefiero que todo este flujo se realizado en mi claude, que sea meterme al project de kino y estén abiertos los PRs que debo revisar, las decisiones que tomar y realizar todo por medio de este chat». En la tarjeta de decisión del hilo «Revisar y aprobar PR desde el chat» eligió «Sí, solo con mi orden por PR».
+
+**Trazabilidad.** Cada integración queda en GitHub con la cuenta de Alejandro, y el hilo del chat guarda la orden. No toca la lógica de ingresos ni la sincronización con HikCentral.
