@@ -24,6 +24,15 @@ Una sesión en la nube ve este repositorio, no el Mac ni los documentos o la mem
 - `SessionStart` corre `herramientas/preparar-entorno.sh`.
 - `UserPromptSubmit` corre `herramientas/registrar-prompt.py`: guarda el prompt en `registro-ia/` si se sabe quién escribe (`KINO_PERSONA` o `git config kino.persona`) y esa persona dio consentimiento. Súbelo en el PR de la sesión.
 
+## Revisión desde el chat (D-008)
+
+Cuando Alejandro abre el proyecto Kino o pregunta qué tiene pendiente:
+
+1. Lista los PR abiertos (el issue «Panel de PR» los ordena) y preséntale una tabla: PR, de qué trata, qué decide, tu recomendación. Lo que no pide decisión va junto, como «integrar» o «cerrar».
+2. Una decisión de marca o producto va con sus opciones tal como están en `decisiones.md`. Si hay dos o más, que pueda responder en una línea: «D-004 B, D-007 A, integra #19».
+3. Con su respuesta: comenta en la línea del título de la decisión «Apruebo D-00X, opción Y», espera a que la Action la pase a APROBADA, marca el PR como listo e intégralo solo si escribió «integra #N». Cerrar un PR también pide su orden.
+4. Confírmale en una línea qué quedó integrado, cerrado o pendiente.
+
 ## Paradas
 
 Nada de marca ni de producto se da por aprobado sin respuesta explícita de Alejandro. Cuando una decisión es suya, preséntala con alternativas y una recomendada, déjala como PROPUESTA en `kino/canon/decisiones.md` y sigue con lo que no dependa de ella.

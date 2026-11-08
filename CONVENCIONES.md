@@ -22,7 +22,7 @@
 - Toda tarea empieza como issue. El PR que la resuelve lo enlaza con `Cierra #N`.
 - El PR va en borrador hasta que esté listo para revisar.
 - Etiqueta `menor`: cambios que la IA puede hacer sin pedir permiso (ver `AGENTS.md` §1).
-- Solo Alejandro integra a `main`.
+- Solo Alejandro integra a `main`, o Claude con su orden «integra #N» en el chat (D-008).
 
 ## Cómo se revisa y aprueba un PR
 
