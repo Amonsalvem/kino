@@ -263,10 +263,10 @@ Horizonte: nov 2026 a dic 2027, 14 meses. Fuente: Alejandro, chat del proyecto, 
 | Rubro | USD al mes | COP al mes | Fuente del precio |
 |---|---|---|---|
 | Claude Pro, 1 cuenta | 20 | 66.000 | [Anthropic](https://support.anthropic.com/en/articles/8325610-how-much-does-claude-pro-cost), consulta 9 nov 2026 |
-| Grok, 1 cuenta (supuesto: SuperGrok) | 30 | 99.000 | [buildfastwithai.com](https://www.buildfastwithai.com/blogs/supergrok-explained-pricing-limits-is-it-worth-it-2026), consulta 9 nov 2026. Fuente secundaria; confirmar el plan |
-| Figma Professional, 1 puesto (supuesto: pago mensual) | 20 | 66.000 | [Foro de Figma](https://forum.figma.com/report-a-problem-6/why-does-the-professional-plan-price-change-at-checkout-57528): USD 16 con pago anual, USD 20 con pago mensual |
+| Grok, 1 cuenta | 30 | 99.000 | Alejandro, 9 nov 2026 |
+| Figma Professional, 1 puesto, pago mensual | 20 | 66.000 | Pago mensual: Alejandro, 9 nov 2026. Precio: [Foro de Figma](https://forum.figma.com/report-a-problem-6/why-does-the-professional-plan-price-change-at-checkout-57528) |
 | Hospedaje de la página web | 20 | 66.000 | Alejandro, 9 nov 2026 |
-| AWS (app) | Pendiente (A) | Pendiente (A) | Factura de AWS |
+| AWS (app) | Sin detalle | Sin detalle | Alejandro, 9 nov 2026: aún no hay costo detallado. Se agrega con la primera factura |
 | Mensajes de WhatsApp para el ingreso | ≈ 1 | ≈ 3.300 | Cálculo abajo |
 | **Total conocido** | **≈ 91** | **≈ 300.300** | Sin AWS |
 
@@ -277,8 +277,7 @@ Horizonte: nov 2026 a dic 2027, 14 meses. Fuente: Alejandro, chat del proyecto, 
 | Rubro | Valor (COP) | Estado |
 |---|---|---|
 | Política de tratamiento de datos y contrato tipo (abogado) | Pendiente | Sin cotización. Es obligatoria antes de escalar la biometría (Bloque 3) |
-| Desplazamientos a El Retiro para implementar y capacitar | Pendiente (B) | Sin dato |
-| Hardware HikCentral | Pendiente (C) | ¿Lo paga el conjunto? |
+| Hardware HikCentral | 0 | Lo pagó Monte Sereno; no entra al presupuesto de Kino (Alejandro, 9 nov 2026) |
 | Imprevistos | 10 % de los costos | Propuesta; Alejandro decide |
 
 ### 5.4 Costo total a dic 2027
@@ -289,8 +288,8 @@ Fijos conocidos  300.300 × 14 meses = 4.204.200
 Imprevistos 10 % de fijos              420.420
 ──────────────────────────────────────────────
 Total conocido                        5.824.620 COP
-+ AWS × 14 meses (A)
-+ abogado, desplazamientos (B)
++ AWS × 14 meses (sin detalle)
++ abogado (sin cotización)
 ```
 
 ### 5.5 Ingresos: tres escenarios
@@ -330,10 +329,16 @@ Villas Campestres sola (100 casas) cubre los costos fijos con cualquiera de los 
 
 El costo bajo depende de que nadie cobre. Seis socios trabajan sin sueldo. Si el equipo necesita ingresos, cada sueldo S exige S ÷ precio unidades más. Ejemplo: un sueldo de $2.000.000 a $8.000 por unidad exige 250 unidades más. Esto define cuántos conjuntos necesita Kino para que el equipo pueda vivir de él. Inferido.
 
-### 5.8 Datos que faltan
+### 5.8 Fuera del presupuesto
 
-| Letra | Pregunta |
-|---|---|
+| Rubro | Motivo | Fuente |
+|---|---|---|
+| Hardware HikCentral | Lo pagó Monte Sereno | Alejandro, 9 nov 2026 |
+| Desplazamientos | No se incluyen | Alejandro, 9 nov 2026 |
+| AWS | Sin costo detallado todavía | Alejandro, 9 nov 2026 |
+| Sueldos | Los socios no cobran | Alejandro, 9 nov 2026 |
+
+---|---|
 | A | ¿Cuánto factura AWS al mes? |
 | B | ¿Cuánto cuesta cada viaje a El Retiro? |
 | C | ¿El hardware HikCentral lo pagó el conjunto? ¿Monte Sereno paga algo hoy? |
