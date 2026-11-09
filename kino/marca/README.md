@@ -39,7 +39,7 @@ Las herramientas de `gorr-brand-system` (tokens DTCG, contraste APCA, compuerta 
 
 ## Figma de la marca nueva
 
-Clave del archivo: por definir.
+Clave del archivo: por definir. Los archivos de Figma de Kino, con su enlace y su última edición, quedan registrados cada día en `../figma/README.md`.
 
 ## Revisión de trabajo de Kino Ops
 

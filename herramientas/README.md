@@ -10,6 +10,7 @@ Scripts compartidos que no dependen de ninguna marca. Si una herramienta solo si
 | `prompt-grok.md` | Prompt que conecta una conversación de Grok al repositorio: sube lo hecho y cada avance nuevo, con las reglas de `AGENTS.md` | Nico lo pega en cada conversación de Grok (issue #15) |
 | `resumir-pr.py` | Resume cada PR (de qué trata, qué se hizo, qué observar) y mantiene el issue «Panel de PR». Lo corre GitHub con la Action «Resumen de PR» | `python3 herramientas/resumir-pr.py --ver N` o `--ver-panel` para verlo sin publicar |
 | `aplicar-decisiones.py` | Pasa una decisión de PROPUESTA a APROBADA o DESCARTADA cuando Alejandro comenta «Apruebo D-005, opción A» en un PR. Lo corre GitHub con la Action «Aprobar decisiones» | `python3 herramientas/aplicar-decisiones.py N <carpeta> --ver` para ver qué cambiaría |
+| `sincronizar-figma.py` | Lee los proyectos de Figma de Kino y registra en `kino/figma/` los archivos que cambiaron. Lo corre GitHub cada día con la Action «Sincronizar Figma» | `FIGMA_TOKEN=... FIGMA_PROJECT_IDS=... python3 herramientas/sincronizar-figma.py --ver` para ver qué cambiaría |
 | `capturar.mjs` | Capturas de un HTML a 360, 768 y 1440 px, en oscuro y claro, con chequeo de desborde horizontal y errores de consola | `node herramientas/capturar.mjs <archivo.html> [carpeta-salida]` |
 
 **Requisitos.** Node 20 o más. `capturar.mjs` usa Playwright (local o global) y el Chromium de `/opt/pw-browsers` si existe. Las capturas salen en `capturas/`, que no se versiona.

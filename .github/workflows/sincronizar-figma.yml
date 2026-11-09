@@ -1,0 +1,46 @@
+# Cada día lee los proyectos de Figma de Kino y, si algo cambió, deja el registro en kino/figma/
+# en la rama orden/sincronizar-figma con un PR en borrador. Nunca integra: Alejandro aprueba.
+# Necesita el secreto FIGMA_TOKEN (llave de Figma de solo lectura) y la variable FIGMA_PROJECT_IDS
+# (números de proyecto separados por coma). Sin ellos, no hace nada. Script: herramientas/sincronizar-figma.py
+name: Sincronizar Figma
+on:
+  schedule:
+    - cron: "0 11 * * *"  # 6 a. m. en Colombia
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+concurrency:
+  group: sincronizar-figma
+  cancel-in-progress: false
+jobs:
+  sincronizar:
+    runs-on: ubuntu-latest
+    env:
+      RAMA: orden/sincronizar-figma
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+      - name: Leer Figma
+        env:
+          FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
+          FIGMA_PROJECT_IDS: ${{ vars.FIGMA_PROJECT_IDS }}
+        run: python3 herramientas/sincronizar-figma.py
+      - name: Subir cambios y abrir PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -z "$(git status --porcelain -- kino/figma)" ]; then
+            echo "Sin cambios en Figma."; exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B "$RAMA"
+          git add kino/figma
+          git commit -q -m "Orden: registro de Figma del $(date -u +%F)"
+          git push -f origin "$RAMA"
+          if [ -z "$(gh pr list --head "$RAMA" --state open --json number --jq '.[].number')" ]; then
+            gh pr create --draft --base "${{ github.event.repository.default_branch }}" --head "$RAMA" \
+              --title "Orden: cambios en Figma" --body-file .github/sincronizar-figma-pr.md
+          fi

@@ -9,6 +9,7 @@ El Kino nuevo. Lo de antes está en [`../pre-kino/`](../pre-kino/) y se usa como
 | [`marca/`](marca/) | Identidad nueva: estrategia, voz, visual, tokens | Por definir (ver D-002) |
 | [`producto/`](producto/) | Flujos, reglas de negocio, pantallas, especificaciones | Vacío, listo para usar |
 | [`codigo/`](codigo/) | Apps y paquetes | Vacío, listo para usar |
+| `figma/` | Registro diario de los archivos de Figma (lo escribe la Action «Sincronizar Figma») | Se crea en la primera sincronización |
 
 **Cómo se lee.** Canon primero. Luego la carpeta del trabajo que vas a hacer. Cada una tiene su `README.md` con la estructura que espera y cómo se verifica lo que se hace en ella.
 
