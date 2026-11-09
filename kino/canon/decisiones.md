@@ -209,7 +209,9 @@ Alejandro pidió cambiar «Pase» por «KEY» en la entrega de EAFIT (comentario
 
 ---
 
-## D-012 · Comisión de pagos desde el inicio · PROPUESTA (9 nov 2026)
+## D-012 · Comisión de pagos desde el inicio · APROBADA (Alejandro, 9 nov 2026) · opción A
+
+**Aprobación.** [Comentario de Alejandro en el PR #28](https://github.com/Amonsalvem/kino/pull/28#issuecomment-6740911654).
 
 Cambia el momento de la comisión de pagos de D-010. Alejandro: «El D también se va implementar desde el inicio» (chat del proyecto, 9 nov 2026). También pidió que la app completa, con el módulo de pagos, quede lista en diciembre de 2026.
 
