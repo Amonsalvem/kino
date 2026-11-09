@@ -197,7 +197,7 @@ El residente paga la cuota de administración desde la app. El dinero va a la cu
 
 ## 2.9 Precio
 
-> **Precio.** $16.000 al mes por casa construida, con un mínimo de $1.200.000 al mes por conjunto + $3.200.000 de implementación, una vez + $2.000 por cada pago de la cuota en la app (margen por decidir).
+> **Precio.** $16.000 al mes por casa construida, con un mínimo de $1.200.000 al mes por conjunto + $3.200.000 de implementación, una vez + $2.000 por cada pago de la cuota en la app.
 
 El precio se justifica con tres referencias:
 
@@ -225,7 +225,7 @@ KINO es más barato hasta 304 casas y un poco más caro por encima. El conjunto 
 
 ![Figura 14. Cuánto pesa cada costo en la cuota de administración.](figuras/f21.png){width=100%}
 
-**Margen por pago (supuesto, por decidir).** $2.000 por pago es el 0,33 % de la cuota. Es menos que la tarifa de la pasarela: con Wompi, un pago de $600.000 cuesta cerca de $19.754 en línea y $7.140 con QR, con IVA [16]. Quién asume la tarifa de la pasarela sigue por decidir (apartado 2.8).
+**Margen por pago (aprobado por Alejandro el 9 de noviembre de 2026).** $2.000 por pago es el 0,33 % de la cuota. Es menos que la tarifa de la pasarela: con Wompi, un pago de $600.000 cuesta cerca de $19.754 en línea y $7.140 con QR, con IVA [16]. Quién asume la tarifa de la pasarela sigue por decidir (apartado 2.8).
 
 **Lectura (inferido).**
 
@@ -335,7 +335,7 @@ Horizonte: noviembre de 2026 a diciembre de 2027 (14 meses). Fuente de dinero: c
 | Cuota de administración | $600.000 al mes por casa, promedio de Villas y Refugio | [9] |
 | Calendario | Refugio se implementa en diciembre de 2026. Villas y Refugio pagan desde febrero de 2027, después de H2. Los 5 conjuntos nuevos firman en el primer trimestre y se implementan uno por mes (supuesto) | [9] |
 | Pagos en la app | Parte de las casas que paga la cuota en la app: 30 %, 50 % o 80 % según el escenario (supuesto) | |
-| Margen por pago | $2.000 (supuesto, por decidir) | Apartado 2.9 |
+| Margen por pago | $2.000, aprobado el 9 de noviembre de 2026 | Apartado 2.9; [9] |
 | Reserva para imprevistos | 15 % | [8] |
 
 ## 5.1 Inversión ya hecha
