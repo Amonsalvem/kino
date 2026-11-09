@@ -4,7 +4,8 @@ Entrega final de LE005 y, a la vez, la estrategia de crecimiento de Kino. Estado
 
 | Archivo | Qué tiene | Estado |
 |---|---|---|
-| [roadmap-estrategia-presupuesto.md](roadmap-estrategia-presupuesto.md) | Documento completo, por bloques | Borrador completo |
+| [roadmap-estrategia-presupuesto.md](roadmap-estrategia-presupuesto.md) | Documento de trabajo, con referencias al canon | Borrador completo |
+| [entrega/KINO_Roadmap-estrategia-presupuesto.md](entrega/KINO_Roadmap-estrategia-presupuesto.md) | Versión para EAFIT: sin referencias internas, fuentes numeradas y uso de IA al final | Lista para revisión de Alejandro |
 
 **Origen.** `KINO_Roadmap-estrategia-y-medicion.docx`, de Nico con Grok, 8 nov 2026. Se recibió en el chat del proyecto; no está en el repositorio. Este documento lo reescribe contra `kino/canon/`.
 
