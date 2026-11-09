@@ -158,7 +158,9 @@ D-003 sigue vigente: Alejandro aprueba y Nico propone. D-003 registra que Manuel
 
 ---
 
-## D-013 · Curador semanal de agentes y skills · PROPUESTA (9 nov 2026)
+## D-013 · Curador semanal de agentes y skills · APROBADA (Alejandro, 9 nov 2026) · opción A
+
+**Aprobación.** [Comentario de Alejandro en el PR #30](https://github.com/Amonsalvem/kino/pull/30#discussion_r4513605107).
 
 **Qué se propone.** Un agente que vive en GitHub y cada lunes revisa los agentes, las skills, los hooks y el estado del arte en IA. Crea, actualiza o retira skills y agentes según lo que Kino necesite, y abre un PR en borrador con un informe. Si el concepto de agente o skill cambia, propone la migración por etapas. Su única función es esa. Guía: `herramientas/curador/README.md`; instrucciones: `herramientas/curador/prompt.md`.
 
