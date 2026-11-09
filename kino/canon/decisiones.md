@@ -206,3 +206,18 @@ Alejandro pidió cambiar «Pase» por «KEY» en la entrega de EAFIT (comentario
 **Uso.** «KEY» en mayúsculas; plural «KEYs»; artículo masculino («el KEY», «un KEY»). La regla de fondo no cambia: el KEY (de la visita o el colaborador) no se mezcla con la cuenta (del residente). Nunca «permiso».
 
 **Trazabilidad y HikCentral.** Cambia solo el nombre. No cambia autor, motivo, vigencia, modo ni autoridad. No cambia la sincronización.
+
+---
+
+## D-012 · Comisión de pagos desde el inicio · PROPUESTA (9 nov 2026)
+
+Cambia el momento de la comisión de pagos de D-010. Alejandro: «El D también se va implementar desde el inicio» (chat del proyecto, 9 nov 2026). También pidió que la app completa, con el módulo de pagos, quede lista en diciembre de 2026.
+
+| Opción | Alcance | Costo |
+|---|---|---|
+| A (recomendada) | La comisión de pagos empieza con Villas Campestres y Refugio Campestre, en la app de diciembre de 2026 | El módulo de pagos y la alianza con la pasarela tienen que estar listos en diciembre, junto con el ingreso por WhatsApp y el KEY temporal |
+| B | La comisión de pagos empieza en la etapa 03, como dice D-010 | Menos trabajo en diciembre; el ingreso por pagos llega más tarde |
+
+**Regla.** El dinero de la cuota va de la pasarela a la cuenta del conjunto. KINO no recibe ni guarda el dinero del conjunto; recibe solo su margen.
+
+**Trazabilidad y HikCentral.** No cambia autor, motivo, vigencia ni autoridad del KEY. No toca la sincronización. Toca datos financieros de los residentes: exige la política de datos y el contrato con la pasarela antes de cobrar.

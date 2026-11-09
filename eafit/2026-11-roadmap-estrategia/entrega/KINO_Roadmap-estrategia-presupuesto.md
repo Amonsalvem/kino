@@ -16,10 +16,10 @@ KINO es una plataforma de control de acceso para conjuntos cerrados. Hoy opera e
 |---|---|
 | ¿Qué resolvemos? | Quien conoce a la visita (el residente) no tiene autoridad para dejarla entrar, y quien tiene autoridad (portería) no la conoce |
 | ¿A quién vendemos? | Solo a la administración del conjunto. Primero, a conjuntos campestres del oriente antioqueño con hardware HikCentral |
-| ¿En qué orden crecemos? | Villas Campestres, luego Refugio Campestre, luego conjuntos vecinos y por último el Valle de Aburrá |
-| ¿Cómo cobramos? | Piso por conjunto + cobro por casa construida + implementación única. Comisión de pagos desde la etapa 03 |
-| ¿Cuánto cuesta? | $24,6 millones en efectivo a diciembre de 2027 ($74,9 millones si se valora el trabajo de los socios) |
-| ¿Cuándo se sostiene? | Con Villas y Refugio pagando, desde julio de 2027 |
+| ¿En qué orden crecemos? | Villas Campestres y Refugio Campestre en diciembre de 2026 y enero de 2027; 5 conjuntos nuevos del oriente antioqueño en el primer trimestre de 2027; después, el Valle de Aburrá |
+| ¿Cómo cobramos? | Piso por conjunto + cobro por casa construida + implementación única + comisión por cada pago de la cuota en la app, desde el primer conjunto |
+| ¿Cuándo está lista la app? | En diciembre de 2026, completa y con pagos. En enero de 2027, el 80 % de las casas de Villas y Refugio la usa |
+| ¿Cuánto cuesta y cuándo se sostiene? | En revisión con el precio nuevo y el calendario de este roadmap (capítulo 5) |
 
 ![Figura 1. Mapa del documento. Cada capítulo responde una pregunta.](figuras/f01.png){width=100%}
 
@@ -56,7 +56,7 @@ La autonomía del residente no diferencia a KINO: otras plataformas, como Neivor
 
 ![Figura 3. Las tres diferencias de KINO.](figuras/f03.png){width=100%}
 
-> **Riesgo.** La integración con el hardware todavía no está probada para el KEY temporal. En Refugio Campestre, 0 de 312 usuarios están sincronizados con HikCentral. Los 711 errores de sincronización vienen del campo de correo obligatorio [1]. Mientras esta diferencia no esté probada, KINO no la vende como un hecho.
+> **Riesgo.** La integración con el hardware todavía no está probada para el KEY temporal. Los 711 errores de sincronización del sistema actual vienen del campo de correo obligatorio [1]; la app nueva quita ese campo. Mientras esta diferencia no esté probada, KINO no la vende como un hecho.
 
 ## 1.4 Qué compra el conjunto
 
@@ -83,7 +83,7 @@ El recorrido muestra quién hace qué, desde que el residente abre la app hasta 
 
 # 2. Salida al mercado
 
-> **En una frase.** KINO vende a la administración, empieza por los conjuntos campestres del oriente antioqueño que ya tienen HikCentral y cobra un piso por conjunto más un valor por casa.
+> **En una frase.** KINO vende a la administración. Primero entra completo en Villas Campestres y Refugio Campestre, luego cierra 5 conjuntos nuevos del oriente antioqueño, y cobra por conjunto, por casa y por cada pago de la cuota.
 
 ## 2.1 Quién compra y quién decide
 
@@ -106,33 +106,56 @@ Hipótesis para validar con 5 administradores (inferido a partir del piloto).
 
 ## 2.3 Cabeza de playa
 
-KINO crece de adentro hacia afuera. Cada círculo usa el anterior como prueba.
+KINO crece de adentro hacia afuera. Cada paso usa el anterior como prueba.
 
-![Figura 7. Cabeza de playa en cuatro pasos.](figuras/f07.png){width=100%}
+![Figura 7. Cabeza de playa en tres pasos.](figuras/f07.png){width=100%}
 
-Refugio Campestre es el segundo cliente natural: tiene el hardware y ya conoce el problema (inferido). Reparar su sincronización prueba la integración con el hardware.
+Villas Campestres y Refugio Campestre son el primer paso. Los dos tienen todo el hardware instalado [9]. Villas usa hoy la beta; Refugio entra como cliente nuevo. Juntos suman 500 casas construidas.
 
-## 2.4 Canales de adquisición
+## 2.4 Penetración en Villas y Refugio
+
+Cerrar el negocio con la administración no basta: el valor aparece cuando los residentes usan la app. Esta sección dice cómo KINO llega rápido a las casas, desde que la app está lista en diciembre.
+
+> **Meta.** El 80 % de las casas construidas con un residente activo al 31 de enero de 2027: 80 casas en Villas y 320 en Refugio, 400 de 500.
+
+**Residente activo (propuesta).** Un residente que en los últimos 30 días entró a la app y creó un KEY o pagó la cuota.
+
+![Figura 8. Plan de penetración, de la preparación al pago en la app.](figuras/f19.png){width=100%}
+
+| Paso | Qué se hace | Quién | Cómo se mide |
+|---|---|---|---|
+| 1 · Preparar (antes de que la app esté lista) | La administración entrega el padrón de casas y residentes. KINO precarga a cada residente y lo valida contra su cédula. Portería recibe capacitación. Cada sector tiene un residente guía | Administración, KINO, portería | Casas precargadas ÷ casas construidas |
+| 2 · Lanzar (semana 1) | Circular de la administración y mensaje por WhatsApp con el enlace. El residente entra con el código de WhatsApp, sin registrarse. Reunión de presentación y punto de ayuda en portería | Administración, consejo, KINO | Casas con primer ingreso ÷ casas construidas |
+| 3 · Activar colaboradores (semanas 1 a 3) | Cada casa crea un KEY recurrente para su empleada, jardinero o conductor. Es el ingreso de todos los días: un KEY ahorra una llamada diaria | Residentes, guías | KEYs de colaborador por casa |
+| 4 · Cambiar la regla en portería (desde la semana 4) | La visita con KEY entra por el lector. La visita sin KEY espera la llamada a la casa. Portería atiende la excepción, no la regla | Administración, portería | Ingresos con KEY ÷ ingresos totales |
+| 5 · Pagar en la app (cuota de febrero) | La administración invita a pagar la cuota en la app. El pago mensual hace que el residente vuelva cada mes (inferido) | Administración | Casas que pagan en la app ÷ casas construidas |
+| Todos los días | Tablero de casas activas por sector. El guía llama a las casas que faltan | KINO, guías | Casas activas ÷ casas construidas |
+
+**Por qué este orden (inferido).** El residente adopta lo que le ahorra trabajo cada día. Por eso el colaborador va antes que la visita ocasional, y el cambio de regla en portería llega cuando la mayoría ya tiene la app.
+
+**Riesgos.** Fin de año: muchos residentes viajan o reciben visitas. Segundas viviendas: en un conjunto campestre, parte de las casas no se ocupa todo el mes, y la meta del 80 % puede ser alta. Padrón incompleto: sin teléfono y cédula de cada residente, la precarga falla. Portería: si no aplica la regla del paso 4, el residente no ve razón para cambiar.
+
+## 2.5 Canales de adquisición
 
 | Canal | Cómo funciona | Costo | Estado |
 |---|---|---|---|
 | Referido de administradores | Un administrador lleva varias copropiedades y recomienda a otros | Bajo | Inferido; validar en entrevistas |
 | Instaladores de HikCentral | El instalador vende el hardware; KINO le da el software que lo hace útil | Comisión por definir | Inferido; sin alianza firmada |
-| Caso del piloto | Informe con datos medidos de Monte Sereno | Bajo | Depende del hito H3 |
+| Caso del piloto | Informe con datos medidos de Villas y Refugio | Bajo | Depende del hito H3 (febrero de 2027) |
 | soykino.com y redes | Pedido de demostración | Bajo | Sitio en línea |
 | Eventos de propiedad horizontal | Charlas a administradores | Medio | Sin contacto |
 
-## 2.5 Embudo de venta
+## 2.6 Embudo de venta
 
-![Figura 8. Embudo de venta, del contacto a la implementación.](figuras/f08.png){width=100%}
+![Figura 9. Embudo de venta, del contacto a la implementación.](figuras/f08.png){width=100%}
 
 El diagnóstico gratuito también vende: muestra al conjunto su propio problema con datos (inferido).
 
-## 2.6 Modelos de ingreso evaluados
+## 2.7 Modelos de ingreso evaluados
 
-El equipo evaluó seis formas de cobrar. La figura 9 las ubica por rentabilidad y riesgo.
+El equipo evaluó seis formas de cobrar. La figura 10 las ubica por rentabilidad y riesgo.
 
-![Figura 9. Modelos de ingreso por rentabilidad y riesgo de ejecución.](figuras/f09.png){width=100%}
+![Figura 10. Modelos de ingreso por rentabilidad y riesgo de ejecución.](figuras/f09.png){width=100%}
 
 | Modelo | Cómo cobra | Rentabilidad | Riesgo |
 |---|---|---|---|
@@ -147,33 +170,72 @@ Para el modelo D, la pasarela Wompi cobra 2,65 % + $700 + IVA en pagos en línea
 
 **Descartados.** Cobrar a la visita (recibe el KEY sin cuenta). Cobrar al residente (solo compra la administración). Marca blanca (KINO mantiene su marca). Vender datos de ingresos (Ley 1581 de 2012 [17]).
 
-> **Modelo elegido.** B + E desde el primer conjunto, y D desde la etapa 03 de producto.
+> **Modelo elegido.** B + D + E desde el primer conjunto.
 
 **Costo marginal.** Una casa más casi no sube el costo de KINO: la infraestructura y el trabajo son fijos (capítulo 5). Después del punto de equilibrio, cada peso nuevo es margen (inferido).
 
-## 2.7 Precio
+## 2.8 Cómo funciona el cobro de pagos (modelo D)
 
-Por ahora, KINO iguala el precio de su competidor directo, Unita: $1.550.000 al mes por conjunto + $10.900 al mes por casa construida [5]. La implementación vale $3.200.000 por conjunto, una vez (40 horas × $80.000 [8]). El precio se valida con administradores antes de cerrar un contrato (fase 4). KINO no adopta el contrato a 60 meses de Unita; esa condición está por decidir.
+El residente paga la cuota de administración desde la app. El dinero va a la cuenta del conjunto. KINO cobra un margen por cada pago.
 
-![Figura 10. Cuánto paga cada conjunto al mes con el precio de KINO.](figuras/f10.png){width=100%}
+![Figura 11. Recorrido del dinero en un pago de la cuota.](figuras/f20.png){width=100%}
 
-**Ancla de valor.** Un puesto de vigilancia 24 horas le cuesta al conjunto entre $17,1 y $19,6 millones al mes en 2026 [10] [11]. Villas Campestres pagaría cerca del 15 % de esa cifra.
+| Pregunta | Respuesta |
+|---|---|
+| ¿Qué paga el residente? | La cuota de administración. Después, otros cobros del conjunto, como reservas o multas |
+| ¿Quién recibe el dinero? | El conjunto, en su propia cuenta. KINO no recibe ni guarda el dinero del conjunto |
+| ¿Cómo gana KINO? | Un margen por cada pago. Hay dos formas de cobrarlo, según el contrato con la pasarela: un acuerdo con la pasarela sobre su tarifa, o un cargo de KINO por pago procesado en la factura mensual del conjunto (inferido) |
+| ¿Cuánto cobra la pasarela? | Wompi cobra 2,65 % + $700 + IVA en pagos en línea y 1 % + IVA en pagos con QR [16] |
+| ¿Quién asume la tarifa? | Por decidir: el conjunto o el residente |
+| ¿Qué gana el conjunto? | Ve en el panel quién pagó, sin cruzar extractos. El residente recibe su recibo digital. Menos tiempo de la administración en cobros (inferido) |
+| ¿Qué se necesita antes de cobrar? | Contrato con la pasarela, cuenta del conjunto vinculada, política de datos (Ley 1581 de 2012 [17]) y el módulo de pagos en la app de diciembre |
 
-![Figura 11. KINO frente al costo de un puesto de vigilancia.](figuras/f11.png){width=100%}
+**Ingreso del modelo D.** Casas que pagan en la app × margen por pago, cada mes. El cálculo con cifras va en el capítulo 5, con la cuota de administración de Villas y Refugio.
+
+**Por qué ayuda a la penetración (inferido).** El KEY se usa cuando llega alguien; la cuota se paga todos los meses. El pago lleva al residente a la app cada mes.
+
+## 2.9 Precio
+
+El precio se justifica con tres referencias:
+
+| Referencia | Qué dice | Dato |
+|---|---|---|
+| Piso | Lo que cuesta atender un conjunto: infraestructura, soporte e implementación | Capítulo 5 |
+| Techo | Lo que el conjunto gasta hoy en portería y lo que ahorra con KINO | Por recibir de Villas y Refugio |
+| Ancla | El precio de su competidor directo, Unita: $1.550.000 al mes por conjunto + $10.900 al mes por casa | [5] |
+
+Con el precio de Unita como punto de partida, cada conjunto pagaría lo que muestra la figura 12. La implementación vale $3.200.000 por conjunto, una vez (40 horas × $80.000 [8]). El precio final se fija con la cuota de administración y el costo de portería de Villas y Refugio. KINO no adopta el contrato a 60 meses de Unita; esa condición está por decidir.
+
+![Figura 12. Cuánto paga cada conjunto al mes con el precio de partida.](figuras/f10.png){width=100%}
+
+**Ancla de valor.** Un puesto de vigilancia 24 horas le cuesta al conjunto entre $17,1 y $19,6 millones al mes en 2026 [10] [11]. Con el precio de partida, Villas Campestres pagaría cerca del 15 % de esa cifra.
+
+![Figura 13. KINO frente al costo de un puesto de vigilancia.](figuras/f11.png){width=100%}
 
 # 3. Expansión
 
-> **En una frase.** KINO crece en conjuntos y en módulos al mismo tiempo, y cada paso tiene una condición que se cumple antes de empezar.
+> **En una frase.** En 2027 KINO crece en dos ejes: más conjuntos (eje X) y más módulos y productos (eje Y). Cada paso tiene una condición que se cumple antes de empezar.
 
-![Figura 12. Expansión en dos ejes, con las condiciones para avanzar.](figuras/f12.png){width=100%}
+![Figura 14. Expansión en dos ejes, con las condiciones para avanzar.](figuras/f12.png){width=100%}
+
+**Eje X: conjuntos.** Villas y Refugio, luego 5 conjuntos nuevos en el primer trimestre de 2027, luego 10 o más.
+
+**Eje Y: módulos y productos.** Los módulos suben el valor de la app y justifican un precio mayor; no son una línea de ingreso aparte. Los productos nuevos sí venden algo distinto. Orden de los módulos:
+
+| Orden | Módulo | Qué hace |
+|---|---|---|
+| Hoy | Acceso y pagos | KEY para visitas y colaboradores; pago de la cuota en la app (diciembre de 2026) |
+| 1 | Paquetería | Portería registra el paquete y el residente recibe el aviso |
+| 2 | Reservas | El residente reserva zonas comunes desde la app |
+| 3 | Seguridad | Botón de alerta a portería, registro de rondas, alertas de las cámaras e informe mensual para el consejo |
 
 | Paso | Condición para empezar |
 |---|---|
-| De 1 a 2 conjuntos | El KEY temporal genera el evento del lector en Monte Sereno |
-| De 2 a 10 conjuntos | Precio probado y costo de implementación medido en 2 conjuntos |
-| Etapa 02 | Etapa 01 estable: errores de sincronización por debajo de un umbral por fijar |
-| Etapa 03 | Clientes que pidan el módulo y paguen por él |
-| Etapa 04 | Revisión legal de biometría y de datos de salud |
+| De Villas y Refugio a 5 conjuntos nuevos | 80 % de las casas activas (H2) e informe del piloto (H3) |
+| De 7 a 10 o más conjuntos | Precio probado y costo de implementación medido en los 5 conjuntos nuevos |
+| Paquetería | Acceso y pagos estables: errores de sincronización por debajo de un umbral por fijar |
+| Reservas | Paquetería en uso |
+| Seguridad | Revisión legal de cámaras y datos personales |
 
 Fuentes de las etapas y condiciones: [4] [5] [6].
 
@@ -181,36 +243,38 @@ Fuentes de las etapas y condiciones: [4] [5] [6].
 
 # 4. Roadmap
 
-> **En una frase.** Hasta marzo de 2027 se cierra la beta; de abril a julio se publica el caso y se repara Refugio; desde julio se vende a conjuntos vecinos.
+> **En una frase.** En diciembre de 2026 la app queda completa; en enero de 2027 Villas y Refugio llegan al 80 %; de enero a marzo KINO cierra 5 conjuntos nuevos; el resto de 2027 suma módulos.
 
 ## 4.1 Fases
 
-| Fase | Objetivo | Estado a noviembre de 2026 |
-|---|---|---|
-| 0 · Descubrimiento | Entender el problema, los actores y el hardware | Hecho |
-| 1 · Marca e identidad | Construir una identidad propia | En curso: identidad nueva en construcción |
-| 2 · Diseño y prototipo | Prototipo de los 3 roles: 172 pantallas, app y web | Hecho; faltan pruebas de usabilidad |
-| 3 · Piloto | Validar KINO en operación real en Monte Sereno | En curso; beta desde enero de 2026 |
-| 4 · Modelo y precio | Probar el precio con administradores | Por hacer |
-| 5 · Lanzamiento | Sitio, video, redes y caso del piloto | Sitio soykino.com en línea |
-| 6 · Escalamiento | Etapas de producto 02 a 05 y nuevos conjuntos | Por hacer |
-| 7 · Legal | Registro de marca, política de datos y contrato tipo | Registro de marca radicado |
+| Fase | Objetivo | Fechas | Estado a noviembre de 2026 |
+|---|---|---|---|
+| 0 · Descubrimiento | Entender el problema, los actores y el hardware | Hasta septiembre de 2026 | Hecha |
+| 1 · Marca e identidad | Construir una identidad propia | Hasta noviembre de 2026 | Hecha |
+| 2 · Diseño y prototipo | Prototipo de los 3 roles: 172 pantallas, app y web | Hasta noviembre de 2026 | Hecha |
+| 3 · Desarrollo | App completa: ingreso por WhatsApp, KEY temporal, KEY de colaborador, registro con cédula y pagos | Noviembre y diciembre de 2026 | En curso |
+| 4 · Piloto | Implementar y penetrar Villas y Refugio | Diciembre de 2026 y enero de 2027 | Por hacer |
+| 5 · Venta | Cerrar e implementar 5 conjuntos nuevos | Enero a marzo de 2027 | Por hacer |
+| 6 · Precio | Justificar el precio y validarlo con administradores | Noviembre de 2026 a enero de 2027 | En curso |
+| 7 · Lanzamiento | Caso del piloto, sitio, video y redes | Febrero de 2027 | Sitio soykino.com en línea |
+| 8 · Eje Y | Paquetería, reservas y seguridad; productos nuevos | Abril a diciembre de 2027 | Por hacer |
+| 9 · Legal | Política de datos, contrato tipo y contrato con la pasarela | Antes de diciembre de 2026 | Registro de marca radicado |
 
-Fuente: [5] [6].
+> **Qué es el piloto.** Una prueba en operación real, con alcance limitado y un tiempo fijo. Sirve para medir antes de vender a más clientes. En KINO, el piloto es Villas y Refugio en diciembre y enero. Mide cuántas casas usan la app, cuánto baja el tiempo en portería y cuántos ingresos pasan con KEY. Su resultado es el informe del piloto (H3), el principal argumento para vender los 5 conjuntos nuevos.
 
 ## 4.2 Cronograma
 
-![Figura 13. Cronograma de fases, tareas clave e hitos.](figuras/f13.png){width=100%}
+![Figura 15. Cronograma de fases, tareas clave e hitos.](figuras/f13.png){width=100%}
 
 | Hito | Fecha | Se cumple cuando | Estado |
 |---|---|---|---|
 | H1 · soykino.com | nov 2026 | Sitio en línea con HTTPS y correo | Cumplido |
-| H2 · Cierre de la beta | mar 2027 | Ingreso por WhatsApp, KEY temporal con evento del lector y KPI medidos cada semana | Por cumplir |
-| H3 · Informe del piloto | abr 2027 | Resultados medidos y caso publicado | Por cumplir |
-| H4 · Refugio Campestre | jul 2027 | Sincronización reparada y Refugio pagando | Por cumplir |
-| H5 · Nuevos conjuntos | dic 2027 | Al menos un conjunto nuevo firmado | Por cumplir |
+| H2 · Villas y Refugio penetrados | ene 2027 | App completa en producción desde diciembre y 80 % de las casas con un residente activo | Por cumplir |
+| H3 · Informe del piloto | feb 2027 | Resultados de diciembre y enero medidos y publicados | Por cumplir |
+| H4 · Primer módulo del eje Y | jun 2027 (propuesta) | Paquetería en uso en al menos un conjunto | Por cumplir |
+| H5 · Cinco conjuntos nuevos | ene a mar 2027 | 5 contratos firmados al 31 de marzo de 2027. En desarrollo desde enero | Por cumplir |
 
-Fechas propuestas a partir del plan operativo del 28 de octubre de 2026 [6].
+Fechas fijadas por el equipo el 9 de noviembre de 2026 [9]. La fecha de H4 es una propuesta.
 
 ## 4.3 Tareas clave y responsables
 
@@ -221,14 +285,19 @@ Fechas propuestas a partir del plan operativo del 28 de octubre de 2026 [6].
 | KEY temporal con evento del lector | Sin esto no se prueba la diferencia | Alejandro, Daniel |
 | KEY de colaborador con franja | Es el ingreso más frecuente | Alejandro |
 | Registro validado contra la cédula | El administrador ya no aprueba registros | Alejandro |
-| Reparar la sincronización en Refugio Campestre | Segundo cliente y prueba de la integración | Daniel, Manuel |
+| Implementar Refugio Campestre | Cliente nuevo con el hardware instalado | Daniel, Manuel |
+| Módulo de pagos y contrato con la pasarela | El modelo D empieza en diciembre | Alejandro, Manuel |
+| Padrón, precarga y plan de penetración de Villas y Refugio | Meta del 80 % en enero | Juan Esteban, Nicolás |
+| Venta a 5 conjuntos nuevos | Hito H5 | Juan Esteban |
 | Actualizar la versión de MySQL | Ahorra USD 144 al mes, el 41 % del costo de AWS (capítulo 5) | Alejandro, Manuel |
-| Entrevistas a 5 administradores | Validar perfil, canales y precio | Juan Esteban, Nicolás |
+| Entrevistas a administradores | Validar perfil, canales y precio | Juan Esteban, Nicolás |
 | Caso del piloto y contenido | Canal de adquisición | Henry, Nicolás |
 
 **Equipo.** Nicolás Ramírez (marca y estrategia), Alejandro Monsalve (técnica y lógica), Juan Esteban (comercial), Manuel (tecnología), Daniel (IoT) y Henry (marca). Todos son socios.
 
 # 5. Presupuesto
+
+> **En revisión.** Este capítulo se rehace con el precio nuevo, la comisión de pagos desde el inicio y el calendario de este roadmap. Las cifras que siguen usan el calendario anterior.
 
 > **En una frase.** KINO necesita $1,7 millones al mes en efectivo. Villas Campestres sola cubre ese costo, y con Refugio pagando KINO cubre también el trabajo de los socios.
 
@@ -284,7 +353,7 @@ Fuente: [8]. Incluye producción y pruebas.
 
 ## 5.4 Costo mensual
 
-![Figura 14. Composición del costo mensual en las dos vistas.](figuras/f14.png){width=100%}
+![Figura 16. Composición del costo mensual en las dos vistas.](figuras/f14.png){width=100%}
 
 | Rubro | En efectivo | Sostenimiento |
 |---|---|---|
@@ -322,7 +391,7 @@ Los escenarios cambian cuántos conjuntos pagan y desde cuándo. El precio es el
 
 ## 5.7 Resultado a diciembre de 2027
 
-![Figura 15. Ingresos de cada escenario frente al costo total.](figuras/f15.png){width=100%}
+![Figura 17. Ingresos de cada escenario frente al costo total.](figuras/f15.png){width=100%}
 
 | Escenario | Ingresos | En efectivo | Sostenimiento |
 |---|---|---|---|
@@ -332,9 +401,9 @@ Los escenarios cambian cuántos conjuntos pagan y desde cuándo. El precio es el
 
 Sin impuestos ni comisiones.
 
-**Por qué el sostenimiento sale negativo en el escenario base.** Los costos empiezan en noviembre de 2026 y el cobro empieza en marzo de 2027. La figura 16 muestra el acumulado mes a mes.
+**Por qué el sostenimiento sale negativo en el escenario base.** Los costos empiezan en noviembre de 2026 y el cobro empieza en marzo de 2027. La figura 18 muestra el acumulado mes a mes.
 
-![Figura 16. Escenario base: resultado acumulado mes a mes.](figuras/f16.png){width=100%}
+![Figura 18. Escenario base: resultado acumulado mes a mes.](figuras/f16.png){width=100%}
 
 | Tramo | Ingreso al mes | Resultado al mes | Meses | Acumulado |
 |---|---|---|---|---|
@@ -349,7 +418,7 @@ Ese saldo es el valor del tiempo que los socios ponen antes de que KINO pueda pa
 
 ## 5.8 Punto de equilibrio mensual
 
-![Figura 17. Ingreso mensual según los conjuntos que pagan, frente a los dos costos.](figuras/f17.png){width=100%}
+![Figura 19. Ingreso mensual según los conjuntos que pagan, frente a los dos costos.](figuras/f17.png){width=100%}
 
 | Conjuntos que pagan | Ingreso al mes | Cubre el efectivo (1.673.595) | Cubre el sostenimiento (5.261.595) |
 |---|---|---|---|
@@ -381,7 +450,7 @@ Ese saldo es el valor del tiempo que los socios ponen antes de que KINO pueda pa
 
 > **En una frase.** Los indicadores siguen una cadena: la marca trae conjuntos, el piloto prueba el valor, la técnica lo sostiene y el negocio lo cobra.
 
-![Figura 18. Cadena de medición por área.](figuras/f18.png){width=100%}
+![Figura 20. Cadena de medición por área.](figuras/f18.png){width=100%}
 
 No hay líneas base todavía. Cada indicador dice cómo se mide y una meta inicial propuesta, que se ajusta con la primera medición [5].
 
@@ -390,13 +459,14 @@ No hay líneas base todavía. Cada indicador dice cómo se mide y una meta inici
 | Marca | Tráfico web | Usuarios únicos en soykino.com | 200 en 90 días |
 | Marca | Conversión a demostración | Solicitudes ÷ usuarios únicos | 3 % en 90 días |
 | Marca | Comunidad en redes | Seguidores y publicaciones al mes | 150 seguidores y 4 publicaciones al mes a 90 días |
-| Piloto | Adopción | Casas con un residente activo ÷ casas del padrón | 25 % a 60 días; 50 % a 120 días |
+| Piloto | Adopción | Casas con un residente activo ÷ casas construidas | 80 % al 31 de enero de 2027 |
+| Piloto | Pagos en la app | Casas que pagan la cuota en la app ÷ casas construidas | Línea base con la cuota de febrero de 2027 |
 | Piloto | Ingresos digitales | Se reporta en tres cifras: placas sincronizadas, excepciones manuales y KEYs confirmados por el lector | Línea base en el mes 1 |
 | Piloto | KEYs de colaborador | KEYs de colaborador ÷ KEYs emitidos | Línea base en el mes 1 |
 | Piloto | Tiempo en portería | Mediana entre la llegada y el registro de entrada | ≤ 45 segundos |
 | Piloto | Satisfacción | NPS de residentes; CSAT de portería y administración (1 a 5) | NPS ≥ 30; CSAT ≥ 4,0 |
 | Técnica | Errores de sincronización | Errores por semana | Umbral para pasar a la etapa 02 |
-| Negocio | Embudo comercial | Conjuntos contactados y propuestas enviadas | 5 contactados y 2 propuestas en 6 meses |
+| Negocio | Embudo comercial | Conjuntos contactados, propuestas y contratos | 5 contratos firmados al 31 de marzo de 2027 |
 | Negocio | Tasa de cierre | Propuestas aceptadas ÷ enviadas | Revisar al llegar a 5 propuestas |
 | Negocio | Ingreso recurrente mensual | Σ (piso + casas × cobro por casa) | $8,55 millones con Villas + Refugio |
 | Negocio | Costo de adquisición | Gasto comercial ÷ conjuntos firmados | Línea base con el primer cierre |
@@ -412,7 +482,7 @@ No hay líneas base todavía. Cada indicador dice cómo se mide y una meta inici
 6. KINO. *Plan operativo EMP-002, Gantt*. 28 de octubre de 2026.
 7. KINO. *Estrategia de servicio* (Figma Slides), 21 láminas. Noviembre de 2026.
 8. KINO. *Presupuesto mensual: infraestructura y operación*. 8 de noviembre de 2026.
-9. Equipo KINO. Datos de operación: unidades por conjunto, gastos actuales, costo del registro de marca y fuente de capital. 9 de noviembre de 2026.
+9. Equipo KINO. Datos de operación y metas: unidades por conjunto, hardware instalado, gastos actuales, costo del registro de marca, fuente de capital, calendario y metas del roadmap. 9 de noviembre de 2026.
 10. Noticias RCN. «Salario de vigilantes quedó fijado para este 2026». https://www.noticiasrcn.com/economia/la-supervigilancia-fijo-tarifas-minimas-de-vigilancia-para-2026-989255. Consulta: 9 de noviembre de 2026.
 11. El Espectador. «Tarifas de vigilancia y seguridad privada en 2026». https://www.elespectador.com/economia/tarifas-de-vigilancia-y-seguridad-privada-en-2026-asi-suben-los-precios/. Consulta: 9 de noviembre de 2026.
 12. El Colombiano. Proyección de la tasa de cambio para noviembre de 2026. https://www.elcolombiano.com/inicio/dolar-colombia-proyeccion-tasa-cambio-noviembre-2026-GF43201403. Consulta: 9 de noviembre de 2026.
