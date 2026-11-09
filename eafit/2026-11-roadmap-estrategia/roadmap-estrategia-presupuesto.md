@@ -163,7 +163,7 @@ Estructura del documento de Nico (deck histórico, lám. 32). Las cifras están 
 | Suscripción por unidad | Cada mes, dentro de la cuota de administración | Pendiente |
 | Módulos (paquetería, reservas, pagos) | Cada mes, según etapa de producto | Pendiente |
 
-**Referencia de mercado.** Un competidor cobra $1.550.000 al mes de base más $10.900 por villa al mes, con contrato a 60 meses. Fuente: deck histórico, lám. 32, citado en el documento de Nico, PA-M11. No es el precio de Kino.
+**Referencia de mercado.** Un competidor cobra $1.550.000 al mes de base más $10.900 por villa al mes, con contrato a 60 meses. Fuente: deck histórico, lám. 32, citado en el documento de Nico, PA-M11. Alejandro identifica este competidor como Unita y fija, por ahora, el precio de Kino igual al suyo (chat del proyecto, 9 nov 2026). El contrato a 60 meses no se adopta: falta decidirlo.
 
 **Método de precio.** Precio por unidad = (costos fijos + costos variables del conjunto) ÷ unidades + margen. Fuente: deck histórico, lám. 31 y 32. El margen está pendiente.
 
@@ -195,7 +195,7 @@ Tarifa de la pasarela, para el modelo D: Wompi cobra 2,65 % + $700 + IVA en lín
 | Marca blanca | D-009 |
 | Vender datos de ingresos | Ley 1581 de 2012 y la trazabilidad del Pase; sin revisión legal |
 
-**Combinación elegida (D-010).** B + E desde el primer conjunto, y D desde la etapa 03. Con Villas y Refugio a $8.000: 6.000.000 (B) + 1.000.000 (D) = 7.000.000 al mes. B sola ya cubre la vista de sostenimiento (5.261.595 al mes, Bloque 5), con el trabajo de los socios incluido. C sirve como argumento de venta para B: el piso es una fracción de un puesto de vigilancia.
+**Combinación elegida (D-010).** B + E desde el primer conjunto, y D desde la etapa 03. Por ahora B usa los precios de Unita: piso de $1.550.000 + $10.900 por casa. Con Villas y Refugio: 8.550.000 (B) + 1.000.000 (D) = 9.550.000 al mes. B sola cubre la vista de sostenimiento (5.261.595 al mes, Bloque 5), con el trabajo de los socios incluido. C sirve como argumento de venta: el piso equivale al 8 % de un puesto de vigilancia.
 
 ---
 
@@ -351,21 +351,27 @@ El PDF da $5.474.000 al mes en la vista de sostenimiento. La diferencia sale de 
 
 Modelo elegido por Alejandro el 9 nov 2026 (D-010, opción B): piso por conjunto + cobro por casa construida + implementación única. La comisión de pagos empieza en la etapa 03 y no entra antes de dic 2027. Comparación de modelos: apartado 2.7.
 
-**Supuestos de precio.** Son ejemplos para modelar, no precios aprobados. El precio final se valida con administradores en la fase 4. Alejandro fijó el escenario base en $8.000 por casa (9 nov 2026). Con piso + $8.000, Kino sigue más barato que el competidor: Villas pagaría $1,8 M frente a $2,64 M y Refugio $4,2 M frente a $5,91 M (deck histórico, lám. 32).
+**Precio.** Igual al de Unita, por instrucción de Alejandro (chat del proyecto, 9 nov 2026): piso de $1.550.000 por conjunto + $10.900 por casa construida, al mes. Fuente del precio: deck histórico, lám. 32. Antes de cerrar un contrato, el precio se valida con administradores en la fase 4. Los escenarios cambian la adopción, no el precio.
 
-| Componente | Conservador | Base | Optimista |
-|---|---|---|---|
-| Piso por conjunto, al mes | $1.000.000 | $1.000.000 | $1.000.000 |
-| Cobro por casa construida, al mes | $6.000 | $8.000 | $10.000 |
-| Implementación, una vez | $3.200.000 | $3.200.000 | $3.200.000 |
+| Componente | Valor |
+|---|---|
+| Piso por conjunto, al mes | $1.550.000 |
+| Cobro por casa construida, al mes | $10.900 |
+| Implementación, una vez | $3.200.000 (supuesto: 40 h × $80.000, tarifa de coordinación del PDF de costos) |
 
-Implementación: 40 h × $80.000, tarifa de coordinación del PDF de costos. Villas Campestres no la paga: ya está implementada. Refugio Campestre la paga al reparar su sincronización. Inferido.
+Villas Campestres no paga implementación: ya está implementada. Refugio Campestre la paga al reparar su sincronización. Inferido.
+
+| Conjunto | Cálculo | Al mes |
+|---|---|---|
+| Villas Campestres (100 casas) | 1.550.000 + 100 × 10.900 | 2.640.000 |
+| Refugio Campestre (400 casas) | 1.550.000 + 400 × 10.900 | 5.910.000 |
+| Conjunto nuevo (200 casas, supuesto) | 1.550.000 + 200 × 10.900 | 3.730.000 |
 
 | Escenario | Quién paga y desde cuándo | Cálculo | Ingreso a dic 2027 (COP) |
 |---|---|---|---|
-| Conservador | Villas (100) desde abr 2027: 9 meses | 1.600.000 × 9 | 14.400.000 |
-| Base | Villas desde mar 2027 (10 meses). Refugio (400) desde jul 2027 (6 meses) más su implementación | 1.800.000 × 10 + 4.200.000 × 6 + 3.200.000 | 46.400.000 |
-| Optimista | Lo anterior a $10.000 y un conjunto nuevo de 200 casas (supuesto) desde oct 2027 (3 meses), con implementación | 2.000.000 × 10 + 5.000.000 × 6 + 3.000.000 × 3 + 3.200.000 × 2 | 65.400.000 |
+| Conservador | Solo Villas, desde abr 2027 (después de H3): 9 meses | 2.640.000 × 9 | 23.760.000 |
+| Base | Villas desde mar 2027 (10 meses). Refugio desde jul 2027 (6 meses) más su implementación | 2.640.000 × 10 + 5.910.000 × 6 + 3.200.000 | 65.060.000 |
+| Optimista | Lo anterior y un conjunto nuevo desde oct 2027 (3 meses), con implementación | 65.060.000 + 3.730.000 × 3 + 3.200.000 | 79.450.000 |
 
 Las fechas salen del roadmap: H2 (mar 2027) y H3 (abr 2027). Refugio paga solo cuando su sincronización esté reparada.
 
@@ -373,28 +379,26 @@ Las fechas salen del roadmap: H2 (mar 2027) y H3 (abr 2027). Refugio paga solo c
 
 | Escenario | Ingresos | En efectivo (costo 24.630.330) | Sostenimiento (costo 74.862.330) |
 |---|---|---|---|
-| Conservador | 14.400.000 | −10.230.330 | −60.462.330 |
-| Base | 46.400.000 | +21.769.670 | −28.462.330 |
-| Optimista | 65.400.000 | +40.769.670 | −9.462.330 |
+| Conservador | 23.760.000 | −870.330 | −51.102.330 |
+| Base | 65.060.000 | +40.429.670 | −9.802.330 |
+| Optimista | 79.450.000 | +54.819.670 | +4.587.670 |
 
-Sin impuestos ni comisiones. El resultado de sostenimiento es negativo en los tres escenarios porque Kino empieza a cobrar en 2027 y paga desde nov 2026.
+Sin impuestos ni comisiones. El sostenimiento sale negativo en los escenarios conservador y base porque los costos empiezan en nov 2026 y el cobro empieza en mar 2027. En el escenario base, desde ene 2028 el margen es de +3.288.405 al mes: el −9,8 M se recupera en unos 3 meses, hacia mar 2028. Inferido.
 
 ### 5.8 Equilibrio mensual
 
 ```
-Ingreso de un conjunto al mes = piso + casas × cobro por casa
-
-                        Villas (100)   Refugio (400)   Juntos     Cubre efectivo   Cubre sostenimiento
-                                                                  (1.673.595)      (5.261.595)
-Conservador ($6.000)     1.600.000      3.400.000     5.000.000        Sí           95 %
-Base ($8.000)            1.800.000      4.200.000     6.000.000        Sí               Sí
-Optimista ($10.000)      2.000.000      5.000.000     7.000.000        Sí               Sí
+                              Al mes      Cubre efectivo    Cubre sostenimiento
+                                          (1.673.595)       (5.261.595)
+Villas sola                   2.640.000        Sí                50 %
+Villas + Refugio              8.550.000        Sí                Sí (+3.288.405)
+Villas + Refugio + nuevo     12.280.000        Sí                Sí (+7.018.405)
 ```
 
 **Lectura (inferido).**
-1. En el escenario base, Villas Campestres sola cubre el costo en efectivo: $1,8 M frente a $1,67 M.
-2. Villas y Refugio juntas cubren el costo en efectivo en los tres escenarios.
-3. En el escenario base, Villas y Refugio cubren el sostenimiento completo, con el trabajo de los socios incluido, sin la comisión de pagos.
+1. Con el precio de Unita, Villas Campestres sola cubre el costo en efectivo.
+2. Villas y Refugio cubren el sostenimiento completo, con el trabajo de los socios incluido, y dejan +$3,3 M al mes.
+3. Para un conjunto de 100 casas, el piso pesa más que el cobro por casa: $1,55 M frente a $1,09 M. Un conjunto pequeño puede ver caro el piso. Esto se valida en la fase 4.
 4. Si se actualiza MySQL, el costo en efectivo baja a 1.127.115 al mes.
 
 Reparar Refugio sigue siendo la tarea con más efecto en el presupuesto.
