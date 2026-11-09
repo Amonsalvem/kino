@@ -223,3 +223,17 @@ Cambia el momento de la comisión de pagos de D-010. Alejandro: «El D también 
 **Regla.** El dinero de la cuota va de la pasarela a la cuenta del conjunto. KINO no recibe ni guarda el dinero del conjunto; recibe solo su margen.
 
 **Trazabilidad y HikCentral.** No cambia autor, motivo, vigencia ni autoridad del KEY. No toca la sincronización. Toca datos financieros de los residentes: exige la política de datos y el contrato con la pasarela antes de cobrar.
+
+## D-013 · Precio por casa con mínimo por conjunto · PROPUESTA (9 nov 2026)
+
+Cambia la parte de cobro mensual de D-010 (piso por conjunto + cobro por casa). Alejandro eligió la opción A en la tarjeta del chat del proyecto el 9 nov 2026, después de señalar que igualar el precio de Unita «parece como una copia del modelo de pricing de ellos». Siguen igual la implementación única y la comisión de pagos (D-012).
+
+| Opción | Precio al mes | Villas (100 casas) | Refugio (400 casas) | Costo |
+|---|---|---|---|---|
+| A (recomendada) | $16.000 por casa construida, mínimo $1.200.000 por conjunto | $1.600.000 | $6.400.000 | Villas sola no cubre el costo en efectivo; Villas y Refugio juntos cubren el sostenimiento |
+| B | Piso $1.000.000 + $8.000 por casa | $1.800.000 | $4.200.000 | Villas y Refugio apenas cubren el sostenimiento |
+| C | Igual a Unita: $1.550.000 + $10.900 por casa | $2.640.000 | $5.910.000 | Se lee como copia del competidor |
+
+**Por qué.** Con una cuota de administración de $450.000, $16.000 es el 3,6 % de lo que paga cada casa en cualquier conjunto. KINO queda más barato que Unita hasta 304 casas y no castiga al conjunto pequeño.
+
+**Trazabilidad y HikCentral.** No cambia el KEY, la autoridad del residente ni la sincronización.
