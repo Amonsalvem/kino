@@ -42,7 +42,7 @@ svg text{font-family:Inter,sans-serif}
   <div class="card teal"><h4>Portería y administración</h4><p>Tienen la <b>autoridad</b> para decidir.</p><p style="margin-top:6px">No <b>conocen</b> a quien llega.</p><span class="tag" style="background:#fff;color:var(--ac2)">Tiene la autoridad</span></div>
  </div>
  <div class="row" style="margin-top:14px">
-  <div class="card soft" style="text-align:center"><p style="font-size:17px;color:var(--ink)"><b>KINO las reúne:</b> el residente decide con un Pase, dentro de los límites que fija la administración, y el lector de la puerta lo valida.</p></div>
+  <div class="card soft" style="text-align:center"><p style="font-size:17px;color:var(--ink)"><b>KINO las reúne:</b> el residente decide con un KEY, dentro de los límites que fija la administración, y el lector de la puerta lo valida.</p></div>
  </div>
 </div>
 
@@ -51,8 +51,8 @@ svg text{font-family:Inter,sans-serif}
  <div class="t">Tres diferencias que funcionan juntas</div>
  <div style="background:var(--ink);color:#fff;border-radius:12px 12px 0 0;padding:14px;text-align:center;font-size:19px;font-weight:700">Diferencia de KINO frente a otras plataformas</div>
  <div class="row" style="margin-top:12px">
-  <div class="card"><div class="num">1</div><h4>Integración con el hardware</h4><p>Conecta lo que el conjunto ya pagó: placa, rostro y talanquera sobre HikCentral.</p><span class="tag tw">Por probar en el Pase temporal</span></div>
-  <div class="card"><div class="num">2</div><h4>Pase sin cuenta</h4><p>La visita entra con QR, placa o código de un solo uso. No instala nada.</p><span class="tag tb">Diseñado</span></div>
+  <div class="card"><div class="num">1</div><h4>Integración con el hardware</h4><p>Conecta lo que el conjunto ya pagó: placa, rostro y talanquera sobre HikCentral.</p><span class="tag tw">Por probar en el KEY temporal</span></div>
+  <div class="card"><div class="num">2</div><h4>KEY sin cuenta</h4><p>La visita entra con QR, placa o código de un solo uso. No instala nada.</p><span class="tag tb">Diseñado</span></div>
   <div class="card"><div class="num">3</div><h4>Autoridad acotada</h4><p>El residente decide. La administración fija cupos, duración y franjas.</p><span class="tag tb">Diseñado</span></div>
  </div>
  <div style="height:10px;background:var(--line);border-radius:0 0 12px 12px;margin-top:12px"></div>
@@ -77,7 +77,7 @@ svg text{font-family:Inter,sans-serif}
 
 <!-- 5 RECORRIDO -->
 <div class="fig" id="f05">
- <div class="t">Recorrido del Pase, de la casa a la puerta</div>
+ <div class="t">Recorrido del KEY, de la casa a la puerta</div>
  <svg id="sv05" width="936" height="430"></svg>
 </div>
 
@@ -164,7 +164,7 @@ svg text{font-family:Inter,sans-serif}
  <div class="t">Cadena de medición: cada área alimenta a la siguiente</div>
  <div class="row">
   <div class="card blue"><h4>Marca</h4><p>Tráfico web<br>Conversión a demostración<br>Comunidad en redes</p></div><div class="arrow">→</div>
-  <div class="card teal"><h4>Piloto</h4><p>Adopción<br>Ingresos digitales<br>Pases de colaborador<br>Tiempo en portería<br>Satisfacción</p></div><div class="arrow">→</div>
+  <div class="card teal"><h4>Piloto</h4><p>Adopción<br>Ingresos digitales<br>KEYs de colaborador<br>Tiempo en portería<br>Satisfacción</p></div><div class="arrow">→</div>
   <div class="card soft"><h4>Técnica</h4><p>Errores de sincronización</p></div><div class="arrow">→</div>
   <div class="card" style="border-color:var(--ink)"><h4>Negocio</h4><p>Embudo comercial<br>Tasa de cierre<br>Ingreso recurrente<br>Costo de adquisición<br>Recuperación de la implementación</p></div>
  </div>
@@ -190,10 +190,10 @@ const lanes=['Residente','Visita o colaborador','Lector de la puerta','Portería
 lanes.forEach((l,i)=>{const y=top+i*lh;el(s,'rect',{x:0,y,width:936,height:lh-6,rx:10,fill:i%2?'#fff':C.soft,stroke:C.line});tx(s,14,y+lh/2,l,{fw:700,fill:C.ink,b:'middle',fs:15})});
 const box=(lane,x,w,t1,t2,fill,stroke)=>{const y=top+lane*lh+10;el(s,'rect',{x,y,width:w,height:lh-26,rx:8,fill:fill||'#fff',stroke:stroke||C.ac,'stroke-width':1.6});tx(s,x+w/2,y+22,t1,{a:'middle',fw:700,fill:C.ink,fs:14});if(t2)tx(s,x+w/2,y+41,t2,{a:'middle',fs:12.5,fill:C.mut});return {x,y,w,h:lh-26}};
 const b1=box(0,160,140,'Entra a la app','código por WhatsApp');
-const b2=box(0,320,165,'Crea el Pase','autor, motivo, vigencia');
+const b2=box(0,320,165,'Crea el KEY','autor, motivo, vigencia');
 const b3=box(0,505,150,'Lo comparte','por su WhatsApp');
 const b4=box(1,505,150,'Llega','QR, placa o código',C.acs);
-const b5=box(2,690,125,'Valida','¿Pase vigente?',C.ac2s,C.ac2);
+const b5=box(2,690,125,'Valida','¿KEY vigente?',C.ac2s,C.ac2);
 const b6=box(2,840,84,'Entra','evento',C.oks,C.ok);
 const b7=box(3,690,190,'Atiende la excepción','llama al residente',C.was,C.wa);
 const b8=box(4,320,165,'Fija los límites','cupos, duración, franjas',C.soft,C.mut);
@@ -206,7 +206,7 @@ el(s,'path',{d:`M${b4.x+b4.w},${cy(b4)} L${b5.x+b5.w/2},${cy(b4)} L${b5.x+b5.w/2
 ar(b5.x+b5.w,cy(b5),b6.x-2,cy(b6),C.ok);tx(s,b5.x+b5.w+4,cy(b5)-8,'sí',{fs:12,fill:C.ok,fw:700});
 ar(b5.x+b5.w/2,b5.y+b5.h,b5.x+b5.w/2,b7.y-2,C.wa);tx(s,b5.x+b5.w/2+6,b5.y+b5.h+16,'no',{fs:12,fill:C.wa,fw:700});
 el(s,'path',{d:`M${b8.x+b8.w/2},${b8.y} L${b8.x+b8.w/2},${b2.y+b2.h+2}`,stroke:C.mut,'stroke-width':1.5,fill:'none','marker-end':'url(#a5)','stroke-dasharray':'5 4'});
-tx(s,b8.x+b8.w/2+8,b8.y-120,'el Pase debe caber',{fs:12,fill:C.mut});tx(s,b8.x+b8.w/2+8,b8.y-104,'en los límites',{fs:12,fill:C.mut});
+tx(s,b8.x+b8.w/2+8,b8.y-120,'el KEY debe caber',{fs:12,fill:C.mut});tx(s,b8.x+b8.w/2+8,b8.y-104,'en los límites',{fs:12,fill:C.mut});
 el(s,'path',{d:`M${b6.x+b6.w/2},${b6.y+b6.h} L${b6.x+b6.w/2},${b9.y-2}`,stroke:C.mut,'stroke-width':1.5,fill:'none','marker-end':'url(#a5)','stroke-dasharray':'5 4'});
 })();
 
@@ -263,14 +263,14 @@ tx(s,L+W,B+48,'Conjuntos →',{a:'end',fs:13,fill:C.mut});tx(s,L-10,B-H-10,'Etap
 const pts=[[L+90,B-30,'Acceso, hoy',C.ok],[L+360,B-96,'Portal de administración y residentes',C.ac],[L+460,B-162,'Paquetería, reservas y pagos',C.ac],[L+560,B-228,'Seguridad y bienestar',C.ac2],[L+630,B-294,'Escala comercial',C.ac2]];
 let d=`M${pts[0][0]},${pts[0][1]}`;pts.slice(1).forEach(p=>d+=` L${p[0]},${p[1]}`);el(s,'path',{d,stroke:C.line,'stroke-width':3,fill:'none','stroke-dasharray':'6 5'});
 pts.forEach((p,i)=>{el(s,'circle',{cx:p[0],cy:p[1],r:11,fill:p[3]});tx(s,p[0]+(i==4?-18:18),p[1]+5,p[2],{fw:700,fill:C.ink,fs:14.5,a:i==4?'end':'start'})});
-const gates=[[L+215,B-62,'Pase temporal probado'],[L+395,B-140,'Etapa 01 estable'],[L+500,B-206,'Clientes que pagan el módulo'],[L+520,B-270,'Revisión legal']];gates.forEach(g=>{tx(s,g[0],g[1],'◆ '+g[2],{fs:12,fill:C.wa,fw:600})});
+const gates=[[L+215,B-62,'KEY temporal probado'],[L+395,B-140,'Etapa 01 estable'],[L+500,B-206,'Clientes que pagan el módulo'],[L+520,B-270,'Revisión legal']];gates.forEach(g=>{tx(s,g[0],g[1],'◆ '+g[2],{fs:12,fill:C.wa,fw:600})});
 tx(s,L,B+70,'◆ Condición para avanzar. Sin la condición, el paso no empieza.',{fs:13,fill:C.wa});})();
 
 // 13 gantt
 (()=>{const s=document.getElementById('sv13');const ms=['nov','dic','ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];const L=230,T=48,cw=49,rh=30;
 tx(s,L+cw,16,'2026',{a:'middle',fw:700,fill:C.ink,fs:13});tx(s,L+2*cw+6*cw,16,'2027',{a:'middle',fw:700,fill:C.ink,fs:13});el(s,'line',{x1:L+2*cw,y1:4,x2:L+2*cw,y2:T+rh*13+10,stroke:C.ink,'stroke-width':1});
 ms.forEach((m,i)=>{tx(s,L+i*cw+cw/2,38,m,{a:'middle',fs:12.5,fill:C.mut});if(i%2==0)el(s,'rect',{x:L+i*cw,y:T,width:cw,height:rh*13,fill:C.soft})});
-const R=[['Fase 3 · Piloto',0,5,C.ok,1],['Ingreso por WhatsApp',0,2,C.ok,0],['Pase temporal',1,4,C.ok,0],['Pase de colaborador',2,4,C.ok,0],['Fase 4 · Modelo y precio',1,5,C.ac,1],['Entrevistas a administradores',1,3,C.ac,0],['Fase 5 · Lanzamiento',0,1,C.ac2,1],['Caso del piloto',5,6,C.ac2,0],['Reparar Refugio Campestre',4,8,C.wa,0],['Fase 6 · Escalamiento',6,14,C.ink,1],['Venta a conjuntos vecinos',8,14,C.ink,0],['Fase 7 · Legal',0,5,C.mut,1]];
+const R=[['Fase 3 · Piloto',0,5,C.ok,1],['Ingreso por WhatsApp',0,2,C.ok,0],['KEY temporal',1,4,C.ok,0],['KEY de colaborador',2,4,C.ok,0],['Fase 4 · Modelo y precio',1,5,C.ac,1],['Entrevistas a administradores',1,3,C.ac,0],['Fase 5 · Lanzamiento',0,1,C.ac2,1],['Caso del piloto',5,6,C.ac2,0],['Reparar Refugio Campestre',4,8,C.wa,0],['Fase 6 · Escalamiento',6,14,C.ink,1],['Venta a conjuntos vecinos',8,14,C.ink,0],['Fase 7 · Legal',0,5,C.mut,1]];
 R.forEach((r,i)=>{const y=T+i*rh+6;tx(s,L-12,y+rh/2-5,r[0],{a:'end',b:'middle',fs:13.5,fw:r[4]?700:400,fill:r[4]?C.ink:C.txt});el(s,'rect',{x:L+r[1]*cw+2,y,width:(r[2]-r[1])*cw-4,height:rh-12,rx:5,fill:r[3],opacity:r[4]?1:.55})});
 const H=[['H1',0.5],['H2',4.5],['H3',5.5],['H4',8.5],['H5',13.5]];const hy=T+12*rh+16;tx(s,L-12,hy,'Hitos',{a:'end',b:'middle',fw:700,fill:C.ink,fs:13.5});
 H.forEach(h=>{const x=L+h[1]*cw;el(s,'path',{d:`M${x},${hy-10} L${x+10},${hy} L${x},${hy+10} L${x-10},${hy} z`,fill:h[0]=='H1'?C.ok:C.wa});tx(s,x,hy+28,h[0],{a:'middle',fw:700,fill:C.ink,fs:13})});

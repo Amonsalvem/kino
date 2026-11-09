@@ -43,10 +43,10 @@ Cada actor gana algo distinto. El residente gana control; la portería, tiempo; 
 
 | Actor | Hoy | Con KINO |
 |---|---|---|
-| Residente | Llama a portería o manda un chat | Prepara un Pase para su visita o su colaborador, dentro de los límites de la administración |
-| Visita | Espera mientras portería llama a la casa | Recibe el Pase sin crear una cuenta: QR, placa o código de un solo uso |
-| Colaborador (empleada, jardinero, técnico) | Entra por costumbre o por llamada, cada día | Recibe un Pase con vigencia y franja horaria. Es el ingreso más frecuente |
-| Portería | Llama, anota y decide sin saber | Atiende solo las excepciones. El lector de la puerta valida el Pase |
+| Residente | Llama a portería o manda un chat | Prepara un KEY para su visita o su colaborador, dentro de los límites de la administración |
+| Visita | Espera mientras portería llama a la casa | Recibe el KEY sin crear una cuenta: QR, placa o código de un solo uso |
+| Colaborador (empleada, jardinero, técnico) | Entra por costumbre o por llamada, cada día | Recibe un KEY con vigencia y franja horaria. Es el ingreso más frecuente |
+| Portería | Llama, anota y decide sin saber | Atiende solo las excepciones. El lector de la puerta valida el KEY |
 | Administración | Da de alta personas una por una y ve poco | Fija cupos, duración y franjas. Ve autor, motivo y vigencia de cada ingreso |
 | Consejo de administración | Recibe quejas sin datos | Recibe un informe: quién entró, cuándo y con autorización de quién (inferido) |
 
@@ -56,7 +56,7 @@ La autonomía del residente no diferencia a KINO: otras plataformas, como Neivor
 
 ![Figura 3. Las tres diferencias de KINO.](figuras/f03.png){width=100%}
 
-> **Riesgo.** La integración con el hardware todavía no está probada para el Pase temporal. En Refugio Campestre, 0 de 312 usuarios están sincronizados con HikCentral. Los 711 errores de sincronización vienen del campo de correo obligatorio [1]. Mientras esta diferencia no esté probada, KINO no la vende como un hecho.
+> **Riesgo.** La integración con el hardware todavía no está probada para el KEY temporal. En Refugio Campestre, 0 de 312 usuarios están sincronizados con HikCentral. Los 711 errores de sincronización vienen del campo de correo obligatorio [1]. Mientras esta diferencia no esté probada, KINO no la vende como un hecho.
 
 ## 1.4 Qué compra el conjunto
 
@@ -64,19 +64,19 @@ El conjunto no compra solo una app. Compra un servicio de tres partes, con cinco
 
 ![Figura 4. El servicio de KINO y sus cinco momentos de acompañamiento.](figuras/f04.png){width=100%}
 
-## 1.5 Recorrido del Pase
+## 1.5 Recorrido del KEY
 
 El recorrido muestra quién hace qué, desde que el residente abre la app hasta que la visita cruza la puerta.
 
-![Figura 5. Recorrido del Pase por actor.](figuras/f05.png){width=100%}
+![Figura 5. Recorrido del KEY por actor.](figuras/f05.png){width=100%}
 
 | Actor | Paso | Pantalla | Regla de negocio | Dato que se guarda |
 |---|---|---|---|---|
 | Residente | Entra a la app | Ingreso con código por WhatsApp | Teléfono obligatorio y único | Sesión, teléfono |
-| Residente | Crea el Pase | Acceso previsto | Debe caber en el cupo, la duración y la franja de la administración | Autor, motivo, vigencia, modo |
-| Residente | Comparte el Pase | Compartir | La visita no crea cuenta | Envío |
+| Residente | Crea el KEY | Acceso previsto | Debe caber en el cupo, la duración y la franja de la administración | Autor, motivo, vigencia, modo |
+| Residente | Comparte el KEY | Compartir | La visita no crea cuenta | Envío |
 | Visita o colaborador | Llega a la puerta | QR, placa o código | El lector valida, no el vigilante | Evento del lector |
-| Portería | Atiende la excepción | Panel de portería | Sin Pase válido, se llama al residente | Excepción manual |
+| Portería | Atiende la excepción | Panel de portería | Sin KEY válido, se llama al residente | Excepción manual |
 | Administración | Revisa | Bitácora | Nadie edita un registro | Historial |
 
 > **Brecha.** La app publicada hoy pide correo, contraseña o cuenta de Google. El recorrido pide código por WhatsApp. El roadmap incluye este cambio (capítulo 4).
@@ -145,7 +145,7 @@ El equipo evaluó seis formas de cobrar. La figura 9 las ubica por rentabilidad 
 
 Para el modelo D, la pasarela Wompi cobra 2,65 % + $700 + IVA en pagos en línea y 1 % + IVA en pagos con QR [16].
 
-**Descartados.** Cobrar a la visita (recibe el Pase sin cuenta). Cobrar al residente (solo compra la administración). Marca blanca (KINO mantiene su marca). Vender datos de ingresos (Ley 1581 de 2012 [17]).
+**Descartados.** Cobrar a la visita (recibe el KEY sin cuenta). Cobrar al residente (solo compra la administración). Marca blanca (KINO mantiene su marca). Vender datos de ingresos (Ley 1581 de 2012 [17]).
 
 > **Modelo elegido.** B + E desde el primer conjunto, y D desde la etapa 03 de producto.
 
@@ -169,7 +169,7 @@ Por ahora, KINO iguala el precio de su competidor directo, Unita: $1.550.000 al 
 
 | Paso | Condición para empezar |
 |---|---|
-| De 1 a 2 conjuntos | El Pase temporal genera el evento del lector en Monte Sereno |
+| De 1 a 2 conjuntos | El KEY temporal genera el evento del lector en Monte Sereno |
 | De 2 a 10 conjuntos | Precio probado y costo de implementación medido en 2 conjuntos |
 | Etapa 02 | Etapa 01 estable: errores de sincronización por debajo de un umbral por fijar |
 | Etapa 03 | Clientes que pidan el módulo y paguen por él |
@@ -205,7 +205,7 @@ Fuente: [5] [6].
 | Hito | Fecha | Se cumple cuando | Estado |
 |---|---|---|---|
 | H1 · soykino.com | nov 2026 | Sitio en línea con HTTPS y correo | Cumplido |
-| H2 · Cierre de la beta | mar 2027 | Ingreso por WhatsApp, Pase temporal con evento del lector y KPI medidos cada semana | Por cumplir |
+| H2 · Cierre de la beta | mar 2027 | Ingreso por WhatsApp, KEY temporal con evento del lector y KPI medidos cada semana | Por cumplir |
 | H3 · Informe del piloto | abr 2027 | Resultados medidos y caso publicado | Por cumplir |
 | H4 · Refugio Campestre | jul 2027 | Sincronización reparada y Refugio pagando | Por cumplir |
 | H5 · Nuevos conjuntos | dic 2027 | Al menos un conjunto nuevo firmado | Por cumplir |
@@ -218,8 +218,8 @@ Fechas propuestas a partir del plan operativo del 28 de octubre de 2026 [6].
 |---|---|---|
 | Ingreso con código por WhatsApp | La app publicada pide correo y contraseña | Alejandro, Manuel |
 | Quitar el correo obligatorio | Causa los 711 errores de sincronización [1] | Alejandro, Daniel |
-| Pase temporal con evento del lector | Sin esto no se prueba la diferencia | Alejandro, Daniel |
-| Pase de colaborador con franja | Es el ingreso más frecuente | Alejandro |
+| KEY temporal con evento del lector | Sin esto no se prueba la diferencia | Alejandro, Daniel |
+| KEY de colaborador con franja | Es el ingreso más frecuente | Alejandro |
 | Registro validado contra la cédula | El administrador ya no aprueba registros | Alejandro |
 | Reparar la sincronización en Refugio Campestre | Segundo cliente y prueba de la integración | Daniel, Manuel |
 | Actualizar la versión de MySQL | Ahorra USD 144 al mes, el 41 % del costo de AWS (capítulo 5) | Alejandro, Manuel |
@@ -278,7 +278,7 @@ Fuente: [8]. Incluye producción y pruebas.
 | Mantenimiento técnico e integración: 16 h × $100.000 | 1.600.000 | No, socios | [8] |
 | Coordinación y seguimiento: 4 h × $80.000 | 320.000 | No, socios | [8] |
 
-**WhatsApp (inferido).** 500 casas × 2 ingresos a la app al mes = 1.000 mensajes. A USD 0,001 por mensaje, son USD 1 al mes. El residente comparte el Pase desde su propio WhatsApp; ese envío no le cuesta a KINO.
+**WhatsApp (inferido).** 500 casas × 2 ingresos a la app al mes = 1.000 mensajes. A USD 0,001 por mensaje, son USD 1 al mes. El residente comparte el KEY desde su propio WhatsApp; ese envío no le cuesta a KINO.
 
 **Capacidad.** 40 horas al mes, en horario hábil. No incluye atención 24 horas [8].
 
@@ -391,8 +391,8 @@ No hay líneas base todavía. Cada indicador dice cómo se mide y una meta inici
 | Marca | Conversión a demostración | Solicitudes ÷ usuarios únicos | 3 % en 90 días |
 | Marca | Comunidad en redes | Seguidores y publicaciones al mes | 150 seguidores y 4 publicaciones al mes a 90 días |
 | Piloto | Adopción | Casas con un residente activo ÷ casas del padrón | 25 % a 60 días; 50 % a 120 días |
-| Piloto | Ingresos digitales | Se reporta en tres cifras: placas sincronizadas, excepciones manuales y Pases confirmados por el lector | Línea base en el mes 1 |
-| Piloto | Pases de colaborador | Pases de colaborador ÷ Pases emitidos | Línea base en el mes 1 |
+| Piloto | Ingresos digitales | Se reporta en tres cifras: placas sincronizadas, excepciones manuales y KEYs confirmados por el lector | Línea base en el mes 1 |
+| Piloto | KEYs de colaborador | KEYs de colaborador ÷ KEYs emitidos | Línea base en el mes 1 |
 | Piloto | Tiempo en portería | Mediana entre la llegada y el registro de entrada | ≤ 45 segundos |
 | Piloto | Satisfacción | NPS de residentes; CSAT de portería y administración (1 a 5) | NPS ≥ 30; CSAT ≥ 4,0 |
 | Técnica | Errores de sincronización | Errores por semana | Umbral para pasar a la etapa 02 |
