@@ -15,4 +15,4 @@ Qué hace Kino y cómo: flujos, reglas de negocio, pantallas y especificaciones.
 
 - Si una propuesta toca la lógica de aprobación o de identidad, explica su efecto en la trazabilidad y en la sincronización con HikCentral.
 - Colaboradores y visitas tienen la misma prioridad.
-- Vocabulario de `../canon/proyecto.md`: Pase, cuenta, Acceso previsto, Visita.
+- Vocabulario de `../canon/proyecto.md`: KEY (antes Pase, D-011), cuenta, Acceso previsto, Visita.

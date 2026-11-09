@@ -189,3 +189,18 @@ Alejandro pidió el modelo más rentable sin limitarse al cobro por unidad (chat
 | C | Precio por valor, contra el costo de un puesto de vigilancia | Exige probar el ahorro en portería antes de venderlo |
 
 **Trazabilidad y HikCentral.** No cambia autor, motivo, vigencia ni autoridad del Pase. No cambia la sincronización. La comisión de pagos toca datos financieros de residentes: exige la política de datos del Bloque 3 antes de operar.
+
+---
+
+## D-011 · El Pase se llama KEY · PROPUESTA (9 nov 2026)
+
+Alejandro pidió cambiar «Pase» por «KEY» en la entrega de EAFIT (comentario sobre el PDF, 9 nov 2026) y luego eligió que el cambio aplique a todo Kino (tarjeta en el chat del proyecto, 9 nov 2026).
+
+| Opción | Alcance | Costo |
+|---|---|---|
+| A (recomendada) | «KEY» reemplaza a «Pase» en todo Kino: canon, producto, app y textos nuevos | Hay que actualizar el vocabulario de `proyecto.md`, `AGENTS.md` y los flujos de producto. Los archivos de pre-kino y los registros históricos conservan «Pase» |
+| B | «KEY» solo en la entrega de EAFIT | El documento académico y el producto usan nombres distintos para lo mismo |
+
+**Uso.** «KEY» en mayúsculas; plural «KEYs»; artículo masculino («el KEY», «un KEY»). La regla de fondo no cambia: el KEY (de la visita o el colaborador) no se mezcla con la cuenta (del residente). Nunca «permiso».
+
+**Trazabilidad y HikCentral.** Cambia solo el nombre. No cambia autor, motivo, vigencia, modo ni autoridad. No cambia la sincronización.

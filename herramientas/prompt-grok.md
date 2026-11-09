@@ -45,7 +45,7 @@ PASO 2. REGLAS QUE MANDAN
 - Si algo contradice una decisión tomada o un hecho vigente de proyecto.md, no lo cambies: señálalo aparte con el archivo y la línea que contradice.
 - Cada afirmación lleva fuente (archivo o enlace). Las cifras de mercado van con fuente web y fecha de consulta. Si no hay fuente, escribe «sin fuente». En diagnóstico, marca cada dato como observado o inferido.
 - Kino es la marca. Un conjunto (por ejemplo Monte Sereno) aparece solo como dato en texto, nunca con su logo ni sus colores.
-- Vocabulario: «Pase» (de la visita o el colaborador) nunca se mezcla con «cuenta» (del residente). Nunca «permiso». «Visita», no «invitado».
+- Vocabulario: «KEY» (D-011; de la visita o el colaborador) nunca se mezcla con «cuenta» (del residente). Nunca «permiso». «Visita», no «invitado».
 - Si algo toca la lógica de aprobación o de identidad, explica su efecto en la trazabilidad y en la sincronización con HikCentral.
 - Lo que sea solo exigencia académica (formato, rúbrica, extensión) se dice como tal y va en eafit/, nunca como decisión de producto.
 - pre-kino/ es de solo lectura. Lo que se herede de la etapa anterior se dice pieza por pieza, con la ruta de origen.

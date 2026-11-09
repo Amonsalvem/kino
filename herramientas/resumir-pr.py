@@ -55,7 +55,7 @@ ETIQUETA_NIVEL = {
 
 # Palabras que el vocabulario de Kino prohíbe (AGENTS.md §5.8). Solo en líneas agregadas.
 VOCABULARIO = [
-    (re.compile(r"\bpermisos?\b", re.I), "«permiso» (nunca se usa: es Pase o cuenta)"),
+    (re.compile(r"\bpermisos?\b", re.I), "«permiso» (nunca se usa: es KEY o cuenta)"),
     (re.compile(r"\binvitad[oa]s?\b", re.I), "«invitado» (en la interfaz es «visita»)"),
 ]
 # Posibles datos sensibles (AGENTS.md §5.10). Es un aviso, no una prueba.
