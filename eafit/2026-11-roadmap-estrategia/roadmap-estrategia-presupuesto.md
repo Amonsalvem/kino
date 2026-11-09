@@ -178,7 +178,7 @@ Pedido de Alejandro, 9 nov 2026: buscar el modelo más rentable sin limitarse al
 | Modelo | Cómo cobra | Villas + Refugio (500 casas), al mes | Rentabilidad | Riesgo |
 |---|---|---|---|---|
 | A · Por unidad (actual) | $8.000 por casa construida | 4.000.000 | Media. Un conjunto pequeño casi no paga | Bajo |
-| B · Piso + unidad | $1.000.000 por conjunto + $6.000 por casa | 1.600.000 + 3.400.000 = 5.000.000 | Alta. El piso cubre el soporte de cada conjunto | Bajo. Es el esquema del competidor, con piso menor |
+| B · Piso + unidad | $1.000.000 por conjunto + $8.000 por casa | 1.800.000 + 4.200.000 = 6.000.000 | Alta. El piso cubre el soporte de cada conjunto | Bajo. Es el esquema del competidor, con piso menor |
 | C · Por valor | El mayor entre el 10 % de un puesto 24 h (≈ $1.800.000) y $8.000 por casa | 1.800.000 + 3.200.000 = 5.000.000 | Alta. Se vende contra el gasto en vigilancia | Medio. Exige probar el ahorro en portería |
 | D · Comisión de pagos | Margen sobre la pasarela al pagar la cuota de administración desde la app | 500 casas × cuota C × margen m. Ejemplo: C = $400.000 (supuesto) y m = 0,5 % → 1.000.000 | La más alta a escala: crece con cada conjunto sin trabajo extra | Alto. Exige alianza con la pasarela y el módulo de pagos (etapa 03) |
 | E · Implementación | Cobro único al empezar | Ejemplo: 40 h × $80.000 = 3.200.000 por conjunto, una vez | Media. Da caja al inicio y filtra clientes | Bajo |
@@ -195,7 +195,7 @@ Tarifa de la pasarela, para el modelo D: Wompi cobra 2,65 % + $700 + IVA en lín
 | Marca blanca | D-009 |
 | Vender datos de ingresos | Ley 1581 de 2012 y la trazabilidad del Pase; sin revisión legal |
 
-**Combinación elegida (D-010).** B + E desde el primer conjunto, y D desde la etapa 03. Con Villas y Refugio: 5.000.000 (B) + 1.000.000 (D) = 6.000.000 al mes. Eso cubre la vista de sostenimiento (5.261.595 al mes, Bloque 5), con el trabajo de los socios incluido. C sirve como argumento de venta para B: el piso es una fracción de un puesto de vigilancia.
+**Combinación elegida (D-010).** B + E desde el primer conjunto, y D desde la etapa 03. Con Villas y Refugio a $8.000: 6.000.000 (B) + 1.000.000 (D) = 7.000.000 al mes. B sola ya cubre la vista de sostenimiento (5.261.595 al mes, Bloque 5), con el trabajo de los socios incluido. C sirve como argumento de venta para B: el piso es una fracción de un puesto de vigilancia.
 
 ---
 
@@ -351,21 +351,21 @@ El PDF da $5.474.000 al mes en la vista de sostenimiento. La diferencia sale de 
 
 Modelo elegido por Alejandro el 9 nov 2026 (D-010, opción B): piso por conjunto + cobro por casa construida + implementación única. La comisión de pagos empieza en la etapa 03 y no entra antes de dic 2027. Comparación de modelos: apartado 2.7.
 
-**Supuestos de precio.** Son ejemplos para modelar, no precios aprobados. El precio final se valida con administradores en la fase 4.
+**Supuestos de precio.** Son ejemplos para modelar, no precios aprobados. El precio final se valida con administradores en la fase 4. Alejandro fijó el escenario base en $8.000 por casa (9 nov 2026). Con piso + $8.000, Kino sigue más barato que el competidor: Villas pagaría $1,8 M frente a $2,64 M y Refugio $4,2 M frente a $5,91 M (deck histórico, lám. 32).
 
 | Componente | Conservador | Base | Optimista |
 |---|---|---|---|
 | Piso por conjunto, al mes | $1.000.000 | $1.000.000 | $1.000.000 |
-| Cobro por casa construida, al mes | $4.000 | $6.000 | $8.000 |
+| Cobro por casa construida, al mes | $6.000 | $8.000 | $10.000 |
 | Implementación, una vez | $3.200.000 | $3.200.000 | $3.200.000 |
 
 Implementación: 40 h × $80.000, tarifa de coordinación del PDF de costos. Villas Campestres no la paga: ya está implementada. Refugio Campestre la paga al reparar su sincronización. Inferido.
 
 | Escenario | Quién paga y desde cuándo | Cálculo | Ingreso a dic 2027 (COP) |
 |---|---|---|---|
-| Conservador | Villas (100) desde abr 2027: 9 meses | 1.400.000 × 9 | 12.600.000 |
-| Base | Villas desde mar 2027 (10 meses). Refugio (400) desde jul 2027 (6 meses) más su implementación | 1.600.000 × 10 + 3.400.000 × 6 + 3.200.000 | 39.600.000 |
-| Optimista | Lo anterior a $8.000 y un conjunto nuevo de 200 casas (supuesto) desde oct 2027 (3 meses), con implementación | 1.800.000 × 10 + 4.200.000 × 6 + 2.600.000 × 3 + 3.200.000 × 2 | 57.400.000 |
+| Conservador | Villas (100) desde abr 2027: 9 meses | 1.600.000 × 9 | 14.400.000 |
+| Base | Villas desde mar 2027 (10 meses). Refugio (400) desde jul 2027 (6 meses) más su implementación | 1.800.000 × 10 + 4.200.000 × 6 + 3.200.000 | 46.400.000 |
+| Optimista | Lo anterior a $10.000 y un conjunto nuevo de 200 casas (supuesto) desde oct 2027 (3 meses), con implementación | 2.000.000 × 10 + 5.000.000 × 6 + 3.000.000 × 3 + 3.200.000 × 2 | 65.400.000 |
 
 Las fechas salen del roadmap: H2 (mar 2027) y H3 (abr 2027). Refugio paga solo cuando su sincronización esté reparada.
 
@@ -373,9 +373,9 @@ Las fechas salen del roadmap: H2 (mar 2027) y H3 (abr 2027). Refugio paga solo c
 
 | Escenario | Ingresos | En efectivo (costo 24.630.330) | Sostenimiento (costo 74.862.330) |
 |---|---|---|---|
-| Conservador | 12.600.000 | −12.030.330 | −62.262.330 |
-| Base | 39.600.000 | +14.969.670 | −35.262.330 |
-| Optimista | 57.400.000 | +32.769.670 | −17.462.330 |
+| Conservador | 14.400.000 | −10.230.330 | −60.462.330 |
+| Base | 46.400.000 | +21.769.670 | −28.462.330 |
+| Optimista | 65.400.000 | +40.769.670 | −9.462.330 |
 
 Sin impuestos ni comisiones. El resultado de sostenimiento es negativo en los tres escenarios porque Kino empieza a cobrar en 2027 y paga desde nov 2026.
 
@@ -386,15 +386,15 @@ Ingreso de un conjunto al mes = piso + casas × cobro por casa
 
                         Villas (100)   Refugio (400)   Juntos     Cubre efectivo   Cubre sostenimiento
                                                                   (1.673.595)      (5.261.595)
-Conservador ($4.000)     1.400.000      2.600.000     4.000.000        Sí               No
-Base ($6.000)            1.600.000      3.400.000     5.000.000        Sí           95 %
-Optimista ($8.000)       1.800.000      4.200.000     6.000.000        Sí               Sí
+Conservador ($6.000)     1.600.000      3.400.000     5.000.000        Sí           95 %
+Base ($8.000)            1.800.000      4.200.000     6.000.000        Sí               Sí
+Optimista ($10.000)      2.000.000      5.000.000     7.000.000        Sí               Sí
 ```
 
 **Lectura (inferido).**
-1. Con el piso, Villas Campestres sola cubre el 96 % del costo en efectivo en el escenario base.
+1. En el escenario base, Villas Campestres sola cubre el costo en efectivo: $1,8 M frente a $1,67 M.
 2. Villas y Refugio juntas cubren el costo en efectivo en los tres escenarios.
-3. En el escenario base, falta el 5 % para cubrir el sostenimiento. La comisión de pagos (≈ $1.000.000 al mes, apartado 2.7) o un tercer conjunto lo cierran.
+3. En el escenario base, Villas y Refugio cubren el sostenimiento completo, con el trabajo de los socios incluido, sin la comisión de pagos.
 4. Si se actualiza MySQL, el costo en efectivo baja a 1.127.115 al mes.
 
 Reparar Refugio sigue siendo la tarea con más efecto en el presupuesto.
