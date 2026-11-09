@@ -258,6 +258,6 @@ Cambia la parte de cobro mensual de D-010 (piso por conjunto + cobro por casa). 
 | B | Piso $1.000.000 + $8.000 por casa | $1.800.000 | $4.200.000 | Villas y Refugio apenas cubren el sostenimiento |
 | C | Igual a Unita: $1.550.000 + $10.900 por casa | $2.640.000 | $5.910.000 | Se lee como copia del competidor |
 
-**Por qué.** Con una cuota de administración de $450.000, $16.000 es el 3,6 % de lo que paga cada casa en cualquier conjunto. KINO queda más barato que Unita hasta 304 casas y no castiga al conjunto pequeño.
+**Por qué.** Con una cuota de administración de $600.000 (dato corregido por Alejandro el 9 nov 2026), $16.000 es el 2,7 % de lo que paga cada casa en cualquier conjunto. KINO queda más barato que Unita hasta 304 casas y no castiga al conjunto pequeño.
 
 **Trazabilidad y HikCentral.** No cambia el KEY, la autoridad del residente ni la sincronización.

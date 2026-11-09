@@ -360,7 +360,7 @@ ln(2781735,C.ok,'Efectivo: $2,8 M',0,'end');ln(6369735,C.ba,'Sostenimiento: $6,4
 tx(s,20,272,'Villas y Refugio juntos cubren los dos costos. Por eso la penetración de enero es la tarea con más efecto.',{fs:13,fill:C.mut});})();
 
 // 21 peso en la cuota
-(()=>{const s=document.getElementById('sv21');const L=330,W=480,max=50;const R=[['Puesto de vigilancia · Villas (100 casas)',38,43.6,C.mut],['Puesto de vigilancia · Refugio (400 casas)',9.5,10.9,C.mut],['KINO · cualquier conjunto',3.6,0,C.ac]];
+(()=>{const s=document.getElementById('sv21');const L=330,W=480,max=40;const R=[['Puesto de vigilancia · Villas (100 casas)',28.5,32.7,C.mut],['Puesto de vigilancia · Refugio (400 casas)',7.1,8.2,C.mut],['KINO · cualquier conjunto',2.7,0,C.ac]];
 R.forEach((r,i)=>{const y=14+i*50;tx(s,L-14,y+17,r[0],{a:'end',b:'middle',fw:600,fill:C.ink,fs:14});el(s,'rect',{x:L,y,width:r[1]/max*W,height:34,rx:5,fill:r[3]});if(r[2])el(s,'rect',{x:L+r[1]/max*W,y,width:(r[2]-r[1])/max*W,height:34,fill:r[3],opacity:.4});const v=r[2]?`${String(r[1]).replace('.',',')} % a ${String(r[2]).replace('.',',')} %`:`${String(r[1]).replace('.',',')} %`;tx(s,L+(r[2]||r[1])/max*W+10,y+17,v,{b:'middle',fw:700,fill:C.ink})});
-tx(s,20,180,'Parte de lo que recauda el conjunto con una cuota de $450.000 por casa. Vigilancia: $17,1 a $19,6 M al mes (Noticias RCN y El Espectador, 2026).',{fs:13,fill:C.mut});})();
+tx(s,20,180,'Parte de lo que recauda el conjunto con una cuota de $600.000 por casa. Vigilancia: $17,1 a $19,6 M al mes (Noticias RCN y El Espectador, 2026).',{fs:13,fill:C.mut});})();
 </script></body></html>

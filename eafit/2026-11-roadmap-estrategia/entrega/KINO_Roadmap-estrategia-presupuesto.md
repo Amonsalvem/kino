@@ -19,7 +19,7 @@ KINO es una plataforma de control de acceso para conjuntos cerrados. Hoy opera e
 | ¿En qué orden crecemos? | Villas Campestres y Refugio Campestre en diciembre de 2026 y enero de 2027; 5 conjuntos nuevos del oriente antioqueño en el primer trimestre de 2027; después, el Valle de Aburrá |
 | ¿Cómo cobramos? | Cobro por casa construida, con un mínimo por conjunto + implementación única + comisión por cada pago de la cuota en la app, desde el primer conjunto |
 | ¿Cuándo está lista la app? | En diciembre de 2026, completa y con pagos. En enero de 2027, el 80 % de las casas de Villas y Refugio la usa |
-| ¿Cuánto cobramos? | $16.000 por casa al mes, con un mínimo de $1.200.000 por conjunto: el 3,6 % de la cuota de administración |
+| ¿Cuánto cobramos? | $16.000 por casa al mes, con un mínimo de $1.200.000 por conjunto: el 2,7 % de la cuota de administración |
 | ¿Cuánto cuesta y cuándo se sostiene? | $2,8 millones al mes en efectivo ($1,4 millones con la alternativa más barata). Villas y Refugio lo cubren desde febrero de 2027. Escenario base a diciembre de 2027: +$192 millones en efectivo |
 
 ![Figura 1. Mapa del documento. Cada capítulo responde una pregunta.](figuras/f01.png){width=100%}
@@ -204,10 +204,10 @@ El precio se justifica con tres referencias:
 | Referencia | Qué dice | Dato |
 |---|---|---|
 | Costo | Lo que cuesta atender a los conjuntos | $2,8 millones al mes en efectivo; $6,4 millones con el trabajo de los socios (capítulo 5) |
-| Techo | Lo que el residente ya paga y lo que el conjunto gasta en portería | Cuota de administración promedio de Villas y Refugio: $450.000 al mes por casa [9]. Un puesto de vigilancia 24 horas: $17,1 a $19,6 millones al mes [10] [11] |
+| Techo | Lo que el residente ya paga y lo que el conjunto gasta en portería | Cuota de administración promedio de Villas y Refugio: $600.000 al mes por casa [9]. Un puesto de vigilancia 24 horas: $17,1 a $19,6 millones al mes [10] [11] |
 | Ancla | El precio de su competidor directo, Unita | $1.550.000 al mes por conjunto + $10.900 al mes por casa [5]. KINO no lo copia: cobra solo por casa |
 
-**Por qué no copia a Unita.** Unita cobra un piso fijo más una tarifa por casa [5]. KINO cobra solo por casa, con un mínimo que cubre el soporte de un conjunto pequeño (inferido). El residente lo entiende en una línea: el 3,6 % de su cuota. Además, KINO da lo que Unita no tiene: el KEY sin cuenta para la visita y la integración probada con el hardware del conjunto (apartado 1.3).
+**Por qué no copia a Unita.** Unita cobra un piso fijo más una tarifa por casa [5]. KINO cobra solo por casa, con un mínimo que cubre el soporte de un conjunto pequeño (inferido). El residente lo entiende en una línea: el 2,7 % de su cuota. Además, KINO da lo que Unita no tiene: el KEY sin cuenta para la visita y la integración probada con el hardware del conjunto (apartado 1.3).
 
 | Conjunto | KINO al mes | Unita al mes [5] | Diferencia |
 |---|---|---|---|
@@ -219,17 +219,17 @@ KINO es más barato hasta 304 casas y un poco más caro por encima. El conjunto 
 
 ![Figura 12. Cuánto paga cada conjunto al mes con el precio de KINO.](figuras/f10.png){width=100%}
 
-**Cuánto pesa KINO en la cuota.** Con una cuota de $450.000, KINO cuesta el 3,6 % de lo que paga cada casa, en cualquier conjunto. En lo que recauda cada conjunto, un puesto de vigilancia pesa entre el 9,5 % (Refugio) y el 44 % (Villas) (figura 14).
+**Cuánto pesa KINO en la cuota.** Con una cuota de $600.000, KINO cuesta el 2,7 % de lo que paga cada casa, en cualquier conjunto. En lo que recauda cada conjunto, un puesto de vigilancia pesa entre el 7,1 % (Refugio) y el 33 % (Villas) (figura 14).
 
 ![Figura 13. KINO frente al costo de un puesto de vigilancia.](figuras/f11.png){width=100%}
 
 ![Figura 14. Cuánto pesa cada costo en la cuota de administración.](figuras/f21.png){width=100%}
 
-**Margen por pago (supuesto, por decidir).** $2.000 por pago es el 0,44 % de la cuota. Es menos que la tarifa de la pasarela: con Wompi, un pago de $450.000 cuesta cerca de $15.024 en línea y $5.355 con QR, con IVA [16]. Quién asume la tarifa de la pasarela sigue por decidir (apartado 2.8).
+**Margen por pago (supuesto, por decidir).** $2.000 por pago es el 0,33 % de la cuota. Es menos que la tarifa de la pasarela: con Wompi, un pago de $600.000 cuesta cerca de $19.754 en línea y $7.140 con QR, con IVA [16]. Quién asume la tarifa de la pasarela sigue por decidir (apartado 2.8).
 
 **Lectura (inferido).**
 
-1. El 3,6 % de la cuota es igual para todo conjunto: el precio no castiga al conjunto pequeño.
+1. El 2,7 % de la cuota es igual para todo conjunto: el precio no castiga al conjunto pequeño.
 2. Frente a un puesto de vigilancia, Villas paga KINO con el 9 % de lo que cuesta el puesto y Refugio con cerca del 35 %.
 3. El costo de portería propio de Villas y Refugio todavía no está. Cuando llegue, reemplaza la cifra de mercado del techo.
 
@@ -332,7 +332,7 @@ Horizonte: noviembre de 2026 a diciembre de 2027 (14 meses). Fuente de dinero: c
 | Equipo | Nadie cobra; todos son socios | [9] |
 | Unidades | Villas Campestres: 100 casas construidas. Refugio Campestre: 400 casas construidas | [9] |
 | Conjunto nuevo | 200 casas construidas (supuesto) | |
-| Cuota de administración | $450.000 al mes por casa, promedio de Villas y Refugio | [9] |
+| Cuota de administración | $600.000 al mes por casa, promedio de Villas y Refugio | [9] |
 | Calendario | Refugio se implementa en diciembre de 2026. Villas y Refugio pagan desde febrero de 2027, después de H2. Los 5 conjuntos nuevos firman en el primer trimestre y se implementan uno por mes (supuesto) | [9] |
 | Pagos en la app | Parte de las casas que paga la cuota en la app: 30 %, 50 % o 80 % según el escenario (supuesto) | |
 | Margen por pago | $2.000 (supuesto, por decidir) | Apartado 2.9 |
