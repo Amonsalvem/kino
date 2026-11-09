@@ -262,6 +262,6 @@ Precisa la parte de cobro mensual de D-010 (piso por conjunto + cobro por casa).
 | D | Pago fijo $1.200.000 + $16.000 por casa | $2.800.000 | $7.600.000 | Entre 6 % y 29 % más caro que Unita, con un diferencial todavía sin probar |
 | **E (elegida)** | **Pago fijo $1.200.000 + $10.000 por casa** | **$2.200.000** | **$5.200.000** | **Menos ingreso que D: $225 M frente a $300 M en el escenario base a dic 2027** |
 
-**Por qué.** KINO queda entre 12 % y 17 % más barato que Unita en todos los tamaños mientras la integración con el hardware no esté probada. Villas y Refugio juntos dejan $7,9 millones al mes y cubren el sostenimiento ($6,4 millones). Con una cuota de $600.000, KINO pesa entre el 2,2 % (Refugio) y el 3,7 % (Villas) de lo que paga cada casa. El precio de los conjuntos nuevos se revisa con el informe del piloto (H3).
+**Por qué.** KINO queda entre 12 % y 18 % más barato que Unita en todos los tamaños mientras la integración con el hardware no esté probada. Villas y Refugio juntos dejan $7,9 millones al mes y cubren el sostenimiento ($6,4 millones); con Monte Sereno Sagrada (70 casas, desde enero de 2027), los tres dejan $9,9 millones. Con una cuota de $600.000, KINO pesa entre el 2,2 % (Refugio) y el 3,7 % (Villas) de lo que paga cada casa. El precio de los conjuntos nuevos se revisa con el informe del piloto (H3).
 
 **Trazabilidad y HikCentral.** No cambia el KEY, la autoridad del residente ni la sincronización.

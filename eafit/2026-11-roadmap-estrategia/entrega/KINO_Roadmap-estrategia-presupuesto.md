@@ -16,11 +16,11 @@ KINO es una plataforma de control de acceso para conjuntos cerrados. Hoy opera e
 |---|---|
 | ¿Qué resolvemos? | Quien conoce a la visita (el residente) no tiene autoridad para dejarla entrar, y quien tiene autoridad (portería) no la conoce |
 | ¿A quién vendemos? | Solo a la administración del conjunto. Primero, a conjuntos campestres del oriente antioqueño con hardware HikCentral |
-| ¿En qué orden crecemos? | Villas Campestres y Refugio Campestre en diciembre de 2026 y enero de 2027; 5 conjuntos nuevos del oriente antioqueño en el primer trimestre de 2027; después, el Valle de Aburrá |
+| ¿En qué orden crecemos? | Villas Campestres y Refugio Campestre en diciembre de 2026 y enero de 2027, y Monte Sereno Sagrada en enero; 5 conjuntos nuevos del oriente antioqueño en el primer trimestre de 2027; después, el Valle de Aburrá |
 | ¿Cómo cobramos? | Pago fijo por conjunto + cobro por casa construida + implementación única + comisión por cada pago de la cuota en la app, desde el primer conjunto |
 | ¿Cuándo está lista la app? | En diciembre de 2026, completa y con pagos. En enero de 2027, el 80 % de las casas de Villas y Refugio la usa |
-| ¿Cuánto cobramos? | $1.200.000 al mes por conjunto + $10.000 por casa + $2.000 por pago: entre el 2,2 % y el 3,7 % de la cuota de administración |
-| ¿Cuánto cuesta y cuándo se sostiene? | $2,8 millones al mes en efectivo ($1,4 millones con la alternativa más barata). Villas y Refugio lo cubren desde febrero de 2027. Escenario base a diciembre de 2027: +$185 millones en efectivo |
+| ¿Cuánto cobramos? | $1.200.000 al mes por conjunto + $10.000 por casa + $2.000 por pago: entre el 2,2 % y el 4,5 % de la cuota de administración |
+| ¿Cuánto cuesta y cuándo se sostiene? | $2,8 millones al mes en efectivo ($1,4 millones con la alternativa más barata). Villas, Refugio y Sagrada lo cubren desde febrero de 2027. Escenario base a diciembre de 2027: +$210 millones en efectivo |
 
 ![Figura 1. Mapa del documento. Cada capítulo responde una pregunta.](figuras/f01.png){width=100%}
 
@@ -113,11 +113,13 @@ KINO crece de adentro hacia afuera. Cada paso usa el anterior como prueba.
 
 Villas Campestres y Refugio Campestre son el primer paso. Los dos tienen todo el hardware instalado [9]. Villas usa hoy la beta; Refugio entra como cliente nuevo. Juntos suman 500 casas construidas.
 
+Monte Sereno Sagrada, otro conjunto de Monte Sereno, entra en enero de 2027 con 70 casas [9]. Con Sagrada, el primer paso suma 570 casas. Si Sagrada tiene el hardware instalado está por confirmar.
+
 ## 2.4 Penetración en Villas y Refugio
 
 Cerrar el negocio con la administración no basta: el valor aparece cuando los residentes usan la app. Esta sección dice cómo KINO llega rápido a las casas, desde que la app está lista en diciembre.
 
-> **Meta.** El 80 % de las casas construidas con un residente activo al 31 de enero de 2027: 80 casas en Villas y 320 en Refugio, 400 de 500.
+> **Meta.** El 80 % de las casas construidas con un residente activo al 31 de enero de 2027: 80 casas en Villas y 320 en Refugio, 400 de 500. En Sagrada, 56 de 70 casas al 28 de febrero de 2027 (supuesto: un mes después de implementarla).
 
 **Residente activo (propuesta).** Un residente que en los últimos 30 días entró a la app y creó un KEY o pagó la cuota.
 
@@ -211,6 +213,7 @@ El precio se justifica con tres referencias:
 
 | Conjunto | KINO al mes | Unita al mes [5] | Diferencia |
 |---|---|---|---|
+| Monte Sereno Sagrada (70 casas) | $1.900.000 | $2.313.000 | −18 % |
 | Villas Campestres (100 casas) | $2.200.000 | $2.640.000 | −17 % |
 | Conjunto nuevo (200 casas, supuesto) | $3.200.000 | $3.730.000 | −14 % |
 | Refugio Campestre (400 casas) | $5.200.000 | $5.910.000 | −12 % |
@@ -219,7 +222,7 @@ El precio se justifica con tres referencias:
 
 ![Figura 12. Cuánto paga cada conjunto al mes con el precio de KINO.](figuras/f10.png){width=100%}
 
-**Cuánto pesa KINO en la cuota.** Con una cuota de $600.000, KINO cuesta entre el 2,2 % (Refugio) y el 3,7 % (Villas) de lo que paga cada casa. El pago fijo pesa más en el conjunto pequeño. En lo que recauda cada conjunto, un puesto de vigilancia pesa entre el 7,1 % (Refugio) y el 33 % (Villas) (figura 14).
+**Cuánto pesa KINO en la cuota.** Con una cuota de $600.000, KINO cuesta entre el 2,2 % (Refugio) y el 3,7 % (Villas) de lo que paga cada casa. En Sagrada sería el 4,5 %, si su cuota es igual (supuesto: su cuota no está en los datos). El pago fijo pesa más en el conjunto pequeño. En lo que recauda cada conjunto, un puesto de vigilancia pesa entre el 7,1 % (Refugio) y el 47 % (Sagrada) (figura 14).
 
 ![Figura 13. KINO frente al costo de un puesto de vigilancia.](figuras/f11.png){width=100%}
 
@@ -229,7 +232,7 @@ El precio se justifica con tres referencias:
 
 **Lectura (inferido).**
 
-1. KINO pesa menos del 4 % de la cuota en los dos conjuntos del piloto.
+1. KINO pesa menos del 4 % de la cuota en Villas y Refugio. En Sagrada, el conjunto más pequeño, pesa el 4,5 %: ahí el pago fijo pesa más.
 2. Frente a un puesto de vigilancia, Villas paga KINO con el 11 % al 13 % de lo que cuesta el puesto y Refugio con el 27 % al 30 %.
 3. El costo de portería propio de Villas y Refugio todavía no está. Cuando llegue, reemplaza la cifra de mercado del techo.
 
@@ -239,7 +242,7 @@ El precio se justifica con tres referencias:
 
 ![Figura 15. Expansión en dos ejes, con las condiciones para avanzar.](figuras/f12.png){width=100%}
 
-**Eje X: conjuntos.** Villas y Refugio, luego 5 conjuntos nuevos en el primer trimestre de 2027, luego 10 o más.
+**Eje X: conjuntos.** Villas, Refugio y Sagrada, luego 5 conjuntos nuevos en el primer trimestre de 2027, luego 10 o más.
 
 **Eje Y: módulos y productos.** Los módulos suben el valor de la app y justifican un precio mayor; no son una línea de ingreso aparte. Los productos nuevos sí venden algo distinto. Orden de los módulos:
 
@@ -253,7 +256,7 @@ El precio se justifica con tres referencias:
 | Paso | Condición para empezar |
 |---|---|
 | De Villas y Refugio a 5 conjuntos nuevos | 80 % de las casas activas (H2) e informe del piloto (H3) |
-| De 7 a 10 o más conjuntos | Precio probado y costo de implementación medido en los 5 conjuntos nuevos |
+| De 8 a 10 o más conjuntos | Precio probado y costo de implementación medido en los 5 conjuntos nuevos |
 | Paquetería | Acceso y pagos estables: errores de sincronización por debajo de un umbral por fijar |
 | Reservas | Paquetería en uso |
 | Seguridad | Revisión legal de cámaras y datos personales |
@@ -264,7 +267,7 @@ Fuentes de las etapas y condiciones: [4] [5] [6].
 
 # 4. Roadmap
 
-> **En una frase.** En diciembre de 2026 la app queda completa; en enero de 2027 Villas y Refugio llegan al 80 %; de enero a marzo KINO cierra 5 conjuntos nuevos; el resto de 2027 suma módulos.
+> **En una frase.** En diciembre de 2026 la app queda completa; en enero de 2027 Villas y Refugio llegan al 80 % y entra Sagrada; de enero a marzo KINO cierra 5 conjuntos nuevos; el resto de 2027 suma módulos.
 
 ## 4.1 Fases
 
@@ -274,14 +277,14 @@ Fuentes de las etapas y condiciones: [4] [5] [6].
 | 1 · Marca e identidad | Construir una identidad propia | Hasta noviembre de 2026 | Hecha |
 | 2 · Diseño y prototipo | Prototipo de los 3 roles: 172 pantallas, app y web | Hasta noviembre de 2026 | Hecha |
 | 3 · Desarrollo | App completa: ingreso por WhatsApp, KEY temporal, KEY de colaborador, registro con cédula y pagos | Noviembre y diciembre de 2026 | En curso |
-| 4 · Piloto | Implementar y penetrar Villas y Refugio | Diciembre de 2026 y enero de 2027 | Por hacer |
+| 4 · Piloto | Implementar y penetrar Villas, Refugio y Sagrada | Diciembre de 2026 y enero de 2027 | Por hacer |
 | 5 · Venta | Cerrar e implementar 5 conjuntos nuevos | Enero a marzo de 2027 | Por hacer |
 | 6 · Precio | Justificar el precio y validarlo con administradores | Noviembre de 2026 a enero de 2027 | En curso |
 | 7 · Lanzamiento | Caso del piloto, sitio, video y redes | Febrero de 2027 | Sitio soykino.com en línea |
 | 8 · Eje Y | Paquetería, reservas y seguridad; productos nuevos | Abril a diciembre de 2027 | Por hacer |
 | 9 · Legal | Política de datos, contrato tipo y contrato con la pasarela | Antes de diciembre de 2026 | Registro de marca radicado |
 
-> **Qué es el piloto.** Una prueba en operación real, con alcance limitado y un tiempo fijo. Sirve para medir antes de vender a más clientes. En KINO, el piloto es Villas y Refugio en diciembre y enero. Mide cuántas casas usan la app, cuánto baja el tiempo en portería y cuántos ingresos pasan con KEY. Su resultado es el informe del piloto (H3), el principal argumento para vender los 5 conjuntos nuevos.
+> **Qué es el piloto.** Una prueba en operación real, con alcance limitado y un tiempo fijo. Sirve para medir antes de vender a más clientes. En KINO, el piloto es Villas y Refugio en diciembre y enero, y Sagrada desde enero. Mide cuántas casas usan la app, cuánto baja el tiempo en portería y cuántos ingresos pasan con KEY. Su resultado es el informe del piloto (H3), el principal argumento para vender los 5 conjuntos nuevos.
 
 ## 4.2 Cronograma
 
@@ -307,8 +310,9 @@ Fechas fijadas por el equipo el 9 de noviembre de 2026 [9]. La fecha de H4 es un
 | KEY de colaborador con franja | Es el ingreso más frecuente | Alejandro |
 | Registro validado contra la cédula | El administrador ya no aprueba registros | Alejandro |
 | Implementar Refugio Campestre | Cliente nuevo con el hardware instalado | Daniel, Manuel |
+| Implementar Monte Sereno Sagrada | Entra en enero de 2027 con 70 casas | Daniel, Manuel |
 | Módulo de pagos y contrato con la pasarela | El modelo D empieza en diciembre | Alejandro, Manuel |
-| Padrón, precarga y plan de penetración de Villas y Refugio | Meta del 80 % en enero | Juan Esteban, Nicolás |
+| Padrón, precarga y plan de penetración de Villas, Refugio y Sagrada | Meta del 80 % en enero (Sagrada, en febrero) | Juan Esteban, Nicolás |
 | Venta a 5 conjuntos nuevos | Hito H5 | Juan Esteban |
 | Actualizar la versión de MySQL | Ahorra USD 144 al mes, el 41 % del costo de AWS (capítulo 5) | Alejandro, Manuel |
 | Entrevistas a administradores | Validar perfil, canales y precio | Juan Esteban, Nicolás |
@@ -318,7 +322,7 @@ Fechas fijadas por el equipo el 9 de noviembre de 2026 [9]. La fecha de H4 es un
 
 # 5. Presupuesto
 
-> **En una frase.** KINO cuesta $2,8 millones al mes en efectivo. Villas y Refugio cubren ese costo desde febrero de 2027. Con los 5 conjuntos nuevos, el escenario base cierra diciembre de 2027 con +$185 millones en efectivo. Una alternativa más barata baja el costo a $1,4 millones al mes.
+> **En una frase.** KINO cuesta $2,8 millones al mes en efectivo. Villas, Refugio y Sagrada cubren ese costo desde febrero de 2027. Con los 5 conjuntos nuevos, el escenario base cierra diciembre de 2027 con +$210 millones en efectivo. Una alternativa más barata baja el costo a $1,4 millones al mes.
 
 Horizonte: noviembre de 2026 a diciembre de 2027 (14 meses). Fuente de dinero: capital propio de los socios [9].
 
@@ -330,10 +334,10 @@ Horizonte: noviembre de 2026 a diciembre de 2027 (14 meses). Fuente de dinero: c
 |---|---|---|
 | Tasa de cambio | $3.300 por USD: techo del rango previsto para noviembre de 2026. TRM del 4 de noviembre: $3.235,59 | [12] [13] |
 | Equipo | Nadie cobra; todos son socios | [9] |
-| Unidades | Villas Campestres: 100 casas construidas. Refugio Campestre: 400 casas construidas | [9] |
+| Unidades | Villas Campestres: 100 casas construidas. Refugio Campestre: 400 casas construidas. Monte Sereno Sagrada: 70 casas | [9] |
 | Conjunto nuevo | 200 casas construidas (supuesto) | |
-| Cuota de administración | $600.000 al mes por casa, promedio de Villas y Refugio | [9] |
-| Calendario | Refugio se implementa en diciembre de 2026. Villas y Refugio pagan desde febrero de 2027, después de H2. Los 5 conjuntos nuevos firman en el primer trimestre y se implementan uno por mes (supuesto) | [9] |
+| Cuota de administración | $600.000 al mes por casa, promedio de Villas y Refugio. Para Sagrada se usa la misma (supuesto) | [9] |
+| Calendario | Refugio se implementa en diciembre de 2026 y Sagrada en enero de 2027. Los tres pagan desde febrero de 2027 (Sagrada: supuesto). Los 5 conjuntos nuevos firman en el primer trimestre y se implementan uno por mes (supuesto) | [9] |
 | Pagos en la app | Parte de las casas que paga la cuota en la app: 30 %, 50 % o 80 % según el escenario (supuesto) | |
 | Margen por pago | $2.000, aprobado el 9 de noviembre de 2026 | Apartado 2.9; [9] |
 | Reserva para imprevistos | 15 % | [8] |
@@ -353,7 +357,7 @@ Horizonte: noviembre de 2026 a diciembre de 2027 (14 meses). Fuente de dinero: c
 | Almacenamiento, respaldos, registros y transferencia | 58,44 | 192.852 |
 | **Total AWS** | **350,00** | **1.155.000** |
 
-Fuente: [8]. Incluye producción y pruebas. El costo de AWS con 7 conjuntos no está estimado; aquí se mantiene fijo.
+Fuente: [8]. Incluye producción y pruebas. El costo de AWS con 8 conjuntos no está estimado; aquí se mantiene fijo.
 
 ## 5.3 Herramientas y trabajo
 
@@ -370,9 +374,9 @@ Fuente: [8]. Incluye producción y pruebas. El costo de AWS con 7 conjuntos no e
 
 **Figma Enterprise** se paga por año: USD 2.160 de una vez, unos $7,1 millones. La tabla lo muestra como cuota mensual.
 
-**WhatsApp (inferido).** 1.500 casas × 2 ingresos a la app al mes = 3.000 mensajes. A USD 0,001 por mensaje, son USD 3 al mes. El residente comparte el KEY desde su propio WhatsApp; ese envío no le cuesta a KINO.
+**WhatsApp (inferido).** 1.570 casas × 2 ingresos a la app al mes = 3.140 mensajes. A USD 0,001 por mensaje, son unos USD 3 al mes. El residente comparte el KEY desde su propio WhatsApp; ese envío no le cuesta a KINO.
 
-**Capacidad.** 40 horas al mes, en horario hábil, sin atención 24 horas [8]. Cada implementación pide 40 horas más [8]. Con un conjunto nuevo por mes de abril a agosto, el equipo necesita 80 horas en esos meses (inferido). Es el mayor riesgo del calendario.
+**Capacidad.** 40 horas al mes, en horario hábil, sin atención 24 horas [8]. Cada implementación pide 40 horas más [8]. Con un conjunto nuevo por mes de abril a agosto, el equipo necesita 80 horas en esos meses (inferido). En enero, Sagrada se implementa mientras Villas y Refugio buscan el 80 %. Es el mayor riesgo del calendario.
 
 ## 5.4 Costo mensual
 
@@ -411,7 +415,7 @@ Cinco cambios bajan el costo en efectivo a la mitad sin quitarle al proyecto nad
 | Vista | 14 meses | Marca | Implementaciones (horas de los socios) | **Total** |
 |---|---|---|---|---|
 | En efectivo | 38.944.290 | 1.200.000 | 0 | **40.144.290** |
-| Sostenimiento, escenario base | 89.176.290 | 1.200.000 | 6 × 3.200.000 | **109.576.290** |
+| Sostenimiento, escenario base | 89.176.290 | 1.200.000 | 7 × 3.200.000 | **112.776.290** |
 | En efectivo, con la alternativa | 19.179.930 | 1.200.000 | 0 | **20.379.930** |
 
 ## 5.7 Ingresos
@@ -420,6 +424,7 @@ Precio del apartado 2.9. Villas Campestres no paga implementación porque ya est
 
 | Conjunto | $1.200.000 + casas × $10.000 | Comisión de pagos | Al mes |
 |---|---|---|---|
+| Monte Sereno Sagrada (70 casas) | 1.900.000 | 35 × 2.000 = 70.000 | 1.970.000 |
 | Villas Campestres (100 casas) | 2.200.000 | 50 × 2.000 = 100.000 | 2.300.000 |
 | Refugio Campestre (400 casas) | 5.200.000 | 200 × 2.000 = 400.000 | 5.600.000 |
 | Conjunto nuevo (200 casas) | 3.200.000 | 100 × 2.000 = 200.000 | 3.400.000 |
@@ -428,11 +433,11 @@ Los escenarios cambian cuántos conjuntos nuevos entran, desde cuándo y cuánta
 
 | Escenario | Conjuntos nuevos | Pagos en la app | Comisión a dic 2027 | Ingreso a dic 2027 |
 |---|---|---|---|---|
-| Conservador | 2, en julio y septiembre de 2027 | 30 % | 4.500.000 | 127.500.000 |
-| **Base** | **5, uno por mes de abril a agosto de 2027** | **50 %** | **12.500.000** | **225.100.000** |
-| Optimista | 5, uno por mes de marzo a julio de 2027 | 80 % | 21.600.000 | 250.200.000 |
+| Conservador | 2, en julio y septiembre de 2027 | 30 % | 4.962.000 | 152.062.000 |
+| **Base** | **5, uno por mes de abril a agosto de 2027** | **50 %** | **13.270.000** | **249.970.000** |
+| Optimista | 5, uno por mes de marzo a julio de 2027 | 80 % | 22.832.000 | 275.532.000 |
 
-Los tres escenarios incluyen a Villas y Refugio desde febrero de 2027 y una implementación de $3.200.000 por cada conjunto nuevo y por Refugio.
+Los tres escenarios incluyen a Villas, Refugio y Sagrada desde febrero de 2027 y una implementación de $3.200.000 por cada conjunto nuevo, por Refugio y por Sagrada.
 
 ## 5.8 Resultado a diciembre de 2027
 
@@ -440,22 +445,22 @@ Los tres escenarios incluyen a Villas y Refugio desde febrero de 2027 y una impl
 
 | Escenario | Ingresos | En efectivo | Sostenimiento |
 |---|---|---|---|
-| Conservador | 127.500.000 | +87.355.710 | +27.523.710 |
-| **Base** | **225.100.000** | **+184.955.710** | **+115.523.710** |
-| Optimista | 250.200.000 | +210.055.710 | +140.623.710 |
+| Conservador | 152.062.000 | +111.917.710 | +48.885.710 |
+| **Base** | **249.970.000** | **+209.825.710** | **+137.193.710** |
+| Optimista | 275.532.000 | +235.387.710 | +162.755.710 |
 
-Sin impuestos. Con la alternativa más barata, el escenario base sube a +$204,7 millones en efectivo.
+Sin impuestos. Con la alternativa más barata, el escenario base sube a +$229,6 millones en efectivo.
 
-**Cuánto capital ponen los socios.** La figura 19 muestra el acumulado del escenario base mes a mes. La caja toca su punto más bajo en enero de 2027: −$6,3 millones, que pagan los socios con capital propio. Desde marzo de 2027 la caja queda en positivo. El sostenimiento llega a −$20,3 millones en enero y queda en positivo desde julio de 2027.
+**Cuánto capital ponen los socios.** La figura 19 muestra el acumulado del escenario base mes a mes. La caja toca su punto más bajo en noviembre de 2026: −$4,0 millones, que pagan los socios con capital propio. Las implementaciones de Refugio en diciembre y de Sagrada en enero la sostienen, y desde febrero de 2027 la caja queda en positivo. El sostenimiento llega a −$20,3 millones en enero y queda en positivo desde mayo de 2027.
 
 ![Figura 19. Escenario base: resultado acumulado mes a mes.](figuras/f16.png){width=100%}
 
 | Tramo | Ingreso al mes | Qué pasa |
 |---|---|---|
-| nov 2026 a ene 2027 | 0, más la implementación de Refugio en diciembre | Desarrollo y piloto. La caja baja a −$6,3 millones |
-| feb y mar 2027 | 7.900.000 (Villas + Refugio) | La caja se recupera |
-| abr a ago 2027 | De 11.300.000 a 24.900.000 | Entra un conjunto nuevo cada mes |
-| sep a dic 2027 | 24.900.000 | Siete conjuntos pagan |
+| nov 2026 a ene 2027 | 0, más las implementaciones de Refugio (diciembre) y Sagrada (enero) | Desarrollo y piloto. La caja baja a −$4,0 millones |
+| feb y mar 2027 | 9.870.000 (Villas + Refugio + Sagrada) | La caja queda en positivo |
+| abr a ago 2027 | De 13.270.000 a 26.870.000 | Entra un conjunto nuevo cada mes |
+| sep a dic 2027 | 26.870.000 | Ocho conjuntos pagan |
 
 Si Figma Enterprise se paga por adelantado, la caja necesita unos $7,1 millones más al inicio.
 
@@ -467,29 +472,30 @@ Si Figma Enterprise se paga por adelantado, la caja necesita unos $7,1 millones 
 |---|---|---|---|
 | Villas Campestres sola | 2.300.000 | No: 83 % | No: 36 % |
 | Villas + Refugio | 7.900.000 | Sí | Sí, con +1.530.265 |
-| Villas + Refugio + 5 nuevos | 24.900.000 | Sí | Sí, con +18.530.265 |
+| Villas + Refugio + Sagrada | 9.870.000 | Sí | Sí, con +3.500.265 |
+| Los tres + 5 nuevos | 26.870.000 | Sí | Sí, con +20.500.265 |
 
 **Lectura (inferido).**
 
 1. Villas sola no cubre la caja con las herramientas actuales ($2,3 millones frente a $2,8 millones). Con la alternativa más barata ($1,4 millones), sí.
-2. Villas y Refugio juntos cubren el sostenimiento completo desde febrero de 2027. Por eso la penetración de enero (apartado 2.4) es la tarea con más efecto en el presupuesto.
-3. La comisión de pagos suma $12,5 millones en el escenario base, el 6 % del ingreso. Su valor está en que el residente vuelve a la app cada mes, no en el ingreso.
+2. Villas y Refugio juntos cubren el sostenimiento completo desde febrero de 2027; Sagrada suma un margen de $2 millones al mes. Por eso la penetración de enero (apartado 2.4) es la tarea con más efecto en el presupuesto.
+3. La comisión de pagos suma $13,3 millones en el escenario base, el 5 % del ingreso. Su valor está en que el residente vuelve a la app cada mes, no en el ingreso.
 4. El riesgo mayor es la capacidad: implementar 5 conjuntos entre abril y agosto pide el doble de horas de hoy.
 
 ## 5.10 Fuera del presupuesto
 
 | Rubro | Motivo |
 |---|---|
-| Hardware HikCentral | Ya instalado en Villas y Refugio; lo pagó Monte Sereno [9] |
+| Hardware HikCentral | Ya instalado en Villas y Refugio; lo pagó Monte Sereno [9]. En Sagrada, por confirmar |
 | Desplazamientos | No se incluyen [9] |
 | Equipos, licencias, red y energía de cada conjunto | Sin responsable confirmado [8] |
-| Crecimiento de AWS con 7 conjuntos | Sin estimar |
+| Crecimiento de AWS con 8 conjuntos | Sin estimar |
 | Funciones nuevas y módulos del eje Y | Sin estimar [8] |
 | Tarifa de la pasarela | La asume el conjunto o el residente, por decidir |
 | Atención 24 horas | Fuera de la capacidad de 40 horas [8] |
 | Abogado: política de datos y contrato tipo | Sin cotización |
 | Impuestos | Sin dato [8] |
-| Costo de portería de Villas y Refugio | Por recibir; reemplaza la cifra de mercado del apartado 2.9 |
+| Costo de portería de Villas, Refugio y Sagrada | Por recibir; reemplaza la cifra de mercado del apartado 2.9 |
 
 # 6. Medición
 
@@ -513,7 +519,7 @@ No hay líneas base todavía. Cada indicador dice cómo se mide y una meta inici
 | Técnica | Errores de sincronización | Errores por semana | Umbral para pasar a la etapa 02 |
 | Negocio | Embudo comercial | Conjuntos contactados, propuestas y contratos | 5 contratos firmados al 31 de marzo de 2027 |
 | Negocio | Tasa de cierre | Propuestas aceptadas ÷ enviadas | Revisar al llegar a 5 propuestas |
-| Negocio | Ingreso recurrente mensual | Σ ($1.200.000 + casas × $10.000) + comisión de pagos | $7,9 millones con Villas + Refugio; $24,9 millones con 7 conjuntos |
+| Negocio | Ingreso recurrente mensual | Σ ($1.200.000 + casas × $10.000) + comisión de pagos | $9,9 millones con Villas, Refugio y Sagrada; $26,9 millones con 8 conjuntos |
 | Negocio | Costo de adquisición | Gasto comercial ÷ conjuntos firmados | Línea base con el primer cierre |
 | Negocio | Recuperación de la implementación | Costo de implementación ÷ margen mensual del conjunto | Línea base con Refugio |
 

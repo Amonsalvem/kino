@@ -120,13 +120,13 @@ svg text{font-family:Inter,sans-serif}
 <!-- 11 PRECIO -->
 <div class="fig" id="f10">
  <div class="t">Cuánto paga cada conjunto al mes (COP)</div>
- <svg id="sv11" width="936" height="260"></svg>
+ <svg id="sv11" width="936" height="320"></svg>
 </div>
 
 <!-- 21 PESO EN LA CUOTA -->
 <div class="fig" id="f21">
  <div class="t">Cuánto pesa cada costo en lo que recauda el conjunto (% de la cuota)</div>
- <svg id="sv21" width="936" height="250"></svg>
+ <svg id="sv21" width="936" height="350"></svg>
 </div>
 
 <!-- 12 EXPANSION -->
@@ -162,7 +162,7 @@ svg text{font-family:Inter,sans-serif}
 <!-- 17 EQUILIBRIO -->
 <div class="fig" id="f17">
  <div class="t">Punto de equilibrio mensual (millones de COP)</div>
- <svg id="sv17" width="936" height="290"></svg>
+ <svg id="sv17" width="936" height="350"></svg>
 </div>
 
 <!-- 18 MEDICION -->
@@ -179,8 +179,8 @@ svg text{font-family:Inter,sans-serif}
 
 <!-- 19 PENETRACION -->
 <div class="fig" id="f19">
- <div class="t">Penetración en Villas y Refugio, de diciembre de 2026 a febrero de 2027</div>
- <svg id="sv19" width="936" height="380"></svg>
+ <div class="t">Penetración en Villas, Refugio y Sagrada, de diciembre de 2026 a febrero de 2027</div>
+ <svg id="sv19" width="936" height="440"></svg>
 </div>
 
 <!-- 20 PAGOS -->
@@ -239,7 +239,7 @@ tx(s,x0,156,'Fuera de la ventana, la vía es pagar con un rubro que ya existe, c
 
 // 7 cabeza de playa
 (()=>{const s=document.getElementById('sv07');
-const st=[['1','Villas Campestres y Refugio Campestre','500 casas construidas, hardware instalado','Diciembre 2026 y enero 2027',C.ok,C.oks],['2','5 conjuntos nuevos del oriente','El Retiro, Rionegro, La Ceja, Llanogrande','Enero a marzo de 2027',C.ac,C.acs],['3','Valle de Aburrá','Medellín y municipios vecinos','Con el servicio estandarizado',C.mut,C.soft]];
+const st=[['1','Villas, Refugio y Sagrada (Monte Sereno)','570 casas construidas','Diciembre 2026 y enero 2027',C.ok,C.oks],['2','5 conjuntos nuevos del oriente','El Retiro, Rionegro, La Ceja, Llanogrande','Enero a marzo de 2027',C.ac,C.acs],['3','Valle de Aburrá','Medellín y municipios vecinos','Con el servicio estandarizado',C.mut,C.soft]];
 const cx=150,cy=150;[128,90,52].forEach((r,i)=>el(s,'circle',{cx,cy,r,fill:st[2-i][5],stroke:st[2-i][4],'stroke-width':1.6}));
 [[cx,cy+4,'1'],[cx,cy-70,'2'],[cx,cy-108,'3']].forEach(([x,y,t],i)=>tx(s,x,y,t,{a:'middle',fw:700,fill:st[i][4],fs:18,b:'middle'}));
 st.forEach((r,i)=>{const y=40+i*84;el(s,'rect',{x:320,y,width:600,height:70,rx:10,fill:'#fff',stroke:r[4],'stroke-width':1.6});el(s,'circle',{cx:352,cy:y+35,r:16,fill:r[4]});tx(s,352,y+40,r[0],{a:'middle',fill:'#fff',fw:700});tx(s,382,y+29,r[1],{fw:700,fill:C.ink,fs:17});tx(s,382,y+52,r[2],{fs:14,fill:C.mut});tx(s,905,y+52,r[3],{a:'end',fs:13.5,fw:600,fill:r[4]})});})();
@@ -268,17 +268,17 @@ R.forEach((r,i)=>{const y=20+i*66;tx(s,L-14,y+22,r[0],{a:'end',b:'middle',fw:600
 tx(s,20,236,'Villas paga KINO con el 11 % al 13 % de lo que cuesta un puesto de vigilancia. Fuentes: Noticias RCN y El Espectador (2026).',{fs:13,fill:C.mut});})();
 
 // 11 precio KINO frente a Unita
-(()=>{const s=document.getElementById('sv11');const L=250,W=560,max=7e6;const R=[['Villas Campestres · 100 casas',100],['Conjunto nuevo · 200 casas',200],['Refugio Campestre · 400 casas',400]];
+(()=>{const s=document.getElementById('sv11');const L=250,W=560,max=7e6;const R=[['Sagrada · 70 casas',70],['Villas Campestres · 100 casas',100],['Conjunto nuevo · 200 casas',200],['Refugio Campestre · 400 casas',400]];
 R.forEach((r,i)=>{const y=14+i*66;const k=1.2e6+r[1]*10000,u=1.55e6+r[1]*10900;tx(s,L-14,y+25,r[0],{a:'end',b:'middle',fw:600,fill:C.ink});
 el(s,'rect',{x:L,y,width:k/max*W,height:24,fill:C.ac,rx:4});tx(s,L+k/max*W+10,y+12,'KINO $'+fmt(k),{b:'middle',fw:700,fill:C.ink,fs:14});
 el(s,'rect',{x:L,y:y+28,width:u/max*W,height:20,fill:C.line,rx:4});tx(s,L+u/max*W+10,y+38,'Unita $'+fmt(u),{b:'middle',fill:C.mut,fs:13})});
-tx(s,20,232,'KINO: $1.200.000 por conjunto + $10.000 por casa al mes. Unita: $1.550.000 por conjunto + $10.900 por casa.',{fs:13,fill:C.mut});})();
+tx(s,20,298,'KINO: $1.200.000 por conjunto + $10.000 por casa al mes. Unita: $1.550.000 por conjunto + $10.900 por casa.',{fs:13,fill:C.mut});})();
 
 // 12 expansion
 (()=>{const s=document.getElementById('sv12');arrowDef(s,'a12');const L=150,B=380,W=740,H=340;
 el(s,'path',{d:`M${L},${B} L${L},${B-H}`,stroke:C.ink,'stroke-width':2,'marker-end':'url(#a12)'});el(s,'path',{d:`M${L},${B} L${L+W},${B}`,stroke:C.ink,'stroke-width':2,'marker-end':'url(#a12)'});
 ['Hoy','1','2','3','Nuevo'].forEach((t,i)=>{const y=B-30-i*66;tx(s,L-10,y,t,{a:'end',b:'middle',fw:700,fill:C.ink});el(s,'line',{x1:L,y1:y,x2:L+W,y2:y,stroke:C.soft,'stroke-width':1})});
-const cx=['Villas y Refugio','7 conjuntos','10 o más'];cx.forEach((t,i)=>tx(s,L+90+i*270,B+26,t,{a:'middle',fw:600,fill:C.mut}));
+const cx=['Villas, Refugio y Sagrada','8 conjuntos','10 o más'];cx.forEach((t,i)=>tx(s,L+90+i*270,B+26,t,{a:'middle',fw:600,fill:C.mut}));
 tx(s,L+W,B+48,'Eje X: conjuntos →',{a:'end',fs:13,fill:C.mut});tx(s,L-10,B-H-10,'Eje Y: módulos y productos ↑',{a:'start',fs:13,fill:C.mut});
 const pts=[[L+90,B-30,'Acceso y pagos (dic 2026)',C.ok],[L+360,B-96,'Paquetería',C.ac],[L+450,B-162,'Reservas',C.ac],[L+560,B-228,'Seguridad',C.ac2],[L+630,B-294,'Productos nuevos',C.ac2]];
 let d=`M${pts[0][0]},${pts[0][1]}`;pts.slice(1).forEach(p=>d+=` L${p[0]},${p[1]}`);el(s,'path',{d,stroke:C.line,'stroke-width':3,fill:'none','stroke-dasharray':'6 5'});
@@ -288,7 +288,7 @@ tx(s,L,B+70,'◆ Condición para avanzar. Los módulos suben el valor; los produ
 
 // 13 gantt
 (()=>{const s=document.getElementById('sv13');const ms=['nov','dic','ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];const L=250,T=48,cw=47,rh=28;
-const R=[['Fase 3 · Desarrollo',0,2,C.ok,1],['Ingreso por WhatsApp y KEY',0,2,C.ok,0],['Módulo de pagos',0,2,C.ok,0],['Fase 4 · Piloto',1,3,C.ac,1],['Implementar Villas y Refugio',1,2,C.ac,0],['Penetración al 80 %',1.5,3,C.ac,0],['Fase 5 · Venta',2,5,C.ac2,1],['Implementar 5 conjuntos',3,6,C.ac2,0],['Fase 6 · Precio',0,3,C.wa,1],['Fase 7 · Caso del piloto',3,4,C.wa,1],['Fase 8 · Eje Y',5,14,C.ink,1],['Paquetería',5,8,C.ink,0],['Reservas',8,11,C.ink,0],['Seguridad',11,14,C.ink,0],['Fase 9 · Legal',0,2,C.mut,1]];
+const R=[['Fase 3 · Desarrollo',0,2,C.ok,1],['Ingreso por WhatsApp y KEY',0,2,C.ok,0],['Módulo de pagos',0,2,C.ok,0],['Fase 4 · Piloto',1,3,C.ac,1],['Implementar Refugio y Sagrada',1,3,C.ac,0],['Penetración al 80 %',1.5,3,C.ac,0],['Fase 5 · Venta',2,5,C.ac2,1],['Implementar 5 conjuntos',3,6,C.ac2,0],['Fase 6 · Precio',0,3,C.wa,1],['Fase 7 · Caso del piloto',3,4,C.wa,1],['Fase 8 · Eje Y',5,14,C.ink,1],['Paquetería',5,8,C.ink,0],['Reservas',8,11,C.ink,0],['Seguridad',11,14,C.ink,0],['Fase 9 · Legal',0,2,C.mut,1]];
 const n=R.length+1;
 tx(s,L+cw,16,'2026',{a:'middle',fw:700,fill:C.ink,fs:13});tx(s,L+2*cw+6*cw,16,'2027',{a:'middle',fw:700,fill:C.ink,fs:13});el(s,'line',{x1:L+2*cw,y1:4,x2:L+2*cw,y2:T+rh*n+10,stroke:C.ink,'stroke-width':1});
 ms.forEach((m,i)=>{tx(s,L+i*cw+cw/2,38,m,{a:'middle',fs:12.5,fill:C.mut});if(i%2==0)el(s,'rect',{x:L+i*cw,y:T,width:cw,height:rh*n,fill:C.soft})});
@@ -303,10 +303,10 @@ const st=[['Preparar','antes de lanzar','Padrón, precarga con cédula, capacita
 const w=170,g=17;st.forEach((r,i)=>{const x=i*(w+g);el(s,'rect',{x,y:10,width:w,height:150,rx:10,fill:r[4],stroke:r[3],'stroke-width':1.6});el(s,'circle',{cx:x+24,cy:36,r:13,fill:r[3]});tx(s,x+24,41,String(i+1),{a:'middle',fill:'#fff',fw:700,fs:13});tx(s,x+44,34,r[0],{fw:700,fill:C.ink,fs:15});tx(s,x+44,52,r[1],{fs:12,fill:r[3],fw:600});
 const words=r[2].split(' ');let line='',ly=82;words.forEach(wd=>{if((line+' '+wd).length>24){tx(s,x+14,ly,line.trim(),{fs:12.5});ly+=17;line=wd}else line+=' '+wd});tx(s,x+14,ly,line.trim(),{fs:12.5});
 if(i<4)el(s,'path',{d:`M${x+w+2},85 L${x+w+g-2},85`,stroke:C.mut,'stroke-width':1.8,'marker-end':'url(#a19)'})});
-tx(s,0,200,'Meta al 31 de enero de 2027: 80 % de las casas construidas con un residente activo',{fw:700,fill:C.ink,fs:15});
-const B=[['Villas Campestres',100,80],['Refugio Campestre',400,320],['Total',500,400]];const L=170,W=640;
-B.forEach((b,i)=>{const y=222+i*42;tx(s,L-12,y+14,b[0],{a:'end',b:'middle',fw:600,fill:C.ink,fs:14});el(s,'rect',{x:L,y,width:W,height:28,rx:5,fill:C.soft,stroke:C.line});el(s,'rect',{x:L,y,width:W*.8,height:28,rx:5,fill:i==2?C.ink:C.ac});tx(s,L+W*.8-10,y+15,`${b[2]} casas`,{a:'end',b:'middle',fill:'#fff',fw:700,fs:13});tx(s,L+W+10,y+15,`de ${b[1]}`,{b:'middle',fill:C.mut,fs:13})});
-el(s,'line',{x1:L+W*.8,y1:214,x2:L+W*.8,y2:352,stroke:C.wa,'stroke-width':2,'stroke-dasharray':'5 4'});tx(s,L+W*.8,368,'80 %',{a:'middle',fw:700,fill:C.wa,fs:13});})();
+tx(s,0,200,'Meta: 80 % de las casas con un residente activo. Villas y Refugio al 31 de enero; Sagrada al 28 de febrero de 2027',{fw:700,fill:C.ink,fs:15});
+const B=[['Villas Campestres',100,80],['Refugio Campestre',400,320],['Monte Sereno Sagrada',70,56],['Total',570,456]];const L=170,W=640;
+B.forEach((b,i)=>{const y=222+i*42;tx(s,L-12,y+14,b[0],{a:'end',b:'middle',fw:600,fill:C.ink,fs:14});el(s,'rect',{x:L,y,width:W,height:28,rx:5,fill:C.soft,stroke:C.line});el(s,'rect',{x:L,y,width:W*.8,height:28,rx:5,fill:i==3?C.ink:C.ac});tx(s,L+W*.8-10,y+15,`${b[2]} casas`,{a:'end',b:'middle',fill:'#fff',fw:700,fs:13});tx(s,L+W+10,y+15,`de ${b[1]}`,{b:'middle',fill:C.mut,fs:13})});
+el(s,'line',{x1:L+W*.8,y1:214,x2:L+W*.8,y2:394,stroke:C.wa,'stroke-width':2,'stroke-dasharray':'5 4'});tx(s,L+W*.8,410,'80 %',{a:'middle',fw:700,fill:C.wa,fs:13});})();
 
 // 20 pagos
 (()=>{const s=document.getElementById('sv20');arrowDef(s,'a20');
@@ -331,21 +331,21 @@ parts.forEach((p,j)=>{const x=L+j*165;el(s,'rect',{x,y:226,width:14,height:14,fi
 tx(s,20,272,'El trabajo de los socios vale $3.120.000 al mes, pero hoy no sale de la caja. La alternativa barata es la del apartado 5.5 (en efectivo).',{fs:13,fill:C.mut});})();
 
 // 15 escenarios
-(()=>{const s=document.getElementById('sv15');const L=70,B=300,H=260,max=300;const sc=[['Conservador',127.5],['Base',225.1],['Optimista',250.2]];const ce=40.14,cs=109.58;
+(()=>{const s=document.getElementById('sv15');const L=70,B=300,H=260,max=300;const sc=[['Conservador',152.1],['Base',250.0],['Optimista',275.5]];const ce=40.14,cs=112.78;
 [0,50,100,150,200,250,300].forEach(v=>{const y=B-v/max*H;el(s,'line',{x1:L,y1:y,x2:900,y2:y,stroke:C.soft});tx(s,L-10,y,String(v),{a:'end',b:'middle',fs:12.5,fill:C.mut})});
 sc.forEach((r,i)=>{const x=L+60+i*260;const h=r[1]/max*H;el(s,'rect',{x,y:B-h,width:110,height:h,fill:i==1?C.ac:C.acs,stroke:C.ac,rx:4});tx(s,x+55,B-h-10,'$'+r[1].toFixed(1).replace('.',',')+' M',{a:'middle',fw:700,fill:C.ink});tx(s,x+55,B+22,r[0],{a:'middle',fw:i==1?700:600,fill:C.ink})});
 let lg=0;const ln=(v,c,t)=>{const y=B-v/max*H;el(s,'line',{x1:L,y1:y,x2:900,y2:y,stroke:c,'stroke-width':2.2,'stroke-dasharray':'7 5'});el(s,'line',{x1:L+lg,y1:B+48,x2:L+lg+28,y2:B+48,stroke:c,'stroke-width':2.2,'stroke-dasharray':'7 5'});tx(s,L+lg+36,B+53,t,{fs:13.5,fw:700,fill:c});lg+=330};
-ln(ce,C.ok,'Costo en efectivo: $40,1 M');ln(cs,C.ba,'Costo de sostenimiento: $109,6 M');
+ln(ce,C.ok,'Costo en efectivo: $40,1 M');ln(cs,C.ba,'Costo de sostenimiento: $112,8 M');
 tx(s,L,B+84,'Los tres escenarios cubren los dos costos. El base cumple la meta de 5 conjuntos nuevos (H5).',{fs:13,fill:C.mut});})();
 
 // 16 flujo acumulado
 (()=>{const s=document.getElementById('sv16');const ms=['nov','dic','ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
-const E=[-3981735,-3563470,-6345205,-1226940,3891325,15609590,30727855,49246120,71164385,96482650,118600915,140719180,162837445,184955710];
-const S=[-7569735,-13939470,-20309205,-18778940,-17248675,-12318410,-3988145,7742120,22872385,41402650,59932915,78463180,96993445,115523710];
+const E=[-3981735,-3563470,-3145205,3943060,11031325,24719590,41807855,62296120,86184385,113472650,137560915,161649180,185737445,209825710];
+const S=[-7569735,-13939470,-20309205,-16808940,-13308675,-6408410,3891855,17592120,34692385,55192650,75692915,96193180,116693445,137193710];
 const L=80,T=20,W=740,H=330,min=-50e6,max=250e6;const y=v=>T+(max-v)/(max-min)*H;const x=i=>L+i*(W/13);
 [-50,0,50,100,150,200,250].forEach(v=>{el(s,'line',{x1:L,y1:y(v*1e6),x2:L+W,y2:y(v*1e6),stroke:v==0?C.ink:C.soft,'stroke-width':v==0?1.5:1});tx(s,L-10,y(v*1e6),String(v),{a:'end',b:'middle',fs:12.5,fill:C.mut})});
 ms.forEach((m,i)=>tx(s,x(i),T+H+20,m,{a:'middle',fs:12.5,fill:C.mut}));tx(s,x(0.5),T+H+40,'2026',{a:'middle',fs:12,fw:700,fill:C.ink});tx(s,x(8),T+H+40,'2027',{a:'middle',fs:12,fw:700,fill:C.ink});
-[[3,'Villas y Refugio pagan',14],[5,'Primer conjunto nuevo',34]].forEach(([i,t,o])=>{el(s,'line',{x1:x(i),y1:T,x2:x(i),y2:T+H,stroke:C.line,'stroke-dasharray':'4 4'});tx(s,x(i)+6,T+o,t,{fs:12.5,fw:700,fill:C.mut})});
+[[3,'Villas, Refugio y Sagrada pagan',14],[5,'Primer conjunto nuevo',34]].forEach(([i,t,o])=>{el(s,'line',{x1:x(i),y1:T,x2:x(i),y2:T+H,stroke:C.line,'stroke-dasharray':'4 4'});tx(s,x(i)+6,T+o,t,{fs:12.5,fw:700,fill:C.mut})});
 const path=(A,c)=>{let d='';A.forEach((v,i)=>d+=(i?' L':'M')+x(i)+','+y(v));el(s,'path',{d,stroke:c,'stroke-width':3,fill:'none'});A.forEach((v,i)=>el(s,'circle',{cx:x(i),cy:y(v),r:3.5,fill:c}))};
 path(E,C.ok);path(S,C.ba);
 tx(s,x(13)+6,y(E[13]),'+'+M(E[13]),{b:'middle',fw:700,fill:C.ok,fs:14});tx(s,x(13)+6,y(S[13]),'+'+M(S[13]),{b:'middle',fw:700,fill:C.ba,fs:14});
@@ -353,14 +353,14 @@ tx(s,x(2),y(S[2])+24,'punto más bajo: '+M(S[2]),{fs:12.5,fill:C.ba,fw:600,a:'mi
 el(s,'line',{x1:L,y1:T+H+58,x2:L+24,y2:T+H+58,stroke:C.ok,'stroke-width':3});tx(s,L+30,T+H+62,'En efectivo',{fs:13.5});el(s,'line',{x1:L+150,y1:T+H+58,x2:L+174,y2:T+H+58,stroke:C.ba,'stroke-width':3});tx(s,L+180,T+H+62,'Sostenimiento (incluye el trabajo de los socios)',{fs:13.5});})();
 
 // 17 equilibrio
-(()=>{const s=document.getElementById('sv17');const L=280,W=560,max=27e6;const R=[['Villas Campestres sola',2.3e6],['Villas + Refugio',7.9e6],['Villas + Refugio + 5 nuevos',24.9e6]];
-R.forEach((r,i)=>{const yy=20+i*64;tx(s,L-14,yy+22,r[0],{a:'end',b:'middle',fw:600,fill:C.ink});el(s,'rect',{x:L,y:yy,width:r[1]/max*W,height:44,rx:5,fill:C.ac});const lx=L+r[1]/max*W+10;tx(s,i==2?lx-20:(i==0?L+3.4e6/max*W:lx),yy+22,'$'+M(r[1])+' M',{b:'middle',fw:700,fill:i==2?'#fff':C.ink,a:i==2?'end':'start'})});
-const ln=(v,c,t,o,an)=>{const x=L+v/max*W;el(s,'line',{x1:x,y1:10,x2:x,y2:214,stroke:c,'stroke-width':2.2,'stroke-dasharray':'6 4'});tx(s,x,236+o,t,{a:an,fs:13,fw:700,fill:c})};
+(()=>{const s=document.getElementById('sv17');const L=280,W=560,max=28e6;const R=[['Villas Campestres sola',2.3e6],['Villas + Refugio',7.9e6],['Villas + Refugio + Sagrada',9.87e6],['Los tres + 5 nuevos',26.87e6]];
+R.forEach((r,i)=>{const yy=20+i*64;tx(s,L-14,yy+22,r[0],{a:'end',b:'middle',fw:600,fill:C.ink});el(s,'rect',{x:L,y:yy,width:r[1]/max*W,height:44,rx:5,fill:C.ac});const lx=L+r[1]/max*W+10;tx(s,i==3?lx-20:(i==0?L+3.4e6/max*W:lx),yy+22,'$'+M(r[1])+' M',{b:'middle',fw:700,fill:i==3?'#fff':C.ink,a:i==3?'end':'start'})});
+const ln=(v,c,t,o,an)=>{const x=L+v/max*W;el(s,'line',{x1:x,y1:10,x2:x,y2:278,stroke:c,'stroke-width':2.2,'stroke-dasharray':'6 4'});tx(s,x,300+o,t,{a:an,fs:13,fw:700,fill:c})};
 ln(2781735,C.ok,'Efectivo: $2,8 M',0,'end');ln(6369735,C.ba,'Sostenimiento: $6,4 M',0,'start');
-tx(s,20,272,'Villas y Refugio juntos cubren los dos costos. Por eso la penetración de enero es la tarea con más efecto.',{fs:13,fill:C.mut});})();
+tx(s,20,334,'Villas y Refugio juntos cubren los dos costos. Por eso la penetración de enero es la tarea con más efecto.',{fs:13,fill:C.mut});})();
 
 // 21 peso en la cuota
-(()=>{const s=document.getElementById('sv21');const L=330,W=480,max=40;const R=[['Puesto de vigilancia · Villas (100 casas)',28.5,32.7,C.mut],['Puesto de vigilancia · Refugio (400 casas)',7.1,8.2,C.mut],['KINO · Villas (100 casas)',3.7,0,C.ac],['KINO · Refugio (400 casas)',2.2,0,C.ac]];
+(()=>{const s=document.getElementById('sv21');const L=330,W=480,max=50;const R=[['Puesto de vigilancia · Sagrada (70 casas)',40.7,46.7,C.mut],['Puesto de vigilancia · Villas (100 casas)',28.5,32.7,C.mut],['Puesto de vigilancia · Refugio (400 casas)',7.1,8.2,C.mut],['KINO · Sagrada (70 casas)',4.5,0,C.ac],['KINO · Villas (100 casas)',3.7,0,C.ac],['KINO · Refugio (400 casas)',2.2,0,C.ac]];
 R.forEach((r,i)=>{const y=14+i*50;tx(s,L-14,y+17,r[0],{a:'end',b:'middle',fw:600,fill:C.ink,fs:14});el(s,'rect',{x:L,y,width:r[1]/max*W,height:34,rx:5,fill:r[3]});if(r[2])el(s,'rect',{x:L+r[1]/max*W,y,width:(r[2]-r[1])/max*W,height:34,fill:r[3],opacity:.4});const v=r[2]?`${String(r[1]).replace('.',',')} % a ${String(r[2]).replace('.',',')} %`:`${String(r[1]).replace('.',',')} %`;tx(s,L+(r[2]||r[1])/max*W+10,y+17,v,{b:'middle',fw:700,fill:C.ink})});
-tx(s,20,230,'Parte de lo que recauda el conjunto con una cuota de $600.000 por casa. Vigilancia: $17,1 a $19,6 M al mes (Noticias RCN y El Espectador, 2026).',{fs:13,fill:C.mut});})();
+tx(s,20,330,'Parte de lo que recauda el conjunto con una cuota de $600.000 por casa. Vigilancia: $17,1 a $19,6 M al mes (Noticias RCN y El Espectador, 2026).',{fs:13,fill:C.mut});})();
 </script></body></html>
