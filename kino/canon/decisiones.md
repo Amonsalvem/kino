@@ -26,7 +26,9 @@ Registro único de decisiones del Kino nuevo: producto, marca, arquitectura y op
 
 ---
 
-## D-002 · Qué se hereda de la marca de pre-kino · PROPUESTA (4 nov 2026)
+## D-002 · Qué se hereda de la marca de pre-kino · APROBADA (Alejandro, 8 nov 2026) · opción A
+
+**Aprobación.** Alejandro en el chat del proyecto Kino (D-008), 8 nov 2026: «Opción A». Decidió antes de cargar la marca nueva en Figma.
 
 La identidad nueva puede partir de cero o heredar piezas que ya probaron su valor. Esto no decide la estética, solo el punto de partida.
 
@@ -224,7 +226,27 @@ Cambia el momento de la comisión de pagos de D-010. Alejandro: «El D también 
 
 **Trazabilidad y HikCentral.** No cambia autor, motivo, vigencia ni autoridad del KEY. No toca la sincronización. Toca datos financieros de los residentes: exige la política de datos y el contrato con la pasarela antes de cobrar.
 
-## D-013 · Precio por casa con mínimo por conjunto · APROBADA (Alejandro, 9 nov 2026) · opción A
+## D-013 · Curador semanal de agentes y skills · APROBADA (Alejandro, 9 nov 2026) · opción A
+
+**Aprobación.** [Comentario de Alejandro en el PR #30](https://github.com/Amonsalvem/kino/pull/30#discussion_r4513605107).
+
+**Qué se propone.** Un agente que vive en GitHub y cada lunes revisa los agentes, las skills, los hooks y el estado del arte en IA. Crea, actualiza o retira skills y agentes según lo que Kino necesite, y abre un PR en borrador con un informe. Si el concepto de agente o skill cambia, propone la migración por etapas. Su única función es esa. Guía: `herramientas/curador/README.md`; instrucciones: `herramientas/curador/prompt.md`.
+
+| Opción | Alcance | Costo |
+|---|---|---|
+| A (recomendada) | Action semanal con Claude Code. Cambia archivos solo en sus rutas (skills, agentes, hooks, `AGENTS.md`, `CLAUDE.md`, sus propios archivos) y agrega PROPUESTAS. Un guardián revierte lo demás. Abre un PR en borrador | Un PR por semana para revisar. Gasta del límite de Claude Pro |
+| B | La misma Action, pero solo escribe un informe en un issue. Nadie cambia archivos hasta que una persona lo pida | Cada mejora necesita una sesión aparte. Las skills se desactualizan más rápido |
+| C | Mensual en vez de semanal | Menos revisión. Las novedades llegan hasta 4 semanas tarde |
+
+**Límites en todas las opciones.** El curador nunca integra, nunca aprueba decisiones y no toca `pre-kino/`, `.github/`, `kino/canon/proyecto.md`, código, marca ni producto. Integrar sigue la regla de D-008.
+
+**Palabras de origen.** «Necesito que crees un agente experto/inspector/ y curador de agentes y skills. Que semanalmente a medida de lo que requiera Kino, haga una investigación del estado del arte en agentes y skills, integre lo que le convenga más a Kino.» (Alejandro, chat del proyecto, 9 nov 2026).
+
+**Trazabilidad y HikCentral.** El curador trabaja sobre la forma de trabajar con IA, no sobre el producto. No toca la lógica de ingresos, el Pase ni la sincronización con HikCentral. Cada cambio queda en un PR con su informe y su corrida de Actions.
+
+## D-014 · Precio por casa con mínimo por conjunto · APROBADA (Alejandro, 9 nov 2026) · opción A
+
+**Número.** Se propuso como D-013 y se renumeró a D-014 porque D-013 ya existía en `main` (curador semanal). El comentario de aprobación dice «D-013».
 
 **Aprobación.** [Comentario de Alejandro en el PR #28](https://github.com/Amonsalvem/kino/pull/28#issuecomment-6743415369).
 
