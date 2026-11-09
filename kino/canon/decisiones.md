@@ -155,3 +155,23 @@ D-003 sigue vigente: Alejandro aprueba y Nico propone. D-003 registra que Manuel
 **Palabras de origen.** «Prefiero que todo este flujo se realizado en mi claude, que sea meterme al project de kino y estén abiertos los PRs que debo revisar, las decisiones que tomar y realizar todo por medio de este chat». En la tarjeta de decisión del hilo «Revisar y aprobar PR desde el chat» eligió «Sí, solo con mi orden por PR».
 
 **Trazabilidad.** Cada integración queda en GitHub con la cuenta de Alejandro, y el hilo del chat guarda la orden. No toca la lógica de ingresos ni la sincronización con HikCentral.
+
+---
+
+## D-013 · Curador semanal de agentes y skills · APROBADA (Alejandro, 9 nov 2026) · opción A
+
+**Aprobación.** [Comentario de Alejandro en el PR #30](https://github.com/Amonsalvem/kino/pull/30#discussion_r4513605107).
+
+**Qué se propone.** Un agente que vive en GitHub y cada lunes revisa los agentes, las skills, los hooks y el estado del arte en IA. Crea, actualiza o retira skills y agentes según lo que Kino necesite, y abre un PR en borrador con un informe. Si el concepto de agente o skill cambia, propone la migración por etapas. Su única función es esa. Guía: `herramientas/curador/README.md`; instrucciones: `herramientas/curador/prompt.md`.
+
+| Opción | Alcance | Costo |
+|---|---|---|
+| A (recomendada) | Action semanal con Claude Code. Cambia archivos solo en sus rutas (skills, agentes, hooks, `AGENTS.md`, `CLAUDE.md`, sus propios archivos) y agrega PROPUESTAS. Un guardián revierte lo demás. Abre un PR en borrador | Un PR por semana para revisar. Gasta del límite de Claude Pro |
+| B | La misma Action, pero solo escribe un informe en un issue. Nadie cambia archivos hasta que una persona lo pida | Cada mejora necesita una sesión aparte. Las skills se desactualizan más rápido |
+| C | Mensual en vez de semanal | Menos revisión. Las novedades llegan hasta 4 semanas tarde |
+
+**Límites en todas las opciones.** El curador nunca integra, nunca aprueba decisiones y no toca `pre-kino/`, `.github/`, `kino/canon/proyecto.md`, código, marca ni producto. Integrar sigue la regla de D-008.
+
+**Palabras de origen.** «Necesito que crees un agente experto/inspector/ y curador de agentes y skills. Que semanalmente a medida de lo que requiera Kino, haga una investigación del estado del arte en agentes y skills, integre lo que le convenga más a Kino.» (Alejandro, chat del proyecto, 9 nov 2026).
+
+**Trazabilidad y HikCentral.** El curador trabaja sobre la forma de trabajar con IA, no sobre el producto. No toca la lógica de ingresos, el Pase ni la sincronización con HikCentral. Cada cambio queda en un PR con su informe y su corrida de Actions.
