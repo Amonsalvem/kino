@@ -66,3 +66,11 @@ Viven en `.claude/skills/`. Si tu herramienta no las carga sola, abre el `SKILL.
 | `mentor` | En toda sesión con Alejandro |
 
 Las skills de pre-kino (`pre-kino/skills/`) y el plugin arcana son registro histórico. No se usan.
+
+## 7. Agentes en GitHub
+
+| Agente | Cuándo corre | Qué hace | Guía |
+|---|---|---|---|
+| Curador de agentes y skills (D-013) | Cada lunes, 6 a. m. en Colombia, o a mano | Revisa skills, agentes y hooks contra lo que Kino necesita y el estado del arte en IA. Abre un PR en borrador con cambios e informe. Nunca integra | [`herramientas/curador/README.md`](herramientas/curador/README.md) |
+
+Una skill o un agente nuevo puede venir del curador. Se revisa como cualquier PR.

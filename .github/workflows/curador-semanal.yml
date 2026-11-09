@@ -1,0 +1,99 @@
+# Curador de agentes y skills (D-013). Cada lunes revisa los agentes, las skills y el estado del arte,
+# cambia lo que le corresponde y abre un PR en borrador con su informe. Nunca integra.
+# Instrucciones: herramientas/curador/prompt.md · Guía: herramientas/curador/README.md
+name: Curador semanal
+on:
+  schedule:
+    - cron: "0 11 * * 1"  # lunes, 6 a. m. en Colombia
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+  issues: read
+concurrency:
+  group: curador
+  cancel-in-progress: false
+jobs:
+  curar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Llave de Claude
+        id: llave
+        env:
+          OAUTH: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          API: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -n "$OAUTH" ] || [ -n "$API" ]; then
+            echo "hay=si" >> "$GITHUB_OUTPUT"
+          else
+            echo "::warning::Falta el secreto CLAUDE_CODE_OAUTH_TOKEN o ANTHROPIC_API_KEY. El curador no corre."
+          fi
+      # Sin ref: el horario y la corrida a mano usan main. Un PR no puede cambiar lo que corre aquí.
+      # CURADOR_TOKEN es opcional: con él, el PR del curador dispara los chequeos de siempre.
+      - uses: actions/checkout@v4
+        if: steps.llave.outputs.hay == 'si'
+        with:
+          fetch-depth: 100
+          token: ${{ secrets.CURADOR_TOKEN || github.token }}
+      - name: Preparar
+        if: steps.llave.outputs.hay == 'si'
+        id: prep
+        run: |
+          echo "hoy=$(TZ=America/Bogota date +%F)" >> "$GITHUB_OUTPUT"
+          # El guardián se copia antes de que corra el curador, para que no pueda cambiarlo.
+          cp herramientas/curador/limitar-cambios.sh "$RUNNER_TEMP/limitar-cambios.sh"
+      - name: Curador
+        if: steps.llave.outputs.hay == 'si'
+        uses: anthropics/claude-code-action@v1
+        env:
+          GH_TOKEN: ${{ github.token }}
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          github_token: ${{ github.token }}
+          prompt: |
+            REPOSITORIO: ${{ github.repository }}
+            FECHA: ${{ steps.prep.outputs.hoy }}
+            CORRIDA: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            Lee herramientas/curador/prompt.md y síguelo. Es tu única tarea.
+            El informe va en herramientas/curador/informes/${{ steps.prep.outputs.hoy }}.md.
+          claude_args: |
+            --max-turns 80
+            --allowedTools "Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Bash(git log:*),Bash(git diff:*),Bash(git status:*),Bash(git rm:*),Bash(gh pr list:*),Bash(gh pr view:*),Bash(gh issue list:*),Bash(gh issue view:*),Bash(python3 herramientas/revisar-texto.py:*),Bash(ls:*)"
+      - name: Limitar cambios
+        if: steps.llave.outputs.hay == 'si'
+        run: bash "$RUNNER_TEMP/limitar-cambios.sh" "$RUNNER_TEMP/avisos.md"
+      - name: Revisar texto
+        if: steps.llave.outputs.hay == 'si'
+        run: |
+          git add -A
+          git diff --cached --name-only --diff-filter=ACMR > "$RUNNER_TEMP/cambios.txt"
+          cat "$RUNNER_TEMP/cambios.txt"
+          if [ -s "$RUNNER_TEMP/cambios.txt" ] && ! xargs -a "$RUNNER_TEMP/cambios.txt" -d '\n' python3 herramientas/revisar-texto.py; then
+            printf '\n### Chequeo de texto\n\nEl chequeo de muletillas encontró errores. Ver la corrida: %s\n' \
+              "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" >> "$RUNNER_TEMP/avisos.md"
+          fi
+      - name: Abrir PR en borrador
+        if: steps.llave.outputs.hay == 'si'
+        env:
+          GH_TOKEN: ${{ secrets.CURADOR_TOKEN || github.token }}
+          HOY: ${{ steps.prep.outputs.hoy }}
+        run: |
+          informe="herramientas/curador/informes/$HOY.md"
+          if [ ! -f "$informe" ]; then
+            echo "::error::El curador no escribió $informe"
+            exit 1
+          fi
+          rama="orden/curador-$HOY-${{ github.run_number }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$rama"
+          git add -A
+          git commit -m "Orden: revisión semanal del curador ($HOY)"
+          git push origin "$rama"
+          { cat "$informe"; cat "$RUNNER_TEMP/avisos.md" 2>/dev/null || true; } > "$RUNNER_TEMP/cuerpo.md"
+          gh pr create --draft --base main --head "$rama" \
+            --title "Orden: revisión semanal del curador ($HOY)" \
+            --body-file "$RUNNER_TEMP/cuerpo.md" \
+            --assignee Amonsalvem
