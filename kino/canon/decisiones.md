@@ -224,7 +224,9 @@ Cambia el momento de la comisión de pagos de D-010. Alejandro: «El D también 
 
 **Trazabilidad y HikCentral.** No cambia autor, motivo, vigencia ni autoridad del KEY. No toca la sincronización. Toca datos financieros de los residentes: exige la política de datos y el contrato con la pasarela antes de cobrar.
 
-## D-013 · Precio por casa con mínimo por conjunto · PROPUESTA (9 nov 2026)
+## D-013 · Precio por casa con mínimo por conjunto · APROBADA (Alejandro, 9 nov 2026) · opción A
+
+**Aprobación.** [Comentario de Alejandro en el PR #28](https://github.com/Amonsalvem/kino/pull/28#issuecomment-6743415369).
 
 Cambia la parte de cobro mensual de D-010 (piso por conjunto + cobro por casa). Alejandro eligió la opción A en la tarjeta del chat del proyecto el 9 nov 2026, después de señalar que igualar el precio de Unita «parece como una copia del modelo de pricing de ellos». Siguen igual la implementación única y la comisión de pagos (D-012).
 
