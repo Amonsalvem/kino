@@ -169,7 +169,7 @@ Estructura del documento de Nico (deck histórico, lám. 32). Las cifras están 
 
 ### 2.7 Modelos de ingreso evaluados
 
-Pedido de Alejandro, 9 nov 2026: buscar el modelo más rentable sin limitarse al cobro por unidad. Decisión abierta en D-010.
+Pedido de Alejandro, 9 nov 2026: buscar el modelo más rentable sin limitarse al cobro por unidad. Alejandro eligió B + E, con D desde la etapa 03 (D-010).
 
 **Ancla de valor.** Un puesto de vigilancia 24 horas cuesta al conjunto entre $17,1 y $19,6 millones al mes en 2026. Fuente: [Noticias RCN](https://www.noticiasrcn.com/economia/la-supervigilancia-fijo-tarifas-minimas-de-vigilancia-para-2026-989255) y [El Espectador](https://www.elespectador.com/economia/tarifas-de-vigilancia-y-seguridad-privada-en-2026-asi-suben-los-precios/), consulta 9 nov 2026. Kino a $8.000 por casa en Villas Campestres (100 casas) cobra $800.000: el 4,5 % de un puesto. Inferido: el precio por unidad deja valor sin cobrar.
 
@@ -195,7 +195,7 @@ Tarifa de la pasarela, para el modelo D: Wompi cobra 2,65 % + $700 + IVA en lín
 | Marca blanca | D-009 |
 | Vender datos de ingresos | Ley 1581 de 2012 y la trazabilidad del Pase; sin revisión legal |
 
-**Combinación recomendada (inferido).** B + E desde el primer conjunto, y D desde la etapa 03. Con Villas y Refugio: 5.000.000 (B) + 1.000.000 (D) = 6.000.000 al mes. Eso cubre la vista de sostenimiento (5.261.595 al mes, Bloque 5), con el trabajo de los socios incluido. C sirve como argumento de venta para B: el piso es una fracción de un puesto de vigilancia.
+**Combinación elegida (D-010).** B + E desde el primer conjunto, y D desde la etapa 03. Con Villas y Refugio: 5.000.000 (B) + 1.000.000 (D) = 6.000.000 al mes. Eso cubre la vista de sostenimiento (5.261.595 al mes, Bloque 5), con el trabajo de los socios incluido. C sirve como argumento de venta para B: el piso es una fracción de un puesto de vigilancia.
 
 ---
 
@@ -347,48 +347,57 @@ El PDF da $5.474.000 al mes en la vista de sostenimiento. La diferencia sale de 
 | En efectivo | 23.430.330 | 1.200.000 | **24.630.330** |
 | Sostenimiento | 73.662.330 | 1.200.000 | **74.862.330** |
 
-### 5.6 Ingresos: tres escenarios
+### 5.6 Ingresos: modelo de D-010
 
-El precio de Kino no está decidido. Se modela con tres precios por unidad construida al mes. El más alto es la tarifa por villa del competidor ($10.900). Fuente: deck histórico, lám. 32.
+Modelo elegido por Alejandro el 9 nov 2026 (D-010, opción B): piso por conjunto + cobro por casa construida + implementación única. La comisión de pagos empieza en la etapa 03 y no entra antes de dic 2027. Comparación de modelos: apartado 2.7.
 
-**Referencia (inferido).** El competidor cobra además una base de $1.550.000 al mes. En Villas Campestres (100 casas) eso suma $2.640.000 al mes: $26.400 por casa construida.
+**Supuestos de precio.** Son ejemplos para modelar, no precios aprobados. El precio final se valida con administradores en la fase 4.
 
-| Escenario | Precio por unidad | Conjuntos y meses que pagan | Ingreso a dic 2027 (COP) |
+| Componente | Conservador | Base | Optimista |
 |---|---|---|---|
-| Conservador | $5.000 | Villas Campestres (100) desde abr 2027, después de H3: 9 meses | 4.500.000 |
-| Base | $8.000 | Villas (100) desde mar 2027: 10 meses. Refugio (400) desde jul 2027: 6 meses | 27.200.000 |
-| Optimista | $10.900 | Villas desde mar 2027 (10 meses), Refugio desde jul 2027 (6 meses) y un conjunto nuevo de 200 unidades (supuesto) desde oct 2027 (3 meses) | 43.600.000 |
+| Piso por conjunto, al mes | $1.000.000 | $1.000.000 | $1.000.000 |
+| Cobro por casa construida, al mes | $4.000 | $6.000 | $8.000 |
+| Implementación, una vez | $3.200.000 | $3.200.000 | $3.200.000 |
 
-Las fechas salen del roadmap: H2 (mar 2027) y H3 (abr 2027). Refugio paga solo cuando su sincronización esté reparada. No se incluye cobro de implementación: su valor está pendiente.
+Implementación: 40 h × $80.000, tarifa de coordinación del PDF de costos. Villas Campestres no la paga: ya está implementada. Refugio Campestre la paga al reparar su sincronización. Inferido.
+
+| Escenario | Quién paga y desde cuándo | Cálculo | Ingreso a dic 2027 (COP) |
+|---|---|---|---|
+| Conservador | Villas (100) desde abr 2027: 9 meses | 1.400.000 × 9 | 12.600.000 |
+| Base | Villas desde mar 2027 (10 meses). Refugio (400) desde jul 2027 (6 meses) más su implementación | 1.600.000 × 10 + 3.400.000 × 6 + 3.200.000 | 39.600.000 |
+| Optimista | Lo anterior a $8.000 y un conjunto nuevo de 200 casas (supuesto) desde oct 2027 (3 meses), con implementación | 1.800.000 × 10 + 4.200.000 × 6 + 2.600.000 × 3 + 3.200.000 × 2 | 57.400.000 |
+
+Las fechas salen del roadmap: H2 (mar 2027) y H3 (abr 2027). Refugio paga solo cuando su sincronización esté reparada.
 
 ### 5.7 Resultado a dic 2027
 
-| Escenario | Ingresos | En efectivo | Sostenimiento |
+| Escenario | Ingresos | En efectivo (costo 24.630.330) | Sostenimiento (costo 74.862.330) |
 |---|---|---|---|
-| Conservador | 4.500.000 | −20.130.330 | −70.362.330 |
-| Base | 27.200.000 | +2.569.670 | −47.662.330 |
-| Optimista | 43.600.000 | +18.969.670 | −31.262.330 |
+| Conservador | 12.600.000 | −12.030.330 | −62.262.330 |
+| Base | 39.600.000 | +14.969.670 | −35.262.330 |
+| Optimista | 57.400.000 | +32.769.670 | −17.462.330 |
 
-Sin impuestos ni comisiones.
+Sin impuestos ni comisiones. El resultado de sostenimiento es negativo en los tres escenarios porque Kino empieza a cobrar en 2027 y paga desde nov 2026.
 
-### 5.8 Punto de equilibrio
+### 5.8 Equilibrio mensual
 
 ```
-Unidades que deben pagar cada mes = costo mensual ÷ precio por unidad
+Ingreso de un conjunto al mes = piso + casas × cobro por casa
 
-                 EN EFECTIVO (1.673.595)    SOSTENIMIENTO (5.261.595)
-a $5.000              335 unidades               1.053 unidades
-a $8.000              210 unidades                 658 unidades
-a $10.900             154 unidades                 483 unidades
+                        Villas (100)   Refugio (400)   Juntos     Cubre efectivo   Cubre sostenimiento
+                                                                  (1.673.595)      (5.261.595)
+Conservador ($4.000)     1.400.000      2.600.000     4.000.000        Sí               No
+Base ($6.000)            1.600.000      3.400.000     5.000.000        Sí           95 %
+Optimista ($8.000)       1.800.000      4.200.000     6.000.000        Sí               Sí
 ```
 
 **Lectura (inferido).**
-1. Villas Campestres sola (100 casas) no cubre ni el costo en efectivo.
-2. Villas más Refugio (500 casas) cubren el costo en efectivo con cualquiera de los tres precios.
-3. Para cubrir el sostenimiento a $8.000 hacen falta 658 casas: Villas, Refugio y unos 160 más. Las dos comunidades suman 1.080 unidades cuando estén construidas.
-4. Si se actualiza MySQL, el costo en efectivo baja a 1.127.115 al mes y el equilibrio a $8.000 baja a 141 unidades.
+1. Con el piso, Villas Campestres sola cubre el 96 % del costo en efectivo en el escenario base.
+2. Villas y Refugio juntas cubren el costo en efectivo en los tres escenarios.
+3. En el escenario base, falta el 5 % para cubrir el sostenimiento. La comisión de pagos (≈ $1.000.000 al mes, apartado 2.7) o un tercer conjunto lo cierran.
+4. Si se actualiza MySQL, el costo en efectivo baja a 1.127.115 al mes.
 
-Por eso reparar Refugio es la tarea con más efecto en el presupuesto.
+Reparar Refugio sigue siendo la tarea con más efecto en el presupuesto.
 
 ### 5.9 Fuera del presupuesto
 
