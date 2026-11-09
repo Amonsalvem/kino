@@ -1,6 +1,6 @@
 ---
-title: "KINO · Roadmap, estrategia de servicio y presupuesto"
-subtitle: "Estrategia de crecimiento, salida al mercado, expansión y presupuesto a diciembre de 2027"
+title: "KINO"
+subtitle: "Roadmap, estrategia de servicio y presupuesto a diciembre de 2027"
 author:
   - "Nicolás Ramírez Acosta · marca y estrategia"
   - "Alejandro Monsalve Marín · técnica y lógica"
@@ -16,31 +16,30 @@ KINO es una plataforma de control de acceso para conjuntos cerrados. Hoy opera e
 |---|---|
 | ¿Qué resolvemos? | Quien conoce a la visita (el residente) no tiene autoridad para dejarla entrar, y quien tiene autoridad (portería) no la conoce |
 | ¿A quién vendemos? | Solo a la administración del conjunto. Primero, a conjuntos campestres del oriente antioqueño con hardware HikCentral |
-| ¿En qué orden crecemos? | Villas Campestres → Refugio Campestre → conjuntos vecinos → Valle de Aburrá |
+| ¿En qué orden crecemos? | Villas Campestres, luego Refugio Campestre, luego conjuntos vecinos y por último el Valle de Aburrá |
 | ¿Cómo cobramos? | Piso por conjunto + cobro por casa construida + implementación única. Comisión de pagos desde la etapa 03 |
 | ¿Cuánto cuesta? | $24,6 millones en efectivo a diciembre de 2027 ($74,9 millones si se valora el trabajo de los socios) |
 | ¿Cuándo se sostiene? | Con Villas y Refugio pagando, desde julio de 2027 |
 
-Las cifras en pesos colombianos (COP). Cada dato lleva su fuente entre corchetes; la lista está al final. *Inferido* marca una deducción del equipo que todavía no tiene prueba.
+![Figura 1. Mapa del documento. Cada capítulo responde una pregunta.](figuras/f01.png){width=100%}
 
-```
-1. Estrategia de servicio     ¿Qué resolvemos y para quién?
-2. Salida al mercado          ¿A quién vendemos primero y cómo?
-3. Expansión                  ¿Cuándo y hacia dónde crecemos?
-4. Roadmap                    ¿En qué orden y en qué fechas?
-5. Presupuesto                ¿Cuánto cuesta y cuánto entra?
-6. Medición                   ¿Cómo sabemos que funciona?
-```
+**Convenciones.** Las cifras están en pesos colombianos (COP). Cada dato externo lleva su fuente entre corchetes; la lista está al final. *Inferido* marca una deducción del equipo que todavía no tiene prueba.
 
 # 1. Estrategia de servicio
+
+> **En una frase.** KINO le da al residente la autoridad para decidir quién entra, dentro de los límites de la administración, y deja que el lector de la puerta haga cumplir esa decisión.
 
 ## 1.1 Problema
 
 Hoy la persona que conoce a la visita (el residente) no tiene autoridad para dejarla entrar. La persona con autoridad (portería y administración) no la conoce. El ingreso se resuelve por chat, llamada y cuaderno [1] [2].
 
+![Figura 2. El problema central y la respuesta de KINO.](figuras/f02.png){width=100%}
+
 **Pregunta guía.** ¿Cómo reunir conocimiento y autoridad para decidir quién entra?
 
 ## 1.2 Propuesta de valor por actor
+
+Cada actor gana algo distinto. El residente gana control; la portería, tiempo; la administración, trazabilidad.
 
 | Actor | Hoy | Con KINO |
 |---|---|---|
@@ -53,41 +52,23 @@ Hoy la persona que conoce a la visita (el residente) no tiene autoridad para dej
 
 ## 1.3 Diferencia frente a la competencia
 
-La autonomía del residente no diferencia a KINO: otras plataformas, como Neivor, ya la ofrecen. KINO se diferencia en tres cosas juntas:
+La autonomía del residente no diferencia a KINO: otras plataformas, como Neivor, ya la ofrecen. KINO se diferencia en tres cosas juntas.
 
-```
-        ┌──────────────────────────────┐
-        │  1. Integración probada con  │
-        │  el hardware del conjunto    │
-        │  (HikCentral: placa, rostro, │
-        │  talanquera)                 │
-        └──────────────┬───────────────┘
-                       │
-   ┌───────────────────┴───────────────────┐
-   │                                       │
-┌──┴─────────────┐               ┌─────────┴────────┐
-│ 2. Pase sin    │               │ 3. Autoridad del │
-│ cuenta para la │               │ residente dentro │
-│ visita         │               │ de los límites   │
-│                │               │ de la admin.     │
-└────────────────┘               └──────────────────┘
-```
+![Figura 3. Las tres diferencias de KINO.](figuras/f03.png){width=100%}
 
-**Riesgo.** El pilar 1 todavía no está probado para el Pase temporal. En Refugio Campestre, 0 de 312 usuarios están sincronizados con HikCentral. Los 711 errores de sincronización vienen del campo de correo obligatorio [1]. Mientras el pilar 1 no esté probado, KINO no lo vende como un hecho.
+> **Riesgo.** La integración con el hardware todavía no está probada para el Pase temporal. En Refugio Campestre, 0 de 312 usuarios están sincronizados con HikCentral. Los 711 errores de sincronización vienen del campo de correo obligatorio [1]. Mientras esta diferencia no esté probada, KINO no la vende como un hecho.
 
 ## 1.4 Qué compra el conjunto
 
-KINO vende un servicio de tres partes [4]:
+El conjunto no compra solo una app. Compra un servicio de tres partes, con cinco momentos de acompañamiento [4].
 
-```
-PRODUCTO            INTEGRACIÓN              ACOMPAÑAMIENTO
-App y panel    +    Conexión con el     +    5 momentos por conjunto:
-                    hardware que ya          Diagnóstico → Configuración →
-                    tiene el conjunto        Capacitación → Operación
-                                             asistida → Soporte
-```
+![Figura 4. El servicio de KINO y sus cinco momentos de acompañamiento.](figuras/f04.png){width=100%}
 
 ## 1.5 Recorrido del Pase
+
+El recorrido muestra quién hace qué, desde que el residente abre la app hasta que la visita cruza la puerta.
+
+![Figura 5. Recorrido del Pase por actor.](figuras/f05.png){width=100%}
 
 | Actor | Paso | Pantalla | Regla de negocio | Dato que se guarda |
 |---|---|---|---|---|
@@ -98,21 +79,19 @@ App y panel    +    Conexión con el     +    5 momentos por conjunto:
 | Portería | Atiende la excepción | Panel de portería | Sin Pase válido, se llama al residente | Excepción manual |
 | Administración | Revisa | Bitácora | Nadie edita un registro | Historial |
 
-**Brecha.** La app publicada hoy pide correo, contraseña o cuenta de Google. El recorrido pide código por WhatsApp. El roadmap incluye este cambio (capítulo 4).
+> **Brecha.** La app publicada hoy pide correo, contraseña o cuenta de Google. El recorrido pide código por WhatsApp. El roadmap incluye este cambio (capítulo 4).
 
 # 2. Salida al mercado
 
+> **En una frase.** KINO vende a la administración, empieza por los conjuntos campestres del oriente antioqueño que ya tienen HikCentral y cobra un piso por conjunto más un valor por casa.
+
 ## 2.1 Quién compra y quién decide
 
-Solo la administración del conjunto compra KINO. En propiedad horizontal, la decisión pasa por tres instancias:
+Solo la administración del conjunto compra KINO. En propiedad horizontal, la decisión pasa por tres instancias. La asamblea aprueba el presupuesto del conjunto. La reunión ordinaria se hace una vez al año, en los tres meses siguientes al cierre del período presupuestal [3].
 
-```
-Administrador ──propone──► Consejo ──recomienda──► Asamblea ──aprueba el presupuesto──► Contrato
-```
+![Figura 6. Instancias de decisión y calendario de venta.](figuras/f06.png){width=100%}
 
-La asamblea aprueba el presupuesto del conjunto. La reunión ordinaria se hace una vez al año, en los tres meses siguientes al cierre del período presupuestal [3].
-
-**Efecto en la venta (inferido).** Si el período cierra en diciembre, la asamblea se reúne entre enero y marzo. Un conjunto que conoce KINO en noviembre puede incluirlo en su presupuesto del año siguiente. Un conjunto que lo conoce en abril espera un año, o paga con un rubro que ya existe, como seguridad.
+**Efecto en la venta (inferido).** Un conjunto que conoce KINO en noviembre puede incluirlo en su presupuesto del año siguiente. Un conjunto que lo conoce en abril espera un año, o paga con un rubro que ya existe, como seguridad.
 
 ## 2.2 Perfil del primer cliente
 
@@ -127,19 +106,11 @@ Hipótesis para validar con 5 administradores (inferido a partir del piloto).
 
 ## 2.3 Cabeza de playa
 
-```
-Paso 1  Monte Sereno Villas Campestres   Beta en uso
-          │  medir y publicar el caso
-          ▼
-Paso 2  Refugio Campestre                Hardware instalado, integración caída
-          │  reparar la sincronización
-          ▼
-Paso 3  Conjuntos vecinos del oriente    Con HikCentral; llegan por referido
-          ▼
-Paso 4  Medellín y Valle de Aburrá       Solo con el servicio estandarizado
-```
+KINO crece de adentro hacia afuera. Cada círculo usa el anterior como prueba.
 
-Refugio Campestre es el segundo cliente natural: tiene el hardware y ya conoce el problema (inferido). Reparar su sincronización prueba el pilar 1 de la diferencia.
+![Figura 7. Cabeza de playa en cuatro pasos.](figuras/f07.png){width=100%}
+
+Refugio Campestre es el segundo cliente natural: tiene el hardware y ya conoce el problema (inferido). Reparar su sincronización prueba la integración con el hardware.
 
 ## 2.4 Canales de adquisición
 
@@ -153,19 +124,15 @@ Refugio Campestre es el segundo cliente natural: tiene el hardware y ya conoce e
 
 ## 2.5 Embudo de venta
 
-```
-Contacto ─► Diagnóstico gratuito ─► Propuesta ─► Consejo ─► Asamblea ─► Implementación
-           (usuarios, vehículos,
-            hardware existente)
-```
+![Figura 8. Embudo de venta, del contacto a la implementación.](figuras/f08.png){width=100%}
 
 El diagnóstico gratuito también vende: muestra al conjunto su propio problema con datos (inferido).
 
 ## 2.6 Modelos de ingreso evaluados
 
-**Ancla de valor.** Un puesto de vigilancia 24 horas le cuesta al conjunto entre $17,1 y $19,6 millones al mes en 2026 [10] [11]. El piso de KINO ($1.550.000) equivale a cerca del 9 % de un puesto.
+El equipo evaluó seis formas de cobrar. La figura 9 las ubica por rentabilidad y riesgo.
 
-**Costo marginal.** Una casa más casi no sube el costo de KINO: la infraestructura y el trabajo son fijos (capítulo 5). Después del punto de equilibrio, cada peso nuevo es margen (inferido).
+![Figura 9. Modelos de ingreso por rentabilidad y riesgo de ejecución.](figuras/f09.png){width=100%}
 
 | Modelo | Cómo cobra | Rentabilidad | Riesgo |
 |---|---|---|---|
@@ -180,26 +147,25 @@ Para el modelo D, la pasarela Wompi cobra 2,65 % + $700 + IVA en pagos en línea
 
 **Descartados.** Cobrar a la visita (recibe el Pase sin cuenta). Cobrar al residente (solo compra la administración). Marca blanca (KINO mantiene su marca). Vender datos de ingresos (Ley 1581 de 2012 [17]).
 
-**Modelo elegido: B + E desde el primer conjunto, y D desde la etapa 03 de producto.**
+> **Modelo elegido.** B + E desde el primer conjunto, y D desde la etapa 03 de producto.
 
-**Precio.** Por ahora, KINO iguala el precio de su competidor directo, Unita: $1.550.000 al mes por conjunto + $10.900 al mes por casa construida [5]. La implementación vale $3.200.000 por conjunto, una vez (40 horas × $80.000 [8]). El precio se valida con administradores antes de cerrar un contrato (fase 4). KINO no adopta el contrato a 60 meses de Unita; esa condición está por decidir.
+**Costo marginal.** Una casa más casi no sube el costo de KINO: la infraestructura y el trabajo son fijos (capítulo 5). Después del punto de equilibrio, cada peso nuevo es margen (inferido).
+
+## 2.7 Precio
+
+Por ahora, KINO iguala el precio de su competidor directo, Unita: $1.550.000 al mes por conjunto + $10.900 al mes por casa construida [5]. La implementación vale $3.200.000 por conjunto, una vez (40 horas × $80.000 [8]). El precio se valida con administradores antes de cerrar un contrato (fase 4). KINO no adopta el contrato a 60 meses de Unita; esa condición está por decidir.
+
+![Figura 10. Cuánto paga cada conjunto al mes con el precio de KINO.](figuras/f10.png){width=100%}
+
+**Ancla de valor.** Un puesto de vigilancia 24 horas le cuesta al conjunto entre $17,1 y $19,6 millones al mes en 2026 [10] [11]. Villas Campestres pagaría cerca del 15 % de esa cifra.
+
+![Figura 11. KINO frente al costo de un puesto de vigilancia.](figuras/f11.png){width=100%}
 
 # 3. Expansión
 
-KINO crece en dos ejes: más conjuntos y más módulos. Cada paso tiene una condición. Sin la condición, el paso no empieza.
+> **En una frase.** KINO crece en conjuntos y en módulos al mismo tiempo, y cada paso tiene una condición que se cumple antes de empezar.
 
-```
-            MÓDULOS
-              ▲
-  Etapa 05    │                                ● Escala comercial
-  Etapa 04    │                        ● Seguridad y bienestar
-  Etapa 03    │                ● Paquetería, reservas y pagos
-  Etapa 02    │        ● Portal de administración y residentes
-  Etapa 01    ● Acceso (hoy)
-              └──────┬─────────┬──────────┬───────────► CONJUNTOS
-                  1 conjunto  2-3 del    10+ del oriente
-                  (piloto)    oriente    y Valle de Aburrá
-```
+![Figura 12. Expansión en dos ejes, con las condiciones para avanzar.](figuras/f12.png){width=100%}
 
 | Paso | Condición para empezar |
 |---|---|
@@ -215,6 +181,8 @@ Fuentes de las etapas y condiciones: [4] [5] [6].
 
 # 4. Roadmap
 
+> **En una frase.** Hasta marzo de 2027 se cierra la beta; de abril a julio se publica el caso y se repara Refugio; desde julio se vende a conjuntos vecinos.
+
 ## 4.1 Fases
 
 | Fase | Objetivo | Estado a noviembre de 2026 |
@@ -223,36 +191,24 @@ Fuentes de las etapas y condiciones: [4] [5] [6].
 | 1 · Marca e identidad | Construir una identidad propia | En curso: identidad nueva en construcción |
 | 2 · Diseño y prototipo | Prototipo de los 3 roles: 172 pantallas, app y web | Hecho; faltan pruebas de usabilidad |
 | 3 · Piloto | Validar KINO en operación real en Monte Sereno | En curso; beta desde enero de 2026 |
-| 4 · Modelo y precio | Probar el precio con administradores | Pendiente |
+| 4 · Modelo y precio | Probar el precio con administradores | Por hacer |
 | 5 · Lanzamiento | Sitio, video, redes y caso del piloto | Sitio soykino.com en línea |
-| 6 · Escalamiento | Etapas de producto 02 a 05 y nuevos conjuntos | Pendiente |
+| 6 · Escalamiento | Etapas de producto 02 a 05 y nuevos conjuntos | Por hacer |
 | 7 · Legal | Registro de marca, política de datos y contrato tipo | Registro de marca radicado |
 
 Fuente: [5] [6].
 
 ## 4.2 Cronograma
 
-```
-                    2026        2027
-                    nov  dic │ ene  feb  mar │ abr  may  jun │ jul  ago  sep │ oct  nov  dic
-Fase 3 Piloto       ████████████████████████
-  Login WhatsApp    ████████
-  Pase temporal         ████████████
-  Colaboradores              ████████
-Fase 4 Precio            ████████████
-Fase 5 Lanzamiento  ██                ████
-Fase 6 Escalar                             ████████████████████████████████████████
-Fase 7 Legal        ████████████
-Hitos               H1                 H2   H3                                       H5
-```
+![Figura 13. Cronograma de fases, tareas clave e hitos.](figuras/f13.png){width=100%}
 
 | Hito | Fecha | Se cumple cuando | Estado |
 |---|---|---|---|
 | H1 · soykino.com | nov 2026 | Sitio en línea con HTTPS y correo | Cumplido |
-| H2 · Cierre de la beta | mar 2027 | Login por WhatsApp, Pase temporal con evento del lector y KPI medidos cada semana | Pendiente |
-| H3 · Informe del piloto | abr 2027 | Resultados medidos y caso publicado | Pendiente |
-| H4 · Refugio Campestre | jul 2027 | Sincronización reparada y Refugio pagando | Pendiente |
-| H5 · Nuevos conjuntos | dic 2027 | Al menos un conjunto nuevo firmado | Pendiente |
+| H2 · Cierre de la beta | mar 2027 | Ingreso por WhatsApp, Pase temporal con evento del lector y KPI medidos cada semana | Por cumplir |
+| H3 · Informe del piloto | abr 2027 | Resultados medidos y caso publicado | Por cumplir |
+| H4 · Refugio Campestre | jul 2027 | Sincronización reparada y Refugio pagando | Por cumplir |
+| H5 · Nuevos conjuntos | dic 2027 | Al menos un conjunto nuevo firmado | Por cumplir |
 
 Fechas propuestas a partir del plan operativo del 28 de octubre de 2026 [6].
 
@@ -265,7 +221,7 @@ Fechas propuestas a partir del plan operativo del 28 de octubre de 2026 [6].
 | Pase temporal con evento del lector | Sin esto no se prueba la diferencia | Alejandro, Daniel |
 | Pase de colaborador con franja | Es el ingreso más frecuente | Alejandro |
 | Registro validado contra la cédula | El administrador ya no aprueba registros | Alejandro |
-| Reparar la sincronización en Refugio Campestre | Segundo cliente y prueba del pilar 1 | Daniel, Manuel |
+| Reparar la sincronización en Refugio Campestre | Segundo cliente y prueba de la integración | Daniel, Manuel |
 | Actualizar la versión de MySQL | Ahorra USD 144 al mes, el 41 % del costo de AWS (capítulo 5) | Alejandro, Manuel |
 | Entrevistas a 5 administradores | Validar perfil, canales y precio | Juan Esteban, Nicolás |
 | Caso del piloto y contenido | Canal de adquisición | Henry, Nicolás |
@@ -274,9 +230,11 @@ Fechas propuestas a partir del plan operativo del 28 de octubre de 2026 [6].
 
 # 5. Presupuesto
 
+> **En una frase.** KINO necesita $1,7 millones al mes en efectivo. Villas Campestres sola cubre ese costo, y con Refugio pagando KINO cubre también el trabajo de los socios.
+
 Horizonte: noviembre de 2026 a diciembre de 2027 (14 meses). Fuente de dinero: capital propio de los socios [9].
 
-**Dos vistas.** La vista *en efectivo* suma lo que KINO paga. La vista *de sostenimiento* suma también el trabajo de los socios, valorado aunque hoy nadie cobra [8] [9].
+**Dos vistas.** La vista *en efectivo* suma lo que KINO paga. La vista *de sostenimiento* suma también el trabajo de los socios, valorado aunque hoy nadie cobra [8] [9]. La primera vista dice si alcanza la caja; la segunda dice si el negocio paga el tiempo de quienes lo hacen.
 
 **Supuestos**
 
@@ -305,7 +263,7 @@ Horizonte: noviembre de 2026 a diciembre de 2027 (14 meses). Fuente de dinero: c
 
 Fuente: [8]. Incluye producción y pruebas.
 
-**Ahorro posible (inferido).** AWS cobra el soporte extendido por usar una versión de MySQL fuera de su soporte estándar. Si se actualiza la base de datos, el cobro desaparece: USD 144 al mes, el 41 % de AWS.
+> **Ahorro posible (inferido).** AWS cobra el soporte extendido por usar una versión de MySQL fuera de su soporte estándar. Si se actualiza la base de datos, el cobro desaparece: USD 144 al mes, el 41 % de AWS.
 
 ## 5.3 Herramientas y trabajo
 
@@ -325,6 +283,8 @@ Fuente: [8]. Incluye producción y pruebas.
 **Capacidad.** 40 horas al mes, en horario hábil. No incluye atención 24 horas [8].
 
 ## 5.4 Costo mensual
+
+![Figura 14. Composición del costo mensual en las dos vistas.](figuras/f14.png){width=100%}
 
 | Rubro | En efectivo | Sostenimiento |
 |---|---|---|
@@ -362,6 +322,8 @@ Los escenarios cambian cuántos conjuntos pagan y desde cuándo. El precio es el
 
 ## 5.7 Resultado a diciembre de 2027
 
+![Figura 15. Ingresos de cada escenario frente al costo total.](figuras/f15.png){width=100%}
+
 | Escenario | Ingresos | En efectivo | Sostenimiento |
 |---|---|---|---|
 | Conservador | 23.760.000 | −870.330 | −51.102.330 |
@@ -370,7 +332,9 @@ Los escenarios cambian cuántos conjuntos pagan y desde cuándo. El precio es el
 
 Sin impuestos ni comisiones.
 
-**Por qué el sostenimiento sale negativo en el escenario base.** Los costos empiezan en noviembre de 2026 y el cobro empieza en marzo de 2027:
+**Por qué el sostenimiento sale negativo en el escenario base.** Los costos empiezan en noviembre de 2026 y el cobro empieza en marzo de 2027. La figura 16 muestra el acumulado mes a mes.
+
+![Figura 16. Escenario base: resultado acumulado mes a mes.](figuras/f16.png){width=100%}
 
 | Tramo | Ingreso al mes | Resultado al mes | Meses | Acumulado |
 |---|---|---|---|---|
@@ -384,6 +348,8 @@ Sin impuestos ni comisiones.
 Ese saldo es el valor del tiempo que los socios ponen antes de que KINO pueda pagarlo; no es dinero que sale de la caja. Con +$3,3 millones al mes, se recupera hacia marzo de 2028 (inferido).
 
 ## 5.8 Punto de equilibrio mensual
+
+![Figura 17. Ingreso mensual según los conjuntos que pagan, frente a los dos costos.](figuras/f17.png){width=100%}
 
 | Conjuntos que pagan | Ingreso al mes | Cubre el efectivo (1.673.595) | Cubre el sostenimiento (5.261.595) |
 |---|---|---|---|
@@ -412,6 +378,10 @@ Ese saldo es el valor del tiempo que los socios ponen antes de que KINO pueda pa
 | Impuestos y comisiones | Sin dato [8] |
 
 # 6. Medición
+
+> **En una frase.** Los indicadores siguen una cadena: la marca trae conjuntos, el piloto prueba el valor, la técnica lo sostiene y el negocio lo cobra.
+
+![Figura 18. Cadena de medición por área.](figuras/f18.png){width=100%}
 
 No hay líneas base todavía. Cada indicador dice cómo se mide y una meta inicial propuesta, que se ajusta con la primera medición [5].
 
@@ -458,6 +428,6 @@ No hay líneas base todavía. Cada indicador dice cómo se mide y una meta inici
 | Herramienta | Uso |
 |---|---|
 | Grok (xAI) | Nicolás Ramírez preparó con Grok la primera versión del roadmap y del sistema de medición, a partir de los documentos de KINO |
-| Claude (Anthropic) | Alejandro Monsalve trabajó con Claude la revisión de esa versión contra las decisiones del proyecto, la redacción de la salida al mercado, la expansión y los modelos de ingreso, la búsqueda de tarifas públicas y los cálculos del presupuesto |
+| Claude (Anthropic) | Alejandro Monsalve trabajó con Claude la revisión de esa versión contra las decisiones del proyecto, la redacción de la salida al mercado, la expansión y los modelos de ingreso, la búsqueda de tarifas públicas, los cálculos del presupuesto y el dibujo de las figuras |
 
 Los datos de operación, las cifras de costos, el modelo de ingresos elegido y el precio son decisiones del equipo KINO. Las herramientas de IA no aportaron datos propios; cada cifra externa tiene su fuente en esta lista.
