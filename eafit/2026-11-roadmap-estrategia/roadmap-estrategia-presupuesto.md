@@ -2,6 +2,8 @@
 
 BORRADOR, 8 nov 2026. Co-creación de Alejandro con Claude, sobre el documento de Nico con Grok. Alejandro aprueba (D-003).
 
+BORRADOR actualizado el 9 nov 2026 con los datos de presupuesto de Alejandro.
+
 **Etiquetas.** *Observado*: está en la inspección o en una lectura pública. *Canon*: está en `kino/canon/`. *Inferido*: deducción del equipo, sin prueba. *Pendiente*: falta un dato; nadie lo inventa.
 
 ```
@@ -112,7 +114,7 @@ Hipótesis para validar con 5 administradores. Inferido a partir del piloto.
 | Tipo | Conjunto campestre o parcelación | Monte Sereno, El Retiro, es de este tipo |
 | Zona | Oriente antioqueño: El Retiro, Rionegro, La Ceja, Llanogrande | Distancia corta para implementar y dar soporte |
 | Hardware | Ya tiene lector de placa o de rostro sobre HikCentral | Kino conecta lo que el conjunto ya pagó |
-| Tamaño | Pendiente: rango de unidades | Se fija con el costo de implementación (Bloque 5) |
+| Tamaño | 100 a 400 unidades construidas, como Villas Campestres (100) y Refugio Campestre (400) | Con 28 a 61 unidades se cubren los costos fijos (Bloque 5) |
 | Dolor | Visitas y colaboradores frecuentes, portería que llama a la casa | Es el problema del diagnóstico |
 
 ### 2.3 Cabeza de playa
@@ -238,67 +240,104 @@ Hitos               H1                 H2   H3                                  
 
 ## Bloque 5 · Presupuesto
 
-**Estado: estructura lista, cifras pendientes.** Las celdas «Pendiente (n)» esperan la respuesta n de Alejandro en el chat del 8 nov 2026. Las cifras públicas llevan fuente y fecha de consulta.
+Horizonte: nov 2026 a dic 2027, 14 meses. Fuente: Alejandro, chat del proyecto, 9 nov 2026. EAFIT no pide un formato de presupuesto (misma fuente).
 
-### 5.1 Inversión inicial (una vez)
+**Supuestos**
+
+| Supuesto | Valor | Fuente |
+|---|---|---|
+| Tasa de cambio | $3.300 por USD | Techo del rango de $3.120 a $3.300 que prevé Bancolombia para nov 2026, según [El Colombiano](https://www.elcolombiano.com/inicio/dolar-colombia-proyeccion-tasa-cambio-noviembre-2026-GF43201403). TRM del 4 nov 2026: $3.235,59, según [dolar-colombia.com](https://www.dolar-colombia.com/2026-11-04). Se usa el techo para no quedarse corto |
+| Equipo | Nadie cobra. Todos son socios | Alejandro, 9 nov 2026 |
+| Fuente de dinero | Capital propio | Alejandro, 9 nov 2026 |
+| Unidades | Villas Campestres: 400 totales, 100 construidas. Refugio Campestre: 680 totales, 400 construidas | Alejandro, 9 nov 2026 |
+| Unidad que paga | Solo la unidad construida | Inferido: un lote sin casa no recibe visitas ni colaboradores |
+
+### 5.1 Inversión ya hecha
 
 | Rubro | Valor (COP) | Fuente |
 |---|---|---|
-| Registro de marca, primera clase, en línea | ≈ 1.347.500 | [Guía Uniandes](https://derecho.uniandes.edu.co/wp-content/uploads/2025/09/Como-Registrar-mi-Marca.pdf) y [cuantomecuesta.com](https://cuantomecuesta.com/co/registro-marca/), consulta 8 nov 2026. Fuente secundaria: confirmar en sic.gov.co |
-| Registro de marca, cada clase adicional | ≈ 673.500 | Mismas fuentes |
-| Número de clases | Pendiente (6) | Raw, con abogado |
-| Honorarios legales: política de datos y contrato tipo | Pendiente (6) | Sin cotización |
-| Diseño externo (Zulu) | Pendiente (3) | Sin cotización |
+| Registro de marca, una clase | 1.200.000 | Alejandro, 9 nov 2026 |
 
 ### 5.2 Costos fijos mensuales
 
-| Rubro | Valor mensual (COP) | Fuente |
-|---|---|---|
-| AWS (sitio y app) | Pendiente (4) | Factura de AWS |
-| Dominio soykino.com (anual ÷ 12) | Pendiente (4) | Registrador |
-| Correo del equipo | Pendiente (4) | Proveedor y número de cuentas |
-| Figma y otras suscripciones | Pendiente (4) | Facturas |
-| Mensajes de WhatsApp para el ingreso | ≈ USD 0,0008 a 0,0010 por mensaje en Colombia | [Sleekflow](https://help.sleekflow.io/en_US/pricing) y [Chatalog](https://docs.chatalog.ai/platform-setup/whatsapp-connection-guide/whatsapp-pricing-update), consulta 8 nov 2026. Fuente secundaria: confirmar en la cuenta de Meta |
-| Equipo (6 personas) | Pendiente (3) | Valor por persona |
-
-**Inferido.** El costo de WhatsApp es bajo: 10.000 ingresos al mes cuestan unos USD 10. El costo grande es el equipo.
-
-### 5.3 Costo variable por conjunto
-
-Fórmula: horas de cada momento × valor hora + desplazamientos + hardware si lo pone Kino.
-
-| Momento | Horas | Valor hora | Total |
+| Rubro | USD al mes | COP al mes | Fuente del precio |
 |---|---|---|---|
-| 01 Diagnóstico | Pendiente | Pendiente (3) | Pendiente |
-| 02 Configuración e integración | Pendiente | Pendiente (3) | Pendiente |
-| 03 Capacitación | Pendiente | Pendiente (3) | Pendiente |
-| 04 Operación asistida | Pendiente | Pendiente (3) | Pendiente |
-| 05 Soporte mensual | Pendiente | Pendiente (3) | Pendiente |
-| Hardware | ¿Lo paga el conjunto? Pendiente (5) | | |
+| Claude Pro, 1 cuenta | 20 | 66.000 | [Anthropic](https://support.anthropic.com/en/articles/8325610-how-much-does-claude-pro-cost), consulta 9 nov 2026 |
+| Grok, 1 cuenta (supuesto: SuperGrok) | 30 | 99.000 | [buildfastwithai.com](https://www.buildfastwithai.com/blogs/supergrok-explained-pricing-limits-is-it-worth-it-2026), consulta 9 nov 2026. Fuente secundaria; confirmar el plan |
+| Figma Professional, 1 puesto (supuesto: pago mensual) | 20 | 66.000 | [Foro de Figma](https://forum.figma.com/report-a-problem-6/why-does-the-professional-plan-price-change-at-checkout-57528): USD 16 con pago anual, USD 20 con pago mensual |
+| Hospedaje de la página web | 20 | 66.000 | Alejandro, 9 nov 2026 |
+| AWS (app) | Pendiente (A) | Pendiente (A) | Factura de AWS |
+| Mensajes de WhatsApp para el ingreso | ≈ 1 | ≈ 3.300 | Cálculo abajo |
+| **Total conocido** | **≈ 91** | **≈ 300.300** | Sin AWS |
 
-La primera ficha de costeo sale de Monte Sereno Villas Campestres. Fuente: documento de Nico, PA-M12.
+**Cálculo de WhatsApp (inferido).** 500 unidades construidas × 2 ingresos a la app al mes = 1.000 mensajes. A USD 0,001 por mensaje son USD 1 al mes. Fuente del precio: [Chatalog](https://docs.chatalog.ai/platform-setup/whatsapp-connection-guide/whatsapp-pricing-update), consulta 8 nov 2026. El residente comparte el Pase desde su propio WhatsApp; ese envío no tiene costo para Kino.
 
-### 5.4 Ingresos y punto de equilibrio
+### 5.3 Costos que el roadmap agrega
+
+| Rubro | Valor (COP) | Estado |
+|---|---|---|
+| Política de tratamiento de datos y contrato tipo (abogado) | Pendiente | Sin cotización. Es obligatoria antes de escalar la biometría (Bloque 3) |
+| Desplazamientos a El Retiro para implementar y capacitar | Pendiente (B) | Sin dato |
+| Hardware HikCentral | Pendiente (C) | ¿Lo paga el conjunto? |
+| Imprevistos | 10 % de los costos | Propuesta; Alejandro decide |
+
+### 5.4 Costo total a dic 2027
 
 ```
-Ingreso mensual   = Σ conjuntos × (unidades × precio por unidad)
-Costo mensual     = costos fijos + Σ soporte por conjunto
-Punto de equilibrio: conjuntos necesarios = costos fijos ÷ (ingreso por conjunto − soporte por conjunto)
+Inversión ya hecha        1.200.000
+Fijos conocidos  300.300 × 14 meses = 4.204.200
+Imprevistos 10 % de fijos              420.420
+──────────────────────────────────────────────
+Total conocido                        5.824.620 COP
++ AWS × 14 meses (A)
++ abogado, desplazamientos (B)
 ```
 
-| Escenario a dic 2027 | Conjuntos | Unidades por conjunto | Precio por unidad | Ingreso mensual |
-|---|---|---|---|---|
-| Conservador | Pendiente (7) | Pendiente (5) | Pendiente | Pendiente |
-| Base | Pendiente (7) | Pendiente (5) | Pendiente | Pendiente |
-| Optimista | Pendiente (7) | Pendiente (5) | Pendiente | Pendiente |
+### 5.5 Ingresos: tres escenarios
 
-### 5.5 Fuentes de dinero
+El precio de Kino no está decidido. Se modela con tres precios por unidad construida al mes. El más alto es la tarifa por villa del competidor ($10.900). Fuente: deck histórico, lám. 32.
 
-Pendiente (7): capital propio, socios, convocatoria u otra fuente.
+**Referencia (inferido).** El competidor cobra además una base de $1.550.000 al mes. En Villas Campestres (100 casas) eso suma $2.640.000 al mes: $26.400 por casa construida. Para un conjunto pequeño la base pesa más que la tarifa por villa. Kino puede competir sin base.
 
-### 5.6 Imprevistos
+| Escenario | Precio por unidad | Conjuntos y meses que pagan | Ingreso a dic 2027 (COP) |
+|---|---|---|---|
+| Conservador | $5.000 | Villas Campestres (100) desde abr 2027, después de H3: 9 meses | 4.500.000 |
+| Base | $8.000 | Villas (100) desde mar 2027: 10 meses. Refugio (400) desde jul 2027: 6 meses | 8.000.000 + 19.200.000 = 27.200.000 |
+| Optimista | $10.900 | Villas desde mar 2027 (10 meses), Refugio desde jul 2027 (6 meses) y un conjunto nuevo de 200 unidades (supuesto) desde oct 2027 (3 meses) | 10.900.000 + 26.160.000 + 6.540.000 = 43.600.000 |
 
-Propuesta: 10 % del total de costos. Inferido; Alejandro decide el valor.
+Las fechas de inicio salen del roadmap: H2 (mar 2027) y H3 (abr 2027). Refugio paga solo cuando su sincronización esté reparada. No se incluye cobro de implementación: su valor está pendiente.
+
+### 5.6 Resultado y punto de equilibrio
+
+| Escenario | Ingresos | Costo conocido | Resultado a dic 2027 |
+|---|---|---|---|
+| Conservador | 4.500.000 | 5.824.620 | −1.324.620 |
+| Base | 27.200.000 | 5.824.620 | +21.375.380 |
+| Optimista | 43.600.000 | 5.824.620 | +37.775.380 |
+
+Resultados sin AWS ni abogado. Sin impuestos.
+
+```
+Punto de equilibrio mensual = costo fijo mensual ÷ precio por unidad
+  a $5.000   → 300.300 ÷ 5.000  = 61 unidades
+  a $8.000   → 300.300 ÷ 8.000  = 38 unidades
+  a $10.900  → 300.300 ÷ 10.900 = 28 unidades
+```
+
+Villas Campestres sola (100 casas) cubre los costos fijos con cualquiera de los tres precios. Inferido, sin AWS.
+
+### 5.7 El riesgo que el presupuesto no muestra
+
+El costo bajo depende de que nadie cobre. Seis socios trabajan sin sueldo. Si el equipo necesita ingresos, cada sueldo S exige S ÷ precio unidades más. Ejemplo: un sueldo de $2.000.000 a $8.000 por unidad exige 250 unidades más. Esto define cuántos conjuntos necesita Kino para que el equipo pueda vivir de él. Inferido.
+
+### 5.8 Datos que faltan
+
+| Letra | Pregunta |
+|---|---|
+| A | ¿Cuánto factura AWS al mes? |
+| B | ¿Cuánto cuesta cada viaje a El Retiro? |
+| C | ¿El hardware HikCentral lo pagó el conjunto? ¿Monte Sereno paga algo hoy? |
+| D | Confirmar el plan de Grok y si Figma se paga mensual o anual |
 
 ---
 
