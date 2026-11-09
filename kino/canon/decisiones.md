@@ -192,7 +192,9 @@ Alejandro pidió el modelo más rentable sin limitarse al cobro por unidad (chat
 
 ---
 
-## D-011 · El Pase se llama KEY · PROPUESTA (9 nov 2026)
+## D-011 · El Pase se llama KEY · APROBADA (Alejandro, 9 nov 2026) · opción A
+
+**Aprobación.** [Comentario de Alejandro en el PR #28](https://github.com/Amonsalvem/kino/pull/28#issuecomment-6739927904).
 
 Alejandro pidió cambiar «Pase» por «KEY» en la entrega de EAFIT (comentario sobre el PDF, 9 nov 2026) y luego eligió que el cambio aplique a todo Kino (tarjeta en el chat del proyecto, 9 nov 2026).
 
