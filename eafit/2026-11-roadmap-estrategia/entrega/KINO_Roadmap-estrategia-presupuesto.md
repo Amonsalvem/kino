@@ -19,7 +19,8 @@ KINO es una plataforma de control de acceso para conjuntos cerrados. Hoy opera e
 | ¿En qué orden crecemos? | Villas Campestres y Refugio Campestre en diciembre de 2026 y enero de 2027; 5 conjuntos nuevos del oriente antioqueño en el primer trimestre de 2027; después, el Valle de Aburrá |
 | ¿Cómo cobramos? | Piso por conjunto + cobro por casa construida + implementación única + comisión por cada pago de la cuota en la app, desde el primer conjunto |
 | ¿Cuándo está lista la app? | En diciembre de 2026, completa y con pagos. En enero de 2027, el 80 % de las casas de Villas y Refugio la usa |
-| ¿Cuánto cuesta y cuándo se sostiene? | En revisión con el precio nuevo y el calendario de este roadmap (capítulo 5) |
+| ¿Cuánto cobramos? | $1.550.000 por conjunto + $10.900 por casa al mes, entre el 3,3 % y el 5,9 % de la cuota de administración |
+| ¿Cuánto cuesta y cuándo se sostiene? | $2,8 millones al mes en efectivo ($1,4 millones con la alternativa más barata). Villas y Refugio lo cubren desde febrero de 2027. Escenario base a diciembre de 2027: +$216 millones en efectivo |
 
 ![Figura 1. Mapa del documento. Cada capítulo responde una pregunta.](figuras/f01.png){width=100%}
 
@@ -196,27 +197,45 @@ El residente paga la cuota de administración desde la app. El dinero va a la cu
 
 ## 2.9 Precio
 
+> **Precio.** $1.550.000 al mes por conjunto + $10.900 al mes por casa construida + $3.200.000 de implementación, una vez + $2.000 por cada pago de la cuota en la app (margen por decidir).
+
 El precio se justifica con tres referencias:
 
 | Referencia | Qué dice | Dato |
 |---|---|---|
-| Piso | Lo que cuesta atender un conjunto: infraestructura, soporte e implementación | Capítulo 5 |
-| Techo | Lo que el conjunto gasta hoy en portería y lo que ahorra con KINO | Por recibir de Villas y Refugio |
-| Ancla | El precio de su competidor directo, Unita: $1.550.000 al mes por conjunto + $10.900 al mes por casa | [5] |
+| Piso | Lo que cuesta atender a los conjuntos | $2,8 millones al mes en efectivo; $6,4 millones con el trabajo de los socios (capítulo 5) |
+| Techo | Lo que el residente ya paga y lo que el conjunto gasta en portería | Cuota de administración promedio de Villas y Refugio: $450.000 al mes por casa [9]. Un puesto de vigilancia 24 horas: $17,1 a $19,6 millones al mes [10] [11] |
+| Ancla | El precio de su competidor directo, Unita | $1.550.000 al mes por conjunto + $10.900 al mes por casa [5] |
 
-Con el precio de Unita como punto de partida, cada conjunto pagaría lo que muestra la figura 12. La implementación vale $3.200.000 por conjunto, una vez (40 horas × $80.000 [8]). El precio final se fija con la cuota de administración y el costo de portería de Villas y Refugio. KINO no adopta el contrato a 60 meses de Unita; esa condición está por decidir.
+KINO cobra lo mismo que Unita en piso y casa, y agrega lo que Unita no tiene: el KEY sin cuenta para la visita y la integración probada con el hardware del conjunto (apartado 1.3).
 
 ![Figura 12. Cuánto paga cada conjunto al mes con el precio de partida.](figuras/f10.png){width=100%}
 
-**Ancla de valor.** Un puesto de vigilancia 24 horas le cuesta al conjunto entre $17,1 y $19,6 millones al mes en 2026 [10] [11]. Con el precio de partida, Villas Campestres pagaría cerca del 15 % de esa cifra.
+**Cuánto pesa KINO en la cuota.** Con una cuota de $450.000, KINO cuesta entre el 3,3 % y el 5,9 % de lo que paga cada casa. En lo que recauda cada conjunto, un puesto de vigilancia pesa entre el 9,5 % (Refugio) y el 44 % (Villas) (figura 14).
+
+| Conjunto | KINO al mes | KINO por casa | Parte de la cuota de $450.000 |
+|---|---|---|---|
+| Villas Campestres (100 casas) | $2.640.000 | $26.400 | 5,9 % |
+| Conjunto nuevo (200 casas, supuesto) | $3.730.000 | $18.650 | 4,1 % |
+| Refugio Campestre (400 casas) | $5.910.000 | $14.775 | 3,3 % |
 
 ![Figura 13. KINO frente al costo de un puesto de vigilancia.](figuras/f11.png){width=100%}
+
+![Figura 14. Cuánto pesa cada costo en la cuota de administración.](figuras/f21.png){width=100%}
+
+**Margen por pago (supuesto, por decidir).** $2.000 por pago es el 0,44 % de la cuota. Es menos que la tarifa de la pasarela: con Wompi, un pago de $450.000 cuesta cerca de $15.024 en línea y $5.355 con QR, con IVA [16]. Quién asume la tarifa de la pasarela sigue por decidir (apartado 2.8).
+
+**Lectura (inferido).**
+
+1. El cobro por casa ($10.900) es el 2,4 % de la cuota. Es un costo bajo frente a lo que la casa ya paga en vigilancia.
+2. En un conjunto pequeño, el piso pesa más: Villas paga el 5,9 % de la cuota y Refugio el 3,3 %. Un piso más bajo para conjuntos de menos de 150 casas es una opción que se valida en la fase 6.
+3. El costo de portería propio de Villas y Refugio todavía no está. Cuando llegue, reemplaza la cifra de mercado del techo.
 
 # 3. Expansión
 
 > **En una frase.** En 2027 KINO crece en dos ejes: más conjuntos (eje X) y más módulos y productos (eje Y). Cada paso tiene una condición que se cumple antes de empezar.
 
-![Figura 14. Expansión en dos ejes, con las condiciones para avanzar.](figuras/f12.png){width=100%}
+![Figura 15. Expansión en dos ejes, con las condiciones para avanzar.](figuras/f12.png){width=100%}
 
 **Eje X: conjuntos.** Villas y Refugio, luego 5 conjuntos nuevos en el primer trimestre de 2027, luego 10 o más.
 
@@ -264,7 +283,7 @@ Fuentes de las etapas y condiciones: [4] [5] [6].
 
 ## 4.2 Cronograma
 
-![Figura 15. Cronograma de fases, tareas clave e hitos.](figuras/f13.png){width=100%}
+![Figura 16. Cronograma de fases, tareas clave e hitos.](figuras/f13.png){width=100%}
 
 | Hito | Fecha | Se cumple cuando | Estado |
 |---|---|---|---|
@@ -297,9 +316,7 @@ Fechas fijadas por el equipo el 9 de noviembre de 2026 [9]. La fecha de H4 es un
 
 # 5. Presupuesto
 
-> **En revisión.** Este capítulo se rehace con el precio nuevo, la comisión de pagos desde el inicio y el calendario de este roadmap. Las cifras que siguen usan el calendario anterior.
-
-> **En una frase.** KINO necesita $1,7 millones al mes en efectivo. Villas Campestres sola cubre ese costo, y con Refugio pagando KINO cubre también el trabajo de los socios.
+> **En una frase.** KINO cuesta $2,8 millones al mes en efectivo. Villas y Refugio cubren ese costo desde febrero de 2027. Con los 5 conjuntos nuevos, el escenario base cierra diciembre de 2027 con +$216 millones en efectivo. Una alternativa más barata baja el costo a $1,4 millones al mes.
 
 Horizonte: noviembre de 2026 a diciembre de 2027 (14 meses). Fuente de dinero: capital propio de los socios [9].
 
@@ -311,8 +328,12 @@ Horizonte: noviembre de 2026 a diciembre de 2027 (14 meses). Fuente de dinero: c
 |---|---|---|
 | Tasa de cambio | $3.300 por USD: techo del rango previsto para noviembre de 2026. TRM del 4 de noviembre: $3.235,59 | [12] [13] |
 | Equipo | Nadie cobra; todos son socios | [9] |
-| Unidades | Villas Campestres: 400 totales, 100 construidas. Refugio Campestre: 680 totales, 400 construidas | [9] |
-| Unidad que paga | Solo la casa construida (inferido: un lote vacío no recibe visitas) | |
+| Unidades | Villas Campestres: 100 casas construidas. Refugio Campestre: 400 casas construidas | [9] |
+| Conjunto nuevo | 200 casas construidas (supuesto) | |
+| Cuota de administración | $450.000 al mes por casa, promedio de Villas y Refugio | [9] |
+| Calendario | Refugio se implementa en diciembre de 2026. Villas y Refugio pagan desde febrero de 2027, después de H2. Los 5 conjuntos nuevos firman en el primer trimestre y se implementan uno por mes (supuesto) | [9] |
+| Pagos en la app | Parte de las casas que paga la cuota en la app: 30 %, 50 % o 80 % según el escenario (supuesto) | |
+| Margen por pago | $2.000 (supuesto, por decidir) | Apartado 2.9 |
 | Reserva para imprevistos | 15 % | [8] |
 
 ## 5.1 Inversión ya hecha
@@ -330,127 +351,149 @@ Horizonte: noviembre de 2026 a diciembre de 2027 (14 meses). Fuente de dinero: c
 | Almacenamiento, respaldos, registros y transferencia | 58,44 | 192.852 |
 | **Total AWS** | **350,00** | **1.155.000** |
 
-Fuente: [8]. Incluye producción y pruebas.
-
-> **Ahorro posible (inferido).** AWS cobra el soporte extendido por usar una versión de MySQL fuera de su soporte estándar. Si se actualiza la base de datos, el cobro desaparece: USD 144 al mes, el 41 % de AWS.
+Fuente: [8]. Incluye producción y pruebas. El costo de AWS con 7 conjuntos no está estimado; aquí se mantiene fijo.
 
 ## 5.3 Herramientas y trabajo
 
 | Rubro | COP al mes | En efectivo | Fuente |
 |---|---|---|---|
-| Claude Pro, 1 cuenta (USD 20) | 66.000 | Sí | [9] [14] |
-| Grok, 1 cuenta (USD 30) | 99.000 | Sí | [9] |
-| Figma Professional, 1 puesto mensual (USD 20) | 66.000 | Sí | [9] [15] |
+| Claude Team: 1 puesto Premium (Alejandro) y 1 estándar (Nicolás), pago mensual (USD 125 + 25) | 495.000 | Sí | [9] [14] |
+| Grok Premium, 1 cuenta (Nicolás) (USD 30) | 99.000 | Sí | [9] [19] |
+| Figma Enterprise, 2 puestos Full (Alejandro y Nicolás), USD 90 cada uno con pago anual | 594.000 | Sí | [9] [15] |
 | Hospedaje de la página web (USD 20) | 66.000 | Sí | [9] |
-| Mensajes de WhatsApp para el ingreso (≈ USD 1) | 3.300 | Sí | [18] |
+| Mensajes de WhatsApp para el ingreso (≈ USD 3) | 9.900 | Sí | [18] |
 | Soporte funcional: 20 h × $60.000 | 1.200.000 | No, socios | [8] |
 | Mantenimiento técnico e integración: 16 h × $100.000 | 1.600.000 | No, socios | [8] |
 | Coordinación y seguimiento: 4 h × $80.000 | 320.000 | No, socios | [8] |
 
-**WhatsApp (inferido).** 500 casas × 2 ingresos a la app al mes = 1.000 mensajes. A USD 0,001 por mensaje, son USD 1 al mes. El residente comparte el KEY desde su propio WhatsApp; ese envío no le cuesta a KINO.
+**Figma Enterprise** se paga por año: USD 2.160 de una vez, unos $7,1 millones. La tabla lo muestra como cuota mensual.
 
-**Capacidad.** 40 horas al mes, en horario hábil. No incluye atención 24 horas [8].
+**WhatsApp (inferido).** 1.500 casas × 2 ingresos a la app al mes = 3.000 mensajes. A USD 0,001 por mensaje, son USD 3 al mes. El residente comparte el KEY desde su propio WhatsApp; ese envío no le cuesta a KINO.
+
+**Capacidad.** 40 horas al mes, en horario hábil, sin atención 24 horas [8]. Cada implementación pide 40 horas más [8]. Con un conjunto nuevo por mes de abril a agosto, el equipo necesita 80 horas en esos meses (inferido). Es el mayor riesgo del calendario.
 
 ## 5.4 Costo mensual
 
-![Figura 16. Composición del costo mensual en las dos vistas.](figuras/f14.png){width=100%}
+![Figura 17. Composición del costo mensual en las dos vistas y con la alternativa más barata.](figuras/f14.png){width=100%}
 
 | Rubro | En efectivo | Sostenimiento |
 |---|---|---|
 | AWS | 1.155.000 | 1.155.000 |
-| Herramientas y WhatsApp | 300.300 | 300.300 |
+| Herramientas y WhatsApp | 1.263.900 | 1.263.900 |
 | Trabajo de los socios (valorado) | 0 | 3.120.000 |
-| Subtotal | 1.455.300 | 4.575.300 |
-| Reserva 15 % | 218.295 | 686.295 |
-| **Total al mes** | **1.673.595** | **5.261.595** |
+| Subtotal | 2.418.900 | 5.538.900 |
+| Reserva 15 % | 362.835 | 830.835 |
+| **Total al mes** | **2.781.735** | **6.369.735** |
 
-## 5.5 Costo total a diciembre de 2027
+## 5.5 Alternativa más barata
 
-| Vista | 14 meses | Marca | **Total** |
+Cinco cambios bajan el costo en efectivo a la mitad sin quitarle al proyecto nada que use hoy (inferido). Precios de pago anual [14] [15].
+
+| Rubro | Hoy (USD al mes) | Alternativa (USD al mes) | Qué se pierde |
 |---|---|---|---|
-| En efectivo | 23.430.330 | 1.200.000 | **24.630.330** |
-| Sostenimiento | 73.662.330 | 1.200.000 | **74.862.330** |
+| Claude Team | 150, pago mensual | 120, pago anual (100 + 20) | Compromiso de 12 meses |
+| Figma | 180, Enterprise, 2 puestos Full | 32, Professional, 2 puestos Full (16 cada uno) | Inicio de sesión único, administración avanzada y analítica de bibliotecas. Un equipo de 2 personas no las usa (inferido) |
+| Grok | 30 | 0: Nicolás trabaja con su puesto de Claude Team | El flujo de Nicolás con Grok. Lo decide Nicolás |
+| Soporte extendido de MySQL en AWS | 144 | 0: actualizar la base de datos a una versión con soporte estándar | Una migración con pruebas, a cargo de Alejandro |
+| Hospedaje de la página web | 20 | 0: plan gratuito para sitios estáticos (inferido: confirmar que la página es estática) | Nada, si la página es estática |
+| **Total con AWS y WhatsApp** | **733** | **361** | |
 
-## 5.6 Ingresos
+| Vista | Hoy | Alternativa | Ahorro al mes | Ahorro en 14 meses |
+|---|---|---|---|---|
+| En efectivo, con reserva | 2.781.735 | 1.369.995 | 1.411.740 (51 %) | 19.764.360 |
 
-Precio del capítulo 2: $1.550.000 por conjunto + $10.900 por casa, al mes, más $3.200.000 de implementación. Villas Campestres no paga implementación porque ya está implementada. La comisión de pagos empieza en la etapa 03 y no entra en este horizonte.
+**Recomendación.** Aplicar los cinco cambios. El de Grok depende de Nicolás; sin ese cambio, el costo en efectivo queda en $1.483.845 al mes.
 
-| Conjunto | Cálculo | Al mes |
-|---|---|---|
-| Villas Campestres (100 casas) | 1.550.000 + 100 × 10.900 | 2.640.000 |
-| Refugio Campestre (400 casas) | 1.550.000 + 400 × 10.900 | 5.910.000 |
-| Conjunto nuevo (200 casas, supuesto) | 1.550.000 + 200 × 10.900 | 3.730.000 |
+## 5.6 Costo total a diciembre de 2027
 
-Los escenarios cambian cuántos conjuntos pagan y desde cuándo. El precio es el mismo.
+| Vista | 14 meses | Marca | Implementaciones (horas de los socios) | **Total** |
+|---|---|---|---|---|
+| En efectivo | 38.944.290 | 1.200.000 | 0 | **40.144.290** |
+| Sostenimiento, escenario base | 89.176.290 | 1.200.000 | 6 × 3.200.000 | **109.576.290** |
+| En efectivo, con la alternativa | 19.179.930 | 1.200.000 | 0 | **20.379.930** |
 
-| Escenario | Quién paga y desde cuándo | Cálculo | Ingreso a dic 2027 |
+## 5.7 Ingresos
+
+Precio del apartado 2.9. Villas Campestres no paga implementación porque ya está implementada. Con el 50 % de las casas pagando en la app:
+
+| Conjunto | Piso + casas | Comisión de pagos | Al mes |
 |---|---|---|---|
-| Conservador | Solo Villas, desde abril de 2027 (después de H3): 9 meses | 2.640.000 × 9 | 23.760.000 |
-| **Base** | Villas desde marzo de 2027 (10 meses). Refugio desde julio de 2027 (6 meses), más su implementación | 2.640.000 × 10 + 5.910.000 × 6 + 3.200.000 | **65.060.000** |
-| Optimista | Lo anterior y un conjunto nuevo desde octubre de 2027 (3 meses), con implementación | 65.060.000 + 3.730.000 × 3 + 3.200.000 | 79.450.000 |
+| Villas Campestres (100 casas) | 2.640.000 | 50 × 2.000 = 100.000 | 2.740.000 |
+| Refugio Campestre (400 casas) | 5.910.000 | 200 × 2.000 = 400.000 | 6.310.000 |
+| Conjunto nuevo (200 casas) | 3.730.000 | 100 × 2.000 = 200.000 | 3.930.000 |
 
-## 5.7 Resultado a diciembre de 2027
+Los escenarios cambian cuántos conjuntos nuevos entran, desde cuándo y cuántas casas pagan en la app. El precio es el mismo.
 
-![Figura 17. Ingresos de cada escenario frente al costo total.](figuras/f15.png){width=100%}
+| Escenario | Conjuntos nuevos | Pagos en la app | Comisión a dic 2027 | Ingreso a dic 2027 |
+|---|---|---|---|---|
+| Conservador | 2, en julio y septiembre de 2027 | 30 % | 4.500.000 | 145.450.000 |
+| **Base** | **5, uno por mes de abril a agosto de 2027** | **50 %** | **12.500.000** | **256.300.000** |
+| Optimista | 5, uno por mes de marzo a julio de 2027 | 80 % | 21.600.000 | 284.050.000 |
+
+Los tres escenarios incluyen a Villas y Refugio desde febrero de 2027 y una implementación de $3.200.000 por cada conjunto nuevo y por Refugio.
+
+## 5.8 Resultado a diciembre de 2027
+
+![Figura 18. Ingresos de cada escenario frente al costo total.](figuras/f15.png){width=100%}
 
 | Escenario | Ingresos | En efectivo | Sostenimiento |
 |---|---|---|---|
-| Conservador | 23.760.000 | −870.330 | −51.102.330 |
-| **Base** | **65.060.000** | **+40.429.670** | **−9.802.330** |
-| Optimista | 79.450.000 | +54.819.670 | +4.587.670 |
+| Conservador | 145.450.000 | +105.305.710 | +45.473.710 |
+| **Base** | **256.300.000** | **+216.155.710** | **+146.723.710** |
+| Optimista | 284.050.000 | +243.905.710 | +174.473.710 |
 
-Sin impuestos ni comisiones.
+Sin impuestos. Con la alternativa más barata, el escenario base sube a +$235,9 millones en efectivo.
 
-**Por qué el sostenimiento sale negativo en el escenario base.** Los costos empiezan en noviembre de 2026 y el cobro empieza en marzo de 2027. La figura 18 muestra el acumulado mes a mes.
+**Cuánto capital ponen los socios.** La figura 19 muestra el acumulado del escenario base mes a mes. La caja toca su punto más bajo en enero de 2027: −$6,3 millones, que pagan los socios con capital propio. Desde marzo de 2027 la caja queda en positivo. El sostenimiento llega a −$20,3 millones en enero y queda en positivo desde mayo de 2027.
 
-![Figura 18. Escenario base: resultado acumulado mes a mes.](figuras/f16.png){width=100%}
+![Figura 19. Escenario base: resultado acumulado mes a mes.](figuras/f16.png){width=100%}
 
-| Tramo | Ingreso al mes | Resultado al mes | Meses | Acumulado |
-|---|---|---|---|---|
-| nov 2026 a feb 2027 | 0 | −5.261.595 | 4 | −21.046.380 |
-| mar a jun 2027 | 2.640.000 (Villas) | −2.621.595 | 4 | −10.486.380 |
-| jul a dic 2027 | 8.550.000 (Villas + Refugio) | +3.288.405 | 6 | +19.730.430 |
-| Implementación de Refugio | | | | +3.200.000 |
-| Registro de marca | | | | −1.200.000 |
-| **Total** | | | | **−9.802.330** |
+| Tramo | Ingreso al mes | Qué pasa |
+|---|---|---|
+| nov 2026 a ene 2027 | 0, más la implementación de Refugio en diciembre | Desarrollo y piloto. La caja baja a −$6,3 millones |
+| feb y mar 2027 | 9.050.000 (Villas + Refugio) | La caja se recupera |
+| abr a ago 2027 | De 12.980.000 a 28.700.000 | Entra un conjunto nuevo cada mes |
+| sep a dic 2027 | 28.700.000 | Siete conjuntos pagan |
 
-Ese saldo es el valor del tiempo que los socios ponen antes de que KINO pueda pagarlo; no es dinero que sale de la caja. Con +$3,3 millones al mes, se recupera hacia marzo de 2028 (inferido).
+Si Figma Enterprise se paga por adelantado, la caja necesita unos $7,1 millones más al inicio.
 
-## 5.8 Punto de equilibrio mensual
+## 5.9 Punto de equilibrio mensual
 
-![Figura 19. Ingreso mensual según los conjuntos que pagan, frente a los dos costos.](figuras/f17.png){width=100%}
+![Figura 20. Ingreso mensual según los conjuntos que pagan, frente a los dos costos.](figuras/f17.png){width=100%}
 
-| Conjuntos que pagan | Ingreso al mes | Cubre el efectivo (1.673.595) | Cubre el sostenimiento (5.261.595) |
+| Conjuntos que pagan | Ingreso al mes | Cubre el efectivo (2.781.735) | Cubre el sostenimiento (6.369.735) |
 |---|---|---|---|
-| Villas Campestres sola | 2.640.000 | Sí | 50 % |
-| Villas + Refugio | 8.550.000 | Sí | Sí, con +3.288.405 |
-| Villas + Refugio + uno nuevo | 12.280.000 | Sí | Sí, con +7.018.405 |
+| Villas Campestres sola | 2.740.000 | No: 98 % | 43 % |
+| Villas + Refugio | 9.050.000 | Sí | Sí, con +2.680.265 |
+| Villas + Refugio + 5 nuevos | 28.700.000 | Sí | Sí, con +22.330.265 |
 
 **Lectura (inferido).**
 
-1. Villas Campestres sola cubre el costo en efectivo.
-2. Villas y Refugio cubren el sostenimiento completo, con el trabajo de los socios incluido.
-3. Reparar la sincronización de Refugio es la tarea con más efecto en el presupuesto.
-4. En un conjunto de 100 casas, el piso ($1,55 millones) pesa más que el cobro por casa ($1,09 millones). Un conjunto pequeño puede verlo caro. Esto se valida en la fase 4.
-5. Si se actualiza MySQL, el costo en efectivo baja a $1.127.115 al mes.
+1. Con las herramientas actuales, Villas sola ya no cubre la caja. Con la alternativa más barata ($1,4 millones), sí.
+2. Villas y Refugio juntos cubren el sostenimiento completo desde febrero de 2027. Por eso la penetración de enero (apartado 2.4) es la tarea con más efecto en el presupuesto.
+3. La comisión de pagos suma $12,5 millones en el escenario base, el 5 % del ingreso. Su valor está en que el residente vuelve a la app cada mes, no en el ingreso.
+4. El riesgo mayor es la capacidad: implementar 5 conjuntos entre abril y agosto pide el doble de horas de hoy.
 
-## 5.9 Fuera del presupuesto
+## 5.10 Fuera del presupuesto
 
 | Rubro | Motivo |
 |---|---|
-| Hardware HikCentral | Lo pagó Monte Sereno [9] |
+| Hardware HikCentral | Ya instalado en Villas y Refugio; lo pagó Monte Sereno [9] |
 | Desplazamientos | No se incluyen [9] |
 | Equipos, licencias, red y energía de cada conjunto | Sin responsable confirmado [8] |
-| Funciones nuevas | Sin estimar [8] |
+| Crecimiento de AWS con 7 conjuntos | Sin estimar |
+| Funciones nuevas y módulos del eje Y | Sin estimar [8] |
+| Tarifa de la pasarela | La asume el conjunto o el residente, por decidir |
 | Atención 24 horas | Fuera de la capacidad de 40 horas [8] |
 | Abogado: política de datos y contrato tipo | Sin cotización |
-| Impuestos y comisiones | Sin dato [8] |
+| Impuestos | Sin dato [8] |
+| Costo de portería de Villas y Refugio | Por recibir; reemplaza la cifra de mercado del apartado 2.9 |
 
 # 6. Medición
 
 > **En una frase.** Los indicadores siguen una cadena: la marca trae conjuntos, el piloto prueba el valor, la técnica lo sostiene y el negocio lo cobra.
 
-![Figura 20. Cadena de medición por área.](figuras/f18.png){width=100%}
+![Figura 21. Cadena de medición por área.](figuras/f18.png){width=100%}
 
 No hay líneas base todavía. Cada indicador dice cómo se mide y una meta inicial propuesta, que se ajusta con la primera medición [5].
 
@@ -468,7 +511,7 @@ No hay líneas base todavía. Cada indicador dice cómo se mide y una meta inici
 | Técnica | Errores de sincronización | Errores por semana | Umbral para pasar a la etapa 02 |
 | Negocio | Embudo comercial | Conjuntos contactados, propuestas y contratos | 5 contratos firmados al 31 de marzo de 2027 |
 | Negocio | Tasa de cierre | Propuestas aceptadas ÷ enviadas | Revisar al llegar a 5 propuestas |
-| Negocio | Ingreso recurrente mensual | Σ (piso + casas × cobro por casa) | $8,55 millones con Villas + Refugio |
+| Negocio | Ingreso recurrente mensual | Σ (piso + casas × cobro por casa) | $9,05 millones con Villas + Refugio; $28,7 millones con 7 conjuntos |
 | Negocio | Costo de adquisición | Gasto comercial ÷ conjuntos firmados | Línea base con el primer cierre |
 | Negocio | Recuperación de la implementación | Costo de implementación ÷ margen mensual del conjunto | Línea base con Refugio |
 
@@ -482,16 +525,17 @@ No hay líneas base todavía. Cada indicador dice cómo se mide y una meta inici
 6. KINO. *Plan operativo EMP-002, Gantt*. 28 de octubre de 2026.
 7. KINO. *Estrategia de servicio* (Figma Slides), 21 láminas. Noviembre de 2026.
 8. KINO. *Presupuesto mensual: infraestructura y operación*. 8 de noviembre de 2026.
-9. Equipo KINO. Datos de operación y metas: unidades por conjunto, hardware instalado, gastos actuales, costo del registro de marca, fuente de capital, calendario y metas del roadmap. 9 de noviembre de 2026.
+9. Equipo KINO. Datos de operación y metas: unidades por conjunto, hardware instalado, cuota de administración promedio, herramientas y puestos en uso, gastos actuales, costo del registro de marca, fuente de capital, calendario y metas del roadmap. 9 de noviembre de 2026.
 10. Noticias RCN. «Salario de vigilantes quedó fijado para este 2026». https://www.noticiasrcn.com/economia/la-supervigilancia-fijo-tarifas-minimas-de-vigilancia-para-2026-989255. Consulta: 9 de noviembre de 2026.
 11. El Espectador. «Tarifas de vigilancia y seguridad privada en 2026». https://www.elespectador.com/economia/tarifas-de-vigilancia-y-seguridad-privada-en-2026-asi-suben-los-precios/. Consulta: 9 de noviembre de 2026.
 12. El Colombiano. Proyección de la tasa de cambio para noviembre de 2026. https://www.elcolombiano.com/inicio/dolar-colombia-proyeccion-tasa-cambio-noviembre-2026-GF43201403. Consulta: 9 de noviembre de 2026.
 13. Dólar Colombia. TRM del 4 de noviembre de 2026. https://www.dolar-colombia.com/2026-11-04. Consulta: 9 de noviembre de 2026.
-14. Anthropic. «How much does Claude Pro cost?». https://support.anthropic.com/en/articles/8325610-how-much-does-claude-pro-cost. Consulta: 9 de noviembre de 2026.
-15. Figma. Foro de la comunidad, precio del plan Professional. https://forum.figma.com/report-a-problem-6/why-does-the-professional-plan-price-change-at-checkout-57528. Consulta: 9 de noviembre de 2026.
+14. Morph. «Claude Team Plan Pricing: Standard vs Premium Seats». Puesto estándar USD 25 al mes (USD 20 con pago anual); puesto Premium USD 125 (USD 100 con pago anual). https://www.morphllm.com/claude-code-team-pricing. Consulta: 9 de noviembre de 2026.
+15. Awesomic y App Stack Insider. Precios de Figma 2026: puesto Full de Enterprise USD 90 al mes con pago anual; puesto Full de Professional USD 16 al mes con pago anual. https://www.awesomic.com/blog/figma-pricing y https://appstackinsider.com/insights/figma-pricing-guide/. Consulta: 9 de noviembre de 2026.
 16. Enter.co. «Wompi baja la tarifa del QR al 1 %». https://www.enter.co/fintech/wompi-baja-la-tarifa-del-qr-al-1-y-amplia-los-pagos-desde-el-celular/. Consulta: 9 de noviembre de 2026.
 17. Congreso de Colombia. Ley 1581 de 2012, protección de datos personales.
 18. Chatalog. Precios de la plataforma de WhatsApp Business. https://docs.chatalog.ai/platform-setup/whatsapp-connection-guide/whatsapp-pricing-update. Consulta: 8 de noviembre de 2026.
+19. Techraisal. «SuperGrok price in 2026». Plan de USD 30 al mes. https://www.techraisal.com/blog/supergrok-price-in-2026/. Consulta: 9 de noviembre de 2026.
 
 ## Uso de inteligencia artificial
 

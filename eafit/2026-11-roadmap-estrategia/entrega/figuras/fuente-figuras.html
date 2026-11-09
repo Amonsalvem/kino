@@ -123,6 +123,12 @@ svg text{font-family:Inter,sans-serif}
  <svg id="sv11" width="936" height="260"></svg>
 </div>
 
+<!-- 21 PESO EN LA CUOTA -->
+<div class="fig" id="f21">
+ <div class="t">Cuánto pesa cada costo en lo que recauda el conjunto (% de la cuota)</div>
+ <svg id="sv21" width="936" height="295"></svg>
+</div>
+
 <!-- 12 EXPANSION -->
 <div class="fig" id="f12">
  <div class="t">Expansión en dos ejes: más conjuntos y más módulos</div>
@@ -137,8 +143,8 @@ svg text{font-family:Inter,sans-serif}
 
 <!-- 14 COSTO -->
 <div class="fig" id="f14">
- <div class="t">Costo mensual en las dos vistas (COP)</div>
- <svg id="sv14" width="936" height="250"></svg>
+ <div class="t">Costo mensual en las dos vistas y con la alternativa barata (COP)</div>
+ <svg id="sv14" width="936" height="290"></svg>
 </div>
 
 <!-- 15 ESCENARIOS -->
@@ -316,39 +322,43 @@ lines(s,772,72,['Regla','','KINO no recibe ni','guarda el dinero','del conjunto.
 tx(s,0,310,'La forma de cobrar el margen depende del contrato con la pasarela (inferido). Tarifa de referencia: Wompi, 2,65 % + $700 + IVA en línea.',{fs:13,fill:C.mut});})();
 
 // 14 costo mensual
-(()=>{const s=document.getElementById('sv14');const L=170,W=640,max=5.3e6;const parts=[['AWS',1155000,C.ac],['Herramientas',300300,C.ac2],['Trabajo de los socios',3120000,C.mut],['Reserva 15 %',0,C.wa]];
-const rows=[['En efectivo',[1155000,300300,0,218295],1673595],['Sostenimiento',[1155000,300300,3120000,686295],5261595]];
-rows.forEach((r,i)=>{const y=20+i*72;tx(s,L-14,y+24,r[0],{a:'end',b:'middle',fw:700,fill:C.ink});let x=L;r[1].forEach((v,j)=>{const w=v/max*W;if(w>0){el(s,'rect',{x,y,width:w,height:48,fill:parts[j][2],opacity:j==2?.55:1});}x+=w});tx(s,x+10,y+24,'$'+fmt(r[2]),{b:'middle',fw:700,fill:C.ink})});
-parts.forEach((p,j)=>{const x=L+j*165;el(s,'rect',{x,y:178,width:14,height:14,fill:p[2],opacity:j==2?.55:1});tx(s,x+20,190,p[0],{fs:13.5})});
-tx(s,L,224,'El trabajo de los socios vale $3.120.000 al mes, pero hoy no sale de la caja.',{fs:13,fill:C.mut});})();
+(()=>{const s=document.getElementById('sv14');const L=220,W=600,max=6.5e6;const parts=[['AWS',C.ac],['Herramientas',C.ac2],['Trabajo de los socios',C.mut],['Reserva 15 %',C.wa]];
+const rows=[['En efectivo',[1155000,1263900,0,362835],2781735],['Sostenimiento',[1155000,1263900,3120000,830835],6369735],['Alternativa barata',[679800,511500,0,178695],1369995]];
+rows.forEach((r,i)=>{const y=20+i*66;tx(s,L-14,y+22,r[0],{a:'end',b:'middle',fw:700,fill:i==2?C.ok:C.ink});let x=L;r[1].forEach((v,j)=>{const w=v/max*W;if(w>0){el(s,'rect',{x,y,width:w,height:44,fill:parts[j][1],opacity:j==2?.55:1});}x+=w});tx(s,x+10,y+22,'$'+fmt(r[2]),{b:'middle',fw:700,fill:i==2?C.ok:C.ink})});
+parts.forEach((p,j)=>{const x=L+j*165;el(s,'rect',{x,y:226,width:14,height:14,fill:p[1],opacity:j==2?.55:1});tx(s,x+20,238,p[0],{fs:13.5})});
+tx(s,20,272,'El trabajo de los socios vale $3.120.000 al mes, pero hoy no sale de la caja. La alternativa barata es la del apartado 5.5 (en efectivo).',{fs:13,fill:C.mut});})();
 
 // 15 escenarios
-(()=>{const s=document.getElementById('sv15');const L=70,B=300,H=260,max=80;const sc=[['Conservador',23.76],['Base',65.06],['Optimista',79.45]];const ce=24.63,cs=74.86;
-[0,20,40,60,80].forEach(v=>{const y=B-v/max*H;el(s,'line',{x1:L,y1:y,x2:900,y2:y,stroke:C.soft});tx(s,L-10,y,String(v),{a:'end',b:'middle',fs:12.5,fill:C.mut})});
+(()=>{const s=document.getElementById('sv15');const L=70,B=300,H=260,max=300;const sc=[['Conservador',145.45],['Base',256.3],['Optimista',284.05]];const ce=40.14,cs=109.58;
+[0,50,100,150,200,250,300].forEach(v=>{const y=B-v/max*H;el(s,'line',{x1:L,y1:y,x2:900,y2:y,stroke:C.soft});tx(s,L-10,y,String(v),{a:'end',b:'middle',fs:12.5,fill:C.mut})});
 sc.forEach((r,i)=>{const x=L+60+i*260;const h=r[1]/max*H;el(s,'rect',{x,y:B-h,width:110,height:h,fill:i==1?C.ac:C.acs,stroke:C.ac,rx:4});tx(s,x+55,B-h-10,'$'+r[1].toFixed(1).replace('.',',')+' M',{a:'middle',fw:700,fill:C.ink});tx(s,x+55,B+22,r[0],{a:'middle',fw:i==1?700:600,fill:C.ink})});
 let lg=0;const ln=(v,c,t)=>{const y=B-v/max*H;el(s,'line',{x1:L,y1:y,x2:900,y2:y,stroke:c,'stroke-width':2.2,'stroke-dasharray':'7 5'});el(s,'line',{x1:L+lg,y1:B+48,x2:L+lg+28,y2:B+48,stroke:c,'stroke-width':2.2,'stroke-dasharray':'7 5'});tx(s,L+lg+36,B+53,t,{fs:13.5,fw:700,fill:c});lg+=330};
-ln(ce,C.ok,'Costo en efectivo: $24,6 M');ln(cs,C.ba,'Costo de sostenimiento: $74,9 M');
-tx(s,L,B+84,'Una barra sobre la línea verde cubre la caja. Sobre la línea roja, cubre también el trabajo de los socios.',{fs:13,fill:C.mut});})();
+ln(ce,C.ok,'Costo en efectivo: $40,1 M');ln(cs,C.ba,'Costo de sostenimiento: $109,6 M');
+tx(s,L,B+84,'Los tres escenarios cubren los dos costos. El base cumple la meta de 5 conjuntos nuevos (H5).',{fs:13,fill:C.mut});})();
 
 // 16 flujo acumulado
 (()=>{const s=document.getElementById('sv16');const ms=['nov','dic','ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
-const ce=1673595,cs=5261595;let ae=-1.2e6,as=-1.2e6;const E=[],S=[];
-ms.forEach((m,i)=>{let r=0;if(i>=4)r+=2.64e6;if(i>=8)r+=5.91e6;if(i==8)r+=3.2e6;ae+=r-ce;as+=r-cs;E.push(ae);S.push(as)});
-const L=80,T=20,W=760,H=330,min=-45e6,max=45e6;const y=v=>T+(max-v)/(max-min)*H;const x=i=>L+i*(W/13);
-[-45,-30,-15,0,15,30,45].forEach(v=>{el(s,'line',{x1:L,y1:y(v*1e6),x2:L+W,y2:y(v*1e6),stroke:v==0?C.ink:C.soft,'stroke-width':v==0?1.5:1});tx(s,L-10,y(v*1e6),String(v),{a:'end',b:'middle',fs:12.5,fill:C.mut})});
+const E=[-3981735,-3563470,-6345205,-76940,6191325,19589590,36917855,58176120,83364385,112482650,138400915,164319180,190237445,216155710];
+const S=[-7569735,-13939470,-20309205,-17628940,-14948675,-8338410,2201855,16672120,35072385,57402650,79732915,102063180,124393445,146723710];
+const L=80,T=20,W=740,H=330,min=-50e6,max=250e6;const y=v=>T+(max-v)/(max-min)*H;const x=i=>L+i*(W/13);
+[-50,0,50,100,150,200,250].forEach(v=>{el(s,'line',{x1:L,y1:y(v*1e6),x2:L+W,y2:y(v*1e6),stroke:v==0?C.ink:C.soft,'stroke-width':v==0?1.5:1});tx(s,L-10,y(v*1e6),String(v),{a:'end',b:'middle',fs:12.5,fill:C.mut})});
 ms.forEach((m,i)=>tx(s,x(i),T+H+20,m,{a:'middle',fs:12.5,fill:C.mut}));tx(s,x(0.5),T+H+40,'2026',{a:'middle',fs:12,fw:700,fill:C.ink});tx(s,x(8),T+H+40,'2027',{a:'middle',fs:12,fw:700,fill:C.ink});
-[[4,'Villas paga'],[8,'Refugio paga']].forEach(([i,t])=>{el(s,'line',{x1:x(i),y1:T,x2:x(i),y2:T+H,stroke:C.line,'stroke-dasharray':'4 4'});tx(s,x(i)+6,T+14,t,{fs:12.5,fw:700,fill:C.mut})});
+[[3,'Villas y Refugio pagan',14],[5,'Primer conjunto nuevo',34]].forEach(([i,t,o])=>{el(s,'line',{x1:x(i),y1:T,x2:x(i),y2:T+H,stroke:C.line,'stroke-dasharray':'4 4'});tx(s,x(i)+6,T+o,t,{fs:12.5,fw:700,fill:C.mut})});
 const path=(A,c)=>{let d='';A.forEach((v,i)=>d+=(i?' L':'M')+x(i)+','+y(v));el(s,'path',{d,stroke:c,'stroke-width':3,fill:'none'});A.forEach((v,i)=>el(s,'circle',{cx:x(i),cy:y(v),r:3.5,fill:c}))};
 path(E,C.ok);path(S,C.ba);
-tx(s,x(13)+6,y(E[13]),'+'+M(E[13]),{b:'middle',fw:700,fill:C.ok,fs:14});tx(s,x(13)+6,y(S[13]),M(S[13]),{b:'middle',fw:700,fill:C.ba,fs:14});
-const mi=S.indexOf(Math.min(...S));tx(s,x(mi),y(S[mi])+22,'punto más bajo: '+M(S[mi]),{fs:12.5,fill:C.ba,fw:600,a:'middle'});
-el(s,'line',{x1:L,y1:T+H+58,x2:L+24,y2:T+H+58,stroke:C.ok,'stroke-width':3});tx(s,L+30,T+H+62,'En efectivo',{fs:13.5});el(s,'line',{x1:L+150,y1:T+H+58,x2:L+174,y2:T+H+58,stroke:C.ba,'stroke-width':3});tx(s,L+180,T+H+62,'Sostenimiento (incluye el trabajo de los socios)',{fs:13.5});
-window.__E=E;window.__S=S;})();
+tx(s,x(13)+6,y(E[13]),'+'+M(E[13]),{b:'middle',fw:700,fill:C.ok,fs:14});tx(s,x(13)+6,y(S[13]),'+'+M(S[13]),{b:'middle',fw:700,fill:C.ba,fs:14});
+tx(s,x(2),y(S[2])+24,'punto más bajo: '+M(S[2]),{fs:12.5,fill:C.ba,fw:600,a:'middle'});tx(s,x(2),y(E[2])-12,M(E[2]),{fs:12.5,fill:C.ok,fw:600,a:'middle'});
+el(s,'line',{x1:L,y1:T+H+58,x2:L+24,y2:T+H+58,stroke:C.ok,'stroke-width':3});tx(s,L+30,T+H+62,'En efectivo',{fs:13.5});el(s,'line',{x1:L+150,y1:T+H+58,x2:L+174,y2:T+H+58,stroke:C.ba,'stroke-width':3});tx(s,L+180,T+H+62,'Sostenimiento (incluye el trabajo de los socios)',{fs:13.5});})();
 
 // 17 equilibrio
-(()=>{const s=document.getElementById('sv17');const L=280,W=560,max=13e6;const R=[['Villas Campestres sola',2.64e6],['Villas + Refugio',8.55e6],['Villas + Refugio + uno nuevo',12.28e6]];
-R.forEach((r,i)=>{const yy=20+i*64;tx(s,L-14,yy+22,r[0],{a:'end',b:'middle',fw:600,fill:C.ink});el(s,'rect',{x:L,y:yy,width:r[1]/max*W,height:44,rx:5,fill:C.ac});tx(s,L+r[1]/max*W+10,yy+22,'$'+M(r[1])+' M',{b:'middle',fw:700,fill:C.ink})});
-const ln=(v,c,t,o)=>{const x=L+v/max*W;el(s,'line',{x1:x,y1:10,x2:x,y2:214,stroke:c,'stroke-width':2.2,'stroke-dasharray':'6 4'});tx(s,x,236+o,t,{a:'middle',fs:13,fw:700,fill:c})};
-ln(1673595,C.ok,'Efectivo: $1,7 M',0);ln(5261595,C.ba,'Sostenimiento: $5,3 M',0);
-tx(s,20,272,'Reparar la sincronización de Refugio Campestre es la tarea con más efecto en el presupuesto.',{fs:13,fill:C.mut});})();
+(()=>{const s=document.getElementById('sv17');const L=280,W=560,max=30e6;const R=[['Villas Campestres sola',2.74e6],['Villas + Refugio',9.05e6],['Villas + Refugio + 5 nuevos',28.7e6]];
+R.forEach((r,i)=>{const yy=20+i*64;tx(s,L-14,yy+22,r[0],{a:'end',b:'middle',fw:600,fill:C.ink});el(s,'rect',{x:L,y:yy,width:r[1]/max*W,height:44,rx:5,fill:C.ac});const lx=L+r[1]/max*W+10;tx(s,i==2?lx-20:lx+ (i==0?60:0),yy+22,'$'+M(r[1])+' M',{b:'middle',fw:700,fill:i==2?'#fff':C.ink,a:i==2?'end':'start'})});
+const ln=(v,c,t,o,an)=>{const x=L+v/max*W;el(s,'line',{x1:x,y1:10,x2:x,y2:214,stroke:c,'stroke-width':2.2,'stroke-dasharray':'6 4'});tx(s,x,236+o,t,{a:an,fs:13,fw:700,fill:c})};
+ln(2781735,C.ok,'Efectivo: $2,8 M',0,'end');ln(6369735,C.ba,'Sostenimiento: $6,4 M',0,'start');
+tx(s,20,272,'Villas y Refugio juntos cubren los dos costos. Por eso la penetración de enero es la tarea con más efecto.',{fs:13,fill:C.mut});})();
+
+// 21 peso en la cuota
+(()=>{const s=document.getElementById('sv21');const L=330,W=480,max=50;const R=[['Puesto de vigilancia · Villas (100 casas)',38,43.6,C.mut],['Puesto de vigilancia · Refugio (400 casas)',9.5,10.9,C.mut],['KINO · Villas',5.9,0,C.ac],['KINO · conjunto nuevo (200 casas)',4.1,0,C.ac],['KINO · Refugio',3.3,0,C.ac]];
+R.forEach((r,i)=>{const y=14+i*50;tx(s,L-14,y+17,r[0],{a:'end',b:'middle',fw:600,fill:C.ink,fs:14});el(s,'rect',{x:L,y,width:r[1]/max*W,height:34,rx:5,fill:r[3]});if(r[2])el(s,'rect',{x:L+r[1]/max*W,y,width:(r[2]-r[1])/max*W,height:34,fill:r[3],opacity:.4});const v=r[2]?`${String(r[1]).replace('.',',')} % a ${String(r[2]).replace('.',',')} %`:`${String(r[1]).replace('.',',')} %`;tx(s,L+(r[2]||r[1])/max*W+10,y+17,v,{b:'middle',fw:700,fill:C.ink})});
+tx(s,20,280,'Parte de lo que recauda el conjunto con una cuota de $450.000 por casa. Vigilancia: $17,1 a $19,6 M al mes (Noticias RCN y El Espectador, 2026).',{fs:13,fill:C.mut});})();
 </script></body></html>
