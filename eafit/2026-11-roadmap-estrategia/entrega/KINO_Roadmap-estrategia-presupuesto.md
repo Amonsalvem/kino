@@ -17,10 +17,10 @@ KINO es una plataforma de control de acceso para conjuntos cerrados. Hoy opera e
 | ¿Qué resolvemos? | Quien conoce a la visita (el residente) no tiene autoridad para dejarla entrar, y quien tiene autoridad (portería) no la conoce |
 | ¿A quién vendemos? | Solo a la administración del conjunto. Primero, a conjuntos campestres del oriente antioqueño con hardware HikCentral |
 | ¿En qué orden crecemos? | Villas Campestres y Refugio Campestre en diciembre de 2026 y enero de 2027; 5 conjuntos nuevos del oriente antioqueño en el primer trimestre de 2027; después, el Valle de Aburrá |
-| ¿Cómo cobramos? | Cobro por casa construida, con un mínimo por conjunto + implementación única + comisión por cada pago de la cuota en la app, desde el primer conjunto |
+| ¿Cómo cobramos? | Pago fijo por conjunto + cobro por casa construida + implementación única + comisión por cada pago de la cuota en la app, desde el primer conjunto |
 | ¿Cuándo está lista la app? | En diciembre de 2026, completa y con pagos. En enero de 2027, el 80 % de las casas de Villas y Refugio la usa |
-| ¿Cuánto cobramos? | $16.000 por casa al mes, con un mínimo de $1.200.000 por conjunto: el 2,7 % de la cuota de administración |
-| ¿Cuánto cuesta y cuándo se sostiene? | $2,8 millones al mes en efectivo ($1,4 millones con la alternativa más barata). Villas y Refugio lo cubren desde febrero de 2027. Escenario base a diciembre de 2027: +$192 millones en efectivo |
+| ¿Cuánto cobramos? | $1.200.000 al mes por conjunto + $16.000 por casa + $2.000 por pago: entre el 3,2 % y el 4,7 % de la cuota de administración |
+| ¿Cuánto cuesta y cuándo se sostiene? | $2,8 millones al mes en efectivo ($1,4 millones con la alternativa más barata). Villas y Refugio lo cubren desde febrero de 2027. Escenario base a diciembre de 2027: +$260 millones en efectivo |
 
 ![Figura 1. Mapa del documento. Cada capítulo responde una pregunta.](figuras/f01.png){width=100%}
 
@@ -160,8 +160,8 @@ El equipo evaluó seis formas de cobrar. La figura 10 las ubica por rentabilidad
 
 | Modelo | Cómo cobra | Rentabilidad | Riesgo |
 |---|---|---|---|
-| **A · Por casa, con mínimo** | Una tarifa por casa construida y un mínimo por conjunto | Alta: el mínimo cubre el soporte del conjunto pequeño | Bajo |
-| B · Piso + casa | Una tarifa fija por conjunto más una tarifa por casa (el modelo de Unita [5]) | Alta | Bajo, pero castiga al conjunto pequeño |
+| A · Por casa, con mínimo | Una tarifa por casa construida y un mínimo por conjunto | Alta | Bajo, pero el mínimo se puede leer como una barrera de entrada |
+| **B · Pago fijo + casa** | Un pago fijo por conjunto más una tarifa por casa (también lo usa Unita [5]) | Alta: el pago fijo cubre el soporte del conjunto y la tarifa por casa crece con su tamaño | Bajo |
 | C · Por valor | Una fracción del costo de un puesto de vigilancia | Alta | Medio: exige probar el ahorro en portería |
 | **D · Comisión de pagos** | Margen sobre la pasarela cuando el residente paga la cuota de administración en la app | La más alta a escala: crece sin trabajo extra | Alto: exige alianza con la pasarela y el módulo de pagos |
 | **E · Implementación** | Cobro único al empezar | Media: da caja al inicio y filtra clientes | Bajo |
@@ -171,7 +171,7 @@ Para el modelo D, la pasarela Wompi cobra 2,65 % + $700 + IVA en pagos en línea
 
 **Descartados.** Cobrar a la visita (recibe el KEY sin cuenta). Cobrar al residente (solo compra la administración). Marca blanca (KINO mantiene su marca). Vender datos de ingresos (Ley 1581 de 2012 [17]).
 
-> **Modelo elegido.** A con mínimo + D + E desde el primer conjunto.
+> **Modelo elegido.** B + D + E desde el primer conjunto.
 
 **Costo marginal.** Una casa más casi no sube el costo de KINO: la infraestructura y el trabajo son fijos (capítulo 5). Después del punto de equilibrio, cada peso nuevo es margen (inferido).
 
@@ -197,7 +197,7 @@ El residente paga la cuota de administración desde la app. El dinero va a la cu
 
 ## 2.9 Precio
 
-> **Precio.** $16.000 al mes por casa construida, con un mínimo de $1.200.000 al mes por conjunto + $3.200.000 de implementación, una vez + $2.000 por cada pago de la cuota en la app.
+> **Precio.** $1.200.000 al mes por conjunto + $16.000 al mes por casa construida + $2.000 por cada pago de la cuota en la app + $3.200.000 de implementación, una vez.
 
 El precio se justifica con tres referencias:
 
@@ -205,21 +205,21 @@ El precio se justifica con tres referencias:
 |---|---|---|
 | Costo | Lo que cuesta atender a los conjuntos | $2,8 millones al mes en efectivo; $6,4 millones con el trabajo de los socios (capítulo 5) |
 | Techo | Lo que el residente ya paga y lo que el conjunto gasta en portería | Cuota de administración promedio de Villas y Refugio: $600.000 al mes por casa [9]. Un puesto de vigilancia 24 horas: $17,1 a $19,6 millones al mes [10] [11] |
-| Ancla | El precio de su competidor directo, Unita | $1.550.000 al mes por conjunto + $10.900 al mes por casa [5]. KINO no lo copia: cobra solo por casa |
+| Ancla | El precio de su competidor directo, Unita | $1.550.000 al mes por conjunto + $10.900 al mes por casa [5] |
 
-**Por qué no copia a Unita.** Unita cobra un piso fijo más una tarifa por casa [5]. KINO cobra solo por casa, con un mínimo que cubre el soporte de un conjunto pequeño (inferido). El residente lo entiende en una línea: el 2,7 % de su cuota. Además, KINO da lo que Unita no tiene: el KEY sin cuenta para la visita y la integración probada con el hardware del conjunto (apartado 1.3).
+**KINO frente a Unita.** Los dos cobran un pago fijo más una tarifa por casa [5]. KINO cobra menos de pago fijo y más por casa, así que cuesta más que Unita en todos los tamaños:
 
 | Conjunto | KINO al mes | Unita al mes [5] | Diferencia |
 |---|---|---|---|
-| Villas Campestres (100 casas) | $1.600.000 | $2.640.000 | −39 % |
-| Conjunto nuevo (200 casas, supuesto) | $3.200.000 | $3.730.000 | −14 % |
-| Refugio Campestre (400 casas) | $6.400.000 | $5.910.000 | +8 % |
+| Villas Campestres (100 casas) | $2.800.000 | $2.640.000 | +6 % |
+| Conjunto nuevo (200 casas, supuesto) | $4.400.000 | $3.730.000 | +18 % |
+| Refugio Campestre (400 casas) | $7.600.000 | $5.910.000 | +29 % |
 
-KINO es más barato hasta 304 casas y un poco más caro por encima. El conjunto grande recibe más visitas y colaboradores, así que recibe más valor (inferido). El mínimo de $1.200.000 aplica a conjuntos de menos de 75 casas.
+La diferencia se justifica solo con lo que Unita no tiene: el KEY sin cuenta para la visita y la integración probada con el hardware del conjunto (apartado 1.3). La venta tiene que mostrarlo con el caso del piloto (H3). El conjunto grande paga más, y también recibe más visitas y colaboradores (inferido).
 
 ![Figura 12. Cuánto paga cada conjunto al mes con el precio de KINO.](figuras/f10.png){width=100%}
 
-**Cuánto pesa KINO en la cuota.** Con una cuota de $600.000, KINO cuesta el 2,7 % de lo que paga cada casa, en cualquier conjunto. En lo que recauda cada conjunto, un puesto de vigilancia pesa entre el 7,1 % (Refugio) y el 33 % (Villas) (figura 14).
+**Cuánto pesa KINO en la cuota.** Con una cuota de $600.000, KINO cuesta entre el 3,2 % (Refugio) y el 4,7 % (Villas) de lo que paga cada casa. El pago fijo pesa más en el conjunto pequeño. En lo que recauda cada conjunto, un puesto de vigilancia pesa entre el 7,1 % (Refugio) y el 33 % (Villas) (figura 14).
 
 ![Figura 13. KINO frente al costo de un puesto de vigilancia.](figuras/f11.png){width=100%}
 
@@ -229,8 +229,8 @@ KINO es más barato hasta 304 casas y un poco más caro por encima. El conjunto 
 
 **Lectura (inferido).**
 
-1. El 2,7 % de la cuota es igual para todo conjunto: el precio no castiga al conjunto pequeño.
-2. Frente a un puesto de vigilancia, Villas paga KINO con el 9 % de lo que cuesta el puesto y Refugio con cerca del 35 %.
+1. KINO pesa menos del 5 % de la cuota en los dos conjuntos del piloto.
+2. Frente a un puesto de vigilancia, Villas paga KINO con el 14 % al 16 % de lo que cuesta el puesto y Refugio con el 39 % al 44 %.
 3. El costo de portería propio de Villas y Refugio todavía no está. Cuando llegue, reemplaza la cifra de mercado del techo.
 
 # 3. Expansión
@@ -318,7 +318,7 @@ Fechas fijadas por el equipo el 9 de noviembre de 2026 [9]. La fecha de H4 es un
 
 # 5. Presupuesto
 
-> **En una frase.** KINO cuesta $2,8 millones al mes en efectivo. Villas y Refugio cubren ese costo desde febrero de 2027. Con los 5 conjuntos nuevos, el escenario base cierra diciembre de 2027 con +$192 millones en efectivo. Una alternativa más barata baja el costo a $1,4 millones al mes.
+> **En una frase.** KINO cuesta $2,8 millones al mes en efectivo. Villas y Refugio cubren ese costo desde febrero de 2027. Con los 5 conjuntos nuevos, el escenario base cierra diciembre de 2027 con +$260 millones en efectivo. Una alternativa más barata baja el costo a $1,4 millones al mes.
 
 Horizonte: noviembre de 2026 a diciembre de 2027 (14 meses). Fuente de dinero: capital propio de los socios [9].
 
@@ -418,19 +418,19 @@ Cinco cambios bajan el costo en efectivo a la mitad sin quitarle al proyecto nad
 
 Precio del apartado 2.9. Villas Campestres no paga implementación porque ya está implementada. Con el 50 % de las casas pagando en la app:
 
-| Conjunto | Casas × $16.000 | Comisión de pagos | Al mes |
+| Conjunto | $1.200.000 + casas × $16.000 | Comisión de pagos | Al mes |
 |---|---|---|---|
-| Villas Campestres (100 casas) | 1.600.000 | 50 × 2.000 = 100.000 | 1.700.000 |
-| Refugio Campestre (400 casas) | 6.400.000 | 200 × 2.000 = 400.000 | 6.800.000 |
-| Conjunto nuevo (200 casas) | 3.200.000 | 100 × 2.000 = 200.000 | 3.400.000 |
+| Villas Campestres (100 casas) | 2.800.000 | 50 × 2.000 = 100.000 | 2.900.000 |
+| Refugio Campestre (400 casas) | 7.600.000 | 200 × 2.000 = 400.000 | 8.000.000 |
+| Conjunto nuevo (200 casas) | 4.400.000 | 100 × 2.000 = 200.000 | 4.600.000 |
 
 Los escenarios cambian cuántos conjuntos nuevos entran, desde cuándo y cuántas casas pagan en la app. El precio es el mismo.
 
 | Escenario | Conjuntos nuevos | Pagos en la app | Comisión a dic 2027 | Ingreso a dic 2027 |
 |---|---|---|---|---|
-| Conservador | 2, en julio y septiembre de 2027 | 30 % | 4.500.000 | 134.100.000 |
-| **Base** | **5, uno por mes de abril a agosto de 2027** | **50 %** | **12.500.000** | **231.700.000** |
-| Optimista | 5, uno por mes de marzo a julio de 2027 | 80 % | 21.600.000 | 256.800.000 |
+| Conservador | 2, en julio y septiembre de 2027 | 30 % | 4.500.000 | 172.500.000 |
+| **Base** | **5, uno por mes de abril a agosto de 2027** | **50 %** | **12.500.000** | **300.100.000** |
+| Optimista | 5, uno por mes de marzo a julio de 2027 | 80 % | 21.600.000 | 331.200.000 |
 
 Los tres escenarios incluyen a Villas y Refugio desde febrero de 2027 y una implementación de $3.200.000 por cada conjunto nuevo y por Refugio.
 
@@ -440,22 +440,22 @@ Los tres escenarios incluyen a Villas y Refugio desde febrero de 2027 y una impl
 
 | Escenario | Ingresos | En efectivo | Sostenimiento |
 |---|---|---|---|
-| Conservador | 134.100.000 | +93.955.710 | +34.123.710 |
-| **Base** | **231.700.000** | **+191.555.710** | **+122.123.710** |
-| Optimista | 256.800.000 | +216.655.710 | +147.223.710 |
+| Conservador | 172.500.000 | +132.355.710 | +72.523.710 |
+| **Base** | **300.100.000** | **+259.955.710** | **+190.523.710** |
+| Optimista | 331.200.000 | +291.055.710 | +221.623.710 |
 
-Sin impuestos. Con la alternativa más barata, el escenario base sube a +$211,3 millones en efectivo.
+Sin impuestos. Con la alternativa más barata, el escenario base sube a +$279,7 millones en efectivo.
 
-**Cuánto capital ponen los socios.** La figura 19 muestra el acumulado del escenario base mes a mes. La caja toca su punto más bajo en enero de 2027: −$6,3 millones, que pagan los socios con capital propio. Desde marzo de 2027 la caja queda en positivo. El sostenimiento llega a −$20,3 millones en enero y queda en positivo desde junio de 2027.
+**Cuánto capital ponen los socios.** La figura 19 muestra el acumulado del escenario base mes a mes. La caja toca su punto más bajo en enero de 2027: −$6,3 millones, que pagan los socios con capital propio. Desde febrero de 2027 la caja queda en positivo. El sostenimiento llega a −$20,3 millones en enero y queda en positivo desde mayo de 2027.
 
 ![Figura 19. Escenario base: resultado acumulado mes a mes.](figuras/f16.png){width=100%}
 
 | Tramo | Ingreso al mes | Qué pasa |
 |---|---|---|
 | nov 2026 a ene 2027 | 0, más la implementación de Refugio en diciembre | Desarrollo y piloto. La caja baja a −$6,3 millones |
-| feb y mar 2027 | 8.500.000 (Villas + Refugio) | La caja se recupera |
-| abr a ago 2027 | De 11.900.000 a 25.500.000 | Entra un conjunto nuevo cada mes |
-| sep a dic 2027 | 25.500.000 | Siete conjuntos pagan |
+| feb y mar 2027 | 10.900.000 (Villas + Refugio) | La caja se recupera |
+| abr a ago 2027 | De 15.500.000 a 33.900.000 | Entra un conjunto nuevo cada mes |
+| sep a dic 2027 | 33.900.000 | Siete conjuntos pagan |
 
 Si Figma Enterprise se paga por adelantado, la caja necesita unos $7,1 millones más al inicio.
 
@@ -465,15 +465,15 @@ Si Figma Enterprise se paga por adelantado, la caja necesita unos $7,1 millones 
 
 | Conjuntos que pagan | Ingreso al mes | Cubre el efectivo (2.781.735) | Cubre el sostenimiento (6.369.735) |
 |---|---|---|---|
-| Villas Campestres sola | 1.700.000 | No: 61 % | 27 % |
-| Villas + Refugio | 8.500.000 | Sí | Sí, con +2.130.265 |
-| Villas + Refugio + 5 nuevos | 25.500.000 | Sí | Sí, con +19.130.265 |
+| Villas Campestres sola | 2.900.000 | Sí, con +118.265 | No: 46 % |
+| Villas + Refugio | 10.900.000 | Sí | Sí, con +4.530.265 |
+| Villas + Refugio + 5 nuevos | 33.900.000 | Sí | Sí, con +27.530.265 |
 
 **Lectura (inferido).**
 
-1. Villas sola no cubre la caja con las herramientas actuales ($1,7 millones frente a $2,8 millones). Con la alternativa más barata ($1,4 millones), sí.
+1. Villas sola ya cubre la caja ($2,9 millones frente a $2,8 millones), pero no el trabajo de los socios.
 2. Villas y Refugio juntos cubren el sostenimiento completo desde febrero de 2027. Por eso la penetración de enero (apartado 2.4) es la tarea con más efecto en el presupuesto.
-3. La comisión de pagos suma $12,5 millones en el escenario base, el 5 % del ingreso. Su valor está en que el residente vuelve a la app cada mes, no en el ingreso.
+3. La comisión de pagos suma $12,5 millones en el escenario base, el 4 % del ingreso. Su valor está en que el residente vuelve a la app cada mes, no en el ingreso.
 4. El riesgo mayor es la capacidad: implementar 5 conjuntos entre abril y agosto pide el doble de horas de hoy.
 
 ## 5.10 Fuera del presupuesto
@@ -513,7 +513,7 @@ No hay líneas base todavía. Cada indicador dice cómo se mide y una meta inici
 | Técnica | Errores de sincronización | Errores por semana | Umbral para pasar a la etapa 02 |
 | Negocio | Embudo comercial | Conjuntos contactados, propuestas y contratos | 5 contratos firmados al 31 de marzo de 2027 |
 | Negocio | Tasa de cierre | Propuestas aceptadas ÷ enviadas | Revisar al llegar a 5 propuestas |
-| Negocio | Ingreso recurrente mensual | Σ (casas × $16.000, con mínimo) + comisión de pagos | $8,5 millones con Villas + Refugio; $25,5 millones con 7 conjuntos |
+| Negocio | Ingreso recurrente mensual | Σ ($1.200.000 + casas × $16.000) + comisión de pagos | $10,9 millones con Villas + Refugio; $33,9 millones con 7 conjuntos |
 | Negocio | Costo de adquisición | Gasto comercial ÷ conjuntos firmados | Línea base con el primer cierre |
 | Negocio | Recuperación de la implementación | Costo de implementación ÷ margen mensual del conjunto | Línea base con Refugio |
 
