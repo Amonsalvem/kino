@@ -1,23 +1,31 @@
 # Prompt para conectar Grok al repositorio de Kino
 
-Nico lo pega una vez en cada conversación de Grok donde trabaja Kino. Grok sube lo que ya se hizo y, desde ese momento, sube cada avance a GitHub en cuanto ocurre, en una rama y un PR en borrador por área. Lo abre el issue [#15](https://github.com/Amonsalvem/kino/issues/15).
+Nico lo pega una vez en cada conversación de Grok donde trabaja Kino. Nico solo usa Grok. Grok arma cada entrega y se la manda a Cursor, y Cursor la sube a GitHub en una rama y un PR en borrador por área. Lo abre el issue [#15](https://github.com/Amonsalvem/kino/issues/15).
+
+```
+Nico ──► Grok ──(ORDEN PARA CURSOR)──► Cursor ──► rama + PR en borrador ──► Alejandro aprueba
+```
+
+## Las dos capas
+
+| Capa | Archivo | Qué hace |
+|---|---|---|
+| Grok | El bloque de abajo | Lee las reglas, hace el inventario y escribe una ORDEN PARA CURSOR por área en cada avance |
+| Cursor | [`.cursor/rules/kino.mdc`](../.cursor/rules/kino.mdc) | Cursor la lee solo en cada agente. Ejecuta la orden: rama, commit, PR en borrador, chequeo de texto |
 
 ## Antes de pegarlo (una sola vez)
 
-| Quién | Qué | Dónde |
-|---|---|---|
-| Alejandro | Agregar a Nico como colaborador con rol *Write* | GitHub, repositorio, Settings > Collaborators > Add people |
-| Alejandro | Proteger `main`: nadie escribe directo, todo entra por PR | Settings > Rules > Rulesets > New branch ruleset, objetivo `main`, activar «Restrict deletions», «Require a pull request before merging» y «Block force pushes» |
-| Nico | Aceptar la invitación al repositorio | Correo de GitHub o github.com/notifications |
-| Nico | Conectar GitHub en Grok y dar acceso a `Amonsalvem/kino` | grok.com, Connectors, GitHub |
+| Quién | Qué |
+|---|---|
+| Alejandro | Nico es colaborador con rol *Write* (hecho el 8 nov 2026) |
+| Alejandro | Proteger `main` con un ruleset: «Require a pull request before merging», «Block force pushes», «Restrict deletions» |
+| Nico | Confirmar que su Grok llega a Cursor y que Cursor tiene acceso a `Amonsalvem/kino` |
 
-**Lo que no está verificado.** La documentación de xAI lista GitHub como conector de Grok (repositorios, issues, PR y código), sin decir si escribe. Hay un PR público de prueba creado por Grok con ese conector (https://github.com/ageoffron/projectX/pull/19, 17 sep 2026), pero es una prueba de un usuario. Si al pegar el prompt Grok dice que no puede escribir, el prompt cae al modo manual: entrega los archivos con su ruta.
-
-Si Grok tiene Proyectos con instrucciones propias, pegar el bloque ahí hace que valga en todas las conversaciones del proyecto (sin verificar).
+**Lo que no está verificado.** No se sabe por qué vía Grok llega a Cursor en la cuenta de Nico. Cursor tiene una API de agentes en la nube (https://cursor.com/docs/background-agent/api/overview) que recibe una tarea y un repositorio y puede abrir el PR. Si Grok no puede llegar a Cursor, avisa a Nico y guarda la orden.
 
 ```text
 Vas a trabajar como agente del repositorio de Kino: https://github.com/Amonsalvem/kino
-En esta conversación trabajé (Nico) cosas de Kino. Tu tarea es encontrar todo lo que hicimos aquí, sea del tema que sea, subirlo a GitHub en la forma que exige el repositorio y, desde ahora, subir cada avance nuevo en cuanto ocurra. Tienes el conector de GitHub con acceso a Amonsalvem/kino.
+En esta conversación trabajé (Nico) cosas de Kino. Tu tarea es encontrar todo lo que hicimos aquí, sea del tema que sea, subirlo a GitHub en la forma que exige el repositorio y, desde ahora, subir cada avance nuevo en cuanto ocurra. No subes tú: le mandas cada entrega a Cursor, que tienes conectado, y Cursor la sube a GitHub. Yo no uso Cursor, así que ese paso es tuyo.
 
 PASO 1. LEE LAS REGLAS ANTES DE ESCRIBIR NADA
 Abre estos archivos (el repositorio es público):
@@ -84,24 +92,42 @@ D. Un pull request en borrador por área (regla «una rama y un PR por tarea»):
    - Rama: area/tema, por ejemplo marca/identidad-grok o producto/flujo-pase-visita. Sale de main.
    - Título que empiece con el área: «Marca: ...», «Producto: ...»
    - Cuerpo con las secciones de la plantilla: «Qué cambia» (con «Parte de #15»), «Por qué», «Decisiones», «Cómo se verificó» y «Uso de IA».
-   - «Uso de IA» con la tabla de registro-ia: herramienta Grok (y el modelo, si lo sabes), pidió nico, prompts «resumen» (Nico todavía no aceptó el registro de prompts: no copies sus mensajes, solo una línea por pedido en tus palabras), qué hizo la IA, qué hizo la persona, y una nota de práctica.
+   - «Uso de IA» con la tabla de registro-ia: herramienta «Grok + Cursor» (y el modelo, si lo sabes), pidió nico, prompts «resumen» (Nico todavía no aceptó el registro de prompts: no copies sus mensajes, solo una línea por pedido en tus palabras), qué hizo la IA, qué hizo la persona, y una nota de práctica.
    - Las entradas de decisiones.md van en el PR del área a la que pertenecen.
 
 E. Lo que falta por verificar: datos sin fuente, contradicciones con el canon, piezas que dependen de Figma u otra herramienta, y preguntas para Alejandro (máximo cinco, ordenadas por impacto). Va en el cuerpo del PR de su área.
 
 Antes de subir, revisa todo tu texto contra el paso 3 y corrige lo que no cumpla.
-Muéstrame el inventario (A) y súbelo todo con el conector de GitHub: crea cada rama, haz commit de sus archivos y abre su PR en borrador. Mensajes de commit en español, en presente y con el área al inicio: «Marca: paleta base».
+Muéstrame el inventario (A). Luego manda a Cursor una ORDEN PARA CURSOR por área (paso 5) para que cree cada rama, haga commit de sus archivos y abra su PR en borrador.
 
-PASO 5. DE AQUÍ EN ADELANTE: CADA AVANCE SE SUBE
+PASO 5. CAPA DE CURSOR: CÓMO LE MANDAS UNA ENTREGA
+Cursor ejecuta en el repositorio. Sus propias reglas están en .cursor/rules/kino.mdc y en AGENTS.md, y las lee solo. Tú le mandas, con la conexión a Cursor que tienes, una orden con este formato exacto:
+
+ORDEN PARA CURSOR
+Repositorio: Amonsalvem/kino (base: main)
+Rama: area/tema
+Commit: «Área: qué cambia»
+Archivos:
+- Ruta: kino/... (contenido completo a continuación)
+  ...
+PR: en borrador. Título «Área: ...». Cuerpo: (el del punto D)
+Reglas: sigue AGENTS.md y .cursor/rules/kino.mdc. Nunca escribas en main ni integres el PR.
+FIN DE LA ORDEN
+
+- Una orden por área. Si la rama ya existe, Cursor agrega el commit a esa rama y actualiza su PR.
+- Espera la respuesta de Cursor y muéstrame en una línea por archivo: rama, ruta y enlace al commit o al PR.
+- Si no puedes llegar a Cursor, o Cursor responde con un error, dímelo de inmediato. No digas que se subió. Guarda la orden completa para mandarla cuando la conexión vuelva.
+
+PASO 6. DE AQUÍ EN ADELANTE: CADA AVANCE SE SUBE
 Esta regla vale para el resto de la conversación, sin que yo te lo recuerde:
-- Cada vez que produzcamos algo que va al repositorio (un archivo nuevo, una versión nueva de uno que ya subiste, una decisión), haz commit en ese mismo momento en la rama de su área y deja que el PR abierto se actualice. Si el área todavía no tiene rama, créala con su PR en borrador como en el punto D.
+- Cada vez que produzcamos algo que va al repositorio (un archivo nuevo, una versión nueva de uno que ya subiste, una decisión), manda en ese mismo momento una ORDEN PARA CURSOR a la rama de su área. Si el área todavía no tiene rama, la orden la crea con su PR en borrador como en el punto D.
 - Un commit por avance con sentido. No esperes a que termine la sesión.
-- Antes de escribir en un archivo, lee su versión actual en la rama. Si Alejandro o alguien más lo cambió, parte de esa versión y no la pises.
-- Si el avance cambia lo que dice el PR (decisiones, preguntas, uso de IA), actualiza también su cuerpo.
+- Antes de reescribir un archivo, lee su versión actual en la rama (https://raw.githubusercontent.com/Amonsalvem/kino/<rama>/<ruta>). Si Alejandro o alguien más lo cambió, parte de esa versión y no la pises.
+- Si el avance cambia lo que dice el PR (decisiones, preguntas, uso de IA), incluye el cuerpo nuevo en la orden.
 - Al terminar cada subida, dime en una línea: rama, archivo y enlace al commit.
 - Lo que solo sea conversación o exploración descartada no se sube.
-- Nunca escribas en main, nunca integres un PR, nunca borres ramas ni archivos de otros. Eso lo hace Alejandro.
-- Si el conector falla o no tiene permiso de escritura, dímelo de inmediato, no sigas como si hubiera subido, y entrégame los archivos con su ruta para que los suba a mano.
+- Ninguna orden pide escribir en main, integrar un PR ni borrar ramas o archivos de otros. Eso lo hace Alejandro.
+- Si Cursor falla, dímelo de inmediato y no sigas como si se hubiera subido.
 ```
 
 ## Después de pegarlo
