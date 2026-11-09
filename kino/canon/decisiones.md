@@ -173,3 +173,17 @@ El documento de roadmap de Nico con Grok (8 nov 2026) traía la fase 6 «KINO ma
 **Respuesta de Alejandro.** En la tarjeta de decisión del hilo «Co-crear roadmap, estrategia y presupuesto de Kino» eligió «Marca propia, sin marca blanca» (8 nov 2026). Pasa a APROBADA con su comentario en el PR, según D-008.
 
 **Trazabilidad y HikCentral.** No cambia autor, motivo, vigencia ni autoridad del Pase. No cambia la sincronización.
+
+---
+
+## D-010 · Modelo de ingresos · PROPUESTA (9 nov 2026)
+
+Alejandro pidió el modelo más rentable sin limitarse al cobro por unidad (chat del proyecto, 9 nov 2026). La comparación completa está en `eafit/2026-11-roadmap-estrategia/roadmap-estrategia-presupuesto.md`, apartado 2.7. Las cifras son ejemplos para comparar; el precio final se valida con administradores en la fase 4.
+
+| Opción | Alcance | Costo |
+|---|---|---|
+| A | Cobro por unidad construida | Un conjunto pequeño casi no paga; deja valor sin cobrar |
+| B (recomendada) | Piso por conjunto + cobro por unidad + implementación única; comisión de pagos desde la etapa 03 | Exige alianza con la pasarela para la comisión de pagos |
+| C | Precio por valor, contra el costo de un puesto de vigilancia | Exige probar el ahorro en portería antes de venderlo |
+
+**Trazabilidad y HikCentral.** No cambia autor, motivo, vigencia ni autoridad del Pase. No cambia la sincronización. La comisión de pagos toca datos financieros de residentes: exige la política de datos del Bloque 3 antes de operar.

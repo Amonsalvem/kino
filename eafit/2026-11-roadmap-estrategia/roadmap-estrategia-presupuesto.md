@@ -167,6 +167,36 @@ Estructura del documento de Nico (deck histórico, lám. 32). Las cifras están 
 
 **Método de precio.** Precio por unidad = (costos fijos + costos variables del conjunto) ÷ unidades + margen. Fuente: deck histórico, lám. 31 y 32. El margen está pendiente.
 
+### 2.7 Modelos de ingreso evaluados
+
+Pedido de Alejandro, 9 nov 2026: buscar el modelo más rentable sin limitarse al cobro por unidad. Decisión abierta en D-010.
+
+**Ancla de valor.** Un puesto de vigilancia 24 horas cuesta al conjunto entre $17,1 y $19,6 millones al mes en 2026. Fuente: [Noticias RCN](https://www.noticiasrcn.com/economia/la-supervigilancia-fijo-tarifas-minimas-de-vigilancia-para-2026-989255) y [El Espectador](https://www.elespectador.com/economia/tarifas-de-vigilancia-y-seguridad-privada-en-2026-asi-suben-los-precios/), consulta 9 nov 2026. Kino a $8.000 por casa en Villas Campestres (100 casas) cobra $800.000: el 4,5 % de un puesto. Inferido: el precio por unidad deja valor sin cobrar.
+
+**Costo marginal.** Una casa más casi no sube el costo: AWS y el trabajo son fijos (Bloque 5). Inferido: cada peso de ingreso nuevo después del equilibrio es margen.
+
+| Modelo | Cómo cobra | Villas + Refugio (500 casas), al mes | Rentabilidad | Riesgo |
+|---|---|---|---|---|
+| A · Por unidad (actual) | $8.000 por casa construida | 4.000.000 | Media. Un conjunto pequeño casi no paga | Bajo |
+| B · Piso + unidad | $1.000.000 por conjunto + $6.000 por casa | 1.600.000 + 3.400.000 = 5.000.000 | Alta. El piso cubre el soporte de cada conjunto | Bajo. Es el esquema del competidor, con piso menor |
+| C · Por valor | El mayor entre el 10 % de un puesto 24 h (≈ $1.800.000) y $8.000 por casa | 1.800.000 + 3.200.000 = 5.000.000 | Alta. Se vende contra el gasto en vigilancia | Medio. Exige probar el ahorro en portería |
+| D · Comisión de pagos | Margen sobre la pasarela al pagar la cuota de administración desde la app | 500 casas × cuota C × margen m. Ejemplo: C = $400.000 (supuesto) y m = 0,5 % → 1.000.000 | La más alta a escala: crece con cada conjunto sin trabajo extra | Alto. Exige alianza con la pasarela y el módulo de pagos (etapa 03) |
+| E · Implementación | Cobro único al empezar | Ejemplo: 40 h × $80.000 = 3.200.000 por conjunto, una vez | Media. Da caja al inicio y filtra clientes | Bajo |
+| F · Canal de instaladores | Comisión por referir hardware, o reventa de Kino con margen para el instalador | Pendiente | Baja en ingreso; alta en adquisición | Medio |
+
+Tarifa de la pasarela, para el modelo D: Wompi cobra 2,65 % + $700 + IVA en línea y 1 % + IVA con QR. Fuente: [Enter.co](https://www.enter.co/fintech/wompi-baja-la-tarifa-del-qr-al-1-y-amplia-los-pagos-desde-el-celular/), consulta 9 nov 2026. Las tarifas de B, C, D y E son ejemplos para comparar, no precios.
+
+**Descartados por el canon**
+
+| Modelo | Motivo |
+|---|---|
+| Cobrar a la visita | La visita recibe el Pase sin cuenta (`kino/canon/proyecto.md`) |
+| Cobrar al residente | Solo la administración compra (`kino/canon/proyecto.md`) |
+| Marca blanca | D-009 |
+| Vender datos de ingresos | Ley 1581 de 2012 y la trazabilidad del Pase; sin revisión legal |
+
+**Combinación recomendada (inferido).** B + E desde el primer conjunto, y D desde la etapa 03. Con Villas y Refugio: 5.000.000 (B) + 1.000.000 (D) = 6.000.000 al mes. Eso cubre la vista de sostenimiento (5.261.595 al mes, Bloque 5), con el trabajo de los socios incluido. C sirve como argumento de venta para B: el piso es una fracción de un puesto de vigilancia.
+
 ---
 
 ## Bloque 3 · Expansión
