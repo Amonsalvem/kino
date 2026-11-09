@@ -54,6 +54,6 @@ Si el concepto de agente o skill cambia, el curador escribe una PROPUESTA con un
 
 ## Costo y límites
 
-- Con `CLAUDE_CODE_OAUTH_TOKEN`, cada corrida gasta del mismo límite de uso de la cuenta Claude Pro. Una corrida semanal de hasta 80 turnos puede consumir una parte visible del límite de ese día (sin medir todavía; se mide en la primera corrida).
-- La Action tiene un tope de 60 minutos y 80 turnos.
+- Con `CLAUDE_CODE_OAUTH_TOKEN`, cada corrida gasta del mismo límite de uso de la cuenta Claude Pro. Una corrida semanal de hasta 120 turnos puede consumir una parte visible del límite de ese día (sin medir todavía; se mide en la primera corrida).
+- La Action tiene un tope de 60 minutos y 120 turnos.
 - Si no hay llave, la Action termina con un aviso y no hace nada.

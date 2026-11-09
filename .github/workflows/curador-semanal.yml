@@ -59,7 +59,7 @@ jobs:
             Lee herramientas/curador/prompt.md y síguelo. Es tu única tarea.
             El informe va en herramientas/curador/informes/${{ steps.prep.outputs.hoy }}.md.
           claude_args: |
-            --max-turns 80
+            --max-turns 120
             --allowedTools "Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Bash(git log:*),Bash(git diff:*),Bash(git status:*),Bash(git rm:*),Bash(gh pr list:*),Bash(gh pr view:*),Bash(gh issue list:*),Bash(gh issue view:*),Bash(python3 herramientas/revisar-texto.py:*),Bash(ls:*)"
       - name: Limitar cambios
         if: steps.llave.outputs.hay == 'si'

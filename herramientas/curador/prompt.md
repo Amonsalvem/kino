@@ -55,17 +55,24 @@ Saca de los PR, issues y decisiones de la semana qué trabajo se repite o qué f
 
 ### 3.3 Estado del arte
 
-Busca en la web lo nuevo de los últimos 7 a 14 días. Fuentes primarias primero:
+Revisa **todas** las fuentes de esta tabla en cada corrida, sin excepción. La ventana es desde la corrida anterior (fecha en `estado.md`) hasta hoy; si no hay corrida anterior, los últimos 7 días.
 
-| Tema | Dónde buscar |
+| Tema | Fuentes obligatorias |
 |---|---|
-| Claude Code, skills, subagentes, hooks, plugins, MCP | docs.claude.com, code.claude.com, github.com/anthropics (releases y changelog), anthropic.com/news |
-| GitHub y agentes en CI | github.blog/changelog, github.com/anthropics/claude-code-action/releases |
+| Claude Code, skills, subagentes, hooks, plugins | docs.claude.com, code.claude.com, `github.com/anthropics/claude-code` (CHANGELOG y releases), anthropic.com/news |
+| GitHub y agentes en CI | github.blog/changelog, `github.com/anthropics/claude-code-action/releases` |
 | Grok y xAI | docs.x.ai, x.ai/news |
 | Figma y MCP de diseño | help.figma.com, figma.com/blog |
 | Estándares abiertos de agentes | modelcontextprotocol.io, agents.md, agentskills.io |
 
-Usa fuentes secundarias (blogs, foros) solo para encontrar una fuente primaria. Una novedad entra al informe solo si responde a una necesidad de 3.2 o a una regla de `AGENTS.md`. Si no sirve a Kino, no la anotes.
+Reglas de la revisión:
+
+1. Abre cada fuente con WebFetch. Si no carga, intenta una vez con WebSearch acotado a ese sitio. Si tampoco, anótala como «sin acceso» con el error.
+2. Cada fuente va en la tabla «Cobertura de fuentes» del informe, con lo que encontraste o «sin novedades en la ventana». Ninguna fila queda vacía.
+3. Una novedad sin fecha en la fuente no entra al informe como nueva. Anótala en `estado.md` como «sin fecha» y compárala la semana siguiente.
+4. Usa fuentes secundarias (blogs, foros) solo para encontrar una fuente primaria. Si una fuente secundaria te sirvió dos semanas seguidas, propón sumarla a esta tabla.
+5. Una novedad entra a «Estado del arte» solo si responde a una necesidad de 3.2 o a una regla de `AGENTS.md`. Las demás quedan en la tabla de cobertura como «sin efecto para Kino», con una frase de por qué.
+6. Termina esta revisión antes de pasar a 3.4. Si te quedan pocos turnos, recorta cambios de archivo, nunca fuentes.
 
 ### 3.4 Brechas y acciones
 
@@ -105,6 +112,11 @@ Revisa la sección «Uso de IA» de los PR de la semana. Da una sola mejora conc
    ## Por qué
 
    <necesidades de Kino de la semana, con enlace al PR o issue>
+
+   ### Cobertura de fuentes
+
+   | Fuente | Consultada | Hallazgo en la ventana |
+   |---|---|---|
 
    ### Estado del arte
 
