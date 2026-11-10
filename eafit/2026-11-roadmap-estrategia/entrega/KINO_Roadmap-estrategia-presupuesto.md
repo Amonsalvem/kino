@@ -385,7 +385,7 @@ Fuente: [8]. Incluye producción y pruebas. El costo de AWS con 8 conjuntos no e
 
 **WhatsApp (inferido).** 1.570 casas × 2 ingresos a la app al mes = 3.140 mensajes. A USD 0,001 por mensaje de autenticación (Colombia), son unos USD 3 al mes [18]. Por casa: 2 mensajes × USD 0,001 × $3.300 = $6,6 al mes. El residente comparte el KEY desde su propio WhatsApp; ese envío no le cuesta a KINO.
 
-**Costo del KEY (supuesto).** Generar el KEY, su QR y su registro en HikCentral corre en AWS: ya está en el costo fijo y no suma por KEY. El costo variable aparece si KINO envía mensajes por WhatsApp. Este cálculo toma el caso más caro: KINO envía cada KEY a la persona y avisa al residente en cada entrada, con mensajes de utilidad de WhatsApp a USD 0,001 [18].
+**Costo del KEY (supuesto).** Generar el KEY, su QR y su registro en HikCentral corre en AWS. Cada KEY es una petición al servidor, un registro de cerca de 1 KB y un QR que se dibuja en el celular: menos de USD 0,00001 por KEY, menos de $500 al mes con 14.000 KEYs (inferido, con precios públicos de AWS). Los servidores tienen tamaño fijo, así que ese costo ya está en el costo fijo. Sube por escalones cuando el volumen pide un servidor más grande (apartado 5.12). El costo variable aparece si KINO envía mensajes por WhatsApp. Este cálculo toma el caso más caro: KINO envía cada KEY a la persona y avisa al residente en cada entrada, con mensajes de utilidad de WhatsApp a USD 0,001 [18].
 
 | Quién entra, por casa al mes | KEYs emitidos | Entradas | Fuente |
 |---|---|---|---|
@@ -592,7 +592,8 @@ Con la alternativa más barata, el costo fijo en efectivo por casa baja a $3.389
 | Hardware HikCentral | Ya instalado en Villas y Refugio; lo pagó Monte Sereno [9]. En Sagrada, por confirmar |
 | Desplazamientos | No se incluyen [9] |
 | Equipos, licencias, red y energía de cada conjunto | Sin responsable confirmado [8] |
-| Crecimiento de AWS con 8 conjuntos | Sin estimar |
+| Crecimiento de AWS con 8 conjuntos | Sin estimar. Sube por escalones, no por KEY |
+| Licencia de HikCentral | Cada KEY crea una credencial en HikCentral. Si la licencia tiene un límite de personas o credenciales, ampliarla tiene costo. Sin dato: se confirma con la licencia de Villas y Refugio |
 | Funciones nuevas y módulos del eje Y | Sin estimar [8] |
 | Tarifa de la pasarela | No es costo de KINO: la paga el conjunto o el residente, por decidir |
 | Atención 24 horas | Fuera de la capacidad de 40 horas [8] |
