@@ -331,17 +331,17 @@ parts.forEach((p,j)=>{const x=L+j*165;el(s,'rect',{x,y:226,width:14,height:14,fi
 tx(s,20,272,'El trabajo de los socios vale $3.120.000 al mes, pero hoy no sale de la caja. La alternativa barata es la del apartado 5.5 (en efectivo).',{fs:13,fill:C.mut});})();
 
 // 15 escenarios
-(()=>{const s=document.getElementById('sv15');const L=70,B=300,H=260,max=300;const sc=[['Conservador',152.1],['Base',250.0],['Optimista',275.5]];const ce=40.14,cs=112.78;
+(()=>{const s=document.getElementById('sv15');const L=70,B=300,H=260,max=300;const sc=[['Conservador',152.1],['Base',250.0],['Optimista',275.5]];const ce=40.14,cs=112.08;
 [0,50,100,150,200,250,300].forEach(v=>{const y=B-v/max*H;el(s,'line',{x1:L,y1:y,x2:900,y2:y,stroke:C.soft});tx(s,L-10,y,String(v),{a:'end',b:'middle',fs:12.5,fill:C.mut})});
 sc.forEach((r,i)=>{const x=L+60+i*260;const h=r[1]/max*H;el(s,'rect',{x,y:B-h,width:110,height:h,fill:i==1?C.ac:C.acs,stroke:C.ac,rx:4});tx(s,x+55,B-h-10,'$'+r[1].toFixed(1).replace('.',',')+' M',{a:'middle',fw:700,fill:C.ink});tx(s,x+55,B+22,r[0],{a:'middle',fw:i==1?700:600,fill:C.ink})});
 let lg=0;const ln=(v,c,t)=>{const y=B-v/max*H;el(s,'line',{x1:L,y1:y,x2:900,y2:y,stroke:c,'stroke-width':2.2,'stroke-dasharray':'7 5'});el(s,'line',{x1:L+lg,y1:B+48,x2:L+lg+28,y2:B+48,stroke:c,'stroke-width':2.2,'stroke-dasharray':'7 5'});tx(s,L+lg+36,B+53,t,{fs:13.5,fw:700,fill:c});lg+=330};
-ln(ce,C.ok,'Costo en efectivo: $40,1 M');ln(cs,C.ba,'Costo de sostenimiento: $112,8 M');
+ln(ce,C.ok,'Costo en efectivo: $40,1 M');ln(cs,C.ba,'Costo de sostenimiento: $112,1 M');
 tx(s,L,B+84,'Los tres escenarios cubren los dos costos. El base cumple la meta de 5 conjuntos nuevos (H5).',{fs:13,fill:C.mut});})();
 
 // 16 flujo acumulado
 (()=>{const s=document.getElementById('sv16');const ms=['nov','dic','ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
 const E=[-3981735,-3563470,-3145205,3943060,11031325,24719590,41807855,62296120,86184385,113472650,137560915,161649180,185737445,209825710];
-const S=[-7569735,-13939470,-20309205,-16808940,-13308675,-6408410,3891855,17592120,34692385,55192650,75692915,96193180,116693445,137193710];
+const S=[-7569735,-13839470,-20109205,-16608940,-13108675,-6108410,4291855,18092120,35292385,55892650,76392915,96893180,117393445,137893710];
 const L=80,T=20,W=740,H=330,min=-50e6,max=250e6;const y=v=>T+(max-v)/(max-min)*H;const x=i=>L+i*(W/13);
 [-50,0,50,100,150,200,250].forEach(v=>{el(s,'line',{x1:L,y1:y(v*1e6),x2:L+W,y2:y(v*1e6),stroke:v==0?C.ink:C.soft,'stroke-width':v==0?1.5:1});tx(s,L-10,y(v*1e6),String(v),{a:'end',b:'middle',fs:12.5,fill:C.mut})});
 ms.forEach((m,i)=>tx(s,x(i),T+H+20,m,{a:'middle',fs:12.5,fill:C.mut}));tx(s,x(0.5),T+H+40,'2026',{a:'middle',fs:12,fw:700,fill:C.ink});tx(s,x(8),T+H+40,'2027',{a:'middle',fs:12,fw:700,fill:C.ink});

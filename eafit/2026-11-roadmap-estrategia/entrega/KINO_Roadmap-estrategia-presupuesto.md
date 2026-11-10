@@ -199,7 +199,7 @@ El residente paga la cuota de administración desde la app. El dinero va a la cu
 
 ## 2.9 Precio
 
-> **Precio.** $1.200.000 al mes por conjunto + $10.000 al mes por casa construida + $2.000 por cada pago de la cuota en la app + $3.200.000 de implementación, una vez.
+> **Precio.** $1.200.000 al mes por conjunto + $10.000 al mes por casa construida + $2.000 por cada pago de la cuota en la app + $3.200.000 de implementación, una vez (cubre unas 42 horas de trabajo, apartado 5.10).
 
 El precio se justifica con tres referencias:
 
@@ -326,13 +326,22 @@ Fechas fijadas por el equipo el 9 de noviembre de 2026 [9]. La fecha de H4 es un
 
 Horizonte: noviembre de 2026 a diciembre de 2027 (14 meses). Fuente de dinero: capital propio de los socios [9].
 
-**Dos vistas.** La vista *en efectivo* suma lo que KINO paga. La vista *de sostenimiento* suma también el trabajo de los socios, valorado aunque hoy nadie cobra [8] [9]. La primera vista dice si alcanza la caja; la segunda dice si el negocio paga el tiempo de quienes lo hacen.
+**Dos vistas.** El presupuesto mide el costo de dos formas [8] [9]:
+
+| | En efectivo | Sostenimiento |
+|---|---|---|
+| Qué suma | El dinero que sale de la cuenta de KINO | Lo mismo, más el trabajo de los socios valorado a tarifa |
+| Trabajo de los socios | $0: hoy nadie cobra | $3.120.000 al mes, más las horas de cada implementación |
+| Pregunta que responde | ¿Alcanza la caja para operar? | ¿El negocio paga el tiempo de quienes lo hacen? |
+| Cuándo importa | Hoy, mientras los socios no cobran | Cuando los socios se paguen o KINO contrate a alguien |
+
+Un negocio que solo cuadra en efectivo depende de trabajo sin pago. La vista de sostenimiento muestra si KINO sobrevive sin ese apoyo.
 
 **Supuestos**
 
 | Supuesto | Valor | Fuente |
 |---|---|---|
-| Tasa de cambio | $3.300 por USD: techo del rango previsto para noviembre de 2026. TRM del 4 de noviembre: $3.235,59 | [12] [13] |
+| Tasa de cambio | $3.300 por USD: techo del rango previsto para noviembre de 2026. TRM del 4 de noviembre: $3.235,59. El documento de costos usa $4.000 como supuesto editable; con esa tasa, AWS sube a $1.400.000 al mes | [8] [12] [13] |
 | Equipo | Nadie cobra; todos son socios | [9] |
 | Unidades | Villas Campestres: 100 casas construidas. Refugio Campestre: 400 casas construidas. Monte Sereno Sagrada: 70 casas | [9] |
 | Conjunto nuevo | 200 casas construidas (supuesto) | |
@@ -376,7 +385,11 @@ Fuente: [8]. Incluye producción y pruebas. El costo de AWS con 8 conjuntos no e
 
 **WhatsApp (inferido).** 1.570 casas × 2 ingresos a la app al mes = 3.140 mensajes. A USD 0,001 por mensaje, son unos USD 3 al mes. El residente comparte el KEY desde su propio WhatsApp; ese envío no le cuesta a KINO.
 
-**Capacidad.** 40 horas al mes, en horario hábil, sin atención 24 horas [8]. Cada implementación pide 40 horas más [8]. Con un conjunto nuevo por mes de abril a agosto, el equipo necesita 80 horas en esos meses (inferido). En enero, Sagrada se implementa mientras Villas y Refugio buscan el 80 %. Es el mayor riesgo del calendario.
+**El trabajo es una estimación.** Las horas y las tarifas del soporte, el mantenimiento y la coordinación son costos supuestos, no salarios ni contratos [8]. Pueden variar con la operación real.
+
+**El trabajo es un costo fijo.** Las 40 horas atienden la app y la plataforma, no a cada conjunto. No crecen con cada casa o conjunto que entra (criterio del equipo, 10 de noviembre de 2026).
+
+**Capacidad.** 40 horas al mes, en horario hábil, sin atención 24 horas [8]. Cada implementación pide unas 42 horas más, aparte de las 40 (estimación, apartado 5.10). Con un conjunto nuevo por mes de abril a agosto, el equipo necesita unas 82 horas en esos meses (inferido). En enero, Sagrada se implementa mientras Villas y Refugio buscan el 80 %. Es el mayor riesgo del calendario.
 
 ## 5.4 Costo mensual
 
@@ -391,6 +404,18 @@ Fuente: [8]. Incluye producción y pruebas. El costo de AWS con 8 conjuntos no e
 | Reserva 15 % | 362.835 | 830.835 |
 | **Total al mes** | **2.781.735** | **6.369.735** |
 
+**Tipos de costo.** Para estimar, cada costo se clasifica según lo que lo hace crecer:
+
+| Tipo | Rubro | Valor | Crece con |
+|---|---|---|---|
+| Fijo, en efectivo | AWS, herramientas y reserva | $2.781.735 al mes | Nada: es el mismo con 1 o con 8 conjuntos (supuesto: AWS con 8 conjuntos no está estimado) |
+| Fijo, valorado | Trabajo de los socios, 40 h (estimación) | $3.120.000 al mes, más su reserva | Nada: atiende la app |
+| Variable por casa | Mensajes de WhatsApp para el ingreso | ≈ $7 por casa al mes | Cada casa |
+| Variable por pago | Tarifa de la pasarela | $7.140 (QR) a $19.754 (en línea) por un pago de $600.000 [16] | Cada pago. No la asume KINO (apartado 2.8) |
+| Único por conjunto | Implementación (estimación) | $3.100.000 en horas de los socios | Cada conjunto nuevo (apartado 5.10) |
+
+La tarifa de la pasarela es mayor que el margen de $2.000 por pago. Si KINO la asumiera, perdería entre $5.140 y $17.754 por pago. Por eso la paga el conjunto o el residente.
+
 ## 5.5 Alternativa más barata
 
 Cinco cambios bajan el costo en efectivo a la mitad sin quitarle al proyecto nada que use hoy (inferido). Precios de pago anual [14] [15].
@@ -398,7 +423,7 @@ Cinco cambios bajan el costo en efectivo a la mitad sin quitarle al proyecto nad
 | Rubro | Hoy (USD al mes) | Alternativa (USD al mes) | Qué se pierde |
 |---|---|---|---|
 | Claude Team | 150, pago mensual | 120, pago anual (100 + 20) | Compromiso de 12 meses |
-| Figma | 180, Enterprise, 2 puestos Full | 32, Professional, 2 puestos Full (16 cada uno) | Inicio de sesión único, administración avanzada y analítica de bibliotecas. Un equipo de 2 personas no las usa (inferido) |
+| Figma | 180, Enterprise, 2 puestos Full | 32, Professional, 2 puestos Full (16 cada uno) | Inicio de sesión único, administración avanzada y las variables de diseño por la API. El equipo eligió Enterprise para conectar Figma con el repositorio por la API [9]: este cambio pierde esa conexión |
 | Grok | 30 | 0: Nicolás trabaja con su puesto de Claude Team | El flujo de Nicolás con Grok. Lo decide Nicolás |
 | Soporte extendido de MySQL en AWS | 144 | 0: actualizar la base de datos a una versión con soporte estándar | Una migración con pruebas, a cargo de Alejandro |
 | Hospedaje de la página web | 20 | 0: plan gratuito para sitios estáticos (inferido: confirmar que la página es estática) | Nada, si la página es estática |
@@ -408,14 +433,14 @@ Cinco cambios bajan el costo en efectivo a la mitad sin quitarle al proyecto nad
 |---|---|---|---|---|
 | En efectivo, con reserva | 2.781.735 | 1.369.995 | 1.411.740 (51 %) | 19.764.360 |
 
-**Recomendación.** Aplicar los cinco cambios. El de Grok depende de Nicolás; sin ese cambio, el costo en efectivo queda en $1.483.845 al mes.
+**Recomendación.** Aplicar los cambios de hospedaje, MySQL y pago anual de Claude: no quitan nada que el equipo use. Los de Grok y Figma tienen un costo de uso. El de Grok depende de Nicolás; sin ese cambio, el costo en efectivo queda en $1.483.845 al mes. El de Figma quita la conexión con el repositorio; sin ese cambio, el ahorro baja de USD 372 a USD 224 al mes.
 
 ## 5.6 Costo total a diciembre de 2027
 
 | Vista | 14 meses | Marca | Implementaciones (horas de los socios) | **Total** |
 |---|---|---|---|---|
 | En efectivo | 38.944.290 | 1.200.000 | 0 | **40.144.290** |
-| Sostenimiento, escenario base | 89.176.290 | 1.200.000 | 7 × 3.200.000 | **112.776.290** |
+| Sostenimiento, escenario base | 89.176.290 | 1.200.000 | 7 × 3.100.000 (estimación) | **112.076.290** |
 | En efectivo, con la alternativa | 19.179.930 | 1.200.000 | 0 | **20.379.930** |
 
 ## 5.7 Ingresos
@@ -445,13 +470,15 @@ Los tres escenarios incluyen a Villas, Refugio y Sagrada desde febrero de 2027 y
 
 | Escenario | Ingresos | En efectivo | Sostenimiento |
 |---|---|---|---|
-| Conservador | 152.062.000 | +111.917.710 | +48.885.710 |
-| **Base** | **249.970.000** | **+209.825.710** | **+137.193.710** |
-| Optimista | 275.532.000 | +235.387.710 | +162.755.710 |
+| Conservador | 152.062.000 | +111.917.710 (74 %) | +49.285.710 (32 %) |
+| **Base** | **249.970.000** | **+209.825.710 (84 %)** | **+137.893.710 (55 %)** |
+| Optimista | 275.532.000 | +235.387.710 (85 %) | +163.455.710 (59 %) |
+
+El porcentaje es el margen: resultado ÷ ingresos.
 
 Sin impuestos. Con la alternativa más barata, el escenario base sube a +$229,6 millones en efectivo.
 
-**Cuánto capital ponen los socios.** La figura 19 muestra el acumulado del escenario base mes a mes. La caja toca su punto más bajo en noviembre de 2026: −$4,0 millones, que pagan los socios con capital propio. Las implementaciones de Refugio en diciembre y de Sagrada en enero la sostienen, y desde febrero de 2027 la caja queda en positivo. El sostenimiento llega a −$20,3 millones en enero y queda en positivo desde mayo de 2027.
+**Cuánto capital ponen los socios.** La figura 19 muestra el acumulado del escenario base mes a mes. La caja toca su punto más bajo en noviembre de 2026: −$4,0 millones, que pagan los socios con capital propio. Las implementaciones de Refugio en diciembre y de Sagrada en enero la sostienen, y desde febrero de 2027 la caja queda en positivo. El sostenimiento llega a −$20,1 millones en enero y queda en positivo desde mayo de 2027.
 
 ![Figura 19. Escenario base: resultado acumulado mes a mes.](figuras/f16.png){width=100%}
 
@@ -471,9 +498,11 @@ Si Figma Enterprise se paga por adelantado, la caja necesita unos $7,1 millones 
 | Conjuntos que pagan | Ingreso al mes | Cubre el efectivo (2.781.735) | Cubre el sostenimiento (6.369.735) |
 |---|---|---|---|
 | Villas Campestres sola | 2.300.000 | No: 83 % | No: 36 % |
-| Villas + Refugio | 7.900.000 | Sí | Sí, con +1.530.265 |
-| Villas + Refugio + Sagrada | 9.870.000 | Sí | Sí, con +3.500.265 |
-| Los tres + 5 nuevos | 26.870.000 | Sí | Sí, con +20.500.265 |
+| Villas + Refugio | 7.900.000 | Sí, con +5.118.265 (65 %) | Sí, con +1.530.265 (19 %) |
+| Villas + Refugio + Sagrada | 9.870.000 | Sí, con +7.088.265 (72 %) | Sí, con +3.500.265 (35 %) |
+| Los tres + 5 nuevos | 26.870.000 | Sí, con +24.088.265 (90 %) | Sí, con +20.500.265 (76 %) |
+
+El porcentaje es el margen del mes: lo que queda ÷ ingreso.
 
 **Lectura (inferido).**
 
@@ -482,7 +511,60 @@ Si Figma Enterprise se paga por adelantado, la caja necesita unos $7,1 millones 
 3. La comisión de pagos suma $13,3 millones en el escenario base, el 5 % del ingreso. Su valor está en que el residente vuelve a la app cada mes, no en el ingreso.
 4. El riesgo mayor es la capacidad: implementar 5 conjuntos entre abril y agosto pide el doble de horas de hoy.
 
-## 5.10 Fuera del presupuesto
+## 5.10 Costo de implementación
+
+El documento de costos no incluye las implementaciones [8]. Esta es una estimación por actividades para un conjunto con el hardware HikCentral ya instalado. Usa las tarifas del documento de costos: soporte $60.000, mantenimiento técnico $100.000 y coordinación $80.000 por hora [8]. Se mide en Refugio en diciembre de 2026 y se corrige con ese dato.
+
+| Actividad | Rol | Horas | COP |
+|---|---|---|---|
+| Arranque con la administración: alcance, calendario y padrón requerido | Coordinación | 3 | 240.000 |
+| Precarga del padrón y validación de cada residente contra su cédula | Soporte | 6 | 360.000 |
+| Configuración del conjunto: límites, cupos, franjas y portería | Soporte | 3 | 180.000 |
+| Conexión con HikCentral y prueba en la puerta: placa, QR y talanquera | Técnico | 8 | 800.000 |
+| Capacitación de administración, consejo y portería | Soporte | 4 | 240.000 |
+| Lanzamiento y activación de residentes (pasos 2 a 4 del apartado 2.4) | Soporte | 8 | 480.000 |
+| Acompañamiento de las 4 primeras semanas: ajustes y errores | Soporte y técnico | 4 + 4 | 640.000 |
+| Cierre e informe de arranque | Coordinación | 2 | 160.000 |
+| **Total** | | **42** | **3.100.000** |
+
+| Vista | Cobro | Costo | Margen |
+|---|---|---|---|
+| En efectivo | 3.200.000 | 0: lo hacen los socios | 3.200.000 (100 %) |
+| Sostenimiento | 3.200.000 | 3.100.000 | 100.000 (3 %) |
+
+**Lectura (inferido).** El cobro de implementación cubre el trabajo y casi no deja margen. Su papel es dar caja al inicio y filtrar clientes, no generar ganancia. Un conjunto grande pide más horas de precarga y activación: si Refugio (400 casas) pasa de 42 horas, el cobro se revisa por tamaño.
+
+## 5.11 Margen por casa
+
+**Margen de contribución.** Es lo que deja cada casa después de sus costos variables. Por definición no resta los costos fijos: los costos fijos se pagan con la suma de todas las contribuciones.
+
+| Concepto por casa al mes | COP |
+|---|---|
+| Cobro por casa | 10.000 |
+| Comisión de pagos: 50 % de las casas × $2.000 | 1.000 |
+| Costo variable: WhatsApp | −7 |
+| **Contribución por casa** | **10.993 (99,9 %)** |
+
+Además, cada conjunto aporta $1.200.000 al mes de pago fijo, sin costo variable.
+
+**Margen neto por casa.** Para saber cuánto queda de verdad por cada casa, los costos fijos se reparten entre las casas que pagan. El ingreso por casa incluye su parte del pago fijo del conjunto.
+
+| Etapa | Casas | Ingreso por casa | Costo fijo por casa: efectivo / sostenimiento | Margen neto en efectivo | Margen neto en sostenimiento |
+|---|---|---|---|---|---|
+| Villas + Refugio | 500 | 15.800 | 5.563 / 12.739 | 10.230 (64,7 %) | 3.054 (19,3 %) |
+| Villas + Refugio + Sagrada | 570 | 17.316 | 4.880 / 11.175 | 12.429 (71,8 %) | 6.134 (35,4 %) |
+| Los tres + 5 nuevos (dic 2027) | 1.570 | 17.115 | 1.772 / 4.057 | 15.336 (89,6 %) | 13.051 (76,3 %) |
+
+Con la alternativa más barata, el costo fijo en efectivo por casa baja a $2.404 con 570 casas (margen 86,1 %) y a $873 con 1.570 casas (margen 94,9 %).
+
+**Lectura (inferido).**
+
+1. El costo variable por casa es casi cero. El margen depende de cuántas casas reparten los costos fijos.
+2. Cada casa nueva sube el margen de todas. Con 500 casas, el sostenimiento deja el 19 %; con 1.570, el 76 %.
+3. Con un ingreso promedio de $17.100 por casa, la caja se cubre con unas 163 casas y el sostenimiento con unas 373.
+4. Estos márgenes son antes de impuestos y suponen que AWS no crece con 8 conjuntos (apartado 5.12).
+
+## 5.12 Fuera del presupuesto
 
 | Rubro | Motivo |
 |---|---|
