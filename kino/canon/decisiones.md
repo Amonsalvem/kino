@@ -224,7 +224,9 @@ Cambia el momento de la comisión de pagos de D-010. Alejandro: «El D también 
 
 **Regla.** El dinero de la cuota va de la pasarela a la cuenta del conjunto. KINO no recibe ni guarda el dinero del conjunto; recibe solo su margen.
 
-**Monto.** $2.000 por cada pago de la cuota en la app. Lo aprobó Alejandro en el chat del proyecto el 9 nov 2026 («se aprueba la comisión de $2.000 por pago»). Quién asume la tarifa de la pasarela sigue por decidir.
+**Monto.** $2.000 por cada pago de la cuota en la app. Lo aprobó Alejandro en el chat del proyecto el 9 nov 2026 («se aprueba la comisión de $2.000 por pago»).
+
+**Precisión (Alejandro, chat del proyecto, 10 nov 2026).** «Kino no asume nada, al contrario, la pasarela de pagos debe ser otra de las fuentes de ingreso de kino». KINO nunca asume la tarifa de la pasarela: la paga el conjunto o el residente (quién de los dos, por decidir). En la tarjeta del mismo día eligió que KINO gane de dos formas: los $2.000 por pago y un reparto de la tarifa negociado con la pasarela. El reparto no tiene cifra hasta tener una oferta de la pasarela.
 
 **Trazabilidad y HikCentral.** No cambia autor, motivo, vigencia ni autoridad del KEY. No toca la sincronización. Toca datos financieros de los residentes: exige la política de datos y el contrato con la pasarela antes de cobrar.
 
