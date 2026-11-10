@@ -113,7 +113,7 @@ KINO crece de adentro hacia afuera. Cada paso usa el anterior como prueba.
 
 Villas Campestres y Refugio Campestre son el primer paso. Los dos tienen todo el hardware instalado [9]. Villas usa hoy la beta; Refugio entra como cliente nuevo. Juntos suman 500 casas construidas.
 
-Monte Sereno Sagrada, otro conjunto de Monte Sereno, entra en enero de 2027 con 70 casas [9]. Con Sagrada, el primer paso suma 570 casas. Si Sagrada tiene el hardware instalado está por confirmar.
+Monte Sereno Sagrada, otro conjunto de Monte Sereno en La Ceja, entra en enero de 2027 con 70 casas [9]. Con Sagrada, el primer paso suma 570 casas. Si Sagrada tiene el hardware instalado está por confirmar.
 
 ## 2.4 Penetración en Villas y Refugio
 
