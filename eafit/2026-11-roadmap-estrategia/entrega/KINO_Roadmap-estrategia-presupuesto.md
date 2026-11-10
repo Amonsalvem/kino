@@ -189,7 +189,7 @@ El residente paga la cuota de administración desde la app. El dinero va a la cu
 | ¿Quién recibe el dinero? | El conjunto, en su propia cuenta. KINO no recibe ni guarda el dinero del conjunto |
 | ¿Cómo gana KINO? | Un margen por cada pago. Hay dos formas de cobrarlo, según el contrato con la pasarela: un acuerdo con la pasarela sobre su tarifa, o un cargo de KINO por pago procesado en la factura mensual del conjunto (inferido) |
 | ¿Cuánto cobra la pasarela? | Wompi cobra 2,65 % + $700 + IVA en pagos en línea y 1 % + IVA en pagos con QR [16] |
-| ¿Quién asume la tarifa? | Por decidir: el conjunto o el residente |
+| ¿Quién asume la tarifa? | El conjunto o el residente, por decidir. KINO nunca la asume: la pasarela es una de sus fuentes de ingreso |
 | ¿Qué gana el conjunto? | Ve en el panel quién pagó, sin cruzar extractos. El residente recibe su recibo digital. Menos tiempo de la administración en cobros (inferido) |
 | ¿Qué se necesita antes de cobrar? | Contrato con la pasarela, cuenta del conjunto vinculada, política de datos (Ley 1581 de 2012 [17]) y el módulo de pagos en la app de diciembre |
 
@@ -411,10 +411,10 @@ Fuente: [8]. Incluye producción y pruebas. El costo de AWS con 8 conjuntos no e
 | Fijo, en efectivo | AWS, herramientas y reserva | $2.781.735 al mes | Nada: es el mismo con 1 o con 8 conjuntos (supuesto: AWS con 8 conjuntos no está estimado) |
 | Fijo, valorado | Trabajo de los socios, 40 h (estimación) | $3.120.000 al mes, más su reserva | Nada: atiende la app |
 | Variable por casa | Mensajes de WhatsApp para el ingreso | ≈ $7 por casa al mes | Cada casa |
-| Variable por pago | Tarifa de la pasarela | $7.140 (QR) a $19.754 (en línea) por un pago de $600.000 [16] | Cada pago. No la asume KINO (apartado 2.8) |
+| No es costo de KINO | Tarifa de la pasarela | $7.140 (QR) a $19.754 (en línea) por un pago de $600.000 [16] | La paga el conjunto o el residente. KINO gana $2.000 por pago (apartado 2.8) |
 | Único por conjunto | Implementación (estimación) | $3.100.000 en horas de los socios | Cada conjunto nuevo (apartado 5.10) |
 
-La tarifa de la pasarela es mayor que el margen de $2.000 por pago. Si KINO la asumiera, perdería entre $5.140 y $17.754 por pago. Por eso la paga el conjunto o el residente.
+KINO no asume la tarifa de la pasarela: la paga el conjunto o el residente. Para KINO, la pasarela no es un costo sino una fuente de ingreso: $2.000 por cada pago (apartado 2.8).
 
 ## 5.5 Alternativa más barata
 
@@ -508,7 +508,7 @@ El porcentaje es el margen del mes: lo que queda ÷ ingreso.
 
 1. Villas sola no cubre la caja con las herramientas actuales ($2,3 millones frente a $2,8 millones). Con la alternativa más barata ($1,4 millones), sí.
 2. Villas y Refugio juntos cubren el sostenimiento completo desde febrero de 2027; Sagrada suma un margen de $2 millones al mes. Por eso la penetración de enero (apartado 2.4) es la tarea con más efecto en el presupuesto.
-3. La comisión de pagos suma $13,3 millones en el escenario base, el 5 % del ingreso. Su valor está en que el residente vuelve a la app cada mes, no en el ingreso.
+3. La comisión de pagos suma $13,3 millones en el escenario base, el 5 % del ingreso. Crece con cada casa que paga en la app: con el 80 % de pagos, llega a $22,8 millones (escenario optimista). Además, lleva al residente a la app cada mes.
 4. El riesgo mayor es la capacidad: implementar 5 conjuntos entre abril y agosto pide el doble de horas de hoy.
 
 ## 5.10 Costo de implementación
@@ -573,7 +573,7 @@ Con la alternativa más barata, el costo fijo en efectivo por casa baja a $2.404
 | Equipos, licencias, red y energía de cada conjunto | Sin responsable confirmado [8] |
 | Crecimiento de AWS con 8 conjuntos | Sin estimar |
 | Funciones nuevas y módulos del eje Y | Sin estimar [8] |
-| Tarifa de la pasarela | La asume el conjunto o el residente, por decidir |
+| Tarifa de la pasarela | No es costo de KINO: la paga el conjunto o el residente, por decidir |
 | Atención 24 horas | Fuera de la capacidad de 40 horas [8] |
 | Abogado: política de datos y contrato tipo | Sin cotización |
 | Impuestos | Sin dato [8] |
