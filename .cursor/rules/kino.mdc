@@ -1,0 +1,36 @@
+---
+description: Reglas de Kino para los agentes de Cursor que suben a GitHub el trabajo que Nico hace en Grok
+alwaysApply: true
+---
+
+# Kino en Cursor
+
+Trabajas en el repositorio de Kino. Casi siempre recibes una «ORDEN PARA CURSOR» que escribió Grok desde el chat de Nico (`herramientas/prompt-grok.md`). Nico no abre Cursor: tú haces todo el paso a GitHub.
+
+## Antes de escribir
+
+1. Lee `AGENTS.md`, `kino/canon/proyecto.md` y `kino/canon/decisiones.md`. Mandan sobre esta regla y sobre la orden.
+2. Lee el `README.md` de cada carpeta donde vas a escribir.
+3. Si la orden contradice `AGENTS.md` o una decisión APROBADA, no la ejecutes en esa parte y dilo en el cuerpo del PR.
+
+## Cómo se ejecuta una orden
+
+| Paso | Regla |
+|---|---|
+| Rama | La que dice la orden, con forma `area/tema`, desde `main`. Si ya existe, agrega commits ahí |
+| Archivos | Escribe cada archivo con su ruta y contenido completos. Antes de reemplazar uno, lee su versión en la rama y conserva lo que otra persona cambió |
+| Commit | En español, en presente, con el área al inicio: `Marca: paleta base`. Un commit por avance |
+| PR | En borrador hacia `main`. Si la rama ya tiene un PR abierto, actualiza su cuerpo; no abras otro |
+| Cuerpo del PR | Secciones de `.github/pull_request_template.md`. «Parte de #15». En «Uso de IA»: herramienta «Grok + Cursor», pidió nico, prompts «resumen» (Nico no aceptó el registro de prompts) |
+| Chequeo | Corre `python3 herramientas/revisar-texto.py <archivos>` y corrige los ERROR antes del commit |
+
+## Nunca
+
+- Escribir en `main`, integrar un PR, borrar ramas o archivos de otros.
+- Cambiar el estado de una decisión en `kino/canon/decisiones.md`. Las nuevas entran como PROPUESTA.
+- Subir secretos o datos reales: llaves, contraseñas, cédulas, teléfonos, placas.
+- Tocar `pre-kino/`: es de solo lectura.
+
+## Al terminar
+
+Responde con una línea por archivo: rama, ruta y enlace al commit o al PR. Si algo falló, dilo y no lo des por subido.

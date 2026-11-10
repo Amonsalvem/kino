@@ -7,7 +7,7 @@ Scripts compartidos que no dependen de ninguna marca. Si una herramienta solo si
 | `preparar-entorno.sh` | Comprueba node, python, git y Chromium. Lo corre el hook de inicio de Claude Code | `bash herramientas/preparar-entorno.sh` |
 | `revisar-texto.py` | Chequeo de muletillas, cifras sin fuente y textos largos. Lo corre GitHub en cada PR | `python3 herramientas/revisar-texto.py <archivos>` o `--todo` |
 | `registrar-prompt.py` | Hook de Claude Code que guarda cada prompt en `registro-ia/`, con datos sensibles tapados y solo con consentimiento | Lo corre el hook; no se usa a mano |
-| `prompt-grok.md` | Prompt que conecta una conversación de Grok al repositorio: sube lo hecho y cada avance nuevo, con las reglas de `AGENTS.md` | Nico lo pega en cada conversación de Grok (issue #15) |
+| `prompt-grok.md` | Prompt que conecta una conversación de Grok al repositorio: Grok manda cada avance a Cursor, que lo sube con las reglas de `.cursor/rules/kino.mdc` | Nico lo pega en cada conversación de Grok (issue #15) |
 | `resumir-pr.py` | Resume cada PR (de qué trata, qué se hizo, qué observar) y mantiene el issue «Panel de PR». Lo corre GitHub con la Action «Resumen de PR» | `python3 herramientas/resumir-pr.py --ver N` o `--ver-panel` para verlo sin publicar |
 | `aplicar-decisiones.py` | Pasa una decisión de PROPUESTA a APROBADA o DESCARTADA cuando Alejandro comenta «Apruebo D-005, opción A» en un PR. Lo corre GitHub con la Action «Aprobar decisiones» | `python3 herramientas/aplicar-decisiones.py N <carpeta> --ver` para ver qué cambiaría |
 | `curador/` | Curador semanal de agentes y skills (D-013): instrucciones, estado, informes y guardián. Lo corre la Action «Curador semanal» cada lunes | Ver [`curador/README.md`](curador/README.md) |
