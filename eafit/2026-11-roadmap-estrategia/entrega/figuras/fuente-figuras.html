@@ -277,8 +277,8 @@ tx(s,20,298,'KINO: $1.200.000 por conjunto + $10.000 por casa al mes. Unita: $1.
 // 12 expansion
 (()=>{const s=document.getElementById('sv12');arrowDef(s,'a12');const L=150,B=380,W=740,H=340;
 el(s,'path',{d:`M${L},${B} L${L},${B-H}`,stroke:C.ink,'stroke-width':2,'marker-end':'url(#a12)'});el(s,'path',{d:`M${L},${B} L${L+W},${B}`,stroke:C.ink,'stroke-width':2,'marker-end':'url(#a12)'});
-['Hoy','1','2','3','Nuevo'].forEach((t,i)=>{const y=B-30-i*66;tx(s,L-10,y,t,{a:'end',b:'middle',fw:700,fill:C.ink});el(s,'line',{x1:L,y1:y,x2:L+W,y2:y,stroke:C.soft,'stroke-width':1})});
-const cx=['Villas, Refugio y Sagrada','8 conjuntos','10 o más'];cx.forEach((t,i)=>tx(s,L+90+i*270,B+26,t,{a:'middle',fw:600,fill:C.mut}));
+['Base','1','2','3','Nuevo'].forEach((t,i)=>{const y=B-30-i*66;tx(s,L-10,y,t,{a:'end',b:'middle',fw:700,fill:C.ink});el(s,'line',{x1:L,y1:y,x2:L+W,y2:y,stroke:C.soft,'stroke-width':1})});
+const cx=['Villas, Refugio y Sagrada','8 conjuntos','18 conjuntos (meta 2027)'];cx.forEach((t,i)=>tx(s,L+90+i*270,B+26,t,{a:'middle',fw:600,fill:C.mut}));
 tx(s,L+W,B+48,'Eje X: conjuntos →',{a:'end',fs:13,fill:C.mut});tx(s,L-10,B-H-10,'Eje Y: módulos y productos ↑',{a:'start',fs:13,fill:C.mut});
 const pts=[[L+90,B-30,'Acceso y pagos (dic 2026)',C.ok],[L+360,B-96,'Paquetería',C.ac],[L+450,B-162,'Reservas',C.ac],[L+560,B-228,'Seguridad',C.ac2],[L+630,B-294,'Productos nuevos',C.ac2]];
 let d=`M${pts[0][0]},${pts[0][1]}`;pts.slice(1).forEach(p=>d+=` L${p[0]},${p[1]}`);el(s,'path',{d,stroke:C.line,'stroke-width':3,fill:'none','stroke-dasharray':'6 5'});

@@ -88,7 +88,7 @@ El recorrido muestra quién hace qué, desde que el residente abre la app hasta 
 
 ## 2.1 Quién compra y quién decide
 
-Solo la administración del conjunto compra KINO. En propiedad horizontal, la decisión pasa por tres instancias. La asamblea aprueba el presupuesto del conjunto. La reunión ordinaria se hace una vez al año, en los tres meses siguientes al cierre del período presupuestal [3].
+Solo la administración del conjunto compra KINO. En propiedad horizontal, la decisión pasa por tres instancias. La asamblea aprueba el presupuesto del conjunto. La reunión ordinaria se hace una vez al año. Si el reglamento no fija otra fecha, se hace en los tres meses siguientes al cierre del período presupuestal [3].
 
 ![Figura 6. Instancias de decisión y calendario de venta.](figuras/f06.png){width=100%}
 
@@ -121,7 +121,7 @@ Cerrar el negocio con la administración no basta: el valor aparece cuando los r
 
 > **Meta.** El 80 % de las casas construidas con un residente activo al 31 de enero de 2027: 80 casas en Villas y 320 en Refugio, 400 de 500. En Sagrada, 56 de 70 casas al 28 de febrero de 2027 (supuesto: un mes después de implementarla).
 
-**Residente activo (propuesta).** Un residente que en los últimos 30 días entró a la app y creó un KEY o pagó la cuota.
+**Residente activo (definición).** Un residente que en los últimos 30 días entró a la app y creó un KEY o pagó la cuota.
 
 ![Figura 8. Plan de penetración, de la preparación al pago en la app.](figuras/f19.png){width=100%}
 
@@ -218,7 +218,7 @@ El precio se justifica con tres referencias:
 | Conjunto nuevo (200 casas, supuesto) | $3.200.000 | $3.730.000 | −14 % |
 | Refugio Campestre (400 casas) | $5.200.000 | $5.910.000 | −12 % |
 
-**Por qué $10.000 y no más (inferido).** El diferencial de KINO (el KEY sin cuenta para la visita y la integración probada con el hardware, apartado 1.3) todavía no está probado en el piloto. Una administración que lleva el gasto a la asamblea compara primero el precio. Un precio menor que el de Unita ayuda a firmar los 5 conjuntos nuevos hasta abril. El precio de los conjuntos nuevos se revisa con el informe del piloto (H3), cuando haya evidencia. Alejandro eligió este precio el 9 de noviembre de 2026 (D-014).
+**Por qué $10.000 y no más (inferido).** El diferencial de KINO (el KEY sin cuenta para la visita y la integración con el hardware, apartado 1.3) todavía no está probado en el piloto. Una administración que lleva el gasto a la asamblea compara primero el precio. Un precio menor que el de Unita ayuda a firmar los 5 conjuntos nuevos hasta abril. El precio de los conjuntos nuevos se revisa con el informe del piloto (H3), cuando haya evidencia. El equipo fijó este precio el 9 de noviembre de 2026 [9].
 
 ![Figura 12. Cuánto paga cada conjunto al mes con el precio de KINO.](figuras/f10.png){width=100%}
 
@@ -228,7 +228,7 @@ El precio se justifica con tres referencias:
 
 ![Figura 14. Cuánto pesa cada costo en la cuota de administración.](figuras/f21.png){width=100%}
 
-**Margen por pago (aprobado por Alejandro el 9 de noviembre de 2026).** $2.000 por pago es el 0,33 % de la cuota. Es menos que la tarifa de la pasarela: con Wompi, un pago de $600.000 cuesta cerca de $19.754 en línea y $7.140 con QR, con IVA [16]. Quién asume la tarifa de la pasarela sigue por decidir (apartado 2.8).
+**Margen por pago.** $2.000 por pago es el 0,33 % de la cuota. Es menos que la tarifa de la pasarela: con Wompi, un pago de $600.000 cuesta cerca de $19.754 en línea y $7.140 con QR, con IVA [16]. Quién asume la tarifa de la pasarela sigue por decidir (apartado 2.8).
 
 **Lectura (inferido).**
 
@@ -248,7 +248,7 @@ El precio se justifica con tres referencias:
 
 | Orden | Módulo | Qué hace |
 |---|---|---|
-| Hoy | Acceso y pagos | KEY para visitas y colaboradores; pago de la cuota en la app (diciembre de 2026) |
+| Diciembre de 2026 | Acceso y pagos | KEY para visitas y colaboradores; pago de la cuota en la app |
 | 1 | Paquetería | Portería registra el paquete y el residente recibe el aviso |
 | 2 | Reservas | El residente reserva zonas comunes desde la app |
 | 3 | Seguridad | Botón de alerta a portería, registro de rondas, alertas de las cámaras e informe mensual para el consejo |
@@ -256,7 +256,7 @@ El precio se justifica con tres referencias:
 | Paso | Condición para empezar |
 |---|---|
 | De Villas y Refugio a 5 conjuntos nuevos | 80 % de las casas activas (H2) e informe del piloto (H3) |
-| De 8 a 10 o más conjuntos | Precio probado y costo de implementación medido en los 5 conjuntos nuevos |
+| De 8 a 18 conjuntos (15 nuevos a diciembre de 2027) | Precio probado y costo de implementación medido en los 5 conjuntos nuevos |
 | Paquetería | Acceso y pagos estables: errores de sincronización por debajo de un umbral por fijar |
 | Reservas | Paquetería en uso |
 | Seguridad | Revisión legal de cámaras y datos personales |
@@ -295,10 +295,10 @@ Fuentes de las etapas y condiciones: [4] [5] [6].
 | H1 · soykino.com | nov 2026 | Sitio en línea con HTTPS y correo | Cumplido |
 | H2 · Villas y Refugio penetrados | ene 2027 | App completa en producción desde diciembre y 80 % de las casas con un residente activo | Por cumplir |
 | H3 · Informe del piloto | feb 2027 | Resultados de diciembre y enero medidos y publicados | Por cumplir |
-| H4 · Primer módulo del eje Y | jun 2027 (propuesta) | Paquetería en uso en al menos un conjunto | Por cumplir |
+| H4 · Primer módulo del eje Y | jun 2027 (estimada) | Paquetería en uso en al menos un conjunto | Por cumplir |
 | H5 · Cinco conjuntos nuevos | feb a abr 2027 | 5 contratos firmados al 30 de abril de 2027. En desarrollo desde enero | Por cumplir |
 
-Fechas fijadas por el equipo el 9 de noviembre de 2026 [9]. La fecha de H4 es una propuesta.
+Fechas fijadas por el equipo el 9 de noviembre de 2026 [9]. La fecha de H4 es una estimación.
 
 ## 4.3 Tareas principales y responsables
 
@@ -348,7 +348,7 @@ Un negocio que solo cuadra en efectivo depende de trabajo sin pago. La vista de 
 | Cuota de administración | $600.000 al mes por casa, promedio de Villas y Refugio. Para Sagrada se usa la misma (supuesto) | [9] |
 | Calendario | Refugio se implementa en diciembre de 2026 y Sagrada en enero de 2027. Los tres pagan desde febrero de 2027 (Sagrada: supuesto). Los 5 conjuntos nuevos firman hasta abril y se implementan uno por mes (supuesto) | [9] |
 | Pagos en la app | Parte de las casas que paga la cuota en la app: 30 %, 50 % o 80 % según el escenario (supuesto) | |
-| Margen por pago | $2.000, aprobado el 9 de noviembre de 2026 | Apartado 2.9; [9] |
+| Margen por pago | $2.000, fijado por el equipo el 9 de noviembre de 2026 | Apartado 2.9; [9] |
 | Reserva para imprevistos | 15 % | [8] |
 
 ## 5.1 Inversión ya hecha
@@ -441,7 +441,7 @@ Cuatro cambios bajan el costo en efectivo un 30 % (inferido). Precios de pago an
 |---|---|---|---|
 | Claude Team | 150, pago mensual | 120, pago anual (100 + 20) | Compromiso de 12 meses |
 | Figma Enterprise | 180 | 180: se mantiene | Nada |
-| Grok | 30 | 0: Nicolás trabaja con su puesto de Claude Team | El flujo de Nicolás con Grok. Lo decide Nicolás |
+| Grok | 30 | 0: Nicolás trabaja con su puesto de Claude Team | El flujo de trabajo de Nicolás con Grok |
 | Soporte extendido de MySQL en AWS | 144 | 0: actualizar la base de datos a una versión con soporte estándar | Una migración con pruebas, a cargo de Alejandro |
 | Hospedaje de la página web | 20 | 0: plan gratuito para sitios estáticos (inferido: confirmar que la página es estática) | Nada, si la página es estática |
 | **Total con AWS y WhatsApp** | **739** | **515** | |
