@@ -20,7 +20,7 @@ KINO es una plataforma de control de acceso para conjuntos cerrados. Hoy opera e
 | ¿Cómo cobramos? | Pago fijo por conjunto + cobro por casa construida + implementación única + comisión por cada pago de la cuota en la app, desde el primer conjunto |
 | ¿Cuándo está lista la app? | En diciembre de 2026, completa y con pagos. En enero de 2027, el 80 % de las casas de Villas y Refugio la usa |
 | ¿Cuánto cobramos? | $1.200.000 al mes por conjunto + $10.000 por casa + $2.000 por pago: entre el 2,2 % y el 4,5 % de la cuota de administración |
-| ¿Cuánto cuesta y cuándo se sostiene? | $2,8 millones al mes en efectivo ($1,4 millones con la alternativa más barata). Villas, Refugio y Sagrada lo cubren desde febrero de 2027. Escenario base a diciembre de 2027: +$210 millones en efectivo |
+| ¿Cuánto cuesta y cuándo se sostiene? | $2,8 millones al mes en efectivo ($1,9 millones con la alternativa más barata). Villas, Refugio y Sagrada lo cubren desde febrero de 2027. Escenario base a diciembre de 2027: +$210 millones en efectivo |
 
 ![Figura 1. Mapa del documento. Cada capítulo responde una pregunta.](figuras/f01.png){width=100%}
 
@@ -322,7 +322,7 @@ Fechas fijadas por el equipo el 9 de noviembre de 2026 [9]. La fecha de H4 es un
 
 # 5. Presupuesto
 
-> **En una frase.** KINO cuesta $2,8 millones al mes en efectivo. Villas, Refugio y Sagrada cubren ese costo desde febrero de 2027. Con los 5 conjuntos nuevos, el escenario base cierra diciembre de 2027 con +$210 millones en efectivo. Una alternativa más barata baja el costo a $1,4 millones al mes.
+> **En una frase.** KINO cuesta $2,8 millones al mes en efectivo. Villas, Refugio y Sagrada cubren ese costo desde febrero de 2027. Con los 5 conjuntos nuevos, el escenario base cierra diciembre de 2027 con +$210 millones en efectivo. Una alternativa más barata baja el costo a $1,9 millones al mes.
 
 Horizonte: noviembre de 2026 a diciembre de 2027 (14 meses). Fuente de dinero: capital propio de los socios [9].
 
@@ -383,7 +383,7 @@ Fuente: [8]. Incluye producción y pruebas. El costo de AWS con 8 conjuntos no e
 
 **Figma Enterprise** se paga por año: USD 2.160 de una vez, unos $7,1 millones. La tabla lo muestra como cuota mensual.
 
-**WhatsApp (inferido).** 1.570 casas × 2 ingresos a la app al mes = 3.140 mensajes. A USD 0,001 por mensaje, son unos USD 3 al mes. El residente comparte el KEY desde su propio WhatsApp; ese envío no le cuesta a KINO.
+**WhatsApp (inferido).** 1.570 casas × 2 ingresos a la app al mes = 3.140 mensajes. A USD 0,001 por mensaje de autenticación (Colombia), son unos USD 3 al mes [18]. Por casa: 2 mensajes × USD 0,001 × $3.300 = $6,6 al mes. El residente comparte el KEY desde su propio WhatsApp; ese envío no le cuesta a KINO.
 
 **El trabajo es una estimación.** Las horas y las tarifas del soporte, el mantenimiento y la coordinación son costos supuestos, no salarios ni contratos [8]. Pueden variar con la operación real.
 
@@ -418,22 +418,22 @@ KINO no asume la tarifa de la pasarela: la paga el conjunto o el residente. Para
 
 ## 5.5 Alternativa más barata
 
-Cinco cambios bajan el costo en efectivo a la mitad sin quitarle al proyecto nada que use hoy (inferido). Precios de pago anual [14] [15].
+Cuatro cambios bajan el costo en efectivo un 31 % (inferido). Precios de pago anual [14]. Figma Enterprise se mantiene: el equipo lo necesita [9].
 
 | Rubro | Hoy (USD al mes) | Alternativa (USD al mes) | Qué se pierde |
 |---|---|---|---|
 | Claude Team | 150, pago mensual | 120, pago anual (100 + 20) | Compromiso de 12 meses |
-| Figma | 180, Enterprise, 2 puestos Full | 32, Professional, 2 puestos Full (16 cada uno) | Inicio de sesión único, administración avanzada y las variables de diseño por la API. El equipo eligió Enterprise para conectar Figma con el repositorio por la API [9]: este cambio pierde esa conexión |
+| Figma Enterprise | 180 | 180: se mantiene | Nada |
 | Grok | 30 | 0: Nicolás trabaja con su puesto de Claude Team | El flujo de Nicolás con Grok. Lo decide Nicolás |
 | Soporte extendido de MySQL en AWS | 144 | 0: actualizar la base de datos a una versión con soporte estándar | Una migración con pruebas, a cargo de Alejandro |
 | Hospedaje de la página web | 20 | 0: plan gratuito para sitios estáticos (inferido: confirmar que la página es estática) | Nada, si la página es estática |
-| **Total con AWS y WhatsApp** | **733** | **361** | |
+| **Total con AWS y WhatsApp** | **733** | **509** | |
 
 | Vista | Hoy | Alternativa | Ahorro al mes | Ahorro en 14 meses |
 |---|---|---|---|---|
-| En efectivo, con reserva | 2.781.735 | 1.369.995 | 1.411.740 (51 %) | 19.764.360 |
+| En efectivo, con reserva | 2.781.735 | 1.931.655 | 850.080 (31 %) | 11.901.120 |
 
-**Recomendación.** Aplicar los cambios de hospedaje, MySQL y pago anual de Claude: no quitan nada que el equipo use. Los de Grok y Figma tienen un costo de uso. El de Grok depende de Nicolás; sin ese cambio, el costo en efectivo queda en $1.483.845 al mes. El de Figma quita la conexión con el repositorio; sin ese cambio, el ahorro baja de USD 372 a USD 224 al mes.
+**Recomendación.** Aplicar los cambios de hospedaje, MySQL y pago anual de Claude: no quitan nada que el equipo use. El de Grok depende de Nicolás; sin ese cambio, el costo en efectivo queda en $2.045.505 al mes.
 
 ## 5.6 Costo total a diciembre de 2027
 
@@ -441,7 +441,7 @@ Cinco cambios bajan el costo en efectivo a la mitad sin quitarle al proyecto nad
 |---|---|---|---|---|
 | En efectivo | 38.944.290 | 1.200.000 | 0 | **40.144.290** |
 | Sostenimiento, escenario base | 89.176.290 | 1.200.000 | 7 × 3.100.000 (estimación) | **112.076.290** |
-| En efectivo, con la alternativa | 19.179.930 | 1.200.000 | 0 | **20.379.930** |
+| En efectivo, con la alternativa | 27.043.170 | 1.200.000 | 0 | **28.243.170** |
 
 ## 5.7 Ingresos
 
@@ -476,7 +476,7 @@ Los tres escenarios incluyen a Villas, Refugio y Sagrada desde febrero de 2027 y
 
 El porcentaje es el margen: resultado ÷ ingresos.
 
-Sin impuestos. Con la alternativa más barata, el escenario base sube a +$229,6 millones en efectivo.
+Sin impuestos. Con la alternativa más barata, el escenario base sube a +$221,7 millones en efectivo.
 
 **Cuánto capital ponen los socios.** La figura 19 muestra el acumulado del escenario base mes a mes. La caja toca su punto más bajo en noviembre de 2026: −$4,0 millones, que pagan los socios con capital propio. Las implementaciones de Refugio en diciembre y de Sagrada en enero la sostienen, y desde febrero de 2027 la caja queda en positivo. El sostenimiento llega a −$20,1 millones en enero y queda en positivo desde mayo de 2027.
 
@@ -506,7 +506,7 @@ El porcentaje es el margen del mes: lo que queda ÷ ingreso.
 
 **Lectura (inferido).**
 
-1. Villas sola no cubre la caja con las herramientas actuales ($2,3 millones frente a $2,8 millones). Con la alternativa más barata ($1,4 millones), sí.
+1. Villas sola no cubre la caja con las herramientas actuales ($2,3 millones frente a $2,8 millones). Con la alternativa más barata ($1,9 millones), sí.
 2. Villas y Refugio juntos cubren el sostenimiento completo desde febrero de 2027; Sagrada suma un margen de $2 millones al mes. Por eso la penetración de enero (apartado 2.4) es la tarea con más efecto en el presupuesto.
 3. La comisión de pagos suma $13,3 millones en el escenario base, el 5 % del ingreso. Crece con cada casa que paga en la app: con el 80 % de pagos, llega a $22,8 millones (escenario optimista). Además, lleva al residente a la app cada mes.
 4. El riesgo mayor es la capacidad: implementar 5 conjuntos entre abril y agosto pide el doble de horas de hoy.
@@ -555,7 +555,7 @@ Además, cada conjunto aporta $1.200.000 al mes de pago fijo, sin costo variable
 | Villas + Refugio + Sagrada | 570 | 17.316 | 4.880 / 11.175 | 12.429 (71,8 %) | 6.134 (35,4 %) |
 | Los tres + 5 nuevos (dic 2027) | 1.570 | 17.115 | 1.772 / 4.057 | 15.336 (89,6 %) | 13.051 (76,3 %) |
 
-Con la alternativa más barata, el costo fijo en efectivo por casa baja a $2.404 con 570 casas (margen 86,1 %) y a $873 con 1.570 casas (margen 94,9 %).
+Con la alternativa más barata, el costo fijo en efectivo por casa baja a $3.389 con 570 casas (margen 80,4 %) y a $1.230 con 1.570 casas (margen 92,8 %).
 
 **Lectura (inferido).**
 

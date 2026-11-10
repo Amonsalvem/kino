@@ -325,7 +325,7 @@ tx(s,0,310,'La forma de cobrar el margen depende del contrato con la pasarela (i
 
 // 14 costo mensual
 (()=>{const s=document.getElementById('sv14');const L=220,W=600,max=6.5e6;const parts=[['AWS',C.ac],['Herramientas',C.ac2],['Trabajo de los socios',C.mut],['Reserva 15 %',C.wa]];
-const rows=[['En efectivo',[1155000,1263900,0,362835],2781735],['Sostenimiento',[1155000,1263900,3120000,830835],6369735],['Alternativa barata',[679800,511500,0,178695],1369995]];
+const rows=[['En efectivo',[1155000,1263900,0,362835],2781735],['Sostenimiento',[1155000,1263900,3120000,830835],6369735],['Alternativa barata',[679800,999900,0,251955],1931655]];
 rows.forEach((r,i)=>{const y=20+i*66;tx(s,L-14,y+22,r[0],{a:'end',b:'middle',fw:700,fill:i==2?C.ok:C.ink});let x=L;r[1].forEach((v,j)=>{const w=v/max*W;if(w>0){el(s,'rect',{x,y,width:w,height:44,fill:parts[j][1],opacity:j==2?.55:1});}x+=w});tx(s,x+10,y+22,'$'+fmt(r[2]),{b:'middle',fw:700,fill:i==2?C.ok:C.ink})});
 parts.forEach((p,j)=>{const x=L+j*165;el(s,'rect',{x,y:226,width:14,height:14,fill:p[1],opacity:j==2?.55:1});tx(s,x+20,238,p[0],{fs:13.5})});
 tx(s,20,272,'El trabajo de los socios vale $3.120.000 al mes, pero hoy no sale de la caja. La alternativa barata es la del apartado 5.5 (en efectivo).',{fs:13,fill:C.mut});})();
