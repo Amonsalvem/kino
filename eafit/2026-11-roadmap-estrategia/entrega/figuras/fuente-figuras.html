@@ -239,7 +239,7 @@ tx(s,x0,156,'Fuera de la ventana, la vía es pagar con un rubro que ya existe, c
 
 // 7 cabeza de playa
 (()=>{const s=document.getElementById('sv07');
-const st=[['1','Villas, Refugio y Sagrada (Monte Sereno)','570 casas construidas','Diciembre 2026 y enero 2027',C.ok,C.oks],['2','5 conjuntos nuevos del oriente','El Retiro, Rionegro, La Ceja, Llanogrande','Enero a marzo de 2027',C.ac,C.acs],['3','Valle de Aburrá','Medellín y municipios vecinos','Con el servicio estandarizado',C.mut,C.soft]];
+const st=[['1','Villas, Refugio y Sagrada (Monte Sereno)','570 casas construidas','Diciembre 2026 y enero 2027',C.ok,C.oks],['2','5 conjuntos nuevos del oriente','El Retiro, Rionegro, La Ceja, Llanogrande','Febrero a abril de 2027',C.ac,C.acs],['3','Valle de Aburrá','Medellín y municipios vecinos','Con el servicio estandarizado',C.mut,C.soft]];
 const cx=150,cy=150;[128,90,52].forEach((r,i)=>el(s,'circle',{cx,cy,r,fill:st[2-i][5],stroke:st[2-i][4],'stroke-width':1.6}));
 [[cx,cy+4,'1'],[cx,cy-70,'2'],[cx,cy-108,'3']].forEach(([x,y,t],i)=>tx(s,x,y,t,{a:'middle',fw:700,fill:st[i][4],fs:18,b:'middle'}));
 st.forEach((r,i)=>{const y=40+i*84;el(s,'rect',{x:320,y,width:600,height:70,rx:10,fill:'#fff',stroke:r[4],'stroke-width':1.6});el(s,'circle',{cx:352,cy:y+35,r:16,fill:r[4]});tx(s,352,y+40,r[0],{a:'middle',fill:'#fff',fw:700});tx(s,382,y+29,r[1],{fw:700,fill:C.ink,fs:17});tx(s,382,y+52,r[2],{fs:14,fill:C.mut});tx(s,905,y+52,r[3],{a:'end',fs:13.5,fw:600,fill:r[4]})});})();

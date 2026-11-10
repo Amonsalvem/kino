@@ -16,7 +16,7 @@ KINO es una plataforma de control de acceso para conjuntos cerrados. Hoy opera e
 |---|---|
 | ¿Qué resolvemos? | Quien conoce a la visita (el residente) no tiene autoridad para dejarla entrar, y quien tiene autoridad (portería) no la conoce |
 | ¿A quién vendemos? | Solo a la administración del conjunto. Primero, a conjuntos campestres del oriente antioqueño con hardware HikCentral |
-| ¿En qué orden crecemos? | Villas Campestres y Refugio Campestre en diciembre de 2026 y enero de 2027, y Monte Sereno Sagrada en enero; 5 conjuntos nuevos del oriente antioqueño en el primer trimestre de 2027; después, el Valle de Aburrá |
+| ¿En qué orden crecemos? | Villas Campestres y Refugio Campestre en diciembre de 2026 y enero de 2027, y Monte Sereno Sagrada en enero; 5 conjuntos nuevos del oriente antioqueño con contrato hasta abril de 2027 y 15 conjuntos nuevos a diciembre de 2027; después, el Valle de Aburrá |
 | ¿Cómo cobramos? | Pago fijo por conjunto + cobro por casa construida + implementación única + comisión por cada pago de la cuota en la app, desde el primer conjunto |
 | ¿Cuándo está lista la app? | En diciembre de 2026, completa y con pagos. En enero de 2027, el 80 % de las casas de Villas y Refugio la usa |
 | ¿Cuánto cobramos? | $1.200.000 al mes por conjunto + $10.000 por casa + $2.000 por pago: entre el 2,2 % y el 4,5 % de la cuota de administración |
@@ -218,7 +218,7 @@ El precio se justifica con tres referencias:
 | Conjunto nuevo (200 casas, supuesto) | $3.200.000 | $3.730.000 | −14 % |
 | Refugio Campestre (400 casas) | $5.200.000 | $5.910.000 | −12 % |
 
-**Por qué $10.000 y no más (inferido).** El diferencial de KINO (el KEY sin cuenta para la visita y la integración probada con el hardware, apartado 1.3) todavía no está probado en el piloto. Una administración que lleva el gasto a la asamblea compara primero el precio. Un precio menor que el de Unita ayuda a firmar los 5 conjuntos del primer trimestre. El precio de los conjuntos nuevos se revisa con el informe del piloto (H3), cuando haya evidencia. Alejandro eligió este precio el 9 de noviembre de 2026 (D-014).
+**Por qué $10.000 y no más (inferido).** El diferencial de KINO (el KEY sin cuenta para la visita y la integración probada con el hardware, apartado 1.3) todavía no está probado en el piloto. Una administración que lleva el gasto a la asamblea compara primero el precio. Un precio menor que el de Unita ayuda a firmar los 5 conjuntos nuevos hasta abril. El precio de los conjuntos nuevos se revisa con el informe del piloto (H3), cuando haya evidencia. Alejandro eligió este precio el 9 de noviembre de 2026 (D-014).
 
 ![Figura 12. Cuánto paga cada conjunto al mes con el precio de KINO.](figuras/f10.png){width=100%}
 
@@ -242,7 +242,7 @@ El precio se justifica con tres referencias:
 
 ![Figura 15. Expansión en dos ejes, con las condiciones para avanzar.](figuras/f12.png){width=100%}
 
-**Eje X: conjuntos.** Villas, Refugio y Sagrada, luego 5 conjuntos nuevos en el primer trimestre de 2027, luego 10 o más.
+**Eje X: conjuntos.** Villas, Refugio y Sagrada, luego 5 conjuntos nuevos con contrato hasta abril de 2027, luego 10 más hasta llegar a 15 conjuntos nuevos en diciembre de 2027. El cliente foco tiene hardware de HikCentral, 150 casas o más y queda en el oriente antioqueño.
 
 **Eje Y: módulos y productos.** Los módulos suben el valor de la app y justifican un precio mayor; no son una línea de ingreso aparte. Los productos nuevos sí venden algo distinto. Orden de los módulos:
 
@@ -267,7 +267,7 @@ Fuentes de las etapas y condiciones: [4] [5] [6].
 
 # 4. Roadmap
 
-> **En una frase.** En diciembre de 2026 la app queda completa; en enero de 2027 Villas y Refugio llegan al 80 % y entra Sagrada; de enero a marzo KINO cierra 5 conjuntos nuevos; el resto de 2027 suma módulos.
+> **En una frase.** En diciembre de 2026 la app queda completa; en enero de 2027 Villas y Refugio llegan al 80 % y entra Sagrada; hasta abril KINO firma 5 conjuntos nuevos; el resto de 2027 suma módulos y llega a 15 conjuntos nuevos.
 
 ## 4.1 Fases
 
@@ -296,7 +296,7 @@ Fuentes de las etapas y condiciones: [4] [5] [6].
 | H2 · Villas y Refugio penetrados | ene 2027 | App completa en producción desde diciembre y 80 % de las casas con un residente activo | Por cumplir |
 | H3 · Informe del piloto | feb 2027 | Resultados de diciembre y enero medidos y publicados | Por cumplir |
 | H4 · Primer módulo del eje Y | jun 2027 (propuesta) | Paquetería en uso en al menos un conjunto | Por cumplir |
-| H5 · Cinco conjuntos nuevos | ene a mar 2027 | 5 contratos firmados al 31 de marzo de 2027. En desarrollo desde enero | Por cumplir |
+| H5 · Cinco conjuntos nuevos | feb a abr 2027 | 5 contratos firmados al 30 de abril de 2027. En desarrollo desde enero | Por cumplir |
 
 Fechas fijadas por el equipo el 9 de noviembre de 2026 [9]. La fecha de H4 es una propuesta.
 
@@ -346,7 +346,7 @@ Un negocio que solo cuadra en efectivo depende de trabajo sin pago. La vista de 
 | Unidades | Villas Campestres: 100 casas construidas. Refugio Campestre: 400 casas construidas. Monte Sereno Sagrada: 70 casas | [9] |
 | Conjunto nuevo | 200 casas construidas (supuesto) | |
 | Cuota de administración | $600.000 al mes por casa, promedio de Villas y Refugio. Para Sagrada se usa la misma (supuesto) | [9] |
-| Calendario | Refugio se implementa en diciembre de 2026 y Sagrada en enero de 2027. Los tres pagan desde febrero de 2027 (Sagrada: supuesto). Los 5 conjuntos nuevos firman en el primer trimestre y se implementan uno por mes (supuesto) | [9] |
+| Calendario | Refugio se implementa en diciembre de 2026 y Sagrada en enero de 2027. Los tres pagan desde febrero de 2027 (Sagrada: supuesto). Los 5 conjuntos nuevos firman hasta abril y se implementan uno por mes (supuesto) | [9] |
 | Pagos en la app | Parte de las casas que paga la cuota en la app: 30 %, 50 % o 80 % según el escenario (supuesto) | |
 | Margen por pago | $2.000, aprobado el 9 de noviembre de 2026 | Apartado 2.9; [9] |
 | Reserva para imprevistos | 15 % | [8] |
@@ -480,6 +480,8 @@ Los escenarios cambian cuántos conjuntos nuevos entran, desde cuándo y cuánta
 | Optimista | 5, uno por mes de marzo a julio de 2027 | 80 % | 22.832.000 | 275.532.000 |
 
 Los tres escenarios incluyen a Villas, Refugio y Sagrada desde febrero de 2027 y una implementación de $3.200.000 por cada conjunto nuevo, por Refugio y por Sagrada.
+
+La meta comercial es de 15 conjuntos nuevos a diciembre de 2027. Los escenarios solo cuentan los 5 conjuntos con contrato hasta abril: los otros 10 todavía no tienen fecha de firma, y cada uno que entre suma ingreso sobre el escenario base.
 
 ## 5.8 Resultado a diciembre de 2027
 
@@ -621,7 +623,7 @@ No hay líneas base todavía. Cada indicador dice cómo se mide y una meta inici
 | Piloto | Tiempo en portería | Mediana entre la llegada y el registro de entrada | ≤ 45 segundos |
 | Piloto | Satisfacción | NPS de residentes; CSAT de portería y administración (1 a 5) | NPS ≥ 30; CSAT ≥ 4,0 |
 | Técnica | Errores de sincronización | Errores por semana | Umbral para pasar a la etapa 02 |
-| Negocio | Embudo comercial | Conjuntos contactados, propuestas y contratos | 5 contratos firmados al 31 de marzo de 2027 |
+| Negocio | Embudo comercial | Conjuntos contactados, propuestas y contratos | 5 contratos firmados al 30 de abril de 2027; 15 conjuntos nuevos a diciembre de 2027 |
 | Negocio | Tasa de cierre | Propuestas aceptadas ÷ enviadas | Revisar al llegar a 5 propuestas |
 | Negocio | Ingreso recurrente mensual | Σ ($1.200.000 + casas × $10.000) + comisión de pagos | $9,9 millones con Villas, Refugio y Sagrada; $26,9 millones con 8 conjuntos |
 | Negocio | Costo de adquisición | Gasto comercial ÷ conjuntos firmados | Línea base con el primer cierre |
