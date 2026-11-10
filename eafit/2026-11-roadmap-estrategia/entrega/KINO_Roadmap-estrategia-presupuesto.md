@@ -385,6 +385,23 @@ Fuente: [8]. Incluye producción y pruebas. El costo de AWS con 8 conjuntos no e
 
 **WhatsApp (inferido).** 1.570 casas × 2 ingresos a la app al mes = 3.140 mensajes. A USD 0,001 por mensaje de autenticación (Colombia), son unos USD 3 al mes [18]. Por casa: 2 mensajes × USD 0,001 × $3.300 = $6,6 al mes. El residente comparte el KEY desde su propio WhatsApp; ese envío no le cuesta a KINO.
 
+**Costo del KEY (supuesto).** Generar el KEY, su QR y su registro en HikCentral corre en AWS: ya está en el costo fijo y no suma por KEY. El costo variable aparece si KINO envía mensajes por WhatsApp. Este cálculo toma el caso más caro: KINO envía cada KEY a la persona y avisa al residente en cada entrada, con mensajes de utilidad de WhatsApp a USD 0,001 [18].
+
+| Quién entra, por casa al mes | KEYs emitidos | Entradas | Fuente |
+|---|---|---|---|
+| Colaborador (empleada, jardinero): 1 KEY recurrente | 1 | 20 | Supuesto |
+| Visitas ocasionales | 6 | 6 | Supuesto |
+| Técnicos y domicilios | 2 | 2 | Supuesto |
+| **Total** | **9** | **28** | |
+
+| Mensaje | Cantidad al mes | COP por casa al mes |
+|---|---|---|
+| Envío del KEY por WhatsApp | 9 | 29,7 |
+| Aviso de llegada al residente | 28 | 92,4 |
+| **Costo del KEY por casa** | **37 mensajes × $3,3** | **122,1** |
+
+Si el aviso de llegada va como notificación de la app y el residente comparte el KEY desde su WhatsApp, este costo baja a $0. Las cifras de entradas se miden en el piloto con el indicador «KEYs de colaborador» (capítulo 6).
+
 **El trabajo es una estimación.** Las horas y las tarifas del soporte, el mantenimiento y la coordinación son costos supuestos, no salarios ni contratos [8]. Pueden variar con la operación real.
 
 **El trabajo es un costo fijo.** Las 40 horas atienden la app y la plataforma, no a cada conjunto. No crecen con cada casa o conjunto que entra (criterio del equipo, 10 de noviembre de 2026).
@@ -410,7 +427,7 @@ Fuente: [8]. Incluye producción y pruebas. El costo de AWS con 8 conjuntos no e
 |---|---|---|---|
 | Fijo, en efectivo | AWS, herramientas y reserva | $2.781.735 al mes | Nada: es el mismo con 1 o con 8 conjuntos (supuesto: AWS con 8 conjuntos no está estimado) |
 | Fijo, valorado | Trabajo de los socios, 40 h (estimación) | $3.120.000 al mes, más su reserva | Nada: atiende la app |
-| Variable por casa | Mensajes de WhatsApp para el ingreso | ≈ $7 por casa al mes | Cada casa |
+| Variable por casa | WhatsApp: código de ingreso a la app ($6,6) y KEYs con avisos de llegada ($122,1, caso más caro) | ≈ $129 por casa al mes | Cada casa y cada persona que entra |
 | No es costo de KINO | Tarifa de la pasarela | $7.140 (QR) a $19.754 (en línea) por un pago de $600.000 [16] | La paga el conjunto o el residente. KINO gana $2.000 por pago (apartado 2.8) |
 | Único por conjunto | Implementación (estimación) | $3.100.000 en horas de los socios | Cada conjunto nuevo (apartado 5.10) |
 
@@ -542,8 +559,9 @@ El documento de costos no incluye las implementaciones [8]. Esta es una estimaci
 |---|---|
 | Cobro por casa | 10.000 |
 | Comisión de pagos: 50 % de las casas × $2.000 | 1.000 |
-| Costo variable: WhatsApp | −7 |
-| **Contribución por casa** | **10.993 (99,9 %)** |
+| Costo variable: código de ingreso a la app | −6,6 |
+| Costo variable: KEYs y avisos de llegada (caso más caro, apartado 5.3) | −122,1 |
+| **Contribución por casa** | **10.871 (98,8 %)** |
 
 Además, cada conjunto aporta $1.200.000 al mes de pago fijo, sin costo variable.
 
@@ -551,18 +569,21 @@ Además, cada conjunto aporta $1.200.000 al mes de pago fijo, sin costo variable
 
 | Etapa | Casas | Ingreso por casa | Costo fijo por casa: efectivo / sostenimiento | Margen neto en efectivo | Margen neto en sostenimiento |
 |---|---|---|---|---|---|
-| Villas + Refugio | 500 | 15.800 | 5.563 / 12.739 | 10.230 (64,7 %) | 3.054 (19,3 %) |
-| Villas + Refugio + Sagrada | 570 | 17.316 | 4.880 / 11.175 | 12.429 (71,8 %) | 6.134 (35,4 %) |
-| Los tres + 5 nuevos (dic 2027) | 1.570 | 17.115 | 1.772 / 4.057 | 15.336 (89,6 %) | 13.051 (76,3 %) |
+| Villas + Refugio | 500 | 15.800 | 5.563 / 12.739 | 10.108 (64,0 %) | 2.932 (18,6 %) |
+| Villas + Refugio + Sagrada | 570 | 17.316 | 4.880 / 11.175 | 12.307 (71,1 %) | 6.012 (34,7 %) |
+| Los tres + 5 nuevos (dic 2027) | 1.570 | 17.115 | 1.772 / 4.057 | 15.214 (88,9 %) | 12.929 (75,5 %) |
 
-Con la alternativa más barata, el costo fijo en efectivo por casa baja a $3.389 con 570 casas (margen 80,4 %) y a $1.230 con 1.570 casas (margen 92,8 %).
+Margen neto = ingreso por casa − costo variable ($129) − costo fijo por casa.
+
+Con la alternativa más barata, el costo fijo en efectivo por casa baja a $3.389 con 570 casas (margen 79,7 %) y a $1.230 con 1.570 casas (margen 92,1 %).
 
 **Lectura (inferido).**
 
-1. El costo variable por casa es casi cero. El margen depende de cuántas casas reparten los costos fijos.
+1. El costo variable por casa es bajo: $129 en el caso más caro, menos del 1 % del ingreso por casa. El margen depende de cuántas casas reparten los costos fijos.
 2. Cada casa nueva sube el margen de todas. Con 500 casas, el sostenimiento deja el 19 %; con 1.570, el 76 %.
-3. Con un ingreso promedio de $17.100 por casa, la caja se cubre con unas 163 casas y el sostenimiento con unas 373.
+3. Con un ingreso promedio de $17.100 por casa y $129 de costo variable, la caja se cubre con unas 164 casas y el sostenimiento con unas 375.
 4. Estos márgenes son antes de impuestos y suponen que AWS no crece con 8 conjuntos (apartado 5.12).
+5. Los escenarios del apartado 5.8 no restan el costo del KEY. En el caso más caro, con 1.570 casas, suma unos $192.000 al mes: el 0,7 % del ingreso.
 
 ## 5.12 Fuera del presupuesto
 
