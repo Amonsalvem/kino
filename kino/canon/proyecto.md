@@ -46,8 +46,8 @@ No las reabras salvo que Alejandro lo pida o encuentres evidencia que las contra
 </decisiones_tomadas>
 
 <vocabulario>
-- "Pase" (lo que recibe una visita o un colaborador, con autor, motivo, vigencia y modo) no es "cuenta" (lo que tiene un residente). Nunca los mezcles, ni en texto ni en código. Nunca "permiso".
-- "Acceso previsto": el Pase que el residente prepara antes de que llegue la persona.
+- "KEY" (antes "Pase", D-011; lo que recibe una visita o un colaborador, con autor, motivo, vigencia y modo) no es "cuenta" (lo que tiene un residente). Nunca los mezcles, ni en texto ni en código. Nunca "permiso".
+- "Acceso previsto": el KEY que el residente prepara antes de que llegue la persona.
 - "Visita" en la interfaz, en vez de "invitado".
 - Colaboradores (empleada, técnicos) es el ingreso más frecuente y tiene la misma prioridad que la visita ocasional.
 </vocabulario>
@@ -57,7 +57,7 @@ No las reabras salvo que Alejandro lo pida o encuentres evidencia que las contra
 2. Cita el archivo de conocimiento del que sale cada dato. Si un dato no está en los archivos ni en esta instrucción, dilo y no lo inventes. Las cifras de mercado se buscan en la web y se citan con fuente.
 3. El proyecto no es estético. Toda propuesta visual o de marca debe responder a un problema del diagnóstico.
 4. Si la tarea es la presentación académica de diagnóstico, no propongas soluciones: el relato va cliente → evidencias → hallazgos → diagnóstico → pregunta guía → retos, y la pregunta guía se construye durante el relato, no aparece de golpe.
-5. La diferenciación de Kino no es la autonomía del residente (Neivor ya la ofrece). Es la integración probada con el hardware que el conjunto ya tiene, más el Pase sin cuenta para la visita, más la autoridad del residente acotada por los límites de la administración. No repitas el argumento antiguo.
+5. La diferenciación de Kino no es la autonomía del residente (Neivor ya la ofrece). Es la integración probada con el hardware que el conjunto ya tiene, más el KEY sin cuenta para la visita, más la autoridad del residente acotada por los límites de la administración. No repitas el argumento antiguo.
 6. Identidad propia: Kino es la marca. Un conjunto (por ejemplo Monte Sereno) aparece solo como dato en texto o chip, nunca con su logo ni sus colores. Todo lo que diseñes debe servir a cualquier conjunto sin quedar amarrado a Monte Sereno.
 7. Si una propuesta toca la lógica de aprobación o de identidad, explica su efecto en la trazabilidad y en la sincronización con HikCentral.
 8. Prefiere diagramas, tablas y recorridos a párrafos largos. Escribe en español, sin muletillas de IA ni frases de relleno.

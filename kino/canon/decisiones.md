@@ -160,6 +160,74 @@ D-003 sigue vigente: Alejandro aprueba y Nico propone. D-003 registra que Manuel
 
 ---
 
+## D-009 · Marca blanca fuera del roadmap · APROBADA (Alejandro, 8 nov 2026) · opción A
+
+**Aprobación.** [Comentario de Alejandro en el PR #28](https://github.com/Amonsalvem/kino/pull/28#issuecomment-6728910017).
+
+El documento de roadmap de Nico con Grok (8 nov 2026) traía la fase 6 «KINO marca blanca» y el hito H4, «app de marca blanca de Monte Sereno», para jun 2027. El canon sostiene marca propia: `kino/canon/proyecto.md`, `<decisiones_tomadas>` y regla 6. D-004 dejó la pregunta abierta.
+
+| Opción | Alcance | Costo |
+|---|---|---|
+| A (recomendada) | Marca propia, sin marca blanca. Salen la fase 6 y el H4. El conjunto aparece solo como dato en texto o chip | Se pierde una línea comercial que ofrecían los decks, el PDF y soykino.com; hay que retirarla de esos textos |
+| B | Marca blanca como línea comercial aparte | Exige cambiar `proyecto.md` y mantener dos marcas |
+| C | Decidir después del informe del piloto (H3) | El roadmap no la promete en la entrega; la pregunta sigue abierta |
+
+**Respuesta de Alejandro.** En la tarjeta de decisión del hilo «Co-crear roadmap, estrategia y presupuesto de Kino» eligió «Marca propia, sin marca blanca» (8 nov 2026). Pasa a APROBADA con su comentario en el PR, según D-008.
+
+**Trazabilidad y HikCentral.** No cambia autor, motivo, vigencia ni autoridad del Pase. No cambia la sincronización.
+
+---
+
+## D-010 · Modelo de ingresos · APROBADA (Alejandro, 8 nov 2026) · opción B
+
+**Aprobación.** [Comentario de Alejandro en el PR #28](https://github.com/Amonsalvem/kino/pull/28#issuecomment-6729811673).
+
+Alejandro pidió el modelo más rentable sin limitarse al cobro por unidad (chat del proyecto, 9 nov 2026). La comparación completa está en `eafit/2026-11-roadmap-estrategia/roadmap-estrategia-presupuesto.md`, apartado 2.7. Las cifras son ejemplos para comparar; el precio final se valida con administradores en la fase 4.
+
+| Opción | Alcance | Costo |
+|---|---|---|
+| A | Cobro por unidad construida | Un conjunto pequeño casi no paga; deja valor sin cobrar |
+| B (recomendada) | Piso por conjunto + cobro por unidad + implementación única; comisión de pagos desde la etapa 03 | Exige alianza con la pasarela para la comisión de pagos |
+| C | Precio por valor, contra el costo de un puesto de vigilancia | Exige probar el ahorro en portería antes de venderlo |
+
+**Trazabilidad y HikCentral.** No cambia autor, motivo, vigencia ni autoridad del Pase. No cambia la sincronización. La comisión de pagos toca datos financieros de residentes: exige la política de datos del Bloque 3 antes de operar.
+
+---
+
+## D-011 · El Pase se llama KEY · APROBADA (Alejandro, 9 nov 2026) · opción A
+
+**Aprobación.** [Comentario de Alejandro en el PR #28](https://github.com/Amonsalvem/kino/pull/28#issuecomment-6739927904).
+
+Alejandro pidió cambiar «Pase» por «KEY» en la entrega de EAFIT (comentario sobre el PDF, 9 nov 2026) y luego eligió que el cambio aplique a todo Kino (tarjeta en el chat del proyecto, 9 nov 2026).
+
+| Opción | Alcance | Costo |
+|---|---|---|
+| A (recomendada) | «KEY» reemplaza a «Pase» en todo Kino: canon, producto, app y textos nuevos | Hay que actualizar el vocabulario de `proyecto.md`, `AGENTS.md` y los flujos de producto. Los archivos de pre-kino y los registros históricos conservan «Pase» |
+| B | «KEY» solo en la entrega de EAFIT | El documento académico y el producto usan nombres distintos para lo mismo |
+
+**Uso.** «KEY» en mayúsculas; plural «KEYs»; artículo masculino («el KEY», «un KEY»). La regla de fondo no cambia: el KEY (de la visita o el colaborador) no se mezcla con la cuenta (del residente). Nunca «permiso».
+
+**Trazabilidad y HikCentral.** Cambia solo el nombre. No cambia autor, motivo, vigencia, modo ni autoridad. No cambia la sincronización.
+
+---
+
+## D-012 · Comisión de pagos desde el inicio · APROBADA (Alejandro, 9 nov 2026) · opción A
+
+**Aprobación.** [Comentario de Alejandro en el PR #28](https://github.com/Amonsalvem/kino/pull/28#issuecomment-6740911654).
+
+Cambia el momento de la comisión de pagos de D-010. Alejandro: «El D también se va implementar desde el inicio» (chat del proyecto, 9 nov 2026). También pidió que la app completa, con el módulo de pagos, quede lista en diciembre de 2026.
+
+| Opción | Alcance | Costo |
+|---|---|---|
+| A (recomendada) | La comisión de pagos empieza con Villas Campestres y Refugio Campestre, en la app de diciembre de 2026 | El módulo de pagos y la alianza con la pasarela tienen que estar listos en diciembre, junto con el ingreso por WhatsApp y el KEY temporal |
+| B | La comisión de pagos empieza en la etapa 03, como dice D-010 | Menos trabajo en diciembre; el ingreso por pagos llega más tarde |
+
+**Regla.** El dinero de la cuota va de la pasarela a la cuenta del conjunto. KINO no recibe ni guarda el dinero del conjunto; recibe solo su margen.
+
+**Monto.** $2.000 por cada pago de la cuota en la app. Lo aprobó Alejandro en el chat del proyecto el 9 nov 2026 («se aprueba la comisión de $2.000 por pago»). Quién asume la tarifa de la pasarela sigue por decidir.
+
+**Trazabilidad y HikCentral.** No cambia autor, motivo, vigencia ni autoridad del KEY. No toca la sincronización. Toca datos financieros de los residentes: exige la política de datos y el contrato con la pasarela antes de cobrar.
+
 ## D-013 · Curador semanal de agentes y skills · APROBADA (Alejandro, 9 nov 2026) · opción A
 
 **Aprobación.** [Comentario de Alejandro en el PR #30](https://github.com/Amonsalvem/kino/pull/30#discussion_r4513605107).
@@ -177,3 +245,23 @@ D-003 sigue vigente: Alejandro aprueba y Nico propone. D-003 registra que Manuel
 **Palabras de origen.** «Necesito que crees un agente experto/inspector/ y curador de agentes y skills. Que semanalmente a medida de lo que requiera Kino, haga una investigación del estado del arte en agentes y skills, integre lo que le convenga más a Kino.» (Alejandro, chat del proyecto, 9 nov 2026).
 
 **Trazabilidad y HikCentral.** El curador trabaja sobre la forma de trabajar con IA, no sobre el producto. No toca la lógica de ingresos, el Pase ni la sincronización con HikCentral. Cada cambio queda en un PR con su informe y su corrida de Actions.
+
+## D-014 · Precio: pago fijo por conjunto + cobro por casa · APROBADA (Alejandro, 9 nov 2026) · opción E
+
+**Número.** Se propuso como D-013 y se renumeró a D-014 porque D-013 ya existía en `main` (curador semanal). El comentario de aprobación dice «D-013».
+
+**Historia.** Alejandro aprobó primero la opción A en el [PR #28](https://github.com/Amonsalvem/kino/pull/28#issuecomment-6743415369). El 9 nov 2026, en el chat del proyecto, la cambió: «Prefiero el modelo de pago fijo, más cobro por casa, más la comisión de pago» y «Pago mínimo $1.200.000 + $16.000» (opción D). Después de ver que D dejaba a KINO más caro que Unita, eligió la opción E en la tarjeta del chat.
+
+Precisa la parte de cobro mensual de D-010 (piso por conjunto + cobro por casa). Siguen igual la implementación única y la comisión de pagos de $2.000 (D-012).
+
+| Opción | Precio al mes | Villas (100 casas) | Refugio (400 casas) | Costo |
+|---|---|---|---|---|
+| A | $16.000 por casa construida, mínimo $1.200.000 por conjunto | $1.600.000 | $6.400.000 | El «mínimo» se puede leer como una barrera de entrada |
+| B | Pago fijo $1.000.000 + $8.000 por casa | $1.800.000 | $4.200.000 | Villas y Refugio apenas cubren el sostenimiento |
+| C | Igual a Unita: $1.550.000 + $10.900 por casa | $2.640.000 | $5.910.000 | Se lee como copia del competidor |
+| D | Pago fijo $1.200.000 + $16.000 por casa | $2.800.000 | $7.600.000 | Entre 6 % y 29 % más caro que Unita, con un diferencial todavía sin probar |
+| **E (elegida)** | **Pago fijo $1.200.000 + $10.000 por casa** | **$2.200.000** | **$5.200.000** | **Menos ingreso que D: $225 M frente a $300 M en el escenario base a dic 2027** |
+
+**Por qué.** KINO queda entre 12 % y 18 % más barato que Unita en todos los tamaños mientras la integración con el hardware no esté probada. Villas y Refugio juntos dejan $7,9 millones al mes y cubren el sostenimiento ($6,4 millones); con Monte Sereno Sagrada (70 casas, desde enero de 2027), los tres dejan $9,9 millones. Con una cuota de $600.000, KINO pesa entre el 2,2 % (Refugio) y el 3,7 % (Villas) de lo que paga cada casa. El precio de los conjuntos nuevos se revisa con el informe del piloto (H3).
+
+**Trazabilidad y HikCentral.** No cambia el KEY, la autoridad del residente ni la sincronización.
