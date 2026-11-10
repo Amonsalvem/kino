@@ -187,7 +187,7 @@ El residente paga la cuota de administración desde la app. El dinero va a la cu
 |---|---|
 | ¿Qué paga el residente? | La cuota de administración. Después, otros cobros del conjunto, como reservas o multas |
 | ¿Quién recibe el dinero? | El conjunto, en su propia cuenta. KINO no recibe ni guarda el dinero del conjunto |
-| ¿Cómo gana KINO? | Un margen por cada pago. Hay dos formas de cobrarlo, según el contrato con la pasarela: un acuerdo con la pasarela sobre su tarifa, o un cargo de KINO por pago procesado en la factura mensual del conjunto (inferido) |
+| ¿Cómo gana KINO? | De dos formas. 1) $2.000 por cada pago, encima de la tarifa de la pasarela. 2) Un reparto de la tarifa, negociado con la pasarela: la pasarela devuelve a KINO una parte de lo que cobra, sin costo extra para quien paga. El reparto no tiene cifra hasta tener una oferta; el presupuesto solo cuenta los $2.000 |
 | ¿Cuánto cobra la pasarela? | Wompi cobra 2,65 % + $700 + IVA en pagos en línea y 1 % + IVA en pagos con QR [16] |
 | ¿Quién asume la tarifa? | El conjunto o el residente, por decidir. KINO nunca la asume: la pasarela es una de sus fuentes de ingreso |
 | ¿Qué gana el conjunto? | Ve en el panel quién pagó, sin cruzar extractos. El residente recibe su recibo digital. Menos tiempo de la administración en cobros (inferido) |
@@ -414,7 +414,7 @@ Fuente: [8]. Incluye producción y pruebas. El costo de AWS con 8 conjuntos no e
 | No es costo de KINO | Tarifa de la pasarela | $7.140 (QR) a $19.754 (en línea) por un pago de $600.000 [16] | La paga el conjunto o el residente. KINO gana $2.000 por pago (apartado 2.8) |
 | Único por conjunto | Implementación (estimación) | $3.100.000 en horas de los socios | Cada conjunto nuevo (apartado 5.10) |
 
-KINO no asume la tarifa de la pasarela: la paga el conjunto o el residente. Para KINO, la pasarela no es un costo sino una fuente de ingreso: $2.000 por cada pago (apartado 2.8).
+KINO no asume la tarifa de la pasarela: la paga el conjunto o el residente. Para KINO, la pasarela no es un costo sino una fuente de ingreso: $2.000 por cada pago y un reparto de la tarifa por negociar (apartado 2.8).
 
 ## 5.5 Alternativa más barata
 
