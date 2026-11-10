@@ -288,7 +288,7 @@ Fuentes de las etapas y condiciones: [4] [5] [6].
 
 ## 4.2 Cronograma
 
-![Figura 16. Cronograma de fases, tareas clave e hitos.](figuras/f13.png){width=100%}
+![Figura 16. Cronograma de fases, tareas principales e hitos.](figuras/f13.png){width=100%}
 
 | Hito | Fecha | Se cumple cuando | Estado |
 |---|---|---|---|
@@ -300,7 +300,7 @@ Fuentes de las etapas y condiciones: [4] [5] [6].
 
 Fechas fijadas por el equipo el 9 de noviembre de 2026 [9]. La fecha de H4 es una propuesta.
 
-## 4.3 Tareas clave y responsables
+## 4.3 Tareas principales y responsables
 
 | Tarea | Por qué | Responsable |
 |---|---|---|
