@@ -265,3 +265,21 @@ Precisa la parte de cobro mensual de D-010 (piso por conjunto + cobro por casa).
 **Por qué.** KINO queda entre 12 % y 18 % más barato que Unita en todos los tamaños mientras la integración con el hardware no esté probada. Villas y Refugio juntos dejan $7,9 millones al mes y cubren el sostenimiento ($6,4 millones); con Monte Sereno Sagrada (70 casas, desde enero de 2027), los tres dejan $9,9 millones. Con una cuota de $600.000, KINO pesa entre el 2,2 % (Refugio) y el 3,7 % (Villas) de lo que paga cada casa. El precio de los conjuntos nuevos se revisa con el informe del piloto (H3).
 
 **Trazabilidad y HikCentral.** No cambia el KEY, la autoridad del residente ni la sincronización.
+
+---
+
+## D-015 · Dónde vive Kino en GitHub y cómo entra el equipo · PROPUESTA
+
+**Palabras de origen.** «Quiero que la plataforma donde conviva absolutamente todo lo de Kino, sea github» y «Quiero que todos convivamos en el Github, y allí, se reúna la información de todos» (Alejandro, chat del proyecto, 11 nov 2026).
+
+**Problema.** El repositorio es de la cuenta personal de Alejandro y es público. Una cuenta personal da escritura a todo colaborador, sin roles. El código del MVP y los agentes de Manuel están fuera de GitHub (D-003, «Pendiente»). Ese código no puede ir a un repositorio público.
+
+| Opción | Alcance | Costo |
+|---|---|---|
+| A (recomendada) | Organización de GitHub con dueño Alejandro. `kino` pasa a la organización y sigue público. El código y los agentes de Manuel van a `kino-app`, privado. Cuatro equipos con el acceso mínimo de cada rol (D-007). Detalle en [`ACCESOS.md`](../../ACCESOS.md) | Proteger `main` en `kino-app` pide el plan *Team*, con cobro por persona al mes. Hay que revisar Secrets y Actions después de transferir |
+| B | Todo sigue en la cuenta de Alejandro. Cada persona entra como colaborador. El código va a un repositorio privado de la misma cuenta | Sin costo. Todo colaborador tiene escritura; Juan Esteban no puede entrar solo a leer. Más difícil de pasar a otra persona |
+| C | Organización como en A, pero `kino` también pasa a privado | Grok deja de leer las reglas por enlace público (`herramientas/prompt-grok.md`). Más ajustes al flujo de Nico |
+
+**Resuelve.** El pendiente de D-003: el código del MVP vive en `kino-app` y la organización es de Kino, con Alejandro como dueño.
+
+**Trazabilidad y HikCentral.** No cambia el KEY, la autoridad del residente ni la lógica de ingresos. Las llaves de HikCentral pasan a los Secrets de `kino-app`: cada cambio de llave y cada despliegue quedan registrados en GitHub, con autor.

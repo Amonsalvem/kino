@@ -18,6 +18,8 @@ Plataforma de control de acceso para conjuntos cerrados. Este repositorio es el 
 2. Cada tarea va en su rama y en un **PR en borrador**.
 3. Nico propone. **Alejandro aprueba** en la revisión del PR e integra a `main`.
 
+Cómo entra una persona nueva y dónde van las credenciales: [`ACCESOS.md`](ACCESOS.md).
+
 Las IA siguen [`AGENTS.md`](AGENTS.md). El detalle de nombres, ramas y commits está en [`CONVENCIONES.md`](CONVENCIONES.md).
 
 ## Equipo
