@@ -112,6 +112,13 @@ sequenceDiagram
 
 > Hola, equipo. Les quiero proponer algo: que todo Kino viva en GitHub. Documentos, decisiones, código y agentes de IA en un solo lugar. Así todos veríamos la misma información y cada cambio quedaría registrado.
 >
+> ¿Por qué creo que nos sirve?
+> 1. Una sola fuente: hoy la información está repartida en WhatsApp, Drive, Figma y el computador de cada uno.
+> 2. Historial: cada cambio guarda quién lo hizo, cuándo y por qué.
+> 3. Velocidad con IA: los agentes de Manu, Claude y Grok leerían las mismas reglas y el mismo contexto.
+> 4. Seguridad: cada uno entra con su propia cuenta, y las llaves dejan de pasar por chats.
+> 5. Continuidad: si alguien no está, el trabajo sigue ahí y otro lo puede retomar.
+>
 > La idea es crear una organización de Kino en GitHub, con un acceso para cada uno según su rol. ¿Qué les parece?
 >
 > Si están de acuerdo, me sirve que cada uno me pase su usuario de GitHub. Si no tienen cuenta, se crea gratis en github.com; les sugiero activar la verificación en dos pasos.
