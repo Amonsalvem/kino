@@ -110,12 +110,12 @@ sequenceDiagram
 
 ## 8. Mensaje para el grupo de WhatsApp
 
-> Hola, equipo. Decidimos que todo Kino vive en GitHub: documentos, decisiones, código y agentes de IA. Así todos vemos la misma información y cada cambio queda registrado.
+> Hola, equipo. Les quiero proponer algo: que todo Kino viva en GitHub. Documentos, decisiones, código y agentes de IA en un solo lugar. Así todos veríamos la misma información y cada cambio quedaría registrado.
 >
-> Para entrar necesito una cosa de cada uno: su usuario de GitHub. Si no tienen cuenta, la crean gratis en github.com y activan la verificación en dos pasos.
+> La idea es crear una organización de Kino en GitHub, con un acceso para cada uno según su rol. ¿Qué les parece?
 >
-> Les llega una invitación al correo. La aceptan y listo.
+> Si están de acuerdo, me sirve que cada uno me pase su usuario de GitHub. Si no tienen cuenta, se crea gratis en github.com; les sugiero activar la verificación en dos pasos.
 >
-> Manu, tu código y tu esquema de agentes van a un repositorio privado. Te escribo aparte para pasarlo juntos.
+> Manu, me encantaría que tu código y tu esquema de agentes también estén ahí, en un repositorio privado. ¿Lo revisamos juntos en una llamada?
 >
-> Importante: nadie manda contraseñas ni llaves por aquí. Las llaves van a un lugar seguro de GitHub y lo hacemos en llamada.
+> Una sugerencia: no compartamos contraseñas ni llaves por este grupo. Propongo guardarlas en un lugar seguro de GitHub y pasarlas en llamada.
