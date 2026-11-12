@@ -268,7 +268,9 @@ Precisa la parte de cobro mensual de D-010 (piso por conjunto + cobro por casa).
 
 ---
 
-## D-015 · Dónde vive Kino en GitHub y cómo entra el equipo · PROPUESTA
+## D-015 · Dónde vive Kino en GitHub y cómo entra el equipo · APROBADA (Alejandro, 11 nov 2026) · opción A
+
+**Aprobación.** [Comentario de Alejandro en el PR #35](https://github.com/Amonsalvem/kino/pull/35#pullrequestreview-5867710879).
 
 **Palabras de origen.** «Quiero que la plataforma donde conviva absolutamente todo lo de Kino, sea github» y «Quiero que todos convivamos en el Github, y allí, se reúna la información de todos» (Alejandro, chat del proyecto, 11 nov 2026).
 
