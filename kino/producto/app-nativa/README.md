@@ -109,7 +109,7 @@ Si la marca no llega a tiempo, la app sale con una base neutra y tokens cambiabl
 
 ### 8. Fase 2 (después de la primera versión)
 
-1. App o modo tableta de **portería** con lectura de QR.
+1. App de **portería**. Baja prioridad: la web ya valida el KEY con la cámara de la tableta (P2).
 2. Modo **colaborador**: la empleada o el jardinero ve sus KEY recurrentes.
 3. Notificaciones a la administración.
 

@@ -22,7 +22,7 @@ Pagos con Wompi (en prueba)     Ingreso por WhatsApp, API, app nativa
 | Residente | Refugio (`/app/1`) | Inspeccionado |
 | Administrador | Refugio (`/admin/1`) | Inspeccionado |
 | Administrador | Villas (`/admin/2`) | Inspeccionado |
-| Portería | `/guard` | Pendiente: falta sesión |
+| Portería | Villas (`/guard/2`) | Inspeccionado |
 | Super administrador | Todas | Pendiente: falta sesión |
 | Contratista | `/contractor` | Pendiente: falta sesión |
 | Visita | Enlace del KEY | Pendiente: no hay KEY vigente para abrir |
@@ -92,6 +92,18 @@ El canon y D-014 usan 100 casas para Villas. La app tiene 87 unidades configurad
 | A9 | Pagos: cuotas de administración, cobro único, cartera por edad y estado por unidad | El módulo de D-012 existe; solo tiene cobros de prueba |
 | A10 | Usuarios: acción masiva «Sincronizar con HikCentral» y filtro por ID de HikCentral | Herramienta para reparar Refugio |
 
+### Portería (Villas)
+
+| # | Hallazgo | Efecto |
+|---|---|---|
+| P1 | Menú en español: Validar, En vivo, Bitácora, Paquetería, Reservas de hoy, Personas, Vehículos | Panel pensado para tableta |
+| P2 | «Validar KINO KEY» con la cámara de la tableta o un lector, o escribiendo placa, documento o código | La validación del KEY ya existe en la web. La app nativa de portería no es urgente |
+| P3 | «En vivo» muestra entradas y salidas por placa (ANPR) y biométrico, con responsable y rol | El vigilante ve el mismo flujo que la administración |
+| P4 | Personas que entran a diario por placa aparecen con rol «Visitante» | **Inferido:** «Visitante» se usa para gente permanente; confirma que la visita sigue siendo un miembro |
+| P5 | «Personas» (solo consulta) deja ver correo, teléfono, documento, fecha de nacimiento y contacto de emergencia de toda la comunidad | La simetría invertida de septiembre sigue (`proyecto.md`, hechos vigentes). Riesgo de datos personales (Ley 1581 de 2012) |
+| P6 | Paquetería: registro con foto y aviso al residente | El aviso existe; falta saber por qué canal llega (correo o WhatsApp) |
+| P7 | La bitácora de KEY tiene una sola entrada: la prueba del 17 nov | Igual a A5: el KEY no se usa en Villas |
+
 ### Sitio soykino.com
 
 | # | Hallazgo | Efecto |
@@ -105,8 +117,7 @@ El canon y D-014 usan 100 casas para Villas. La app tiene 87 unidades configurad
 
 ## Qué falta inspeccionar
 
-1. Portería (`/guard`): cómo valida un KEY y si lee QR.
-2. Super administrador: colas, errores de HikCentral (711 en septiembre) y trabajos fallidos.
-3. Contratista (`/contractor`): qué ve la empresa.
-4. Enlace del KEY que recibe la visita.
-5. Quién aprueba un KEY en estado «Pendiente».
+1. Super administrador: colas, errores de HikCentral (711 en septiembre) y trabajos fallidos.
+2. Contratista (`/contractor`): qué ve la empresa.
+3. Enlace del KEY que recibe la visita.
+4. Quién aprueba un KEY en estado «Pendiente».
