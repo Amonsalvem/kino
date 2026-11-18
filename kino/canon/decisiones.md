@@ -265,3 +265,27 @@ Precisa la parte de cobro mensual de D-010 (piso por conjunto + cobro por casa).
 **Por qué.** KINO queda entre 12 % y 18 % más barato que Unita en todos los tamaños mientras la integración con el hardware no esté probada. Villas y Refugio juntos dejan $7,9 millones al mes y cubren el sostenimiento ($6,4 millones); con Monte Sereno Sagrada (70 casas, desde enero de 2027), los tres dejan $9,9 millones. Con una cuota de $600.000, KINO pesa entre el 2,2 % (Refugio) y el 3,7 % (Villas) de lo que paga cada casa. El precio de los conjuntos nuevos se revisa con el informe del piloto (H3).
 
 **Trazabilidad y HikCentral.** No cambia el KEY, la autoridad del residente ni la sincronización.
+
+## D-016 · Tecnología de la app nativa · PROPUESTA
+
+Alejandro fijó la app nativa como foco (chat del proyecto, 16 nov 2026). La app web usa Laravel y Filament y no tiene API (`kino/investigacion/observacion/2026-11-17-inspeccion-app-soykino.md`). Plan completo: `kino/producto/app-nativa/README.md`.
+
+| Opción | Alcance | Costo |
+|---|---|---|
+| A (recomendada) | React Native con Expo, en TypeScript, sobre una API nueva `/api/v1` en el Laravel actual | Construir la API primero; el programador aprende Expo si no lo conoce |
+| B | Flutter sobre la misma API | Otro lenguaje; rompe la regla de TypeScript de `kino/codigo/README.md` |
+| C | Envolver la web actual con Capacitor | Rápido, pero Filament no está hecho para celular y Apple puede rechazarla |
+
+**Trazabilidad y HikCentral.** La API usa las mismas reglas del backend. No cambia quién autoriza. El KEY temporal en HikCentral queda por verificar con la reserva de visitas del OpenAPI.
+
+## D-017 · Target y escala de prioridad de clientes · PROPUESTA
+
+Alejandro pidió definir el target antes de salir a vender, con Villas como único piloto (chat del proyecto, 16 nov 2026). Análisis: `kino/investigacion/sintesis/2026-11-17-target-y-prioridad-de-clientes.md`.
+
+| Opción | Target | Costo |
+|---|---|---|
+| A (recomendada) | Comunidades de casas con HikCentral activo, 80 a 400 unidades, oriente antioqueño y sur del Valle de Aburrá. Escala: Villas → Refugio y Sagrada → parcelaciones A → conjuntos B → edificios y clubes | Mercado más pequeño; exige lista de prospectos con su hardware |
+| B | Todo conjunto con control de acceso, de cualquier marca | Kino vende hardware o integra marcas sin probar |
+| C | Mantener los tres segmentos del sitio (parcelaciones, conjuntos y edificios, clubes) sin orden | Sin foco comercial |
+
+**Trazabilidad y HikCentral.** No cambia el KEY ni la autoridad. A refuerza la dependencia de HikCentral como condición de venta.
