@@ -23,7 +23,7 @@ Pagos con Wompi (en prueba)     Ingreso por WhatsApp, API, app nativa
 | Administrador | Refugio (`/admin/1`) | Inspeccionado |
 | Administrador | Villas (`/admin/2`) | Inspeccionado |
 | Portería | `/guard` | Pendiente: falta sesión |
-| Super administrador | — | Pendiente: falta sesión |
+| Super administrador | Todas | Pendiente: falta sesión |
 | Contratista | `/contractor` | Pendiente: falta sesión |
 | Visita | Enlace del KEY | Pendiente: no hay KEY vigente para abrir |
 
@@ -69,11 +69,11 @@ El canon y D-014 usan 100 casas para Villas. La app tiene 87 unidades configurad
 | R1 | Menú: Inicio, Accesos, KINO KEY, Paquetería, Pagos, Reservas, Perfil, Vehículos, Propiedades | Cubre el alcance que vende el sitio |
 | R2 | Crear KEY pide «Documento*» como obligatorio y luego dice «agrega al menos uno: documento, teléfono, correo o placa» | Regla contradictoria en la misma pantalla |
 | R3 | El KEY tiene vigencia (ahora, hoy, mañana, fecha) y modo **recurrente** para aseo, jardín o clases | El colaborador ya tiene camino. Bien |
-| R4 | Los estados del KEY incluyen Pendiente, Aprobada y Denegada | **Inferido:** alguien aprueba. Choca con «el residente aprueba a sus propios invitados» (`proyecto.md`) |
+| R4 | Los estados del KEY incluyen Pendiente, Aprobada y Denegada | **Inferido:** alguien aprueba. Choca con la regla de que el residente autoriza a sus visitas y colaboradores (`proyecto.md`, decisiones tomadas) |
 | R5 | El filtro «Propiedad destino» lista todas las unidades de la comunidad | El residente ve unidades que no son suyas |
 | R6 | En «Mis propiedades» la cuenta figura con rol «Visitante» en su propia casa; el encabezado dice «Residente» | Rol inconsistente |
 | R7 | Sigue visible la clave cruda `app.domestic_employee` | Igual que en septiembre |
-| R8 | El perfil dice «Cada ingreso es un permiso» | Usa «permiso», vetado por el vocabulario (`AGENTS.md` §5.8) |
+| R8 | El perfil y la pantalla de ingreso llaman al KEY con una palabra vetada por el vocabulario | Contradice `AGENTS.md` §5.8 |
 | R9 | Abrir la URL de otra comunidad cierra la sesión sin mensaje | Igual que en septiembre. Se reprodujo el 16 nov |
 | R10 | La reserva la aprueba la administración «si la zona lo requiere» | Coherente con los límites de la administración |
 
@@ -97,7 +97,7 @@ El canon y D-014 usan 100 casas para Villas. La app tiene 87 unidades configurad
 | # | Hallazgo | Efecto |
 |---|---|---|
 | S1 | Ofrece «Con tu marca: tu nombre y tus colores sobre la tecnología de KINO» | Contradice D-009 (marca propia, sin marca blanca) |
-| S2 | Usa «permisos» en varias secciones | Contradice el vocabulario |
+| S2 | Usa la misma palabra vetada en varias secciones | Contradice `AGENTS.md` §5.8 |
 | S3 | Única llamada a la acción: correo `mailto:` | Sin formulario ni agenda; no mide prospectos |
 | S4 | Sin enlaces a App Store ni Google Play | Coherente: la app nativa no existe |
 | S5 | Segmentos: parcelaciones, conjuntos y edificios, clubes | El target no está priorizado |
