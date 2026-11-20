@@ -318,7 +318,7 @@ Modifica D-019 y el supuesto del plan del 19 nov 2026 (sección 8) de contratar 
 |---|---|---|---|
 | **A (elegida)** | **Desde julio de 2027 Alejandro cobra el cargo de soporte ($3,0 M), a prorrata como los demás, mientras lo haga. Su cargo base pasa a dirección y ventas: $4,3 M, y $5,5 M desde 8 conjuntos. Si no da abasto, ese dinero contrata a alguien** | **+$75,8 M** | **Alejandro carga dirección, ventas y el soporte de 15 conjuntos: es el primer límite de capacidad** |
 | B | Se quita el externo y el soporte queda dentro de su cargo actual, sin pago extra | +$81,9 M | Todo el soporte recae en él sin pago |
-| C | Retención con tope: 3 % de cada conjunto durante sus primeros 12 meses, solo mientras lo atiende; se mantiene el externo | +$70,0 M | Unos $17 M entre 2027 y 2028 |
+| C | Retención con tope: 3 % de cada conjunto durante sus primeros 12 meses, solo mientras lo atiende; se mantiene el externo | Menos de +$70,0 M, según la retención | Unos $17 M entre 2027 y 2028 |
 
 **Por qué.** Paga el trabajo que Alejandro hace como cargo y no como un porcentaje de los ingresos sin fin, que reduciría el valor de Kino para todos los socios. El dinero ya queda presupuestado para contratar cuando el volumen lo pida.
 
