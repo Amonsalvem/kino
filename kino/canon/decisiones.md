@@ -327,3 +327,16 @@ Modifica D-019 y el supuesto del plan del 19 nov 2026 (sección 8) de contratar 
 **Pendiente.** Fijar la señal para contratar soporte (por ejemplo, más de 2 implementaciones al mes o 1.500 casas activas, como decía el plan).
 
 **Trazabilidad y HikCentral.** No toca el producto.
+
+## D-021 · La administración es el usuario secundario de Kino · PROPUESTA
+
+Modificaría `kino/canon/proyecto.md`, que hoy pone a la visita como usuario secundario. Lo planteó Alejandro el 20 nov 2026 al sumar Vecindapp a la competencia: las soluciones del mercado se diseñan desde la administración, y Kino se diseña desde el residente y su vida en comunidad.
+
+| Opción | Regla | Efecto | Costo |
+|---|---|---|---|
+| **A (recomendada)** | **Residente: usuario principal. Administración: usuario secundario y quien compra. La visita y el colaborador quedan como personas que reciben un KEY, sin cuenta** | **El deck, la venta y el diseño de pantallas parten del residente; el panel de la administración se diseña para fijar límites y leer el registro, no para aprobar** | Hay que explicar en la venta por qué quien paga no es el usuario principal |
+| B | Se deja como está: la visita es el usuario secundario | Sin cambios en el canon | La administración queda como comprador sin experiencia propia definida, aunque usa el panel cada semana |
+
+**Por qué A.** La visita no tiene cuenta ni app (decisiones tomadas en `proyecto.md`): no usa Kino, lo recibe. La administración sí lo usa: fija cupos, franjas y duración, y consulta el registro. Unità y MOI se diseñan desde la administración y Vecindapp le habla a los dos ([ficha en App Store](https://apps.apple.com/dm/app/vecindapp/id6460936487), 20 nov 2026). Poner al residente primero y a la administración segunda es la frase del deck: «Los demás sirven a la administración. Kino, al residente».
+
+**Trazabilidad y HikCentral.** No cambia la lógica de aprobación ni la sincronización. Ordena qué pantalla se diseña primero.
