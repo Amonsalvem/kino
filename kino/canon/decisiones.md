@@ -309,3 +309,21 @@ Fuentes, consultadas el 20 nov 2026: ofertas de gerente general en Medellín de 
 **Pendiente.** Cómo se dividen el 30 % Nicolás y Juanes. Que cada persona confirme su dedicación y la comisión del integrador (hoy 3 % del primer año; un socio de referido suele recibir entre 10 % y 20 %, según [SaaStr](https://www.saastr.com/what-are-typical-commission-ranges-for-referral-partners-for-enterprise-b2b-saas), consultado el 20 nov 2026).
 
 **Trazabilidad y HikCentral.** No toca el producto.
+
+## D-020 · El cargo de implementación y soporte lo ocupa Alejandro · APROBADA (Alejandro, 20 nov 2026) · opción A
+
+Modifica D-019 y el supuesto del plan del 19 nov 2026 (sección 8) de contratar un externo de implementación y soporte desde julio de 2027. Alejandro aclaró que el soporte lo hace él y que no hay externo; eligió la opción en la tarjeta del chat del proyecto.
+
+| Opción | Regla | Caja a dic 2027 (base) | Costo |
+|---|---|---|---|
+| **A (elegida)** | **Desde julio de 2027 Alejandro cobra el cargo de soporte ($3,0 M), a prorrata como los demás, mientras lo haga. Su cargo base pasa a dirección y ventas: $4,3 M, y $5,5 M desde 8 conjuntos. Si no da abasto, ese dinero contrata a alguien** | **+$75,8 M** | **Alejandro carga dirección, ventas y el soporte de 15 conjuntos: es el primer límite de capacidad** |
+| B | Se quita el externo y el soporte queda dentro de su cargo actual, sin pago extra | +$81,9 M | Todo el soporte recae en él sin pago |
+| C | Retención con tope: 3 % de cada conjunto durante sus primeros 12 meses, solo mientras lo atiende; se mantiene el externo | +$70,0 M | Unos $17 M entre 2027 y 2028 |
+
+**Por qué.** Paga el trabajo que Alejandro hace como cargo y no como un porcentaje de los ingresos sin fin, que reduciría el valor de Kino para todos los socios. El dinero ya queda presupuestado para contratar cuando el volumen lo pida.
+
+**Cifras del modelo a 15 conjuntos con A.** Equipo: $15,2 M al mes hasta junio y $21,2 M desde 8 conjuntos. Todos cobran completo desde noviembre de 2027. Caja a dic 2027: +$75,8 M base y +$50,3 M conservador; capital de enero sin cambio ($9,3 M). Margen de dic 2027: 36 %. Alejandro recibe en 14 meses $66,7 M ($48,2 M de cargo y soporte, $18,5 M de comisión). Trabajado sin cobrar del equipo: $89,5 M. Con la participación de D-019, la caja equivale a $22,7 M para Manu, Dani y Nicolás con Juanes cada uno, y $7,6 M para Alejandro.
+
+**Pendiente.** Fijar la señal para contratar soporte (por ejemplo, más de 2 implementaciones al mes o 1.500 casas activas, como decía el plan).
+
+**Trazabilidad y HikCentral.** No toca el producto.
