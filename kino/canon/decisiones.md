@@ -340,3 +340,48 @@ Modificaría `kino/canon/proyecto.md`, que hoy pone a la visita como usuario sec
 **Por qué A.** La visita no tiene cuenta ni app (decisiones tomadas en `proyecto.md`): no usa Kino, lo recibe. La administración sí lo usa: fija cupos, franjas y duración, y consulta el registro. Unità y MOI se diseñan desde la administración y Vecindapp le habla a los dos ([ficha en App Store](https://apps.apple.com/dm/app/vecindapp/id6460936487), 20 nov 2026). Poner al residente primero y a la administración segunda es la frase del deck: «Los demás sirven a la administración. Kino, al residente».
 
 **Trazabilidad y HikCentral.** No cambia la lógica de aprobación ni la sincronización. Ordena qué pantalla se diseña primero.
+
+## D-022 · Tres líneas de producto nuevas entre 2028 y 2029 · PROPUESTA
+
+Alejandro pidió el 20 nov 2026 un plan a tres años en el que Kino amplía su oferta y suma otros ingresos, con crecimiento acelerado por ser startup. Ninguna línea cobra al residente ni a la visita.
+
+| Opción | Regla | Ingreso 2029 (base) | Costo |
+|---|---|---|---|
+| **A (recomendada)** | **Comunidad (jul 2028): reservas, avisos, PQRS y asambleas, $3.000 por casa al mes. Cartera y cobranza (ene 2029): $400.000 por conjunto al mes. Servicios del hogar (jul 2029): colaboradores verificados que entran con KEY, comisión al proveedor** | **$588 M, 11,5 % del ingreso** | Dos desarrolladores, un diseñador de producto y una persona de marca más; Comunidad compite con lo que ya ofrece Vecindapp |
+| B | Solo Comunidad | $378 M | Menos diferencia frente a los competidores que ya cobran la cuota |
+| C | Ninguna: solo control de acceso y pagos conciliados | $0 | La caja de 2029 baja de $3.097 M a $2.585 M |
+
+**Por qué A.** Las tres salen del mismo dato que Kino ya tiene: quién vive en cada casa y quién entra. Comunidad pone al residente en el centro (D-021); Cartera usa la conciliación de pagos; Servicios del hogar usa el KEY del colaborador. Precio y adopción son supuestos: se validan con 5 administraciones antes de construir cada línea.
+
+**Trazabilidad y HikCentral.** Servicios del hogar crea KEY para proveedores externos: cada KEY guarda autor (el residente), proveedor, motivo y vigencia, y se sincroniza con HikCentral como cualquier colaborador.
+
+## D-023 · Lo trabajado sin cobrar queda como deuda con el equipo · PROPUESTA
+
+Alejandro lo pidió el 20 nov 2026: la deuda se deja por escrito, pero no se liquida hasta que Kino esté financieramente estable y muy positivo. Esta entrada propone cómo medir ese momento.
+
+| Opción | Regla | Cuándo se paga (base) | Costo |
+|---|---|---|---|
+| **A (recomendada)** | **Documento que reconoce a cada persona lo causado, sin intereses. Se paga en 12 cuotas cuando la caja cubra 6 meses de salidas y el margen de los últimos 3 meses sea de al menos 20 %** | **Desde mayo de 2029 hasta abril de 2030, $7,5 M al mes** | El equipo espera unos 18 meses desde diciembre de 2027 |
+| B | Igual que A, con caja de 3 meses y margen de 15 % | Desde inicios de 2029 | Sale caja cuando la empresa todavía crece rápido |
+| C | Se convierte en participación en vez de pagarse | Nunca sale caja | Cambia los porcentajes de D-019; Henry no es socio |
+
+**Por qué A.** Cumple lo que pidió Alejandro y lo hace medible: nadie tiene que decidir a ojo si Kino ya es «muy positivo». Sin intereses, la deuda no crece mientras se espera.
+
+**Cifras.** $89,5 M a diciembre de 2027: Manu $33,9 M, Alejandro $33,4 M, Dani $8,8 M, Nicolás $8,7 M y Henry $4,6 M. Desde 2028 los socios cobran su cargo completo y la deuda no crece. En el escenario duro (20 % no renueva, menos ventas) no se paga antes de 2030.
+
+**Pendiente.** El abogado redacta el documento y el contador define cómo se registra.
+
+**Trazabilidad y HikCentral.** No toca el producto.
+
+## D-024 · Se contrata por señal, no por fecha · PROPUESTA
+
+El plan a tres años pasa de 5 personas y un técnico en 2027 a 11 en diciembre de 2028 y 24 en diciembre de 2029. Si las contrataciones llegan en su fecha y las ventas no, la caja se vuelve negativa en 2029.
+
+| Opción | Regla | Costo |
+|---|---|---|
+| **A (recomendada)** | **Cada cargo nuevo entra cuando se cumple su señal: soporte e implementación con 3 implementaciones al mes; un ejecutivo comercial por cada 2 cierres al mes que Alejandro no alcance; un desarrollador por cada línea de producto aprobada; éxito del cliente por cada 25 conjuntos; técnico de campo por cada 40** | Se contrata un poco tarde frente a la demanda |
+| B | Se contrata por fecha, según el plan | Con 1 conjunto nuevo al mes el margen de dic 2029 cae a 9 %; sin ventas la caja queda en −$287 M |
+
+**Por qué A.** En una startup que prioriza crecer, el riesgo no es la falta de caja (en la base nunca baja de $105 M desde 2028), sino comprometer sueldos antes de que las ventas los paguen.
+
+**Trazabilidad y HikCentral.** No toca el producto.
