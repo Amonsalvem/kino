@@ -265,3 +265,33 @@ Precisa la parte de cobro mensual de D-010 (piso por conjunto + cobro por casa).
 **Por qué.** KINO queda entre 12 % y 18 % más barato que Unita en todos los tamaños mientras la integración con el hardware no esté probada. Villas y Refugio juntos dejan $7,9 millones al mes y cubren el sostenimiento ($6,4 millones); con Monte Sereno Sagrada (70 casas, desde enero de 2027), los tres dejan $9,9 millones. Con una cuota de $600.000, KINO pesa entre el 2,2 % (Refugio) y el 3,7 % (Villas) de lo que paga cada casa. El precio de los conjuntos nuevos se revisa con el informe del piloto (H3).
 
 **Trazabilidad y HikCentral.** No cambia el KEY, la autoridad del residente ni la sincronización.
+
+## D-018 · Precio escalonado desde el octavo conjunto nuevo · APROBADA (Alejandro, 20 nov 2026) · opción A
+
+Modifica D-014. Alejandro la eligió en la tarjeta del chat del proyecto el 20 nov 2026, al pedir el plan a 15 conjuntos.
+
+| Opción | Precio | Ingreso de dic. 2027 (15 conjuntos) | Costo |
+|---|---|---|---|
+| **A (elegida)** | **D-014 E para Refugio, Sagrada y los 5 primeros conjuntos nuevos. Desde el octavo conjunto nuevo, después del informe de Villas: $1.200.000 + $12.000 por casa hasta 300 casas y $10.000 por cada casa de más** | **$53,5 M al mes** | **Con 200 casas Kino queda 3,5 % por debajo de Unita, no 14 %** |
+| B | D-014 E para los 15 conjuntos | $50,7 M al mes | $8 M menos de ingreso en 2027 |
+| C | $12.000 por casa para todos los conjuntos nuevos desde ya | $55,5 M al mes | Sube el precio antes de tener el informe de Villas |
+
+**Por qué.** El precio no cambia el capital que ponen los socios ($9,3 M en enero con cualquiera de las tres), porque esa caja depende de Villas, Refugio y Sagrada. Subir después del informe de Villas suma $8 M en 2027 sin arriesgar los primeros cierres. El tope de 300 casas evita que un conjunto grande pague más que con Unita.
+
+**Trazabilidad y HikCentral.** No cambia el KEY, la autoridad del residente ni la sincronización.
+
+## D-019 · Pago de los socios: valor de cargo para todos, a prorrata · APROBADA (Alejandro, 20 nov 2026) · opción A
+
+Reemplaza la versión 3 de comisiones del plan del 19 nov 2026. Alejandro la eligió en la tarjeta del chat del proyecto el 20 nov 2026.
+
+| Opción | Regla | Cuándo cobra el equipo (modelo a 15 conjuntos) | Costo |
+|---|---|---|---|
+| **A (elegida)** | **Manu, Dani, Nicolás y Henry y Alejandro tienen valor de cargo. Cada mes se paga el mismo porcentaje a todos, dentro del tope del 60 %. Alejandro cobra 5 % del primer año de suscripción al cerrar un conjunto y no cobra retención mensual** | **Los cuatro desde febrero de 2027, al 100 % desde octubre** | **El valor del cargo de Alejandro ($4,0 M; $5,0 M desde 8 conjuntos) es un supuesto por validar** |
+| B | Versión 3: Manu, Dani y marca cobran en ese orden; Alejandro sin sueldo, con 10 % al cerrar y 5 % de lo cobrado cada mes | Manu desde febrero, Dani desde junio, Nicolás y Henry desde septiembre | La retención del 5 % no tiene fin y crece con todo el ingreso |
+| C | Versión 3 más sueldo de $3,0 M para Alejandro desde el conjunto 10 | Igual que B | Mezcla los dos sistemas |
+
+**Por qué.** Los cuatro son socios, así que el riesgo se reparte igual. Un vendedor de software cobra entre 8 % y 12 % del primer año con sueldo base ([SaaStr](https://www.saastr.com/dear-saastr-what-is-the-standard-commission-percentage-in-saas), consultado el 20 nov 2026) y las renovaciones pagan entre 2 % y 5 % ([Everstage](https://www.everstage.com/incentive-compensation/average-sales-commission-rates-by-industry), consultado el 20 nov 2026). En 14 meses Alejandro recibe casi lo mismo con A ($49,6 M) que con B ($49,9 M), pero estable.
+
+**Pendiente.** Validar el valor de cada cargo con `equipo/KINO_cargos-y-contratos.xlsx` y la comisión del integrador (hoy 3 % del primer año; un socio de referido suele recibir entre 10 % y 20 %, según [SaaStr](https://www.saastr.com/what-are-typical-commission-ranges-for-referral-partners-for-enterprise-b2b-saas), consultado el 20 nov 2026).
+
+**Trazabilidad y HikCentral.** No toca el producto.
