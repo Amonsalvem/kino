@@ -280,7 +280,7 @@ Modifica D-014. Alejandro la eligió en la tarjeta del chat del proyecto el 20 n
 
 **Trazabilidad y HikCentral.** No cambia el KEY, la autoridad del residente ni la sincronización.
 
-## D-019 · Pago de los socios: valor de cargo para todos, a prorrata · APROBADA (Alejandro, 20 nov 2026) · opción A
+## D-019 · Pago del equipo: valor de cargo para todos, a prorrata · APROBADA (Alejandro, 20 nov 2026) · opción A
 
 Reemplaza la versión 3 de comisiones del plan del 19 nov 2026. Alejandro la eligió en la tarjeta del chat del proyecto el 20 nov 2026.
 
@@ -290,8 +290,10 @@ Reemplaza la versión 3 de comisiones del plan del 19 nov 2026. Alejandro la eli
 | B | Versión 3: Manu, Dani y marca cobran en ese orden; Alejandro sin sueldo, con 10 % al cerrar y 5 % de lo cobrado cada mes | Manu desde febrero, Dani desde junio, Nicolás y Henry desde septiembre | La retención del 5 % no tiene fin y crece con todo el ingreso |
 | C | Versión 3 más sueldo de $3,0 M para Alejandro desde el conjunto 10 | Igual que B | Mezcla los dos sistemas |
 
-**Por qué.** Los cuatro son socios, así que el riesgo se reparte igual. Un vendedor de software cobra entre 8 % y 12 % del primer año con sueldo base ([SaaStr](https://www.saastr.com/dear-saastr-what-is-the-standard-commission-percentage-in-saas), consultado el 20 nov 2026) y las renovaciones pagan entre 2 % y 5 % ([Everstage](https://www.everstage.com/incentive-compensation/average-sales-commission-rates-by-industry), consultado el 20 nov 2026). En 14 meses Alejandro recibe casi lo mismo con A ($49,6 M) que con B ($49,9 M), pero estable.
+**Por qué.** Quien trabaja cobra por su cargo y el riesgo de caja se reparte igual entre todos los cargos. La utilidad va aparte, por la participación de cada socio. Un vendedor de software cobra entre 8 % y 12 % del primer año con sueldo base ([SaaStr](https://www.saastr.com/dear-saastr-what-is-the-standard-commission-percentage-in-saas), consultado el 20 nov 2026) y las renovaciones pagan entre 2 % y 5 % ([Everstage](https://www.everstage.com/incentive-compensation/average-sales-commission-rates-by-industry), consultado el 20 nov 2026). En 14 meses Alejandro recibe casi lo mismo con A ($49,6 M) que con B ($49,9 M), pero estable.
 
-**Pendiente.** Validar el valor de cada cargo con `equipo/KINO_cargos-y-contratos.xlsx` y la comisión del integrador (hoy 3 % del primer año; un socio de referido suele recibir entre 10 % y 20 %, según [SaaStr](https://www.saastr.com/what-are-typical-commission-ranges-for-referral-partners-for-enterprise-b2b-saas), consultado el 20 nov 2026).
+**Participación societaria (Alejandro, 20 nov 2026).** Dani 30 %, Manu 30 %, Nicolás y Juanes 30 % entre los dos, Alejandro 10 %. Henry trabaja en su cargo y no es socio. Juanes es socio sin cargo y cobra 4 de los 10 puntos de cada conjunto que refiere. El sueldo del cargo y la utilidad son cosas distintas: con la caja de diciembre de 2027 ($74,3 M), la parte de cada uno equivale a $22,3 M para Manu, $22,3 M para Dani, $22,3 M para Nicolás y Juanes y $7,4 M para Alejandro. Cuándo y cuánto se reparte lo deciden los socios.
+
+**Pendiente.** Cómo se dividen el 30 % Nicolás y Juanes. Validar el valor de cada cargo con `equipo/KINO_cargos-y-contratos.xlsx` y la comisión del integrador (hoy 3 % del primer año; un socio de referido suele recibir entre 10 % y 20 %, según [SaaStr](https://www.saastr.com/what-are-typical-commission-ranges-for-referral-partners-for-enterprise-b2b-saas), consultado el 20 nov 2026).
 
 **Trazabilidad y HikCentral.** No toca el producto.
