@@ -265,3 +265,123 @@ Precisa la parte de cobro mensual de D-010 (piso por conjunto + cobro por casa).
 **Por qué.** KINO queda entre 12 % y 18 % más barato que Unita en todos los tamaños mientras la integración con el hardware no esté probada. Villas y Refugio juntos dejan $7,9 millones al mes y cubren el sostenimiento ($6,4 millones); con Monte Sereno Sagrada (70 casas, desde enero de 2027), los tres dejan $9,9 millones. Con una cuota de $600.000, KINO pesa entre el 2,2 % (Refugio) y el 3,7 % (Villas) de lo que paga cada casa. El precio de los conjuntos nuevos se revisa con el informe del piloto (H3).
 
 **Trazabilidad y HikCentral.** No cambia el KEY, la autoridad del residente ni la sincronización.
+
+## D-018 · Precio escalonado desde el octavo conjunto nuevo · APROBADA (Alejandro, 20 nov 2026) · opción A
+
+Modifica D-014. Alejandro la eligió en la tarjeta del chat del proyecto el 20 nov 2026, al pedir el plan a 15 conjuntos.
+
+| Opción | Precio | Ingreso de dic. 2027 (15 conjuntos) | Costo |
+|---|---|---|---|
+| **A (elegida)** | **D-014 E para Refugio, Sagrada y los 5 primeros conjuntos nuevos. Desde el octavo conjunto nuevo, después del informe de Villas: $1.200.000 + $12.000 por casa hasta 300 casas y $10.000 por cada casa de más** | **$53,5 M al mes** | **Con 200 casas Kino queda 3,5 % por debajo de Unita, no 14 %** |
+| B | D-014 E para los 15 conjuntos | $50,7 M al mes | $8 M menos de ingreso en 2027 |
+| C | $12.000 por casa para todos los conjuntos nuevos desde ya | $55,5 M al mes | Sube el precio antes de tener el informe de Villas |
+
+**Por qué.** El precio no cambia el capital que ponen los socios ($9,3 M en enero con cualquiera de las tres), porque esa caja depende de Villas, Refugio y Sagrada. Subir después del informe de Villas suma $8 M en 2027 sin arriesgar los primeros cierres. El tope de 300 casas evita que un conjunto grande pague más que con Unita.
+
+**Trazabilidad y HikCentral.** No cambia el KEY, la autoridad del residente ni la sincronización.
+
+## D-019 · Pago del equipo: valor de cargo para todos, a prorrata · APROBADA (Alejandro, 20 nov 2026) · opción A
+
+Reemplaza la versión 3 de comisiones del plan del 19 nov 2026. Alejandro la eligió en la tarjeta del chat del proyecto el 20 nov 2026.
+
+| Opción | Regla | Cuándo cobra el equipo (modelo a 15 conjuntos) | Costo |
+|---|---|---|---|
+| **A (elegida)** | **Manu, Dani, Nicolás, Henry y Alejandro tienen valor de cargo. Cada mes se paga el mismo porcentaje a todos, dentro del tope del 60 %. Alejandro cobra 5 % del primer año de suscripción al cerrar un conjunto y no cobra retención mensual** | **Todos desde febrero de 2027, al 100 % desde noviembre** | **Cada cargo es sueldo de mercado por dedicación; las dedicaciones son supuestos por confirmar** |
+| B | Versión 3: Manu, Dani y marca cobran en ese orden; Alejandro sin sueldo, con 10 % al cerrar y 5 % de lo cobrado cada mes | Manu desde febrero, Dani desde junio, Nicolás y Henry desde septiembre | La retención del 5 % no tiene fin y crece con todo el ingreso |
+| C | Versión 3 más sueldo de $3,0 M para Alejandro desde el conjunto 10 | Igual que B | Mezcla los dos sistemas |
+
+**Por qué.** Quien trabaja cobra por su cargo y el riesgo de caja se reparte igual entre todos los cargos. La utilidad va aparte, por la participación de cada socio. Un vendedor de software cobra entre 8 % y 12 % del primer año con sueldo base ([SaaStr](https://www.saastr.com/dear-saastr-what-is-the-standard-commission-percentage-in-saas), consultado el 20 nov 2026) y las renovaciones pagan entre 2 % y 5 % ([Everstage](https://www.everstage.com/incentive-compensation/average-sales-commission-rates-by-industry), consultado el 20 nov 2026). En 14 meses Alejandro recibe $54,9 M con A (sueldo $36,3 M y comisión $18,5 M) y $49,9 M con B, y con A el ingreso es estable.
+
+**Valor de cada cargo (Alejandro, 20 nov 2026: «con referencia al valor del mercado»).** Sueldo de mercado en Colombia por dedicación. Las dedicaciones son supuestos hasta que cada uno confirme la suya.
+
+| Persona | Responsabilidades | Mercado mensual | Dedicación | Cargo | Desde 8 conjuntos |
+|---|---|---|---|---|---|
+| Alejandro | Dirección y finanzas; ventas; implementación y soporte | Gerente en Medellín $12,5 a 15 M; ejecutivo comercial B2B $1,5 a 2 M más comisión; implementación y soporte $3,0 M (cargo externo del plan) | 30 %, 30 % y 40 % | $5,5 M | $6,0 M (40 %, 30 % y 10 %) |
+| Nicolás | UX/UI y producto | UX/UI semi senior $4,0 a 5,8 M | 30 % | $1,5 M | $2,0 M (40 %) |
+| Henry | Marca y contenido | Diseñador gráfico y de contenido $2,0 a 3,5 M | 30 % | $0,8 M | $1,1 M (40 %) |
+| Manu | Líder técnico y desarrollo de la app | Desarrollador backend senior en Medellín $6 a 8 M; se toma $8,0 M como piso de líder técnico | 74 % | $5,9 M | $7,1 M (89 %) |
+| Dani | Integración con el hardware e implementación | Coordinador de proyectos de TI y seguridad electrónica $4,5 a 5,5 M; ingeniero de proyectos $3,5 a 4 M | 30 % | $1,5 M | $2,5 M (50 %) |
+
+Fuentes, consultadas el 20 nov 2026: ofertas de gerente general en Medellín de [elempleo](https://www.elempleo.com/co/ofertas-trabajo/gerente-general-1886780427) (oct 2026) y de [ejecutivo comercial B2B](https://www.elempleo.com/co/ofertas-trabajo/ejecutivoa-comercial-senior-b2b-1886781136) (oct 2026); sueldos UX/UI de [Coderhouse](https://www.coderhouse.com/ve/sueldos/sueldo-disenador-ux-ui-colombia-2025) [ofertas UX/UI](https://www.elempleo.com/co/ofertas-empleo/trabajo-disenador-ux-ui), [ingeniero de software en Medellín](https://www.elempleo.com/co/ofertas-empleo/medellin/trabajo-ingeniero-software) e [ingeniero de seguridad electrónica](https://www.elempleo.com/co/ofertas-empleo/trabajo-ingeniero-de-seguridad-electronica) de elempleo (oct 2026). Los valores de Manu y Dani del plan ya cuadran con el mercado a esas dedicaciones, así que no cambian. Con estos valores el equipo vale $15,2 M al mes (antes $13,0 M), cobra completo desde noviembre de 2027, la caja a diciembre de 2027 baja de $74,3 M a $70,0 M y lo trabajado sin cobrar sube a $88,1 M. El capital de enero no cambia ($9,3 M).
+
+**Participación societaria (Alejandro, 20 nov 2026).** Dani 30 %, Manu 30 %, Nicolás y Juanes 30 % entre los dos, Alejandro 10 %. Henry trabaja en su cargo y no es socio. Juanes es socio sin cargo y cobra 4 de los 10 puntos de cada conjunto que refiere. El sueldo del cargo y la utilidad son cosas distintas: con la caja de diciembre de 2027 ($70,0 M), la parte de cada uno equivale a $21,0 M para Manu, $21,0 M para Dani, $21,0 M para Nicolás y Juanes y $7,0 M para Alejandro. Cuándo y cuánto se reparte lo deciden los socios.
+
+**Pendiente.** Cómo se dividen el 30 % Nicolás y Juanes. Que cada persona confirme su dedicación y la comisión del integrador (hoy 3 % del primer año; un socio de referido suele recibir entre 10 % y 20 %, según [SaaStr](https://www.saastr.com/what-are-typical-commission-ranges-for-referral-partners-for-enterprise-b2b-saas), consultado el 20 nov 2026).
+
+**Trazabilidad y HikCentral.** No toca el producto.
+
+## D-020 · El cargo de implementación y soporte lo ocupa Alejandro · APROBADA (Alejandro, 20 nov 2026) · opción A
+
+Modifica D-019 y el supuesto del plan del 19 nov 2026 (sección 8) de contratar un externo de implementación y soporte desde julio de 2027. Alejandro aclaró que el soporte lo hace él y que no hay externo; eligió la opción en la tarjeta del chat del proyecto.
+
+| Opción | Regla | Caja a dic 2027 (base) | Costo |
+|---|---|---|---|
+| **A (elegida)** | **Desde julio de 2027 Alejandro cobra el cargo de soporte ($3,0 M), a prorrata como los demás, mientras lo haga. Su cargo base pasa a dirección y ventas: $4,3 M, y $5,5 M desde 8 conjuntos. Si no da abasto, ese dinero contrata a alguien** | **+$75,8 M** | **Alejandro carga dirección, ventas y el soporte de 15 conjuntos: es el primer límite de capacidad** |
+| B | Se quita el externo y el soporte queda dentro de su cargo actual, sin pago extra | +$81,9 M | Todo el soporte recae en él sin pago |
+| C | Retención con tope: 3 % de cada conjunto durante sus primeros 12 meses, solo mientras lo atiende; se mantiene el externo | Menos de +$70,0 M, según la retención | Unos $17 M entre 2027 y 2028 |
+
+**Por qué.** Paga el trabajo que Alejandro hace como cargo y no como un porcentaje de los ingresos sin fin, que reduciría el valor de Kino para todos los socios. El dinero ya queda presupuestado para contratar cuando el volumen lo pida.
+
+**Cifras del modelo a 15 conjuntos con A.** Equipo: $15,2 M al mes hasta junio y $21,2 M desde 8 conjuntos. Todos cobran completo desde noviembre de 2027. Caja a dic 2027: +$75,8 M base y +$50,3 M conservador; capital de enero sin cambio ($9,3 M). Margen de dic 2027: 36 %. Alejandro recibe en 14 meses $66,7 M ($48,2 M de cargo y soporte, $18,5 M de comisión). Trabajado sin cobrar del equipo: $89,5 M. Con la participación de D-019, la caja equivale a $22,7 M para Manu, Dani y Nicolás con Juanes cada uno, y $7,6 M para Alejandro.
+
+**Pendiente.** Fijar la señal para contratar soporte (por ejemplo, más de 2 implementaciones al mes o 1.500 casas activas, como decía el plan).
+
+**Trazabilidad y HikCentral.** No toca el producto.
+
+## D-021 · La administración es el usuario secundario de Kino · PROPUESTA
+
+Modificaría `kino/canon/proyecto.md`, que hoy pone a la visita como usuario secundario. Lo planteó Alejandro el 20 nov 2026 al sumar Vecindapp a la competencia: las soluciones del mercado se diseñan desde la administración, y Kino se diseña desde el residente y su vida en comunidad.
+
+| Opción | Regla | Efecto | Costo |
+|---|---|---|---|
+| **A (recomendada)** | **Residente: usuario principal. Administración: usuario secundario y quien compra. La visita y el colaborador quedan como personas que reciben un KEY, sin cuenta** | **El deck, la venta y el diseño de pantallas parten del residente; el panel de la administración se diseña para fijar límites y leer el registro, no para aprobar** | Hay que explicar en la venta por qué quien paga no es el usuario principal |
+| B | Se deja como está: la visita es el usuario secundario | Sin cambios en el canon | La administración queda como comprador sin experiencia propia definida, aunque usa el panel cada semana |
+
+**Por qué A.** La visita no tiene cuenta ni app (decisiones tomadas en `proyecto.md`): no usa Kino, lo recibe. La administración sí lo usa: fija cupos, franjas y duración, y consulta el registro. Unità y MOI se diseñan desde la administración y Vecindapp le habla a los dos ([ficha en App Store](https://apps.apple.com/dm/app/vecindapp/id6460936487), 20 nov 2026). Poner al residente primero y a la administración segunda es la frase del deck: «Los demás sirven a la administración. Kino, al residente».
+
+**Trazabilidad y HikCentral.** No cambia la lógica de aprobación ni la sincronización. Ordena qué pantalla se diseña primero.
+
+## D-022 · Tres líneas de producto nuevas entre 2028 y 2029 · PROPUESTA
+
+Alejandro pidió el 20 nov 2026 un plan a tres años en el que Kino amplía su oferta y suma otros ingresos, con crecimiento acelerado por ser startup. Ninguna línea cobra al residente ni a la visita.
+
+| Opción | Regla | Ingreso 2029 (base) | Costo |
+|---|---|---|---|
+| **A (recomendada)** | **Comunidad (jul 2028): reservas, avisos, PQRS y asambleas, $3.000 por casa al mes. Cartera y cobranza (ene 2029): $400.000 por conjunto al mes. Servicios del hogar (jul 2029): colaboradores verificados que entran con KEY, comisión al proveedor** | **$588 M, 11,5 % del ingreso** | Dos desarrolladores, un diseñador de producto y una persona de marca más; Comunidad compite con lo que ya ofrece Vecindapp |
+| B | Solo Comunidad | $378 M | Menos diferencia frente a los competidores que ya cobran la cuota |
+| C | Ninguna: solo control de acceso y pagos conciliados | $0 | La caja de 2029 baja de $3.097 M a $2.585 M |
+
+**Por qué A.** Las tres salen del mismo dato que Kino ya tiene: quién vive en cada casa y quién entra. Comunidad pone al residente en el centro (D-021); Cartera usa la conciliación de pagos; Servicios del hogar usa el KEY del colaborador. Precio y adopción son supuestos: se validan con 5 administraciones antes de construir cada línea.
+
+**Trazabilidad y HikCentral.** Servicios del hogar crea KEY para proveedores externos: cada KEY guarda autor (el residente), proveedor, motivo y vigencia, y se sincroniza con HikCentral como cualquier colaborador.
+
+## D-023 · Lo trabajado sin cobrar queda como deuda con el equipo · PROPUESTA
+
+Alejandro lo pidió el 20 nov 2026: la deuda se deja por escrito, pero no se liquida hasta que Kino esté financieramente estable y muy positivo. Esta entrada propone cómo medir ese momento.
+
+| Opción | Regla | Cuándo se paga (base) | Costo |
+|---|---|---|---|
+| **A (recomendada)** | **Documento que reconoce a cada persona lo causado, sin intereses. Se paga en 12 cuotas cuando la caja cubra 6 meses de salidas y el margen de los últimos 3 meses sea de al menos 20 %** | **Desde mayo de 2029 hasta abril de 2030, $7,5 M al mes** | El equipo espera unos 18 meses desde diciembre de 2027 |
+| B | Igual que A, con caja de 3 meses y margen de 15 % | Desde inicios de 2029 | Sale caja cuando la empresa todavía crece rápido |
+| C | Se convierte en participación en vez de pagarse | Nunca sale caja | Cambia los porcentajes de D-019; Henry no es socio |
+
+**Por qué A.** Cumple lo que pidió Alejandro y lo hace medible: nadie tiene que decidir a ojo si Kino ya es «muy positivo». Sin intereses, la deuda no crece mientras se espera.
+
+**Cifras.** $89,5 M a diciembre de 2027: Manu $33,9 M, Alejandro $33,4 M, Dani $8,8 M, Nicolás $8,7 M y Henry $4,6 M. Desde 2028 los socios cobran su cargo completo y la deuda no crece. En el escenario duro (20 % no renueva, menos ventas) no se paga antes de 2030.
+
+**Pendiente.** El abogado redacta el documento y el contador define cómo se registra.
+
+**Trazabilidad y HikCentral.** No toca el producto.
+
+## D-024 · Se contrata por señal, no por fecha · PROPUESTA
+
+El plan a tres años pasa de 5 personas y un técnico en 2027 a 11 en diciembre de 2028 y 24 en diciembre de 2029. Si las contrataciones llegan en su fecha y las ventas no, la caja se vuelve negativa en 2029.
+
+| Opción | Regla | Costo |
+|---|---|---|
+| **A (recomendada)** | **Cada cargo nuevo entra cuando se cumple su señal: soporte e implementación con 3 implementaciones al mes; un ejecutivo comercial por cada 2 cierres al mes que Alejandro no alcance; un desarrollador por cada línea de producto aprobada; éxito del cliente por cada 25 conjuntos; técnico de campo por cada 40** | Se contrata un poco tarde frente a la demanda |
+| B | Se contrata por fecha, según el plan | Con 1 conjunto nuevo al mes el margen de dic 2029 cae a 9 %; sin ventas la caja queda en −$287 M |
+
+**Por qué A.** En una startup que prioriza crecer, el riesgo no es la falta de caja (en la base nunca baja de $105 M desde 2028), sino comprometer sueldos antes de que las ventas los paguen.
+
+**Trazabilidad y HikCentral.** No toca el producto.
