@@ -1,6 +1,6 @@
 # Estado del curador
 
-Memoria del curador entre corridas. El curador lo reescribe cada semana. Última corrida: 9 nov 2026 (`informes/2026-11-09.md`).
+Memoria del curador entre corridas. El curador lo reescribe cada semana. Última corrida: 23 nov 2026 (`informes/2026-11-23.md`). La del 16 nov sigue en el PR #36 sin integrar.
 
 ## Inventario
 
@@ -18,11 +18,15 @@ Actions sin IA (solo lectura para el curador): «Revisar texto», «Resumen de P
 
 ## Pendientes
 
-- Consultar las fuentes que faltaron el 9 nov 2026: docs.x.ai, Figma MCP, modelcontextprotocol.io, agentskills.io, github.blog/changelog.
-- Confirmar las fechas de Claude Code 2.1.312 a 2.1.319: el changelog no las trae.
+- Resolver el PR #36 (curador del 16 nov): choca con este `estado.md`.
+- Alejandro decide si `curador-semanal.yml` fija `--permission-mode default` tras `claude-code-action` v1.0.273 (informe del 16 nov).
+- `KINO_PERSONA` sin definir en sesiones en la nube (tercera semana).
 - `personas/nico.md` no existe; lo decide Alejandro con Nico.
-- `KINO_PERSONA` sin definir en sesiones en la nube.
-- Antes de proponer una decisión, contar D-009 (PR #28) y los demás PR abiertos para el número libre.
+- Leer la sección «Uso de IA» de #37 y #38 para la retroalimentación.
+- Claude Code: fechas de 2.1.326 a 2.1.331 tomadas de la página de releases (16 a 23 nov); el CHANGELOG no las trae.
+- Grok Build: la fuente x.ai/build/changelog tiene fechas y versiones que no cuadran; comparar la semana siguiente. `x.ai/news` da 403 por `WebFetch`.
+- Revisar desde el 30 nov 2026 si Kino agrega plugins (autoactualización de marketplaces gestionados en Claude Code 2.1.331).
+- Número libre para una decisión: D-025 (D-024 está en #38).
 - `mentor`: evaluar su retiro desde el 30 dic 2026 (8 semanas desde el PR #12).
 
 ## Fuentes que vigilar
